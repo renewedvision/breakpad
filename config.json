@@ -1,0 +1,4 @@
+{
+  "enabled_paths": ["src"],
+  "enabled_refglobs": ["refs/heads/*"]
+}
