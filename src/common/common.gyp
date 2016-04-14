@@ -64,6 +64,8 @@
         'byte_cursor.h',
         'convert_UTF.c',
         'convert_UTF.h',
+        'dwarf/elf_reader.cc',
+        'dwarf/elf_reader.h',
         'dwarf/bytereader-inl.h',
         'dwarf/bytereader.cc',
         'dwarf/bytereader.h',
