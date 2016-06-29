@@ -30,8 +30,9 @@ telling the processor how many bytes kernel\_vsyscall has pushed onto the stack
 in it's prologue. For example, one of the symbol files looks somewhat like the
 following:
 
-MODULE Linux x86 random\_debug\_id linux-gate.so PUBLIC 400 0 kernel\_vsyscall
-STACK WIN 4 100 1 1 0 0 0 0 0 1
+```
+MODULE Linux x86 random_debug_id linux-gate.so PUBLIC 400 0 kernel_vsyscall STACK WIN 4 100 1 1 0 0 0 0 0 1
+```
 
 The PUBLIC line indicates that kernel\_vsyscall is at offset 400 (in bytes) from
 the beginning of linux-gate.so. The STACK line indicates the size of the
