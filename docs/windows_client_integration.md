@@ -2,29 +2,29 @@
 
 ## Windows Client Code
 
-The Windows client code is in the `src/client/windows` directory of the tree.
-Since the header files are fairly well commented some specifics are purposely
-omitted from this document.
+The Windows client code is in the [src/client/windows/](/src/client/windows/)
+directory of the tree. Since the header files are fairly well commented some
+specifics are purposely omitted from this document.
 
 ## Integration of minidump-generation
 
-Once you build the solution inside `src/client/windows`, an output file of
-`exception_handler.lib` will be generated. You can either check this into your
-project's directory or build directly from the source, as the project itself
-does.
+Once you build the solution inside [src/client/windows/](/src/client/windows/),
+an output file of `exception_handler.lib` will be generated. You can either
+check this into your project's directory or build directly from the source, as
+the project itself does.
 
 Enabling Breakpad in your application requires you to `#include
 "exception_handler.h"` and instantiate the `ExceptionHandler` object like so:
 
 ```
   handler = new ExceptionHandler(const wstring& dump_path,
-                                                              FilterCallback filter,
-                                                              MinidumpCallback callback,
-                                                              void* callback_context,
-                                                              int handler_types,
-                                                              MINIDUMP_TYPE dump_type,
-                                                              const wchar_t* pipe_name,
-                                                              const CustomClientInfo* custom_info);
+                                 FilterCallback filter,
+                                 MinidumpCallback callback,
+                                 void* callback_context,
+                                 int handler_types,
+                                 MINIDUMP_TYPE dump_type,
+                                 const wchar_t* pipe_name,
+                                 const CustomClientInfo* custom_info);
 ```
 
 The parameters, in order, are:
@@ -43,14 +43,17 @@ The parameters, in order, are:
 *   A pointer to a CustomClientInfo class that can be used to send custom data
     along with the minidump when using OOP generation
 
-You can also see `src/client/windows/tests/crash_generation_app/*` for a sample
-app that uses OOP generation.
+You can also see the
+[crash_generation_app](/src/client/windows/tests/crash_generation_app/)
+for a sample app that uses OOP generation.
 
 ## OOP Minidump Generation
 
 For out of process minidump generation, more work is needed. If you look inside
-`src/client/windows/crash_generation`, you will see a file called
-`crash_generation_server.h`. This file is the interface for a crash generation
+[src/client/windows/crash_generation/](src/client/windows/crash_generation/),
+you will see a file called
+[crash_generation_server.h](src/client/windows/crash_generation/crash_generation_server.h).
+This file is the interface for a crash generation
 server, which must be instantiated with the same pipe name that is passed to the
 client above. The logistics of running a separate process that instantiates the
 crash generation server is left up to you, however.
@@ -63,8 +66,9 @@ available wherever minidumps are uploaded to for processing.
 
 ## Out in the field - uploading the minidump
 
-Inside `src/client/windows/sender` is a class implementation called
-`CrashReportSender`. This class can be compiled into a separate standalone CLI
-or in the crash generation server and used to upload the report; it can know
-when to do so via one of the callbacks provided by the `CrashGenerationServer`
-or the `ExceptionHandler` object for in-process generation.
+Inside
+[src/client/windows/sender/](/src/client/windows/sender/] is a class
+implementation called `CrashReportSender`. This class can be compiled into a
+separate standalone CLI or in the crash generation server and used to upload
+the report; it can know when to do so via one of the callbacks provided by the
+`CrashGenerationServer` or the `ExceptionHandler` object for in-process generation.
