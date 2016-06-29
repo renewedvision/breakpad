@@ -5,8 +5,8 @@
 The Breakpad client libraries are responsible for monitoring an application for
 crashes (exceptions), handling them when they occur by generating a dump, and
 providing a means to upload dumps to a crash reporting server. These tasks are
-divided between the “handler” (short for “exception handler”) library linked in
-to an application being monitored for crashes, and the “sender” library,
+divided between the "handler" (short for "exception handler") library linked in
+to an application being monitored for crashes, and the "sender" library,
 intended to be linked in to a separate external program.
 
 ## Background
@@ -45,7 +45,7 @@ or at the request of the application itself. The latter case may be useful in
 debugging assertions or other conditions where developers want to know how a
 program got in to a specific non-crash state. After generating a dump, the
 handler calls a user-specified callback function. The callback function may
-collect additional data about the program’s state, quit the program, launch a
+collect additional data about the program's state, quit the program, launch a
 crash reporter application, or perform other tasks. Allowing for this
 functionality to be dictated by a callback function preserves flexibility.
 
@@ -68,9 +68,9 @@ amount of work from a crashed process.
 ### Exception Handler Installation
 
 The mechanisms for installing an exception handler vary between operating
-systems. On Windows, it’s a relatively simple matter of making one call to
-register a [top-level exception filter]
-(http://msdn.microsoft.com/library/en-us/debug/base/setunhandledexceptionfilter.asp)
+systems. On Windows, it's a relatively simple matter of making one call to
+register a
+[top-level exception filter](https://msdn.microsoft.com/library/en-us/debug/base/setunhandledexceptionfilter.asp)
 callback function. On most Unix-like systems such as Linux, processes are
 informed of exceptions by the delivery of a signal, so an exception handler
 takes the form of a signal handler. The native mechanism to catch exceptions on
@@ -84,7 +84,7 @@ different implementations of the Breakpad handler libraries perform these tasks
 in the appropriate ways on each platform, while exposing a similar interface on
 each.
 
-A Breakpad handler is embodied in an `ExceptionHandler` object. Because it’s a
+A Breakpad handler is embodied in an `ExceptionHandler` object. Because it's a
 C++ object, `ExceptionHandler`s may be created as local variables, allowing them
 to be installed and removed as functions are called and return. This provides
 one possible way for a developer to monitor only a portion of an application for
@@ -111,9 +111,9 @@ to the following guidelines for safety at exception time:
     The only code permitted to execute on this thread is the code necessary to
     transition handling to a dedicated preallocated handler thread, and the code
     to return from the exception handler.
-*   Handlers shouldn’t handle crashes by attempting to walk stacks themselves,
+*   Handlers shouldn't handle crashes by attempting to walk stacks themselves,
     as stacks may be in inconsistent states. Dump generation should be performed
-    by interfacing with the operating system’s memory manager and code module
+    by interfacing with the operating system's memory manager and code module
     manager.
 *   Library code, including runtime library code, must be avoided unless it
     provably meets the above guidelines. For example, this means that the STL
@@ -136,7 +136,7 @@ Linux, the handler thread is signaled by a small amount of code that executes on
 the exception thread. Because the code that executes on the exception thread in
 this case is small and safe, this does not pose a problem. Even when an
 exception is caused by exceeding stack size limits, this code is sufficiently
-compact to execute entirely within the stack’s guard page without causing an
+compact to execute entirely within the stack's guard page without causing an
 exception.
 
 The handler thread may also be triggered directly by a user call, even when no
@@ -147,7 +147,7 @@ interesting.
 
 When the handler thread begins handling an exception, it calls an optional
 user-defined filter callback function, which is responsible for judging whether
-Breakpad’s handler should continue handling the exception or not. This mechanism
+Breakpad's handler should continue handling the exception or not. This mechanism
 is provided for the benefit of library or plug-in code, whose developers may not
 be interested in reports of crashes that occur outside of their modules but
 within processes hosting their code. If the filter callback indicates that it is
@@ -174,13 +174,14 @@ callback may be used to launch a separate crash reporting program or to collect
 additional data from the application. The callback may also be used to influence
 whether Breakpad will treat the exception as handled or unhandled. Even after a
 dump is successfully generated, Breakpad can be made to behave as though it
-didn’t actually handle an exception. This function may be useful for developers
+didn't actually handle an exception. This function may be useful for developers
 who want to test their applications with Breakpad enabled but still retain the
 ability to use traditional debugging techniques. It also allows a
-Breakpad-enabled application to coexist with a platform’s native crash reporting
-system, such as Mac OS X’ [CrashReporter]
-(http://developer.apple.com/technotes/tn2004/tn2123.html) and [Windows Error
-Reporting](http://msdn.microsoft.com/isv/resources/wer/).
+Breakpad-enabled application to coexist with a platform's native crash reporting
+system, such as Mac OS X's
+[CrashReporter](https://developer.apple.com/technotes/tn2004/tn2123.html)
+and
+[Windows Error Reporting](https://msdn.microsoft.com/en-us/library/windows/desktop/bb513641(v=vs.85).aspx).
 
 Typically, when Breakpad handles an exception fully and no debuggers are
 involved, the crashed process will terminate.
@@ -189,36 +190,36 @@ Authors of both callback functions that execute within a Breakpad handler are
 cautioned that their code will be run at exception time, and that as a result,
 they should observe the same programming practices that the Breakpad handler
 itself adheres to. Notably, if a callback is to be used to collect additional
-data from an application, it should take care to read only “safe” data. This
+data from an application, it should take care to read only "safe" data. This
 might involve accessing only static memory locations that are updated
 periodically during the course of normal program execution.
 
 ### Sender Library
 
 The Breakpad sender library provides a single function to send a crash report to
-a crash server. It accepts a crash server’s URL, a map of key-value parameters
+a crash server. It accepts a crash server's URL, a map of key-value parameters
 that will accompany the dump, and the path to a dump file itself. Each of the
 key-value parameters and the dump file are sent as distinct parts of a multipart
-HTTP POST request to the specified URL using the platform’s native HTTP
-facilities. On Linux, [libcurl](http://curl.haxx.se/) is used for this function,
+HTTP POST request to the specified URL using the platform's native HTTP
+facilities. On Linux, [libcurl](https://curl.haxx.se/) is used for this function,
 as it is the closest thing to a standard HTTP library available on that
 platform.
 
 ## Future Plans
 
-Although we’ve had great success with in-process dump generation by following
+Although we've had great success with in-process dump generation by following
 our guidelines for safe code at exception time, we are exploring options for
 allowing dumps to be generated in a separate process, to further enhance the
-handler library’s robustness.
+handler library's robustness.
 
-On Windows, we intend to offer tools to make it easier for Breakpad’s settings
+On Windows, we intend to offer tools to make it easier for Breakpad's settings
 to be managed by the native group policy management system.
 
 We also plan to offer tools that many developers would find desirable in the
 context of handling crashes, such as a mechanism to determine at launch if the
-program last terminated in a crash, and a way to calculate “crashiness” in terms
+program last terminated in a crash, and a way to calculate "crashiness" in terms
 of crashes over time or the number of application launches between crashes.
 
 We are also investigating methods to capture crashes that occur early in an
-application’s launch sequence, including crashes that occur before a program’s
+application's launch sequence, including crashes that occur before a program's
 main function begins executing.

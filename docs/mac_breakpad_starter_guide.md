@@ -15,12 +15,15 @@ change nearly often enough as your application's will.
 
 All directories are relative to the `src` directory of the Breakpad checkout.
 
-*   Build the 'All' target of `client/mac/Breakpad.xcodeproj` in Release mode.
-*   Execute `cp -R client/mac/build/Release/Breakpad.framework <location in your
-    source tree>`
-*   Inside `tools/mac/dump_syms` directory, build dump\_syms.xcodeproj, and copy
-    tools/mac/dump\_syms/build/Release/dump\_syms to a safe location where it
-    can be run during the build process.
+* Build the `All` target of
+  [client/mac/Breakpad.xcodeproj](/src/client/mac/Breakpad.xcodeproj/)
+  in Release mode.
+* Execute `cp -R client/mac/build/Release/Breakpad.framework <location in your
+  source tree>`
+* Inside [tools/mac/dump_syms](/src/tools/mac/dump_syms/) directory, build
+  `dump_syms.xcodeproj`, and copy
+  `tools/mac/dump_syms/build/Release/dump_syms` to a safe location where it
+  can be run during the build process.
 
 ## Adding Breakpad.framework
 
@@ -68,7 +71,7 @@ You'll need to have an object that acts as the delegate for NSApplication.
 Inside this object's header, you'll need to add
 
 1.  add an ivar for Breakpad and
-2.  a declaration for the applicationShouldTerminate:(NSApplication`*` sender)
+2.  a declaration for the `applicationShouldTerminate:(NSApplication* sender)`
     message.
 
 ```
@@ -125,10 +128,10 @@ static BreakpadRef InitBreakpad(void) {
 
 Configure Breakpad for your application.
 
-1.  Take a look inside the Breakpad.framework at the Breakpad.h file for the
-    keys, default values, and descriptions to be passed to BreakpadCreate().
+1.  Take a look inside the `Breakpad.framework` at the `Breakpad.h` file for the
+    keys, default values, and descriptions to be passed to `BreakpadCreate()`.
 2.  Add/Edit the Breakpad specific entries in the dictionary passed to
-    BreakpadCreate() -- typically your application's info plist.
+    `BreakpadCreate()` -- typically your application's info plist.
 
 Example from the Notifier Info.plist:
 `<key>BreakpadProduct</key><string>Google_Notifier_Mac</string>
@@ -175,10 +178,10 @@ Configure breakpad to send reports to a URL by adding to your app's Info.plist:
 
 Breakpad checks whether it is being run under a debugger, and if so, normally
 does nothing. But, you can force Breakpad to function under a debugger by
-setting the Unix shell variable BREAKPAD\_IGNORE\_DEBUGGER to a non-zero value.
-You can bracket the source code in the above Write The Code step with #if DEBUG
+setting the Unix shell variable `BREAKPAD_IGNORE_DEBUGGER` to a non-zero value.
+You can bracket the source code in the above Write The Code step with `#if DEBUG`
 to completely eliminate it from Debug builds. See
-//depot/googlemac/GoogleNotifier/main.m for an example. FYI, when your process
+`//depot/googlemac/GoogleNotifier/main.m` for an example. FYI, when your process
 forks(), exception handlers are reset to the default for child processes. So
 they must reinitialize Breakpad, otherwise exceptions will be handled by Apple's
 Crash Reporter.
