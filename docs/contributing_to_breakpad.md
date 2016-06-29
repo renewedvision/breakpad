@@ -6,16 +6,14 @@ pesky legal issues to get out of the way, but they're quick and painless.
 ## Legal
 
 If you're doing work individually, not as part of any employment, you'll need to
-sign the <a
-href='http://code.google.com/legal/individual-cla-v1.0.html'>Individual
-Contributor License Agreement</a>. This agreement can be completed
-electronically.
+sign the
+[Individual Contributor License Agreement](https://cla.developers.google.com/clas/new?domain=DOMAIN_GOOGLE&kind=KIND_INDIVIDUAL).
+This agreement can be completed electronically.
 
 If you're contributing to Breakpad as part of your employment with another
-organization, you'll need to sign a <a
-href='http://code.google.com/legal/corporate-cla-v1.0.html'> Corporate
-Contributor License Agreement</a>. Once completed this document will need to be
-faxed.
+organization, you'll need to sign a
+[Corporate Contributor License Agreement](https://cla.developers.google.com/clas/new?domain=DOMAIN_GOOGLE&kind=KIND_CORPORATE).
+Once completed this document will need to be faxed.
 
 **_IMPORTANT_**: The authors(you!) of the contributions will maintain all
 copyrights; the agreements you sign will grant rights to Google to use your

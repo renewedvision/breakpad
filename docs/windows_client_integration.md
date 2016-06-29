@@ -2,13 +2,13 @@
 
 ## Windows Client Code
 
-The Windows client code is in the `src/client/windows` directory of the tree.
+The Windows client code is in the [/src/client/windows/] directory of the tree.
 Since the header files are fairly well commented some specifics are purposely
 omitted from this document.
 
 ## Integration of minidump-generation
 
-Once you build the solution inside `src/client/windows`, an output file of
+Once you build the solution inside [/src/client/windows/], an output file of
 `exception_handler.lib` will be generated. You can either check this into your
 project's directory or build directly from the source, as the project itself
 does.
@@ -18,13 +18,13 @@ Enabling Breakpad in your application requires you to `#include
 
 ```
   handler = new ExceptionHandler(const wstring& dump_path,
-                                                              FilterCallback filter,
-                                                              MinidumpCallback callback,
-                                                              void* callback_context,
-                                                              int handler_types,
-                                                              MINIDUMP_TYPE dump_type,
-                                                              const wchar_t* pipe_name,
-                                                              const CustomClientInfo* custom_info);
+                                 FilterCallback filter,
+                                 MinidumpCallback callback,
+                                 void* callback_context,
+                                 int handler_types,
+                                 MINIDUMP_TYPE dump_type,
+                                 const wchar_t* pipe_name,
+                                 const CustomClientInfo* custom_info);
 ```
 
 The parameters, in order, are:
@@ -43,7 +43,7 @@ The parameters, in order, are:
 *   A pointer to a CustomClientInfo class that can be used to send custom data
     along with the minidump when using OOP generation
 
-You can also see `src/client/windows/tests/crash_generation_app/*` for a sample
+You can also see [/src/client/windows/tests/crash_generation_app/] for a sample
 app that uses OOP generation.
 
 ## OOP Minidump Generation
