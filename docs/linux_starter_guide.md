@@ -43,16 +43,16 @@ Compiling and running this example should produce a minidump file in /tmp, and
 it should print the minidump filename before exiting. You can read more about
 the other parameters to the `ExceptionHandler` constructor [in the exception_handler.h source file][1].
 
-[1]: https://chromium.googlesource.com/breakpad/breakpad/+/master/src/client/linux/handler/exception_handler.h
+[1]: /src/client/linux/handler/exception_handler.h
 
 **Note**: You should do as little work as possible in the callback function.
 Your application is in an unsafe state. It may not be safe to allocate memory or
 call functions from other shared libraries. The safest thing to do is `fork` and
 `exec` a new process to do any work you need to do. If you must do some work in
 the callback, the Breakpad source contains [some simple reimplementations of libc functions][2], to avoid calling directly into
-libc, as well as [a header file for making Linux system calls][3] (in **src/third\_party/lss**) to avoid calling into other shared libraries.
+libc, as well as [a header file for making Linux system calls][3] (in `src/third\_party/lss/`) to avoid calling into other shared libraries.
 
-[2]: https://chromium.googlesource.com/breakpad/breakpad/+/master/src/common/linux/linux_libc_support.h
+[2]: /src/common/linux/linux_libc_support.h
 [3]: https://chromium.googlesource.com/linux-syscall-support/+/master
 
 ## Sending the minidump file
@@ -61,8 +61,8 @@ In a real application, you would want to handle the minidump in some way, likely
 by sending it to a server for analysis. The Breakpad source tree contains [some
 HTTP upload source][4] that you might find useful, as well as [a minidump upload tool][5].
 
-[4]: https://chromium.googlesource.com/breakpad/breakpad/+/master/src/common/linux/http_upload.h
-[5]: https://chromium.googlesource.com/breakpad/breakpad/+/master/src/tools/linux/symupload/minidump_upload.cc
+[4]: /src/common/linux/http_upload.h
+[5]: /src/tools/linux/symupload/minidump_upload.cc
 
 ## Producing symbols for your application
 
@@ -73,7 +73,7 @@ include debugging symbols. Next, compile the `dump_syms` tool by running
 your binaries to produce the text-format symbols. For example, if your main
 binary was named `test`:
 
-[6]: https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/symbol_files.md
+[6]: ./symbol_files.md
 
 ```
 $ google-breakpad/src/tools/linux/dump_syms/dump_syms ./test > test.sym
