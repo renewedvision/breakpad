@@ -62,9 +62,12 @@ for _name_.
 
 *   The _operatingsystem_ field names the operating system on which the
     executable or shared library was intended to run. This field should have one
-    of the following values: | **Value** | **Meaning** |
-    |:----------|:--------------------| | Linux | Linux | | mac | Macintosh OSX
-    | | windows | Microsoft Windows |
+    of the following values:
+| **Value** | **Meaning** |
+|:----------|:--------------------|
+| Linux | Linux |
+| mac | Macintosh OSX |
+| windows | Microsoft Windows |
 
 *   The _architecture_ field indicates what processor architecture the
     executable or shared library contains machine code for. This field should

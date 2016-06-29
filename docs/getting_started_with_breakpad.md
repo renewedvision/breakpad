@@ -9,8 +9,7 @@ minidumps on request for programs that have not crashed.
 Breakpad is currently used by Google Chrome, Firefox, Google Picasa, Camino,
 Google Earth, and other projects.
 
-![http://google-breakpad.googlecode.com/svn/wiki/breakpad.png]
-(http://google-breakpad.googlecode.com/svn/wiki/breakpad.png)
+![./breakpad.png](Breakpad overview)
 
 Breakpad has three main components:
 
@@ -90,25 +89,21 @@ known as "out-of-process" exception handling.
 ## Breakpad Code Overview
 
 All the client-side code is found by visiting the Google Project at
-http://code.google.com/p/google-breakpad. The following directory structure is
-present in the `src` directory:
+https://chromium.googlesource.com/breakpad/breakpad/. The following directory
+structure is present in the [/src/] directory:
 
-*   `processor` Contains minidump-processing code that is used on the server
-    side and isn't of use on the client side
-*   `client` Contains client minidump-generation libraries for all platforms
-*   `tools` Contains source code & projects for building various tools on each
-    platform.
+* [/src/processor/]: Contains minidump-processing code that is used on the
+  server side and isn't of use on the client side
+* [/src/client/]: Contains client minidump-generation libraries for all
+  platforms
+* [/src/tools/]: Contains source code & projects for building various tools on
+  each platform.
 
 (Among other directories)
 
-*   <a
-    href='http://code.google.com/p/google-breakpad/wiki/WindowsClientIntegration'>Windows
-    Integration Guide</a>
-*   <a
-    href='http://code.google.com/p/google-breakpad/wiki/MacBreakpadStarterGuide'>Mac
-    Integration Guide</a>
-*   <a href='http://code.google.com/p/google-breakpad/wiki/LinuxStarterGuide'>
-    Linux Integration Guide</a>
+* [./windows_client_integration.md](Windows Integration Guide)
+* [./mac_breakpad_starter_guide.md](Mac Integration Guide)
+* [./linux_starter_guide.md](Linux Integration Guide)
 
 ## Build process specifics(symbol generation)
 
