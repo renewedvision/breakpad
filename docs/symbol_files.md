@@ -62,16 +62,24 @@ for _name_.
 
 *   The _operatingsystem_ field names the operating system on which the
     executable or shared library was intended to run. This field should have one
-    of the following values: | **Value** | **Meaning** |
-    |:----------|:--------------------| | Linux | Linux | | mac | Macintosh OSX
-    | | windows | Microsoft Windows |
+    of the following values:
+    | **Value** | **Meaning** |
+    |:----------|:--------------------|
+    | Linux | Linux |
+    | mac | Macintosh OSX |
+    | windows | Microsoft Windows |
 
 *   The _architecture_ field indicates what processor architecture the
     executable or shared library contains machine code for. This field should
-    have one of the following values: | **Value** | **Instruction Set
-    Architecture** | |:----------|:---------------------------------| | x86 |
-    Intel IA-32 | | x86\_64 | AMD64/Intel 64 | | ppc | 32-bit PowerPC | | ppc64
-    | 64-bit PowerPC | | unknown | unknown |
+    have one of the following values:
+
+| **Value** | **Instruction Set Architecture** |
+|:----------|:---------------------------------|
+| x86 | Intel IA-32 |
+| x86\_64 | AMD64/Intel 64 |
+| ppc | 32-bit PowerPC |
+| ppc64 | 64-bit PowerPC |
+| unknown | unknown |
 
 *   The _id_ field is a sequence of hexadecimal digits that identifies the exact
     executable or library whose contents the symbol file describes. The way in
@@ -387,14 +395,14 @@ func+22:     pc = *sp; sp += 4       ; pop return address and jump to it
 
 The following table would describe the function above:
 
-**code address** | **.cfa** | **r0 (on Google Code)** | **r1 (on Google Code)** | ... | **.ra**
-:--------------- | :------- | :---------------------- | :---------------------- | :-- | :-------
-func+0           | sp       |                         |                         |     | `cfa[0]`
-func+1           | sp+16    |                         |                         |     | `cfa[0]`
-func+2           | sp+16    | `cfa[-4]`               |                         |     | `cfa[0]`
-func+11          | sp+20    | `cfa[-4]`               |                         |     | `cfa[0]`
-func+21          | sp+20    |                         |                         |     | `cfa[0]`
-func+22          | sp       |                         |                         |     | `cfa[0]`
+| **code address** | **.cfa** | **r0 (on Google Code)** | **r1 (on Google Code)** | ... | **.ra**  |
+| :--------------- | :------- | :---------------------- | :---------------------- | :-- | :------- |
+| func+0           | sp       |                         |                         |     | `cfa[0]` |
+| func+1           | sp+16    |                         |                         |     | `cfa[0]` |
+| func+2           | sp+16    | `cfa[-4]`               |                         |     | `cfa[0]` |
+| func+11          | sp+20    | `cfa[-4]`               |                         |     | `cfa[0]` |
+| func+21          | sp+20    |                         |                         |     | `cfa[0]` |
+| func+22          | sp       |                         |                         |     | `cfa[0]` |
 
 Some things to note here:
 
@@ -429,14 +437,14 @@ To save space, the most common type of CFI record only mentions the table
 entries at which changes take place. So for the above, the CFI data would only
 actually mention the non-blank entries here:
 
-**insn** | **cfa** | **r0 (on Google Code)** | **r1 (on Google Code)** | ... | **ra**
-:------- | :------ | :---------------------- | :---------------------- | :-- | :-------
-func+0   | sp      |                         |                         |     | `cfa[0]`
-func+1   | sp+16   |                         |                         |     |
-func+2   |         | `cfa[-4]`               |                         |     |
-func+11  | sp+20   |                         |                         |     |
-func+21  |         | r0 (on Google Code)     |                         |     |
-func+22  | sp      |                         |                         |     |
+| **insn** | **cfa** | **r0 (on Google Code)** | **r1 (on Google Code)** | ... | **ra** |
+| :------- | :------ | :---------------------- | :---------------------- | :-- | :------- |
+| func+0   | sp      |                         |                         |     | `cfa[0]` |
+| func+1   | sp+16   |                         |                         |     | |
+| func+2   |         | `cfa[-4]`               |                         |     | |
+| func+11  | sp+20   |                         |                         |     | |
+| func+21  |         | r0 (on Google Code)     |                         |     | |
+| func+22  | sp      |                         |                         |     | |
 
 A `STACK CFI INIT` record indicates that, at the machine instruction at
 _address_, belonging to some function, the value that _register<sub>n</sub>_ had
