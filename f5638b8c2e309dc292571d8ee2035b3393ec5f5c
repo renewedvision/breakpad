@@ -1,0 +1,6 @@
+Code-Review+1: Will Harris <wfh@chromium.org>
+Submitted-by: Mark Mentovai <mark@chromium.org>
+Submitted-at: Mon, 25 Jul 2016 13:44:49 +0000
+Reviewed-on: https://chromium-review.googlesource.com/362660
+Project: breakpad/breakpad
+Branch: refs/heads/master
