@@ -167,6 +167,25 @@ SetupOptions(int argc, const char *argv[], Options *options) {
 
   options->symbolsPath = [NSString stringWithUTF8String:argv[optind]];
   options->uploadURLStr = [NSString stringWithUTF8String:argv[optind + 1]];
+
+  NSFileManager* fileManager = [NSFileManager defaultManager];
+
+  BOOL symbolsFileIsDirectory;
+  if (![fileManager fileExistsAtPath:options->symbolsPath
+                        isDirectory:&symbolsFileIsDirectory]) {
+    fprintf(stderr, "%s: %s: file missing\n", argv[0], argv[optind]);
+    exit(1);
+  }
+
+  if (symbolsFileIsDirectory) {
+    fprintf(stderr, "%s: %s: input is a directory\n", argv[0], argv[optind]);
+    exit(1);
+  }
+
+  if (![fileManager isReadableFileAtPath:options->symbolsPath]) {
+    fprintf(stderr, "%s: %s: file is not readable\n", argv[0], argv[optind]);
+    exit(1);
+  }
 }
 
 //=============================================================================
