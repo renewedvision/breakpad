@@ -38,6 +38,8 @@
 //  cpu: the CPU that the module was built for (x86 or ppc)
 //  symbol_file: the contents of the breakpad-format symbol file
 
+#include <fcntl.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #include <Foundation/Foundation.h>
@@ -164,6 +166,27 @@ SetupOptions(int argc, const char *argv[], Options *options) {
     Usage(argc, argv);
     exit(1);
   }
+
+  int fd = open(argv[optind], O_RDONLY);
+  if (fd < 0) {
+    fprintf(stderr, "%s: %s: %s\n", argv[0], argv[optind], strerror(errno));
+    exit(1);
+  }
+
+  struct stat statbuf;
+  if (fstat(fd, &statbuf) < 0) {
+    fprintf(stderr, "%s: %s: %s\n", argv[0], argv[optind], strerror(errno));
+    close(fd);
+    exit(1);
+  }
+
+  if ((statbuf.st_mode & S_IFREG) != S_IFREG) {
+    fprintf(stderr, "%s: %s: unsupported file type\n", argv[0], argv[optind]);
+    close(fd);
+    exit(1);
+  }
+
+  close(fd);
 
   options->symbolsPath = [NSString stringWithUTF8String:argv[optind]];
   options->uploadURLStr = [NSString stringWithUTF8String:argv[optind + 1]];
