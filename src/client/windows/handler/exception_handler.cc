@@ -41,7 +41,9 @@
 
 namespace google_breakpad {
 
+#ifdef BREAKPAD_NO_TERMINATE_THREAD
 static const int kWaitForHandlerThreadMs = 60000;
+#endif  // BREAKPAD_NO_TERMINATE_THREAD
 static const int kExceptionHandlerThreadInitialStackSize = 64 * 1024;
 
 // As documented on MSDN, on failure SuspendThread returns (DWORD) -1
