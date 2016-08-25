@@ -41,7 +41,6 @@
 
 namespace google_breakpad {
 
-static const int kWaitForHandlerThreadMs = 60000;
 static const int kExceptionHandlerThreadInitialStackSize = 64 * 1024;
 
 // As documented on MSDN, on failure SuspendThread returns (DWORD) -1
@@ -353,6 +352,7 @@ ExceptionHandler::~ExceptionHandler() {
     // inside DllMain.
     is_shutdown_ = true;
     ReleaseSemaphore(handler_start_semaphore_, 1, NULL);
+    static const int kWaitForHandlerThreadMs = 60000;
     WaitForSingleObject(handler_thread_, kWaitForHandlerThreadMs);
 #else
     TerminateThread(handler_thread_, 1);
