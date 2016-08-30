@@ -35,6 +35,7 @@
 namespace logger {
 
 int write(const char* buf, size_t nbytes);
+int write(int fd, const char* buf, size_t nbytes);
 
 // In the case of Android the log can be written to the default system log
 // (default behavior of write() above, or to the crash log (see

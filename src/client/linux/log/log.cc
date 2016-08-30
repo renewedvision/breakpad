@@ -32,9 +32,8 @@
 #if defined(__ANDROID__)
 #include <android/log.h>
 #include <dlfcn.h>
-#else
-#include "third_party/lss/linux_syscall_support.h"
 #endif
+#include "third_party/lss/linux_syscall_support.h"
 
 namespace logger {
 
@@ -79,6 +78,10 @@ int write(const char* buf, size_t nbytes) {
 #else
   return sys_write(2, buf, nbytes);
 #endif
+}
+
+int write(int fd, const char* buf, size_t nbytes) {
+  return sys_write(fd, buf, nbytes);
 }
 
 }  // namespace logger
