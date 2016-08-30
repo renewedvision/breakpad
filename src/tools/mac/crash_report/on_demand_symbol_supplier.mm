@@ -34,6 +34,8 @@
 #include <fstream>
 #include <utility>
 
+#include <Foundation/Foundation.h>
+
 #include "google_breakpad/processor/basic_source_line_resolver.h"
 #include "google_breakpad/processor/minidump.h"
 #include "google_breakpad/processor/system_info.h"
@@ -284,7 +286,7 @@ bool OnDemandSymbolSupplier::GenerateSymbolFile(const CodeModule *module,
       stringWithFileSystemRepresentation:module_path.c_str()
                                   length:module_path.length()];
     DumpSymbols dump(ALL_SYMBOL_DATA, false);
-    if (dump.Read(module_str)) {
+    if (dump.Read([module_str UTF8String])) {
       // What Breakpad calls "x86" should be given to the system as "i386".
       std::string architecture;
       if (system_info->cpu.compare("x86") == 0) {
