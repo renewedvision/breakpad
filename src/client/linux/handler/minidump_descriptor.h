@@ -49,6 +49,8 @@ class MinidumpDescriptor {
  public:
   struct MicrodumpOnConsole {};
   static const MicrodumpOnConsole kMicrodumpOnConsole;
+  struct MicrodumpToFd {};
+  static const MicrodumpToFd kMicrodumpToFd;
 
   MinidumpDescriptor()
       : mode_(kUninitialized),
@@ -73,8 +75,13 @@ class MinidumpDescriptor {
   }
 
   explicit MinidumpDescriptor(const MicrodumpOnConsole&)
-      : mode_(kWriteMicrodumpToConsole),
+      : mode_(kWriteMicrodump),
         fd_(-1),
+        size_limit_(-1) {}
+
+  MinidumpDescriptor(const MicrodumpToFd&, int fd)
+      : mode_(kWriteMicrodump),
+        fd_(fd),
         size_limit_(-1) {}
 
   explicit MinidumpDescriptor(const MinidumpDescriptor& descriptor);
@@ -90,8 +97,8 @@ class MinidumpDescriptor {
 
   const char* path() const { return c_path_; }
 
-  bool IsMicrodumpOnConsole() const {
-    return mode_ == kWriteMicrodumpToConsole;
+  bool IsMicrodump() const {
+    return mode_ == kWriteMicrodump;
   }
 
   // Updates the path so it is unique.
@@ -102,7 +109,7 @@ class MinidumpDescriptor {
   void set_size_limit(off_t limit) { size_limit_ = limit; }
 
   MicrodumpExtraInfo* microdump_extra_info() {
-    assert(IsMicrodumpOnConsole());
+    assert(IsMicrodump());
     return &microdump_extra_info_;
   };
 
@@ -111,7 +118,7 @@ class MinidumpDescriptor {
     kUninitialized = 0,
     kWriteMinidumpToFile,
     kWriteMinidumpToFd,
-    kWriteMicrodumpToConsole
+    kWriteMicrodump
   };
 
   // Specifies the dump mode (see DumpMode).

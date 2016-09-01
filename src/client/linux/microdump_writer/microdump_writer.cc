@@ -130,11 +130,12 @@ size_t NextOrderedMapping(
 
 class MicrodumpWriter {
  public:
-  MicrodumpWriter(const ExceptionHandler::CrashContext* context,
+  MicrodumpWriter(int fd,
+                  const ExceptionHandler::CrashContext* context,
                   const MappingList& mappings,
                   const MicrodumpExtraInfo& microdump_extra_info,
                   LinuxDumper* dumper)
-      : ucontext_(context ? &context->context : NULL),
+      : fd_(fd), ucontext_(context ? &context->context : NULL),
 #if !defined(__ARM_EABI__) && !defined(__mips__)
         float_state_(context ? &context->float_state : NULL),
 #endif
@@ -181,11 +182,20 @@ class MicrodumpWriter {
   // Writes one line to the system log.
   void LogLine(const char* msg) {
 #if defined(__ANDROID__)
-    logger::writeToCrashLog(msg);
-#else
-    logger::write(msg, my_strlen(msg));
-    logger::write("\n", 1);
+    if (fd_ < 0) {
+      logger::writeToCrashLog(msg);
+      return;
+    }
 #endif
+    size_t completed = 0;
+    size_t msglen = my_strlen(msg);
+    while (completed < msglen) {
+      ssize_t written = HANDLE_EINTR(sys_write(fd_, msg + completed, msglen - completed));
+      if (written < 0) return;
+      completed += written;
+    }
+    while (HANDLE_EINTR(sys_write(fd_, "\n", 1)) == 0) {
+    }
   }
 
   // Stages the given string in the current line buffer.
@@ -571,6 +581,7 @@ class MicrodumpWriter {
 
   void* Alloc(unsigned bytes) { return dumper_->allocator()->Alloc(bytes); }
 
+  int fd_;
   const struct ucontext* const ucontext_;
 #if !defined(__ARM_EABI__) && !defined(__mips__)
   const google_breakpad::fpstate_t* const float_state_;
@@ -584,7 +595,8 @@ class MicrodumpWriter {
 
 namespace google_breakpad {
 
-bool WriteMicrodump(pid_t crashing_process,
+bool WriteMicrodump(int fd,
+                    pid_t crashing_process,
                     const void* blob,
                     size_t blob_size,
                     const MappingList& mappings,
@@ -600,10 +612,19 @@ bool WriteMicrodump(pid_t crashing_process,
     dumper.set_crash_signal(context->siginfo.si_signo);
     dumper.set_crash_thread(context->tid);
   }
-  MicrodumpWriter writer(context, mappings, microdump_extra_info, &dumper);
+  MicrodumpWriter writer(fd, context, mappings, microdump_extra_info, &dumper);
   if (!writer.Init())
     return false;
   return writer.Dump();
+}
+
+bool WriteMicrodump(pid_t crashing_process,
+                    const void* blob,
+                    size_t blob_size,
+                    const MappingList& mappings,
+                    const MicrodumpExtraInfo& microdump_extra_info) {
+  return WriteMicrodump(-1, crashing_process, blob, blob_size, mappings,
+                        microdump_extra_info);
 }
 
 }  // namespace google_breakpad

@@ -32,9 +32,8 @@
 #if defined(__ANDROID__)
 #include <android/log.h>
 #include <dlfcn.h>
-#else
-#include "third_party/lss/linux_syscall_support.h"
 #endif
+#include "third_party/lss/linux_syscall_support.h"
 
 namespace logger {
 

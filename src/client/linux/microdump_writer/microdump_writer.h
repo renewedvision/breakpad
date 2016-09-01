@@ -44,6 +44,8 @@ struct MicrodumpExtraInfo;
 // use libc functions which may. Thus, it can be used in contexts where the
 // state of the heap may be corrupt.
 // Args:
+//   fd: fd >= 0: write to file descriptor.
+//       fd == -1: write to the android log.
 //   crashing_process: the pid of the crashing process. This must be trusted.
 //   blob: a blob of data from the crashing process. See exception_handler.h
 //   blob_size: the length of |blob| in bytes.
@@ -54,6 +56,13 @@ struct MicrodumpExtraInfo;
 //     version (e.g., WebView:42.0.2311.136).
 //
 // Returns true iff successful.
+bool WriteMicrodump(int fd,
+                    pid_t crashing_process,
+                    const void* blob,
+                    size_t blob_size,
+                    const MappingList& mappings,
+                    const MicrodumpExtraInfo& microdump_extra_info);
+
 bool WriteMicrodump(pid_t crashing_process,
                     const void* blob,
                     size_t blob_size,
