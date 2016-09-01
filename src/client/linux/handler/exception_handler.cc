@@ -236,11 +236,11 @@ ExceptionHandler::ExceptionHandler(const MinidumpDescriptor& descriptor,
     crash_generation_client_.reset(CrashGenerationClient::TryCreate(server_fd));
 
   if (!IsOutOfProcess() && !minidump_descriptor_.IsFD() &&
-      !minidump_descriptor_.IsMicrodumpOnConsole())
+      !minidump_descriptor_.IsMicrodump())
     minidump_descriptor_.UpdatePath();
 
 #if defined(__ANDROID__)
-  if (minidump_descriptor_.IsMicrodumpOnConsole())
+  if (minidump_descriptor_.IsMicrodump())
     logger::initializeCrashLogWriter();
 #endif
 
@@ -586,8 +586,9 @@ void ExceptionHandler::WaitForContinueSignal() {
 // Runs on the cloned process.
 bool ExceptionHandler::DoDump(pid_t crashing_process, const void* context,
                               size_t context_size) {
-  if (minidump_descriptor_.IsMicrodumpOnConsole()) {
+  if (minidump_descriptor_.IsMicrodump()) {
     return google_breakpad::WriteMicrodump(
+        minidump_descriptor_.fd(),
         crashing_process,
         context,
         context_size,
@@ -630,7 +631,7 @@ __attribute__((optimize("no-omit-frame-pointer")))
 #endif
 bool ExceptionHandler::WriteMinidump() {
   if (!IsOutOfProcess() && !minidump_descriptor_.IsFD() &&
-      !minidump_descriptor_.IsMicrodumpOnConsole()) {
+      !minidump_descriptor_.IsMicrodump()) {
     // Update the path of the minidump so that this can be called multiple times
     // and new files are created for each minidump.  This is done before the
     // generation happens, as clients may want to access the MinidumpDescriptor
