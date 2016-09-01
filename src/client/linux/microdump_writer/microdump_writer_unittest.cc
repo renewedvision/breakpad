@@ -90,17 +90,9 @@ void CrashAndGetMicrodump(
   // Set a non-zero tid to avoid tripping asserts.
   context.tid = child;
 
-  // Redirect temporarily stderr to the stderr.log file.
-  int save_err = dup(STDERR_FILENO);
-  ASSERT_NE(-1, save_err);
-  ASSERT_NE(-1, dup2(err_fd, STDERR_FILENO));
-
-  ASSERT_TRUE(WriteMicrodump(child, &context, sizeof(context), mappings,
-                             microdump_extra_info));
-
-  // Revert stderr back to the console.
-  dup2(save_err, STDERR_FILENO);
-  close(save_err);
+  // WriteMicrodump will close err_fd, so we must dup it here.
+  ASSERT_TRUE(WriteMicrodump(dup(err_fd), child, &context, sizeof(context),
+                             mappings, microdump_extra_info));
 
   // Read back the stderr file and check for the microdump marker.
   fsync(err_fd);
