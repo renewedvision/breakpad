@@ -27,12 +27,15 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#import <Foundation/Foundation.h>
 #include <sys/stat.h>
 #include <map>
 #include <string>
 #include <iostream>
 #include <fstream>
 #include <utility>
+
+#include <Foundation/Foundation.h>
 
 #include "google_breakpad/processor/basic_source_line_resolver.h"
 #include "google_breakpad/processor/minidump.h"
@@ -280,11 +283,8 @@ bool OnDemandSymbolSupplier::GenerateSymbolFile(const CodeModule *module,
   }
 
   if (generate_file) {
-    NSString *module_str = [[NSFileManager defaultManager]
-      stringWithFileSystemRepresentation:module_path.c_str()
-                                  length:module_path.length()];
     DumpSymbols dump(ALL_SYMBOL_DATA, false);
-    if (dump.Read(module_str)) {
+    if (dump.Read(module_pat)) {
       // What Breakpad calls "x86" should be given to the system as "i386".
       std::string architecture;
       if (system_info->cpu.compare("x86") == 0) {
@@ -303,7 +303,7 @@ bool OnDemandSymbolSupplier::GenerateSymbolFile(const CodeModule *module,
         result = false;
       }
     } else {
-      printf("Unable to open %s\n", [module_str UTF8String]);
+      printf("Unable to open %s\n", module_path.c_str());
       result = false;
     }
   }
