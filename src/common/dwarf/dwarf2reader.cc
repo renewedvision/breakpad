@@ -224,6 +224,11 @@ const uint8_t *CompilationUnit::SkipAttribute(const uint8_t *start,
       }
       break;
 
+    case DW_FORM_GNU_ref_alt:
+    case DW_FORM_GNU_strp_alt:
+      return start + reader_->OffsetSize();
+      break;
+
     case DW_FORM_block1:
       return start + 1 + reader_->ReadOneByte(start);
     case DW_FORM_block2:
@@ -519,7 +524,19 @@ const uint8_t *CompilationUnit::ProcessAttribute(
       ProcessAttributeUnsigned(dieoffset, attr, form,
                                reader_->ReadAddress(addr_ptr));
       return start + len;
+      break;
     }
+    case DW_FORM_GNU_ref_alt: {
+      // TODO: This effectively ignores attributes stored in alternate object
+      // files. We should process them properly instead.
+      return start + reader_->OffsetSize();
+      break;
+    }
+    case DW_FORM_GNU_strp_alt: {
+      return start + reader_->OffsetSize();
+      break;
+    }
+
   }
   fprintf(stderr, "Unhandled form type\n");
   return NULL;
