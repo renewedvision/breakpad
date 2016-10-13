@@ -200,13 +200,14 @@ StackFrameX86* StackwalkerX86::GetCallerByWindowsFrameInfo(
     }
   }
 
-  // Set up the dictionary for the PostfixEvaluator.  %ebp and %esp are used
-  // in each program string, and their previous values are known, so set them
-  // here.
+  // Set up the dictionary for the PostfixEvaluator.  %ebp, %esp, and sometimes
+  // %ebx are used in program strings, and their previous values are known, so
+  // set them here.
   PostfixEvaluator<uint32_t>::DictionaryType dictionary;
   // Provide the current register values.
   dictionary["$ebp"] = last_frame->context.ebp;
   dictionary["$esp"] = last_frame->context.esp;
+  dictionary["$ebx"] = last_frame->context.ebx;
   // Provide constants from the debug info for last_frame and its callee.
   // .cbCalleeParams is a Breakpad extension that allows us to use the
   // PostfixEvaluator engine when certain types of debugging information
