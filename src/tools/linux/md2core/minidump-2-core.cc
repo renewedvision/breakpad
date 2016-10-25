@@ -99,6 +99,7 @@ static const MDRVA kInvalidMDRVA = static_cast<MDRVA>(-1);
 struct Options {
   string minidump_path;
   bool verbose;
+  bool rewrite_soname;
   string so_basedir;
 };
 
@@ -111,10 +112,12 @@ Usage(int argc, const char* argv[]) {
           "\n"
           "Options:\n"
           "  -v         Enable verbose output\n"
+          "  -R         Rewrite soname.  This rewrites the sonames to include the ID\n"
+          "             to make it easier to have a single directory full of symbols.\n"
           "  -S <dir>   Set soname base directory.  This will force all debug/symbol\n"
           "             lookups to be done in this directory rather than the filesystem\n"
           "             layout as it exists in the crashing image.  This path should end\n"
-          "             with a slash if it's a directory.\n"
+          "             with a slash if it's a directory.  e.g. /var/lib/breakpad/\n"
           "", basename(argv[0]));
 }
 
@@ -125,8 +128,9 @@ SetupOptions(int argc, const char* argv[], Options* options) {
 
   // Initialize the options struct as needed.
   options->verbose = false;
+  options->rewrite_soname = false;
 
-  while ((ch = getopt(argc, (char * const *)argv, "hS:v")) != -1) {
+  while ((ch = getopt(argc, (char * const *)argv, "hRS:v")) != -1) {
     switch (ch) {
       case 'h':
         Usage(argc, argv);
@@ -137,6 +141,9 @@ SetupOptions(int argc, const char* argv[], Options* options) {
         exit(1);
         break;
 
+      case 'R':
+        options->rewrite_soname = true;
+        break;
       case 'S':
         options->so_basedir = optarg;
         break;
@@ -939,24 +946,41 @@ ParseModuleStream(const Options* options, CrashedProcess* crashinfo,
     string filename =
         full_file.GetAsciiMDString(rawmodule->module_name_rva);
     size_t slash = filename.find_last_of('/');
-    string basename = slash == string::npos ?
-        filename : filename.substr(slash + 1);
-    if (0 && strcmp(guid, "00000000-0000-0000-0000-000000000000")) {
-      string prefix;
-      if (!options->so_basedir.empty())
-        prefix = options->so_basedir;
-      else
-        prefix = string("/var/lib/breakpad/") + guid + "-" + basename;
+    string dirname, basename;
+    if (slash == string::npos) {
+      basename = filename;
+    } else {
+      dirname = filename.substr(0, slash + 1);
+      basename = filename.substr(slash + 1);
+    }
+    string prefix;
+    if (!options->so_basedir.empty()) {
+      prefix = options->so_basedir;
+    }
+    string new_filename;
 
-      crashinfo->signatures[rawmodule->base_of_image] = prefix + basename;
+    if (options->rewrite_soname &&
+        strcmp(guid, "00000000-0000-0000-0000-000000000000") != 0) {
+      new_filename = (prefix.empty() ? dirname : prefix) + guid + "-" +
+                     basename;
+    } else if (!prefix.empty()) {
+      new_filename = prefix + basename;
     }
 
     if (options->verbose) {
-      fprintf(stderr, "0x%08llX-0x%08llX, ChkSum: 0x%08X, GUID: %s, \"%s\"\n",
+      fprintf(stderr, "0x%08llX-0x%08llX, ChkSum: 0x%08X, GUID: %s, \"%s\"",
               (unsigned long long)rawmodule->base_of_image,
               (unsigned long long)rawmodule->base_of_image +
               rawmodule->size_of_image,
               rawmodule->checksum, guid, filename.c_str());
+      if (!new_filename.empty()) {
+        fprintf(stderr, " -> \"%s\"", new_filename.c_str());
+      }
+      fputs("\n", stderr);
+    }
+
+    if (!new_filename.empty()) {
+      crashinfo->signatures[rawmodule->base_of_image] = new_filename;
     }
   }
   if (options->verbose) {
