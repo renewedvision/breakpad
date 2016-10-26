@@ -1200,6 +1200,8 @@ uint32_t MinidumpMemoryRegion::max_bytes_ = 2 * 1024 * 1024;  // 2MB
 
 MinidumpMemoryRegion::MinidumpMemoryRegion(Minidump* minidump)
     : MinidumpObject(minidump),
+      hexdump_(true),
+      width_(16),
       descriptor_(NULL),
       memory_(NULL) {
 }
@@ -1360,16 +1362,61 @@ void MinidumpMemoryRegion::Print() const {
 
   const uint8_t* memory = GetMemory();
   if (memory) {
-    printf("0x");
-    for (unsigned int byte_index = 0;
-         byte_index < descriptor_->memory.data_size;
-         byte_index++) {
-      printf("%02x", memory[byte_index]);
+    if (hexdump_) {
+      // Pretty hexdump view.
+      for (unsigned int byte_index = 0;
+           byte_index < descriptor_->memory.data_size;
+           byte_index++) {
+        // Display the leading address.
+        if ((byte_index % width_) == 0) {
+          printf("\n%08x  ", byte_index);
+        }
+
+        // Show the single byte of memory in hex.
+        printf("%02x ", memory[byte_index]);
+
+        // Insert a space every 8 bytes to make it more readable.
+        if (((byte_index + 1) % 8) == 0) {
+          printf(" ");
+
+          // Once we finish a line, decode the line as ASCII.
+          if (((byte_index + 1) % width_) == 0) {
+            printf("|");
+            for (unsigned int char_index = byte_index - (width_ - 1);
+                 char_index < byte_index;
+                 char_index++) {
+              printf("%c", isprint(memory[char_index]) ? memory[char_index] : '.');
+            }
+            printf("|");
+          }
+        }
+      }
+    } else {
+      // Ugly raw string view.
+      printf("\n0x");
+      for (unsigned int byte_index = 0;
+           byte_index < descriptor_->memory.data_size;
+           byte_index++) {
+        printf("%02x", memory[byte_index]);
+      }
     }
     printf("\n");
   } else {
     printf("No memory\n");
   }
+}
+
+
+void MinidumpMemoryRegion::SetPrintMode(bool hexdump, unsigned int width) {
+  // Require the width to be a multiple of 8 bytes.
+  if (width == 0 || (width % 8) != 0) {
+    BPLOG(ERROR) << "MinidumpMemoryRegion print width must be multiple of 8, "
+                 << "not " << width;
+    return;
+  }
+
+  hexdump_ = hexdump;
+  width_ = width;
 }
 
 
@@ -1529,7 +1576,7 @@ void MinidumpThread::Print() {
 
   MinidumpMemoryRegion* memory = GetMemory();
   if (memory) {
-    printf("Stack\n");
+    printf("Stack");
     memory->Print();
   } else {
     printf("No stack\n");
