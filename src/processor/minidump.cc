@@ -36,6 +36,7 @@
 #include "google_breakpad/processor/minidump.h"
 
 #include <assert.h>
+#include <elf.h>
 #include <fcntl.h>
 #include <stddef.h>
 #include <string.h>
@@ -4836,6 +4837,117 @@ void MinidumpLinuxMapsList::Print() const {
 }
 
 //
+// MinidumpLinuxAuxvList
+//
+
+MinidumpLinuxAuxvList::MinidumpLinuxAuxvList(Minidump* minidump)
+    : MinidumpStream(minidump) {
+}
+
+MinidumpLinuxAuxvList::~MinidumpLinuxAuxvList() {
+  auxv_.clear();
+}
+
+const char* MinidumpLinuxAuxvList::get_auxv_name(uint64_t type) {
+  switch (type) {
+#define X(x) case AT_ ## x: return "AT_" # x;
+  X(NULL)
+  X(IGNORE)
+  X(EXECFD)
+  X(PHDR)
+  X(PHENT)
+  X(PHNUM)
+  X(PAGESZ)
+  X(BASE)
+  X(FLAGS)
+  X(ENTRY)
+  X(NOTELF)
+  X(UID)
+  X(EUID)
+  X(GID)
+  X(EGID)
+  X(CLKTCK)
+  X(PLATFORM)
+  X(HWCAP)
+  X(FPUCW)
+  X(DCACHEBSIZE)
+  X(ICACHEBSIZE)
+  X(UCACHEBSIZE)
+  X(IGNOREPPC)
+  X(SECURE)
+  X(BASE_PLATFORM)
+  X(RANDOM)
+  X(HWCAP2)
+  X(EXECFN)
+  X(SYSINFO)
+  X(SYSINFO_EHDR)
+  X(L1I_CACHESHAPE)
+  X(L1D_CACHESHAPE)
+  X(L2_CACHESHAPE)
+  X(L3_CACHESHAPE)
+#undef X
+  default:
+    return "AT_???";
+  }
+}
+
+bool MinidumpLinuxAuxvList::Read(uint32_t expected_size) {
+  // Invalidate cached data.
+  auxv_.clear();
+  valid_ = false;
+
+  // Load and check expected stream length.
+  uint32_t length = 0;
+  if (!minidump_->SeekToStreamType(kStreamType, &length)) {
+    BPLOG(ERROR) << "MinidumpLinuxAuxvList stream type not found";
+    return false;
+  }
+  if (expected_size != length) {
+    BPLOG(ERROR) << "MinidumpLinuxAuxvList size mismatch: "
+                 << expected_size
+                 << " != "
+                 << length;
+    return false;
+  }
+
+  // Create a vector to read stream data. The vector needs to have
+  // at least enough capacity to read all the data.
+  vector<unsigned char> auxv_bytes(length);
+  if (!minidump_->ReadBytes(&auxv_bytes[0], length)) {
+    BPLOG(ERROR) << "MinidumpLinuxAuxvList failed to read bytes";
+    return false;
+  }
+  string map_string(auxv_bytes.begin(), auxv_bytes.end());
+
+  // Parse string into auxv data.
+  uint64_t* chunks = reinterpret_cast<uint64_t*>(&auxv_bytes[0]);
+  for (size_t pos = 0; pos * sizeof(uint64_t) < length; pos += 2)
+    auxv_.push_back(Auxval(chunks[pos], chunks[pos + 1]));
+
+  // Set instance variables.
+  valid_ = true;
+  return true;
+}
+
+void MinidumpLinuxAuxvList::Print() const {
+  if (!valid_) {
+    BPLOG(ERROR) << "MinidumpLinuxAuxvList cannot print valid data";
+    return;
+  }
+
+  printf("MD_LINUX_AUXV\n");
+  size_t count = get_auxv_count();
+  printf("  count = %zu\n", count);
+  for (size_t i = 0; i < count; ++i) {
+    printf("  auxv_t[%zu]\n"
+           "    a_type = %" PRIu64 " (%s)\n"
+           "    a_val  = 0x%" PRIx64 "\n",
+           i, auxv_[i].type, get_auxv_name(auxv_[i].type), auxv_[i].value);
+  }
+  printf("\n");
+}
+
+//
 // MinidumpCrashpadInfo
 //
 
@@ -5369,6 +5481,11 @@ MinidumpMemoryInfoList* Minidump::GetMemoryInfoList() {
 MinidumpLinuxMapsList* Minidump::GetLinuxMapsList() {
   MinidumpLinuxMapsList* linux_maps_list;
   return GetStream(&linux_maps_list);
+}
+
+MinidumpLinuxAuxvList* Minidump::GetLinuxAuxvList() {
+  MinidumpLinuxAuxvList* linux_auxv_list;
+  return GetStream(&linux_auxv_list);
 }
 
 bool Minidump::IsAndroid() {

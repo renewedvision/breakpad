@@ -49,6 +49,7 @@ using google_breakpad::MinidumpMemoryInfoList;
 using google_breakpad::MinidumpMemoryList;
 using google_breakpad::MinidumpException;
 using google_breakpad::MinidumpAssertion;
+using google_breakpad::MinidumpLinuxAuxvList;
 using google_breakpad::MinidumpSystemInfo;
 using google_breakpad::MinidumpMiscInfo;
 using google_breakpad::MinidumpBreakpadInfo;
@@ -216,6 +217,14 @@ static bool PrintMinidumpDump(const Options& options) {
                 MD_LINUX_MAPS,
                 "MD_LINUX_MAPS",
                 &errors);
+
+  MinidumpLinuxAuxvList* linux_auxv_list = minidump.GetLinuxAuxvList();
+  if (!linux_auxv_list) {
+    ++errors;
+    BPLOG(ERROR) << "minidump.GetLinuxAuxvList() failed";
+  } else {
+    linux_auxv_list->Print();
+  }
 
   return errors == 0;
 }

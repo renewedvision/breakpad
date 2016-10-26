@@ -1105,6 +1105,54 @@ class MinidumpLinuxMapsList : public MinidumpStream {
   DISALLOW_COPY_AND_ASSIGN(MinidumpLinuxMapsList);
 };
 
+// MinidumpLinuxAuxvList corresponds to the Linux-exclusive MD_LINUX_AUXV
+// stream, which contains the contents of the auxiliary vector, which is a
+// set of key-value pairs passed by the kernel to ELF processes.
+class MinidumpLinuxAuxvList : public MinidumpStream {
+ public:
+  MinidumpLinuxAuxvList(const MinidumpLinuxAuxvList&) = delete;
+  MinidumpLinuxAuxvList& operator=(const MinidumpLinuxAuxvList&) = delete;
+
+  virtual ~MinidumpLinuxAuxvList();
+
+  // Get number of mappings.
+  size_t get_auxv_count() const { return valid_ ? auxv_.size() : 0; }
+
+  // Print the contents of the auxiliary vector to stdout.
+  void Print() const;
+
+  // Helper to convert auxval to symbolic AT name.
+  static const char* get_auxv_name(uint64_t type);
+
+ private:
+  friend class Minidump;
+
+  // A single auxv pair.
+  struct Auxval {
+    uint64_t type;
+    uint64_t value;
+
+    Auxval(uint64_t type, uint64_t value)
+      : type(type),
+        value(value) {};
+  };
+
+  typedef vector<Auxval> MinidumpLinuxAuxVectors;
+
+  static const uint32_t kStreamType = MD_LINUX_AUXV;
+
+  // The caller owns the pointer.
+  explicit MinidumpLinuxAuxvList(Minidump* minidump);
+
+  // Read and load the contents of the process mapping data.
+  // The stream should have data in the form of key-value pairs.
+  // This method returns whether the stream was read successfully.
+  bool Read(uint32_t expected_size);
+
+  // The list of individual auxiliary pairs.
+  MinidumpLinuxAuxVectors auxv_;
+};
+
 // MinidumpCrashpadInfo wraps MDRawCrashpadInfo, which is an optional stream in
 // a minidump that provides additional information about the process state
 // at the time the minidump was generated.
@@ -1199,8 +1247,10 @@ class Minidump {
   virtual MinidumpMemoryInfoList* GetMemoryInfoList();
   MinidumpCrashpadInfo* GetCrashpadInfo();
 
-  // The next method also calls GetStream, but is exclusive for Linux dumps.
+  // The next set of methods also call GetStream, but are exclusive for
+  // Linux dumps.
   virtual MinidumpLinuxMapsList* GetLinuxMapsList();
+  virtual MinidumpLinuxAuxvList* GetLinuxAuxvList();
 
   // The next set of methods are provided for users who wish to access
   // data in minidump files directly, while leveraging the rest of
