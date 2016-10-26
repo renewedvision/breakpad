@@ -236,6 +236,7 @@ class MinidumpMemoryRegion : public MinidumpObject,
 
   // Print a human-readable representation of the object to stdout.
   void Print() const;
+  void SetPrintMode(bool hexdump, unsigned int width);
 
  protected:
   explicit MinidumpMemoryRegion(Minidump* minidump);
@@ -251,6 +252,10 @@ class MinidumpMemoryRegion : public MinidumpObject,
   // Implementation for GetMemoryAtAddress
   template<typename T> bool GetMemoryAtAddressInternal(uint64_t address,
                                                        T*        value) const;
+
+  // Knobs for controlling display of memory printing.
+  bool hexdump_;
+  unsigned int hexdump_width_;
 
   // The largest memory region that will be read from a minidump.  The
   // default is 1MB.
