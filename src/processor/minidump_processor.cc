@@ -1195,6 +1195,9 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
         case MD_EXCEPTION_CODE_WIN_UNHANDLED_CPP_EXCEPTION:
           reason = "Unhandled C++ Exception";
           break;
+        case MD_EXCEPTION_CODE_WIN_SIMULATED:
+          reason = "Simulated Exception";
+          break;
         default:
           BPLOG(INFO) << "Unknown exception reason " << reason;
           break;
