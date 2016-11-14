@@ -1,0 +1,3 @@
+[submodule "lss"]
+	path = src/third_party/lss
+	url = ../../linux-syscall-support
