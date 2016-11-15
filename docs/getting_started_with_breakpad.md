@@ -90,7 +90,7 @@ known as "out-of-process" exception handling.
 ## Breakpad Code Overview
 
 All the client-side code is found by visiting the Google Project at
-http://code.google.com/p/google-breakpad. The following directory structure is
+https://chromium.googlesource.com/breakpad/breakpad. The following directory structure is
 present in the `src` directory:
 
 *   `processor` Contains minidump-processing code that is used on the server
@@ -101,14 +101,9 @@ present in the `src` directory:
 
 (Among other directories)
 
-*   <a
-    href='http://code.google.com/p/google-breakpad/wiki/WindowsClientIntegration'>Windows
-    Integration Guide</a>
-*   <a
-    href='http://code.google.com/p/google-breakpad/wiki/MacBreakpadStarterGuide'>Mac
-    Integration Guide</a>
-*   <a href='http://code.google.com/p/google-breakpad/wiki/LinuxStarterGuide'>
-    Linux Integration Guide</a>
+*   [Windows Integration Guide](windows_client_integration.md)
+*   [Mac Integration Guide](mac_breakpad_starter_guide.md)
+*   [Linux Integration Guide](linux_starter_guide.md)
 
 ## Build process specifics(symbol generation)
 

@@ -75,7 +75,7 @@
 
 ## More Information
 
-*   Project home: http://code.google.com/p/google-breakpad/
+*   Project home: https://chromium.googlesource.com/breakpad/breakpad
 *   Mailing lists
     *   [google-breakpad-dev@googlegroups.com]
         (http://groups.google.com/group/google-breakpad-dev/)
