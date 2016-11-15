@@ -274,8 +274,7 @@ follows:
 *   If the _has\_program\_string_ field of a `STACK WIN` record is not zero,
     then the record's final field is a string containing a program to be
     interpreted to recover the caller's frame. The comments in the
-    [postfix\_evaluator.h]
-    (http://code.google.com/p/google-breakpad/source/browse/trunk/src/processor/postfix_evaluator.h#40)
+    [postfix\_evaluator.h](../src/processor/postfix_evaluator.h#40)
     header file explain the language in which the program is written. You should
     place the following variables in the dictionary before interpreting the
     program:
