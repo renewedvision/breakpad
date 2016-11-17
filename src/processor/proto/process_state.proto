@@ -134,11 +134,26 @@ message ProcessStateProto {
   // Leave the ability to add the raw minidump to this representation
 }
 
-
-// Represents a single frame in a stack  
-// See src/google_breakpad/processor/code_module.h
+// Represents a single frame in a stack
+// See src/google_breakpad/processor/stack_frame.h
 message StackFrame {
-  // Next value: 8
+  // Next value: 9
+
+  // Indicates how well the instruction pointer derived during
+  // stack walking is trusted. Since the stack walker can resort to
+  // stack scanning, it can wind up with dubious frames.
+  // In rough order of "trust metric".
+  enum FrameTrust {
+    FRAME_TRUST_NONE = 0;      // Unknown
+    FRAME_TRUST_SCAN = 1;      // Scanned the stack, found this
+    FRAME_TRUST_CFI_SCAN = 2;  // Found while scanning stack using call frame
+                               // info
+    FRAME_TRUST_FP = 3;        // Derived from frame pointer
+    FRAME_TRUST_CFI = 4;       // Derived from call frame info
+    FRAME_TRUST_PREWALKED = 5; // Explicitly provided by some external stack
+                               // walker.
+    FRAME_TRUST_CONTEXT = 6;   // Given as instruction pointer in a context
+  }
 
   // The program counter location as an absolute virtual address.  For the
   // innermost called frame in a stack, this will be an exact program counter
@@ -167,6 +182,10 @@ message StackFrame {
   // The start address of the source line, may be omitted if debug symbols
   // are not available.
   optional int64 source_line_base = 7;
+
+  // Amount of trust the stack walker has in the instruction pointer
+  // of this frame.
+  optional FrameTrust trust = 8;
 }
 
 
