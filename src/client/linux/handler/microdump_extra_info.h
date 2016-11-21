@@ -39,12 +39,16 @@ struct MicrodumpExtraInfo {
   const char* product_info;
   const char* gpu_fingerprint;
   const char* process_type;
+  uintptr_t stack_interest_startaddr;
+  uintptr_t stack_interest_endaddr;
 
   MicrodumpExtraInfo()
       : build_fingerprint(NULL),
         product_info(NULL),
         gpu_fingerprint(NULL),
-        process_type(NULL) {}
+        process_type(NULL),
+        stack_interest_startaddr(0),
+        stack_interest_endaddr(0) {}
 };
 
 }
