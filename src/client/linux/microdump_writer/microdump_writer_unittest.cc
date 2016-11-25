@@ -31,6 +31,7 @@
 #include <sys/syscall.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <ucontext.h>
 
 #include <sstream>
 #include <string>
@@ -47,6 +48,11 @@
 
 using namespace google_breakpad;
 
+extern "C" {
+extern char __executable_start;
+extern char __etext;
+}
+
 namespace {
 
 typedef testing::Test MicrodumpWriterTest;
@@ -54,12 +60,26 @@ typedef testing::Test MicrodumpWriterTest;
 MicrodumpExtraInfo MakeMicrodumpExtraInfo(
     const char* build_fingerprint,
     const char* product_info,
-    const char* gpu_fingerprint) {
+    const char* gpu_fingerprint,
+    bool suppress_microdump_based_on_interest_range = false,
+    uintptr_t interest_range_start = 0,
+    uintptr_t interest_range_end = 0) {
   MicrodumpExtraInfo info;
   info.build_fingerprint = build_fingerprint;
   info.product_info = product_info;
   info.gpu_fingerprint = gpu_fingerprint;
+  info.suppress_microdump_based_on_interest_range =
+      suppress_microdump_based_on_interest_range;
+  info.interest_range_start = interest_range_start;
+  info.interest_range_end = interest_range_end;
   return info;
+}
+
+void AssertContainsMicrodump(const scoped_array<char>& buf) {
+  ASSERT_NE(static_cast<char*>(0), strstr(
+      buf.get(), "-----BEGIN BREAKPAD MICRODUMP-----"));
+  ASSERT_NE(static_cast<char*>(0), strstr(
+      buf.get(), "-----END BREAKPAD MICRODUMP-----"));
 }
 
 void CrashAndGetMicrodump(
@@ -86,7 +106,10 @@ void CrashAndGetMicrodump(
 
   ExceptionHandler::CrashContext context;
   memset(&context, 0, sizeof(context));
-
+  // Pretend the current context is the child context (which is
+  // approximately right) so that we have a valid stack pointer, and
+  // can fetch child stack data via ptrace.
+  getcontext(&context.context);
   // Set a non-zero tid to avoid tripping asserts.
   context.tid = child;
 
@@ -105,17 +128,27 @@ void CrashAndGetMicrodump(
   // Read back the stderr file and check for the microdump marker.
   fsync(err_fd);
   lseek(err_fd, 0, SEEK_SET);
-  const size_t kBufSize = 64 * 1024;
-  buf->reset(new char[kBufSize]);
-  ASSERT_GT(read(err_fd, buf->get(), kBufSize), 0);
+  size_t buf_size = 64 * 1024;
+  size_t buf_offset = 0;
+  size_t buf_remain = buf_size - buf_offset;
+  buf->reset(new char[buf_size]);
+  while (true) {
+    int bytes_read = IGNORE_EINTR(read(err_fd, buf->get() + buf_offset, buf_remain));
+    if (bytes_read < 0) break;
+    buf_offset += bytes_read;
+    buf_remain -= bytes_read;
+    if (buf_remain) {
+      break;
+    }
+    scoped_array<char> resized_buf(new char[buf_size << 1]);
+    std::copy(buf->get(), buf->get() + buf_size, resized_buf.get());
+    buf->swap(resized_buf);
+    buf_size <<= 1;
+  }
+  buf->get()[buf_offset] = 0;
 
   close(err_fd);
   close(fds[1]);
-
-  ASSERT_NE(static_cast<char*>(0), strstr(
-      buf->get(), "-----BEGIN BREAKPAD MICRODUMP-----"));
-  ASSERT_NE(static_cast<char*>(0), strstr(
-      buf->get(), "-----END BREAKPAD MICRODUMP-----"));
 }
 
 void CheckMicrodumpContents(const string& microdump_content,
@@ -193,6 +226,7 @@ TEST(MicrodumpWriterTest, BasicWithMappings) {
 
   scoped_array<char> buf;
   CrashAndGetMicrodump(mappings, MicrodumpExtraInfo(), &buf);
+  AssertContainsMicrodump(buf);
 
 #ifdef __LP64__
   ASSERT_NE(static_cast<char*>(0), strstr(
@@ -210,6 +244,47 @@ TEST(MicrodumpWriterTest, BasicWithMappings) {
       buf.get(), "V UNKNOWN:0.0.0.0"));
 }
 
+// Ensure that no output occurs if the interest region is set, but
+// doesn't overlap anything on the stack.
+TEST(MicrodumpWriterTest, NoOutputIfUninteresting) {
+  const char kProductInfo[] = "MockProduct:42.0.2311.99";
+  const char kBuildFingerprint[] =
+      "aosp/occam/mako:5.1.1/LMY47W/12345678:userdegbug/dev-keys";
+  const char kGPUFingerprint[] =
+      "Qualcomm;Adreno (TM) 330;OpenGL ES 3.0 V@104.0 AU@  (GIT@Id3510ff6dc)";
+  const MicrodumpExtraInfo kMicrodumpExtraInfo(
+      MakeMicrodumpExtraInfo(kBuildFingerprint, kProductInfo, kGPUFingerprint,
+                             true, 0xdeadbeef, 0xdeadbeef - 1));
+
+  scoped_array<char> buf;
+  MappingList no_mappings;
+
+  CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfo, &buf);
+  ASSERT_EQ(0, strlen(buf.get()));
+}
+
+// Ensure that output occurs if the interest region is set, and
+// does overlap something on the stack.
+TEST(MicrodumpWriterTest, OutputIfInteresting) {
+  const char kProductInfo[] = "MockProduct:42.0.2311.99";
+  const char kBuildFingerprint[] =
+      "aosp/occam/mako:5.1.1/LMY47W/12345678:userdegbug/dev-keys";
+  const char kGPUFingerprint[] =
+      "Qualcomm;Adreno (TM) 330;OpenGL ES 3.0 V@104.0 AU@  (GIT@Id3510ff6dc)";
+
+  const MicrodumpExtraInfo kMicrodumpExtraInfo(
+      MakeMicrodumpExtraInfo(kBuildFingerprint, kProductInfo, kGPUFingerprint,
+                             true,
+                             reinterpret_cast<uintptr_t>(&__executable_start),
+                             reinterpret_cast<uintptr_t>(&__etext)));
+
+  scoped_array<char> buf;
+  MappingList no_mappings;
+
+  CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfo, &buf);
+  ASSERT_LT(0, strlen(buf.get()));
+}
+
 // Ensure that the product info and build fingerprint metadata show up in the
 // final microdump if present.
 TEST(MicrodumpWriterTest, BuildFingerprintAndProductInfo) {
@@ -224,6 +299,7 @@ TEST(MicrodumpWriterTest, BuildFingerprintAndProductInfo) {
   MappingList no_mappings;
 
   CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfo, &buf);
+  AssertContainsMicrodump(buf);
   CheckMicrodumpContents(string(buf.get()), kMicrodumpExtraInfo);
 }
 
@@ -237,6 +313,7 @@ TEST(MicrodumpWriterTest, NoProductInfo) {
       MakeMicrodumpExtraInfo(kBuildFingerprint, NULL, kGPUFingerprint));
 
   CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfoNoProductInfo, &buf);
+  AssertContainsMicrodump(buf);
   CheckMicrodumpContents(string(buf.get()), kBuildFingerprint,
                          "UNKNOWN:0.0.0.0", kGPUFingerprint);
 }
@@ -251,6 +328,7 @@ TEST(MicrodumpWriterTest, NoGPUInfo) {
       MakeMicrodumpExtraInfo(kBuildFingerprint, kProductInfo, NULL));
 
   CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfoNoGPUInfo, &buf);
+  AssertContainsMicrodump(buf);
   CheckMicrodumpContents(string(buf.get()), kBuildFingerprint,
                          kProductInfo, "UNKNOWN");
 }
