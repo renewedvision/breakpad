@@ -80,6 +80,11 @@ void AssertContainsMicrodump(const std::string& buf) {
   ASSERT_NE(std::string::npos, buf.find("-----END BREAKPAD MICRODUMP-----"));
 }
 
+void AssertDoesNotContainMicrodump(const std::string& buf) {
+  ASSERT_EQ(std::string::npos, buf.find("-----BEGIN BREAKPAD MICRODUMP-----"));
+  ASSERT_EQ(std::string::npos, buf.find("-----END BREAKPAD MICRODUMP-----"));
+}
+
 void CrashAndGetMicrodump(const MappingList& mappings,
                           const MicrodumpExtraInfo& microdump_extra_info,
                           std::string* microdump) {
@@ -246,7 +251,7 @@ TEST(MicrodumpWriterTest, NoOutputIfUninteresting) {
   MappingList no_mappings;
 
   CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfo, &buf);
-  ASSERT_EQ(0U, buf.size());
+  AssertDoesNotContainMicrodump(buf);
 }
 
 // Ensure that output occurs if the interest region is set, and
@@ -268,7 +273,7 @@ TEST(MicrodumpWriterTest, OutputIfInteresting) {
   MappingList no_mappings;
 
   CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfo, &buf);
-  ASSERT_LT(0U, buf.size());
+  AssertContainsMicrodump(buf);
 }
 
 // Ensure that the product info and build fingerprint metadata show up in the
