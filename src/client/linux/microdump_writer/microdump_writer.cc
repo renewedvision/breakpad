@@ -132,6 +132,7 @@ class MicrodumpWriter {
  public:
   MicrodumpWriter(const ExceptionHandler::CrashContext* context,
                   const MappingList& mappings,
+                  uintptr_t address_within_key_mapping,
                   const MicrodumpExtraInfo& microdump_extra_info,
                   LinuxDumper* dumper)
       : ucontext_(context ? &context->context : NULL),
@@ -140,6 +141,7 @@ class MicrodumpWriter {
 #endif
         dumper_(dumper),
         mapping_list_(mappings),
+        address_within_key_mapping_(address_within_key_mapping),
         microdump_extra_info_(microdump_extra_info),
         log_line_(NULL),
         stack_copy_(NULL),
@@ -234,6 +236,21 @@ class MicrodumpWriter {
     log_line_[0] = 0;
   }
 
+  bool FindMappingRangeForAddress(uintptr_t address, uintptr_t* range_low,
+                                  uintptr_t* range_high) {
+    for (unsigned i = 0; i < dumper_->mappings().size(); ++i) {
+      const MappingInfo& mapping = *dumper_->mappings()[i];
+      if (mapping.start_addr <= address &&
+          address <= mapping.start_addr + mapping.size) {
+        *range_low = mapping.start_addr;
+        *range_high = mapping.start_addr + mapping.size;
+        return true;
+      }
+    }
+    *range_low = *range_high = 0;
+    return false;
+}
+
   CaptureResult CaptureCrashingThreadStack(int max_stack_len) {
     stack_pointer_ = UContextReader::GetStackPointer(ucontext_);
 
@@ -252,11 +269,16 @@ class MicrodumpWriter {
                              reinterpret_cast<const void*>(stack_lower_bound_),
                              stack_len_);
 
-    if (!microdump_extra_info_.suppress_microdump_based_on_interest_range)
-      return CAPTURE_OK;
+    fprintf(stdout, "...\n");
+    if (address_within_key_mapping_ == 0) return CAPTURE_OK;
 
-    uintptr_t low_addr = microdump_extra_info_.interest_range_start;
-    uintptr_t high_addr = microdump_extra_info_.interest_range_end;
+    uintptr_t low_addr;
+    uintptr_t high_addr;
+    fprintf(stdout, "scanning for mapping\n");
+    if (!FindMappingRangeForAddress(address_within_key_mapping_, &low_addr,
+                                    &high_addr))
+      return CAPTURE_UNINTERESTING;
+    fprintf(stdout, "found %lx-%lx\n", low_addr, high_addr);
 
     uintptr_t pc = UContextReader::GetInstructionPointer(ucontext_);
     if (low_addr <= pc && pc <= high_addr) return CAPTURE_OK;
@@ -588,6 +610,7 @@ class MicrodumpWriter {
 #endif
   LinuxDumper* dumper_;
   const MappingList& mapping_list_;
+  uintptr_t address_within_key_mapping_;
   const MicrodumpExtraInfo microdump_extra_info_;
   char* log_line_;
 
@@ -613,6 +636,7 @@ bool WriteMicrodump(pid_t crashing_process,
                     const void* blob,
                     size_t blob_size,
                     const MappingList& mappings,
+                    uintptr_t address_within_key_mapping,
                     const MicrodumpExtraInfo& microdump_extra_info) {
   LinuxPtraceDumper dumper(crashing_process);
   const ExceptionHandler::CrashContext* context = NULL;
@@ -625,7 +649,8 @@ bool WriteMicrodump(pid_t crashing_process,
     dumper.set_crash_signal(context->siginfo.si_signo);
     dumper.set_crash_thread(context->tid);
   }
-  MicrodumpWriter writer(context, mappings, microdump_extra_info, &dumper);
+  MicrodumpWriter writer(context, mappings, address_within_key_mapping,
+                         microdump_extra_info, &dumper);
   if (!writer.Init())
     return false;
   writer.Dump();
