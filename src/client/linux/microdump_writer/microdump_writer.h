@@ -58,6 +58,7 @@ bool WriteMicrodump(pid_t crashing_process,
                     const void* blob,
                     size_t blob_size,
                     const MappingList& mappings,
+                    uintptr_t address_within_key_mapping,
                     const MicrodumpExtraInfo& microdump_extra_info);
 
 }  // namespace google_breakpad

@@ -703,6 +703,29 @@ bool LinuxDumper::GetStackInfo(const void** stack, size_t* stack_len,
   return true;
 }
 
+bool LinuxDumper::StackReferencesMapping(const uint8_t* stack_copy,
+                                         size_t stack_len, uintptr_t sp_offset,
+                                         const MappingInfo& mapping) {
+  // Loop over all stack words that would have been on the stack in
+  // the target process (i.e. are word aligned, and at addresses >=
+  // the stack pointer).  Regardless of the alignment of |stack_copy|,
+  // the memory starting at |stack_copy| + |offset| represents an
+  // aligned word in the target process.
+  const uintptr_t low_addr = mapping.start_addr;
+  const uintptr_t high_addr = mapping.start_addr + mapping.size;
+  const uintptr_t offset =
+      (sp_offset + sizeof(uintptr_t) - 1) & ~(sizeof(uintptr_t) - 1);
+
+  for (const uint8_t* sp = stack_copy + offset;
+       sp <= stack_copy + stack_len - sizeof(uintptr_t);
+       sp += sizeof(uintptr_t)) {
+    uintptr_t addr;
+    my_memcpy(&addr, sp, sizeof(uintptr_t));
+    if (low_addr <= addr && addr <= high_addr) return true;
+  }
+  return false;
+}
+
 // Find the mapping which the given memory address falls in.
 const MappingInfo* LinuxDumper::FindMapping(const void* address) const {
   const uintptr_t addr = (uintptr_t) address;

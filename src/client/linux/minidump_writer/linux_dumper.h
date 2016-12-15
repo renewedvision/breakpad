@@ -111,6 +111,18 @@ class LinuxDumper {
   //   stack_top: the current top of the stack
   bool GetStackInfo(const void** stack, size_t* stack_len, uintptr_t stack_top);
 
+  // Test whether a word contained in a copy of stack memory points
+  // into a given mapping.
+  //   stack_copy: a copy of the stack to sanitize. stack_copy might
+  //               not be word aligned, but it represents word aligned
+  //               data copied from another location.
+  //   stack_len: the length of the allocation pointed to by stack_copy.
+  //   sp_offset: the offset relative to stack_copy that reflects the
+  //              current value of the stack pointer.
+  //   mapping: the mapping against which to test stack words.
+  bool StackReferencesMapping(const uint8_t* stack_copy, size_t stack_len,
+                              uintptr_t sp_offset, const MappingInfo& mapping);
+
   PageAllocator* allocator() { return &allocator_; }
 
   // Copy content of |length| bytes from a given process |child|,
