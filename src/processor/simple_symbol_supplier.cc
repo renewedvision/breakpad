@@ -157,10 +157,10 @@ SymbolSupplier::SymbolResult SimpleSymbolSupplier::GetSymbolFileAtPathFromRoot(
   path.append("/");
   string debug_file_name = PathnameStripper::File(module->debug_file());
   if (debug_file_name.empty()) {
-    BPLOG(ERROR) << "Can't construct symbol file path without debug_file "
+    BPLOG(INFO) << "debug_file is empty, using code_file in symbol file path "
                     "(code_file = " <<
                     PathnameStripper::File(module->code_file()) << ")";
-    return NOT_FOUND;
+    debug_file_name = PathnameStripper::File(module->code_file());
   }
   path.append(debug_file_name);
 
