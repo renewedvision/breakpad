@@ -532,6 +532,8 @@ bool LinuxDumper::EnumerateMappings() {
           my_memset(module, 0, sizeof(MappingInfo));
           module->start_addr = start_addr;
           module->size = end_addr - start_addr;
+          module->mapping_start_addr = start_addr;
+          module->mapping_end_addr = end_addr;
           module->offset = offset;
           module->exec = exec;
           if (name != NULL) {
@@ -693,14 +695,36 @@ bool LinuxDumper::GetStackInfo(const void** stack, size_t* stack_len,
   const MappingInfo* mapping = FindMapping(stack_pointer);
   if (!mapping)
     return false;
-  const ptrdiff_t offset = stack_pointer -
-      reinterpret_cast<uint8_t*>(mapping->start_addr);
   const ptrdiff_t distance_to_end =
-      static_cast<ptrdiff_t>(mapping->size) - offset;
+      reinterpret_cast<uint8_t*>(mapping->mapping_end_addr) - stack_pointer;
   *stack_len = distance_to_end > kStackToCapture ?
       kStackToCapture : distance_to_end;
   *stack = stack_pointer;
   return true;
+}
+
+bool LinuxDumper::StackHasPointerToMapping(const uint8_t* stack_copy,
+                                           size_t stack_len,
+                                           uintptr_t sp_offset,
+                                           const MappingInfo& mapping) {
+  // Loop over all stack words that would have been on the stack in
+  // the target process (i.e. are word aligned, and at addresses >=
+  // the stack pointer).  Regardless of the alignment of |stack_copy|,
+  // the memory starting at |stack_copy| + |offset| represents an
+  // aligned word in the target process.
+  const uintptr_t low_addr = mapping.mapping_start_addr;
+  const uintptr_t high_addr = mapping.mapping_end_addr;
+  const uintptr_t offset =
+      (sp_offset + sizeof(uintptr_t) - 1) & ~(sizeof(uintptr_t) - 1);
+
+  for (const uint8_t* sp = stack_copy + offset;
+       sp <= stack_copy + stack_len - sizeof(uintptr_t);
+       sp += sizeof(uintptr_t)) {
+    uintptr_t addr;
+    my_memcpy(&addr, sp, sizeof(uintptr_t));
+    if (low_addr <= addr && addr <= high_addr) return true;
+  }
+  return false;
 }
 
 // Find the mapping which the given memory address falls in.
@@ -708,8 +732,8 @@ const MappingInfo* LinuxDumper::FindMapping(const void* address) const {
   const uintptr_t addr = (uintptr_t) address;
 
   for (size_t i = 0; i < mappings_.size(); ++i) {
-    const uintptr_t start = static_cast<uintptr_t>(mappings_[i]->start_addr);
-    if (addr >= start && addr - start < mappings_[i]->size)
+    if (addr >= mappings_[i]->mapping_start_addr &&
+        addr < mappings_[i]->mapping_end_addr)
       return mappings_[i];
   }
 
