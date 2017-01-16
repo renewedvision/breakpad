@@ -43,6 +43,10 @@ namespace google_breakpad {
 struct MappingInfo {
   uintptr_t start_addr;
   size_t size;
+  struct {
+    uintptr_t start_addr;
+    uintptr_t end_addr;
+  } system_mapping_info;
   size_t offset;  // offset into the backed file.
   bool exec;  // true if the mapping has the execute bit set.
   char name[NAME_MAX];
