@@ -130,22 +130,23 @@ size_t NextOrderedMapping(
 
 class MicrodumpWriter {
  public:
-  MicrodumpWriter(const ExceptionHandler::CrashContext* context,
-                  const MappingList& mappings,
-                  const MicrodumpExtraInfo& microdump_extra_info,
-                  LinuxDumper* dumper)
-      : ucontext_(context ? &context->context : NULL),
+   MicrodumpWriter(const ExceptionHandler::CrashContext *context,
+                   const MappingList &mappings,
+                   bool skip_dump_if_principal_mapping_not_referenced,
+                   uintptr_t address_within_principal_mapping,
+                   const MicrodumpExtraInfo &microdump_extra_info,
+                   LinuxDumper *dumper)
+       : ucontext_(context ? &context->context : NULL),
 #if !defined(__ARM_EABI__) && !defined(__mips__)
-        float_state_(context ? &context->float_state : NULL),
+         float_state_(context ? &context->float_state : NULL),
 #endif
-        dumper_(dumper),
-        mapping_list_(mappings),
-        microdump_extra_info_(microdump_extra_info),
-        log_line_(NULL),
-        stack_copy_(NULL),
-        stack_len_(0),
-        stack_lower_bound_(0),
-        stack_pointer_(0) {
+         dumper_(dumper), mapping_list_(mappings),
+         skip_dump_if_principal_mapping_not_referenced_(
+             skip_dump_if_principal_mapping_not_referenced),
+         address_within_principal_mapping_(address_within_principal_mapping),
+         microdump_extra_info_(microdump_extra_info), log_line_(NULL),
+         stack_copy_(NULL), stack_len_(0), stack_lower_bound_(0),
+         stack_pointer_(0) {
     log_line_ = reinterpret_cast<char*>(Alloc(kLineBufferSize));
     if (log_line_)
       log_line_[0] = '\0';  // Clear out the log line buffer.
@@ -252,37 +253,25 @@ class MicrodumpWriter {
                              reinterpret_cast<const void*>(stack_lower_bound_),
                              stack_len_);
 
-    if (!microdump_extra_info_.suppress_microdump_based_on_interest_range)
+    if (!skip_dump_if_principal_mapping_not_referenced_)
       return CAPTURE_OK;
 
-    uintptr_t low_addr = microdump_extra_info_.interest_range_start;
-    uintptr_t high_addr = microdump_extra_info_.interest_range_end;
+    const MappingInfo *principal_mapping =
+        dumper_->FindMappingNoBias(address_within_principal_mapping_);
+    if (!principal_mapping)
+      return CAPTURE_UNINTERESTING;
 
+    uintptr_t low_addr = principal_mapping->start_addr;
+    uintptr_t high_addr =
+        principal_mapping->start_addr + principal_mapping->size;
     uintptr_t pc = UContextReader::GetInstructionPointer(ucontext_);
     if (low_addr <= pc && pc <= high_addr) return CAPTURE_OK;
 
-    // Loop over all stack words that would have been on the stack in
-    // the target process. (i.e. ones that are >= |stack_pointer_| and
-    // < |stack_lower_bound_| + |stack_len_| in the target
-    // process).
-    // |stack_lower_bound_| is page aligned, and thus also pointer
-    // aligned. Because the stack pointer might be unaligned, we round
-    // the offset down to word alignment. |stack_pointer_| >
-    // |stack_lower_bound_|, so this never results in a negative
-    // offset.
-    // Regardless of the alignment of |stack_copy_|, the memory
-    // starting at |stack_copy_| + |offset| represents an aligned word
-    // in the target process.
-    uintptr_t offset =
-        ((stack_pointer_ - stack_lower_bound_) & ~(sizeof(uintptr_t) - 1));
-    for (uint8_t* sp = stack_copy_ + offset;
-         sp <= stack_copy_ + stack_len_ - sizeof(uintptr_t);
-         sp += sizeof(uintptr_t)) {
-      uintptr_t addr;
-      my_memcpy(&addr, sp, sizeof(uintptr_t));
-      if (low_addr <= addr && addr <= high_addr) return CAPTURE_OK;
+    if (dumper_->StackHasPointerToMapping(stack_copy_, stack_len_,
+                                          stack_pointer_ - stack_lower_bound_,
+                                          *principal_mapping)) {
+      return CAPTURE_OK;
     }
-
     return CAPTURE_UNINTERESTING;
   }
 
@@ -588,6 +577,8 @@ class MicrodumpWriter {
 #endif
   LinuxDumper* dumper_;
   const MappingList& mapping_list_;
+  bool skip_dump_if_principal_mapping_not_referenced_;
+  uintptr_t address_within_principal_mapping_;
   const MicrodumpExtraInfo microdump_extra_info_;
   char* log_line_;
 
@@ -609,11 +600,11 @@ class MicrodumpWriter {
 
 namespace google_breakpad {
 
-bool WriteMicrodump(pid_t crashing_process,
-                    const void* blob,
-                    size_t blob_size,
-                    const MappingList& mappings,
-                    const MicrodumpExtraInfo& microdump_extra_info) {
+bool WriteMicrodump(pid_t crashing_process, const void *blob, size_t blob_size,
+                    const MappingList &mappings,
+                    bool skip_dump_if_principal_mapping_not_referenced,
+                    uintptr_t address_within_principal_mapping,
+                    const MicrodumpExtraInfo &microdump_extra_info) {
   LinuxPtraceDumper dumper(crashing_process);
   const ExceptionHandler::CrashContext* context = NULL;
   if (blob) {
@@ -625,7 +616,9 @@ bool WriteMicrodump(pid_t crashing_process,
     dumper.set_crash_signal(context->siginfo.si_signo);
     dumper.set_crash_thread(context->tid);
   }
-  MicrodumpWriter writer(context, mappings, microdump_extra_info, &dumper);
+  MicrodumpWriter writer(
+      context, mappings, skip_dump_if_principal_mapping_not_referenced,
+      address_within_principal_mapping, microdump_extra_info, &dumper);
   if (!writer.Init())
     return false;
   writer.Dump();
