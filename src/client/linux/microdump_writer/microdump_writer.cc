@@ -368,6 +368,8 @@ class MicrodumpWriter {
   }
 
   void DumpThreadStack() {
+    dumper_->SanitizeStackCopy(stack_copy_, stack_len_, stack_pointer_,
+                               stack_pointer_ - stack_lower_bound_);
     LogAppend("S 0 ");
     LogAppend(stack_pointer_);
     LogAppend(" ");

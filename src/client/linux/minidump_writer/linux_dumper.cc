@@ -84,9 +84,15 @@ inline static bool IsMappedFileOpenUnsafe(
 
 namespace google_breakpad {
 
-#if defined(__CHROMEOS__)
-
 namespace {
+
+bool MappingContainsAddress(const MappingInfo& mapping,
+                            uintptr_t address) {
+  return mapping.start_addr <= address &&
+         address < mapping.start_addr + mapping.size;
+}
+
+#if defined(__CHROMEOS__)
 
 // Recover memory mappings before writing dump on ChromeOS
 //
@@ -248,8 +254,9 @@ void CrOSPostProcessMappings(wasteful_vector<MappingInfo*>& mappings) {
   mappings.resize(f);
 }
 
-}  // namespace
 #endif  // __CHROMEOS__
+
+}  // namespace
 
 // All interesting auvx entry types are below AT_SYSINFO_EHDR
 #define AT_MAX AT_SYSINFO_EHDR
@@ -703,6 +710,73 @@ bool LinuxDumper::GetStackInfo(const void** stack, size_t* stack_len,
       kStackToCapture : distance_to_end;
   *stack = stack_pointer;
   return true;
+}
+
+void LinuxDumper::SanitizeStackCopy(uint8_t* stack_copy, size_t stack_len,
+                                    uintptr_t stack_pointer,
+                                    uintptr_t sp_offset) {
+  const uintptr_t defaced =
+#if defined(__LP64__)
+      0x0defaced0defaced;
+#else
+      0x0defaced;
+#endif
+  const unsigned int test_bits = 11;
+  const unsigned int array_size = 1 << (test_bits - 3);
+  const unsigned int array_mask = array_size - 1;
+  const unsigned int shift = 32 - 11;
+  const MappingInfo* last_hit_mapping = nullptr;
+  const MappingInfo* hit_mapping = nullptr;
+  const MappingInfo* stack_mapping =
+      FindMapping(reinterpret_cast<const void*>(stack_pointer));
+
+  char could_hit_mapping[array_size];
+  my_memset(could_hit_mapping, 0, array_size);
+
+  for (size_t i = 0; i < mappings_.size(); ++i) {
+    uintptr_t start = mappings_[i]->start_addr;
+    uintptr_t end = start + mappings_[i]->size;
+    start >>= shift;
+    end >>= shift;
+    for (size_t bit = start; bit <= end; ++bit) {
+      could_hit_mapping[(bit >> 3) & array_mask] |= 1 << (bit & 7);
+    }
+  }
+
+  const uintptr_t offset =
+      (sp_offset + sizeof(uintptr_t) - 1) & ~(sizeof(uintptr_t) - 1);
+  if (offset) {
+    my_memset(stack_copy, 0, offset);
+  }
+
+  uint8_t* sp;
+  for (sp = stack_copy + offset;
+       sp <= stack_copy + stack_len - sizeof(uintptr_t);
+       sp += sizeof(uintptr_t)) {
+    uintptr_t addr;
+    my_memcpy(&addr, sp, sizeof(uintptr_t));
+    if (static_cast<intptr_t>(addr) <= 4096 &&
+        static_cast<intptr_t>(addr) >= -4096) {
+      continue;
+    }
+    if (stack_mapping && MappingContainsAddress(*stack_mapping, addr)) {
+      continue;
+    }
+    if (last_hit_mapping && MappingContainsAddress(*last_hit_mapping, addr)) {
+      continue;
+    }
+    uintptr_t test = addr >> shift;
+    if (could_hit_mapping[(test >> 3) & array_mask] & (1 << (test & 7)) &&
+        (hit_mapping = FindMapping(
+             reinterpret_cast<const void*>(addr))) != nullptr) {
+      last_hit_mapping = hit_mapping;
+      continue;
+    }
+    my_memcpy(sp, &defaced, sizeof(uintptr_t));
+  }
+  if (sp < stack_copy + stack_len) {
+    my_memset(sp, 0, stack_copy + stack_len - sp);
+  }
 }
 
 bool LinuxDumper::StackHasPointerToMapping(const uint8_t* stack_copy,
