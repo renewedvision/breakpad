@@ -73,11 +73,14 @@ bool ContainsMicrodump(const std::string& buf) {
          std::string::npos != buf.find("-----END BREAKPAD MICRODUMP-----");
 }
 
+#define IDENTIFIABLE_STRING "_IDENTIFIABLE_"
+
 void CrashAndGetMicrodump(const MappingList& mappings,
                           const MicrodumpExtraInfo& microdump_extra_info,
                           std::string* microdump,
                           bool skip_dump_if_principal_mapping_not_referenced = false,
-                          uintptr_t address_within_principal_mapping = 0) {
+                          uintptr_t address_within_principal_mapping = 0,
+                          bool sanitize_stack = false) {
   int fds[2];
   ASSERT_NE(-1, pipe(fds));
 
@@ -85,6 +88,14 @@ void CrashAndGetMicrodump(const MappingList& mappings,
   string stderr_file = temp_dir.path() + "/stderr.log";
   int err_fd = open(stderr_file.c_str(), O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
   ASSERT_NE(-1, err_fd);
+
+  char identifiable_string[sizeof(IDENTIFIABLE_STRING)];
+
+  // This string should not appear in the resulting microdump if it
+  // has been sanitized.
+  strcpy(identifiable_string, IDENTIFIABLE_STRING);
+  // Force the strcpy to not be optimized away.
+  write(STDOUT_FILENO, identifiable_string, 0);
 
   const pid_t child = fork();
   if (child == 0) {
@@ -112,7 +123,8 @@ void CrashAndGetMicrodump(const MappingList& mappings,
 
   ASSERT_TRUE(WriteMicrodump(child, &context, sizeof(context), mappings,
                              skip_dump_if_principal_mapping_not_referenced,
-                             address_within_principal_mapping, microdump_extra_info));
+                             address_within_principal_mapping, sanitize_stack,
+                             microdump_extra_info));
 
   // Revert stderr back to the console.
   dup2(save_err, STDERR_FILENO);
@@ -132,6 +144,26 @@ void CrashAndGetMicrodump(const MappingList& mappings,
   }
   close(err_fd);
   close(fds[1]);
+}
+
+void ExtractMicrodumpStackContents(const string& microdump_content, string* result) {
+  std::istringstream iss(microdump_content);
+  result->clear();
+  for (string line; std::getline(iss, line);) {
+    if (line.find("S ") == 0) {
+      std::istringstream stack_data(line);
+      std::string key;
+      std::string addr;
+      std::string data;
+      stack_data >> key >> addr >> data;
+      EXPECT_TRUE((data.size() & 1u) == 0u);
+      result->reserve(result->size() + data.size() / 2);
+      for (size_t i = 0; i < data.size(); i += 2) {
+        std::string byte = data.substr(i, 2);
+        result->push_back(static_cast<char>(strtoul(byte.c_str(), NULL, 16)));
+      }
+    }
+  }
 }
 
 void CheckMicrodumpContents(const string& microdump_content,
@@ -175,6 +207,13 @@ void CheckMicrodumpContents(const string& microdump_content,
   ASSERT_TRUE(did_find_gpu_info);
 }
 
+bool MicrodumpStackContains(const string& microdump_content,
+                            const string& expected_content) {
+  string result;
+  ExtractMicrodumpStackContents(microdump_content, &result);
+  return result.find(IDENTIFIABLE_STRING) != string::npos;
+}
+
 void CheckMicrodumpContents(const string& microdump_content,
                             const string& expected_fingerprint,
                             const string& expected_product_info,
@@ -184,32 +223,31 @@ void CheckMicrodumpContents(const string& microdump_content,
       MakeMicrodumpExtraInfo(expected_fingerprint.c_str(),
                              expected_product_info.c_str(),
                              expected_gpu_fingerprint.c_str()));
-}
+  }
 
-TEST(MicrodumpWriterTest, BasicWithMappings) {
-  // Push some extra mapping to check the MappingList logic.
-  const uint32_t memory_size = sysconf(_SC_PAGESIZE);
-  const char* kMemoryName = "libfoo.so";
-  const uint8_t kModuleGUID[sizeof(MDGUID)] = {
-     0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77,
-     0x88, 0x99, 0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF
-  };
+  TEST(MicrodumpWriterTest, BasicWithMappings) {
+    // Push some extra mapping to check the MappingList logic.
+    const uint32_t memory_size = sysconf(_SC_PAGESIZE);
+    const char* kMemoryName = "libfoo.so";
+    const uint8_t kModuleGUID[sizeof(MDGUID)] = {
+        0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77,
+        0x88, 0x99, 0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
 
-  MappingInfo info;
-  info.start_addr = memory_size;
-  info.size = memory_size;
-  info.offset = 42;
-  strcpy(info.name, kMemoryName);
+    MappingInfo info;
+    info.start_addr = memory_size;
+    info.size = memory_size;
+    info.offset = 42;
+    strcpy(info.name, kMemoryName);
 
-  MappingList mappings;
-  MappingEntry mapping;
-  mapping.first = info;
-  memcpy(mapping.second, kModuleGUID, sizeof(MDGUID));
-  mappings.push_back(mapping);
+    MappingList mappings;
+    MappingEntry mapping;
+    mapping.first = info;
+    memcpy(mapping.second, kModuleGUID, sizeof(MDGUID));
+    mappings.push_back(mapping);
 
-  std::string buf;
-  CrashAndGetMicrodump(mappings, MicrodumpExtraInfo(), &buf);
-  ASSERT_TRUE(ContainsMicrodump(buf));
+    std::string buf;
+    CrashAndGetMicrodump(mappings, MicrodumpExtraInfo(), &buf);
+    ASSERT_TRUE(ContainsMicrodump(buf));
 
 #ifdef __LP64__
   ASSERT_NE(std::string::npos,
@@ -242,6 +280,46 @@ TEST(MicrodumpWriterTest, NoOutputIfUninteresting) {
 
   CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfo, &buf, true, 0);
   ASSERT_FALSE(ContainsMicrodump(buf));
+}
+
+// Ensure that stack content does not contain an identifiable string if the
+// stack is sanitized.
+TEST(MicrodumpWriterTest, StringRemovedBySanitization) {
+  const char kProductInfo[] = "MockProduct:42.0.2311.99";
+  const char kBuildFingerprint[] =
+      "aosp/occam/mako:5.1.1/LMY47W/12345678:userdegbug/dev-keys";
+  const char kGPUFingerprint[] =
+      "Qualcomm;Adreno (TM) 330;OpenGL ES 3.0 V@104.0 AU@  (GIT@Id3510ff6dc)";
+
+  const MicrodumpExtraInfo kMicrodumpExtraInfo(
+      MakeMicrodumpExtraInfo(kBuildFingerprint, kProductInfo, kGPUFingerprint));
+
+  std::string buf;
+  MappingList no_mappings;
+
+  CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfo, &buf, false, 0u, true);
+  ASSERT_TRUE(ContainsMicrodump(buf));
+  ASSERT_FALSE(MicrodumpStackContains(buf, IDENTIFIABLE_STRING));
+}
+
+// Ensure that stack content does contain an identifiable string if the
+// stack is not sanitized.
+TEST(MicrodumpWriterTest, StringPresentIfNotSanitized) {
+  const char kProductInfo[] = "MockProduct:42.0.2311.99";
+  const char kBuildFingerprint[] =
+      "aosp/occam/mako:5.1.1/LMY47W/12345678:userdegbug/dev-keys";
+  const char kGPUFingerprint[] =
+      "Qualcomm;Adreno (TM) 330;OpenGL ES 3.0 V@104.0 AU@  (GIT@Id3510ff6dc)";
+
+  const MicrodumpExtraInfo kMicrodumpExtraInfo(
+      MakeMicrodumpExtraInfo(kBuildFingerprint, kProductInfo, kGPUFingerprint));
+
+  std::string buf;
+  MappingList no_mappings;
+
+  CrashAndGetMicrodump(no_mappings, kMicrodumpExtraInfo, &buf, false, 0u, false);
+  ASSERT_TRUE(ContainsMicrodump(buf));
+  ASSERT_TRUE(MicrodumpStackContains(buf, IDENTIFIABLE_STRING));
 }
 
 // Ensure that output occurs if the interest region is set, and
