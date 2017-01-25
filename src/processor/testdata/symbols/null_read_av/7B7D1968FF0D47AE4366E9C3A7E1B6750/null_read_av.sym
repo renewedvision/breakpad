@@ -24,7 +24,7 @@ FILE 21 /home/mattdr/google-breakpad/src/client/linux/minidump_writer/linux_dump
 FILE 22 /home/mattdr/google-breakpad/src/client/linux/minidump_writer/linux_ptrace_dumper.cc
 FILE 23 /home/mattdr/google-breakpad/src/client/linux/minidump_writer/minidump_writer.cc
 FILE 24 /home/mattdr/google-breakpad/src/client/minidump_file_writer.cc
-FILE 25 /home/mattdr/google-breakpad/src/common/convert_UTF.c
+FILE 25 /home/mattdr/google-breakpad/src/common/convert_UTF.cc
 FILE 26 /home/mattdr/google-breakpad/src/common/linux/elfutils.cc
 FILE 27 /home/mattdr/google-breakpad/src/common/linux/file_id.cc
 FILE 28 /home/mattdr/google-breakpad/src/common/linux/guid_creator.cc

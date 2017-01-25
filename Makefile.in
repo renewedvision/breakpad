@@ -311,7 +311,7 @@ am__src_client_linux_libbreakpad_client_a_SOURCES_DIST =  \
 	src/client/linux/minidump_writer/minidump_writer.cc \
 	src/client/minidump_file_writer-inl.h \
 	src/client/minidump_file_writer.cc \
-	src/client/minidump_file_writer.h src/common/convert_UTF.c \
+	src/client/minidump_file_writer.h src/common/convert_UTF.cc \
 	src/common/convert_UTF.h src/common/md5.cc src/common/md5.h \
 	src/common/string_conversion.cc src/common/string_conversion.h \
 	src/common/linux/elf_core_dump.cc src/common/linux/elfutils.cc \
@@ -2100,7 +2100,7 @@ CLEANFILES = $(am__append_13)
 @LINUX_HOST_TRUE@	src/client/minidump_file_writer-inl.h \
 @LINUX_HOST_TRUE@	src/client/minidump_file_writer.cc \
 @LINUX_HOST_TRUE@	src/client/minidump_file_writer.h \
-@LINUX_HOST_TRUE@	src/common/convert_UTF.c \
+@LINUX_HOST_TRUE@	src/common/convert_UTF.cc \
 @LINUX_HOST_TRUE@	src/common/convert_UTF.h src/common/md5.cc \
 @LINUX_HOST_TRUE@	src/common/md5.h \
 @LINUX_HOST_TRUE@	src/common/string_conversion.cc \
