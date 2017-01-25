@@ -36,7 +36,7 @@ FILE 33 /s/clank/src/out_arm/Release/../../breakpad/src/client/minidump_file_wri
 FILE 34 /s/clank/src/out_arm/Release/../../breakpad/src/common/android/breakpad_getcontext_unittest.cc
 FILE 35 /s/clank/src/out_arm/Release/../../breakpad/src/common/android/testing/mkdtemp.h
 FILE 36 /s/clank/src/out_arm/Release/../../breakpad/src/common/android/testing/pthread_fixes.h
-FILE 37 /s/clank/src/out_arm/Release/../../breakpad/src/common/convert_UTF.c
+FILE 37 /s/clank/src/out_arm/Release/../../breakpad/src/common/convert_UTF.cc
 FILE 38 /s/clank/src/out_arm/Release/../../breakpad/src/common/linux/elf_core_dump.cc
 FILE 39 /s/clank/src/out_arm/Release/../../breakpad/src/common/linux/elf_core_dump_unittest.cc
 FILE 40 /s/clank/src/out_arm/Release/../../breakpad/src/common/linux/elfutils-inl.h

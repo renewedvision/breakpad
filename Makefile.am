@@ -180,7 +180,7 @@ src_client_linux_libbreakpad_client_a_SOURCES = \
 	src/client/minidump_file_writer-inl.h \
 	src/client/minidump_file_writer.cc \
 	src/client/minidump_file_writer.h \
-	src/common/convert_UTF.c \
+	src/common/convert_UTF.cc \
 	src/common/convert_UTF.h \
 	src/common/md5.cc \
 	src/common/md5.h \
