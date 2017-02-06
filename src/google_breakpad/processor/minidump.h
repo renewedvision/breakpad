@@ -850,7 +850,7 @@ class MinidumpUnloadedModuleList : public MinidumpStream,
   static const uint32_t kStreamType = MD_UNLOADED_MODULE_LIST_STREAM;
 
 
-  bool Read(uint32_t expected_size_);
+  bool Read(uint32_t expected_size_) override;
 
   // The largest number of modules that will be read from a minidump.  The
   // default is 1024.
