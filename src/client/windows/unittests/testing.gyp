@@ -37,17 +37,17 @@
       'target_name': 'gtest',
       'type': 'static_library',
       'include_dirs': [
-        '<(DEPTH)/testing/include',
-        '<(DEPTH)/testing/gtest',
-        '<(DEPTH)/testing/gtest/include',
+        '<(DEPTH)/testing/googletest',
+        '<(DEPTH)/testing/googletest/include',
+        '<(DEPTH)/testing/googlemock',
+        '<(DEPTH)/testing/googlemock/include',
       ],
       'sources': [
-        '<(DEPTH)/testing/gtest/src/gtest-all.cc',
+        '<(DEPTH)/testing/googletest/src/gtest-all.cc',
       ],
       'direct_dependent_settings': {
         'include_dirs': [
-          '<(DEPTH)/testing/include',
-          '<(DEPTH)/testing/gtest/include',
+          '<(DEPTH)/testing/googletest/include',
         ],
         # Visual C++ implements variadic templates strangely, and
         # VC++2012 broke Google Test by lowering this value. See
@@ -60,19 +60,18 @@
       'target_name': 'gmock',
       'type': 'static_library',
       'include_dirs': [
-        '<(DEPTH)/testing/include',
-        '<(DEPTH)/testing/',
-        '<(DEPTH)/testing/gtest',
-        '<(DEPTH)/testing/gtest/include',
+        '<(DEPTH)/testing/googletest',
+        '<(DEPTH)/testing/googletest/include',
+        '<(DEPTH)/testing/googlemock',
+        '<(DEPTH)/testing/googlemock/include',
       ],
       'sources': [
-        '<(DEPTH)/testing/src/gmock-all.cc',
-        '<(DEPTH)/testing/src/gmock_main.cc',
+        '<(DEPTH)/testing/googlemock/src/gmock-all.cc',
+        '<(DEPTH)/testing/googlemock/src/gmock_main.cc',
       ],
       'direct_dependent_settings': {
         'include_dirs': [
-          '<(DEPTH)/testing/include',
-          '<(DEPTH)/testing/gtest/include',
+          '<(DEPTH)/testing/googlemock/include',
         ],
         'defines': ['_VARIADIC_MAX=10'],
       },
