@@ -1,0 +1,46 @@
+version: '{build}'
+
+environment:
+  GYP_MSVS_VERSION: 2013
+
+platform:
+  - Win32
+
+configuration:
+  - Debug
+  - Release
+
+# use the source dir expected by gclient
+clone_folder: c:\projects\breakpad\src
+
+# before checkout
+init:
+  - cd %APPVEYOR_BUILD_FOLDER%\..\..
+  - appveyor DownloadFile https://storage.googleapis.com/chrome-infra/depot_tools.zip
+  - 7z x depot_tools.zip -odepot_tools
+  - depot_tools\update_depot_tools
+  - cd %APPVEYOR_BUILD_FOLDER%
+
+# after checkout
+#
+# to be strictly correct, we should use `git config --get remote.origin.url` or (non-existent) APPVEYOR_REPO_URL for the URL supplied
+# to 'gclient config' below, but it doesn't actually seem to make any difference ...
+install:
+  - PATH C:\projects\depot_tools;%PATH%
+  - cd %APPVEYOR_BUILD_FOLDER%\..
+  - gclient config https://github.com/google/breakpad.git --unmanaged --name=src
+  - gclient sync
+
+# build: can only build a single .sln, so we need a custom build_script: to invoke msbuild on more than one .sln
+build_script:
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - msbuild src\client\windows\breakpad_client.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /m /verbosity:minimal
+  - msbuild src\tools\windows\tools_windows.sln    /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /m /verbosity:minimal
+
+test_script:
+  - src\client\windows\%CONFIGURATION%\client_tests.exe
+  - src\tools\windows\%CONFIGURATION%\dump_syms_unittest.exe
+
+artifacts:
+  - path: '**\*.exe'
+  - path: '**\*.lib'
