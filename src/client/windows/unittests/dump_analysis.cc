@@ -32,7 +32,7 @@
 #include <dbghelp.h>
 
 #include "client/windows/unittests/dump_analysis.h"  // NOLINT
-#include "testing/gtest/include/gtest/gtest.h"
+#include "breakpad_googletest_includes.h"
 
 DumpAnalysis::~DumpAnalysis() {
   if (dump_file_view_ != NULL) {

@@ -34,7 +34,7 @@
 #include "client/windows/crash_generation/minidump_generator.h"
 #include "client/windows/unittests/dump_analysis.h"  // NOLINT
 
-#include "gtest/gtest.h"
+#include "breakpad_googletest_includes.h"
 
 namespace {
 
