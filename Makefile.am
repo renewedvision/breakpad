@@ -46,7 +46,6 @@ endif
 if GCC
 # These are good warnings to be treated as errors
 AM_CXXFLAGS += \
-	-Werror \
 	-Werror=missing-braces \
 	-Werror=non-virtual-dtor \
 	-Werror=overloaded-virtual \
