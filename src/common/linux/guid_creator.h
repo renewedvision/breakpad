@@ -35,7 +35,7 @@
 typedef MDGUID GUID;
 
 // Format string for parsing GUID.
-#define kGUIDFormatString "%08x-%04x-%04x-%08x-%08x"
+#define kGUIDFormatString "%08x-%04x-%04x-%04x-%012" PRIx64
 // Length of GUID string. Don't count the ending '\0'.
 #define kGUIDStringLength 36
 

@@ -46,11 +46,15 @@
 //
 class GUIDGenerator {
  public:
-  static uint32_t BytesToUInt32(const uint8_t bytes[]) {
-    return ((uint32_t) bytes[0]
-            | ((uint32_t) bytes[1] << 8)
-            | ((uint32_t) bytes[2] << 16)
-            | ((uint32_t) bytes[3] << 24));
+  static uint16_t BytesToUInt16(const uint8_t bytes[]) {
+    return ((uint16_t) bytes[1] << 8) | ((uint16_t) bytes[0]);
+  }
+
+  // The last field in a GUID is 48 bits long so we're converting only 6 bytes
+  static uint64_t BytesToUInt48(const uint8_t bytes[]) {
+    return ((uint64_t) bytes[0] << 40) | ((uint64_t) bytes[1] << 32) |
+           ((uint64_t) bytes[2] << 24) | ((uint64_t) bytes[3] << 16) |
+           ((uint64_t) bytes[4] << 8)  | (uint64_t) bytes[5];
   }
 
   static void UInt32ToBytes(uint8_t bytes[], uint32_t n) {
@@ -94,8 +98,8 @@ bool GUIDToString(const GUID *guid, char *buf, int buf_len) {
   assert(buf_len > kGUIDStringLength);
   int num = snprintf(buf, buf_len, kGUIDFormatString,
                      guid->data1, guid->data2, guid->data3,
-                     GUIDGenerator::BytesToUInt32(&(guid->data4[0])),
-                     GUIDGenerator::BytesToUInt32(&(guid->data4[4])));
+                     GUIDGenerator::BytesToUInt16(&(guid->data4[0])),
+                     GUIDGenerator::BytesToUInt48(&(guid->data4[2])));
   if (num != kGUIDStringLength)
     return false;
 
