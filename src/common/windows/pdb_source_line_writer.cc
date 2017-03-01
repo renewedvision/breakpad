@@ -275,7 +275,7 @@ bool PDBSourceLineWriter::PrintLines(IDiaEnumLineNumbers *lines) {
     AddressRangeVector ranges;
     MapAddressRange(image_map_, AddressRange(rva, length), &ranges);
     for (size_t i = 0; i < ranges.size(); ++i) {
-      fprintf(output_, "%x %x %d %d\n", ranges[i].rva, ranges[i].length,
+      fprintf(output_, "%lx %lx %ld %ld\n", ranges[i].rva, ranges[i].length,
               line_num, source_id);
     }
     line.Release();
@@ -320,7 +320,7 @@ bool PDBSourceLineWriter::PrintFunction(IDiaSymbol *function,
   MapAddressRange(image_map_, AddressRange(rva, static_cast<DWORD>(length)),
                   &ranges);
   for (size_t i = 0; i < ranges.size(); ++i) {
-    fprintf(output_, "FUNC %x %x %x %ws\n",
+    fprintf(output_, "FUNC %lx %lx %x %ws\n",
             ranges[i].rva, ranges[i].length, stack_param_size,
             name.m_str);
   }
@@ -673,9 +673,9 @@ bool PDBSourceLineWriter::PrintFrameDataUsingPDB() {
 
       for (size_t i = 0; i < frame_infos.size(); ++i) {
         const FrameInfo& fi(frame_infos[i]);
-        fprintf(output_, "STACK WIN %x %x %x %x %x %x %x %x %x %d ",
+        fprintf(output_, "STACK WIN %lx %lx %lx %lx %lx %lx %lx %lx %lx %d ",
                 type, fi.rva, fi.code_size, fi.prolog_size,
-                0 /* epilog_size */, parameter_size, saved_register_size,
+                0l /* epilog_size */, parameter_size, saved_register_size,
                 local_size, max_stack_size, program_string_result == S_OK);
         if (program_string_result == S_OK) {
           fprintf(output_, "%ws\n", program_string.m_str);
@@ -819,10 +819,10 @@ bool PDBSourceLineWriter::PrintFrameDataUsingEXE() {
         unwind_info = NULL;
       }
     } while (unwind_info);
-    fprintf(output_, "STACK CFI INIT %x %x .cfa: $rsp .ra: .cfa %d - ^\n",
+    fprintf(output_, "STACK CFI INIT %lx %lx .cfa: $rsp .ra: .cfa %ld - ^\n",
             funcs[i].BeginAddress,
             funcs[i].EndAddress - funcs[i].BeginAddress, rip_offset);
-    fprintf(output_, "STACK CFI %x .cfa: $rsp %d +\n",
+    fprintf(output_, "STACK CFI %lx .cfa: $rsp %ld +\n",
             funcs[i].BeginAddress, stack_size);
   }
 
@@ -862,8 +862,8 @@ bool PDBSourceLineWriter::PrintCodePublicSymbol(IDiaSymbol *symbol) {
   AddressRangeVector ranges;
   MapAddressRange(image_map_, AddressRange(rva, 1), &ranges);
   for (size_t i = 0; i < ranges.size(); ++i) {
-    fprintf(output_, "PUBLIC %x %x %ws\n", ranges[i].rva,
-            stack_param_size > 0 ? stack_param_size : 0,
+    fprintf(output_, "PUBLIC %lx %lx %ws\n", ranges[i].rva,
+            stack_param_size > 0 ? stack_param_size : 0l,
             name.m_str);
   }
 
@@ -894,8 +894,8 @@ bool PDBSourceLineWriter::PrintCodePublicSymbol(IDiaSymbol *symbol) {
     AddressRangeVector next_ranges;
     MapAddressRange(image_map_, AddressRange(rva, 1), &next_ranges);
     for (size_t i = 0; i < next_ranges.size(); ++i) {
-      fprintf(output_, "PUBLIC %x %x %ws\n", next_ranges[i].rva,
-              stack_param_size > 0 ? stack_param_size : 0, name.m_str);
+      fprintf(output_, "PUBLIC %lx %lx %ws\n", next_ranges[i].rva,
+              stack_param_size > 0 ? stack_param_size : 0l, name.m_str);
     }
   }
 
@@ -980,7 +980,7 @@ bool PDBSourceLineWriter::FindPEFile() {
 
     // Look for an EXE or DLL file.
     const wchar_t *extensions[] = { L"exe", L"dll" };
-    for (int i = 0; i < sizeof(extensions) / sizeof(extensions[0]); i++) {
+    for (size_t i = 0; i < sizeof(extensions) / sizeof(extensions[0]); i++) {
       size_t dot_pos = file.find_last_of(L".");
       if (dot_pos != wstring::npos) {
         file.replace(dot_pos + 1, wstring::npos, extensions[i]);
