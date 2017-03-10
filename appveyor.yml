@@ -31,11 +31,13 @@ install:
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - msbuild src\client\windows\breakpad_client.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /m /verbosity:normal
-  - msbuild src\tools\windows\tools_windows.sln    /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /m /verbosity:normal
+  - msbuild src\tools\windows\converter\ms_symbol_server_converter.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /m /verbosity:normal
+  - msbuild src\tools\windows\dump_syms\dump_syms.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /m /verbosity:normal
+  - msbuild src\tools\windows\symupload\symupload.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /m /verbosity:normal
 
 test_script:
   - src\client\windows\%CONFIGURATION%\client_tests.exe
-  - src\tools\windows\%CONFIGURATION%\dump_syms_unittest.exe
+  - src\tools\windows\dump_syms\%CONFIGURATION%\dump_syms_unittest.exe
 
 artifacts:
   - path: '**\*.exe'

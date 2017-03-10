@@ -74,7 +74,19 @@ hooks = [
     "action": ["python",
                "src/src/tools/gyp/gyp_main.py",
                "--no-circular-check",
-               "src/src/tools/windows/tools_windows.gyp"],
+               "src/src/tools/windows/converter/ms_symbol_server_converter.gyp"],
+  },
+  {
+    "action": ["python",
+               "src/src/tools/gyp/gyp_main.py",
+               "--no-circular-check",
+               "src/src/tools/windows/dump_syms/dump_syms.gyp"],
+  },
+  {
+    "action": ["python",
+               "src/src/tools/gyp/gyp_main.py",
+               "--no-circular-check",
+               "src/src/tools/windows/symupload/symupload.gyp"],
   },
   {
     # Keep the manifest up to date.
