@@ -27,6 +27,9 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 {
+  'variables': {
+    'srcdir': '<!(python testdata_abspath.py)'
+  },
   'includes': [
     '../../../build/common.gypi',
   ],
@@ -51,6 +54,9 @@
         '<(DEPTH)/client/windows/unittests/testing.gyp:gmock',
         '<(DEPTH)/client/windows/unittests/testing.gyp:gtest',
         'dump_syms',
+      ],
+      'defines': [
+        'SRCDIR=L"<(srcdir)"'
       ],
       'msvs_settings': {
         'VCLinkerTool': {

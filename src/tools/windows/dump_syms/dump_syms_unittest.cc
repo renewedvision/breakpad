@@ -169,7 +169,7 @@ class DumpSymsRegressionTest : public testing::TestWithParam<const wchar_t *> {
     ASSERT_TRUE(GetSelfDirectory(&self_dir));
     dump_syms_exe = self_dir + L"\\dump_syms.exe";
 
-    TrimLastComponent(self_dir, &testdata_dir, NULL);
+    testdata_dir = SRCDIR;
     testdata_dir += L"\\testdata";
   }
 
