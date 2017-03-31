@@ -523,21 +523,22 @@ bool ExceptionHandler::GenerateDump(CrashContext *context) {
   }
 
   const pid_t child = sys_clone(
-      ThreadEntry, stack, CLONE_FILES | CLONE_FS | CLONE_UNTRACED,
-      &thread_arg, NULL, NULL, NULL);
+      ThreadEntry, stack, CLONE_FS | CLONE_UNTRACED, &thread_arg, NULL, NULL,
+      NULL);
   if (child == -1) {
     sys_close(fdes[0]);
     sys_close(fdes[1]);
     return false;
   }
 
+  // Close the read end of the pipe.
+  sys_close(fdes[0]);
   // Allow the child to ptrace us
   sys_prctl(PR_SET_PTRACER, child, 0, 0, 0);
   SendContinueSignalToChild();
   int status;
   const int r = HANDLE_EINTR(sys_waitpid(child, &status, __WALL));
 
-  sys_close(fdes[0]);
   sys_close(fdes[1]);
 
   if (r == -1) {
@@ -570,6 +571,10 @@ void ExceptionHandler::SendContinueSignalToChild() {
 // This function runs in a compromised context: see the top of the file.
 // Runs on the cloned process.
 void ExceptionHandler::WaitForContinueSignal() {
+  // Close the write end of the pipe. This allows us to fail if the parent dies
+  // while waiting for the continue signal.
+  sys_close(fdes[1]);
+
   int r;
   char receivedMessage;
   r = HANDLE_EINTR(sys_read(fdes[0], &receivedMessage, sizeof(char)));
@@ -580,6 +585,7 @@ void ExceptionHandler::WaitForContinueSignal() {
     logger::write(strerror(errno), strlen(strerror(errno)));
     logger::write("\n", 1);
   }
+  sys_close(fdes[0]);
 }
 
 // This function runs in a compromised context: see the top of the file.
