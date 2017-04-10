@@ -216,26 +216,40 @@ static void PrintStackContents(const string &indent,
     pointee_frame.module =
         modules->GetModuleForAddress(pointee_frame.instruction);
 
-    // Try to look up the function name.
-    if (pointee_frame.module)
-      resolver->FillSourceLineInfo(&pointee_frame);
+    if (!pointee_frame.module)
+      continue;
 
-    // Print function name.
+    uint64_t base_address = pointee_frame.module->base_address();
+    if (pointee_frame.instruction < base_address)
+      continue;
+
+    uint64_t offset = pointee_frame.instruction - base_address;
+    if (offset >= pointee_frame.module->size())
+      continue;
+
+    // Try to look up the function name.
+    resolver->FillSourceLineInfo(&pointee_frame);
+
+    // Print module offset and function name if available.
+    if (word_length == 4) {
+      printf("%s *(0x%08x) = %s + 0x%x", indent.c_str(),
+             static_cast<uint32_t>(address),
+             PathnameStripper::File(frame->module->code_file()).c_str(),
+             static_cast<uint32_t>(offset));
+    } else {
+      printf("%s *(0x%016" PRIx64 ") = %s + 0x%" PRIx64,
+             indent.c_str(), address,
+             PathnameStripper::File(frame->module->code_file()).c_str(),
+             offset);
+    }
     if (!pointee_frame.function_name.empty()) {
-      if (word_length == 4) {
-        printf("%s *(0x%08x) = 0x%08x", indent.c_str(),
-               static_cast<uint32_t>(address),
-               static_cast<uint32_t>(pointee_frame.instruction));
-      } else {
-        printf("%s *(0x%016" PRIx64 ") = 0x%016" PRIx64,
-               indent.c_str(), address, pointee_frame.instruction);
-      }
-      printf(" <%s> [%s : %d + 0x%" PRIx64 "]\n",
+      printf(" <%s> [%s : %d + 0x%" PRIx64 "]",
              pointee_frame.function_name.c_str(),
              PathnameStripper::File(pointee_frame.source_file_name).c_str(),
              pointee_frame.source_line,
              pointee_frame.instruction - pointee_frame.source_line_base);
     }
+    printf("\n");
   }
   printf("\n");
 }
