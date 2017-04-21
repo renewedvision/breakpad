@@ -46,7 +46,6 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/ptrace.h>
 #include <sys/uio.h>
 #include <sys/wait.h>
 
@@ -149,6 +148,43 @@ bool LinuxPtraceDumper::CopyFromProcess(void* dest, pid_t child,
   return true;
 }
 
+#ifdef PTRACE_GETREGSET
+bool LinuxPtraceDumper::ReadRegisterSet(ThreadInfo* info, pid_t tid)
+{
+  struct iovec io;
+  info->GetGeneralPurposeRegisters(&io.iov_base, &io.iov_len);
+  if (sys_ptrace(PTRACE_GETREGSET, tid, (void*)NT_PRSTATUS, (void*)&io) == -1) {
+    return false;
+  }
+
+  info->GetFloatingPointRegisters(&io.iov_base, &io.iov_len);
+  if (sys_ptrace(PTRACE_GETREGSET, tid, (void*)NT_FPREGSET, (void*)&io) == -1) {
+    return false;
+  }
+  return true;
+}
+#endif
+
+bool LinuxPtraceDumper::ReadRegisters(ThreadInfo* info, pid_t tid) {
+  void* gp_addr;
+  info->GetGeneralPurposeRegisters(&gp_addr, NULL);
+  if (sys_ptrace(PTRACE_GETREGS, tid, NULL, gp_addr) == -1) {
+    return false;
+  }
+
+#if !(defined(__ANDROID__) && defined(__ARM_EABI__))
+  // When running an arm build on an arm64 device, attempting to get the
+  // floating point registers fails. On Android, the floating point registers
+  // aren't written to the cpu context anyway, so just don't get them here.
+  // See http://crbug.com/508324
+  void* fp_addr;
+  info->GetFloatingPointRegisters(&fp_addr, NULL);
+  if (sys_ptrace(PTRACE_GETFPREGS, tid, NULL, fp_addr) == -1) {
+    return false;
+  }
+  return true;
+}
+
 // Read thread info from /proc/$pid/status.
 // Fill out the |tgid|, |ppid| and |pid| members of |info|. If unavailable,
 // these members are set to -1. Returns true iff all three members are
@@ -189,31 +225,13 @@ bool LinuxPtraceDumper::GetThreadInfoByIndex(size_t index, ThreadInfo* info) {
     return false;
 
 #ifdef PTRACE_GETREGSET
-  struct iovec io;
-  info->GetGeneralPurposeRegisters(&io.iov_base, &io.iov_len);
-  if (sys_ptrace(PTRACE_GETREGSET, tid, (void*)NT_PRSTATUS, (void*)&io) == -1) {
-    return false;
-  }
-
-  info->GetFloatingPointRegisters(&io.iov_base, &io.iov_len);
-  if (sys_ptrace(PTRACE_GETREGSET, tid, (void*)NT_FPREGSET, (void*)&io) == -1) {
-    return false;
+  if(!ReadRegisterSet(info, tid)) {
+    if(!ReadRegisters(info, tid)) {
+      return false;
+    }
   }
 #else  // PTRACE_GETREGSET
-  void* gp_addr;
-  info->GetGeneralPurposeRegisters(&gp_addr, NULL);
-  if (sys_ptrace(PTRACE_GETREGS, tid, NULL, gp_addr) == -1) {
-    return false;
-  }
-
-#if !(defined(__ANDROID__) && defined(__ARM_EABI__))
-  // When running an arm build on an arm64 device, attempting to get the
-  // floating point registers fails. On Android, the floating point registers
-  // aren't written to the cpu context anyway, so just don't get them here.
-  // See http://crbug.com/508324
-  void* fp_addr;
-  info->GetFloatingPointRegisters(&fp_addr, NULL);
-  if (sys_ptrace(PTRACE_GETFPREGS, tid, NULL, fp_addr) == -1) {
+  if(!ReadRegisters(info, tid)) {
     return false;
   }
 #endif

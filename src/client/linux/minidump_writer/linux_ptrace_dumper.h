@@ -37,6 +37,8 @@
 
 #include "client/linux/minidump_writer/linux_dumper.h"
 
+#include <sys/ptrace.h>
+
 namespace google_breakpad {
 
 class LinuxPtraceDumper : public LinuxDumper {
@@ -85,6 +87,16 @@ class LinuxPtraceDumper : public LinuxDumper {
  private:
   // Set to true if all threads of the crashed process are suspended.
   bool threads_suspended_;
+
+#ifdef PTRACE_GETREGSET
+  // Read the tracee's registers on kernel with PTRACE_GETREGSET support
+  // Returns true on success.
+  bool ReadRegisterSet(ThreadInfo* info, pid_t tid);
+#endif
+
+  // Read the tracee's registers on kernel with PTRACE_GETREGS support
+  // Returns true on success.
+  bool ReadRegisters(ThreadInfo* info, pid_t tid);
 };
 
 }  // namespace google_breakpad
