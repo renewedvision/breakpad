@@ -76,6 +76,7 @@
 // This namespace contains helper functions.
 namespace {
 
+using google_breakpad::Case;
 using google_breakpad::DumpOptions;
 using google_breakpad::DwarfCFIToModule;
 using google_breakpad::DwarfCUToModule;
@@ -84,6 +85,7 @@ using google_breakpad::ElfClass;
 using google_breakpad::ElfClass32;
 using google_breakpad::ElfClass64;
 using google_breakpad::FileID;
+using google_breakpad::FindElfBuildIDNote;
 using google_breakpad::FindElfSectionByName;
 using google_breakpad::GetOffset;
 using google_breakpad::IsValidElf;
@@ -524,6 +526,31 @@ string ReadDebugLink(const uint8_t *debuglink,
   return string();
 }
 
+// Try to locate the debug file name using the build id. If anything goes
+// wrong, return an empty string.
+// See https://sourceware.org/gdb/onlinedocs/gdb/Separate-Debug-Files.html
+string FindBuildIDDebugFile(const wasteful_vector<uint8_t>& identifier,
+                            const std::vector<string>& debug_dirs) {
+  string build_id = FileID::ConvertIdentifierToString(identifier,
+                                                      Case::kLowercase);
+  // For Build ID lookup, GDB looks in .build-id/ab/cdef.debug, where 'ab'
+  // is the first two hex digits of the build id.
+  string build_id_path = ".build-id/" + build_id.substr(0, 2) + "/" +
+    build_id.substr(2) + ".debug";
+  std::vector<string>::const_iterator it;
+  for (it = debug_dirs.begin(); it < debug_dirs.end(); ++it) {
+    const string& debug_dir = *it;
+    string debug_file_path = debug_dir + "/" + build_id_path;
+    struct stat st;
+    if (stat(debug_file_path.c_str(), &st) == 0 && (st.st_mode & S_IFMT)) {
+      return debug_file_path;
+    }
+  }
+  // Not found case.
+  fprintf(stderr, "Failed to find debug ELF file using build-id\n");
+  return string();
+}
+
 //
 // LoadSymbolsInfo
 //
@@ -816,31 +843,45 @@ bool LoadSymbols(const string& obj_file,
             " (no \".stab\" or \".debug_info\" sections)\n",
             obj_file.c_str());
 
-    // Failed, but maybe there's a .gnu_debuglink section?
+    // Failed, but maybe there's a .gnu_debuglink section, or a build id?
     if (read_gnu_debug_link) {
-      const Shdr* gnu_debuglink_section
+      // Look for a build id.
+      PageAllocator allocator;
+      wasteful_vector<uint8_t> identifier(&allocator, kDefaultBuildIdSize);
+      if (FindElfBuildIDNote(elf_header, identifier)) {
+        if (!info->debug_dirs().empty()) {
+          string build_id_debug_file = FindBuildIDDebugFile(identifier,
+                                                            info->debug_dirs());
+          info->set_debuglink_file(build_id_debug_file);
+        } else {
+          fprintf(stderr, ".note.gnu.build-id section found in '%s', "
+                  "but no debug path specified.\n", obj_file.c_str());
+        }
+      } else {
+        const Shdr* gnu_debuglink_section
           = FindElfSectionByName<ElfClass>(".gnu_debuglink", SHT_PROGBITS,
                                            sections, names,
                                            names_end, elf_header->e_shnum);
-      if (gnu_debuglink_section) {
-        if (!info->debug_dirs().empty()) {
-          const uint8_t *debuglink_contents =
+        if (gnu_debuglink_section) {
+          if (!info->debug_dirs().empty()) {
+            const uint8_t *debuglink_contents =
               GetOffset<ElfClass, uint8_t>(elf_header,
                                            gnu_debuglink_section->sh_offset);
-          string debuglink_file =
+            string debuglink_file =
               ReadDebugLink(debuglink_contents,
                             gnu_debuglink_section->sh_size,
                             big_endian,
                             obj_file,
                             info->debug_dirs());
-          info->set_debuglink_file(debuglink_file);
+            info->set_debuglink_file(debuglink_file);
+          } else {
+            fprintf(stderr, ".gnu_debuglink section found in '%s', "
+                    "but no debug path specified.\n", obj_file.c_str());
+          }
         } else {
-          fprintf(stderr, ".gnu_debuglink section found in '%s', "
-                  "but no debug path specified.\n", obj_file.c_str());
+          fprintf(stderr, "%s does not contain either a .note.gnu.build-id or "
+                  ".gnu_debuglink section.\n", obj_file.c_str());
         }
-      } else {
-        fprintf(stderr, "%s does not contain a .gnu_debuglink section.\n",
-                obj_file.c_str());
       }
     } else {
       // Return true if some usable information was found, since the caller
@@ -944,7 +985,8 @@ bool InitModuleForElfClass(const typename ElfClass::Ehdr* elf_header,
   // really used or necessary on other platforms, but be consistent.
   string id = FileID::ConvertIdentifierToUUIDString(identifier) + "0";
   // This is just the raw Build ID in hex.
-  string code_id = FileID::ConvertIdentifierToString(identifier);
+  string code_id = FileID::ConvertIdentifierToString(identifier,
+                                                     Case::kUppercase);
 
   module.reset(new Module(name, os, architecture, id, code_id));
 

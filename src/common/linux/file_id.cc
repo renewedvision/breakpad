@@ -92,8 +92,8 @@ static bool ElfClassBuildIDNoteIdentifier(const void *section, size_t length,
 
 // Attempt to locate a .note.gnu.build-id section in an ELF binary
 // and copy it into |identifier|.
-static bool FindElfBuildIDNote(const void* elf_mapped_base,
-                               wasteful_vector<uint8_t>& identifier) {
+bool FindElfBuildIDNote(const void* elf_mapped_base,
+                        wasteful_vector<uint8_t>& identifier) {
   void* note_section;
   size_t note_size;
   int elfclass;
@@ -165,11 +165,17 @@ bool FileID::ElfFileIdentifier(wasteful_vector<uint8_t>& identifier) {
 
 // These three functions are not ever called in an unsafe context, so it's OK
 // to allocate memory and use libc.
-static string bytes_to_hex_string(const uint8_t* bytes, size_t count) {
+static string bytes_to_hex_string(const uint8_t* bytes,
+                                  size_t count,
+                                  Case hex_case) {
   string result;
   for (unsigned int idx = 0; idx < count; ++idx) {
     char buf[3];
-    snprintf(buf, sizeof(buf), "%02X", bytes[idx]);
+    if (hex_case == kUppercase) {
+      snprintf(buf, sizeof(buf), "%02X", bytes[idx]);
+    } else {
+      snprintf(buf, sizeof(buf), "%02x", bytes[idx]);
+    }
     result.append(buf);
   }
   return result;
@@ -190,13 +196,13 @@ string FileID::ConvertIdentifierToUUIDString(
   uint16_t* data3 = reinterpret_cast<uint16_t*>(identifier_swapped + 6);
   *data3 = htons(*data3);
 
-  return bytes_to_hex_string(identifier_swapped, kMDGUIDSize);
+  return bytes_to_hex_string(identifier_swapped, kMDGUIDSize, Case::kUppercase);
 }
 
 // static
 string FileID::ConvertIdentifierToString(
-    const wasteful_vector<uint8_t>& identifier) {
-  return bytes_to_hex_string(&identifier[0], identifier.size());
+    const wasteful_vector<uint8_t>& identifier, Case hex_case) {
+  return bytes_to_hex_string(&identifier[0], identifier.size(), hex_case);
 }
 
 }  // namespace google_breakpad

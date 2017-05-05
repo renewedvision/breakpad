@@ -328,11 +328,15 @@ TYPED_TEST(FileIDTest, ConvertIdentifierToString) {
      0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F};
   const char* kExpected =
     "000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F";
+  const char* kExpectedLower =
+    "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f";
 
   id_vector identifier(this->make_vector());
   identifier.insert(identifier.end(),
                     kIdentifierBytes,
                     kIdentifierBytes + sizeof(kIdentifierBytes));
   ASSERT_EQ(kExpected,
-            FileID::ConvertIdentifierToString(identifier));
+            FileID::ConvertIdentifierToString(identifier, Case::kUppercase));
+  ASSERT_EQ(kExpectedLower,
+            FileID::ConvertIdentifierToString(identifier, Case::kLowercase));
 }

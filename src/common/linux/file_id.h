@@ -48,6 +48,17 @@ namespace google_breakpad {
 // callers can get away with stack allocation.
 static const size_t kDefaultBuildIdSize = 20;
 
+// Case selector for functions that generate hex strings.
+enum Case {
+  kLowercase,
+  kUppercase,
+};
+
+// Attempt to locate a .note.gnu.build-id section in an ELF binary
+// and copy it into |identifier|.
+bool FindElfBuildIDNote(const void* elf_mapped_base,
+                        wasteful_vector<uint8_t>& identifier);
+
 class FileID {
  public:
   explicit FileID(const char* path);
@@ -76,7 +87,7 @@ class FileID {
 
   // Convert the entire |identifier| data to a hex string.
   static string ConvertIdentifierToString(
-      const wasteful_vector<uint8_t>& identifier);
+      const wasteful_vector<uint8_t>& identifier, Case hex_case);
 
  private:
   // Storage for the path specified
