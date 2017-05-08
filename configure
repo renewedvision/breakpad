@@ -669,6 +669,8 @@ am__fastdepCCAS_TRUE
 CCASDEPMODE
 CCASFLAGS
 CCAS
+ac_ct_AR
+AR
 am__fastdepCC_FALSE
 am__fastdepCC_TRUE
 CCDEPMODE
@@ -686,8 +688,6 @@ CPPFLAGS
 LDFLAGS
 CFLAGS
 CC
-ac_ct_AR
-AR
 MAINT
 MAINTAINER_MODE_FALSE
 MAINTAINER_MODE_TRUE
@@ -4156,6 +4156,57 @@ else
   am__fastdepCC_FALSE=
 fi
 
+
+
+
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for O_CLOEXEC" >&5
+$as_echo_n "checking for O_CLOEXEC... " >&6; }
+if ${ac_cv_o_cloexec+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+
+    ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+    save_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS -I${srcdir}"
+
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+#include <fcntl.h>
+int
+main ()
+{
+ int flags= O_CLOEXEC
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_compile "$LINENO"; then :
+  ac_cv_o_cloexec="yes"
+else
+  ac_cv_o_cloexec="no"
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+    ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_o_cloexec" >&5
+$as_echo "$ac_cv_o_cloexec" >&6; }
+
+  if test "x$ac_cv_o_cloexec" = "xyes"; then :
+
+$as_echo "#define HAVE_O_CLOEXEC 1" >>confdefs.h
+
+fi
 
 
 if test -n "$ac_tool_prefix"; then

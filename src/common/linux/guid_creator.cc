@@ -27,6 +27,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#include "config.h"
 #include "common/linux/eintr_wrapper.h"
 #include "common/linux/guid_creator.h"
 
@@ -135,7 +136,11 @@ class GUIDGenerator {
   // if the GUID wasn't fully populated with random data.
   static bool CreateGUIDFromDevUrandom(GUID *guid) {
     char *buf = reinterpret_cast<char *>(guid);
-    int fd = open("/dev/urandom", O_RDONLY | O_CLOEXEC);
+    int oflags = O_RDONLY;
+#ifdef HAVE_O_CLOEXEC
+    oflags |= O_CLOEXEC;
+#endif
+    int fd = open("/dev/urandom", oflags);
 
     if (fd == -1) {
       return false;
