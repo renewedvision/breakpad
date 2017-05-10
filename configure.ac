@@ -101,6 +101,12 @@ AS_VAR_APPEND([WARN_CXXFLAGS], " -Werror")
 AC_LANG_POP([C++])
 AC_SUBST([WARN_CXXFLAGS])
 
+dnl Test support for O_CLOEXEC
+AC_LANG_PUSH([C++])
+AX_CHECK_DEFINE([fcntl.h], [O_CLOEXEC], [], [AC_DEFINE([O_CLOEXEC], [0],
+                [Define to 0 if you don't have O_CLOEXEC])])
+AC_LANG_POP([C++])
+
 # Only build Linux client libs when compiling for Linux
 case $host in
   *-*-linux* | *-android* )
