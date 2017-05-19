@@ -96,6 +96,7 @@
 #include "client/linux/minidump_writer/minidump_writer.h"
 #include "common/linux/eintr_wrapper.h"
 #include "third_party/lss/linux_syscall_support.h"
+#include "v8/include/v8.h"
 
 #if defined(__ANDROID__)
 #include "linux/sched.h"
@@ -362,6 +363,19 @@ void ExceptionHandler::SignalHandler(int sig, siginfo_t* info, void* uc) {
     pthread_mutex_unlock(&g_handler_stack_mutex_);
     return;
   }
+
+  // Give V8 a chance to recover from this signal
+  //
+  // V8 uses guard regions to guarantee memory safety in WebAssembly. This means
+  // some signals might be expected if they originate from Wasm code while
+  // accessing the guard region. We give V8 the chance to handle and recover
+  // from these signals first.
+#if V8_OS_LINUX && V8_TARGET_ARCH_X64 && !V8_OS_ANDROID
+  if (v8::TryHandleSignal(sig, info, uc)) {
+    pthread_mutex_unlock(&g_handler_stack_mutex_);
+    return;
+  }
+#endif
 
   bool handled = false;
   for (int i = g_handler_stack_->size() - 1; !handled && i >= 0; --i) {
