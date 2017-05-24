@@ -527,8 +527,10 @@ bool LinuxDumper::EnumerateMappings() {
             if ((start_addr == module->start_addr + module->size) &&
                 (my_strlen(name) == my_strlen(module->name)) &&
                 (my_strncmp(name, module->name, my_strlen(name)) == 0) &&
-                (exec == module->exec)) {
+                ((exec == module->exec) || (!module->exec && exec))) {
+              module->system_mapping_info.end_addr = end_addr;
               module->size = end_addr - module->start_addr;
+              module->exec |= exec;
               line_reader->PopLine(line_len);
               continue;
             }
