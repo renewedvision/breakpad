@@ -206,7 +206,7 @@ static void DoNullPointerDereference() {
   *p_null = 1;
 }
 
-void ChildCrash(bool use_fd) {
+void ChildCrash(bool use_fd, int child_rlimit_nofile) {
   AutoTempDir temp_dir;
   int fds[2] = {0};
   int minidump_fd = -1;
@@ -231,6 +231,14 @@ void ChildCrash(bool use_fd) {
                                            NULL, DoneCallback, fd_param,
                                            true, -1));
       }
+
+      if (child_rlimit_nofile != 0) {
+        struct rlimit rlim;
+        ASSERT_EQ(getrlimit(RLIMIT_NOFILE, &rlim), 0);
+        rlim.rlim_cur = child_rlimit_nofile;
+        ASSERT_EQ(setrlimit(RLIMIT_NOFILE, &rlim), 0);
+      }
+
       // Crash with the exception handler in scope.
       DoNullPointerDereference();
     }
@@ -250,11 +258,11 @@ void ChildCrash(bool use_fd) {
 }
 
 TEST(ExceptionHandlerTest, ChildCrashWithPath) {
-  ASSERT_NO_FATAL_FAILURE(ChildCrash(false));
+  ASSERT_NO_FATAL_FAILURE(ChildCrash(false, 0));
 }
 
 TEST(ExceptionHandlerTest, ChildCrashWithFD) {
-  ASSERT_NO_FATAL_FAILURE(ChildCrash(true));
+  ASSERT_NO_FATAL_FAILURE(ChildCrash(true, 0));
 }
 
 static bool DoneCallbackReturnFalse(const MinidumpDescriptor& descriptor,
@@ -1199,4 +1207,8 @@ TEST(ExceptionHandlerTest, FirstChanceHandlerRuns) {
   ASSERT_NE(HANDLE_EINTR(waitpid(child, &status, 0)), -1);
   ASSERT_TRUE(WIFEXITED(status));
   ASSERT_EQ(kSimpleFirstChanceReturnStatus, WEXITSTATUS(status));
+}
+
+TEST(ExceptionHandlerTest, IncreasesFileDescriptorLimit) {
+  ASSERT_NO_FATAL_FAILURE(ChildCrash(false, 1));
 }

@@ -504,6 +504,16 @@ bool ExceptionHandler::GenerateDump(CrashContext *context) {
   if (IsOutOfProcess())
     return crash_generation_client_->RequestDump(context, sizeof(*context));
 
+  // Increase file descriptor soft limit to hard limit to prevent failures if
+  // the crash was due to hitting the soft limit.
+  struct rlimit rlim;
+  if (getrlimit(RLIMIT_NOFILE, &rlim) == 0) {
+    if (rlim.rlim_max > rlim.rlim_cur) {
+      rlim.rlim_cur = rlim.rlim_max;
+      setrlimit(RLIMIT_NOFILE, &rlim);
+    }
+  }
+
   // Allocating too much stack isn't a problem, and better to err on the side
   // of caution than smash it into random locations.
   static const unsigned kChildStackSize = 16000;
