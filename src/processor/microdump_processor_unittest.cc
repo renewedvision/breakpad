@@ -132,7 +132,7 @@ TEST_F(MicrodumpProcessorTest, TestProcess_MissingSymbols) {
   ASSERT_EQ("arm64", state.system_info()->cpu);
   ASSERT_EQ("OS 64 VERSION INFO", state.system_info()->os_version);
   ASSERT_EQ(1U, state.threads()->size());
-  ASSERT_EQ(12U, state.threads()->at(0)->frames()->size());
+  ASSERT_EQ(11U, state.threads()->at(0)->frames()->size());
 
   ASSERT_EQ("",
             state.threads()->at(0)->frames()->at(0)->function_name);
