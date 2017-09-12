@@ -942,6 +942,9 @@ void LineInfo::ReadHeader() {
   header_.min_insn_length = reader_->ReadOneByte(lineptr);
   lineptr += 1;
 
+  if (header_.version >= 4)
+    ++lineptr;  // maximum_operations_per_instruction
+
   header_.default_is_stmt = reader_->ReadOneByte(lineptr);
   lineptr += 1;
 
