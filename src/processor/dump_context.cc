@@ -34,6 +34,7 @@
 #include "google_breakpad/processor/dump_context.h"
 
 #include <assert.h>
+#include <string.h>
 
 #ifdef _WIN32
 #include <io.h>
@@ -43,6 +44,163 @@
 
 #include "common/stdio_wrapper.h"
 #include "processor/logging.h"
+
+static double X87DoubleExtendedToDouble(const uint8_t ldr[10]) {
+#if 1
+  bool sign = ldr[9] & 0x80;
+  uint16_t biased_exponent = ((ldr[9] & 0x7f) << 8) | ldr[8];
+//  bool integer_bit = ldr[7] & 0x80;
+  uint64_t fraction =
+      ((static_cast<uint64_t>(ldr[7]) & 0x7f) << 56) |
+      (static_cast<uint64_t>(ldr[6]) << 48) |
+      (static_cast<uint64_t>(ldr[5]) << 40) |
+      (static_cast<uint64_t>(ldr[4]) << 32) |
+      (static_cast<uint32_t>(ldr[3]) << 24) |
+      (ldr[2] << 16) |
+      (ldr[1] << 8) |
+      ldr[0];
+
+// This isn't 100% right. It loses the lowest bits in the significant that
+// might distinguish between nan and infinity. It truncates but it probably
+// should round to nearest. And the handling of the integer bit for denormals
+// is probably wrong.
+  int unbiased_exponent = biased_exponent - 16383;
+  int d_exponent;
+  if (biased_exponent == 0) {
+    d_exponent = 0;
+  } else if (unbiased_exponent < -1022 || unbiased_exponent > 1023) {
+    d_exponent = 2047;
+  } else {
+    d_exponent = unbiased_exponent + 1023;
+  }
+
+  uint64_t as_double = ((sign ? 1ull : 0ull) << 63) |
+                       (static_cast<uint64_t>(d_exponent & 0x7ff) << 52) |
+                       (fraction >> 11);
+
+  double d;
+  memcpy(&d, &as_double, sizeof(d));
+#else
+// x86/x86_64 only! doesn't seem to get inf right!
+  uint8_t ldr2[16];
+  memcpy(&ldr2, ldr, 10);
+  memset(&ldr2[10], 0, 6);
+  long double ld;
+  memcpy(&ld, &ldr2, 16);
+  double d = ld;
+#endif
+
+  return d;
+}
+
+static std::string X87DoubleExtendedToString(const uint8_t ldr[10]) {
+// x86/x86_64 only!
+  uint8_t ldr2[16];
+  memcpy(&ldr2, ldr, 10);
+  long double ld;
+  memcpy(&ld, ldr, 10);
+  char result[256];
+  snprintf(result, sizeof(result), "%Le", ld);
+  return result;
+}
+
+struct FxsaveArea {
+  typedef uint8_t X87Register[10];
+
+  union X87OrMMXRegister {
+    struct {
+      X87Register st;
+      uint8_t st_reserved[6];
+    };
+    struct {
+      uint8_t mm_value[8];
+      uint8_t mm_reserved[8];
+    };
+  };
+
+  typedef uint8_t XMMRegister[16];
+
+  uint16_t fcw;  // FPU control word
+  uint16_t fsw;  // FPU status word
+  uint8_t ftw;  // abridged FPU tag word
+  uint8_t reserved_1;
+  uint16_t fop;  // FPU opcode
+  uint32_t fpu_ip;  // FPU instruction pointer offset
+  uint16_t fpu_cs;  // FPU instruction pointer segment selector
+  uint16_t reserved_2;
+  uint32_t fpu_dp;  // FPU data pointer offset
+  uint16_t fpu_ds;  // FPU data pointer segment selector
+  uint16_t reserved_3;
+  uint32_t mxcsr;  // multimedia extensions status and control register
+  uint32_t mxcsr_mask;  // valid bits in mxcsr
+  X87OrMMXRegister st_mm[8];
+  XMMRegister xmm[16];
+  uint8_t reserved_4[48];
+  uint8_t available[48];
+};
+
+void PrintFxsaveArea(const FxsaveArea* fxsave) {
+  printf("  fxsave.fcw        = 0x%x\n", fxsave->fcw);
+  printf("  fxsave.fsw        = 0x%x\n", fxsave->fsw);
+  printf("  fxsave.ftw        = 0x%x\n", fxsave->ftw);
+  printf("  fxsave.reserved_1 = 0x%x\n", fxsave->reserved_1);
+  printf("  fxsave.fop        = 0x%x\n", fxsave->fop);
+  printf("  fxsave.fpu_ip     = 0x%x\n", fxsave->fpu_ip);
+  printf("  fxsave.fpu_cs     = 0x%x\n", fxsave->fpu_cs);
+  printf("  fxsave.reserved_2 = 0x%x\n", fxsave->reserved_2);
+  printf("  fxsave.fpu_dp     = 0x%x\n", fxsave->fpu_dp);
+  printf("  fxsave.fpu_ds     = 0x%x\n", fxsave->fpu_ds);
+  printf("  fxsave.reserved_3 = 0x%x\n", fxsave->reserved_3);
+  printf("  fxsave.mxcsr      = 0x%x\n", fxsave->mxcsr);
+  printf("  fxsave.mxcsr_mask = 0x%x\n", fxsave->mxcsr_mask);
+
+  int stack_top = (fxsave->fsw >> 11) & 0x7;
+  for (unsigned int st_index = 0; st_index < 8; ++st_index) {
+    printf("  fxsave.st_mm[%u]   = 0x", st_index);
+    for (int i = 0; i < 10; ++i) {
+      printf("%02x", fxsave->st_mm[st_index].st[i]);
+    }
+    printf(" ");
+    for (int i = 0; i < 6; ++i) {
+      printf("%02x", fxsave->st_mm[st_index].st_reserved[i]);
+    }
+
+    std::string fs = X87DoubleExtendedToString(&fxsave->st_mm[st_index].st[0]);
+
+    unsigned int r_index = (st_index + stack_top) % 8;
+    unsigned int tag = (fxsave->ftw >> r_index) & 0x1;
+    const char* tag_name = tag ? "valid" : "empty";
+
+    printf(" (%s %s)\n", tag_name, fs.c_str());
+  }
+
+  for (unsigned int xmm_index = 0; xmm_index < 16; ++xmm_index) {
+    printf("  fxsave.xmm[%2d]    = 0x", xmm_index);
+    for (int i = 0; i < 16; ++i) {
+      printf("%02x", fxsave->xmm[xmm_index][i]);
+    }
+
+// Nobody knows what's really in the register. If it's a double that was put
+// there by, for example, movsd, print it.
+double d;
+memcpy(&d, &fxsave->xmm[xmm_index], 8);
+printf( " (%e)", d);
+
+    printf("\n");
+  }
+
+  printf("  fxsave.reserved_4 = 0x");
+  for (int i = 0; i < 48; ++i) {
+    printf("%02x", fxsave->reserved_4[i]);
+  }
+  printf("\n");
+
+  printf("  fxsave.available  = 0x");
+  for (int i = 0; i < 48; ++i) {
+    printf("%02x", fxsave->available[i]);
+  }
+  printf("\n");
+}
 
 namespace google_breakpad {
 
@@ -310,6 +468,7 @@ void DumpContext::FreeContext() {
   context_.base = NULL;
 }
 
+
 void DumpContext::Print() {
   if (!valid_) {
     BPLOG(ERROR) << "DumpContext cannot print invalid data";
@@ -320,62 +479,87 @@ void DumpContext::Print() {
     case MD_CONTEXT_X86: {
       const MDRawContextX86* context_x86 = GetContextX86();
       printf("MDRawContextX86\n");
-      printf("  context_flags                = 0x%x\n",
+      printf("  context_flags             = 0x%x\n",
              context_x86->context_flags);
-      printf("  dr0                          = 0x%x\n", context_x86->dr0);
-      printf("  dr1                          = 0x%x\n", context_x86->dr1);
-      printf("  dr2                          = 0x%x\n", context_x86->dr2);
-      printf("  dr3                          = 0x%x\n", context_x86->dr3);
-      printf("  dr6                          = 0x%x\n", context_x86->dr6);
-      printf("  dr7                          = 0x%x\n", context_x86->dr7);
-      printf("  float_save.control_word      = 0x%x\n",
+      printf("  dr0                       = 0x%x\n", context_x86->dr0);
+      printf("  dr1                       = 0x%x\n", context_x86->dr1);
+      printf("  dr2                       = 0x%x\n", context_x86->dr2);
+      printf("  dr3                       = 0x%x\n", context_x86->dr3);
+      printf("  dr6                       = 0x%x\n", context_x86->dr6);
+      printf("  dr7                       = 0x%x\n", context_x86->dr7);
+      printf("  float_save.control_word   = 0x%x\n",
              context_x86->float_save.control_word);
-      printf("  float_save.status_word       = 0x%x\n",
+      printf("  float_save.status_word    = 0x%x\n",
              context_x86->float_save.status_word);
-      printf("  float_save.tag_word          = 0x%x\n",
+      printf("  float_save.tag_word       = 0x%x\n",
              context_x86->float_save.tag_word);
-      printf("  float_save.error_offset      = 0x%x\n",
+      printf("  float_save.error_offset   = 0x%x\n",
              context_x86->float_save.error_offset);
-      printf("  float_save.error_selector    = 0x%x\n",
+      printf("  float_save.error_selector = 0x%x\n",
              context_x86->float_save.error_selector);
-      printf("  float_save.data_offset       = 0x%x\n",
+      printf("  float_save.data_offset    = 0x%x\n",
              context_x86->float_save.data_offset);
-      printf("  float_save.data_selector     = 0x%x\n",
+      printf("  float_save.data_selector  = 0x%x\n",
              context_x86->float_save.data_selector);
-      printf("  float_save.register_area[%2d] = 0x",
-             MD_FLOATINGSAVEAREA_X86_REGISTERAREA_SIZE);
-      for (unsigned int register_index = 0;
-           register_index < MD_FLOATINGSAVEAREA_X86_REGISTERAREA_SIZE;
-           ++register_index) {
-        printf("%02x", context_x86->float_save.register_area[register_index]);
+
+      int stack_top = (context_x86->float_save.status_word >> 11) & 0x7;
+      for (unsigned int st_index = 0; st_index < 8; ++st_index) {
+        printf("  float_save_area.st[%d]     = 0x", st_index);
+        const uint8_t* x87_register =
+            &context_x86->float_save.register_area[st_index * 10];
+        for (unsigned int byte_index = 0; byte_index < 10; ++byte_index) {
+          printf("%02x", x87_register[byte_index]);
+        }
+
+        std::string fs = X87DoubleExtendedToString(x87_register);
+
+        unsigned int r_index = (st_index + stack_top) % 8;
+        unsigned int tag =
+          (context_x86->float_save.tag_word >> (2 * r_index)) & 0x3;
+        const char* tag_name;
+        switch (tag) {
+          case 0:
+            tag_name = "valid";
+            break;
+          case 1:
+            tag_name = "zero ";
+            break;
+          case 2:
+            tag_name = "specl";
+            break;
+          case 3:
+            tag_name = "empty";
+            break;
+          default:
+            tag_name = "unkwn";
+            break;
+        }
+
+        printf(" (%s %s)\n", tag_name, fs.c_str());
       }
-      printf("\n");
-      printf("  float_save.cr0_npx_state     = 0x%x\n",
+      printf("  float_save.cr0_npx_state  = 0x%x\n",
              context_x86->float_save.cr0_npx_state);
-      printf("  gs                           = 0x%x\n", context_x86->gs);
-      printf("  fs                           = 0x%x\n", context_x86->fs);
-      printf("  es                           = 0x%x\n", context_x86->es);
-      printf("  ds                           = 0x%x\n", context_x86->ds);
-      printf("  edi                          = 0x%x\n", context_x86->edi);
-      printf("  esi                          = 0x%x\n", context_x86->esi);
-      printf("  ebx                          = 0x%x\n", context_x86->ebx);
-      printf("  edx                          = 0x%x\n", context_x86->edx);
-      printf("  ecx                          = 0x%x\n", context_x86->ecx);
-      printf("  eax                          = 0x%x\n", context_x86->eax);
-      printf("  ebp                          = 0x%x\n", context_x86->ebp);
-      printf("  eip                          = 0x%x\n", context_x86->eip);
-      printf("  cs                           = 0x%x\n", context_x86->cs);
-      printf("  eflags                       = 0x%x\n", context_x86->eflags);
-      printf("  esp                          = 0x%x\n", context_x86->esp);
-      printf("  ss                           = 0x%x\n", context_x86->ss);
-      printf("  extended_registers[%3d]      = 0x",
-             MD_CONTEXT_X86_EXTENDED_REGISTERS_SIZE);
-      for (unsigned int register_index = 0;
-           register_index < MD_CONTEXT_X86_EXTENDED_REGISTERS_SIZE;
-           ++register_index) {
-        printf("%02x", context_x86->extended_registers[register_index]);
-      }
-      printf("\n\n");
+      printf("  gs                        = 0x%x\n", context_x86->gs);
+      printf("  fs                        = 0x%x\n", context_x86->fs);
+      printf("  es                        = 0x%x\n", context_x86->es);
+      printf("  ds                        = 0x%x\n", context_x86->ds);
+      printf("  edi                       = 0x%x\n", context_x86->edi);
+      printf("  esi                       = 0x%x\n", context_x86->esi);
+      printf("  ebx                       = 0x%x\n", context_x86->ebx);
+      printf("  edx                       = 0x%x\n", context_x86->edx);
+      printf("  ecx                       = 0x%x\n", context_x86->ecx);
+      printf("  eax                       = 0x%x\n", context_x86->eax);
+      printf("  ebp                       = 0x%x\n", context_x86->ebp);
+      printf("  eip                       = 0x%x\n", context_x86->eip);
+      printf("  cs                        = 0x%x\n", context_x86->cs);
+      printf("  eflags                    = 0x%x\n", context_x86->eflags);
+      printf("  esp                       = 0x%x\n", context_x86->esp);
+      printf("  ss                        = 0x%x\n", context_x86->ss);
+
+      PrintFxsaveArea(reinterpret_cast<const FxsaveArea*>(
+          &context_x86->extended_registers));
+
+      printf("\n");
 
       break;
     }
@@ -511,7 +695,12 @@ void DumpContext::Print() {
       printf("  r14           = 0x%" PRIx64 "\n", context_amd64->r14);
       printf("  r15           = 0x%" PRIx64 "\n", context_amd64->r15);
       printf("  rip           = 0x%" PRIx64 "\n", context_amd64->rip);
-      // TODO: print xmm, vector, debug registers
+
+      PrintFxsaveArea(
+          reinterpret_cast<const FxsaveArea*>(&context_amd64->flt_save));
+
+      // TODO: print vector and debug registers
+
       printf("\n");
       break;
     }
