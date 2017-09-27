@@ -52,6 +52,7 @@ using google_breakpad::MinidumpAssertion;
 using google_breakpad::MinidumpSystemInfo;
 using google_breakpad::MinidumpMiscInfo;
 using google_breakpad::MinidumpBreakpadInfo;
+using google_breakpad::MinidumpCrashpadInfo;
 
 struct Options {
   Options()
@@ -180,6 +181,14 @@ static bool PrintMinidumpDump(const Options& options) {
     BPLOG(ERROR) << "minidump.GetMemoryInfoList() failed";
   } else {
     memory_info_list->Print();
+  }
+
+  MinidumpCrashpadInfo *crashpad_info = minidump.GetCrashpadInfo();
+  if (!crashpad_info) {
+    // Crashpad info is optional, so don't treat this as an error.
+    BPLOG(INFO) << "minidump.GetCrashpadInfo() failed";
+  } else {
+    crashpad_info->Print();
   }
 
   DumpRawStream(&minidump,
