@@ -234,7 +234,7 @@ class NonAllocatingMap {
     return sizeof(entries_);
   }
 
- private:
+ protected:
   const Entry* GetConstEntryForKey(const char* key) const {
     for (size_t i = 0; i < num_entries; ++i) {
       if (strncmp(key, entries_[i].key, key_size) == 0) {
