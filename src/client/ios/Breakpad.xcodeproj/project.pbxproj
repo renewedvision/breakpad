@@ -57,6 +57,7 @@
 		1EEEB6101720821900F7E689 /* simple_string_dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EEEB60D1720821900F7E689 /* simple_string_dictionary.h */; };
 		AA747D9F0F9514B9006C5449 /* Breakpad_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Breakpad_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CF706DC11F7C6EFB002C54C7 /* long_string_dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = CF706DC01F7C6EFB002C54C7 /* long_string_dictionary.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		1EEEB60D1720821900F7E689 /* simple_string_dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simple_string_dictionary.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* Breakpad_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Breakpad_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CF706DC01F7C6EFB002C54C7 /* long_string_dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = long_string_dictionary.h; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libBreakpad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBreakpad.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -264,6 +266,7 @@
 		16C7CC47147D4A4300776EAD /* common */ = {
 			isa = PBXGroup;
 			children = (
+				CF706DC01F7C6EFB002C54C7 /* long_string_dictionary.h */,
 				1EEEB60C1720821900F7E689 /* simple_string_dictionary.cc */,
 				1EEEB60D1720821900F7E689 /* simple_string_dictionary.h */,
 				16C7CC4A147D4A4300776EAD /* convert_UTF.c */,
@@ -339,6 +342,7 @@
 				16C7CEA8147D4A4300776EAD /* string_conversion.h in Headers */,
 				16BFA67014E195E9009704F8 /* ios_exception_minidump_generator.h in Headers */,
 				16C92FAD150DF8330053D7BA /* BreakpadController.h in Headers */,
+				CF706DC11F7C6EFB002C54C7 /* long_string_dictionary.h in Headers */,
 				1EEEB6101720821900F7E689 /* simple_string_dictionary.h in Headers */,
 				14569323182CE2C10029C465 /* mach_vm_compat.h in Headers */,
 			);
