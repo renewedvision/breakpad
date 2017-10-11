@@ -121,6 +121,7 @@
         'linux/safe_readlink.h',
         'linux/synth_elf.cc',
         'linux/synth_elf.h',
+        'long_string_dictionary.h',
         'mac/arch_utilities.cc',
         'mac/arch_utilities.h',
         'mac/bootstrap_compat.cc',
@@ -220,6 +221,7 @@
         'linux/tests/auto_testfile.h',
         'linux/tests/crash_generator.cc',
         'linux/tests/crash_generator.h',
+        'long_string_dictionary_unittest.cc',
         'mac/macho_reader_unittest.cc',
         'memory_range_unittest.cc',
         'memory_unittest.cc',
@@ -238,9 +240,9 @@
       ],
       'dependencies': [
         'common',
-        '../build/testing.gyp:gmock_main',
-        '../build/testing.gyp:gmock',
-        '../build/testing.gyp:gtest',
+        '../build/testing.gypi:gmock_main',
+        '../build/testing.gypi:gmock',
+        '../build/testing.gypi:gtest',
       ],
       'libraries': [
         '-ldl',
