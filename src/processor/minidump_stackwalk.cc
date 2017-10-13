@@ -109,60 +109,75 @@ bool PrintMinidumpProcess(const string &minidump_file,
   return true;
 }
 
-void usage(const char *program_name) {
-  fprintf(stderr, "usage: %s [-m|-s] <minidump-file> [symbol-path ...]\n"
-          "    -m : Output in machine-readable format\n"
-          "    -s : Output stack contents\n",
-          program_name);
-}
-
 }  // namespace
 
-int main(int argc, char **argv) {
-  BPLOG_INIT(&argc, &argv);
-
-  if (argc < 2) {
-    usage(argv[0]);
-    return 1;
-  }
-
-  const char *minidump_file;
-  bool machine_readable = false;
-  bool output_stack_contents = false;
+struct Options {
+  const char* minidump_file;
+  bool machine_readable;
+  bool output_stack_contents;
   int symbol_path_arg;
+};
 
-  if (strcmp(argv[1], "-m") == 0) {
-    if (argc < 3) {
-      usage(argv[0]);
-      return 1;
+static void Usage(int argc, const char *argv[]) {
+  fprintf(stderr,
+          "Usage: %s [options] <minidump-file> [symbol-path ...]\n"
+          "\n"
+          "Output a stack trace for the provided minidump\n"
+          "\n"
+          "Options:\n"
+          "\n"
+          "  -m         Output in machine-readable format\n"
+          "  -s         Output stack contents\n",
+          basename(argv[0]));
+}
+
+static void SetupOptions(int argc, const char *argv[], Options* options) {
+  int ch;
+  extern int optind;
+
+  options->machine_readable = false;
+  options->output_stack_contents = false;
+
+  while ((ch = getopt(argc, (char * const *)argv, "hms")) != -1) {
+    switch (ch) {
+      case 'h':
+        Usage(argc, argv);
+        exit(0);
+        break;
+      case '?':
+        Usage(argc, argv);
+        exit(1);
+        break;
+
+      case 'm':
+        options->machine_readable = true;
+        break;
+      case 's':
+        options->output_stack_contents = true;
+        break;
     }
-
-    machine_readable = true;
-    minidump_file = argv[2];
-    symbol_path_arg = 3;
-  } else if (strcmp(argv[1], "-s") == 0) {
-    if (argc < 3) {
-      usage(argv[0]);
-      return 1;
-    }
-
-    output_stack_contents = true;
-    minidump_file = argv[2];
-    symbol_path_arg = 3;
-  } else {
-    minidump_file = argv[1];
-    symbol_path_arg = 2;
   }
 
-  // extra arguments are symbol paths
+  if ((argc - optind) == 0) {
+    fprintf(stderr, "%s: Missing minidump file\n", argv[0]);
+    Usage(argc, argv);
+    exit(1);
+  }
+
+  options->minidump_file = argv[optind];
+  options->symbol_path_arg = optind + 1;
+}
+
+int main(int argc, const char* argv[]) {
+  Options options;
+  SetupOptions(argc, argv, &options);
+
   std::vector<string> symbol_paths;
-  if (argc > symbol_path_arg) {
-    for (int argi = symbol_path_arg; argi < argc; ++argi)
-      symbol_paths.push_back(argv[argi]);
-  }
+  for (int argi = options.symbol_path_arg; argi < argc; ++argi)
+    symbol_paths.push_back(argv[argi]);
 
-  return PrintMinidumpProcess(minidump_file,
+  return PrintMinidumpProcess(options.minidump_file,
                               symbol_paths,
-                              machine_readable,
-                              output_stack_contents) ? 0 : 1;
+                              options.machine_readable,
+                              options.output_stack_contents) ? 0 : 1;
 }
