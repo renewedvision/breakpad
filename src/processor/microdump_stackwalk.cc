@@ -103,49 +103,68 @@ int PrintMicrodumpProcess(const char* microdump_file,
   return 1;
 }
 
-void usage(const char *program_name) {
-  fprintf(stderr, "usage: %s [-m] <microdump-file> [symbol-path ...]\n"
-          "    -m : Output in machine-readable format\n",
-          program_name);
-}
-
 }  // namespace
 
-int main(int argc, char** argv) {
-  BPLOG_INIT(&argc, &argv);
-
-  if (argc < 2) {
-    usage(argv[0]);
-    return 1;
-  }
-
+struct Options {
   const char* microdump_file;
   bool machine_readable;
   int symbol_path_arg;
+};
 
-  if (strcmp(argv[1], "-m") == 0) {
-    if (argc < 3) {
-      usage(argv[0]);
-      return 1;
+static void Usage(int argc, const char *argv[]) {
+  fprintf(stderr,
+          "Usage: %s [options] <microdump-file> [symbol-path ...]\n"
+          "\n"
+          "Output a stack trace for the provided microdump\n"
+          "\n"
+          "Options:\n"
+          "\n"
+          "  -m         Output in machine-readable format\n",
+          basename(argv[0]));
+}
+
+static void SetupOptions(int argc, const char *argv[], Options* options) {
+  int ch;
+  extern int optind;
+
+  options->machine_readable = false;
+
+  while ((ch = getopt(argc, (char * const *)argv, "hm")) != -1) {
+    switch (ch) {
+      case 'h':
+        Usage(argc, argv);
+        exit(0);
+        break;
+      case '?':
+        Usage(argc, argv);
+        exit(1);
+        break;
+
+      case 'm':
+        options->machine_readable = true;
+        break;
     }
-
-    machine_readable = true;
-    microdump_file = argv[2];
-    symbol_path_arg = 3;
-  } else {
-    machine_readable = false;
-    microdump_file = argv[1];
-    symbol_path_arg = 2;
   }
 
-  // extra arguments are symbol paths
+  if ((argc - optind) == 0) {
+    fprintf(stderr, "%s: Missing microdump file\n", argv[0]);
+    Usage(argc, argv);
+    exit(1);
+  }
+
+  options->microdump_file = argv[optind];
+  options->symbol_path_arg = optind + 1;
+}
+
+int main(int argc, const char* argv[]) {
+  Options options;
+  SetupOptions(argc, argv, &options);
+
   std::vector<string> symbol_paths;
-  if (argc > symbol_path_arg) {
-    for (int argi = symbol_path_arg; argi < argc; ++argi)
-      symbol_paths.push_back(argv[argi]);
-  }
+  for (int argi = options.symbol_path_arg; argi < argc; ++argi)
+    symbol_paths.push_back(argv[argi]);
 
-  return PrintMicrodumpProcess(microdump_file,
+  return PrintMicrodumpProcess(options.microdump_file,
                                symbol_paths,
-                               machine_readable);
+                               options.machine_readable);
 }
