@@ -151,7 +151,7 @@
         'mac/super_fat_arch.h',
         'md5.cc',
         'md5.h',
-        'memory.h',
+        'memory_allocator.h',
         'memory_range.h',
         'module.cc',
         'module.h',
