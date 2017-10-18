@@ -207,7 +207,7 @@ int wmain(int argc, wchar_t *argv[]) {
   parameters[L"debug_identifier"] = pdb_info.debug_identifier;
   parameters[L"os"] = L"windows";  // This version of symupload is Windows-only
   parameters[L"cpu"] = pdb_info.cpu;
-  
+
   // Don't make a missing product name a hard error.  Issue a warning and let
   // the server decide whether to reject files without product name.
   if (product) {
