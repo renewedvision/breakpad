@@ -30,6 +30,7 @@
 // microdump_stackwalk.cc: Process a microdump with MicrodumpProcessor, printing
 // the results, including stack traces.
 
+#include <libgen.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
