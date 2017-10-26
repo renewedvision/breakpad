@@ -1166,7 +1166,11 @@ int PDBSourceLineWriter::GetFunctionStackParamSize(IDiaSymbol *function) {
       goto next_child;
     }
 
-    int child_end = child_register_offset + static_cast<ULONG>(child_length);
+    // C2362: initialization of 'child_end' is skipped by 'goto next_child'
+    // This error happens when building with VC++ /permissive-
+    // Therefore child_end must not be initialized when it is defined.
+    int child_end;
+    child_end = child_register_offset + static_cast<ULONG>(child_length);
     if (child_register_offset < lowest_base) {
       lowest_base = child_register_offset;
     }
