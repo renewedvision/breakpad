@@ -105,11 +105,13 @@
 #define PR_SET_PTRACER 0x59616d61
 #endif
 
+#if !defined(__ANDROID_API_N__)
 // A wrapper for the tgkill syscall: send a signal to a specific thread.
 static int tgkill(pid_t tgid, pid_t tid, int sig) {
   return syscall(__NR_tgkill, tgid, tid, sig);
   return 0;
 }
+#endif
 
 namespace google_breakpad {
 
