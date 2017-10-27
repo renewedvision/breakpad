@@ -31,7 +31,7 @@
 // signals. We rely on the signal handler running on the thread which crashed
 // in order to identify it. This is true of the synchronous signals (SEGV etc),
 // but not true of ABRT. Thus, if you send ABRT to yourself in a program which
-// uses ExceptionHandler, you need to use tgkill to direct it to the current
+// uses ExceptionHandler, you need to use sys_tgkill to direct it to the current
 // thread.
 //
 // The signal flow looks like this:
@@ -104,12 +104,6 @@
 #ifndef PR_SET_PTRACER
 #define PR_SET_PTRACER 0x59616d61
 #endif
-
-// A wrapper for the tgkill syscall: send a signal to a specific thread.
-static int tgkill(pid_t tgid, pid_t tid, int sig) {
-  return syscall(__NR_tgkill, tgid, tid, sig);
-  return 0;
-}
 
 namespace google_breakpad {
 
@@ -400,7 +394,7 @@ void ExceptionHandler::SignalHandler(int sig, siginfo_t* info, void* uc) {
     // In order to retrigger it, we have to queue a new signal by calling
     // kill() ourselves.  The special case (si_pid == 0 && sig == SIGABRT) is
     // due to the kernel sending a SIGABRT from a user request via SysRQ.
-    if (tgkill(getpid(), syscall(__NR_gettid), sig) < 0) {
+    if (sys_tgkill(getpid(), syscall(__NR_gettid), sig) < 0) {
       // If we failed to kill ourselves (e.g. because a sandbox disallows us
       // to do so), we instead resort to terminating our process. This will
       // result in an incorrect exit code.
