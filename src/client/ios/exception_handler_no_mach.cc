@@ -124,7 +124,7 @@ bool ExceptionHandler::WriteMinidumpWithException(
     bool report_current_thread) {
   bool result = false;
 
-  exit_after_write = false;
+  exit_after_write = true;
 
   if (directCallback_) {
     if (directCallback_(callback_context_,
