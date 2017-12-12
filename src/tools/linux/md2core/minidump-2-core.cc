@@ -218,6 +218,14 @@ writea(int fd, const void* idata, size_t length) {
   return true;
 }
 
+// Write all of the given buffer into another buffer.
+static void
+vector_append(std::vector<uint8_t>* buffer, const void* idata, size_t length) {
+  const size_t offset = buffer->size();
+  buffer->resize(offset + length);
+  memcpy(buffer->data() + offset, idata, length);
+}
+
 /* Dynamically determines the byte sex of the system. Returns non-zero
  * for big-endian machines.
  */
@@ -329,6 +337,8 @@ struct CrashedProcess {
 
   const uint8_t* auxv;
   size_t auxv_length;
+
+  std::vector<uint8_t> vma_files;
 
   prpsinfo prps;
 
@@ -1057,6 +1067,49 @@ AddDataToMapping(CrashedProcess* crashinfo, const string& data,
 }
 
 static void
+GenerateVMAFileList(CrashedProcess* crashinfo) {
+  crashinfo->vma_files.resize(0);
+
+  size_t count = 0;
+  size_t page_size = 1;  // Always set to 1 by gdb.
+
+  for (const auto& mapping : crashinfo->mappings) {
+    if (mapping.second.filename.empty())
+      continue;
+    ++count;
+  }
+
+  vector_append(&crashinfo->vma_files, &count, sizeof(count));
+  vector_append(&crashinfo->vma_files, &page_size, sizeof(page_size));
+
+  for (const auto& mapping : crashinfo->mappings) {
+    if (mapping.second.filename.empty())
+      continue;
+    uintptr_t start_address = (uintptr_t) mapping.second.start_address;
+    uintptr_t end_address = (uintptr_t) mapping.second.end_address;
+    uintptr_t offset = (uintptr_t) mapping.second.offset;
+    vector_append(&crashinfo->vma_files, &start_address, sizeof(start_address));
+    vector_append(&crashinfo->vma_files, &end_address, sizeof(end_address));
+    vector_append(&crashinfo->vma_files, &offset, sizeof(offset));
+  }
+
+  for (const auto& mapping : crashinfo->mappings) {
+    if (mapping.second.filename.empty())
+      continue;
+    vector_append(&crashinfo->vma_files, mapping.second.filename.c_str(),
+                  1 + mapping.second.filename.size());
+  }
+
+  const size_t note_align = sizeof(uintptr_t) - (crashinfo->vma_files.size() %
+                                                 sizeof(uintptr_t));
+  if (note_align != sizeof(uintptr_t)) {
+    google_breakpad::scoped_array<char> scratch(new char[note_align]);
+    memset(scratch.get(), 0, note_align);
+    vector_append(&crashinfo->vma_files, scratch.get(), note_align);
+  }
+}
+
+static void
 AugmentMappings(const Options& options, CrashedProcess* crashinfo,
                 const MinidumpMemoryRange& full_file) {
   // For each thread, find the memory mapping that matches the thread's stack.
@@ -1158,6 +1211,7 @@ AugmentMappings(const Options& options, CrashedProcess* crashinfo,
     data.append(8 - (filename.size() & 7), 0);
   }
   AddDataToMapping(crashinfo, data, start_addr);
+  GenerateVMAFileList(crashinfo);
 
   // Map the page containing the _DYNAMIC array
   if (!crashinfo->dynamic_data.empty()) {
@@ -1308,6 +1362,7 @@ main(int argc, const char* argv[]) {
   size_t filesz = sizeof(Nhdr) + 8 + sizeof(prpsinfo) +
                   // sizeof(Nhdr) + 8 + sizeof(user) +
                   sizeof(Nhdr) + 8 + crashinfo.auxv_length +
+                  sizeof(Nhdr) + 8 + crashinfo.vma_files.size() +
                   crashinfo.threads.size() * (
                     (sizeof(Nhdr) + 8 + sizeof(prstatus))
 #if defined(__i386__) || defined(__x86_64__)
@@ -1389,6 +1444,15 @@ main(int argc, const char* argv[]) {
   for (unsigned i = 0; i < crashinfo.threads.size(); ++i) {
     if (crashinfo.threads[i].tid != crashinfo.crashing_tid)
       WriteThread(options, crashinfo.threads[i], 0);
+  }
+
+  nhdr.n_descsz = crashinfo.vma_files.size();
+  nhdr.n_type = NT_FILE;
+  if (!writea(options.out_fd, &nhdr, sizeof(nhdr)) ||
+      !writea(options.out_fd, "CORE\0\0\0\0", 8) ||
+      !writea(options.out_fd, crashinfo.vma_files.data(),
+              crashinfo.vma_files.size())) {
+    return 1;
   }
 
   if (note_align) {
