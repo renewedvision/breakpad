@@ -218,6 +218,13 @@ writea(int fd, const void* idata, size_t length) {
   return true;
 }
 
+// Write all of the given buffer into another buffer.
+static void
+vector_append(std::vector<uint8_t>* buffer, const void* idata, size_t length) {
+  const uint8_t* byte_idata = reinterpret_cast<const uint8_t*>(idata);
+  buffer->insert(buffer->end(), byte_idata, byte_idata + length);
+}
+
 /* Dynamically determines the byte sex of the system. Returns non-zero
  * for big-endian machines.
  */
@@ -329,6 +336,8 @@ struct CrashedProcess {
 
   const uint8_t* auxv;
   size_t auxv_length;
+
+  std::vector<uint8_t> vma_files;
 
   prpsinfo prps;
 
@@ -1057,6 +1066,51 @@ AddDataToMapping(CrashedProcess* crashinfo, const string& data,
 }
 
 static void
+GenerateVMAFileList(CrashedProcess* crashinfo) {
+  crashinfo->vma_files.clear();
+
+  size_t count = 0;
+  size_t page_size = 1;  // Always set to 1 by gdb.
+
+  for (const auto& mapping : crashinfo->mappings) {
+    if (mapping.second.filename.empty())
+      continue;
+    ++count;
+  }
+
+  vector_append(&crashinfo->vma_files, &count, sizeof(count));
+  vector_append(&crashinfo->vma_files, &page_size, sizeof(page_size));
+
+  for (const auto& mapping : crashinfo->mappings) {
+    if (mapping.second.filename.empty())
+      continue;
+    uintptr_t start_address =
+        static_cast<uintptr_t>(mapping.second.start_address);
+    uintptr_t end_address = static_cast<uintptr_t>(mapping.second.end_address);
+    uintptr_t offset = static_cast<uintptr_t>(mapping.second.offset);
+    vector_append(&crashinfo->vma_files, &start_address, sizeof(start_address));
+    vector_append(&crashinfo->vma_files, &end_address, sizeof(end_address));
+    vector_append(&crashinfo->vma_files, &offset, sizeof(offset));
+  }
+
+  for (const auto& mapping : crashinfo->mappings) {
+    if (mapping.second.filename.empty())
+      continue;
+    vector_append(&crashinfo->vma_files, mapping.second.filename.c_str(),
+                  1 + mapping.second.filename.size());
+  }
+
+  // Pad the current note entry so that the next entry is 4-byte-aligned. This
+  // is to be consistent with the Linux kernel and GNU tools like readelf,
+  // despite the generic ELF ABI saying this should be aligned to word size.
+  constexpr size_t kAlignment = 4;
+  const size_t note_align = kAlignment - (crashinfo->vma_files.size() %
+                                          kAlignment);
+  if (note_align != kAlignment)
+    crashinfo->vma_files.insert(crashinfo->vma_files.end(), note_align, '\0');
+}
+
+static void
 AugmentMappings(const Options& options, CrashedProcess* crashinfo,
                 const MinidumpMemoryRange& full_file) {
   // For each thread, find the memory mapping that matches the thread's stack.
@@ -1276,6 +1330,7 @@ main(int argc, const char* argv[]) {
   }
 
   AugmentMappings(options, &crashinfo, dump);
+  GenerateVMAFileList(&crashinfo);
 
   // Write the ELF header. The file will look like:
   //   ELF header
@@ -1304,17 +1359,28 @@ main(int argc, const char* argv[]) {
   if (!writea(options.out_fd, &ehdr, sizeof(Ehdr)))
     return 1;
 
+  // ELF requires this string to have a NUL terminator, but it also requires it
+  // to be aligned with the native word size. Since "CORE\0" is 5 bytes, we need
+  // to add three extra NUL terminators to make it a multiple of 4.
+  constexpr char kCoreName[] = { 'C', 'O', 'R', 'E', '\0', '\0', '\0', '\0' };
+  static_assert(sizeof(kCoreName) % 4 == 0,
+                "Core name must be padded to a multiple of 4");
+
   size_t offset = sizeof(Ehdr) + ehdr.e_phnum * sizeof(Phdr);
-  size_t filesz = sizeof(Nhdr) + 8 + sizeof(prpsinfo) +
-                  // sizeof(Nhdr) + 8 + sizeof(user) +
-                  sizeof(Nhdr) + 8 + crashinfo.auxv_length +
+  size_t filesz = (sizeof(Nhdr) + sizeof(kCoreName) + sizeof(prpsinfo)) +
+                  // (sizeof(Nhdr) + sizeof(kCoreName) + sizeof(user)) +
+                  (sizeof(Nhdr) + sizeof(kCoreName) + crashinfo.auxv_length) +
+                  (sizeof(Nhdr) + sizeof(kCoreName) +
+                   crashinfo.vma_files.size()) +
                   crashinfo.threads.size() * (
-                    (sizeof(Nhdr) + 8 + sizeof(prstatus))
+                    (sizeof(Nhdr) + sizeof(kCoreName) + sizeof(prstatus))
 #if defined(__i386__) || defined(__x86_64__)
-                   + sizeof(Nhdr) + 8 + sizeof(user_fpregs_struct)
+                   + (sizeof(Nhdr) + sizeof(kCoreName) +
+                      sizeof(user_fpregs_struct))
 #endif
 #if defined(__i386__)
-                   + sizeof(Nhdr) + 8 + sizeof(user_fpxregs_struct)
+                   + (sizeof(Nhdr) + sizeof(kCoreName) +
+                      sizeof(user_fpxregs_struct))
 #endif
                     );
 
@@ -1362,11 +1428,11 @@ main(int argc, const char* argv[]) {
 
   Nhdr nhdr;
   memset(&nhdr, 0, sizeof(nhdr));
-  nhdr.n_namesz = 5;
+  nhdr.n_namesz = strlen(kCoreName) + 1;  // Include NUL terminator
   nhdr.n_descsz = sizeof(prpsinfo);
   nhdr.n_type = NT_PRPSINFO;
   if (!writea(options.out_fd, &nhdr, sizeof(nhdr)) ||
-      !writea(options.out_fd, "CORE\0\0\0\0", 8) ||
+      !writea(options.out_fd, kCoreName, sizeof(kCoreName)) ||
       !writea(options.out_fd, &crashinfo.prps, sizeof(prpsinfo))) {
     return 1;
   }
@@ -1374,7 +1440,7 @@ main(int argc, const char* argv[]) {
   nhdr.n_descsz = crashinfo.auxv_length;
   nhdr.n_type = NT_AUXV;
   if (!writea(options.out_fd, &nhdr, sizeof(nhdr)) ||
-      !writea(options.out_fd, "CORE\0\0\0\0", 8) ||
+      !writea(options.out_fd, kCoreName, sizeof(kCoreName)) ||
       !writea(options.out_fd, crashinfo.auxv, crashinfo.auxv_length)) {
     return 1;
   }
@@ -1389,6 +1455,15 @@ main(int argc, const char* argv[]) {
   for (unsigned i = 0; i < crashinfo.threads.size(); ++i) {
     if (crashinfo.threads[i].tid != crashinfo.crashing_tid)
       WriteThread(options, crashinfo.threads[i], 0);
+  }
+
+  nhdr.n_descsz = crashinfo.vma_files.size();
+  nhdr.n_type = NT_FILE;
+  if (!writea(options.out_fd, &nhdr, sizeof(nhdr)) ||
+      !writea(options.out_fd, kCoreName, sizeof(kCoreName)) ||
+      !writea(options.out_fd, crashinfo.vma_files.data(),
+              crashinfo.vma_files.size())) {
+    return 1;
   }
 
   if (note_align) {
