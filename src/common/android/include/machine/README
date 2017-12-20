@@ -1,0 +1,8 @@
+The files in this directory were taken directly from Android NDK r12 with minor
+changes. The changes are:
+  1. Surrounding the contents with #ifdef __mips__ since these are MIPS-specific
+     headers in a common location.
+  2. Adding #if __has_include_next and #include_next to try to use the NDK's
+     versions if they're available.
+These files intentionally removed from the NDK during the move to unified
+headers, which causes Breakpad compilation issues on newer NDK versions.
