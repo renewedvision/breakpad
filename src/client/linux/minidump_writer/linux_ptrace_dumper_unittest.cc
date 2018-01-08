@@ -100,7 +100,7 @@ pid_t SetupChildProcess(int number_of_threads) {
   }
   close(fds[1]);
 
-  // Wait for all child threads to indicate that they have started
+  // Wait for all child threads to indicate that they have started.
   for (int threads = 0; threads < number_of_threads; threads++) {
     struct pollfd pfd;
     memset(&pfd, 0, sizeof(pfd));
