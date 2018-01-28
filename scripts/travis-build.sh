@@ -67,4 +67,9 @@ main() {
   coverity_scan
 }
 
-main "$@"
+# Travis environments require the tests to run as root.
+if [[ $(id -u) == 0 ]]; then
+  main "$@"
+else
+  sudo "$0" "$@"
+fi
