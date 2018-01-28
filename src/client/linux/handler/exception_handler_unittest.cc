@@ -306,7 +306,7 @@ TEST(ExceptionHandlerTest, ParallelChildCrashesDontHang) {
   }
 
   // Wait a while until the child should have crashed.
-  usleep(100000);
+  usleep(1000000);
   // Kill the child if it is still running.
   kill(child, SIGKILL);
 
