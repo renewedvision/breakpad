@@ -263,9 +263,9 @@ static void* SleepFunction(void* unused) {
   return NULL;
 }
 
-static void* CrashFunction(void* b_ptr) {
-  pthread_barrier_t* b = reinterpret_cast<pthread_barrier_t*>(b_ptr);
-  pthread_barrier_wait(b);
+static void* CrashFunction(void* unused) {
+  // 100ms should be enough for all threads to start up.
+  usleep(100000);
   DoNullPointerDereference();
   return NULL;
 }
@@ -293,20 +293,17 @@ TEST(ExceptionHandlerTest, ParallelChildCrashesDontHang) {
     int num_crash_threads = 2;
     google_breakpad::scoped_array<pthread_t> crash_threads(
         new pthread_t[num_crash_threads]);
-    // Barrier to synchronize crashing both threads at the same time.
-    pthread_barrier_t b;
-    ASSERT_EQ(0, pthread_barrier_init(&b, NULL, num_crash_threads + 1));
     for (int i = 0; i < num_crash_threads; ++i) {
-      ASSERT_EQ(0, pthread_create(&crash_threads[i], NULL, CrashFunction, &b));
+      ASSERT_EQ(0, pthread_create(&crash_threads[i], NULL, CrashFunction,
+                                  NULL));
     }
-    pthread_barrier_wait(&b);
     for (int i = 0; i < num_crash_threads; ++i) {
       ASSERT_EQ(0, pthread_join(crash_threads[i], NULL));
     }
   }
 
   // Wait a while until the child should have crashed.
-  usleep(100000);
+  usleep(1000000);
   // Kill the child if it is still running.
   kill(child, SIGKILL);
 
