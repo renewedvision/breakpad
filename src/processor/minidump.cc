@@ -61,6 +61,21 @@
 #include "processor/basic_code_modules.h"
 #include "processor/logging.h"
 
+// All intentional fallthorughs in breakpad are in this file, so define
+// this macro locally.
+// If you ever move this to a .h file, make sure it's defined in a
+// private header file: clang suggests the first macro expanding to
+// [[clang::fallthrough]] in its diagnostics, so if BP_FALLTHROUGH
+// is visible in code depending on breakpad, clang would suggest
+// BP_FALLTHROUGH for code depending on breakpad, instead of the
+// client code's own fallthrough macro.
+#if defined(__clang__)
+#define BP_FALLTHROUGH [[clang::fallthrough]];
+#else
+#define BP_FALLTHROUGH
+#endif
+
+
 namespace google_breakpad {
 
 
@@ -1969,6 +1984,7 @@ string MinidumpModule::code_identifier() const {
         break;
       }
       // Otherwise fall through to the case below.
+      BP_FALLTHROUGH;
     }
 
     case MD_OS_MAC_OS_X:
@@ -5199,7 +5215,7 @@ bool Minidump::Read() {
                             stream_type << ", but can only deal with one";
             return false;
           }
-          // Fall through to default
+          BP_FALLTHROUGH;
         }
 
         default: {
