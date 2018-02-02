@@ -223,16 +223,16 @@ bool ExceptionHandler::InstallHandlers() {
 }
 
 bool ExceptionHandler::UninstallHandlers() {
+#if USE_PROTECTED_ALLOCATIONS
+  mprotect(gProtectedData.protected_buffer, PAGE_SIZE, PROT_READ | PROT_WRITE);
+#endif  // USE_PROTECTED_ALLOCATIONS
   for (int i = 0; i < kNumHandledSignals; ++i) {
     if (old_handlers[i].get()) {
       sigaction(kExceptionSignals[i], old_handlers[i].get(), NULL);
-#if USE_PROTECTED_ALLOCATIONS
-      mprotect(gProtectedData.protected_buffer, PAGE_SIZE, PROT_READ | PROT_WRITE);
-#endif  // USE_PROTECTED_ALLOCATIONS
       old_handlers[i].reset();
     }
-    gProtectedData.handler = NULL;
   }
+  gProtectedData.handler = NULL;
   installed_exception_handler_ = false;
   return true;
 }
