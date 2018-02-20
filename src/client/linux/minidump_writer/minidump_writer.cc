@@ -1040,6 +1040,10 @@ class MinidumpWriter {
     sys_info->processor_architecture =
 #if defined(__aarch64__)
         MD_CPU_ARCHITECTURE_ARM64;
+#elif defined(__PPC64__)
+        MD_CPU_ARCHITECTURE_PPC64;
+#elif defined(__PPC__)
+        MD_CPU_ARCHITECTURE_PPC;
 #else
         MD_CPU_ARCHITECTURE_ARM;
 #endif
@@ -1194,6 +1198,12 @@ class MinidumpWriter {
       sys_close(fd);
     }
 
+    return true;
+  }
+#elif defined(__powerpc__)
+  bool WriteCPUInformation(MDRawSystemInfo* sys_info) {
+    // TODO: For now, keeping this as a placeholder, needs to be implemented
+    sys_info->processor_architecture = MD_CPU_ARCHITECTURE_PPC64;
     return true;
   }
 #else
