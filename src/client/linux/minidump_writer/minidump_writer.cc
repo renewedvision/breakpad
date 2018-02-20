@@ -988,7 +988,7 @@ class MinidumpWriter {
     }
     return true;
   }
-#elif defined(__arm__) || defined(__aarch64__)
+#elif defined(__arm__) || defined(__aarch64__) || defined(__powerpc__)
   bool WriteCPUInformation(MDRawSystemInfo* sys_info) {
     // The CPUID value is broken up in several entries in /proc/cpuinfo.
     // This table is used to rebuild it from the entries.
@@ -1040,6 +1040,8 @@ class MinidumpWriter {
     sys_info->processor_architecture =
 #if defined(__aarch64__)
         MD_CPU_ARCHITECTURE_ARM64;
+#elif defined(__powerpc__)
+        MD_CPU_ARCHITECTURE_PPC;
 #else
         MD_CPU_ARCHITECTURE_ARM;
 #endif
