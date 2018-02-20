@@ -1,4 +1,4 @@
-// Copyright (c) 2011, Google Inc.
+// Copyright (c) 2014, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,81 +27,68 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// memory_mapped_file.cc: Implement google_breakpad::MemoryMappedFile.
-// See memory_mapped_file.h for details.
+#ifndef CLIENT_LINUX_DUMP_WRITER_COMMON_THREAD_INFO_H_
+#define CLIENT_LINUX_DUMP_WRITER_COMMON_THREAD_INFO_H_
 
-#include "common/linux/memory_mapped_file.h"
+#include <sys/ucontext.h>
+#include <sys/user.h>
 
-#include <fcntl.h>
-#include <sys/mman.h>
-#if defined(__ANDROID__)
-#include <sys/stat.h>
-#endif
-#include <unistd.h>
-
-#include "common/memory_range.h"
-#include "third_party/lss/linux_syscall_support.h"
+#include "client/linux/dump_writer_common/raw_context_cpu.h"
+#include "common/memory_allocator.h"
+#include "google_breakpad/common/minidump_format.h"
 
 namespace google_breakpad {
 
-MemoryMappedFile::MemoryMappedFile() {}
-
-MemoryMappedFile::MemoryMappedFile(const char* path, size_t offset) {
-  Map(path, offset);
-}
-
-MemoryMappedFile::~MemoryMappedFile() {
-  Unmap();
-}
-
-#include <unistd.h>
-
-bool MemoryMappedFile::Map(const char* path, size_t offset) {
-  Unmap();
-
-  int fd = sys_open(path, O_RDONLY, 0);
-  if (fd == -1) {
-    return false;
-  }
-
-#if defined(__x86_64__) || defined(__aarch64__) || \
-   (defined(__mips__) && _MIPS_SIM == _ABI64)
-
-  struct kernel_stat st;
-  if (sys_fstat(fd, &st) == -1 || st.st_size < 0) {
-#else
-  struct kernel_stat64 st;
-  if (sys_fstat64(fd, &st) == -1 || st.st_size < 0) {
+#if defined(__i386) || defined(__x86_64)
+typedef __typeof__(((struct user*) 0)->u_debugreg[0]) debugreg_t;
 #endif
-    sys_close(fd);
-    return false;
-  }
 
-  // Strangely file size can be negative, but we check above that it is not.
-  size_t file_len = static_cast<size_t>(st.st_size);
-  // If the file does not extend beyond the offset, simply use an empty
-  // MemoryRange and return true. Don't bother to call mmap()
-  // even though mmap() can handle an empty file on some platforms.
-  if (offset >= file_len) {
-    sys_close(fd);
-    return true;
-  }
+// We produce one of these structures for each thread in the crashed process.
+struct ThreadInfo {
+  pid_t tgid;   // thread group id
+  pid_t ppid;   // parent process
 
-  void* data = sys_mmap(NULL, file_len, PROT_READ, MAP_PRIVATE, fd, offset);
-  sys_close(fd);
-  if (data == MAP_FAILED) {
-    return false;
-  }
+  uintptr_t stack_pointer;  // thread stack pointer
 
-  content_.Set(data, file_len - offset);
-  return true;
-}
 
-void MemoryMappedFile::Unmap() {
-  if (content_.data()) {
-    sys_munmap(const_cast<uint8_t*>(content_.data()), content_.length());
-    content_.Set(NULL, 0);
-  }
-}
+#if defined(__i386) || defined(__x86_64)
+  user_regs_struct regs;
+  user_fpregs_struct fpregs;
+  static const unsigned kNumDebugRegisters = 8;
+  debugreg_t dregs[8];
+#if defined(__i386)
+  user_fpxregs_struct fpxregs;
+#endif  // defined(__i386)
+
+#elif defined(__ARM_EABI__)
+  // Mimicking how strace does this(see syscall.c, search for GETREGS)
+  struct user_regs regs;
+  struct user_fpregs fpregs;
+#elif defined(__aarch64__)
+  // Use the structures defined in <sys/user.h>
+  struct user_regs_struct regs;
+  struct user_fpsimd_struct fpregs;
+#elif defined(__mips__)
+  // Use the structure defined in <sys/ucontext.h>.
+  mcontext_t mcontext;
+#elif defined(__powerpc__)
+  struct pt_regs regs;
+  elf_fpregset_t fpregs;
+#endif
+
+  // Returns the instruction pointer (platform-dependent impl.).
+  uintptr_t GetInstructionPointer() const;
+
+  // Fills a RawContextCPU using the context in the ThreadInfo object.
+  void FillCPUContext(RawContextCPU* out) const;
+
+  // Returns the pointer and size of general purpose register area.
+  void GetGeneralPurposeRegisters(void** gp_regs, size_t* size);
+
+  // Returns the pointer and size of float point register area.
+  void GetFloatingPointRegisters(void** fp_regs, size_t* size);
+};
 
 }  // namespace google_breakpad
+
+#endif  // CLIENT_LINUX_DUMP_WRITER_COMMON_THREAD_INFO_H_
