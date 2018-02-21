@@ -36,6 +36,7 @@
 		162F64FA161C591500CD68D5 /* arch_utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 162F64F8161C591500CD68D5 /* arch_utilities.cc */; };
 		162F6500161C5F2200CD68D5 /* arch_utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 162F64F8161C591500CD68D5 /* arch_utilities.cc */; };
 		4D72CAF513DFBAC2006CABE3 /* md5.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4D72CAF413DFBAC2006CABE3 /* md5.cc */; };
+		6BCFFC83203C3E340021239B /* path_helper.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6BCFFC82203C3E340021239B /* path_helper.cc */; };
 		8BCAAA4C1CE3A7980046090B /* elf_reader.cc in Sources */ = {isa = PBXBuildFile; fileRef = 8BCAAA4A1CE3A7980046090B /* elf_reader.cc */; };
 		8BCAAA4D1CE3B1260046090B /* elf_reader.cc in Sources */ = {isa = PBXBuildFile; fileRef = 8BCAAA4A1CE3A7980046090B /* elf_reader.cc */; };
 		B84A91F8116CF78F006C210E /* libgtestmockall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B88FB024116BDFFF00407530 /* libgtestmockall.a */; };
@@ -279,6 +280,8 @@
 		4D72CAF413DFBAC2006CABE3 /* md5.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = md5.cc; path = ../../../common/md5.cc; sourceTree = SOURCE_ROOT; };
 		557800890BE1F3AB00EC23E0 /* macho_utilities.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = macho_utilities.cc; path = ../../../common/mac/macho_utilities.cc; sourceTree = SOURCE_ROOT; };
 		5578008A0BE1F3AB00EC23E0 /* macho_utilities.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = macho_utilities.h; path = ../../../common/mac/macho_utilities.h; sourceTree = SOURCE_ROOT; };
+		6BCFFC81203C3E340021239B /* path_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = path_helper.h; path = ../../../common/path_helper.h; sourceTree = "<group>"; };
+		6BCFFC82203C3E340021239B /* path_helper.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = path_helper.cc; path = ../../../common/path_helper.cc; sourceTree = "<group>"; };
 		8B31023E11F0CF1C00FCF3E4 /* Breakpad.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Breakpad.xcconfig; path = ../../../common/mac/Breakpad.xcconfig; sourceTree = SOURCE_ROOT; };
 		8B3102D411F0D60300FCF3E4 /* BreakpadDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = BreakpadDebug.xcconfig; path = ../../../common/mac/BreakpadDebug.xcconfig; sourceTree = SOURCE_ROOT; };
 		8B3102D511F0D60300FCF3E4 /* BreakpadRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = BreakpadRelease.xcconfig; path = ../../../common/mac/BreakpadRelease.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -501,6 +504,8 @@
 				9BDF186E0B1BB43700F8391B /* dump_syms_tool.cc */,
 				B89E0E701166573700DD08C9 /* macho_dump.cc */,
 				4D72CAF413DFBAC2006CABE3 /* md5.cc */,
+				6BCFFC82203C3E340021239B /* path_helper.cc */,
+				6BCFFC81203C3E340021239B /* path_helper.h */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
@@ -1082,6 +1087,7 @@
 				B88FAE2C1166606200407530 /* macho_reader.cc in Sources */,
 				8BCAAA4C1CE3A7980046090B /* elf_reader.cc in Sources */,
 				B8C5B5171166534700D34F4E /* dwarf2reader.cc in Sources */,
+				6BCFFC83203C3E340021239B /* path_helper.cc in Sources */,
 				B8C5B5181166534700D34F4E /* bytereader.cc in Sources */,
 				B8C5B5191166534700D34F4E /* macho_utilities.cc in Sources */,
 				B8C5B51A1166534700D34F4E /* file_id.cc in Sources */,
