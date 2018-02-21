@@ -338,7 +338,22 @@ bool DumpSymbols::CreateEmptyModule(scoped_ptr<Module>& module) {
     else {
       // Look for an object file whose architecture matches our own.
       const NXArchInfo *local_arch = NXGetLocalArchInfo();
-      if (!SetArchitecture(local_arch->cputype, local_arch->cpusubtype)) {
+      if (!local_arch) {
+        fprintf(stderr, "Unable to determine the current"
+                " architecture; specify an architecture explicitly"
+                " with '-a ARCH'\n");
+        return false;
+      }
+
+      cpu_type_t cputype = local_arch->cputype;
+      cpu_subtype_t cpusubtype = local_arch->cpusubtype;
+
+#ifdef __x86_64__
+      // NXGetLocalArchInfo returns 32-bit arch even though running in 64-bit
+      cputype = CPU_TYPE_X86_64;
+#endif
+
+      if (!SetArchitecture(cputype, cpusubtype)) {
         fprintf(stderr, "%s: object file contains more than one"
                 " architecture, none of which match the current"
                 " architecture; specify an architecture explicitly"
