@@ -338,6 +338,12 @@ bool DumpSymbols::CreateEmptyModule(scoped_ptr<Module>& module) {
     else {
       // Look for an object file whose architecture matches our own.
       const NXArchInfo *local_arch = NXGetLocalArchInfo();
+      if (!local_arch) {
+        fprintf(stderr, "Unable to determine the current"
+                " architecture; specify an architecture explicitly"
+                " with '-a ARCH'\n");
+        return false;
+      }
 
       cpu_type_t cputype = local_arch->cputype;
       cpu_subtype_t cpusubtype = local_arch->cpusubtype;
