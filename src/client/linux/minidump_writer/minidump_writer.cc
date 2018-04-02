@@ -702,15 +702,26 @@ class MinidumpWriter {
     TypedMDRVA<MDRawExceptionStream> exc(&minidump_writer_);
     if (!exc.Allocate())
       return false;
-    my_memset(exc.get(), 0, sizeof(MDRawExceptionStream));
+
+    MDRawExceptionStream* stream = exc.get();
+    my_memset(stream, 0, sizeof(MDRawExceptionStream));
 
     dirent->stream_type = MD_EXCEPTION_STREAM;
     dirent->location = exc.location();
 
-    exc.get()->thread_id = GetCrashThread();
-    exc.get()->exception_record.exception_code = dumper_->crash_signal();
-    exc.get()->exception_record.exception_address = dumper_->crash_address();
-    exc.get()->thread_context = crashing_thread_context_;
+    stream->thread_id = GetCrashThread();
+    stream->exception_record.exception_code = dumper_->crash_signal();
+    stream->exception_record.exception_address = dumper_->crash_address();
+    stream->thread_context = crashing_thread_context_;
+
+    const wasteful_vector<uint64_t>& crash_information =
+        dumper_->crash_information();
+    if (crash_information.size() > MD_EXCEPTION_MAXIMUM_PARAMETERS)
+      return false;
+
+    stream->exception_record.number_parameters = crash_information.size();
+    for (size_t i = 0; i < crash_information.size(); ++i)
+      stream->exception_record.exception_information[i] = crash_information[i];
 
     return true;
   }
@@ -1366,9 +1377,7 @@ bool WriteMinidumpImpl(const char* minidump_path,
     if (blob_size != sizeof(ExceptionHandler::CrashContext))
       return false;
     context = reinterpret_cast<const ExceptionHandler::CrashContext*>(blob);
-    dumper.set_crash_address(
-        reinterpret_cast<uintptr_t>(context->siginfo.si_addr));
-    dumper.set_crash_signal(context->siginfo.si_signo);
+    dumper.SetCrashInfoFromSigInfo(context->siginfo);
     dumper.set_crash_thread(context->tid);
   }
   MinidumpWriter writer(minidump_path, minidump_fd, context, mappings,

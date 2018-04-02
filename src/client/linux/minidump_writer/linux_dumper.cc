@@ -283,6 +283,7 @@ LinuxDumper::LinuxDumper(pid_t pid, const char* root_prefix)
       root_prefix_(root_prefix),
       crash_address_(0),
       crash_signal_(0),
+      crash_information_(&allocator_, MD_EXCEPTION_MAXIMUM_PARAMETERS),
       crash_thread_(pid),
       threads_(&allocator_, 8),
       mappings_(&allocator_),
@@ -352,6 +353,15 @@ LinuxDumper::ElfFileIdentifierForMapping(const MappingInfo& mapping,
   }
 
   return success;
+}
+
+void LinuxDumper::SetCrashInfoFromSigInfo(const siginfo_t& siginfo) {
+  set_crash_address(reinterpret_cast<uintptr_t>(siginfo.si_addr));
+  set_crash_signal(siginfo.si_signo);
+
+  crash_information_.clear();
+  if (siginfo.si_signo == MD_EXCEPTION_CODE_LIN_SIGBUS)
+    crash_information_.push_back(siginfo.si_code);
 }
 
 const char* LinuxDumper::GetCrashSignalString() const {
