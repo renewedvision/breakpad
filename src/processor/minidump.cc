@@ -417,8 +417,13 @@ string MDGUIDToString(const MDGUID& uuid) {
 }
 
 bool IsDevAshmem(const string& filename) {
-  const string kDevAshmem("/dev/ashmem/");
-  return filename.compare(0, kDevAshmem.length(), kDevAshmem) == 0;
+  static const string kDevAshmemPath("/dev/ashmem/");
+  if (filename.compare(0, kDevAshmemPath.length(), kDevAshmemPath) == 0)
+    return true;
+
+  static const char kDevAshmem[] = "/dev/ashmem/";
+  static const char kDevAshmemDeleted[] = "/dev/ashmem (deleted)";
+  return filename == kDevAshmem || filename == kDevAshmemDeleted;
 }
 
 }  // namespace
