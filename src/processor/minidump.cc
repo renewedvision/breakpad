@@ -417,13 +417,8 @@ string MDGUIDToString(const MDGUID& uuid) {
 }
 
 bool IsDevAshmem(const string& filename) {
-  static const string kDevAshmemPath("/dev/ashmem/");
-  if (filename.compare(0, kDevAshmemPath.length(), kDevAshmemPath) == 0)
-    return true;
-
-  static const char kDevAshmem[] = "/dev/ashmem/";
-  static const char kDevAshmemDeleted[] = "/dev/ashmem (deleted)";
-  return filename == kDevAshmem || filename == kDevAshmemDeleted;
+  const string kDevAshmem("/dev/ashmem/");
+  return filename.compare(0, kDevAshmem.length(), kDevAshmem) == 0;
 }
 
 }  // namespace
@@ -2730,8 +2725,10 @@ bool MinidumpModuleList::Read(uint32_t expected_size) {
         return false;
       }
 
-      if (!StoreRange(module, base_address, module_index, module_count)) {
-        if (base_address >= last_end_address) {
+      const bool is_android = minidump_->IsAndroid();
+      if (!StoreRange(module, base_address, module_index, module_count,
+                      is_android)) {
+        if (!is_android || base_address >= last_end_address) {
           BPLOG(ERROR) << "MinidumpModuleList could not store module "
                        << module_index << "/" << module_count << ", "
                        << module.code_file() << ", " << HexString(base_address)
@@ -2742,6 +2739,7 @@ bool MinidumpModuleList::Read(uint32_t expected_size) {
         // If failed due to apparent range overlap the cause may be the client
         // correction applied for Android packed relocations.  If this is the
         // case, back out the client correction and retry.
+        assert(is_android);
         module_size -= last_end_address - base_address;
         base_address = last_end_address;
         if (!range_map_->StoreRange(base_address, module_size, module_index)) {
@@ -2767,7 +2765,8 @@ bool MinidumpModuleList::Read(uint32_t expected_size) {
 bool MinidumpModuleList::StoreRange(const MinidumpModule& module,
                                     uint64_t base_address,
                                     uint32_t module_index,
-                                    uint32_t module_count) {
+                                    uint32_t module_count,
+                                    bool is_android) {
   if (range_map_->StoreRange(base_address, module.size(), module_index))
     return true;
 
@@ -2775,7 +2774,7 @@ bool MinidumpModuleList::StoreRange(const MinidumpModule& module,
   // entries for JITted code, so ignore these.
   // TODO(wfh): Remove this code when Android is fixed.
   // See https://crbug.com/439531
-  if (IsDevAshmem(module.code_file())) {
+  if (is_android && IsDevAshmem(module.code_file())) {
     BPLOG(INFO) << "MinidumpModuleList ignoring overlapping module "
                 << module_index << "/" << module_count << ", "
                 << module.code_file() << ", " << HexString(base_address) << "+"
