@@ -1191,7 +1191,7 @@ bool MinidumpGenerator::WriteSystemInfoStream(
 #endif
 #ifdef HAS_ARM64_SUPPORT
     case CPU_TYPE_ARM64:
-      info_ptr->processor_architecture = MD_CPU_ARCHITECTURE_ARM64;
+      info_ptr->processor_architecture = MD_CPU_ARCHITECTURE_ARM64_OLD;
       break;
 #endif
 #ifdef HAS_PPC_SUPPORT
