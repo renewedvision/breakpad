@@ -1200,7 +1200,8 @@ bool MinidumpContext::CheckAgainstSystemInfo(uint32_t context_cpu_type) {
       break;
 
     case MD_CONTEXT_ARM64:
-      if (system_info_cpu_type == MD_CPU_ARCHITECTURE_ARM64)
+      if (system_info_cpu_type == MD_CPU_ARCHITECTURE_ARM64 ||
+          system_info_cpu_type == MD_CPU_ARCHITECTURE_ARM64_2)
         return_value = true;
       break;
 
@@ -3488,6 +3489,7 @@ string MinidumpSystemInfo::GetCPU() {
       break;
 
     case MD_CPU_ARCHITECTURE_ARM64:
+    case MD_CPU_ARCHITECTURE_ARM64_2:
       cpu = "arm64";
       break;
 
@@ -5087,6 +5089,7 @@ bool Minidump::GetContextCPUFlagsFromSystemInfo(uint32_t *context_cpu_flags) {
         *context_cpu_flags = MD_CONTEXT_ARM;
         break;
       case MD_CPU_ARCHITECTURE_ARM64:
+      case MD_CPU_ARCHITECTURE_ARM64_2:
         *context_cpu_flags = MD_CONTEXT_ARM64;
         break;
       case MD_CPU_ARCHITECTURE_IA64:

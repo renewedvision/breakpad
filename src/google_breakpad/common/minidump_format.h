@@ -653,6 +653,7 @@ typedef enum {
                                         * (Microsoft Intermediate Language) */
   MD_CPU_ARCHITECTURE_AMD64     =  9,  /* PROCESSOR_ARCHITECTURE_AMD64 */
   MD_CPU_ARCHITECTURE_X86_WIN64 = 10,
+  MD_CPU_ARCHITECTURE_ARM64_2   = 12,  /* PROCESSOR_ARCHITECTURE_ARM64 */
       /* PROCESSOR_ARCHITECTURE_IA32_ON_WIN64 (WoW64) */
   MD_CPU_ARCHITECTURE_SPARC     = 0x8001, /* Breakpad-defined value for SPARC */
   MD_CPU_ARCHITECTURE_PPC64     = 0x8002, /* Breakpad-defined value for PPC64 */
