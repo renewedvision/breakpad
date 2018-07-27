@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6aa6541_8aab42de",
+        "filename": "src/google_breakpad/common/minidump_format.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-07-27T01:45:16Z",
+      "side": 1,
+      "message": "This is dangling in the wrong spot now.",
+      "revId": "e8fb8c758bacaf1cd2dbaee976cac1eae6d058b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e7cc8b8_871145a9",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-07-27T01:45:16Z",
+      "side": 1,
+      "message": "Not so sure about this. The Microsoft (non-Breakpad) MD_CPU_ARCHITECTURE_ARM64 ought to carry Microsoft’s version of the context structure, not Breakpad’s.\n\nWho’s writing minidumps that mix the Microsoft arch number with the Breakpad context struct and number? If it’s Crashpad, let’s fix it up before we release anything that writes 64-bit ARM minidumps.\n\nMy intention was to use the Microsoft numbers and context structs in Crashpad, because Microsoft owns the format and we should play nicely (even if we defined ARM64 minidumps first), and to teach Breakpad about the Microsoft context structs.",
+      "revId": "e8fb8c758bacaf1cd2dbaee976cac1eae6d058b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
