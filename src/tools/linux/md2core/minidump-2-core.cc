@@ -480,7 +480,7 @@ ParseThreadRegisters(CrashedProcess::Thread* thread,
 static void
 ParseThreadRegisters(CrashedProcess::Thread* thread,
                      const MinidumpMemoryRange& range) {
-  const MDRawContextARM64* rawregs = range.GetData<MDRawContextARM64>(0);
+  const MDRawContextARM64_Old* rawregs = range.GetData<MDRawContextARM64_Old>(0);
 
   for (int i = 0; i < 31; ++i)
     thread->regs.regs[i] = rawregs->iregs[i];
