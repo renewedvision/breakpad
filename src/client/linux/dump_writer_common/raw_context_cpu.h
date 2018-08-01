@@ -41,7 +41,7 @@ typedef MDRawContextAMD64 RawContextCPU;
 #elif defined(__ARM_EABI__)
 typedef MDRawContextARM RawContextCPU;
 #elif defined(__aarch64__)
-typedef MDRawContextARM64_Old RawContextCPU;
+typedef MDRawContextARM64 RawContextCPU;
 #elif defined(__mips__)
 typedef MDRawContextMIPS RawContextCPU;
 #else
