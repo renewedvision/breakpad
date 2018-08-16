@@ -372,8 +372,10 @@ void ExceptionHandler::SignalHandler(int sig, siginfo_t* info, void* uc) {
   }
 
   bool handled = false;
-  for (int i = g_handler_stack_->size() - 1; !handled && i >= 0; --i) {
-    handled = (*g_handler_stack_)[i]->HandleSignal(sig, info, uc);
+  if (g_handler_stack_ != nullptr) {
+    for (int i = g_handler_stack_->size() - 1; !handled && i >= 0; --i) {
+      handled = (*g_handler_stack_)[i]->HandleSignal(sig, info, uc);
+    }
   }
 
   // Upon returning from this signal handler, sig will become unmasked and then
