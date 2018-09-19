@@ -274,7 +274,7 @@ class ExceptionHandler {
 };
 
 
-typedef bool (*FirstChanceHandler)(int, void*, void*);
+typedef bool (*FirstChanceHandler)(int, siginfo_t*, void*);
 void SetFirstChanceExceptionHandler(FirstChanceHandler callback);
 
 }  // namespace google_breakpad

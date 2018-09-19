@@ -470,6 +470,9 @@ class AutoExceptionHandler {
 
 // static
 LONG ExceptionHandler::HandleException(EXCEPTION_POINTERS* exinfo) {
+  if (first_chance_handler_ && first_chance_handler_(exinfo)) {
+    return EXCEPTION_CONTINUE_EXECUTION;
+  }
   AutoExceptionHandler auto_exception_handler;
   ExceptionHandler* current_handler = auto_exception_handler.get_handler();
 
@@ -1075,6 +1078,11 @@ void ExceptionHandler::UnregisterAppMemory(void* ptr) {
   if (iter != app_memory_info_.end()) {
     app_memory_info_.erase(iter);
   }
+}
+
+// static
+void ExceptionHandler::SetFirstChanceExceptionHandler(FirstChanceHandler callback) {
+  first_chance_handler_ = callback;
 }
 
 }  // namespace google_breakpad

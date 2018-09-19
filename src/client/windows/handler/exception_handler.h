@@ -282,6 +282,9 @@ class ExceptionHandler {
   void RegisterAppMemory(void* ptr, size_t length);
   void UnregisterAppMemory(void* ptr);
 
+  typedef bool (*FirstChanceHandler)(EXCEPTION_POINTERS*);
+  static void SetFirstChanceExceptionHandler(FirstChanceHandler callback);
+
  private:
   friend class AutoExceptionHandler;
 
@@ -511,6 +514,8 @@ class ExceptionHandler {
 
   // The number of instances of this class.
   static volatile LONG instance_count_;
+
+  static FirstChanceHandler first_chance_handler_ = nullptr;
 
   // disallow copy ctor and operator=
   explicit ExceptionHandler(const ExceptionHandler &);
