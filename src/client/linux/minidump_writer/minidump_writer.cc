@@ -328,15 +328,16 @@ class MinidumpWriter {
     if (dumper_->GetStackInfo(&stack, &stack_len, stack_pointer)) {
       if (max_stack_len >= 0 &&
           stack_len > static_cast<unsigned int>(max_stack_len)) {
-        stack_len = max_stack_len;
-        // Skip empty chunks of length max_stack_len.
-        uintptr_t int_stack = reinterpret_cast<uintptr_t>(stack);
         if (max_stack_len > 0) {
-          while (int_stack + max_stack_len < stack_pointer) {
-            int_stack += max_stack_len;
+          //Select an appropriate start address for following stack copy
+          uintptr_t int_stack = reinterpret_cast<uintptr_t>(stack);
+          if (int_stack + stack_len - max_stack_len <= stack_pointer) {
+            stack = reinterpret_cast<const void *>(int_stack + stack_len - max_stack_len);
+          } else {
+            stack = reinterpret_cast<const void *>(stack_pointer);
           }
         }
-        stack = reinterpret_cast<const void*>(int_stack);
+        stack_len = max_stack_len;
       }
       *stack_copy = reinterpret_cast<uint8_t*>(Alloc(stack_len));
       dumper_->CopyFromProcess(*stack_copy, thread->thread_id, stack,
