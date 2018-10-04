@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77ee46e0_ffff042e",
+        "filename": "src/client/ios/Breakpad.mm",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2018-10-04T20:31:40Z",
+      "side": 1,
+      "message": "Indent here.\n\n`git cl format`\nwill will fix all the formatting for you.",
+      "range": {
+        "startLine": 485,
+        "startChar": 4,
+        "endLine": 485,
+        "endChar": 5
+      },
+      "revId": "db6f2e484e79d175f6627cef357f3755d3266ded",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
