@@ -110,7 +110,7 @@ class DumpCommand: public mach_o::Reader::LoadCommandHandler {
            segment.vmaddr, segment.vmsize, segment.maxprot,
            segment.initprot, mach_o::SegmentFlags(segment.flags),
            segment.section_list.Size());
-           
+      
     DumpSection dump_section;
     return reader_->WalkSegmentSections(segment, &dump_section);
   }
@@ -140,13 +140,13 @@ void DumpFile(const char *filename) {
   size_t object_files_size;
   const SuperFatArch* super_fat_object_files =
       fat_reader.object_files(&object_files_size);
-  struct fat_arch *object_files;
-  if (!super_fat_object_files->ConvertToFatArch(object_files)) {
-    exit(1);
-  }
   printf("  object file count: %ld\n", object_files_size);
   for (size_t i = 0; i < object_files_size; i++) {
-    const struct fat_arch &file = object_files[i];
+    struct fat_arch object_file;
+    if (!super_fat_object_files[i].ConvertToFatArch(&object_file)) {
+        exit(1);
+    }
+    const struct fat_arch &file = object_file;
     const NXArchInfo *fat_arch_info =
         google_breakpad::BreakpadGetArchInfoFromCpuType(
             file.cputype, file.cpusubtype);

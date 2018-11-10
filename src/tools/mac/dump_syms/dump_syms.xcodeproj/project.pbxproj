@@ -36,6 +36,7 @@
 		162F64FA161C591500CD68D5 /* arch_utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 162F64F8161C591500CD68D5 /* arch_utilities.cc */; };
 		162F6500161C5F2200CD68D5 /* arch_utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 162F64F8161C591500CD68D5 /* arch_utilities.cc */; };
 		4247E63D2110D4B200482558 /* path_helper.cc in Sources */ = {isa = PBXBuildFile; fileRef = EB06C7511FEBC515000214D9 /* path_helper.cc */; };
+		468A3CD92196C75000CD1746 /* dwarf_range_list_handler.cc in Sources */ = {isa = PBXBuildFile; fileRef = 468A3CD72196C75000CD1746 /* dwarf_range_list_handler.cc */; };
 		4D72CAF513DFBAC2006CABE3 /* md5.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4D72CAF413DFBAC2006CABE3 /* md5.cc */; };
 		8BCAAA4C1CE3A7980046090B /* elf_reader.cc in Sources */ = {isa = PBXBuildFile; fileRef = 8BCAAA4A1CE3A7980046090B /* elf_reader.cc */; };
 		8BCAAA4D1CE3B1260046090B /* elf_reader.cc in Sources */ = {isa = PBXBuildFile; fileRef = 8BCAAA4A1CE3A7980046090B /* elf_reader.cc */; };
@@ -278,6 +279,8 @@
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		162F64F8161C591500CD68D5 /* arch_utilities.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = arch_utilities.cc; path = ../../../common/mac/arch_utilities.cc; sourceTree = "<group>"; };
 		162F64F9161C591500CD68D5 /* arch_utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = arch_utilities.h; path = ../../../common/mac/arch_utilities.h; sourceTree = "<group>"; };
+		468A3CD72196C75000CD1746 /* dwarf_range_list_handler.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dwarf_range_list_handler.cc; path = ../../../common/dwarf_range_list_handler.cc; sourceTree = "<group>"; };
+		468A3CD82196C75000CD1746 /* dwarf_range_list_handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dwarf_range_list_handler.h; path = ../../../common/dwarf_range_list_handler.h; sourceTree = "<group>"; };
 		4D72CAF413DFBAC2006CABE3 /* md5.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = md5.cc; path = ../../../common/md5.cc; sourceTree = SOURCE_ROOT; };
 		557800890BE1F3AB00EC23E0 /* macho_utilities.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = macho_utilities.cc; path = ../../../common/mac/macho_utilities.cc; sourceTree = SOURCE_ROOT; };
 		5578008A0BE1F3AB00EC23E0 /* macho_utilities.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = macho_utilities.h; path = ../../../common/mac/macho_utilities.h; sourceTree = SOURCE_ROOT; };
@@ -546,6 +549,8 @@
 		B88FAE1C11665FFD00407530 /* MODULE */ = {
 			isa = PBXGroup;
 			children = (
+				468A3CD72196C75000CD1746 /* dwarf_range_list_handler.cc */,
+				468A3CD82196C75000CD1746 /* dwarf_range_list_handler.h */,
 				B88FAE1E1166603300407530 /* dwarf_cu_to_module.cc */,
 				B88FAE1F1166603300407530 /* dwarf_cu_to_module.h */,
 				B88FB0D6116CEC0600407530 /* dwarf_cu_to_module_unittest.cc */,
@@ -1100,6 +1105,7 @@
 				B88FAE1911665FE400407530 /* dwarf2diehandler.cc in Sources */,
 				B88FAE261166603300407530 /* dwarf_cu_to_module.cc in Sources */,
 				B88FAE271166603300407530 /* dwarf_line_to_module.cc in Sources */,
+				468A3CD92196C75000CD1746 /* dwarf_range_list_handler.cc in Sources */,
 				B88FAE281166603300407530 /* language.cc in Sources */,
 				B88FAE291166603300407530 /* module.cc in Sources */,
 				B88FAE351166673E00407530 /* dwarf_cfi_to_module.cc in Sources */,
@@ -1243,6 +1249,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8B3102D411F0D60300FCF3E4 /* BreakpadDebug.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				HEADER_SEARCH_PATHS = (
 					../../..,
 					../../../common/mac/include/,
@@ -1255,6 +1263,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8B3102D511F0D60300FCF3E4 /* BreakpadRelease.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				HEADER_SEARCH_PATHS = (
 					../../..,
 					../../../common/mac/include/,
