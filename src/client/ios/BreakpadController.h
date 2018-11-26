@@ -142,6 +142,17 @@
 - (void)threadUnsafeSendReportWithConfiguration:(NSDictionary*)configuration
                                 withBreakpadRef:(BreakpadRef)ref;
 
+// Generate a breakpad minidump and configuration file in the dump directory.
+// The entry in |params| will be add to the report. The keys and valued of
+// params must be NSString*. Keys do not need to contain the breakpad prefix.
+// The report will be available for uploading. The paths of the created files
+// are passed to |callback| on completion.
+// As the context in which this method is called may have some thread
+// constraints, |callback| will be called in the internal breakpad queue.
+// |callback| must not block the breakpad queue.
+- (void)generateCrashReportWithParams:(NSDictionary*)params
+                           completion:(void (^)(NSDictionary*))callback;
+
 @end
 
 #endif  // CLIENT_IOS_HANDLER_IOS_BREAKPAD_CONTROLLER_H_
