@@ -362,4 +362,18 @@ NSString* GetPlatform() {
   }
 }
 
+- (void)generateCrashReport:(void(^)(NSDictionary*))callback {
+  NSAssert(started_, @"The controller must be started before "
+           "generateCrashReport is called");
+  dispatch_async(queue_, ^{
+    if (!breakpadRef_) {
+      return;
+    }
+    NSDictionary *reportPath = BreakpadGenerateReport(breakpadRef_, nil);
+    if (callback) {
+      callback(reportPath);
+    }
+  });
+}
+
 @end
