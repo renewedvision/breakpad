@@ -362,4 +362,30 @@ NSString* GetPlatform() {
   }
 }
 
+- (void)generateCrashReportWithParams:(NSDictionary*)params
+                           completion:(void (^)(NSDictionary*))callback {
+  NSAssert(started_,
+      @"The controller must be started before generateCrashReport is called");
+  dispatch_async(queue_, ^{
+    if (!breakpadRef_) {
+      return;
+    }
+    NSMutableDictionary *prefixedParams = nil;
+    if (params) {
+      prefixedParams =
+          [NSMutableDictionary dictionaryWithCapacity:[params count]];
+      for (NSString *key in params) {
+        NSString *prefixedKey =
+            [@BREAKPAD_SERVER_PARAMETER_PREFIX stringByAppendingString:key];
+        [prefixedParams setObject:[params objectForKey:key] forKey:prefixedKey];
+      }
+    }
+    NSDictionary *reportPath =
+        BreakpadGenerateReport(breakpadRef_, prefixedParams);
+    if (callback) {
+      callback(reportPath);
+    }
+  });
+}
+
 @end
