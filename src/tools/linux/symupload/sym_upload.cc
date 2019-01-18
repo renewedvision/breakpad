@@ -60,6 +60,14 @@ Usage(int argc, const char *argv[]) {
   fprintf(stderr, "-u:\t <user[:password]> Set proxy user and password\n");
   fprintf(stderr, "-h:\t Usage\n");
   fprintf(stderr, "-?:\t Usage\n");
+  fprintf(stderr, "Prototype Usage: %s -p [options...] <symbols> <API-URL> <API-key>\n", argv[0]);
+  fprintf(stderr, "Prototype Options:\n");
+  fprintf(stderr, "<symbols> should be created using the dump_syms tool.\n");
+  fprintf(stderr, "<API-URL> is the prototype new symbol upload server API URL.\n");
+  fprintf(stderr, "<API-key> is a Google cloud project API key for the upload server API URL.\n");
+  fprintf(stderr, "-p:\t Use prototype new symbol upload mechanism\n");
+  fprintf(stderr, "-f:\t Force symbol upload if already exists.\n");
+
 }
 
 //=============================================================================
@@ -68,7 +76,7 @@ SetupOptions(int argc, const char *argv[], Options *options) {
   extern int optind;
   int ch;
 
-  while ((ch = getopt(argc, (char * const *)argv, "u:v:x:h?")) != -1) {
+  while ((ch = getopt(argc, (char * const *)argv, "u:v:x:hpf?")) != -1) {
     switch (ch) {
       case 'h':
       case '?':
@@ -84,6 +92,12 @@ SetupOptions(int argc, const char *argv[], Options *options) {
       case 'x':
         options->proxy = optarg;
         break;
+      case 'p':
+        options->new_upload_mechanism = true;
+        break;
+      case 'f':
+        options->force = true;
+        break;
 
       default:
         fprintf(stderr, "Invalid option '%c'\n", ch);
@@ -93,14 +107,26 @@ SetupOptions(int argc, const char *argv[], Options *options) {
     }
   }
 
-  if ((argc - optind) != 2) {
-    fprintf(stderr, "%s: Missing symbols file and/or upload-URL\n", argv[0]);
-    Usage(argc, argv);
-    exit(1);
+  if (!options->new_upload_mechanism) {
+    if ((argc - optind) == 2) {
+      options->symbolsPath = argv[optind];
+      options->uploadURLStr = argv[optind + 1];
+    } else {
+      fprintf(stderr, "%s: Missing symbols file and/or upload-URL\n", argv[0]);
+      Usage(argc, argv);
+      exit(1);
+    }
+  } else {
+    if ((argc - optind) == 3) {
+      options->symbolsPath = argv[optind];
+      options->uploadURLStr = argv[optind + 1];
+      options->api_key = argv[optind + 2];
+    } else {
+      fprintf(stderr, "%s: Prototype symbol upload mechanism requires 3 arguments\n", argv[0]);
+      Usage(argc, argv);
+      exit(1);
+    }
   }
-
-  options->symbolsPath = argv[optind];
-  options->uploadURLStr = argv[optind + 1];
 }
 
 //=============================================================================

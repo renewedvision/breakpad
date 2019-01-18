@@ -38,12 +38,52 @@
 #include <string>
 
 #include "common/using_std_string.h"
+#include "third_party/curl/curl.h"
 
 namespace google_breakpad {
 
 using std::map;
 
 class HTTPUpload {
+ private:
+  enum HttpMethod {
+    Simple_POST,
+    Multipart_POST,
+    PUT,
+    GET
+  };
+
+  struct PutOptions {
+    const string& path_to_file;
+  };
+
+  struct MultipartPostOptions {
+    const map<string, string>& parameters;
+    const map<string, string>& files;
+  };
+
+  struct SimplePostOptions {
+    const string& body;
+  };
+
+  struct GetOptions {
+  };
+
+  struct RequestOptions {
+    HttpMethod http_method;
+    const string& url;
+    const string& proxy;
+    const string& proxy_user_pwd;
+    const string& ca_certificate_file;
+    union {
+      PutOptions* put_options;
+      SimplePostOptions* simple_post_options;
+      MultipartPostOptions* multipart_post_options;
+      GetOptions* get_options;
+    };
+    const string& content_type;
+  };
+
  public:
   // Sends the given sets of parameters and files as a multipart POST
   // request to the given URL.
@@ -68,7 +108,52 @@ class HTTPUpload {
                           long *response_code,
                           string *error_description);
 
+  static bool SendPutRequest(const string &url,
+                             const string &path_to_file,
+                             const string &proxy,
+                             const string &proxy_user_pwd,
+                             const string &ca_certificate_file,
+                             string *response_body,
+                             long *response_code,
+                             string *error_description);
+
+  static bool SendGetRequest(const string &url,
+                             const string &proxy,
+                             const string &proxy_user_pwd,
+                             const string &ca_certificate_file,
+                             string *response_body,
+                             long *response_code,
+                             string *error_description);
+
+  static bool SendMultipartPostRequest(
+    const string &url,
+    const map<string, string> &parameters,
+    const map<string, string> &files,
+    const string &proxy,
+    const string &proxy_user_pwd,
+    const string &ca_certificate_file,
+    const string &content_type,
+    string *response_body,
+    long *response_code,
+    string *error_description);
+
+  static bool SendSimplePostRequest(
+    const string &url,
+    const string &body,
+    const string &proxy,
+    const string &proxy_user_pwd,
+    const string &ca_certificate_file,
+    const string &content_type,
+    string *response_body,
+    long *response_code,
+    string *error_description);
+
  private:
+  static bool SendRequestInner(const RequestOptions& request_options,
+                               string *response_body,
+                               long *response_code,
+                               string *error_description);
+
   // Checks that the given list of parameters has only printable
   // ASCII characters in the parameter name, and does not contain
   // any quote (") characters.  Returns true if so.
@@ -76,6 +161,15 @@ class HTTPUpload {
 
   // Checks the curl_lib parameter points to a valid curl lib.
   static bool CheckCurlLib(void* curl_lib);
+
+  static curl_httppost* CreateFormPost(
+      void* curl_lib,
+      const map<string, string> &parameters,
+      const map<string, string> &files);
+
+  static void CleanupFormPost(
+      void* curl_lib,
+      curl_httppost* formpost);
 
   // No instances of this class should be created.
   // Disallow all constructors, destructors, and operator=.
