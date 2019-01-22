@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c229a9f_0a74cd61",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "static const char* const register_names[] \u003d {",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fcd86c4_e9d06242",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "can\u0027t you re-use DwarfCFIRegisterNames instead of duplicating this ?",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5727c3dc_646828c8",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "should clean up this debug code",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c4a9b66_e55e35f2",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "hanging indent should use 4 spaces, not two",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85daed06_8e5f9d06",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "clean up dead code",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28ef930d_7ba8ebc0",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "hanging indent should use 4 spaces, not two",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8fe9e2e_6aa2bbfd",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "hanging indent should use 4 spaces, not two",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14469694_03ce060b",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "clean up trailing whitespace",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22f33987_2146d5e1",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "only one blank line",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f435ef5e_41d554c9",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "this needs an explanation.  the comment above talks about 8 byte regs, but you changed this to 4.",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06f1fc03_c189badf",
+        "filename": "src/processor/stackwalker_ppc64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-22T14:20:05Z",
+      "side": 1,
+      "message": "indentation is off",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
