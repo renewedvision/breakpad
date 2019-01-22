@@ -354,6 +354,13 @@ bool DwarfCFIRegisterNames(const typename ElfClass::Ehdr* elf_header,
     case EM_X86_64:
       *register_names = DwarfCFIToModule::RegisterNames::X86_64();
       return true;
+    case EM_PPC64:
+      #if defined(__linux__)
+      *register_names = DwarfCFIToModule::RegisterNames::PPC64();
+      return true;
+      #else
+      return false;
+      #endif
     default:
       return false;
   }
