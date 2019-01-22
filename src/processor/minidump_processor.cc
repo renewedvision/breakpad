@@ -355,6 +355,27 @@ static const MDRawSystemInfo* GetSystemInfo(Minidump *dump,
   return minidump_system_info->system_info();
 }
 
+static size_t GetAddressForArchitecture(const MDCPUArchitecture architecture,
+                                        size_t raw_address)
+{
+  switch (architecture) {
+    case MD_CPU_ARCHITECTURE_X86:
+    case MD_CPU_ARCHITECTURE_MIPS:
+    case MD_CPU_ARCHITECTURE_ALPHA:
+    case MD_CPU_ARCHITECTURE_PPC:
+    case MD_CPU_ARCHITECTURE_SHX:
+    case MD_CPU_ARCHITECTURE_ARM:
+    case MD_CPU_ARCHITECTURE_X86_WIN64:
+      // 32-bit architectures, mask the upper bits
+      return raw_address & 0xffffffffULL;
+
+    default:
+      // All other architectures either have 64-bit pointers or it's impossible
+      // to tell from the minidump (e.g. MSIL or SPARC) so use 64-bits anyway.
+      return raw_address;
+  }
+}
+
 // Extract CPU info string from ARM-specific MDRawSystemInfo structure.
 // raw_info: pointer to source MDRawSystemInfo.
 // cpu_info: address of target string, cpu info text will be appended to it.
@@ -706,6 +727,9 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
   if (!raw_system_info)
     return reason;
 
+  const MDCPUArchitecture processor_architecture =
+    static_cast<MDCPUArchitecture>(raw_system_info->processor_architecture);
+
   switch (raw_system_info->platform_id) {
     case MD_OS_MAC_OS_X:
     case MD_OS_IOS: {
@@ -732,10 +756,8 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
               break;
             default:
               // arm and ppc overlap
-              if (raw_system_info->processor_architecture ==
-                  MD_CPU_ARCHITECTURE_ARM ||
-                  raw_system_info->processor_architecture ==
-                  MD_CPU_ARCHITECTURE_ARM64_OLD) {
+              if (processor_architecture == MD_CPU_ARCHITECTURE_ARM ||
+                  processor_architecture == MD_CPU_ARCHITECTURE_ARM64_OLD) {
                 switch (exception_flags) {
                   case MD_EXCEPTION_CODE_MAC_ARM_DA_ALIGN:
                     reason.append("EXC_ARM_DA_ALIGN");
@@ -748,8 +770,7 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
                     BPLOG(INFO) << "Unknown exception reason " << reason;
                     break;
                 }
-              } else if (raw_system_info->processor_architecture ==
-                         MD_CPU_ARCHITECTURE_PPC) {
+              } else if (processor_architecture == MD_CPU_ARCHITECTURE_PPC) {
                 switch (exception_flags) {
                   case MD_EXCEPTION_CODE_MAC_PPC_VM_PROT_READ:
                     reason.append("EXC_PPC_VM_PROT_READ");
@@ -765,10 +786,8 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
                     BPLOG(INFO) << "Unknown exception reason " << reason;
                     break;
                 }
-              } else if (raw_system_info->processor_architecture ==
-                         MD_CPU_ARCHITECTURE_X86 ||
-                         raw_system_info->processor_architecture ==
-                         MD_CPU_ARCHITECTURE_AMD64) {
+              } else if (processor_architecture == MD_CPU_ARCHITECTURE_X86 ||
+                         processor_architecture == MD_CPU_ARCHITECTURE_AMD64) {
                 switch (exception_flags) {
                   case MD_EXCEPTION_CODE_MAC_X86_GENERAL_PROTECTION_FAULT:
                     reason.append("EXC_I386_GPFLT");
@@ -787,7 +806,7 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
           break;
         case MD_EXCEPTION_MAC_BAD_INSTRUCTION:
           reason = "EXC_BAD_INSTRUCTION / ";
-          switch (raw_system_info->processor_architecture) {
+          switch (processor_architecture) {
             case MD_CPU_ARCHITECTURE_ARM:
             case MD_CPU_ARCHITECTURE_ARM64_OLD: {
               switch (exception_flags) {
@@ -864,7 +883,7 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
           break;
         case MD_EXCEPTION_MAC_ARITHMETIC:
           reason = "EXC_ARITHMETIC / ";
-          switch (raw_system_info->processor_architecture) {
+          switch (processor_architecture) {
             case MD_CPU_ARCHITECTURE_PPC: {
               switch (exception_flags) {
                 case MD_EXCEPTION_CODE_MAC_PPC_OVERFLOW:
@@ -970,7 +989,7 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
           break;
         case MD_EXCEPTION_MAC_BREAKPOINT:
           reason = "EXC_BREAKPOINT / ";
-          switch (raw_system_info->processor_architecture) {
+          switch (processor_architecture) {
             case MD_CPU_ARCHITECTURE_ARM:
             case MD_CPU_ARCHITECTURE_ARM64_OLD: {
               switch (exception_flags) {
@@ -1634,6 +1653,10 @@ string MinidumpProcessor::GetCrashReason(Minidump *dump, uint64_t *address) {
       BPLOG(INFO) << "Unknown exception reason " << reason;
       break;
     }
+  }
+
+  if (address) {
+    *address = GetAddressForArchitecture(processor_architecture, *address);
   }
 
   return reason;
