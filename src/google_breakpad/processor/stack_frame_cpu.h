@@ -128,14 +128,52 @@ struct StackFramePPC64 : public StackFrame {
   // other nonvolatile (callee-save) registers as in
   // StackFrameX86::ContextValidity, but the ppc stackwalker doesn't currently
   // locate registers other than the ones listed here.
-  enum ContextValidity {
-    CONTEXT_VALID_NONE = 0,
-    CONTEXT_VALID_SRR0 = 1 << 0,
-    CONTEXT_VALID_GPR1 = 1 << 1,
-    CONTEXT_VALID_ALL  = -1
-  };
+  static const uint64_t CONTEXT_VALID_NONE = 0;
+  static const uint64_t CONTEXT_VALID_R0   = 1ULL << 0;
+  static const uint64_t CONTEXT_VALID_R1   = 1ULL << 1;
+  static const uint64_t CONTEXT_VALID_R2   = 1ULL << 2;
+  static const uint64_t CONTEXT_VALID_R3   = 1ULL << 3;
+  static const uint64_t CONTEXT_VALID_R4   = 1ULL << 4;
+  static const uint64_t CONTEXT_VALID_R5   = 1ULL << 5;
+  static const uint64_t CONTEXT_VALID_R6   = 1ULL << 6;
+  static const uint64_t CONTEXT_VALID_R7   = 1ULL << 7;
+  static const uint64_t CONTEXT_VALID_R8   = 1ULL << 8;
+  static const uint64_t CONTEXT_VALID_R9   = 1ULL << 9;
+  static const uint64_t CONTEXT_VALID_R10  = 1ULL << 10;
+  static const uint64_t CONTEXT_VALID_R11  = 1ULL << 11;
+  static const uint64_t CONTEXT_VALID_R12  = 1ULL << 12;
+  static const uint64_t CONTEXT_VALID_R13  = 1ULL << 13;
+  static const uint64_t CONTEXT_VALID_R14  = 1ULL << 14;
+  static const uint64_t CONTEXT_VALID_R15  = 1ULL << 15;
+  static const uint64_t CONTEXT_VALID_R16  = 1ULL << 16;
+  static const uint64_t CONTEXT_VALID_R17  = 1ULL << 17;
+  static const uint64_t CONTEXT_VALID_R18  = 1ULL << 18;
+  static const uint64_t CONTEXT_VALID_R19  = 1ULL << 19;
+  static const uint64_t CONTEXT_VALID_R20  = 1ULL << 20;
+  static const uint64_t CONTEXT_VALID_R21  = 1ULL << 21;
+  static const uint64_t CONTEXT_VALID_R22  = 1ULL << 22;
+  static const uint64_t CONTEXT_VALID_R23  = 1ULL << 23;
+  static const uint64_t CONTEXT_VALID_R24  = 1ULL << 24;
+  static const uint64_t CONTEXT_VALID_R25  = 1ULL << 25;
+  static const uint64_t CONTEXT_VALID_R26  = 1ULL << 26;
+  static const uint64_t CONTEXT_VALID_R27  = 1ULL << 27;
+  static const uint64_t CONTEXT_VALID_R28  = 1ULL << 28;
+  static const uint64_t CONTEXT_VALID_R29  = 1ULL << 29;
+  static const uint64_t CONTEXT_VALID_R30  = 1ULL << 30;
+  static const uint64_t CONTEXT_VALID_R31  = 1ULL << 31;
+  static const uint64_t CONTEXT_VALID_LR   = 1ULL << 32;
+  static const uint64_t CONTEXT_VALID_SRR0 = 1ULL << 33;
+  static const uint64_t CONTEXT_VALID_ALL  = ~CONTEXT_VALID_NONE;
+
+  // Aliases for registers with dedicated or conventional roles.
+  static const uint64_t CONTEXT_VALID_SP   = CONTEXT_VALID_R1;
 
   StackFramePPC64() : context(), context_validity(CONTEXT_VALID_NONE) {}
+
+  // Return the validity flag for register xN.
+  static uint64_t RegisterValidFlag(int n) {
+    return 1ULL << n;
+  }
 
   // Register state.  This is only fully valid for the topmost frame in a
   // stack.  In other frames, the values of nonvolatile registers may be
@@ -146,7 +184,7 @@ struct StackFramePPC64 : public StackFrame {
   // context_validity is actually ContextValidity, but int is used because
   // the OR operator doesn't work well with enumerated types.  This indicates
   // which fields in context are valid.
-  int context_validity;
+  uint64_t context_validity;
 };
 
 struct StackFrameAMD64 : public StackFrame {
