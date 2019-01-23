@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2de98b38_546ef3bd",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-23T03:18:05Z",
+      "side": 1,
+      "message": "we use two space indents, not 4.  so you\u0027ll need to reformat things.  you should go through the whole CL.",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6305592_f3462ecf",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-23T03:18:05Z",
+      "side": 1,
+      "message": "you should clean up all trailing whitespace in your new code",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd884e74_1177bda0",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-23T03:18:05Z",
+      "side": 1,
+      "message": "there\u0027s no need for \\",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8213101b_892edc64",
+        "filename": "src/client/linux/dump_writer_common/thread_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-23T03:18:05Z",
+      "side": 1,
+      "message": "why do you need the full mcontext ?  that has padding and signal logic and ptrace regs that you don\u0027t need.  so why not just use gregset_t/fpregset_t directly ?  then you can name them \"regs\" and \"fpregs\" and you don\u0027t need to add the ppc64-specific logic just to deref the mcontext structure.",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d82f098a_bf144c06",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-23T03:18:05Z",
+      "side": 1,
+      "message": "please don\u0027t use inline comments\n\ncomments are full sentences, so period at the end",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97f283bf_8be9eaac",
+        "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-23T03:18:05Z",
+      "side": 1,
+      "message": "how about dropping this and turning the if below into a switch statement.  then set the default to a hardfail.",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "831984e6_89f26982",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-23T03:18:05Z",
+      "side": 1,
+      "message": "line is too long",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa50d7dd_1cc48fdd",
+        "filename": "src/processor/exploitability_linux.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-23T03:18:05Z",
+      "side": 1,
+      "message": "you shouldn\u0027t need these ifdefs.  the logic here should already be sufficient.",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
