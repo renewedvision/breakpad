@@ -111,6 +111,9 @@ bool LinuxCoreDumper::GetThreadInfoByIndex(size_t index, ThreadInfo* info) {
 #elif defined(__mips__)
   stack_pointer =
       reinterpret_cast<uint8_t*>(info->mcontext.gregs[MD_CONTEXT_MIPS_REG_SP]);
+#elif defined(__powerpc64__)
+  stack_pointer =
+      reinterpret_cast<uint8_t*>(info->gpregs[MD_CONTEXT_PPC64_REG_SP]);
 #else
 #error "This code hasn't been ported to your platform yet."
 #endif
@@ -195,7 +198,10 @@ bool LinuxCoreDumper::EnumerateThreads() {
         memset(&info, 0, sizeof(ThreadInfo));
         info.tgid = status->pr_pgrp;
         info.ppid = status->pr_ppid;
-#if defined(__mips__)
+#if defined(__powerpc64__)
+        for (int i = 0; i < 31; i++)
+            info.gpregs[i] = status->pr_reg[i];
+#elif defined(__mips__)
 #if defined(__ANDROID__)
         for (int i = EF_R0; i <= EF_R31; i++)
           info.mcontext.gregs[i - EF_R0] = status->pr_reg[i];
