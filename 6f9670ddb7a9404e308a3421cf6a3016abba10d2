@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "895ee14f_e1b449a7",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-23T18:19:38Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "2de98b38_546ef3bd",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6305592_f3462ecf",
         "filename": "src/client/linux/dump_writer_common/thread_info.cc",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44dacee5_c656f6df",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-23T18:19:38Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "c6305592_f3462ecf",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0bdd852e_75220fcc",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-23T18:19:38Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "cd884e74_1177bda0",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8213101b_892edc64",
         "filename": "src/client/linux/dump_writer_common/thread_info.h",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7812599e_817875a3",
+        "filename": "src/client/linux/dump_writer_common/thread_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-23T18:19:38Z",
+      "side": 1,
+      "message": "Good point, I\u0027ve fixed this in the latest patch set.",
+      "parentUuid": "8213101b_892edc64",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "7c5d1753_47c38bfa",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-23T18:19:38Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "d82f098a_bf144c06",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97f283bf_8be9eaac",
         "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2019-01-23T03:18:05Z",
       "side": 1,
       "message": "how about dropping this and turning the if below into a switch statement.  then set the default to a hardfail.",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbce8625_21593c85",
+        "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-23T18:19:38Z",
+      "side": 1,
+      "message": "Sure, I\u0027ve changed this to a switch statement. By hardfail, I assume you mean the FAIL() macro. If there\u0027s a different way you want this done, let me know.",
+      "parentUuid": "97f283bf_8be9eaac",
       "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "7e9bc699_fcf692b6",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-23T18:19:38Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "831984e6_89f26982",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa50d7dd_1cc48fdd",
         "filename": "src/processor/exploitability_linux.cc",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae462679_c95ade45",
+        "filename": "src/processor/exploitability_linux.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-23T18:19:38Z",
+      "side": 1,
+      "message": "Yeah, good point. I\u0027m not sure why I added this. Fixed.",
+      "parentUuid": "aa50d7dd_1cc48fdd",
+      "revId": "6f9670ddb7a9404e308a3421cf6a3016abba10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
