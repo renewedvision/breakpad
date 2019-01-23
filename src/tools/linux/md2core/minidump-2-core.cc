@@ -76,6 +76,8 @@
   #define ELF_ARCH  EM_MIPS
 #elif defined(__aarch64__)
   #define ELF_ARCH  EM_AARCH64
+#elif defined(__powerpc64__)
+  #define ELF_ARCH  EM_PPC64
 #endif
 
 #if defined(__arm__)
@@ -86,6 +88,8 @@ typedef user_regs user_regs_struct;
 #elif defined (__mips__)
 // This file-local typedef simplifies the source code.
 typedef gregset_t user_regs_struct;
+#elif defined(__powerpc64__)
+typedef struct pt_regs user_regs_struct;
 #endif
 
 using google_breakpad::MDTypeHelper;
@@ -321,6 +325,9 @@ struct CrashedProcess {
 #if defined(__aarch64__)
     user_fpsimd_struct fpregs;
 #endif
+#if defined(__powerpc64__)
+    mcontext_t mcontext;
+#endif
     uintptr_t stack_addr;
     const uint8_t* stack;
     size_t stack_length;
@@ -534,6 +541,38 @@ ParseThreadRegisters(CrashedProcess::Thread* thread,
   thread->mcontext.fpc_eir = rawregs->float_save.fir;
 #endif
 }
+#elif defined(__powerpc64__)
+static void
+ParseThreadRegisters(CrashedProcess::Thread* thread,
+                     const MinidumpMemoryRange& range) {
+  const MDRawContextPPC64* rawregs = range.GetData<MDRawContextPPC64>(0);
+
+  for (int i = 0; i < MD_CONTEXT_PPC64_GPR_COUNT; i++)
+    thread->mcontext.gp_regs[i] = rawregs->gpr[i];
+
+  thread->mcontext.gp_regs[PT_LNK] = rawregs->lr;
+  thread->mcontext.gp_regs[PT_NIP] = rawregs->srr0;
+  thread->mcontext.gp_regs[PT_MSR] = rawregs->srr1;
+  thread->mcontext.gp_regs[PT_CCR] = rawregs->cr;
+  thread->mcontext.gp_regs[PT_XER] = rawregs->xer;
+  thread->mcontext.gp_regs[PT_CTR] = rawregs->ctr;
+  thread->mcontext.v_regs->vrsave = rawregs->vrsave;
+
+  for (int i = 0; i < MD_FLOATINGSAVEAREA_PPC_FPR_COUNT; i++)
+      thread->mcontext.fp_regs[i] = rawregs->float_save.fpregs[i];
+
+  thread->mcontext.fp_regs[NFPREG-1] = rawregs->float_save.fpscr;
+
+  for (int i = 0; i < MD_VECTORSAVEAREA_PPC_VR_COUNT; i++) {
+      thread->mcontext.v_regs->vrregs[i][0] = rawregs->vector_save.save_vr[i].high >> 32;
+      thread->mcontext.v_regs->vrregs[i][1] = rawregs->vector_save.save_vr[i].high;
+      thread->mcontext.v_regs->vrregs[i][2] = rawregs->vector_save.save_vr[i].low >> 32;
+      thread->mcontext.v_regs->vrregs[i][3] = rawregs->vector_save.save_vr[i].low;
+  }
+
+  thread->mcontext.v_regs->vscr.vscr_word = rawregs->vector_save.save_vscr.low & 0xFFFFFFFF;
+}
+
 #else
 #error "This code has not been ported to your platform yet"
 #endif
@@ -622,6 +661,12 @@ ParseSystemInfo(const Options& options, CrashedProcess* crashinfo,
 # else
 #  error "This mips ABI is currently not supported (n32)"
 # endif
+#elif defined(__powerpc64__)
+  if (sysinfo->processor_architecture != MD_CPU_ARCHITECTURE_PPC64) {
+    fprintf(stderr,
+            "This version of minidump-2-core only supports PPC64.\n");
+    exit(1);
+  }
 #else
 #error "This code has not been ported to your platform yet"
 #endif

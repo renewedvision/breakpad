@@ -307,7 +307,7 @@ TEST(ExceptionHandlerTest, ParallelChildCrashesDontHang) {
   }
 
   // Wait a while until the child should have crashed.
-  usleep(1000000);
+  usleep(2000000);
   // Kill the child if it is still running.
   kill(child, SIGKILL);
 
@@ -576,6 +576,8 @@ const unsigned char kIllegalInstruction[] = {
 #if defined(__mips__)
   // mfc2 zero,Impl - usually illegal in userspace.
   0x48, 0x00, 0x00, 0x48
+#elif defined(__powerpc64__)
+  0x01, 0x01, 0x01, 0x01 // Crashes on a tested POWER9 cpu
 #else
   // This crashes with SIGILL on x86/x86-64/arm.
   0xff, 0xff, 0xff, 0xff
@@ -771,10 +773,10 @@ TEST(ExceptionHandlerTest, InstructionPointerMemoryMaxBound) {
 
   // These are defined here so the parent can use them to check the
   // data from the minidump afterwards.
-  // Use 4k here because the OS will hand out a single page even
+  // Use the page size here because the OS will hand out a single page even
   // if a smaller size is requested, and this test wants to
   // test the upper bound of the memory range.
-  const uint32_t kMemorySize = 4096;  // bytes
+  const uint32_t kMemorySize = getpagesize();  // bytes
   const int kOffset = kMemorySize - sizeof(kIllegalInstruction);
 
   const pid_t child = fork();

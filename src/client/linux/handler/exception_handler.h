@@ -192,7 +192,11 @@ class ExceptionHandler {
     siginfo_t siginfo;
     pid_t tid;  // the crashing thread.
     ucontext_t context;
-#if !defined(__ARM_EABI__) && !defined(__mips__)
+#if defined(__powerpc64__)
+    // PPC64's FP state is a part of ucontext_t like MIPS but the vector
+    // state is not, so a struct is needed.
+    vstate_t vector_state;
+#elif !defined(__ARM_EABI__) && !defined(__mips__)
     // #ifdef this out because FP state is not part of user ABI for Linux ARM.
     // In case of MIPS Linux FP state is already part of ucontext_t so
     // 'float_state' is not required.
