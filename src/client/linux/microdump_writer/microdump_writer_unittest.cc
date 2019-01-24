@@ -278,10 +278,25 @@ TEST(MicrodumpWriterTest, BasicWithMappings) {
   CrashAndGetMicrodump(mappings, MicrodumpExtraInfo(), &buf);
   ASSERT_TRUE(ContainsMicrodump(buf));
 
+  int page_size = getpagesize();
 #ifdef __LP64__
-  ASSERT_NE(std::string::npos,
-            buf.find("M 0000000000001000 000000000000002A 0000000000001000 "
-                     "33221100554477668899AABBCCDDEEFF0 libfoo.so"));
+  switch(page_size) {
+    case 4096:
+      ASSERT_NE(std::string::npos,
+              buf.find("M 0000000000001000 000000000000002A 0000000000001000 "
+                       "33221100554477668899AABBCCDDEEFF0 libfoo.so"));
+      break;
+
+    case 65536:
+      ASSERT_NE(std::string::npos,
+              buf.find("M 0000000000010000 000000000000002A 0000000000010000 "
+                       "33221100554477668899AABBCCDDEEFF0 libfoo.so"));
+      break;
+
+    default:
+      // If the page size doesn't have an explicit test case, fail.
+      FAIL();
+  }
 #else
   ASSERT_NE(std::string::npos,
             buf.find("M 00001000 0000002A 00001000 "

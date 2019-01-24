@@ -149,19 +149,27 @@ bool LinuxPtraceDumper::CopyFromProcess(void* dest, pid_t child,
   return true;
 }
 
-bool LinuxPtraceDumper::ReadRegisterSet(ThreadInfo* info, pid_t tid)
-{
+bool LinuxPtraceDumper::ReadRegisterSet(ThreadInfo* info, pid_t tid) {
 #ifdef PTRACE_GETREGSET
   struct iovec io;
   info->GetGeneralPurposeRegisters(&io.iov_base, &io.iov_len);
-  if (sys_ptrace(PTRACE_GETREGSET, tid, (void*)NT_PRSTATUS, (void*)&io) == -1) {
+  if (ptrace(PTRACE_GETREGSET, tid, (void*)NT_PRSTATUS, (void*)&io) == -1) {
     return false;
   }
 
   info->GetFloatingPointRegisters(&io.iov_base, &io.iov_len);
-  if (sys_ptrace(PTRACE_GETREGSET, tid, (void*)NT_FPREGSET, (void*)&io) == -1) {
+  if (ptrace(PTRACE_GETREGSET, tid, (void*)NT_FPREGSET, (void*)&io) == -1) {
     return false;
   }
+
+#if defined(__powerpc64__)
+  // Grab the vector registers on PPC64 too
+  info->GetVectorRegisters(&io.iov_base, &io.iov_len);
+  if (ptrace(PTRACE_GETREGSET, tid, (void*)NT_PPC_VMX, (void*)&io) == -1) {
+    return false;
+  }
+#endif // defined(__powerpc64__)
+
   return true;
 #else
   return false;
@@ -298,6 +306,9 @@ bool LinuxPtraceDumper::GetThreadInfoByIndex(size_t index, ThreadInfo* info) {
 #elif defined(__mips__)
   stack_pointer =
       reinterpret_cast<uint8_t*>(info->mcontext.gregs[MD_CONTEXT_MIPS_REG_SP]);
+#elif defined(__powerpc64__)
+  stack_pointer =
+      reinterpret_cast<uint8_t*>(info->gpregs[MD_CONTEXT_PPC64_REG_SP]);
 #else
 #error "This code hasn't been ported to your platform yet."
 #endif
