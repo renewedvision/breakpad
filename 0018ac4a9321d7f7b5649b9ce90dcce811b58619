@@ -16,6 +16,24 @@
       "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a93b5006_14da83c4",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1168100
+      },
+      "writtenOn": "2019-01-29T21:34:50Z",
+      "side": 1,
+      "message": "An oversight on my part. I originally wrote a method to return the size of the pointer then I figured out it was overkill. I must have changed the method name but not the return value, I\u0027ll fix it.",
+      "parentUuid": "ada053a1_ff4c7b6b",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
