@@ -88,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "8fb25cbc_2f4ee9db",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1169079
+      },
+      "writtenOn": "2019-01-29T21:55:29Z",
+      "side": 1,
+      "message": "Since there was a separate MD_CPU_ARCHITECTURE_ALPHA64 definition I thought this stood for a 32-bit variant.",
+      "parentUuid": "b2126619_ff6f91cd",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "36250924_333ef9d2",
         "filename": "src/processor/minidump_processor.cc",
         "patchSetId": 1
