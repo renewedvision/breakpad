@@ -106,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "b8485333_d24bf344",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1169079
+      },
+      "writtenOn": "2019-01-29T22:05:04Z",
+      "side": 1,
+      "message": "Having sifted a bit through Microsoft documentation - mostly because I\u0027m curious - I believe that MD_CPU_ARCHITECTURE_ALPHA is for Alphas running Windows NT 4.0 which was 32-bit only and MD_CPU_ARCHITECTURE_ALPHA64 was for the unreleased 64-bit Alpha port of NT.",
+      "parentUuid": "8fb25cbc_2f4ee9db",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "36250924_333ef9d2",
         "filename": "src/processor/minidump_processor.cc",
         "patchSetId": 1
