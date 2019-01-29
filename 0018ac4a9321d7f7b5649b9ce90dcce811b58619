@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "09155379_365cdbba",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-29T22:39:29Z",
+      "side": 1,
+      "message": "considering we basically have zero support for alpha elsewhere in the codebase, lets just omit it entirely here for now and wait for someone who wants to revive alpha to show up",
+      "parentUuid": "8bef2251_646ff26b",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "36250924_333ef9d2",
         "filename": "src/processor/minidump_processor.cc",
         "patchSetId": 1
@@ -153,6 +171,23 @@
       "writtenOn": "2019-01-29T21:41:22Z",
       "side": 1,
       "message": "period at the end",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d0e1cb6_870d6f40",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-29T22:39:29Z",
+      "side": 1,
+      "message": "this change looks fine (makes the code a bit more readable), but doesn\u0027t seem to be related to GetAddressForArchitecture.  maybe split that minor clean up out and we can approve/merge that now ?",
       "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
