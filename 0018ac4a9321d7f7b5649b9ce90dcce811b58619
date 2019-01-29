@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ada053a1_ff4c7b6b",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1134731
+      },
+      "writtenOn": "2019-01-29T18:38:14Z",
+      "side": 1,
+      "message": "Is there a reason this is `size_t` instead of `uint64_t`?",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
