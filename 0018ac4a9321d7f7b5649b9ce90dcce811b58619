@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "8bef2251_646ff26b",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-29T22:08:20Z",
+      "side": 1,
+      "message": "hmm, i have no idea the history of this enum.\n\nat the hardware level, there has never been a 32-bit Alpha.  it was designed to be 64-bit from day 0 and every CPU released was purely 64-bit.  which means every OS has always been 64-bit at least at the kernel level.\n\nLinux has never had a 32-bit runtime, and i don\u0027t think any other *nix has either (although i\u0027m not 100% familiar with every variant out there).\n\ni have no idea what Windows did back in its WinNT days (pre-Win2000).  it might have had a 32-bit Alpha userland (perhaps for Win32 API compat?).  maybe 32-bit pointers but 64-bit regs otherwise ?  since minidump came from Microsoft, that might be the reason.  so you could be correct that MS intended MD_CPU_ARCHITECTURE_ALPHA to be 32-bit userland (at the pointer level) and MD_CPU_ARCHITECTURE_ALPHA64 to be 64-bit userland (at the pointer level).",
+      "parentUuid": "8fb25cbc_2f4ee9db",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "36250924_333ef9d2",
         "filename": "src/processor/minidump_processor.cc",
         "patchSetId": 1
