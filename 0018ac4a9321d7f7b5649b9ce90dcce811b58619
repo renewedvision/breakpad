@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "7c688a40_52baeda8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-29T21:41:22Z",
+      "side": 1,
+      "message": "this seems like a bug in the crash generation.  i\u0027m not sure the minidump processor should be throwing away data like that.",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb80a078_2edceb9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-29T21:41:22Z",
+      "side": 1,
+      "message": "you want to write now:\n\n Bug: google-breakpad:783",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ada053a1_ff4c7b6b",
         "filename": "src/processor/minidump_processor.cc",
         "patchSetId": 1
@@ -31,6 +65,40 @@
       "side": 1,
       "message": "An oversight on my part. I originally wrote a method to return the size of the pointer then I figured out it was overkill. I must have changed the method name but not the return value, I\u0027ll fix it.",
       "parentUuid": "ada053a1_ff4c7b6b",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2126619_ff6f91cd",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-29T21:41:22Z",
+      "side": 1,
+      "message": "alpha is a 64bit arch",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36250924_333ef9d2",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-29T21:41:22Z",
+      "side": 1,
+      "message": "period at the end",
       "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
