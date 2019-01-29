@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e005cd06_9931b455",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-29T02:14:16Z",
+      "side": 1,
+      "message": "See the other comment. If this is doing what I think it is, you\u0027ll be corrupting the CR Save Word, as well as some reserved space on ELFv2.\n\nSpeaking of which, you should document which of the ABIs you\u0027re targeting. If you\u0027re only targeting v2, perhaps a _CALL_ELF with an #error documenting which ABI is supported.",
+      "revId": "fb0f8f42a1880bd81ff05f857ed5a8b657768e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5aa73c8_83636fbd",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-29T02:14:16Z",
+      "side": 1,
+      "message": "Both the ELFv1 and ELFv2 ABIs designate 16(%r1) as the LR save area, not 8(%r1).",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 2
+      },
+      "revId": "fb0f8f42a1880bd81ff05f857ed5a8b657768e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc47e88b_020e3eaf",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-29T02:14:16Z",
+      "side": 1,
+      "message": "Typo, this should be 4 bytes",
+      "range": {
+        "startLine": 269,
+        "startChar": 22,
+        "endLine": 269,
+        "endChar": 23
+      },
+      "revId": "fb0f8f42a1880bd81ff05f857ed5a8b657768e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
