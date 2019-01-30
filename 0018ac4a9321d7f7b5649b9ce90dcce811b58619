@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "47f65076_04c206f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1169079
+      },
+      "writtenOn": "2019-01-30T08:25:24Z",
+      "side": 1,
+      "message": "Looking at the minidumps we have in our Firefox crash-reports it simply seems that the address is being sign-extended. All 32-bit minidumps with the MSB set to 1 also have all the upper bits set to 1 in the 64-bit entry while the others don\u0027t. That seems indeed like a problem in minidump generation but I believe there\u0027s value in showing the user the proper crash address instead of the raw value.",
+      "parentUuid": "7c688a40_52baeda8",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb80a078_2edceb9e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba14b814_e86c89b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1169079
+      },
+      "writtenOn": "2019-01-30T08:25:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb80a078_2edceb9e",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -68,6 +104,24 @@
       "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88cfee73_e2c26378",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1169079
+      },
+      "writtenOn": "2019-01-30T08:25:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a93b5006_14da83c4",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -160,6 +214,24 @@
     },
     {
       "key": {
+        "uuid": "976f2303_2d1b87de",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1169079
+      },
+      "writtenOn": "2019-01-30T08:25:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "09155379_365cdbba",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36250924_333ef9d2",
         "filename": "src/processor/minidump_processor.cc",
         "patchSetId": 1
@@ -177,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "ee498f1e_7264237b",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1169079
+      },
+      "writtenOn": "2019-01-30T08:25:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36250924_333ef9d2",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d0e1cb6_870d6f40",
         "filename": "src/processor/minidump_processor.cc",
         "patchSetId": 1
@@ -191,6 +281,24 @@
       "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04f713c6_0d51a0a2",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1169079
+      },
+      "writtenOn": "2019-01-30T08:25:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d0e1cb6_870d6f40",
+      "revId": "0018ac4a9321d7f7b5649b9ce90dcce811b58619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
