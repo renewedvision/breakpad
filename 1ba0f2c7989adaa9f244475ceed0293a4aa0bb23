@@ -297,6 +297,30 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "416b8d68_eaf2d2dc",
+        "filename": "src/common/linux/symbol_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-02-15T20:09:32Z",
+      "side": 1,
+      "message": "maybe we should give each protocol a dedicated name and not worry about getting bogged down in transport/protocol specifics.  call the existing one \"sym-upload-v1\".  call this new one \"sym-upload-v2\".  feel free to bikeshed.",
+      "parentUuid": "0c074b8f_2280e77d",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
