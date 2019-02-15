@@ -41,14 +41,19 @@
 namespace google_breakpad {
 namespace sym_upload {
 
-typedef struct {
+struct Options {
+  Options() : new_upload_mechanism(false), force(false) {}
+
   string symbolsPath;
   string uploadURLStr;
   string proxy;
   string proxy_user_pwd;
   string version;
   bool success;
-} Options;
+  bool new_upload_mechanism;
+  bool force;
+  string api_key;
+};
 
 // Starts upload to symbol server with options.
 void Start(Options* options);
