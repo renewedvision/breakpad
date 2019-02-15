@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52ba650d_893d0230",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-02-15T18:58:08Z",
+      "side": 1,
+      "message": "Is there any more context or justification for this?",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
