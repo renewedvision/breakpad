@@ -273,6 +273,30 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c074b8f_2280e77d",
+        "filename": "src/common/linux/symbol_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-15T20:00:08Z",
+      "side": 1,
+      "message": "On second thought, since users setting up their own \"symbol collector\" service need to know the concrete protocol sym_upload is going to use for a give invocation, I think it makes sense to call this out as both \u0027authenticated\u0027 and \u0027rest\u0027. If something like gRPC is added as an option in the future then that could be called \u0027authenticated\u0027 and \u0027grpc\u0027. So \u0027use_authenticated_rest_api\u0027 is my revised preference. How does that sound?",
+      "parentUuid": "26552a26_dab283f4",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
