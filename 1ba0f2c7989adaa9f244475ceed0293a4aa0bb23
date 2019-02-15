@@ -16,6 +16,70 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9d29c8e_0d187904",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-15T19:22:19Z",
+      "side": 1,
+      "message": "We are trying to move away from IP address whitelisting. Using REST API with service keys provides a good alternative. We already have such a symbol collection service running in Google.",
+      "parentUuid": "52ba650d_893d0230",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b410a4a0_7d12101e",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-15T19:22:19Z",
+      "side": 1,
+      "message": "You may want to remove this prefix because it is only part of the file path after it\u0027s imported into the Google downstream repository.",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed9759df_8ae8e2b9",
+        "filename": "src/common/linux/symbol_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-15T19:22:19Z",
+      "side": 1,
+      "message": "\"new_\" is not very descriptive. Please, try to find a better name.\n\nMaybe \"use_cloud_api\" or use_rest_api?",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
