@@ -112,6 +112,30 @@
     },
     {
       "key": {
+        "uuid": "2a27796f_41e1993a",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-15T19:40:27Z",
+      "side": 1,
+      "message": "Good point.",
+      "parentUuid": "b410a4a0_7d12101e",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81535f1f_aa70f791",
         "filename": "src/common/linux/symbol_upload.cc",
         "patchSetId": 2
@@ -163,6 +187,24 @@
     },
     {
       "key": {
+        "uuid": "4dce49a4_2d63c760",
+        "filename": "src/common/linux/symbol_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-15T19:40:27Z",
+      "side": 1,
+      "message": "I think it was just for brevity/clarity, since we have the option of declaring the struct this way in c++. If there is a strong preference for the other syntax or for not changing it, then I have no problem reverting the change.",
+      "parentUuid": "55d3d657_b1551a49",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed9759df_8ae8e2b9",
         "filename": "src/common/linux/symbol_upload.h",
         "patchSetId": 2
@@ -198,6 +240,30 @@
       "side": 1,
       "message": "prefer not to use \"cloud\".  \"rest\" sounds OK.",
       "parentUuid": "ed9759df_8ae8e2b9",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26552a26_dab283f4",
+        "filename": "src/common/linux/symbol_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-15T19:40:27Z",
+      "side": 1,
+      "message": "HTTP/REST is an implementation detail though (as is cloud). From the perspective of users of sym_upload the only real change is supplying a key, so maybe \u0027use_authenticated_api\u0027?",
+      "parentUuid": "44038bd6_4380a71e",
       "range": {
         "startLine": 45,
         "startChar": 14,
