@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "347de61a_8898e281",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5159a44_cac88af9",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21c49ab1_32f04e91",
         "filename": "configure",
         "patchSetId": 2
@@ -87,6 +105,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bed0c8a_0c62f21c",
+        "filename": "configure",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21c49ab1_32f04e91",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -107,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "251b27d6_ba4037ab",
+        "filename": "default.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89e120e6_29723504",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc3d23ec_d2ea492d",
         "filename": "src/common/linux/http_upload.cc",
         "patchSetId": 2
@@ -121,6 +175,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbaabcd9_c60b5c24",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Yep good catch.",
+      "parentUuid": "bc3d23ec_d2ea492d",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +213,24 @@
     },
     {
       "key": {
+        "uuid": "321ad4ff_0e4170dd",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eae4443_a1c7183d",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e8fa9e2_467b4589",
         "filename": "src/common/linux/http_upload.cc",
         "patchSetId": 2
@@ -155,6 +245,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbb9e27c_702859ec",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Very good idea, did not occur to me at all.",
+      "parentUuid": "2e8fa9e2_467b4589",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -175,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "1448f51b_38e8efdc",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff66b7b9_23c7e80d",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ef024b1_4513640c",
         "filename": "src/common/linux/http_upload.cc",
         "patchSetId": 2
@@ -189,6 +315,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddeaa321_423091cc",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ef024b1_4513640c",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "5b54d664_85689b6c",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e73a680f_a10a0a41",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63c9e45f_816acb85",
         "filename": "src/common/linux/http_upload.cc",
         "patchSetId": 2
@@ -223,6 +385,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ca89d7_2e56e7ff",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63c9e45f_816acb85",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -243,6 +423,24 @@
     },
     {
       "key": {
+        "uuid": "444918d7_726a70bc",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Yeah I was trying to avoid any impact at all to the existing codepath because I didn\u0027t find unit tests for it. I\u0027ll refactor it and ask Ivan offline about how to properly test the old scenario so I don\u0027t regress it.",
+      "parentUuid": "164ac3da_05824fbc",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e20036e_7b6ace8a",
         "filename": "src/common/linux/http_upload.cc",
         "patchSetId": 2
@@ -257,6 +455,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa0fbac7_5ce92a39",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "This is a good question. I did copy it from the existing send-request code and figured someone who used or maintained this tool considered it useful. Sounds like that is not the case?",
+      "parentUuid": "3e20036e_7b6ace8a",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -277,6 +493,24 @@
     },
     {
       "key": {
+        "uuid": "cb91c345_1ba3f16d",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3871b0c_c557a7ab",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94dffd22_81da3aa8",
         "filename": "src/common/linux/http_upload.cc",
         "patchSetId": 2
@@ -291,6 +525,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8af5e3d_933718ff",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94dffd22_81da3aa8",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -317,6 +569,30 @@
     },
     {
       "key": {
+        "uuid": "4d8e68ad_c0630a05",
+        "filename": "src/common/linux/http_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "162ef243_e4e0ab6f",
+      "range": {
+        "startLine": 57,
+        "startChar": 22,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8acd41af_3de629d2",
         "filename": "src/common/linux/http_upload.h",
         "patchSetId": 2
@@ -331,6 +607,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73bc4154_9c918c23",
+        "filename": "src/common/linux/http_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8acd41af_3de629d2",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -351,6 +645,24 @@
     },
     {
       "key": {
+        "uuid": "83426d41_871b9137",
+        "filename": "src/common/linux/http_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "419224d3_470d5759",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d035e9a_a859ab06",
         "filename": "src/common/linux/http_upload.h",
         "patchSetId": 2
@@ -365,6 +677,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8864ec1_e21f76e9",
+        "filename": "src/common/linux/http_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d035e9a_a859ab06",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -385,6 +715,24 @@
     },
     {
       "key": {
+        "uuid": "10fb61f3_c88fc6ac",
+        "filename": "src/common/linux/http_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc4b8862_b567e6ec",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "825d548a_6b997d71",
         "filename": "src/common/linux/symbol_collector_client.cc",
         "patchSetId": 2
@@ -399,6 +747,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "249424e9_a9b7f066",
+        "filename": "src/common/linux/symbol_collector_client.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "825d548a_6b997d71",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -419,6 +785,24 @@
     },
     {
       "key": {
+        "uuid": "2425ca49_374d2049",
+        "filename": "src/common/linux/symbol_collector_client.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba57e45b_abd2e6af",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a0a3536_bd1b84ec",
         "filename": "src/common/linux/symbol_collector_client.cc",
         "patchSetId": 2
@@ -436,6 +820,24 @@
     },
     {
       "key": {
+        "uuid": "69355491_897e99a2",
+        "filename": "src/common/linux/symbol_collector_client.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a0a3536_bd1b84ec",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8d9b439_c8ac6cb2",
         "filename": "src/common/linux/symbol_collector_client.cc",
         "patchSetId": 2
@@ -450,6 +852,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2597fc23_2d1779a0",
+        "filename": "src/common/linux/symbol_collector_client.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8d9b439_c8ac6cb2",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -517,6 +937,48 @@
     },
     {
       "key": {
+        "uuid": "faefd041_ad888163",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c428f0fd_381a53c3",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb77a176_6546b89c",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a27796f_41e1993a",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34ba28ec_7b79713b",
         "filename": "src/common/linux/symbol_collector_client.h",
         "patchSetId": 2
@@ -531,6 +993,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7f5fecc_695850fb",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34ba28ec_7b79713b",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -551,6 +1031,24 @@
     },
     {
       "key": {
+        "uuid": "9d7d412b_505bb3d1",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65135eb9_9ad128f0",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81535f1f_aa70f791",
         "filename": "src/common/linux/symbol_upload.cc",
         "patchSetId": 2
@@ -568,6 +1066,24 @@
     },
     {
       "key": {
+        "uuid": "c0d8f039_94fdac84",
+        "filename": "src/common/linux/symbol_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81535f1f_aa70f791",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab77bae7_e34c8168",
         "filename": "src/common/linux/symbol_upload.cc",
         "patchSetId": 2
@@ -582,6 +1098,24 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bfbe8a5_8ef81654",
+        "filename": "src/common/linux/symbol_upload.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab77bae7_e34c8168",
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -736,6 +1270,30 @@
       "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21b18deb_c68fdddf",
+        "filename": "src/common/linux/symbol_upload.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-20T01:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "416b8d68_eaf2d2dc",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "1ba0f2c7989adaa9f244475ceed0293a4aa0bb23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
