@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c25ff649_74b20d8a",
+        "filename": "src/common/linux/symbol_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-02-20T22:17:11Z",
+      "side": 1,
+      "message": "can we use \"SymUploadV1\" consistently throughout ?",
+      "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "792501bb_fb296ebd",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-02-20T22:17:11Z",
+      "side": 1,
+      "message": "i\u0027ve personally found using \"\u003csymbols\u003e\" here to cause confusion.  it\u0027s referring to a single symbol file, but uses the plural \"symbols\" because the symbol file has multiple symbols in it.  but at a glance, it makes it seem like we should be able to specify more than one symbol file at a time.\n\ncan we call this \"\u003csymbols_file\u003e\" ?  or maybe just \"\u003csym_file\u003e\" ?",
+      "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85b4af68_41b0303f",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-02-20T22:17:11Z",
+      "side": 1,
+      "message": "can we make the key into a flag ?  that\u0027ll simplify things imo.\n\nthen we can delete this line entirely and just merge the -p/-f/-k options with the text above.  as written, it makes it look like sym_upload_v2 is a completely separate program that only accepts -p/-f and not -v/-x/-u/etc...",
+      "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d49e323d_7b1ffafb",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-02-20T22:17:11Z",
+      "side": 1,
+      "message": "how about -p takes an argument defining the API to use ?\n\nadd an enum like API_SYM_UPLOAD_V1 and API_SYM_UPLOAD_V2, then have options-\u003eapi default to API_SYM_UPLOAD_V1, then have the -p flag parse keywords into the enum (\"sym-upload-v2\" -\u003e API_SYM_UPLOAD_V2).",
+      "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
