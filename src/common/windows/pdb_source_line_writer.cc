@@ -779,7 +779,7 @@ bool PDBSourceLineWriter::PrintFrameDataUsingEXE() {
                      &img->LastRvaSection));
 
     DWORD stack_size = 8;  // minimal stack size is 8 for RIP
-    DWORD rip_offset = 8;
+    DWORD machframe_offset = 0;
     do {
       for (UBYTE c = 0; c < unwind_info->count_of_codes; c++) {
         UnwindCode *unwind_code = &unwind_info->unwind_code[c];
@@ -821,11 +821,11 @@ bool PDBSourceLineWriter::PrintFrameDataUsingEXE() {
           }
           case UWOP_PUSH_MACHFRAME: {
             if (unwind_code->operation_info) {
-              stack_size += 88;
+              stack_size += 48;
             } else {
-              stack_size += 80;
+              stack_size += 40;
             }
-            rip_offset += 80;
+            machframe_offset = stack_size;
             break;
           }
         }
@@ -845,11 +845,19 @@ bool PDBSourceLineWriter::PrintFrameDataUsingEXE() {
         unwind_info = NULL;
       }
     } while (unwind_info);
-    fprintf(output_, "STACK CFI INIT %lx %lx .cfa: $rsp .ra: .cfa %lu - ^\n",
+    fprintf(output_, "STACK CFI INIT %lx %lx .cfa: $rsp 8 + .ra: .cfa 8 - ^\n",
             funcs[i].BeginAddress,
-            funcs[i].EndAddress - funcs[i].BeginAddress, rip_offset);
-    fprintf(output_, "STACK CFI %lx .cfa: $rsp %lu +\n",
-            funcs[i].BeginAddress, stack_size);
+            funcs[i].EndAddress - funcs[i].BeginAddress);
+    if (machframe_offset > 0) {
+      fprintf(output_,
+	      "STACK CFI %lx .cfa: $rsp %lu + $rsp: .cfa %lu - ^ .ra: .cfa %lu - ^\n",
+              funcs[i].BeginAddress, stack_size, stack_size - machframe_offset + 0x18,
+              stack_size - machframe_offset + 0x30);
+    }
+    else {
+      fprintf(output_, "STACK CFI %lx .cfa: $rsp %lu +\n",
+              funcs[i].BeginAddress, stack_size);
+    }
   }
 
   return true;
