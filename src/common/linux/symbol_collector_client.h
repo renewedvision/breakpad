@@ -1,6 +1,4 @@
-// -*- mode: c++ -*-
-
-// Copyright (c) 2011 Google Inc.
+// Copyright (c) 2019, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,10 +27,12 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// symbol_upload.h: helper functions for linux symbol upload tool.
+// HTTPUpload provides a "nice" API to send a multipart HTTP(S) POST
+// request using libcurl.  It currently supports requests that contain
+// a set of string parameters (key/value pairs), and a file to upload.
 
-#ifndef COMMON_LINUX_SYMBOL_UPLOAD_H_
-#define COMMON_LINUX_SYMBOL_UPLOAD_H_
+#ifndef COMMON_LINUX_SYMBOL_COLLECTOR_CLIENT_H_
+#define COMMON_LINUX_SYMBOL_COLLECTOR_CLIENT_H_
 
 #include <string>
 
@@ -41,24 +41,45 @@
 namespace google_breakpad {
 namespace sym_upload {
 
-struct Options {
-  Options() : use_sym_upload_v2(false), force(false) {}
-
-  string symbolsPath;
-  string uploadURLStr;
-  string proxy;
-  string proxy_user_pwd;
-  string version;
-  bool success;
-  bool use_sym_upload_v2;
-  bool force;
-  string api_key;
+struct UploadUrlResponse {
+  string upload_url;
+  string upload_key;
 };
 
-// Starts upload to symbol server with options.
-void Start(Options* options);
+enum SymbolStatus {
+  Found,
+  Missing,
+  Unknown
+};
+
+enum CompleteUploadResult {
+  Ok,
+  DuplicateData,
+  Error
+};
+
+class SymbolCollectorClient {
+public:
+  static bool CreateUploadUrl(
+    string &api_url,
+    string &api_key,
+    UploadUrlResponse *uploadUrlResponse);
+
+  static CompleteUploadResult CompleteUpload(
+    string &api_url,
+    string &api_key,
+    const string& upload_key,
+    const string& debug_file,
+    const string& debug_id);
+
+  static SymbolStatus CheckSymbolStatus(
+    string &api_url,
+    string &api_key,
+    const string& debug_file,
+    const string& debug_id);
+};
 
 }  // namespace sym_upload
 }  // namespace google_breakpad
 
-#endif  // COMMON_LINUX_SYMBOL_UPLOAD_H_
+#endif  // COMMON_LINUX_SYMBOL_COLLECTOR_CLIENT_H_

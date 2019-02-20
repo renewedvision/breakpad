@@ -30,14 +30,16 @@
 // symbol_upload.cc: implemented google_breakpad::sym_upload::Start, a helper
 // function for linux symbol upload tool.
 
-#include "common/linux/http_upload.h"
+
 #include "common/linux/symbol_upload.h"
 
 #include <assert.h>
 #include <stdio.h>
-
 #include <functional>
 #include <vector>
+
+#include "common/linux/http_upload.h"
+#include "common/linux/symbol_collector_client.h"
 
 namespace google_breakpad {
 namespace sym_upload {
@@ -95,18 +97,11 @@ string CompactIdentifier(const string &uuid) {
   return result;
 }
 
-//=============================================================================
-void Start(Options *options) {
+bool LegacyStart(
+    Options *options,
+    std::vector<string> module_parts,
+    string compacted_id) {
   std::map<string, string> parameters;
-  options->success = false;
-  std::vector<string> module_parts;
-  if (!ModuleDataForSymbolFile(options->symbolsPath, &module_parts)) {
-    fprintf(stderr, "Failed to parse symbol file!\n");
-    return;
-  }
-
-  string compacted_id = CompactIdentifier(module_parts[3]);
-
   // Add parameters
   if (!options->version.empty())
     parameters["version"] = options->version;
@@ -124,15 +119,17 @@ void Start(Options *options) {
 
   string response, error;
   long response_code;
-  bool success = HTTPUpload::SendRequest(options->uploadURLStr,
-                                         parameters,
-                                         files,
-                                         options->proxy,
-                                         options->proxy_user_pwd,
-                                         "",
-                                         &response,
-                                         &response_code,
-                                         &error);
+  bool success = HTTPUpload::SendMultipartPostRequest(
+      options->uploadURLStr,
+      parameters,
+      files,
+      options->proxy,
+      options->proxy_user_pwd,
+      "",
+      "",
+      &response,
+      &response_code,
+      &error);
 
   if (!success) {
     printf("Failed to send symbol file: %s\n", error.c_str());
@@ -148,6 +145,113 @@ void Start(Options *options) {
   } else {
     printf("Successfully sent the symbol file.\n");
   }
+
+  return success;
+}
+
+bool SymUploadV2Start(
+    Options *options,
+    std::vector<string> module_parts,
+    string compacted_id) {
+  string debug_file = module_parts[4];
+  string debug_id = compacted_id;
+
+  SymbolStatus symbolStatus = SymbolCollectorClient::CheckSymbolStatus(
+      options->uploadURLStr,
+      options->api_key,
+      debug_file,
+      debug_id);
+  if (symbolStatus == SymbolStatus::Found) {
+    if (options->force) {
+      printf("Force specified, overwriting existing symbol file.\n");
+    } else {
+      printf("Symbol file already exists, upload aborted."
+        " Use \"-f\" to overwrite.\n");
+      return true;
+    }
+  } else if (symbolStatus == SymbolStatus::Unknown) {
+    printf("Failed to get check for existing symbol.\n");
+    return false;
+  }
+
+  UploadUrlResponse uploadUrlResponse;
+  if (!SymbolCollectorClient::CreateUploadUrl(
+      options->uploadURLStr,
+      options->api_key,
+      &uploadUrlResponse)) {
+    printf("Failed to create upload URL.\n");
+    return false;
+  }
+
+  string signed_url = uploadUrlResponse.upload_url;
+  string upload_key = uploadUrlResponse.upload_key;
+  string response, error;
+  long response_code;
+  bool success = HTTPUpload::SendPutRequest(
+      signed_url,
+      options->symbolsPath,
+      options->proxy,
+      options->proxy_user_pwd,
+      "",
+      &response,
+      &response_code,
+      &error);
+  if (!success) {
+    printf("Failed to send symbol file: %s\n", error.c_str());
+    printf("Response code: %ld\n", response_code);
+    printf("Response:\n");
+    printf("%s\n", response.c_str());
+    return false;
+  } else if (response_code == 0) {
+    printf("Failed to send symbol file: No response code\n");
+    return false;
+  } else if (response_code != 200) {
+    printf("Failed to send symbol file: Response code %ld\n", response_code);
+    printf("Response:\n");
+    printf("%s\n", response.c_str());
+    return false;
+  }
+
+  CompleteUploadResult completeUploadResult =
+   SymbolCollectorClient::CompleteUpload(
+      options->uploadURLStr,
+      options->api_key,
+      upload_key,
+      debug_file,
+      debug_id);
+  if (completeUploadResult == CompleteUploadResult::Error) {
+    printf("Failed to complete upload.\n");
+    return false;
+  } else if (completeUploadResult == CompleteUploadResult::DuplicateData) {
+    printf("Uploaded file checksum matched existing file checksum,"
+      " no change necessary.\n");
+  } else {
+    printf("Successfully sent the symbol file.\n");
+  }
+
+  return true;
+}
+
+//=============================================================================
+void Start(Options *options) {
+  options->success = false;
+
+  bool success;
+
+  std::vector<string> module_parts;
+  if (!ModuleDataForSymbolFile(options->symbolsPath, &module_parts)) {
+    fprintf(stderr, "Failed to parse symbol file!\n");
+    return;
+  }
+
+  string compacted_id = CompactIdentifier(module_parts[3]);
+
+  if (!options->use_sym_upload_v2) {
+    success = LegacyStart(options, module_parts, compacted_id);
+  } else {
+    success = SymUploadV2Start(options, module_parts, compacted_id);
+  }
+
   options->success = success;
 }
 
