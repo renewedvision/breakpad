@@ -41,25 +41,41 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
 #include "common/linux/symbol_upload.h"
 
+using google_breakpad::sym_upload::UploadProtocol;
 using google_breakpad::sym_upload::Options;
 
 //=============================================================================
 static void
 Usage(int argc, const char *argv[]) {
   fprintf(stderr, "Submit symbol information.\n");
-  fprintf(stderr, "Usage: %s [options...] <symbols> <upload-URL>\n", argv[0]);
+  fprintf(stderr, "Usage: %s [options...] <symbol-file> <upload-URL>\n", argv[0]);
   fprintf(stderr, "Options:\n");
-  fprintf(stderr, "<symbols> should be created by using the dump_syms tool.\n");
+  fprintf(stderr, "<symbol-file> should be created by using the dump_syms"
+    "tool.\n");
   fprintf(stderr, "<upload-URL> is the destination for the upload\n");
+  fprintf(stderr, "-p:\t <protocol> One of [\"sym-upload-v1\","
+    " \"sym-upload-v2\"], defaults to \"sym-upload-v1\".\n");
+  fprintf(stderr, "-k:\t <API-key> A secret used to authenticate with the"
+    " API [Only supported when using \"sym-upload-v2\" protocol].\n");
+  fprintf(stderr, "-f:\t Force symbol upload if already exists [Only"
+    " supported when using \"sym-upload-v2\" protocol].\n");
   fprintf(stderr, "-v:\t Version information (e.g., 1.2.3.4)\n");
   fprintf(stderr, "-x:\t <host[:port]> Use HTTP proxy on given port\n");
   fprintf(stderr, "-u:\t <user[:password]> Set proxy user and password\n");
   fprintf(stderr, "-h:\t Usage\n");
   fprintf(stderr, "-?:\t Usage\n");
+  fprintf(stderr, "\n");
+  fprintf(stderr, "Examples:\n");
+  fprintf(stderr, "  With \"sym-upload-v1\":\n");
+  fprintf(stderr, "    %s path/to/symbol_file http://myuploadserver\n", argv[0]);
+  fprintf(stderr, "  With \"sym-upload-v2\":\n");
+  fprintf(stderr, "    %s -p sym-upload-v2 -k mysecret123! "
+    "path/to/symbol_file http://myuploadserver\n", argv[0]);
 }
 
 //=============================================================================
@@ -68,7 +84,7 @@ SetupOptions(int argc, const char *argv[], Options *options) {
   extern int optind;
   int ch;
 
-  while ((ch = getopt(argc, (char * const *)argv, "u:v:x:h?")) != -1) {
+  while ((ch = getopt(argc, (char * const *)argv, "u:v:x:p:k:hf?")) != -1) {
     switch (ch) {
       case 'h':
       case '?':
@@ -84,6 +100,20 @@ SetupOptions(int argc, const char *argv[], Options *options) {
       case 'x':
         options->proxy = optarg;
         break;
+      case 'p':
+        if (strcmp(optarg, "sym-upload-v2") == 0) {
+          options->upload_protocol = UploadProtocol::SYM_UPLOAD_V2;
+          break;
+        } else if (strcmp(optarg, "sym-upload-v1") == 0) {
+          options->upload_protocol = UploadProtocol::SYM_UPLOAD_V1;
+          break;
+        }  // Implicit "else invalid option" fall-through into default case.
+      case 'k':
+        options->api_key = optarg;
+        break;
+      case 'f':
+        options->force = true;
+        break;
 
       default:
         fprintf(stderr, "Invalid option '%c'\n", ch);
@@ -93,14 +123,14 @@ SetupOptions(int argc, const char *argv[], Options *options) {
     }
   }
 
-  if ((argc - optind) != 2) {
+  if ((argc - optind) == 2) {
+    options->symbolsPath = argv[optind];
+    options->uploadURLStr = argv[optind + 1];
+  } else {
     fprintf(stderr, "%s: Missing symbols file and/or upload-URL\n", argv[0]);
     Usage(argc, argv);
     exit(1);
   }
-
-  options->symbolsPath = argv[optind];
-  options->uploadURLStr = argv[optind + 1];
 }
 
 //=============================================================================
