@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a4b5b566_0b255bad",
+        "filename": "src/common/linux/symbol_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-22T01:36:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c25ff649_74b20d8a",
+      "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "792501bb_fb296ebd",
         "filename": "src/tools/linux/symupload/sym_upload.cc",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4307b2a1_aa23a235",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-22T01:36:39Z",
+      "side": 1,
+      "message": "Agreed that it\u0027s confusing. I\u0027ll change to something singular.",
+      "parentUuid": "792501bb_fb296ebd",
+      "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "bdb45f8a_d274397e",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-22T01:36:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b4af68_41b0303f",
+      "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d49e323d_7b1ffafb",
         "filename": "src/tools/linux/symupload/sym_upload.cc",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c0ea9a8_22711498",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-02-22T01:36:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d49e323d_7b1ffafb",
+      "revId": "4d528994e7479db2c95ffa47c449ab2a6b7a447c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
