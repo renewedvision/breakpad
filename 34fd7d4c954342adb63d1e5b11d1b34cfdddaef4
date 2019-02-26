@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22288164_201d20b0",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "This should fit on the previous line.",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d11b8f_e3952bc3",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 187,
+        "endChar": 44
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66241cbe_54f1fc22",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 192,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 13
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de95dcd3_8430116f",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "alignment. Should be +4.",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 36
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c2a71e1_b0d78eb0",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "+4",
+      "range": {
+        "startLine": 237,
+        "startChar": 6,
+        "endLine": 237,
+        "endChar": 24
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dcbeb28_6d2b4bc2",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "+4",
+      "range": {
+        "startLine": 251,
+        "startChar": 5,
+        "endLine": 254,
+        "endChar": 10
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0ab2ade_6ce76b93",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "Fix these throughout ...\nShould be +4 if this is a continuation of the same statement.",
+      "range": {
+        "startLine": 260,
+        "startChar": 6,
+        "endLine": 266,
+        "endChar": 11
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31f020ea_84e9884c",
+        "filename": "src/common/windows/symbol_collector_client.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 10
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7d2d1db_f2b728a6",
+        "filename": "src/common/windows/symbol_collector_client.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-02-26T01:22:59Z",
+      "side": 1,
+      "message": "+4",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 12
+      },
+      "revId": "34fd7d4c954342adb63d1e5b11d1b34cfdddaef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
