@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "124c0c1d_56dbff7c",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-03-01T02:18:21Z",
+      "side": 1,
+      "message": "indent +1",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 9
+      },
+      "revId": "cf70ed2d3ce1d10f6850374d8e79f3fa5383dc0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "720fddaf_13817989",
+        "filename": "src/common/windows/http_upload.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-03-01T02:18:21Z",
+      "side": 1,
+      "message": "what is the unit? Maybe you should call this timeout_sec or timeout_ms based on unit. Please, do this throughout this file.",
+      "range": {
+        "startLine": 64,
+        "startChar": 11,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "cf70ed2d3ce1d10f6850374d8e79f3fa5383dc0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1861cb5c_74ecea9c",
+        "filename": "src/common/windows/symbol_collector_client.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-03-01T02:18:21Z",
+      "side": 1,
+      "message": "indent should be +4",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 8
+      },
+      "revId": "cf70ed2d3ce1d10f6850374d8e79f3fa5383dc0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de19fc20_81eebe17",
+        "filename": "src/common/windows/symbol_collector_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-03-01T02:18:21Z",
+      "side": 1,
+      "message": "Please comment all fields.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "cf70ed2d3ce1d10f6850374d8e79f3fa5383dc0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "183e04d9_922a8dae",
+        "filename": "src/common/windows/symbol_collector_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-03-01T02:18:21Z",
+      "side": 1,
+      "message": "Can you please provide class description. Also provide comments to the functions.",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 29
+      },
+      "revId": "cf70ed2d3ce1d10f6850374d8e79f3fa5383dc0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aaaef21_ce65d85b",
+        "filename": "src/tools/windows/symupload/symupload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-03-01T02:18:21Z",
+      "side": 1,
+      "message": "Do we want to even check for the existence if force is specified? Not sure whether it matters much, so this is fine.",
+      "range": {
+        "startLine": 171,
+        "startChar": 30,
+        "endLine": 171,
+        "endChar": 70
+      },
+      "revId": "cf70ed2d3ce1d10f6850374d8e79f3fa5383dc0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e3984e9_125ce2d1",
+        "filename": "src/tools/windows/symupload/symupload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-03-01T02:18:21Z",
+      "side": 1,
+      "message": "Please, put the name of the parameter as a comment, e.g.\n...\n   /* param_name \u003d */ NULL,\n...",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 8
+      },
+      "revId": "cf70ed2d3ce1d10f6850374d8e79f3fa5383dc0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
