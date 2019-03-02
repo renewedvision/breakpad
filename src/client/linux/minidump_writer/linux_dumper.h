@@ -184,6 +184,16 @@ class LinuxDumper {
   void set_crash_signal_code(int code) { crash_signal_code_ = code; }
   int crash_signal_code() const { return crash_signal_code_; }
 
+  void set_crash_number_parameters(uint32_t num) {
+    crash_number_parameters_ = num;
+  }
+  uint32_t crash_number_parameters() const { return crash_number_parameters_; }
+
+  void set_crash_exception_info(const uint64_t* exception_info) {
+    memcpy(crash_exception_info_, exception_info, sizeof(crash_exception_info_));
+  }
+  const uint64_t* crash_exception_info() const { return crash_exception_info_; }
+
   pid_t crash_thread() const { return crash_thread_; }
   void set_crash_thread(pid_t crash_thread) { crash_thread_ = crash_thread; }
 
@@ -235,6 +245,12 @@ class LinuxDumper {
 
   // The code associated with |crash_signal_|.
   int crash_signal_code_;
+
+  // The number of additional fields for this |crash_signal_|.
+  uint32_t crash_number_parameters_;
+
+  // The additional fields associated with |crash_signal_|.
+  uint64_t crash_exception_info_[MD_EXCEPTION_MAXIMUM_PARAMETERS];
 
   // ID of the crashed thread.
   pid_t crash_thread_;
