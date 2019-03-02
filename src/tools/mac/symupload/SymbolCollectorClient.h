@@ -1,4 +1,4 @@
-// Copyright (c) 2006, Google Inc.
+// Copyright (c) 2019, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,27 +27,51 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// HTTPMultipartUpload: A multipart/form-data HTTP uploader.
-// Each parameter pair is sent as a boundary
-// Each file is sent with a name field in addition to the filename and data
-// The data will be sent synchronously.
-
 #import <Foundation/Foundation.h>
 
-#import "HTTPRequest.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@interface HTTPMultipartUpload : HTTPRequest {
- @protected
-  NSDictionary *parameters_;    // The key/value pairs for sending data (STRONG)
-  NSMutableDictionary *files_;  // Dictionary of name/file-path (STRONG)
-  NSString *boundary_;          // The boundary string (STRONG)
+@interface UploadURLResponse : NSObject {
+@protected
+  NSString* uploadURL_;
+  NSString* uploadKey_;
 }
 
-- (void)setParameters:(NSDictionary *)parameters;
-- (NSDictionary *)parameters;
+- (id)initWithUploadURL:(NSString*)uploadURL
+          withUploadKey:(NSString*)uploadKey;
 
-- (void)addFileAtPath:(NSString *)path name:(NSString *)name;
-- (void)addFileContents:(NSData *)data name:(NSString *)name;
-- (NSDictionary *)files;
+- (NSString*)uploadURL;
+- (NSString*)uploadKey;
+@end
+
+typedef NS_ENUM(NSInteger, CompleteUploadResult) {
+  CompleteUploadResultOk,
+  CompleteUploadResultDuplicateData,
+  CompleteUploadResultError
+};
+
+typedef NS_ENUM(NSInteger, SymbolStatus) {
+  SymbolStatusFound,
+  SymbolStatusMissing,
+  SymbolStatusUnknown
+};
+
+@interface SymbolCollectorClient : NSObject;
+
++ (SymbolStatus)CheckSymbolStatus:(NSString*)APIURL
+                       withAPIKey:(NSString*)APIKey
+                    withDebugFile:(NSString*)debugFile
+                      withDebugID:(NSString*)debugID;
+
++ (UploadURLResponse*)CreateUploadURL:(NSString*)APIURL
+                           withAPIKey:(NSString*)APIKey;
+
++ (CompleteUploadResult)CompleteUpload:(NSString*)APIURL
+                            withAPIKey:(NSString*)APIKey
+                         withUploadKey:(NSString*)uploadKey
+                         withDebugFile:(NSString*)debugFile
+                           withDebugID:(NSString*)debugID;
 
 @end
+
+NS_ASSUME_NONNULL_END

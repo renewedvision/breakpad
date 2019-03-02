@@ -1,4 +1,4 @@
-// Copyright (c) 2006, Google Inc.
+// Copyright (c) 2019, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,27 +27,43 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// HTTPMultipartUpload: A multipart/form-data HTTP uploader.
-// Each parameter pair is sent as a boundary
-// Each file is sent with a name field in addition to the filename and data
-// The data will be sent synchronously.
+#import "HTTPSimplePostRequest.h"
 
-#import <Foundation/Foundation.h>
+@implementation HTTPSimplePostRequest
 
-#import "HTTPRequest.h"
+//=============================================================================
+- (void)dealloc {
+    [contentType_ release];
+    [body_ release];
 
-@interface HTTPMultipartUpload : HTTPRequest {
- @protected
-  NSDictionary *parameters_;    // The key/value pairs for sending data (STRONG)
-  NSMutableDictionary *files_;  // Dictionary of name/file-path (STRONG)
-  NSString *boundary_;          // The boundary string (STRONG)
+    [super dealloc];
 }
 
-- (void)setParameters:(NSDictionary *)parameters;
-- (NSDictionary *)parameters;
+//=============================================================================
+- (void)setContentType:(NSString *)contentType {
+    contentType_ = [contentType copy];
+}
 
-- (void)addFileAtPath:(NSString *)path name:(NSString *)name;
-- (void)addFileContents:(NSData *)data name:(NSString *)name;
-- (NSDictionary *)files;
+//=============================================================================
+- (void)setBody:(NSString *)body {
+  body_ = [body copy];
+}
+
+//=============================================================================
+- (NSString*)HTTPMethod {
+    return @"POST";
+}
+
+//=============================================================================
+- (NSString*)contentType {
+    return contentType_;
+}
+
+//=============================================================================
+- (NSData*)bodyData {
+    NSMutableData* data = [NSMutableData data];
+    [data appendData:[body_ dataUsingEncoding:NSUTF8StringEncoding]];
+    return data;
+}
 
 @end
