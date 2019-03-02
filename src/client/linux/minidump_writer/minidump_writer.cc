@@ -713,6 +713,11 @@ class MinidumpWriter {
     stream->exception_record.exception_code = dumper_->crash_signal();
     stream->exception_record.exception_flags = dumper_->crash_signal_code();
     stream->exception_record.exception_address = dumper_->crash_address();
+    stream->exception_record.number_parameters =
+        dumper_->crash_number_parameters();
+    memcpy(stream->exception_record.exception_information,
+           dumper_->crash_exception_info(),
+           sizeof(uint64_t) * dumper_->crash_number_parameters());
     stream->thread_context = crashing_thread_context_;
 
     return true;
