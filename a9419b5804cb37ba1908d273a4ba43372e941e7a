@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94f1efac_701b86c3",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-03T02:45:20Z",
+      "side": 1,
+      "message": "assert_or_DCHECK(num \u003c\u003d MD_EXCEPTION_MAXIMUM_PARAMETERS)?",
+      "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb550e38_9c0ddcee",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-03T02:45:20Z",
+      "side": 1,
+      "message": "const uint64_t exception_info[MD_EXCEPTION_MAXIMUM_PARAMETERS] has slightly more documentary value.",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 62
+      },
+      "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d35ac16_a0deaa55",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-03T02:45:20Z",
+      "side": 1,
+      "message": "Stay within 80 columns.",
+      "range": {
+        "startLine": 193,
+        "startChar": 80,
+        "endLine": 193,
+        "endChar": 81
+      },
+      "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0781022_3336f7c5",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-03T02:45:20Z",
+      "side": 1,
+      "message": "But the interaction between this and set_crash_number_parameters() is tricky. Should this restrict the memcpy to sizeof(crash_number_parameters_ * crash_exception_info_[0])? Should it instead set crash_number_parameters_ to MD_EXCEPTION_MAXIMUM_PARAMETERS?\n\nThis may all be clearer if you did away with the independent mutators and instead provided set_crash_exception_info(uint32_t, const uint64_t*).",
+      "range": {
+        "startLine": 193,
+        "startChar": 50,
+        "endLine": 193,
+        "endChar": 79
+      },
+      "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
