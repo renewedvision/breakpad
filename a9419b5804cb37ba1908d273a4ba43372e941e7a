@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5883a0b8_2823c74f",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-03-03T17:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94f1efac_701b86c3",
+      "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb550e38_9c0ddcee",
         "filename": "src/client/linux/minidump_writer/linux_dumper.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2019-03-03T02:45:20Z",
       "side": 1,
       "message": "const uint64_t exception_info[MD_EXCEPTION_MAXIMUM_PARAMETERS] has slightly more documentary value.",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 62
+      },
+      "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f21aa4d_77b02417",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-03-03T17:46:55Z",
+      "side": 1,
+      "message": "i wrote this originally, but since i couldn\u0027t use fixed sizes elsewhere (e.g. return value below), i ended up backing it out",
+      "parentUuid": "bb550e38_9c0ddcee",
       "range": {
         "startLine": 192,
         "startChar": 32,
@@ -85,6 +127,54 @@
       "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e9e27da_b438e0ec",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-03-03T17:46:55Z",
+      "side": 1,
+      "message": "is it OK to use std::vector here ?  if so, that\u0027d simplify things greatly.",
+      "parentUuid": "b0781022_3336f7c5",
+      "range": {
+        "startLine": 193,
+        "startChar": 50,
+        "endLine": 193,
+        "endChar": 79
+      },
+      "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "507c6f4b_a1257a2a",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-03-03T17:46:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1d35ac16_a0deaa55",
+      "range": {
+        "startLine": 193,
+        "startChar": 80,
+        "endLine": 193,
+        "endChar": 81
+      },
+      "revId": "a9419b5804cb37ba1908d273a4ba43372e941e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
