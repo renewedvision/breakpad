@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89a2a964_657403a5",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-05T15:02:32Z",
+      "side": 1,
+      "message": "Do we even need to maintain this interface with distinct data and size? If the setter takes a vector, the getter could return a const vector\u0026. It’s easy enough for calling code to get at the .size() and .data() from there.",
+      "revId": "754d4b476c5ad9558320f5be386e8562f8f2f499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
