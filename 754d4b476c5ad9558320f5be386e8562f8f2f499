@@ -16,6 +16,24 @@
       "revId": "754d4b476c5ad9558320f5be386e8562f8f2f499",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7372b042_4dda10db",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-03-05T15:47:00Z",
+      "side": 1,
+      "message": "i went back \u0026 forth.  i can switch it over.",
+      "parentUuid": "89a2a964_657403a5",
+      "revId": "754d4b476c5ad9558320f5be386e8562f8f2f499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
