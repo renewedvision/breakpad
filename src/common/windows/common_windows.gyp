@@ -82,6 +82,11 @@
         'omap_internal.h',
         'pdb_source_line_writer.cc',
         'pdb_source_line_writer.h',
+        'pe_source_line_writer.cc',
+        'pe_source_line_writer.h',
+        'pe_util.h',
+        'pe_util.cc',
+        'source_line_writer.h'
         'string_utils.cc',
         'string_utils-inl.h',
       ],
