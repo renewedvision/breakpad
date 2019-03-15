@@ -36,6 +36,46 @@
     },
     {
       "key": {
+        "uuid": "57249675_b095b0a3",
+        "filename": "src/common/windows/pe_source_line_writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-15T18:29:08Z",
+      "side": 1,
+      "message": "All files need license boilerplate. Some of the other new files are missing this too.",
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cbc3067_f24087ea",
+        "filename": "src/common/windows/pe_source_line_writer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-15T18:29:08Z",
+      "side": 1,
+      "message": "This is not a style permitted by the style guide. Either:\n\n  FILE* map_file\n\nor\n\n  FILE *map_file\n\nare permitted. You’re encouraged to maintain consistency with the file and project around you. Breakpad doesn’t take a strong stance, but Chromium does, and favors FILE* map_file.\n\n(.cc should match .h, the same problem occurs later in this file, etc.)",
+      "range": {
+        "startLine": 13,
+        "startChar": 34,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e6b5901_c03fa3cf",
         "filename": "src/common/windows/pe_source_line_writer.h",
         "patchSetId": 1
@@ -47,6 +87,24 @@
       "writtenOn": "2019-03-15T00:08:28Z",
       "side": 1,
       "message": "If the goal is to disallow these then they should be in the private section - that makes them a compile error instead of link error. Better yet if we can \"\u003d delete;\" them - that would be the Chromium way. It may not be allowed in this context, depending on what compiler is required, but it is the C++new way.",
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e8b18f2_cdddb842",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-15T18:29:08Z",
+      "side": 1,
+      "message": "\u003e If the goal is to disallow these then they should be in the private section - that makes them a compile error instead of link error. Better yet if we can \"\u003d delete;\" them - that would be the Chromium way. It may not be allowed in this context, depending on what compiler is required, but it is the C++new way.\n\nDISALLOW_COPY_AND_ASSIGN is allowed in Breakpad.",
+      "parentUuid": "1e6b5901_c03fa3cf",
       "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -70,6 +128,23 @@
     },
     {
       "key": {
+        "uuid": "cd04d49d_fbb6d733",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-15T18:29:08Z",
+      "side": 1,
+      "message": "Headers need #include guards. Look at some of the other new headers you’re adding too, because some of them are missing guards.",
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51ffd296_c8402926",
         "filename": "src/tools/windows/dump_syms/dump_syms_unittest.cc",
         "patchSetId": 1
@@ -81,6 +156,30 @@
       "writtenOn": "2019-03-15T00:08:28Z",
       "side": 1,
       "message": "What is this character? Is that supposed to be there? Unchanged, but I\u0027m still curious.",
+      "range": {
+        "startLine": 58,
+        "startChar": 22,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f754608b_3334072d",
+        "filename": "src/tools/windows/dump_syms/dump_syms_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-03-15T18:29:08Z",
+      "side": 1,
+      "message": "\u003e What is this character? Is that supposed to be there? Unchanged, but I\u0027m still curious.\n\nIt’s highlighting trailing whitespace, which isn’t supposed to be there.",
+      "parentUuid": "51ffd296_c8402926",
       "range": {
         "startLine": 58,
         "startChar": 22,
