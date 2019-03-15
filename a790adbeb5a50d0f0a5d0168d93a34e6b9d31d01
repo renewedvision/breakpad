@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e91d9d06_1ddd73dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-03-15T00:08:28Z",
+      "side": 1,
+      "message": "Maybe call it metadata dumping instead of symbol dumping",
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24712b6e_ae926aa4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-03-15T00:08:28Z",
+      "side": 1,
+      "message": "Maybe put a bit more about the why - in order to allow stack walking. If there\u0027s no externally-visible bug then a bit of a description becomes important.",
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e6b5901_c03fa3cf",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-03-15T00:08:28Z",
+      "side": 1,
+      "message": "If the goal is to disallow these then they should be in the private section - that makes them a compile error instead of link error. Better yet if we can \"\u003d delete;\" them - that would be the Chromium way. It may not be allowed in this context, depending on what compiler is required, but it is the C++new way.",
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f39c39d_90ad16f2",
+        "filename": "src/common/windows/pe_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-03-15T00:08:28Z",
+      "side": 1,
+      "message": "Can we remove this now? Where does this code come from?",
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51ffd296_c8402926",
+        "filename": "src/tools/windows/dump_syms/dump_syms_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-03-15T00:08:28Z",
+      "side": 1,
+      "message": "What is this character? Is that supposed to be there? Unchanged, but I\u0027m still curious.",
+      "range": {
+        "startLine": 58,
+        "startChar": 22,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
