@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "a1581834_d5901c3d",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1103,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-03-15T20:40:03Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 1103,
+        "startChar": 46,
+        "endLine": 1103,
+        "endChar": 51
+      },
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57249675_b095b0a3",
         "filename": "src/common/windows/pe_source_line_writer.cpp",
         "patchSetId": 1
@@ -69,6 +92,29 @@
         "startChar": 34,
         "endLine": 13,
         "endChar": 49
+      },
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed2c3d38_7d10cbec",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-03-15T20:40:03Z",
+      "side": 1,
+      "message": "You may want to add a class comment and also comment the member functions and variables.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 52
       },
       "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
@@ -139,6 +185,29 @@
       "writtenOn": "2019-03-15T18:29:08Z",
       "side": 1,
       "message": "Headers need #include guards. Look at some of the other new headers you’re adding too, because some of them are missing guards.",
+      "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "812c41ca_236db505",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2019-03-15T20:40:03Z",
+      "side": 1,
+      "message": "Please, add function comments.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 59
+      },
       "revId": "a790adbeb5a50d0f0a5d0168d93a34e6b9d31d01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
