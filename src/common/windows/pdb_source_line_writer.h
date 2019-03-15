@@ -38,6 +38,7 @@
 #include <unordered_map>
 #include <string>
 
+#include "common/windows/source_line_writer.h"
 #include "common/windows/omap.h"
 
 struct IDiaEnumLineNumbers;
@@ -49,42 +50,7 @@ namespace google_breakpad {
 using std::wstring;
 using std::unordered_map;
 
-// A structure that carries information that identifies a pdb file.
-struct PDBModuleInfo {
- public:
-  // The basename of the pdb file from which information was loaded.
-  wstring debug_file;
-
-  // The pdb's identifier.  For recent pdb files, the identifier consists
-  // of the pdb's guid, in uppercase hexadecimal form without any dashes
-  // or separators, followed immediately by the pdb's age, also in
-  // uppercase hexadecimal form.  For older pdb files which have no guid,
-  // the identifier is the pdb's 32-bit signature value, in zero-padded
-  // hexadecimal form, followed immediately by the pdb's age, in lowercase
-  // hexadecimal form.
-  wstring debug_identifier;
-
-  // A string identifying the cpu that the pdb is associated with.
-  // Currently, this may be "x86" or "unknown".
-  wstring cpu;
-};
-
-// A structure that carries information that identifies a PE file,
-// either an EXE or a DLL.
-struct PEModuleInfo {
-  // The basename of the PE file.
-  wstring code_file;
-
-  // The PE file's code identifier, which consists of its timestamp
-  // and file size concatenated together into a single hex string.
-  // (The fields IMAGE_OPTIONAL_HEADER::SizeOfImage and
-  // IMAGE_FILE_HEADER::TimeDateStamp, as defined in the ImageHlp
-  // documentation.) This is not well documented, if it's documented
-  // at all, but it's what symstore does and what DbgHelp supports.
-  wstring code_identifier;
-};
-
-class PDBSourceLineWriter {
+class PDBSourceLineWriter : public SourceLineWriter {
  public:
   enum FileFormat {
     PDB_FILE,  // a .pdb file containing debug symbols
@@ -101,6 +67,9 @@ class PDBSourceLineWriter {
   // Returns true on success.
   bool Open(const wstring &file, FileFormat format);
 
+  // Closes the current pdb file and its associated resources.
+  void Close();
+
   // Sets the code file full path.  This is optional for 32-bit modules.  It is
   // also optional for 64-bit modules when there is an executable file stored
   // in the same directory as the PDB file.  It is only required for 64-bit
@@ -112,25 +81,22 @@ class PDBSourceLineWriter {
 
   // Writes a map file from the current pdb file to the given file stream.
   // Returns true on success.
-  bool WriteMap(FILE *map_file);
-
-  // Closes the current pdb file and its associated resources.
-  void Close();
+  bool WriteMap(FILE *map_file) override;
 
   // Retrieves information about the module's debugging file.  Returns
   // true on success and false on failure.
-  bool GetModuleInfo(PDBModuleInfo *info);
+  bool GetModuleInfo(ModuleInfo *info) override;
 
   // Retrieves information about the module's PE file.  Returns
   // true on success and false on failure.
-  bool GetPEInfo(PEModuleInfo *info);
+  bool GetPEInfo(PEModuleInfo *info) override;
 
   // Sets uses_guid to true if the opened file uses a new-style CodeView
   // record with a 128-bit GUID, or false if the opened file uses an old-style
   // CodeView record.  When no GUID is available, a 32-bit signature should be
   // used to identify the module instead.  If the information cannot be
   // determined, this method returns false.
-  bool UsesGUID(bool *uses_guid);
+  bool UsesGUID(bool *uses_guid) override;
 
  private:
   // Outputs the line/address pairs for each line in the enumerator.
