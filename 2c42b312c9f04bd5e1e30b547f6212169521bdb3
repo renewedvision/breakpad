@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b2aa4e2_fdae7cf1",
+        "filename": "src/common/dwarf_cfi_to_module.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "The entry for vr27 is missing, so the numbers for the next registers are off by one.",
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "827601d4_05e94cab",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "Note that if there are rules for registers that are not tracked (e.g. FPRs, vector registers, CR fields), this function call will probably fail. It should still be useful if the frame only handles GPRs and LR. It doesn\u0027t seem trivial to include registers of different sizes (not uint64_t), such as the vector registers.",
+      "range": {
+        "startLine": 102,
+        "startChar": 23,
+        "endLine": 102,
+        "endChar": 37
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98c1bcf1_7420bead",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "In some cases, the ABI v2 specifies that the caller should save R2, so it\u0027s probably safer in the general case not to assume it was unchanged and remove this condition (leaving only R14-R31).",
+      "range": {
+        "startLine": 119,
+        "startChar": 16,
+        "endLine": 119,
+        "endChar": 24
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "661d7646_1ccf1f81",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "This comment is confusing, since CFI can\u0027t recover PC explicitly, so I think it should be removed. This means the condition below should always be true, although it doesn\u0027t really hurt.",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 64
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0994afe1_96671e79",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure that this function adds anything to what GetCallerByFramePointer already does. The callee might indeed have saved LR in the caller\u0027s frame (at caller_sp + 16), as specified in the ABI, but I think it\u0027s unlikely it would write LR to any other place in the caller\u0027s frame. This means that scanning outside this address in the caller\u0027s frame might not be useful, and this specific address is already used in GetCallerByFramePointer.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 55
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b1ad21a_f6cf4137",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "Note that this condition used to terminate the stack walk. Since this function is now called from GetCallerFrame, it could cause another method to be used instead. It isn\u0027t clear to me which part of the condition should stop the walk and which part should allow another method to try to unwind the stack.",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 49
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8e9fd94_db17e9f8",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "See above.",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 22
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71959331_95217aef",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 1
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d41932d_db58161d",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 2
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf83102_c1bc33c5",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 243,
+        "startChar": 19,
+        "endLine": 243,
+        "endChar": 20
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64060054_31da0ae6",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "I think this comment makes more sense in the beginning of this function.",
+      "range": {
+        "startLine": 252,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 67
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d578d8f_5c394816",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-03-21T15:24:51Z",
+      "side": 1,
+      "message": "I think context.srr0 in this comment was already correct.",
+      "range": {
+        "startLine": 270,
+        "startChar": 20,
+        "endLine": 270,
+        "endChar": 22
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
