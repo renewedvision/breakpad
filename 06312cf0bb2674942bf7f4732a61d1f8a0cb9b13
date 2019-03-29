@@ -56,6 +56,24 @@
       "revId": "06312cf0bb2674942bf7f4732a61d1f8a0cb9b13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82d976f5_61abbd96",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-03-29T19:06:30Z",
+      "side": 1,
+      "message": "Oops thanks for catching that. I think it used to be true before I added the \u0027k\u0027 option and moved the \u0027f\u0027 one.",
+      "parentUuid": "4a66d5fb_ce502757",
+      "revId": "06312cf0bb2674942bf7f4732a61d1f8a0cb9b13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
