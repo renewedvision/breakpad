@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "02b5e548_eb20b243",
+        "filename": "src/common/linux/symbol_collector_client.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-03-29T17:56:30Z",
+      "side": 1,
+      "message": "file is missing header for copyright+licensing",
+      "revId": "06312cf0bb2674942bf7f4732a61d1f8a0cb9b13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "626ac420_cf32d972",
         "filename": "src/common/linux/symbol_upload.cc",
         "patchSetId": 4
@@ -19,6 +36,23 @@
         "endLine": 163,
         "endChar": 16
       },
+      "revId": "06312cf0bb2674942bf7f4732a61d1f8a0cb9b13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a66d5fb_ce502757",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-03-29T17:56:30Z",
+      "side": 1,
+      "message": "err, this is falling through into the \u0027k\u0027 path.  you should just add a proper failure+exit.",
       "revId": "06312cf0bb2674942bf7f4732a61d1f8a0cb9b13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
