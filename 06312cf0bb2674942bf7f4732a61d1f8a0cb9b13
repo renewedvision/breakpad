@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "626ac420_cf32d972",
+        "filename": "src/common/linux/symbol_upload.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-03-29T17:33:29Z",
+      "side": 1,
+      "message": "Only do this if -f not specified-- Ivan confirmed this slows down bulk upload scripts significantly.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 16
+      },
+      "revId": "06312cf0bb2674942bf7f4732a61d1f8a0cb9b13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
