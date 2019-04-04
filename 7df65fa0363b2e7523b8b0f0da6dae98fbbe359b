@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c11665b_5e53a255",
+        "filename": "src/client/linux/minidump_writer/linux_core_dumper_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-04-04T19:50:46Z",
+      "side": 1,
+      "message": "We should have a bug on file for this, referenced on this line and in the commit message.",
+      "revId": "7df65fa0363b2e7523b8b0f0da6dae98fbbe359b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
