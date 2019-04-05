@@ -16,6 +16,24 @@
       "revId": "7df65fa0363b2e7523b8b0f0da6dae98fbbe359b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bcabd35_09394303",
+        "filename": "src/client/linux/minidump_writer/linux_core_dumper_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-04-05T05:18:22Z",
+      "side": 1,
+      "message": "i can create one if you wanted, but realistically i\u0027m not planning on ever investigating it, and i assume with Chrome moving to crashpad on Android, you\u0027d never look into it either :).  that\u0027s why i left it unadorned.",
+      "parentUuid": "3c11665b_5e53a255",
+      "revId": "7df65fa0363b2e7523b8b0f0da6dae98fbbe359b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
