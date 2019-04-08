@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a79df97_0aefdd7b",
+        "filename": "src/client/linux/minidump_writer/linux_core_dumper_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-04-08T22:13:08Z",
+      "side": 1,
+      "message": "i copied it from here ...",
+      "revId": "6d03b477a1f6fe595eb26bea17f43d82d22ec106",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28af2ed1_6da76e25",
+        "filename": "src/client/linux/minidump_writer/linux_core_dumper_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-04-08T22:13:08Z",
+      "side": 1,
+      "message": "then i copied it to here ...",
+      "revId": "6d03b477a1f6fe595eb26bea17f43d82d22ec106",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
