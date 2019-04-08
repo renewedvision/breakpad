@@ -134,6 +134,30 @@
     },
     {
       "key": {
+        "uuid": "0047e722_d0dcf82f",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1266792
+      },
+      "writtenOn": "2019-04-08T10:17:05Z",
+      "side": 1,
+      "message": "Both these conditions (caller_sp \u003c callee_sp and ip \u003c\u003d1 below) are also checked in TerminateWalk called right at the end in GetCallerFrame which should stop the walk correctly\n\nI guess these checks are redundant and can be removed from here (stackwalker_arm64.cc doesnt seem to have both these checks in GetCallerByFramePointer)",
+      "parentUuid": "2b1ad21a_f6cf4137",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 49
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8e9fd94_db17e9f8",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -145,6 +169,30 @@
       "writtenOn": "2019-03-21T15:24:51Z",
       "side": 1,
       "message": "See above.",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 22
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc273c11_6444eaf3",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1266792
+      },
+      "writtenOn": "2019-04-08T10:17:05Z",
+      "side": 1,
+      "message": "Addressed above",
+      "parentUuid": "b8e9fd94_db17e9f8",
       "range": {
         "startLine": 210,
         "startChar": 6,
