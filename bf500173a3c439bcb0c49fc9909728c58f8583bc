@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77891d37_41215955",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "sort",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 35
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44a5b0c6_f3d79679",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "should be sorted by name",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7bd01d5_c6bae72e",
+        "filename": "src/common/windows/pe_source_line_writer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "What does this TODO mean?",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11c7623e_990a6988",
+        "filename": "src/common/windows/pe_source_line_writer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "What does this TODO mean?",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "121b5ddf_df5e7ac0",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "override",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "146967b8_affcf434",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "Comment is wrong",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 17
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cbaaed3_d15d4747",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "this is redundant",
+      "range": {
+        "startLine": 54,
+        "startChar": 69,
+        "endLine": 55,
+        "endChar": 15
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12f64b3b_ec440195",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "redundant",
+      "range": {
+        "startLine": 59,
+        "startChar": 21,
+        "endLine": 59,
+        "endChar": 43
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b663b9b0_4b6cada1",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "Please, describe parameters and return value.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2d6e438_cedd3767",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "Function comment missing.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b22b6d88_d56699d6",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "Please, describe parameters and return values.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7250e400_2aaf0589",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "Previously, this class was called PDBModuleInfo. What is the reason for renaming it? Does it now apply to both PE and PDB files? If applies to both, then why do we also have PEModuleInfo?",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fcc7b45_548ed711",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "This is an interface right? Can you please provide a class comment that describes the purpose of this interface.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "851140ec_d739dd9b",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "what is \"map file\"?",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "408dfddc_c2dfd3aa",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "redundant",
+      "range": {
+        "startLine": 84,
+        "startChar": 68,
+        "endLine": 84,
+        "endChar": 11
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f55b9259_55e1f65c",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-12T22:36:32Z",
+      "side": 1,
+      "message": "redundant",
+      "range": {
+        "startLine": 89,
+        "startChar": 22,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
