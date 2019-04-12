@@ -111,6 +111,30 @@
     },
     {
       "key": {
+        "uuid": "ded6d9b6_a0d82018",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1266792
+      },
+      "writtenOn": "2019-04-12T11:19:12Z",
+      "side": 1,
+      "message": "Attempted to correct this in patchset 13 and 14, tried to make it logically the same as what amd64 and arm64 are doing. For both these arches, the caller_sp is the address right above the address at which caller_ip is pushed on the stack\n\nppc64 however seems to be trickier. As per the ABI here http://openpowerfoundation.org/wp-content/uploads/resources/leabi/content/dbdoclet.50655240___RefHeading___Toc377640582.html \nabove the caller_ip (in this case LR) there is TOC and (optional) data. So for intel and arm, caller_ip_address+8 gives caller_sp, for ppc64 looking at the ABI caller_ip_address+8 should go to TOC\u0027s address, but not sure when to and when not to skip the (optional) data. For now, in patchset 13/14, have set caller_sp to caller_ip_address+16 (always skip optional)",
+      "parentUuid": "0994afe1_96671e79",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 55
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b1ad21a_f6cf4137",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
