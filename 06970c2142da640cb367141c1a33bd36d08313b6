@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2165b9de_1234f948",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-15T20:50:00Z",
+      "side": 1,
+      "message": "Typically, function comments are written in 3rd person, e.g.\n\nCombines ...",
+      "range": {
+        "startLine": 53,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "06970c2142da640cb367141c1a33bd36d08313b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a12e9668_2ca77f84",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-04-15T20:50:00Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 10
+      },
+      "revId": "06970c2142da640cb367141c1a33bd36d08313b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
