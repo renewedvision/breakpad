@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "06ff94d0_cb3984c8",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77891d37_41215955",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 35
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44a5b0c6_f3d79679",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77acbf34_af4c6e77",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44a5b0c6_f3d79679",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2f5bd2c7_62ab6a84",
+        "filename": "src/common/windows/pe_source_line_writer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "It means I meant to go back and report an error here but apparently forgot to. In this case the underlying Get/Read/etc. methods seemed like a better place to report the specific errors so I added them there instead and removed the TODOs.",
+      "parentUuid": "b7bd01d5_c6bae72e",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11c7623e_990a6988",
         "filename": "src/common/windows/pe_source_line_writer.cpp",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "651ed954_806e2b05",
+        "filename": "src/common/windows/pe_source_line_writer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11c7623e_990a6988",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9c56b4e2_b1a60afc",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "121b5ddf_df5e7ac0",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "146967b8_affcf434",
         "filename": "src/common/windows/pe_source_line_writer.h",
         "patchSetId": 5
@@ -137,6 +257,30 @@
       "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c7f4010_85915c37",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "146967b8_affcf434",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 17
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "01248ee7_a86b151d",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cbaaed3_d15d4747",
+      "range": {
+        "startLine": 54,
+        "startChar": 69,
+        "endLine": 55,
+        "endChar": 15
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12f64b3b_ec440195",
         "filename": "src/common/windows/pe_source_line_writer.h",
         "patchSetId": 5
@@ -183,6 +351,30 @@
       "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7fceacf_a7e575ff",
+        "filename": "src/common/windows/pe_source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12f64b3b_ec440195",
+      "range": {
+        "startLine": 59,
+        "startChar": 21,
+        "endLine": 59,
+        "endChar": 43
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "34a5aa0e_6de36344",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b663b9b0_4b6cada1",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2d6e438_cedd3767",
         "filename": "src/common/windows/pe_util.h",
         "patchSetId": 5
@@ -229,6 +445,30 @@
       "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d194395_0187db94",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2d6e438_cedd3767",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "3d5a4120_500ce665",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b22b6d88_d56699d6",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7250e400_2aaf0589",
         "filename": "src/common/windows/source_line_writer.h",
         "patchSetId": 5
@@ -275,6 +539,30 @@
       "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b3dad38_805d4d32",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Both apply to both scenarios (ones where we have a pdb and where we don\u0027t). Looking back I don\u0027t think it is worth it to rename this-- I don\u0027t think it makes anything clearer.",
+      "parentUuid": "7250e400_2aaf0589",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "70009679_0503a675",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "After re-reading the higher level stuff in dump_syms and symbol converter I don\u0027t think there\u0027s really any value in the abstraction this interface gives so I\u0027ve removed it.",
+      "parentUuid": "7fcc7b45_548ed711",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "851140ec_d739dd9b",
         "filename": "src/common/windows/source_line_writer.h",
         "patchSetId": 5
@@ -321,6 +633,30 @@
       "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b521016f_36595857",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "This is copied across from pdb_source_line_writer.h. My guess is that the \"map\" part comes from a data structure specific to how we generate symbols from pdb files using dia. So to \"write a map file\" means to generate the ASCII Breakpad symbol file data from the \"map\" structure. This is a bit confusing and also doesn\u0027t apply to the PE-only scenario, so I\u0027ll rename to \"WriteSymbols\".",
+      "parentUuid": "851140ec_d739dd9b",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "311ca59d_76463bdf",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "408dfddc_c2dfd3aa",
+      "range": {
+        "startLine": 84,
+        "startChar": 68,
+        "endLine": 84,
+        "endChar": 11
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f55b9259_55e1f65c",
         "filename": "src/common/windows/source_line_writer.h",
         "patchSetId": 5
@@ -367,6 +727,30 @@
       "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2549ef72_b7b5a49d",
+        "filename": "src/common/windows/source_line_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-04-15T19:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f55b9259_55e1f65c",
+      "range": {
+        "startLine": 89,
+        "startChar": 22,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "bf500173a3c439bcb0c49fc9909728c58f8583bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
