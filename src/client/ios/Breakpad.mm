@@ -164,7 +164,8 @@ class Breakpad {
   NSDate *DateOfMostRecentCrashReport();
   void UploadNextReport(NSDictionary *server_parameters);
   void UploadReportWithConfiguration(NSDictionary *configuration,
-                                     NSDictionary *server_parameters);
+                                     NSDictionary *server_parameters,
+                                     BreakpadUploadCompletionCallback callback);
   void UploadData(NSData *data, NSString *name,
                   NSDictionary *server_parameters);
   void HandleNetworkResponse(NSDictionary *configuration,
@@ -503,7 +504,8 @@ void Breakpad::HandleNetworkResponse(NSDictionary *configuration,
 
 //=============================================================================
 void Breakpad::UploadReportWithConfiguration(NSDictionary *configuration,
-                                             NSDictionary *server_parameters) {
+                                             NSDictionary *server_parameters,
+                                             BreakpadUploadCompletionCallback callback) {
   Uploader *uploader = [[[Uploader alloc]
       initWithConfig:configuration] autorelease];
   if (!uploader)
@@ -512,6 +514,13 @@ void Breakpad::UploadReportWithConfiguration(NSDictionary *configuration,
     [uploader addServerParameter:[server_parameters objectForKey:key]
                           forKey:key];
   }
+  if (callback) {
+    [uploader setUploadCompletionBlock:^(NSString* report_id, NSError* error) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        callback(report_id, error);
+      });
+    }];
+  }
   [uploader report];
 }
 
@@ -519,7 +528,7 @@ void Breakpad::UploadReportWithConfiguration(NSDictionary *configuration,
 void Breakpad::UploadNextReport(NSDictionary *server_parameters) {
   NSDictionary *configuration = NextCrashReportConfiguration();
   if (configuration) {
-    return UploadReportWithConfiguration(configuration, server_parameters);
+    return UploadReportWithConfiguration(configuration, server_parameters, nullptr);
   }
 }
 
@@ -850,7 +859,7 @@ int BreakpadGetCrashReportCount(BreakpadRef ref) {
 
 //=============================================================================
 void BreakpadUploadNextReport(BreakpadRef ref) {
-  BreakpadUploadNextReportWithParameters(ref, nil);
+  BreakpadUploadNextReportWithParameters(ref, nil, nullptr);
 }
 
 //=============================================================================
@@ -882,12 +891,12 @@ NSDate *BreakpadGetDateOfMostRecentCrashReport(BreakpadRef ref) {
 void BreakpadUploadReportWithParametersAndConfiguration(
     BreakpadRef ref,
     NSDictionary *server_parameters,
-    NSDictionary *configuration) {
+    NSDictionary *configuration, BreakpadUploadCompletionCallback callback) {
   try {
     Breakpad *breakpad = (Breakpad *)ref;
     if (!breakpad || !configuration)
       return;
-    breakpad->UploadReportWithConfiguration(configuration, server_parameters);
+    breakpad->UploadReportWithConfiguration(configuration, server_parameters,callback);
   } catch(...) {    // don't let exceptions leave this C API
     fprintf(stderr,
         "BreakpadUploadReportWithParametersAndConfiguration() : error\n");
@@ -896,8 +905,10 @@ void BreakpadUploadReportWithParametersAndConfiguration(
 }
 
 //=============================================================================
-void BreakpadUploadNextReportWithParameters(BreakpadRef ref,
-                                            NSDictionary *server_parameters) {
+void BreakpadUploadNextReportWithParameters(
+    BreakpadRef ref,
+    NSDictionary *server_parameters,
+    BreakpadUploadCompletionCallback callback) {
   try {
     Breakpad *breakpad = (Breakpad *)ref;
     if (!breakpad)
@@ -907,7 +918,8 @@ void BreakpadUploadNextReportWithParameters(BreakpadRef ref,
       return;
     return BreakpadUploadReportWithParametersAndConfiguration(ref,
                                                               server_parameters,
-                                                              configuration);
+                                                              configuration,
+                                                              callback);
   } catch(...) {    // don't let exceptions leave this C API
     fprintf(stderr, "BreakpadUploadNextReportWithParameters() : error\n");
   }
@@ -960,3 +972,4 @@ NSDictionary *BreakpadGenerateReport(BreakpadRef ref,
     return nil;
   }
 }
+

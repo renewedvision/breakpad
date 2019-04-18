@@ -168,7 +168,8 @@ NSString* GetPlatform() {
   if (breakpadRef_) {
     BreakpadUploadReportWithParametersAndConfiguration(breakpadRef_,
                                                        uploadTimeParameters_,
-                                                       configuration);
+                                                       configuration,
+                                                       uploadCompleteCallback_);
   }
 }
 
@@ -240,6 +241,15 @@ NSString* GetPlatform() {
   dispatch_async(queue_, ^{
       if (breakpadRef_)
         BreakpadAddUploadParameter(breakpadRef_, key, value);
+  });
+}
+
+- (void)setUploadCallback:(BreakpadUploadCompletionCallback)callback {
+  NSAssert(started_,
+           @"The controller must not be started before setUploadCallback is "
+            "called");
+  dispatch_async(queue_, ^{
+    uploadCompleteCallback_ = callback;
   });
 }
 
@@ -346,7 +356,8 @@ NSString* GetPlatform() {
   if (timeToWait == 0) {
     [self reportWillBeSent];
     BreakpadUploadNextReportWithParameters(breakpadRef_,
-                                           uploadTimeParameters_);
+                                           uploadTimeParameters_,
+                                           uploadCompleteCallback_);
 
     // If more reports must be sent, make sure this method is called again.
     if (BreakpadGetCrashReportCount(breakpadRef_) > 0)
