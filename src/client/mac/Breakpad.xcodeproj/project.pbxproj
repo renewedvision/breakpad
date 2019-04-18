@@ -2114,6 +2114,7 @@
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = Breakpad;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -2314,6 +2315,7 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = ../..;
 				PRODUCT_NAME = Inspector;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -2337,6 +2339,7 @@
 					"-headerpad_max_install_names",
 				);
 				PRODUCT_NAME = breakpadUtilities;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -2361,6 +2364,7 @@
 				HEADER_SEARCH_PATHS = ../..;
 				INFOPLIST_FILE = "sender/crash_report_sender-Info.plist";
 				PRODUCT_NAME = crash_report_sender;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -2605,6 +2609,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/build/$(CONFIGURATION)";
 				INFOPLIST_FILE = testapp/Info.plist;
 				PRODUCT_NAME = BreakpadTest;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
