@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "e8b5d0eb_eba2f033",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1266792
+      },
+      "writtenOn": "2019-04-18T05:59:27Z",
+      "side": 1,
+      "message": "Not sure if this comment means that we need to add FPRs, vector registers etc to the register_names array? (looking at corresponding register_names array for stackwalker_arm64.cc, stackwalker_amd64.cc they dont seem to include such registers and these ppc64 changes are inspired/copied-and-modified from there :))",
+      "parentUuid": "827601d4_05e94cab",
+      "range": {
+        "startLine": 102,
+        "startChar": 23,
+        "endLine": 102,
+        "endChar": 37
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "98c1bcf1_7420bead",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
