@@ -421,6 +421,9 @@ TEST(ExceptionHandlerTest, RedeliveryToDefaultHandler) {
 
   const pid_t child = fork();
   if (child == 0) {
+    // Custom signal handlers are undesirable in this child.
+    signal(SIGSEGV, SIG_DFL);
+
     CrashWithCallbacks(FilterCallbackReturnFalse, NULL, temp_dir.path());
   }
 
