@@ -140,8 +140,7 @@ void ConfigFile::WriteFile(const char* directory,
 
   has_created_file_ = true;
 
-  // Add the minidump dir
-  AppendConfigString(kReporterMinidumpDirectoryKey, dump_dir);
+  // Add the minidump id
   AppendConfigString(kReporterMinidumpIDKey, minidump_id);
 
   // Write out the configuration parameters
