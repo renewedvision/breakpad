@@ -466,7 +466,15 @@ NSString *Breakpad::NextCrashReportToUpload() {
 
 //=============================================================================
 NSDictionary *Breakpad::NextCrashReportConfiguration() {
-  return [Uploader readConfigurationDataFromFile:NextCrashReportToUpload()];
+  NSMutableDictionary *configuration =
+      [[Uploader readConfigurationDataFromFile:NextCrashReportToUpload()] mutableCopy];
+  // kReporterMinidumpDirectoryKey can become stale because the app's install path includes an UUID
+  // that may change across app launches or app updates. In this case, the upload will fail because
+  // the associated minidump file cannot be found. The fix is to overwrite the stale value with the
+  // newly computed value of BREAKPAD_DUMP_DIRECTORY.
+  [configuration setObject:KeyValue(@BREAKPAD_DUMP_DIRECTORY)
+                    forKey:@kReporterMinidumpDirectoryKey];
+  return configuration;
 }
 
 //=============================================================================
