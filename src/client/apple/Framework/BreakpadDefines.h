@@ -28,7 +28,6 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // Keys for configuration file
-#define kReporterMinidumpDirectoryKey "MinidumpDir"
 #define kReporterMinidumpIDKey        "MinidumpID"
 
 // Filename for recording uploaded IDs
