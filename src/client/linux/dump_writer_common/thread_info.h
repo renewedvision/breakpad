@@ -68,6 +68,11 @@ struct ThreadInfo {
   // Use the structures defined in <sys/user.h>
   struct user_regs_struct regs;
   struct user_fpsimd_struct fpregs;
+#elif defined(__powerpc64__)
+  // Use the structures defined in <sys/ucontext.h>.
+  gregset_t gpregs;
+  fpregset_t fpregs;
+  vrregset_t vregs;
 #elif defined(__mips__)
   // Use the structure defined in <sys/ucontext.h>.
   mcontext_t mcontext;
@@ -84,6 +89,11 @@ struct ThreadInfo {
 
   // Returns the pointer and size of float point register area.
   void GetFloatingPointRegisters(void** fp_regs, size_t* size);
+
+#if defined(__powerpc64__)
+  // Returns the pointer and size of the vector register area. (PPC64 only)
+  void GetVectorRegisters(void** v_regs, size_t* size);
+#endif
 };
 
 }  // namespace google_breakpad

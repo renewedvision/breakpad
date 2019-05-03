@@ -54,6 +54,9 @@ struct UContextReader {
 #elif defined(__aarch64__)
   static void FillCPUContext(RawContextCPU *out, const ucontext_t *uc,
                              const struct fpsimd_context* fpregs);
+#elif defined(__powerpc64__)
+  static void FillCPUContext(RawContextCPU *out, const ucontext_t *uc,
+                             const vrregset_t* vregs);
 #else
   static void FillCPUContext(RawContextCPU *out, const ucontext_t *uc);
 #endif

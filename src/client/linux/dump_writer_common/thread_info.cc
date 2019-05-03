@@ -270,7 +270,42 @@ void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
   out->float_save.fir = mcontext.fpc_eir;
 #endif
 }
-#endif  // __mips__
+
+#elif defined(__powerpc64__)
+
+uintptr_t ThreadInfo::GetInstructionPointer() const {
+  return gpregs[PT_NIP];
+}
+
+void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
+  out->context_flags = MD_CONTEXT_PPC64_FULL;
+  for (int i = 0; i < MD_CONTEXT_PPC64_GPR_COUNT; i++)
+      out->gpr[i] = gpregs[i];
+
+  out->lr = gpregs[PT_LNK];
+  out->srr0 = gpregs[PT_NIP];
+  out->srr1 = gpregs[PT_MSR];
+  out->cr = gpregs[PT_CCR];
+  out->xer = gpregs[PT_XER];
+  out->ctr = gpregs[PT_CTR];
+
+  for (int i = 0; i < MD_FLOATINGSAVEAREA_PPC_FPR_COUNT; i++)
+      out->float_save.fpregs[i] = fpregs[i];
+
+  out->float_save.fpscr = fpregs[NFPREG-1];
+
+  for (int i = 0; i < MD_VECTORSAVEAREA_PPC_VR_COUNT; i++)
+      out->vector_save.save_vr[i] =
+          {(((uint64_t)vregs.vrregs[i][0]) << 32)
+                        | vregs.vrregs[i][1],
+          (((uint64_t)vregs.vrregs[i][2]) << 32)
+                       | vregs.vrregs[i][3]};
+
+  out->vrsave = vregs.vrsave;
+  out->vector_save.save_vscr = {0, vregs.vscr.vscr_word};
+  out->vector_save.save_vrvalid = 0xFFFFFFFF;
+}
+#endif  // __powerpc64__
 
 void ThreadInfo::GetGeneralPurposeRegisters(void** gp_regs, size_t* size) {
   assert(gp_regs || size);
@@ -279,6 +314,11 @@ void ThreadInfo::GetGeneralPurposeRegisters(void** gp_regs, size_t* size) {
     *gp_regs = mcontext.gregs;
   if (size)
     *size = sizeof(mcontext.gregs);
+#elif defined(__powerpc64__)
+  if (gp_regs)
+    *gp_regs = gpregs;
+  if (size)
+    *size = sizeof(gpregs);
 #else
   if (gp_regs)
     *gp_regs = &regs;
@@ -294,6 +334,11 @@ void ThreadInfo::GetFloatingPointRegisters(void** fp_regs, size_t* size) {
     *fp_regs = &mcontext.fpregs;
   if (size)
     *size = sizeof(mcontext.fpregs);
+#elif defined(__powerpc64__)
+  if (fp_regs)
+    *fp_regs = &fpregs;
+  if (size)
+    *size = sizeof(fpregs);
 #else
   if (fp_regs)
     *fp_regs = &fpregs;
@@ -301,5 +346,14 @@ void ThreadInfo::GetFloatingPointRegisters(void** fp_regs, size_t* size) {
     *size = sizeof(fpregs);
 #endif
 }
+
+#if defined(__powerpc64__)
+void ThreadInfo::GetVectorRegisters(void** v_regs, size_t* size) {
+  if (v_regs)
+      *v_regs = &vregs;
+  if (size)
+      *size = sizeof(vregs);
+}
+#endif
 
 }  // namespace google_breakpad
