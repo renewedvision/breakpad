@@ -94,19 +94,12 @@ NSDictionary *readConfigurationData(const char *configFile) {
                    strerror(errno));
   }
 
-  // we want to avoid a build-up of old config files even if they
-  // have been incorrectly written by the framework
-  if (unlink(configFile)) {
-    GTMLoggerDebug(@"Couldn't unlink config file %s - %s",
-                   configFile,
-                   strerror(errno));
-  }
-
   if (fileId == -1) {
     return nil;
   }
 
   NSMutableDictionary *config = [NSMutableDictionary dictionary];
+  [config setObject:[NSString stringWithUTF8String:configFile] forKey:@kReporterConfigFileKey];
 
   while (1) {
     NSString *key = readString(fileId);
@@ -510,6 +503,7 @@ NSDictionary *readConfigurationData(const char *configFile) {
         [NSCharacterSet whitespaceAndNewlineCharacterSet];
     reportID = [[result stringByTrimmingCharactersInSet:trimSet] UTF8String];
     [self logUploadWithID:reportID];
+    [self deleteConfigFile];
   }
   if (uploadCompletion_) {
     uploadCompletion_([NSString stringWithUTF8String:reportID], error);
@@ -616,6 +610,7 @@ NSDictionary *readConfigurationData(const char *configFile) {
         fprintf(stderr, "Breakpad Uploader: Error writing request file: %s\n",
                 [[error description] UTF8String]);
       }
+      [self deleteConfigFile];
     }
 
   } else {
@@ -623,6 +618,7 @@ NSDictionary *readConfigurationData(const char *configFile) {
     if (logFileData_) {
       [self uploadData:logFileData_ name:@"log"];
     }
+    [self deleteConfigFile];
   }
   [upload release];
 }
@@ -665,6 +661,17 @@ NSDictionary *readConfigurationData(const char *configFile) {
     [fileManager createFileAtPath:logFilePath
                          contents:logData
                        attributes:nil];
+  }
+}
+
+//=============================================================================
+- (void)deleteConfigFile {
+  const char *configFile =
+      [[parameters_ objectForKey:@kReporterConfigFileKey] UTF8String];
+  if (unlink(configFile)) {
+    GTMLoggerDebug(@"Couldn't unlink config file %s - %s",
+                   configFile,
+                   strerror(errno));
   }
 }
 

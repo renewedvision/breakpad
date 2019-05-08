@@ -81,7 +81,6 @@ typedef void (^UploadCompletionBlock)(NSString *reportId, NSError *error);
 - (id)initWithConfig:(NSDictionary *)config;
 
 // Reads the file |configFile| and returns the corresponding NSDictionary.
-// |configFile| will be deleted after reading.
 + (NSDictionary *)readConfigurationDataFromFile:(NSString *)configFile;
 
 - (NSMutableDictionary *)parameters;

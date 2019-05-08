@@ -5,7 +5,7 @@
 	<key>BreakpadReportInterval</key>
 	<string>5</string>
 	<key>BreakpadURL</key>
-	<string>https://test.breakpad.com/cr/report</string>
+	<string>https://clients2.google.com/cr/staging_report</string>
 	<key>BreakpadProduct</key>
 	<string>BreakpadTest</string>
 	<key>CFBundleDevelopmentRegion</key>
