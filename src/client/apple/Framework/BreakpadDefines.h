@@ -30,6 +30,7 @@
 // Keys for configuration file
 #define kReporterMinidumpDirectoryKey "MinidumpDir"
 #define kReporterMinidumpIDKey        "MinidumpID"
+#define kReporterConfigFileKey        "ConfigFile"
 
 // Filename for recording uploaded IDs
 #define kReporterLogFilename          "uploads.log"

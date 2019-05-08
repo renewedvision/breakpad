@@ -2,6 +2,15 @@
 
 #import "client/ios/BreakpadController.h"
 
+static void UploadCallback(NSString *report_id, NSError *error) {
+  NSString *message = [NSString stringWithFormat:@"%@ uploaded with %@", report_id, error];
+  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Upload Result"
+                                                                 message:message
+                                                          preferredStyle:UIAlertControllerStyleAlert];
+  [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+  [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:alert animated:YES completion:nil];
+}
+
 @interface AppDelegate ()
 
 @end
@@ -10,6 +19,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [[BreakpadController sharedInstance] start:YES];
+  [[BreakpadController sharedInstance] setUploadCallback:&UploadCallback];
+  [[BreakpadController sharedInstance] withBreakpadRef:^(BreakpadRef ref) {
+    sleep(1);
+    BreakpadGenerateReport(ref, @{});
+    sleep(1);
+    BreakpadGenerateReport(ref, @{});
+    sleep(1);
+    BreakpadGenerateReport(ref, @{});
+  }];
+  [[BreakpadController sharedInstance] setUploadingEnabled:YES];
   // Override point for customization after application launch.
   return YES;
 }
