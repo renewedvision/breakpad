@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c0b892ec_6cae0121",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1193409
+      },
+      "writtenOn": "2019-05-09T17:49:43Z",
+      "side": 1,
+      "message": "It looks like that\u0027s a behavior specific to bling? iGSA, for example, does not clear crash reports on app updates.",
+      "parentUuid": "56f2ac61_8dde0d3d",
+      "range": {
+        "startLine": 9,
+        "startChar": 49,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "45e80890c2ffb7e17c58eac850af51ecf03c3362",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90efe4cc_7996eb3f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 12
@@ -45,6 +69,30 @@
       "revId": "45e80890c2ffb7e17c58eac850af51ecf03c3362",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d0df3c4_872a317c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1193409
+      },
+      "writtenOn": "2019-05-09T17:49:43Z",
+      "side": 1,
+      "message": "Sadly, no:( This is what people on the Maps team have told me. I\u0027m surprised by this as well. I\u0027ve verified enterprise app updates do change the UUIDs, though I can\u0027t be sure it\u0027s the same for AppStore.",
+      "parentUuid": "90efe4cc_7996eb3f",
+      "range": {
+        "startLine": 10,
+        "startChar": 16,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "45e80890c2ffb7e17c58eac850af51ecf03c3362",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
