@@ -22,6 +22,30 @@
       "revId": "47a011347767a4022d992a178764a3b55dad007c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "903bb319_40e2c391",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1193409
+      },
+      "writtenOn": "2019-05-09T18:11:37Z",
+      "side": 1,
+      "message": "That\u0027s a good point...i didn\u0027t consider that it would create yet another report id for the same crash report. Do you know where we can find the details of how it creates the report id? \n\nAnother thing im worried about if there\u0027s something wrong with the crash report and the upload always returns an error. My plan is to just check the errorcode and only skip deleting if it\u0027s a timeout issue. WDYT?",
+      "parentUuid": "41633787_abccb8bd",
+      "range": {
+        "startLine": 12,
+        "startChar": 22,
+        "endLine": 12,
+        "endChar": 29
+      },
+      "revId": "47a011347767a4022d992a178764a3b55dad007c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
