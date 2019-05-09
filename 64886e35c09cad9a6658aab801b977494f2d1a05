@@ -22,6 +22,30 @@
       "revId": "64886e35c09cad9a6658aab801b977494f2d1a05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe713db9_1c8a2344",
+        "filename": "src/client/ios/BreakpadTest/Info.plist",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1193409
+      },
+      "writtenOn": "2019-05-09T17:45:03Z",
+      "side": 1,
+      "message": "It\u0027s not a real endpoint, I just didn\u0027t want to expose the real values",
+      "parentUuid": "6fb4bc0a_80f3e0af",
+      "range": {
+        "startLine": 8,
+        "startChar": 38,
+        "endLine": 8,
+        "endChar": 44
+      },
+      "revId": "64886e35c09cad9a6658aab801b977494f2d1a05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
