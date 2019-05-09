@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41633787_abccb8bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1144530
+      },
+      "writtenOn": "2019-05-09T08:10:24Z",
+      "side": 1,
+      "message": "note that the first upload will generate a report in crash/\nSo this CL will introduce duplicates.\nHow can we handle this?",
+      "range": {
+        "startLine": 12,
+        "startChar": 22,
+        "endLine": 12,
+        "endChar": 29
+      },
+      "revId": "47a011347767a4022d992a178764a3b55dad007c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
