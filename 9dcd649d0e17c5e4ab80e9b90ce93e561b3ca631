@@ -16,6 +16,24 @@
       "revId": "9dcd649d0e17c5e4ab80e9b90ce93e561b3ca631",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "846478ed_9145df9a",
+        "filename": "src/client/ios/Breakpad.mm",
+        "patchSetId": 14
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1193409
+      },
+      "writtenOn": "2019-05-13T22:48:59Z",
+      "side": 1,
+      "message": "There\u0027s no point for iOS, but since ConfigFile is shared with Macs, I didn\u0027t want to accidentally break them. I considered maybe passing to uploader the new value of BREAKPAD_DUMP_DIRECTORY, but I thought it wasn\u0027t a good idea to introduce additional logic inside of it that is not core to the uploading logic...",
+      "parentUuid": "9b0e3826_14d68155",
+      "revId": "9dcd649d0e17c5e4ab80e9b90ce93e561b3ca631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
