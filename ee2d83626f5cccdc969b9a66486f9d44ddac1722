@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2842b061_8e6eee58",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Scanning from last_sp won\u0027t get you the return address in the caller frame, if the program follows the ABI.\n\nNote that the ABI specifies that a given frame saves its LR (return address) in its caller\u0027s frame, not its own. See section 2_2_2_2, Minimum Stack Frame, in the ABI [1].\n\nIn other words, you\u0027ll find the caller\u0027s PC (that is, last_frame\u0027s saved LR), at caller_sp + 16, and not last_sp + 16.\n\nThat is, if you scan from last_sp, if the last frame is not the youngest (innermost) frame, and there is at least one other younger frame below it that itself had to save its LR, you\u0027ll find the saved LR of that younger frame, which is in fact the last_frame\u0027s own PC.\n\nThe call to GetMemoryAtAddress above, which gets the backchain, is already the best guess you can make for the caller\u0027s SP.\n\nSo I don\u0027t think it\u0027s useful to scan the stack from last_sp. I also don\u0027t think it\u0027s useful to scan from caller_sp rather than just take the LR save doubleword from caller_sp + 16, but this is essentially what GetCallerByFramePointer already does. I don\u0027t know what the motivation for stack scanning in AMD64 and ARM were.\n\nTo summarize, I don\u0027t think this whole function is very useful. It might be best to only use GetCallerByCFIFrameInfo and GetCallerByFramePointer, and discard this one.\n\n[1] http://openpowerfoundation.org/wp-content/uploads/resources/leabi/content/dbdoclet.50655240_84103.html",
+      "revId": "ee2d83626f5cccdc969b9a66486f9d44ddac1722",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

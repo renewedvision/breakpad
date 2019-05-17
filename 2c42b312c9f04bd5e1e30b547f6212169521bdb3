@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c907e73f_fc425106",
+        "filename": "src/common/dwarf_cfi_to_module.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b2aa4e2_fdae7cf1",
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "827601d4_05e94cab",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -66,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "5b7fa1de_2ff041bc",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ideally yes, since any frame that saves and restores registers that aren\u0027t included in callee_registers should cause FindCallerRegs to fail, if I understand its code correctly, and it won\u0027t even be able to recover the values of the GPRs and LR as a consequence. You can check if this is indeed the case by running this with a program that saves and restores either the FPRs, VRs, or the CR in some function. If it is the case, then I suspect the arm64 version is likely to also have these issues if their vector registers are tracked in the CFI of some frame.\n\nHowever, not handling those doesn\u0027t mean this part is incorrect, it will likely just fail to unwind the frame, and I think it\u0027s better to have this function handle some frames with CFI than none.\n\nIt shouldn\u0027t be too hard to add the FPRs, however, some of the other register would be more complicated, since the RegisterValueMap only handles one size of registers (the VRs and CR are not 64-bit long), so you\u0027d have to user another function or implement this yourself.",
+      "parentUuid": "e8b5d0eb_eba2f033",
+      "range": {
+        "startLine": 102,
+        "startChar": 23,
+        "endLine": 102,
+        "endChar": 37
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "98c1bcf1_7420bead",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -89,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "253c67d5_2a5ae5e5",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "98c1bcf1_7420bead",
+      "range": {
+        "startLine": 119,
+        "startChar": 16,
+        "endLine": 119,
+        "endChar": 24
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "661d7646_1ccf1f81",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -109,6 +175,30 @@
       "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58bd99a4_d69f285e",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "661d7646_1ccf1f81",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 64
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -159,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "67010daa_5494c431",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "See the comment in patchset 14.",
+      "parentUuid": "ded6d9b6_a0d82018",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 55
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b1ad21a_f6cf4137",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -194,6 +308,30 @@
       "side": 1,
       "message": "Both these conditions (caller_sp \u003c callee_sp and ip \u003c\u003d1 below) are also checked in TerminateWalk called right at the end in GetCallerFrame which should stop the walk correctly\n\nI guess these checks are redundant and can be removed from here (stackwalker_arm64.cc doesnt seem to have both these checks in GetCallerByFramePointer)",
       "parentUuid": "2b1ad21a_f6cf4137",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 49
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "971a89a4_6d905777",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Even though the condition in TerminateWalk is similar, what I don\u0027t know is whether the conditions in this function should somehow immediately terminate the stack walk as before, or allow the calling function (GetCallerFrame) to try to unwind the stack another way. The comment says that it could be either an error or an indication of the end of the stack. TerminateWalk only gets called at the end of GetCallerFrame.",
+      "parentUuid": "0047e722_d0dcf82f",
       "range": {
         "startLine": 199,
         "startChar": 6,
@@ -276,6 +414,30 @@
     },
     {
       "key": {
+        "uuid": "9e789077_5fc4e8d6",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71959331_95217aef",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 1
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d41932d_db58161d",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -296,6 +458,30 @@
       "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cb6a0ed_0e0377f8",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1d41932d_db58161d",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 2
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -322,6 +508,30 @@
     },
     {
       "key": {
+        "uuid": "92347ecd_b1651271",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "abf83102_c1bc33c5",
+      "range": {
+        "startLine": 243,
+        "startChar": 19,
+        "endLine": 243,
+        "endChar": 20
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64060054_31da0ae6",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -345,6 +555,30 @@
     },
     {
       "key": {
+        "uuid": "dd9f63c1_ff1364a4",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "64060054_31da0ae6",
+      "range": {
+        "startLine": 252,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 67
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d578d8f_5c394816",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -365,6 +599,30 @@
       "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8bd111b_f7cab833",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-05-17T21:12:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4d578d8f_5c394816",
+      "range": {
+        "startLine": 270,
+        "startChar": 20,
+        "endLine": 270,
+        "endChar": 22
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
