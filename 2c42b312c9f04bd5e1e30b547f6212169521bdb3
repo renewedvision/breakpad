@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8d8af750_5a168639",
+        "filename": "src/common/dwarf_cfi_to_module.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-05-28T11:48:54Z",
+      "side": 1,
+      "message": "Added the entry for \u0027v27\u0027.\nDone.",
+      "parentUuid": "3b2aa4e2_fdae7cf1",
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "827601d4_05e94cab",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -155,6 +173,30 @@
     },
     {
       "key": {
+        "uuid": "843b5c4d_7713ae4a",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-05-28T11:48:54Z",
+      "side": 1,
+      "message": "Removed the (i\u003d\u003d2) condition.\nDone.",
+      "parentUuid": "98c1bcf1_7420bead",
+      "range": {
+        "startLine": 119,
+        "startChar": 16,
+        "endLine": 119,
+        "endChar": 24
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "661d7646_1ccf1f81",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -189,6 +231,30 @@
       "writtenOn": "2019-05-17T21:12:05Z",
       "side": 1,
       "message": "Ack",
+      "parentUuid": "661d7646_1ccf1f81",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 64
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb0c5f01_9c0b2c47",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-05-28T11:48:54Z",
+      "side": 1,
+      "message": "Removed the comment.\nDone.",
       "parentUuid": "661d7646_1ccf1f81",
       "range": {
         "startLine": 130,
@@ -438,6 +504,30 @@
     },
     {
       "key": {
+        "uuid": "dfee5b24_08e6284d",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-05-28T11:48:54Z",
+      "side": 1,
+      "message": "Removed the extra whitespace.\nDone.",
+      "parentUuid": "71959331_95217aef",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 1
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d41932d_db58161d",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -472,6 +562,30 @@
       "writtenOn": "2019-05-17T21:12:05Z",
       "side": 1,
       "message": "Ack",
+      "parentUuid": "1d41932d_db58161d",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 2
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c84d4ff_024e5225",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-05-28T11:48:54Z",
+      "side": 1,
+      "message": "Removed the extra whitespace.\nDone.",
       "parentUuid": "1d41932d_db58161d",
       "range": {
         "startLine": 242,
@@ -532,6 +646,30 @@
     },
     {
       "key": {
+        "uuid": "1b615dec_2dfb3074",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-05-28T11:48:54Z",
+      "side": 1,
+      "message": "Removed the extra whitespace.\nDone.",
+      "parentUuid": "abf83102_c1bc33c5",
+      "range": {
+        "startLine": 243,
+        "startChar": 19,
+        "endLine": 243,
+        "endChar": 20
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64060054_31da0ae6",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -579,6 +717,30 @@
     },
     {
       "key": {
+        "uuid": "d8de1043_971edbee",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-05-28T11:48:54Z",
+      "side": 1,
+      "message": "Moved the comment at the start of the function.\nDone.",
+      "parentUuid": "64060054_31da0ae6",
+      "range": {
+        "startLine": 252,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 67
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d578d8f_5c394816",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -613,6 +775,30 @@
       "writtenOn": "2019-05-17T21:12:05Z",
       "side": 1,
       "message": "Ack",
+      "parentUuid": "4d578d8f_5c394816",
+      "range": {
+        "startLine": 270,
+        "startChar": 20,
+        "endLine": 270,
+        "endChar": 22
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "babe7776_7cf2f39e",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-05-28T11:48:54Z",
+      "side": 1,
+      "message": "Reverted to \u0027context.srr0\u0027\nDone",
       "parentUuid": "4d578d8f_5c394816",
       "range": {
         "startLine": 270,
