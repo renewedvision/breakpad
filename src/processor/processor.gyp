@@ -157,6 +157,7 @@
         'pathname_stripper_unittest.cc',
         'postfix_evaluator_unittest.cc',
         'range_map_shrink_down_unittest.cc',
+        'range_map_truncate_unittest.cc',
         'range_map_unittest.cc',
         'stackwalker_address_list_unittest.cc',
         'stackwalker_amd64_unittest.cc',

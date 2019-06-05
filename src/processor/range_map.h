@@ -52,7 +52,7 @@ template<class, class> class RangeMapSerializer;
 template<typename AddressType, typename EntryType>
 class RangeMap {
  public:
-  RangeMap() : enable_shrink_down_(false), map_() {}
+  RangeMap() : enable_shrink_down_(false),  enable_truncate_(false), map_() {}
 
   // |enable_shrink_down| tells whether overlapping ranges can be shrunk down.
   // If true, then adding a new range that overlaps with an existing one can
@@ -61,6 +61,12 @@ class RangeMap {
   // that it does not overlap anymore.
   void SetEnableShrinkDown(bool enable_shrink_down);
   bool IsShrinkDownEnabled() const;
+
+  // Enables inserting overlapping ranges into this map. If two ranges overlap,
+  // the range with the lower base address will be truncated such that its high
+  // address is one less than the base address of the range above it. May not be
+  // used with SetEnableShrinkDown().
+  void SetEnableTruncate(bool enable_truncate);
 
   // Inserts a range into the map.  Returns false for a parameter error,
   // or if the location of the range would conflict with a range already
@@ -149,6 +155,8 @@ class RangeMap {
 
   // Whether overlapping ranges can be shrunk down.
   bool enable_shrink_down_;
+
+  bool enable_truncate_;
 
   // Maps the high address of each range to a EntryType.
   AddressToRangeMap map_;
