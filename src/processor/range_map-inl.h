@@ -53,6 +53,12 @@ void RangeMap<AddressType, EntryType>::SetEnableShrinkDown(
 }
 
 template<typename AddressType, typename EntryType>
+void RangeMap<AddressType, EntryType>::SetEnableTruncate(
+    bool enable_truncate) {
+  enable_truncate_ = enable_truncate;
+}
+
+template<typename AddressType, typename EntryType>
 bool RangeMap<AddressType, EntryType>::IsShrinkDownEnabled() const {
   return enable_shrink_down_;
 }
@@ -88,11 +94,27 @@ bool RangeMap<AddressType, EntryType>::StoreRangeInternal(
   MapConstIterator iterator_high = map_.lower_bound(high);
 
   if (iterator_base != iterator_high) {
-    // Some other range begins in the space used by this range.  It may be
+    // Some other range ends in the space used by this range.  It may be
     // contained within the space used by this range, or it may extend lower.
     // If enable_shrink_down_ is true, shrink the current range down, otherwise
     // this is an error.
-    if (enable_shrink_down_) {
+    if (enable_truncate_) {
+      // Truncate the range with the lower base address.
+      AddressType other_base = iterator_base->second.base();
+      if (base < other_base) {
+        return StoreRangeInternal(base, delta, other_base - base, entry);
+      } else if (other_base < base) {
+        EntryType other_entry;
+        AddressType other_high, other_size, other_delta;
+        other_high = iterator_base->first;
+        RetrieveRange(other_high, &other_entry, &other_base, &other_delta, &other_size);
+        map_.erase(iterator_base);
+        map_.insert(MapValue(base - 1, Range(other_base, other_delta, other_entry)));
+        return StoreRangeInternal(base, delta, size, entry);
+      } else {
+        return false;
+      }
+    } else if (enable_shrink_down_) {
       AddressType additional_delta = iterator_base->first - base + 1;
       return StoreRangeInternal(base + additional_delta,
                                 delta + additional_delta,
@@ -118,7 +140,23 @@ bool RangeMap<AddressType, EntryType>::StoreRangeInternal(
       // contain this range, or it may begin within this range and extend
       // higher.  If enable_shrink_down_ is true, shrink the other range down,
       // otherwise this is an error.
-      if (enable_shrink_down_ && iterator_high->first > high) {
+      if (enable_truncate_) {
+        AddressType other_base = iterator_high->second.base();
+        if (base < other_base) {
+          return StoreRangeInternal(base, delta, other_base - base, entry);
+        } else if (other_base < base) {
+          EntryType other_entry;
+          AddressType other_high, other_size, other_delta;
+          other_high = iterator_high->first;
+          RetrieveRange(other_high, &other_entry, &other_base, &other_delta, &other_size);
+          map_.erase(iterator_high);
+          map_.insert(MapValue(base - 1,
+                               Range(other_base, other_delta, other_entry)));
+          return StoreRangeInternal(base, delta, size, entry);
+        } else {
+          return false;
+        }
+      } else if (enable_shrink_down_ && iterator_high->first > high) {
         // Shrink the other range down.
         AddressType other_high = iterator_high->first;
         AddressType additional_delta =

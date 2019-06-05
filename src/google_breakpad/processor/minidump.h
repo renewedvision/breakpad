@@ -1268,6 +1268,10 @@ class Minidump {
   // Is the OS Android.
   bool IsAndroid();
 
+  // Determines the platform where the minidump was produced. |platform| is
+  // valid iff this method returns true.
+  bool GetPlatform(MDOSPlatform* platform);
+
   // Get current hexdump display settings.
   unsigned int HexdumpMode() const { return hexdump_ ? hexdump_width_ : 0; }
 
