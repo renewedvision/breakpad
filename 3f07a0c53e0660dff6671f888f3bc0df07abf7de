@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2c23e37_11001580",
+        "filename": "src/processor/range_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-06T17:13:23Z",
+      "side": 1,
+      "message": "Should this be a tri-state mode to discourage interface abuse? Normal, shrink-down, truncate.",
+      "revId": "3f07a0c53e0660dff6671f888f3bc0df07abf7de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
