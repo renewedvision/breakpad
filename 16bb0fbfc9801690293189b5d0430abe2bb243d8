@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d4aeebf_e5c78b4d",
+        "filename": "src/processor/microdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-11T18:35:36Z",
+      "side": 1,
+      "message": "The original didn’t, but it seems like this should call map_.SetMergeStrategy() with some other argument if is_enabled is false.",
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e9af3be_153bfdeb",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3876,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-11T18:35:36Z",
+      "side": 1,
+      "message": "Now that kTruncateLower is available, is it better than kTruncateUpper here?",
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33f6b3a8_02773096",
+        "filename": "src/processor/range_map_truncate_lower_unittest.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-11T18:35:36Z",
+      "side": 1,
+      "message": "TruncateLower, throughout this file.\n\nAltternative: put TruncateLower on the left side, as in (RangeMapTruncateLower, SameRange).",
+      "range": {
+        "startLine": 68,
+        "startChar": 19,
+        "endLine": 68,
+        "endChar": 27
+      },
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29c8007a_d391793d",
+        "filename": "src/processor/range_map_truncate_upper_unittest.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-11T18:35:36Z",
+      "side": 1,
+      "message": "TruncateUpper now.",
+      "range": {
+        "startLine": 73,
+        "startChar": 19,
+        "endLine": 73,
+        "endChar": 28
+      },
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
