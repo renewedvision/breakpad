@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "385c4581_b78a7607",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3876,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-11T19:02:36Z",
+      "side": 1,
+      "message": "\u003e Yes, to preserve the base address. I thought I\u0027d done that, but I guess I only thought about doing it.\n\nExactly. Thanks.",
+      "parentUuid": "ddb5b9dd_c292b63f",
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33f6b3a8_02773096",
         "filename": "src/processor/range_map_truncate_lower_unittest.cc",
         "patchSetId": 8
