@@ -16,6 +16,24 @@
       "revId": "3f07a0c53e0660dff6671f888f3bc0df07abf7de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b73821d_625e6224",
+        "filename": "src/processor/range_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-06-11T18:25:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2c23e37_11001580",
+      "revId": "3f07a0c53e0660dff6671f888f3bc0df07abf7de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
