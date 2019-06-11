@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a0d0cc55_49fb3e72",
+        "filename": "src/processor/microdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-06-11T18:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d4aeebf_e5c78b4d",
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e9af3be_153bfdeb",
         "filename": "src/processor/minidump.cc",
         "patchSetId": 8
@@ -33,6 +51,24 @@
       "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddb5b9dd_c292b63f",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3876,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-06-11T18:48:36Z",
+      "side": 1,
+      "message": "Yes, to preserve the base address. I thought I\u0027d done that, but I guess I only thought about doing it.",
+      "parentUuid": "6e9af3be_153bfdeb",
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "3285287e_c694d06b",
+        "filename": "src/processor/range_map_truncate_lower_unittest.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-06-11T18:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33f6b3a8_02773096",
+      "range": {
+        "startLine": 68,
+        "startChar": 19,
+        "endLine": 68,
+        "endChar": 27
+      },
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29c8007a_d391793d",
         "filename": "src/processor/range_map_truncate_upper_unittest.cc",
         "patchSetId": 8
@@ -79,6 +139,30 @@
       "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b53ff5b_0b5e4bbf",
+        "filename": "src/processor/range_map_truncate_upper_unittest.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-06-11T18:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29c8007a_d391793d",
+      "range": {
+        "startLine": 73,
+        "startChar": 19,
+        "endLine": 73,
+        "endChar": 28
+      },
+      "revId": "16bb0fbfc9801690293189b5d0430abe2bb243d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
