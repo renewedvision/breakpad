@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "248ade8c_e6914a28",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-12T21:20:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2165b9de_1234f948",
+      "range": {
+        "startLine": 53,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "06970c2142da640cb367141c1a33bd36d08313b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a12e9668_2ca77f84",
         "filename": "src/common/windows/pe_util.h",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "06970c2142da640cb367141c1a33bd36d08313b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1198dc3_15ffdf45",
+        "filename": "src/common/windows/pe_util.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-12T21:20:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a12e9668_2ca77f84",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 10
+      },
+      "revId": "06970c2142da640cb367141c1a33bd36d08313b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
