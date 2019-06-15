@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12ffe4a4_03d37f8c",
+        "filename": "src/tools/windows/converter_exe/escaping.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-06-15T00:24:56Z",
+      "side": 1,
+      "message": "We may be able to replace this with std::unique_ptr but no need to do this in this CL.",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "6d75bc08d05f10cf02ce0b583d1f7d8609c2d9ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51b8981_cd36e7ac",
+        "filename": "src/tools/windows/converter_exe/http_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-06-15T00:24:56Z",
+      "side": 1,
+      "message": "These should have function comments. I\u0027m fine if this is done in a separate CL.",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 1
+      },
+      "revId": "6d75bc08d05f10cf02ce0b583d1f7d8609c2d9ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e65f339_9d45b935",
+        "filename": "src/tools/windows/converter_exe/http_download.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-06-15T00:24:56Z",
+      "side": 1,
+      "message": "std::unique_ptr should be a better choice. Doing this in a separate CL should be fine.",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 13
+      },
+      "revId": "6d75bc08d05f10cf02ce0b583d1f7d8609c2d9ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "685d945e_9a6c4212",
+        "filename": "src/tools/windows/converter_exe/winhttp_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-06-15T00:24:56Z",
+      "side": 1,
+      "message": "Again, function comment is missing. Separate CL should be fine.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 50
+      },
+      "revId": "6d75bc08d05f10cf02ce0b583d1f7d8609c2d9ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83c2b09e_96796cce",
+        "filename": "src/tools/windows/converter_exe/wininet_client.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-06-15T00:24:56Z",
+      "side": 1,
+      "message": "Again, function comment is missing. Separate CL should be fine.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 50
+      },
+      "revId": "6d75bc08d05f10cf02ce0b583d1f7d8609c2d9ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
