@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9eb0701e_1ce7e8f7",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-21T21:36:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e17fd9e_a7a04d10",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 8
+      },
+      "revId": "45da46a33092e2fd35b8833bfb85edd2852706df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "558af7c2_f0f63721",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5fda8cc0_a0c4afcd",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-21T21:36:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "558af7c2_f0f63721",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 616,
+        "endChar": 22
+      },
+      "revId": "45da46a33092e2fd35b8833bfb85edd2852706df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e62376cf_5fc5b1d3",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.h",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "45da46a33092e2fd35b8833bfb85edd2852706df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b75311a2_8ae3f4aa",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-21T21:36:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e62376cf_5fc5b1d3",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 21
+      },
+      "revId": "45da46a33092e2fd35b8833bfb85edd2852706df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

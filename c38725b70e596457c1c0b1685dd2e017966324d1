@@ -16,6 +16,24 @@
       "revId": "c38725b70e596457c1c0b1685dd2e017966324d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38834b7c_58409a30",
+        "filename": "src/common/windows/pe_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-21T21:36:11Z",
+      "side": 0,
+      "message": "Symbol converter calls this method to get the \u0027cpu\u0027 field of PDBModuleInfo to decide if the image is 64-bit or not. If it\u0027s not 64-bit then it won\u0027t attempt to generate symbols using the PE.\n\nPreviously this would have just failed. I changed it so that the caller could distinguish between \"failed to decode module info from image\" and \"image is 32-bit\", to make diagnosing issues easier.",
+      "parentUuid": "ef9e94cb_56007ece",
+      "revId": "c38725b70e596457c1c0b1685dd2e017966324d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
