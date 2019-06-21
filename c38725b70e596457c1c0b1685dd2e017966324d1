@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef9e94cb_56007ece",
+        "filename": "src/common/windows/pe_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-21T15:02:42Z",
+      "side": 0,
+      "message": "Where do you expect to use this for 32-bit images now?",
+      "revId": "c38725b70e596457c1c0b1685dd2e017966324d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

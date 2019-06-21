@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0dbea6a_f7da820e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-21T15:02:42Z",
+      "side": 1,
+      "message": "64-bit-only? Worth mentioning in the change description.",
+      "revId": "56570b5a8f5d28e21cc997a7def4373ded49001c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acc8c3d0_37d537b4",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-21T15:02:42Z",
+      "side": 1,
+      "message": "80",
+      "revId": "56570b5a8f5d28e21cc997a7def4373ded49001c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca98d5c9_449376c9",
+        "filename": "src/tools/windows/converter_exe/converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-21T15:02:42Z",
+      "side": 1,
+      "message": "Stay within 80 columns.",
+      "revId": "56570b5a8f5d28e21cc997a7def4373ded49001c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
