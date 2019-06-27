@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "17665092_33766481",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-27T18:37:01Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 409,
+        "startChar": 11,
+        "endLine": 409,
+        "endChar": 16
+      },
+      "revId": "382efd516c0b66981fa9f08743058959e9fd853e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1081340b_9ce03210",
         "filename": "src/tools/windows/converter_exe/converter.cc",
         "patchSetId": 1
@@ -18,6 +41,53 @@
         "startChar": 36,
         "endLine": 82,
         "endChar": 61
+      },
+      "revId": "382efd516c0b66981fa9f08743058959e9fd853e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d492caa_76d208fa",
+        "filename": "src/tools/windows/converter_exe/converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-27T18:37:01Z",
+      "side": 1,
+      "message": "\u003e This change is necessary because the string contains trigraphs and clang doesn\u0027t seem to have a flag to disable warnings about ignored trigraphs.\n\nThis doesn’t work?\n\n#pragma clang diagnostic push\n#pragma clang diagnostic ignored \"-Wtrigraphs\"\n  const string kUnknownDateAndTime \u003d R\"(????-??-?? ??:??:??)\";\n#pragma clang diagnostic pop\n\n\u003e Doesn\u0027t seem worth writing a comment in the file about that though.\n\nThat’s fine, C++11 is probably a safe assumption now.",
+      "parentUuid": "1081340b_9ce03210",
+      "range": {
+        "startLine": 82,
+        "startChar": 36,
+        "endLine": 82,
+        "endChar": 61
+      },
+      "revId": "382efd516c0b66981fa9f08743058959e9fd853e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc75fbb3_d9563d21",
+        "filename": "src/tools/windows/converter_exe/escaping.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-27T18:37:01Z",
+      "side": 1,
+      "message": "static_cast\u003cint\u003e(), 8 times in this file.",
+      "range": {
+        "startLine": 262,
+        "startChar": 29,
+        "endLine": 262,
+        "endChar": 34
       },
       "revId": "382efd516c0b66981fa9f08743058959e9fd853e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
