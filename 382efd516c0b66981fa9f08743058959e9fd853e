@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "02d306e1_1a2b2b02",
+        "filename": "src/tools/windows/converter_exe/converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-27T18:37:34Z",
+      "side": 1,
+      "message": "I meant, without the R:\n\n#pragma clang diagnostic push\n#pragma clang diagnostic ignored \"-Wtrigraphs\"\n  const string kUnknownDateAndTime \u003d \"(????-??-?? ??:??:??)\";\n#pragma clang diagnostic pop\n\nbut like I said, the R without the #pragmas is OK too.",
+      "parentUuid": "3d492caa_76d208fa",
+      "range": {
+        "startLine": 82,
+        "startChar": 36,
+        "endLine": 82,
+        "endChar": 61
+      },
+      "revId": "382efd516c0b66981fa9f08743058959e9fd853e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc75fbb3_d9563d21",
         "filename": "src/tools/windows/converter_exe/escaping.cc",
         "patchSetId": 1
