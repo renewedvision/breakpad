@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f577355_2e0ebbd1",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-27T23:05:18Z",
+      "side": 1,
+      "message": "This should probably return a std::wstring, to reduce the amount of error-prone buffer-management that the code has to do, but it also lets this first error condition be removed since this function would own the one-and-only C-style array.",
+      "revId": "001040d0b1855cd9324174e992a551fca0507c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9756059_fb1dd96d",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-27T23:05:18Z",
+      "side": 1,
+      "message": "Prefer nullptr to NULL in new code, for pointer parameters.",
+      "revId": "001040d0b1855cd9324174e992a551fca0507c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4f34a1b_a23d4be2",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-27T23:05:18Z",
+      "side": 1,
+      "message": "I think it would be better to use std::wstring and \"+\" as in:\n\nauto dir \u003d GetExeDirectory();\nif (dir.empty())\n  return false;\n\nstd::wstring path \u003d dir + L\"\\\\dbghelp.dll\";",
+      "revId": "001040d0b1855cd9324174e992a551fca0507c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e682c6c2_b7833d76",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-27T23:05:18Z",
+      "side": 1,
+      "message": "This error handling code then goes away.",
+      "revId": "001040d0b1855cd9324174e992a551fca0507c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d9d62ec_cf3f615c",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-27T23:05:18Z",
+      "side": 1,
+      "message": "Prefer nullptr but, better yet, just remove this code. Cleanup during process-shutdown is more trouble than its worth. The OS can clean it up just fine, with less risk of crashes.",
+      "revId": "001040d0b1855cd9324174e992a551fca0507c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ead54d8a_1a0c1021",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-27T23:05:18Z",
+      "side": 1,
+      "message": "You can even ditch this - we don\u0027t need the handle for anything.",
+      "revId": "001040d0b1855cd9324174e992a551fca0507c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
