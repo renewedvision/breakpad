@@ -119,6 +119,24 @@
       "revId": "001040d0b1855cd9324174e992a551fca0507c84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "422caf6f_b69b60f7",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-27T23:28:13Z",
+      "side": 1,
+      "message": "My unchecked assumption was that this code was running once. Can we make it so that this code runs only once? Repeatedly loading and unloading a DLL is likely to lead to pain and suffering. I agree that it would be a bad idea to repeatedly increment the reference count, so two possibilities come to mind:\n\n1) Position this code so it gets called once (in main?) so that only one LoadLibrary call happens\n2) Add a call to GetModuleHandleA(\"dbghelp.dll\") and if it returns non-zero just return. This function doesn\u0027t increment the reference count so this is a safe \"if it isn\u0027t loaded then load it\" check",
+      "parentUuid": "1667699c_d76ba332",
+      "revId": "001040d0b1855cd9324174e992a551fca0507c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
