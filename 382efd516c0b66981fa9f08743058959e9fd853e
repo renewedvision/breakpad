@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1081340b_9ce03210",
+        "filename": "src/tools/windows/converter_exe/converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-27T18:31:45Z",
+      "side": 1,
+      "message": "This change is necessary because the string contains trigraphs and clang doesn\u0027t seem to have a flag to disable warnings about ignored trigraphs. Doesn\u0027t seem worth writing a comment in the file about that though.",
+      "range": {
+        "startLine": 82,
+        "startChar": 36,
+        "endLine": 82,
+        "endChar": 61
+      },
+      "revId": "382efd516c0b66981fa9f08743058959e9fd853e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
