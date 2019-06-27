@@ -101,6 +101,24 @@
       "revId": "001040d0b1855cd9324174e992a551fca0507c84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1667699c_d76ba332",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-27T23:14:43Z",
+      "side": 1,
+      "message": "You would know better than me, but do we really not need to FreeLibrary in the destructor? I think it doesn\u0027t matter for the lifetime of the module (the load attempt that was already occurring in the API we call should increment refcount), but we will keep incrementing the refcount forever until the converter shuts down, which seems wrong.",
+      "parentUuid": "ead54d8a_1a0c1021",
+      "revId": "001040d0b1855cd9324174e992a551fca0507c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
