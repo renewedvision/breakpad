@@ -36,6 +36,7 @@
 
 #include <windows.h>
 #include <dbghelp.h>
+#include <pathcch.h>
 
 #include <cassert>
 #include <cstdio>
@@ -52,6 +53,35 @@
 #ifndef SYMOPT_NO_PROMPTS
 #define SYMOPT_NO_PROMPTS 0x00080000
 #endif  // SYMOPT_NO_PROMPTS
+
+namespace {
+
+bool GetExeDirectory(wchar_t* directory, size_t directory_len) {
+  if (directory == nullptr) {
+      fprintf(stderr, "GetExeDirectory: directory cannot be null.\n");
+        return false;
+  }
+
+  directory[0] = 0;
+  // Get path to this process exe.
+  DWORD result = GetModuleFileName(NULL, directory, directory_len);
+  if (result <= 0 || result == directory_len) {
+    fprintf(stderr,
+        "GetExeDirectory: failed to get path to process exe.\n");
+      return false;
+  }
+  HRESULT hr = PathCchRemoveFileSpec(directory, directory_len);
+  if (hr != S_OK) {
+    fprintf(stderr,
+        "GetExeDirectory: failed to remove filespec from '%S'.\n",
+        directory);
+    return false;
+  }
+
+  return true;
+}
+
+}  // namespace
 
 namespace google_breakpad {
 
@@ -160,11 +190,48 @@ class AutoSymSrv {
 
   bool Initialize(HANDLE process, char *path, bool invade_process) {
     process_ = process;
+
+    // TODO(nbilling): Figure out why dbghelp.dll is being loaded from
+    // system32/SysWOW64 before exe folder.
+
+    // Attempt to locate and load dbghelp.dll beside the process exe. This is
+    // somehwat of a workaround to loader delay load behavior that is occurring
+    // when we call into symsrv APIs. dbghelp.dll must be loaded from beside
+    // the process exe so that we are guaranteed to find symsrv.dll alongside
+    // dbghelp.dll (a security requirement of dbghelp.dll) and so that the
+    // symsrv.dll file that is loaded has a symsrv.yes file alongside it (a
+    // requirement of symsrv.dll when accessing Microsoft-owned symbol
+    // servers).
+    wchar_t filename[MAX_PATH];
+    if (!GetExeDirectory(filename, MAX_PATH)) {
+      return false;
+    }
+
+    HRESULT hr = PathCchAppend(filename, MAX_PATH, LR"(dbghelp.dll)");
+    if (hr != S_OK) {
+      fprintf(stderr,
+          "AutoSymSrv::Initialize: failed to append to '%S'.", filename);
+      return false;
+    }
+
+    dbghelp_module_ = LoadLibrary(filename);
+    if (dbghelp_module_ == nullptr) {
+      fprintf(stderr,
+          "AutoSymSrv::Initialize: failed to load dbghelp.dll at '%S'.",
+          filename);
+      return false;
+    }
+
     initialized_ = SymInitialize(process, path, invade_process) == TRUE;
     return initialized_;
   }
 
   bool Cleanup() {
+    if (dbghelp_module_ != NULL) {
+      FreeLibrary(dbghelp_module_);
+      dbghelp_module_ = NULL;
+    }
+
     if (initialized_) {
       if (SymCleanup(process_)) {
         initialized_ = false;
@@ -179,6 +246,8 @@ class AutoSymSrv {
  private:
   HANDLE process_;
   bool initialized_;
+  // Handle to dynamically loaded dbghelp.dll.
+  HMODULE dbghelp_module_;
 };
 
 // A stack-based class that "owns" a pathname and deletes it when destroyed,
