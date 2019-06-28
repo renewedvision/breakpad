@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "a203161f_37cdee26",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-28T16:37:51Z",
+      "side": 1,
+      "message": "I did a search across my Chromium repo for LR\"( and found 38 results (including third_party). Oddly enough there is only one that isn\u0027t in test code, so I don\u0027t know what to make of this, and I couldn\u0027t find any guidance in the style guide or C++ guides. I guess they\u0027re fine?",
+      "parentUuid": "1fd058aa_6b22a1cf",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afb691d5_a09a9aa5",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 2

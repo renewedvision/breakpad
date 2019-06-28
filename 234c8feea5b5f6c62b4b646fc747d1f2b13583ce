@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4bdcfb0_bd989281",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-28T16:37:51Z",
+      "side": 1,
+      "message": "somehwat -\u003e somewhat",
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2affcdaa_f4b5792d",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-28T16:37:51Z",
+      "side": 1,
+      "message": "My preference here would be \"!dbghelp_module rather than a comparison against nullptr, but that\u0027s your call.",
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf272c13_175f06c8",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-28T16:37:51Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
