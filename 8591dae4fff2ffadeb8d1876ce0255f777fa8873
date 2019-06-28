@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b7be57e1_e536f445",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T00:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72a12d18_8775e1b5",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "861ae103_0cfc980b",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fd058aa_6b22a1cf",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T00:28:46Z",
+      "side": 1,
+      "message": "I don\u0027t know if they are approved. If there is some uncertainty and L-string is approved then I\u0027m happy to change it to that.",
+      "parentUuid": "861ae103_0cfc980b",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0377c84b_db0eeb4c",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T00:28:46Z",
+      "side": 1,
+      "message": "I was thinking I wanted to be more precise and only avoid loading if it was loaded from that particular path, but I don\u0027t think it would even help to try and load our own version if we somehow managed to load the system one first. I\u0027ll change to just basename.",
+      "parentUuid": "afb691d5_a09a9aa5",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fedaecaa_0ea9ec95",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2019-06-28T00:00:00Z",
       "side": 1,
       "message": "I think there was some discussion about changing the meaning of %S in VC++ and preferring %lS for wide-character strings, but I\u0027m not sure. Be sure to test this path to make sure it prints correctly.",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a2351af_cce2cd56",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T00:28:46Z",
+      "side": 1,
+      "message": "That\u0027s scary. MS printf/wprintf already does strange stuff with formatting wide characters. I thought it was somewhat reliable that (Microsoft) printf took %s to be narrow and %S to be wide, while wprintf took %s to be wide and %S to be narrow. Googling this, I found all kinds of contradictory accounts of what %ls does and which compilers will give warnings. What is the safest thing to do? Use wprintf and %ls?",
+      "parentUuid": "fedaecaa_0ea9ec95",
       "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
