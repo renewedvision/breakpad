@@ -273,6 +273,30 @@
     },
     {
       "key": {
+        "uuid": "3103ea28_b8a90574",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T20:26:56Z",
+      "side": 1,
+      "message": "I think this is probably a necessary part of fixing the loader issue correctly, but I just tested and unfortunately it\u0027s not sufficient :(",
+      "parentUuid": "36175104_5dd37369",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 0
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3c9a6de_462809ed",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 4
