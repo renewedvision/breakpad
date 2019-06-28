@@ -2,6 +2,92 @@
   "comments": [
     {
       "key": {
+        "uuid": "00211981_6071b7f2",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-28T18:30:30Z",
+      "side": 1,
+      "message": "Necessary?",
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c892db4_87b49de9",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-28T18:30:30Z",
+      "side": 1,
+      "message": "You’re not doing anything wide here, you can fprintf without the L-string.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 66
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb366049_42064bc8",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-28T18:30:30Z",
+      "side": 1,
+      "message": "result, right?",
+      "range": {
+        "startLine": 70,
+        "startChar": 48,
+        "endLine": 70,
+        "endChar": 56
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "566bde97_ff192e8b",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-28T18:30:30Z",
+      "side": 1,
+      "message": "And since you’re using %ls for the wchar_t[] here, you can fprintf without the L-string too.\n\nSame deal on line 214.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "227fc85f_436cc14b",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 4
