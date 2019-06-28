@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72a12d18_8775e1b5",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-28T00:00:00Z",
+      "side": 1,
+      "message": "Maybe rephrase this error message - it sounds like you\u0027re trying to remove a file from a directory. Although, the failure really shouldn\u0027t ever happen, so there\u0027s that.",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "861ae103_0cfc980b",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-28T00:00:00Z",
+      "side": 1,
+      "message": "I assume that LR() is a wide-character raw string? I haven\u0027t used these before. Do you know if they are approved for use? It looks like a windows-ism and I wonder if we should use L\"\\\\dbghelp.dll\" instead - but I\u0027m not sure.",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb691d5_a09a9aa5",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-28T00:00:00Z",
+      "side": 1,
+      "message": "I *think* it works to pass a full path rather than the module name, but it might invoke some extra failure modes - if dbghelp.dll does get loaded from a different address.\n\nYou could leave it, or move it to the top and just call GetModuleHandle(\"dbghelp.dll\") with no path.",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fedaecaa_0ea9ec95",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2019-06-28T00:00:00Z",
+      "side": 1,
+      "message": "I think there was some discussion about changing the meaning of %S in VC++ and preferring %lS for wide-character strings, but I\u0027m not sure. Be sure to test this path to make sure it prints correctly.",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
