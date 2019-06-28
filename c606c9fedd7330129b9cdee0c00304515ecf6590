@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ea8d0842_e0e3e0c8",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "If I was betting money I\u0027d say it\u0027s not necessary, but I don\u0027t like passing a non-null-terminated buffer into any library code :)",
+      "parentUuid": "00211981_6071b7f2",
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c892db4_87b49de9",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 4
@@ -39,6 +57,30 @@
       "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdc9163c_9e98499f",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c892db4_87b49de9",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 66
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "cd34807f_1d835917",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "I think result will also work, but to my way of thinking MAX_PATH is the size of the buffer. I don\u0027t mind changing it to result.",
+      "parentUuid": "fb366049_42064bc8",
+      "range": {
+        "startLine": 70,
+        "startChar": 48,
+        "endLine": 70,
+        "endChar": 56
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "566bde97_ff192e8b",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 4
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "d94c4561_933e7a43",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "This is something I\u0027ve become less sure of since I started trying to figure out precise behavior on Windows yesterday. printf + %ls + wchar_t on Windows is a known good combo?",
+      "parentUuid": "566bde97_ff192e8b",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "227fc85f_436cc14b",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 4
@@ -99,6 +189,30 @@
       "writtenOn": "2019-06-28T18:22:19Z",
       "side": 1,
       "message": "https://docs.microsoft.com/en-us/windows/desktop/dlls/dynamic-link-library-search-order\n\n\u003e If the DLL is on the list of known DLLs for the version of Windows on which\n\u003e the application is running, the system uses its copy of the known DLL (and the\n\u003e known DLL\u0027s dependent DLLs, if any) instead of searching for the DLL. For a\n\u003e list of known DLLs on the current system, see the following registry key:\n\u003e HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\KnownDLLs.",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 0
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbb80b74_a7beac77",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "Very interesting! dbghelp/symsrv aren\u0027t on there, but IMAGEHLP is. I wonder how the clang/gn build differs from the gyp/VS build that causes this different behavior. the .gyp file for this build specified \"DelayLoad\" tags and translated to some directive in the vcxproj-- maybe this told the VS compiler to do something that changed imports or some flags that the loader understands?\n\nHow do I specify a delay load in a gn target?",
+      "parentUuid": "227fc85f_436cc14b",
       "range": {
         "startLine": 191,
         "startChar": 0,
@@ -131,6 +245,30 @@
       "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92c9755e_2690df29",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3c9a6de_462809ed",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 0
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -157,6 +157,24 @@
       "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b02a362_fa772cdd",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4a2351af_cce2cd56",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

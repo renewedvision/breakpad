@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43928ce1_432e00bf",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad45fec9_6b515996",
+      "range": {
+        "startLine": 64,
+        "startChar": 35,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61ead159_ed1a4c03",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3fb1e49a_b7f59dce",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61ead159_ed1a4c03",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 17
+      },
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4bdcfb0_bd989281",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 3
@@ -62,6 +110,24 @@
       "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9624f2c_d9c8d159",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4bdcfb0_bd989281",
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "6620516d_e0fe17ff",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "I know both are legitimate but the ambiguity of casting in this case makes me very anxious, so I don\u0027t do unless people feel strongly about it :)",
+      "parentUuid": "2affcdaa_f4b5792d",
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf272c13_175f06c8",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 3
@@ -96,6 +180,24 @@
       "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af2d5991_8f2daa9f",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-06-28T19:07:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cf272c13_175f06c8",
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
