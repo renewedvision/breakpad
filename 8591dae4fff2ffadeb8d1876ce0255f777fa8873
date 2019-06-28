@@ -175,6 +175,24 @@
       "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8cd07526_c1135bf7",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-28T19:55:23Z",
+      "side": 1,
+      "message": "This is what I remember about VC++ “changing the meaning”:\n\nhttps://devblogs.microsoft.com/cppblog/c-runtime-crt-features-fixes-and-breaking-changes-in-visual-studio-14-ctp1/\n\nThey backed away from that change, but it’s interesting for historical context and closure.\n\nI don’t think there’s been anything since about a change in this area.",
+      "parentUuid": "2b02a362_fa772cdd",
+      "revId": "8591dae4fff2ffadeb8d1876ce0255f777fa8873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
