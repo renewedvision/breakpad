@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "ad45fec9_6b515996",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-06-28T17:51:07Z",
+      "side": 1,
+      "message": "I would suggest adding the parameter name in an inline comment:\n\n/* hModule \u003d */ nullptr",
+      "range": {
+        "startLine": 64,
+        "startChar": 35,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61ead159_ed1a4c03",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2019-06-28T17:51:07Z",
+      "side": 1,
+      "message": "indent is off",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 17
+      },
+      "revId": "234c8feea5b5f6c62b4b646fc747d1f2b13583ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4bdcfb0_bd989281",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 3
