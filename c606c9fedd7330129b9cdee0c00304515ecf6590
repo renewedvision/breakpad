@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3c9a6de_462809ed",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-28T18:18:49Z",
+      "side": 1,
+      "message": "The usual thing we’d do to ensure onceness is:\n\n  static HMODULE dbghelp_module \u003d LoadLibrary(dbghelp_path.c_str())\n\nBut to avoid having to precompute dbghelp_path ahead of time, you’d:\n\n  static HMODULE dbghelp_module \u003d [](){\n      std::wstring dbghelp_basename(L\"dbghelp.dll\");\n      // …\n      std::wstring dbghelp_path \u003d exe_directory + L\"\\\\\" + dbghelp_basename;\n      return LoadLibrary(dbghelp_path.c_str());\n  }();",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 0
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
