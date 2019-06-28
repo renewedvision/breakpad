@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "227fc85f_436cc14b",
+        "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-06-28T18:22:19Z",
+      "side": 1,
+      "message": "https://docs.microsoft.com/en-us/windows/desktop/dlls/dynamic-link-library-search-order\n\n\u003e If the DLL is on the list of known DLLs for the version of Windows on which\n\u003e the application is running, the system uses its copy of the known DLL (and the\n\u003e known DLL\u0027s dependent DLLs, if any) instead of searching for the DLL. For a\n\u003e list of known DLLs on the current system, see the following registry key:\n\u003e HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\KnownDLLs.",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 0
+      },
+      "revId": "c606c9fedd7330129b9cdee0c00304515ecf6590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3c9a6de_462809ed",
         "filename": "src/tools/windows/converter/ms_symbol_server_converter.cc",
         "patchSetId": 4
