@@ -16,6 +16,24 @@
       "revId": "ee2d83626f5cccdc969b9a66486f9d44ddac1722",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f40c7879_cd203600",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-07-04T05:17:22Z",
+      "side": 1,
+      "message": "As per the suggetion in review comment ,removed the GetCallerByStackScan() function in \nPatchset 15.\n\nDone.",
+      "parentUuid": "2842b061_8e6eee58",
+      "revId": "ee2d83626f5cccdc969b9a66486f9d44ddac1722",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

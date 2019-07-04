@@ -126,6 +126,30 @@
     },
     {
       "key": {
+        "uuid": "085ec4a9_3e21e66e",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-07-04T05:17:22Z",
+      "side": 1,
+      "message": "We have investigated the code for IntelX86_64(AMD64) platform for stack unwinding.\nIt is not supporting the reading of Floating point and XMM(SSE) register values from Symbol file, while stack unwinding using CFI frame info.\nThe Map \u0027StackwalkerAMD64CFIWalker::RegisterSet cfi_register_map_[]\u0027 does not contain the names of Floating point and XMM(SSE) registers.\nSo as per the parity first we will raise the request for Breakpad community, to add support for handling Floating point and XMM(SSE) registers while stack unwinding using CFI frame information.\nOnce it has been added for IntelX86_64(AMD64) platform, we will add the support for Power platform.",
+      "parentUuid": "5b7fa1de_2ff041bc",
+      "range": {
+        "startLine": 102,
+        "startChar": 23,
+        "endLine": 102,
+        "endChar": 37
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "98c1bcf1_7420bead",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -339,6 +363,30 @@
     },
     {
       "key": {
+        "uuid": "302b0499_33db1e74",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-07-04T05:17:22Z",
+      "side": 1,
+      "message": "Fixed this review comment in PatchSet 15.\nAs per the suggetion in review comment, removed the GetCallerByStackScan() function.",
+      "parentUuid": "67010daa_5494c431",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 55
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b1ad21a_f6cf4137",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -410,6 +458,30 @@
     },
     {
       "key": {
+        "uuid": "9d542d28_8f16d9c9",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-07-04T05:17:22Z",
+      "side": 1,
+      "message": "Fixed this review comment in PatchSet 15.\n\nRemoved the conditions \u0027stack_pointer \u003c\u003d last_frame-\u003econtext.gpr[1]\u0027 as these are also checked in TerminateWalk called right at the end in GetCallerFrame which should stop the walk correctly.\n\t\nSo if GetMemoryAtAddress() returns false then this function returns NULL.\nThen GetCallerFrame() function ‘frame’ value is reset to ‘NULL’ so it will return NULL.\t\nThis will cause Stackwalker::Walk to return and stack walk will get terminated.",
+      "parentUuid": "971a89a4_6d905777",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 49
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8e9fd94_db17e9f8",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -454,6 +526,30 @@
       "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f46d62ab_64d95093",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-07-04T05:17:22Z",
+      "side": 1,
+      "message": "Fixed this review comment in PatchSet 15.\n\nRemoved the conditions \u0027instruction \u003c\u003d 1\u0027 as these are also checked in TerminateWalk called right at the end in GetCallerFrame which should stop the walk correctly.\n\t\nSo if GetMemoryAtAddress() returns false then this function returns NULL.\nThen GetCallerFrame() function ‘frame’ value is reset to ‘NULL’ so it will return NULL.\t\nThis will cause Stackwalker::Walk to return and stack walk will get terminated.",
+      "parentUuid": "cc273c11_6444eaf3",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 22
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
