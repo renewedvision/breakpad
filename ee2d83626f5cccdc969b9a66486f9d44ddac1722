@@ -34,6 +34,47 @@
       "revId": "ee2d83626f5cccdc969b9a66486f9d44ddac1722",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90ee8be9_d0bd9fae",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-08-06T14:13:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f40c7879_cd203600",
+      "revId": "ee2d83626f5cccdc969b9a66486f9d44ddac1722",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34a22b7f_596b78bc",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-08-06T14:13:18Z",
+      "side": 1,
+      "message": "It might be a good idea to keep part of this comment somewhere, e.g. next to the call of TerminateWalk, and just change it to say that this condition is also checked in TerminateWalk.",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 206,
+        "endChar": 71
+      },
+      "revId": "ee2d83626f5cccdc969b9a66486f9d44ddac1722",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

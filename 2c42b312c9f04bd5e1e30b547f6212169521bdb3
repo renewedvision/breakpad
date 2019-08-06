@@ -150,6 +150,30 @@
     },
     {
       "key": {
+        "uuid": "bf1334d4_0c5ab880",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-08-06T14:13:18Z",
+      "side": 1,
+      "message": "Ok! Keep in mind for the future that besides the FPs and VRs there are also other registers that could be handled like the CR fields, XER, CTR, etc.",
+      "parentUuid": "085ec4a9_3e21e66e",
+      "range": {
+        "startLine": 102,
+        "startChar": 23,
+        "endLine": 102,
+        "endChar": 37
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98c1bcf1_7420bead",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -387,6 +411,30 @@
     },
     {
       "key": {
+        "uuid": "a9a7d800_46e72b07",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-08-06T14:13:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "302b0499_33db1e74",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 55
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b1ad21a_f6cf4137",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -482,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "567e5ecd_d76d2ac9",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-08-06T14:13:18Z",
+      "side": 1,
+      "message": "Strictly speaking there is one case with this condition removed which is different: if this is the first unwind, TerminateWalk doesn\u0027t check for equality to determine if the walk should be stopped. The condition that was removed always checked for equality. To preserve the previous behavior, you could keep this condition and the comment. Now that GetCallerByFramePointer is the last unwind method to be called, this will cause the stack walk to terminate as before.",
+      "parentUuid": "9d542d28_8f16d9c9",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 49
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8e9fd94_db17e9f8",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -541,6 +613,30 @@
       "side": 1,
       "message": "Fixed this review comment in PatchSet 15.\n\nRemoved the conditions \u0027instruction \u003c\u003d 1\u0027 as these are also checked in TerminateWalk called right at the end in GetCallerFrame which should stop the walk correctly.\n\t\nSo if GetMemoryAtAddress() returns false then this function returns NULL.\nThen GetCallerFrame() function ‘frame’ value is reset to ‘NULL’ so it will return NULL.\t\nThis will cause Stackwalker::Walk to return and stack walk will get terminated.",
       "parentUuid": "cc273c11_6444eaf3",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 22
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "229599d1_58e79ef3",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-08-06T14:13:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f46d62ab_64d95093",
       "range": {
         "startLine": 210,
         "startChar": 6,
