@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda50371_deb938fb",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2019-08-07T16:32:05Z",
+      "side": 1,
+      "message": "ugh",
+      "range": {
+        "startLine": 448,
+        "startChar": 31,
+        "endLine": 448,
+        "endChar": 32
+      },
+      "revId": "1a78eed9ac0600c200b3dad570f93bad879b1fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
