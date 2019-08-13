@@ -75,6 +75,30 @@
       "revId": "ee2d83626f5cccdc969b9a66486f9d44ddac1722",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c72bfdfd_e3c4276f",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-08-13T09:30:56Z",
+      "side": 1,
+      "message": "Fixed in Patchset 16.\nAdded suggested comment next to the call of TerminateWalk()",
+      "parentUuid": "34a22b7f_596b78bc",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 206,
+        "endChar": 71
+      },
+      "revId": "ee2d83626f5cccdc969b9a66486f9d44ddac1722",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -174,6 +174,30 @@
     },
     {
       "key": {
+        "uuid": "15ef3df1_f882d46f",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-08-13T09:30:56Z",
+      "side": 1,
+      "message": "OK. Along with FPs and VRs ,We will Keep in mind to handle other registers like the CR fields, XER, CTR, etc.",
+      "parentUuid": "bf1334d4_0c5ab880",
+      "range": {
+        "startLine": 102,
+        "startChar": 23,
+        "endLine": 102,
+        "endChar": 37
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98c1bcf1_7420bead",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 11
@@ -551,6 +575,30 @@
       "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d98d09f1_eb220b5f",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-08-13T09:30:56Z",
+      "side": 1,
+      "message": "Fixed in Patchset 16.\nAs per the suggestion preserved the previous behavior by keeping the condition and the comment.",
+      "parentUuid": "567e5ecd_d76d2ac9",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 49
+      },
+      "revId": "2c42b312c9f04bd5e1e30b547f6212169521bdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
