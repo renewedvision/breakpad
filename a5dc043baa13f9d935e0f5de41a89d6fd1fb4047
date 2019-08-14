@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f241cd1_0b495e87",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-08-14T20:01:43Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 1
+      },
+      "revId": "a5dc043baa13f9d935e0f5de41a89d6fd1fb4047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dfeadd1_05aa01dc",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-08-14T20:01:43Z",
+      "side": 1,
+      "message": "I would recommend keeping all the information from the original comment (including the bit about there not being any documentation) and just adding that this condition is checked in TerminateWalk (as you did here), and putting this comment right before the call to TerminateWalk.\n\nThere\u0027s some whitespace at the end of line 232 as well.",
+      "range": {
+        "startLine": 232,
+        "startChar": 82,
+        "endLine": 232,
+        "endChar": 83
+      },
+      "revId": "a5dc043baa13f9d935e0f5de41a89d6fd1fb4047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
