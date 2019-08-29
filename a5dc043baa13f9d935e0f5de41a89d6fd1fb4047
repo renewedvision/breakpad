@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1c689c0_81402d2c",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-08-29T08:20:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f241cd1_0b495e87",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 1
+      },
+      "revId": "a5dc043baa13f9d935e0f5de41a89d6fd1fb4047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4dfeadd1_05aa01dc",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 16
@@ -45,6 +69,30 @@
       "revId": "a5dc043baa13f9d935e0f5de41a89d6fd1fb4047",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec020606_e608fcbe",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-08-29T08:20:57Z",
+      "side": 1,
+      "message": "Updated the code comment as per the suggestion\n- Kept all the information from the original comment.\n- Move this comment before the call to TerminateWalk.\n- Removed the whitespace.",
+      "parentUuid": "4dfeadd1_05aa01dc",
+      "range": {
+        "startLine": 232,
+        "startChar": 82,
+        "endLine": 232,
+        "endChar": 83
+      },
+      "revId": "a5dc043baa13f9d935e0f5de41a89d6fd1fb4047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
