@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "766e2724_0e885bc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-09-02T18:21:49Z",
+      "side": 1,
+      "message": "should be just above Change-Id",
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc78c73c_bc34441e",
+        "filename": "src/common/dwarf_cfi_to_module.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-09-02T18:21:49Z",
+      "side": 1,
+      "message": "put a // above it like the others",
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6acd6b6_d4a4eb9a",
+        "filename": "src/processor/stackwalker_ppc64.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-09-02T18:21:49Z",
+      "side": 1,
+      "message": "indent is incorrect: align it to (",
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
