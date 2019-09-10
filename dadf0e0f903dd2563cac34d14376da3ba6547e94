@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ce926ec_7e8edc47",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-09-10T07:28:00Z",
+      "side": 1,
+      "message": "style here is incorrect.  hanging indents should be aligned to ( if any are kept on the previous line (which you\u0027re doing here), or they all should be wrapped with 4 space indents, not 2.  either way it means you\u0027ll have to break the string up, but that\u0027s OK.\n\n fprintf(output_,\n         \"................\"\n         \".........\",\n         .......);\n fprintf(\n     output,\n     \"..................\"\n     \".......\"\n     ........);",
+      "revId": "dadf0e0f903dd2563cac34d14376da3ba6547e94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a67ac491_b045c68b",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-09-10T07:28:00Z",
+      "side": 1,
+      "message": "merge these two lines together",
+      "range": {
+        "startLine": 856,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 10
+      },
+      "revId": "dadf0e0f903dd2563cac34d14376da3ba6547e94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
