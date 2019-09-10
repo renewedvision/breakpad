@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cc826ba7_8adacb56",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1325023
+      },
+      "writtenOn": "2019-09-10T08:45:42Z",
+      "side": 1,
+      "message": "Thanks for the tip.",
+      "parentUuid": "6ce926ec_7e8edc47",
+      "revId": "dadf0e0f903dd2563cac34d14376da3ba6547e94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a67ac491_b045c68b",
         "filename": "src/common/windows/pdb_source_line_writer.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2019-09-10T07:28:00Z",
       "side": 1,
       "message": "merge these two lines together",
+      "range": {
+        "startLine": 856,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 10
+      },
+      "revId": "dadf0e0f903dd2563cac34d14376da3ba6547e94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0238e71a_31fa5361",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1325023
+      },
+      "writtenOn": "2019-09-10T08:45:42Z",
+      "side": 1,
+      "message": "I keep it unchanged due to other code (moved to pe_util.cc) in this function use same style.",
+      "parentUuid": "a67ac491_b045c68b",
       "range": {
         "startLine": 856,
         "startChar": 0,
