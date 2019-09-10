@@ -81,6 +81,30 @@
       "revId": "dadf0e0f903dd2563cac34d14376da3ba6547e94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "631d5e44_05aa9e6a",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-09-10T08:52:18Z",
+      "side": 1,
+      "message": "fair enough.  that code is also broken, but i won\u0027t make you change it.",
+      "parentUuid": "0238e71a_31fa5361",
+      "range": {
+        "startLine": 856,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 10
+      },
+      "revId": "dadf0e0f903dd2563cac34d14376da3ba6547e94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
