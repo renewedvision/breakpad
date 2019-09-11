@@ -16,6 +16,24 @@
       "revId": "7c21cdbc72ccd1e3e9f7b63c6812992b1e9c7dfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08c67b6a_ae972be2",
+        "filename": "src/common/windows/pe_util.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1325023
+      },
+      "writtenOn": "2019-09-11T06:04:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4cf9283_e651c8db",
+      "revId": "7c21cdbc72ccd1e3e9f7b63c6812992b1e9c7dfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
