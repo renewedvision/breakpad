@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "b2836d46_a930e2ce",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-09-16T22:14:50Z",
+      "side": 1,
+      "message": "I missed this before, but it might be a good idea to check that this vector is only used with breakpad in Linux (I\u0027m guessing this is the case, since this file is under src/common/linux, but I\u0027m not sure). If not, you\u0027ll have to make sure somehow that these are only used in Linux.\n\nThe reason for this is that some other systems might not use the same register numbering (e.g. AIX or Darwin).",
+      "range": {
+        "startLine": 358,
+        "startChar": 57,
+        "endLine": 358,
+        "endChar": 64
+      },
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6acd6b6_d4a4eb9a",
         "filename": "src/processor/stackwalker_ppc64.h",
         "patchSetId": 17
