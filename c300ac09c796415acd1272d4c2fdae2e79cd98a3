@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "896055a8_58481486",
+        "filename": "src/client/ios/Breakpad.xcodeproj/project.pbxproj",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-09-17T03:46:45Z",
+      "side": 1,
+      "message": "For example…",
+      "revId": "c300ac09c796415acd1272d4c2fdae2e79cd98a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
