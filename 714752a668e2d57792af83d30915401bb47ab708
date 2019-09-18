@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "54f1a122_5f8e9374",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-09-18T06:50:59Z",
+      "side": 1,
+      "message": "To fixed this issue moved \u0027Bug\u0027 above \u0027Change-Id\u0027.",
+      "parentUuid": "766e2724_0e885bc8",
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc78c73c_bc34441e",
         "filename": "src/common/dwarf_cfi_to_module.h",
         "patchSetId": 17
@@ -33,6 +51,24 @@
       "revId": "714752a668e2d57792af83d30915401bb47ab708",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5728b8c1_78546dfc",
+        "filename": "src/common/dwarf_cfi_to_module.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-09-18T06:50:59Z",
+      "side": 1,
+      "message": "To fixed this issue added //PPC64 above function.",
+      "parentUuid": "bc78c73c_bc34441e",
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b8a503a2_2bb93c75",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-09-18T06:50:59Z",
+      "side": 1,
+      "message": "To fixed this issue added #if defined(__linux__) while creating the register_names vector in case of PPC64.",
+      "parentUuid": "b2836d46_a930e2ce",
+      "range": {
+        "startLine": 358,
+        "startChar": 57,
+        "endLine": 358,
+        "endChar": 64
+      },
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6acd6b6_d4a4eb9a",
         "filename": "src/processor/stackwalker_ppc64.h",
         "patchSetId": 17
@@ -73,6 +133,24 @@
       "revId": "714752a668e2d57792af83d30915401bb47ab708",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b54110ca_bd801aea",
+        "filename": "src/processor/stackwalker_ppc64.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-09-18T06:50:59Z",
+      "side": 1,
+      "message": "To fixed this issue Corrected the alignment of parameter.",
+      "parentUuid": "c6acd6b6_d4a4eb9a",
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
