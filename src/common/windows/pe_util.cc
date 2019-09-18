@@ -292,7 +292,7 @@ bool PrintPEFrameData(const wstring & pe_file, FILE * out_file)
         &img->LastRvaSection));
 
     DWORD stack_size = 8;  // minimal stack size is 8 for RIP
-    DWORD rip_offset = 8;
+    DWORD machframe_offset = 0;
     do {
       for (UBYTE c = 0; c < unwind_info->count_of_codes; c++) {
         UnwindCode *unwind_code = &unwind_info->unwind_code[c];
@@ -335,12 +335,12 @@ bool PrintPEFrameData(const wstring & pe_file, FILE * out_file)
         }
         case UWOP_PUSH_MACHFRAME: {
           if (unwind_code->operation_info) {
-            stack_size += 88;
+            stack_size += 48;
           }
           else {
-            stack_size += 80;
+            stack_size += 40;
           }
-          rip_offset += 80;
+          machframe_offset = stack_size;
           break;
         }
         }
@@ -361,11 +361,39 @@ bool PrintPEFrameData(const wstring & pe_file, FILE * out_file)
         unwind_info = NULL;
       }
     } while (unwind_info);
-    fprintf(out_file, "STACK CFI INIT %lx %lx .cfa: $rsp .ra: .cfa %lu - ^\n",
-      funcs[i].BeginAddress,
-      funcs[i].EndAddress - funcs[i].BeginAddress, rip_offset);
-    fprintf(out_file, "STACK CFI %lx .cfa: $rsp %lu +\n",
-      funcs[i].BeginAddress, stack_size);
+    fprintf(out_file, "STACK CFI INIT %lx %lx .cfa: $rsp "
+            ".ra: .cfa 8 - ^\n",
+            funcs[i].BeginAddress,
+            funcs[i].EndAddress - funcs[i].BeginAddress);
+    if (machframe_offset > 0) {
+      /*
+       * ---FRAME-END---
+       *      <...>
+       * ---MACHFRAME---
+       *   | ErrCode | (optional)           (size: 8)
+       *   | RIP     |                      (size: 8)
+       *   | CS      |                      (size: 8)
+       *   | EFLAGS  |                      (size: 8)
+       *   | Old RSP |                      (size: 8)
+       *   | SS      |                      (size: 8)
+       * ---MACHFRAME---
+       *      <...>     any other stuff     (size: stack_size-machframe_offset)
+       *   | .RA     |  usual caller addres (size: 8)
+       * --FRAME-START-- <-------- .cfa
+       *
+       */
+      DWORD sizeof_other_stuff = stack_size - machframe_offset;
+      fprintf(out_file,
+              "STACK CFI %lx .cfa: $rsp %lu + $rsp: .cfa %lu - ^ "
+              ".ra: .cfa %lu - ^\n",
+              funcs[i].BeginAddress, stack_size,
+              sizeof_other_stuff + 0x18,
+              sizeof_other_stuff + 0x30);
+    }
+    else {
+      fprintf(out_file, "STACK CFI %lx .cfa: $rsp %lu +\n",
+              funcs[i].BeginAddress, stack_size);
+    }
   }
 
   return true;
