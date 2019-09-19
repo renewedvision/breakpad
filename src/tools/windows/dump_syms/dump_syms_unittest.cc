@@ -58,6 +58,8 @@ const wchar_t* kRootNames[] = {
   L"omap_reorder_bbs",
   // A 64bit PDB file with no OMAP data.
   L"dump_syms_regtest64",
+  // A 64bit PDB file with UWOP_PUSH_MACHFRAME
+  L"dump_syms_regtest64_machframe",
 };
 
 const wchar_t* kPEOnlyRootNames[] = {

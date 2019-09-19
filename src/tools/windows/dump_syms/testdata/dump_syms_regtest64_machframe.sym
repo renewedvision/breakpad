@@ -1,0 +1,11 @@
+MODULE windows x86_64 73606772D5744B478D1F5274BD4451F12 dump_syms_regtest64_machframe.pdb
+INFO CODE_ID 5D8335A26000 dump_syms_regtest64_machframe.dll
+FILE 1 C:\repository\git\breakpad\src\tools\windows\dump_syms\testdata\dump_syms_regtest64_machframe.asm
+FUNC 1020 1 0 test_machframe
+1020 0 8 1
+1020 1 11 1
+FUNC 1021 1 0 DllMain
+1021 0 14 1
+1021 1 15 1
+STACK CFI INIT 1020 1 .cfa: $rsp .ra: .cfa 8 - ^
+STACK CFI 1020 .cfa: $rsp 48 + $rsp: .cfa 24 - ^ .ra: .cfa 48 - ^
