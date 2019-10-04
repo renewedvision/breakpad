@@ -45,10 +45,14 @@ int usage(const char* self) {
   fprintf(stderr, "Usage: %s [OPTION] <binary-with-debugging-info> "
           "[directories-for-debug-file]\n\n", self);
   fprintf(stderr, "Options:\n");
-  fprintf(stderr, "  -i:   Output module header information only.\n");
-  fprintf(stderr, "  -c    Do not generate CFI section\n");
-  fprintf(stderr, "  -r    Do not handle inter-compilation unit references\n");
-  fprintf(stderr, "  -v    Print all warnings to stderr\n");
+  fprintf(stderr, "  -i:         Output module header information only.\n");
+  fprintf(stderr, "  -c          Do not generate CFI section\n");
+  fprintf(stderr, "  -r          Do not handle inter-compilation unit references\n");
+  fprintf(stderr, "  -v          Print all warnings to stderr\n");
+  fprintf(stderr, "  -n <name>   Use specified name for name of the object\n");
+  fprintf(stderr, "  -o <os>     Use specified name for the "
+                                 "operating system\n");
+  fprintf(stderr, "  -s          Use DT_SONAME as name of the object\n");
   return 1;
 }
 
@@ -59,6 +63,9 @@ int main(int argc, char **argv) {
   bool cfi = true;
   bool handle_inter_cu_refs = true;
   bool log_to_stderr = false;
+  bool use_soname_as_name = false;
+  std::string obj_name;
+  const char* obj_os = "Linux";
   int arg_index = 1;
   while (arg_index < argc && strlen(argv[arg_index]) > 0 &&
          argv[arg_index][0] == '-') {
@@ -70,6 +77,22 @@ int main(int argc, char **argv) {
       handle_inter_cu_refs = false;
     } else if (strcmp("-v", argv[arg_index]) == 0) {
       log_to_stderr = true;
+    } else if (strcmp("-n", argv[arg_index]) == 0) {
+      if (arg_index + 1 >= argc) {
+        fprintf(stderr, "Missing argument to -n\n");
+        return usage(argv[0]);
+      }
+      obj_name = argv[arg_index + 1];
+      ++arg_index;
+    } else if (strcmp("-o", argv[arg_index]) == 0) {
+      if (arg_index + 1 >= argc) {
+        fprintf(stderr, "Missing argument to -o\n");
+        return usage(argv[0]);
+      }
+      obj_os = argv[arg_index + 1];
+      ++arg_index;
+    } else if (strcmp("-s", argv[arg_index]) == 0) {
+      use_soname_as_name = true;
     } else {
       printf("2.4 %s\n", argv[arg_index]);
       return usage(argv[0]);
@@ -78,6 +101,10 @@ int main(int argc, char **argv) {
   }
   if (arg_index == argc)
     return usage(argv[0]);
+  if (use_soname_as_name && obj_name != "") {
+    fprintf(stderr, "-s and -n cannot both be used\n");
+    return usage(argv[0]);
+  }
   // Save stderr so it can be used below.
   FILE* saved_stderr = fdopen(dup(fileno(stderr)), "w");
   if (!log_to_stderr) {
@@ -95,15 +122,20 @@ int main(int argc, char **argv) {
     debug_dirs.push_back(argv[debug_dir_index]);
   }
 
+  if (obj_name.empty())
+    obj_name = binary;
+
+  SymbolData symbol_data = cfi ? ALL_SYMBOL_DATA : NO_CFI;
+  google_breakpad::DumpOptions options(symbol_data, handle_inter_cu_refs,
+                                       use_soname_as_name);
   if (header_only) {
-    if (!WriteSymbolFileHeader(binary, std::cout)) {
+    if (!WriteSymbolFileHeader(binary, obj_name, obj_os, options, std::cout)) {
       fprintf(saved_stderr, "Failed to process file.\n");
       return 1;
     }
   } else {
-    SymbolData symbol_data = cfi ? ALL_SYMBOL_DATA : NO_CFI;
-    google_breakpad::DumpOptions options(symbol_data, handle_inter_cu_refs);
-    if (!WriteSymbolFile(binary, debug_dirs, options, std::cout)) {
+    if (!WriteSymbolFile(binary, obj_name, obj_os, debug_dirs, options,
+                         std::cout)) {
       fprintf(saved_stderr, "Failed to write symbol file.\n");
       return 1;
     }
