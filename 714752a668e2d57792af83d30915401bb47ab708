@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1f08cbd8_63dc7982",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-10-23T18:54:27Z",
+      "side": 1,
+      "message": "I don\u0027t see the changes themselves, only your comments. Are they missing?",
+      "parentUuid": "b8a503a2_2bb93c75",
+      "range": {
+        "startLine": 358,
+        "startChar": 57,
+        "endLine": 358,
+        "endChar": 64
+      },
+      "revId": "714752a668e2d57792af83d30915401bb47ab708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6acd6b6_d4a4eb9a",
         "filename": "src/processor/stackwalker_ppc64.h",
         "patchSetId": 17
