@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32a694cb_15d02d85",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-10-24T04:16:23Z",
+      "side": 1,
+      "message": "use sizeof(buf)",
+      "revId": "5aa8f8b5c0b7f3012dc076c73025362bccc534f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbf0ed45_44e0164d",
+        "filename": "src/common/linux/elfutils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-10-24T04:16:23Z",
+      "side": 1,
+      "message": "* style is incorrect.  comes up below too.",
+      "revId": "5aa8f8b5c0b7f3012dc076c73025362bccc534f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
