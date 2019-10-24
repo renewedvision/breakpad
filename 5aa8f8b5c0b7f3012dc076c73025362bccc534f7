@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "49f892ef_3eea6ba7",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-10-24T17:34:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32a694cb_15d02d85",
+      "revId": "5aa8f8b5c0b7f3012dc076c73025362bccc534f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbf0ed45_44e0164d",
         "filename": "src/common/linux/elfutils.h",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "5aa8f8b5c0b7f3012dc076c73025362bccc534f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec57174e_44f71e58",
+        "filename": "src/common/linux/elfutils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-10-24T17:34:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf0ed45_44e0164d",
+      "revId": "5aa8f8b5c0b7f3012dc076c73025362bccc534f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
