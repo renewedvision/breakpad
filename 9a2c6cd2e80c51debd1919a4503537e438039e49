@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3f19274_c4b4f539",
+        "filename": "src/common/module_unittest.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-10-29T16:54:03Z",
+      "side": 1,
+      "message": "The asterisk goes with the type.",
+      "range": {
+        "startLine": 581,
+        "startChar": 26,
+        "endLine": 581,
+        "endChar": 27
+      },
+      "revId": "9a2c6cd2e80c51debd1919a4503537e438039e49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86db1744_f5daa7b0",
+        "filename": "src/common/module_unittest.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2019-10-29T16:54:03Z",
+      "side": 1,
+      "message": "These should all be \u0027ULL\u0027 because address and size are uint64_t.",
+      "range": {
+        "startLine": 582,
+        "startChar": 26,
+        "endLine": 582,
+        "endChar": 28
+      },
+      "revId": "9a2c6cd2e80c51debd1919a4503537e438039e49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
