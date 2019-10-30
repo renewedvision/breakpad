@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "174f7c58_f0a4dd4f",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-10-30T05:05:27Z",
+      "side": 1,
+      "message": "looks like we have google_breakpad::BaseName for this",
+      "revId": "acd860cb63607019d8b3c4fce4cf51551488c4fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
