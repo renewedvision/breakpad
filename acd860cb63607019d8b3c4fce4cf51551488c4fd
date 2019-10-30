@@ -34,6 +34,24 @@
       "revId": "acd860cb63607019d8b3c4fce4cf51551488c4fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10602352_90a6890a",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-10-30T17:53:56Z",
+      "side": 1,
+      "message": "guess we should have a basename wrapper at some point.  we repeat this idiom in a few places.",
+      "parentUuid": "ce522030_83978c72",
+      "revId": "acd860cb63607019d8b3c4fce4cf51551488c4fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
