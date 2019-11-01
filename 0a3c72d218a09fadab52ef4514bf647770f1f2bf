@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c5f0fa7_bf5c3043",
+        "filename": "src/common/dwarf_cfi_to_module.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-11-01T19:57:26Z",
+      "side": 1,
+      "message": "I would probably rename this vector to PPC64_linux or something like that, and alter the comment, in case someone in the future tries to implement CFI in dump_symbols for a PPC64 platform that doesn\u0027t use the same dwarf numbers.",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 34
+      },
+      "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93106bfe_fa3e046a",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-11-01T19:57:26Z",
+      "side": 1,
+      "message": "Now that I think of it, the #if would only protect the dump_symbols tool from using these register names on a Linux host, but I\u0027m concerned this tool running on Linux might be used to create symbol files from dumps that were generated on other platforms, on another host (e.g. the dump is created on a Mac, but this dump_symbols runs on Linux).\n\nFrom what I inspected in some of the comments on this file, and the documentation[1], I don\u0027t *think* that this can happen. But you should verify that the dump_symbols.cc file is only used to generate symbol files from dumps that were created on a Linux system (regardless of where this file itself runs), and if so, there\u0027s no need for anything special here, you could simply fill the register names and return true.\n\nIf this isn\u0027t the case, you\u0027d have to find another way to know if the symbol file being generated was for a dump that was created on Linux.\n\nBecause of this, I don\u0027t think the #if/#else/#endif will make a difference, and can probably be removed.\n\nSorry for the confusion.\n\n[1] https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/symbol_files.md",
+      "range": {
+        "startLine": 358,
+        "startChar": 6,
+        "endLine": 358,
+        "endChar": 28
+      },
+      "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
