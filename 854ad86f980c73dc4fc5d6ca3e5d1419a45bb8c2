@@ -52,6 +52,24 @@
       "revId": "854ad86f980c73dc4fc5d6ca3e5d1419a45bb8c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa4206f4_fc9c80aa",
+        "filename": "src/common/convert_UTF.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1117479
+      },
+      "writtenOn": "2019-11-04T22:27:48Z",
+      "side": 1,
+      "message": "Done, although it\u0027s a bit subjective on how to wrap these.  If you don\u0027t like this, please let me know what you\u0027d explicitly like.",
+      "parentUuid": "d93d7dd1_768d9e9c",
+      "revId": "854ad86f980c73dc4fc5d6ca3e5d1419a45bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
