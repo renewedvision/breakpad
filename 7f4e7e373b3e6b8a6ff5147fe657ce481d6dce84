@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aca3469b_bc987895",
+        "filename": "src/common/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-11-04T22:36:37Z",
+      "side": 1,
+      "message": "do we namespace with BREAKPAD_? Can\u0027t check now.",
+      "revId": "7f4e7e373b3e6b8a6ff5147fe657ce481d6dce84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
