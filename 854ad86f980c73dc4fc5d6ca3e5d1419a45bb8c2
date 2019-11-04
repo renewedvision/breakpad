@@ -16,6 +16,24 @@
       "revId": "854ad86f980c73dc4fc5d6ca3e5d1419a45bb8c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f401f8a_7ad9fed7",
+        "filename": "src/common/convert_UTF.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1117479
+      },
+      "writtenOn": "2019-11-04T21:29:37Z",
+      "side": 1,
+      "message": "Actually, line length doesn\u0027t look to be enforced here.  Maybe it\u0027s best to keep as-is; looks very readable.",
+      "parentUuid": "57d67146_42553746",
+      "revId": "854ad86f980c73dc4fc5d6ca3e5d1419a45bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
