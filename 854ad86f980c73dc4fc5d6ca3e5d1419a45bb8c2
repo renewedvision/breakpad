@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57d67146_42553746",
+        "filename": "src/common/convert_UTF.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1117479
+      },
+      "writtenOn": "2019-11-04T21:26:31Z",
+      "side": 1,
+      "message": "I just realized I\u0027m blowing line length limits out of the water, but there aren\u0027t presubmits yelling.  Previously, I tried to clang-format a file, but it went wild.  Is there a tool in use for breakpad to auto-format edits?  I\u0027ll manually patch them up.",
+      "revId": "854ad86f980c73dc4fc5d6ca3e5d1419a45bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
