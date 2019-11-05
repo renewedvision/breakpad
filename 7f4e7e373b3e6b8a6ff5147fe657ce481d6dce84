@@ -16,6 +16,24 @@
       "revId": "7f4e7e373b3e6b8a6ff5147fe657ce481d6dce84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52ef0899_72c0832c",
+        "filename": "src/common/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1117479
+      },
+      "writtenOn": "2019-11-05T02:40:48Z",
+      "side": 1,
+      "message": "Done.  It looks like a mix.  I\u0027d looked at other heads without namespacing, while others have BREAKPAD_ or GOOGLE_BREAKPAD_.  BREAPKAD_ added.",
+      "parentUuid": "aca3469b_bc987895",
+      "revId": "7f4e7e373b3e6b8a6ff5147fe657ce481d6dce84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
