@@ -16,6 +16,24 @@
       "revId": "d7c4627418313c4a6a65e922cfb76a277a96bd69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "498e6fd6_1e1006cc",
+        "filename": "src/client/mac/sender/uploader.mm",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1116027
+      },
+      "writtenOn": "2019-11-12T16:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6072d83_e5856c3f",
+      "revId": "d7c4627418313c4a6a65e922cfb76a277a96bd69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
