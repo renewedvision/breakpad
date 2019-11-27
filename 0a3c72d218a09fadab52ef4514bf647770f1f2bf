@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c10733b1_1d6f6cb9",
+        "filename": "src/common/dwarf_cfi_to_module.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed:As per suggestion rename this vector from PPC64 to PPC64_linux.\nPlease review in patch set 20.",
+      "parentUuid": "1c5f0fa7_bf5c3043",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 34
+      },
+      "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93106bfe_fa3e046a",
         "filename": "src/common/linux/dump_symbols.cc",
         "patchSetId": 19
@@ -45,6 +69,30 @@
       "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26b052da_0861bea2",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "We have debug and investigated the code for symbol file generation using exe object file.\nIn common/linux/dump_symbols.cc file WriteSymbolFile()-\u003eReadSymbolData() function calls LoadELF() and InitModuleForElfClass().\n\n- LoadELF() loads the exe object file information into memory.\n- InitModuleForElfClass()fills the module information including types of OS.\n- This module information is written into symbol file containing OS information as follows.\n  \"MODULE Linux ppc64 B01DBDEE33C8DDD32154E0BF7C2E5A900 test\"\n\nELF format is specific to linux Executable and Linkable file format. \nIf the exe object file is not in ELF format then WriteSymbolFile() function will give error and symbol file will not be generated.\nIf the exe object file format is correct i.e ELF then Symbol file will be generated.\n\nThis assure that the common/linux/dump_symbols.cc file is only used to generate symbol files from dumps that were created on a Linux system.",
+      "parentUuid": "93106bfe_fa3e046a",
+      "range": {
+        "startLine": 358,
+        "startChar": 6,
+        "endLine": 358,
+        "endChar": 28
+      },
+      "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8a7411b6_6c5643b8",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed : The GetCallerByStackScan() API code is already removed as per review comment from Pedro.\nPlease review in Patch set 20.",
+      "parentUuid": "a37f9181_3a203776",
+      "revId": "fb0f8f42a1880bd81ff05f857ed5a8b657768e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5aa73c8_83636fbd",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 6

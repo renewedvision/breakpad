@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9985ab6c_d0a2e490",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Check the reply of below line 82 comment .",
+      "parentUuid": "1c229a9f_0a74cd61",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fcd86c4_e9d06242",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9defddf2_a6cc6306",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "\u0027DwarfCFIRegisterNames PPC64\u0027 array declare in file dwarf_cfi_to_module.cc, contains GPR,FPR and VR registers.\nCurrently we are supporting only GPR and LR register for power platform.\n\nIf we use this \u0027DwarfCFIRegisterNames\u0027 the code is crashing as its not supporting the reading of FPR and VR from symbol file.\n\nWe have investigated the code for IntelX86_64(AMD64) platform for stack unwinding.\nIt is also not supporting the reading of Floating point and XMM(SSE) register values from Symbol file, while stack unwinding using CFI frame info.The Map \u0027StackwalkerAMD64CFIWalker::RegisterSet cfi_register_map_[]\u0027 does not contain the names of Floating point and XMM(SSE) registers.\n\nSo as per Parity, first support for FPR,VR should be added for IntelX86_64(AMD64) platform.\nThen we will add the FPR and VR support for Power platform and fix this review comment by using \u0027DwarfCFIRegisterNames\u0027 array instead of local \u0027register_names\u0027.",
+      "parentUuid": "5fcd86c4_e9d06242",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2f26fa99_9ef02e64",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed.Please Review in Patch set 20.",
+      "parentUuid": "5727c3dc_646828c8",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c4a9b66_e55e35f2",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2664a66b_c0dc6b5c",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed: set the correct indentation.\nPlease Review in Patch set 20.",
+      "parentUuid": "3c4a9b66_e55e35f2",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "76a48b53_11db347c",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed.Please Review in Patch set 20.",
+      "parentUuid": "85daed06_8e5f9d06",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ef930d_7ba8ebc0",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 4
@@ -101,6 +191,24 @@
       "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92c9851a_fa3d6934",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed: set the correct indentation.\nPlease Review in Patch set 20.",
+      "parentUuid": "28ef930d_7ba8ebc0",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "eced4de8_84ccadac",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed: set the correct indentation.\nPlease Review in Patch set 20.",
+      "parentUuid": "f8fe9e2e_6aa2bbfd",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14469694_03ce060b",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 4
@@ -135,6 +261,24 @@
       "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af737ae9_93179c87",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed: Please Review in Patch set 20.",
+      "parentUuid": "14469694_03ce060b",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "9f7e2531_69eb73ca",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed: Please Review in Patch set 20.",
+      "parentUuid": "22f33987_2146d5e1",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f435ef5e_41d554c9",
         "filename": "src/processor/stackwalker_ppc64.cc",
         "patchSetId": 4
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "1515f8cc_4a04ccce",
+        "filename": "src/processor/stackwalker_ppc64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed: Its typo error already updated the comment as \u00274 bytes wide\u0027.\nPlease Review in Patch set 20.",
+      "parentUuid": "f435ef5e_41d554c9",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06f1fc03_c189badf",
         "filename": "src/processor/stackwalker_ppc64.h",
         "patchSetId": 4
@@ -186,6 +366,24 @@
       "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7d94cf5_d0ed0581",
+        "filename": "src/processor/stackwalker_ppc64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-27T12:14:49Z",
+      "side": 1,
+      "message": "Fixed in Patchset 20. set the correct indentation",
+      "parentUuid": "06f1fc03_c189badf",
+      "revId": "16ecfe9261edd68df5507a1229582ff1936ee1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
