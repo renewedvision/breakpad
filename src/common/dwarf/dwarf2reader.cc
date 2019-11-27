@@ -2331,15 +2331,13 @@ bool CallFrameInfo::ReadCIEFields(CIE *cie) {
 
   if (cie->version >= 4) {
     uint8_t address_size = *cursor++;
-    if (address_size != 8) {
-      // TODO(scottmg): Only supporting x64 for now.
+    if (address_size != 8 && address_size != 4) {
       reporter_->UnexpectedAddressSize(cie->offset, address_size);
       return false;
     }
 
     uint8_t segment_size = *cursor++;
     if (segment_size != 0) {
-      // TODO(scottmg): Only supporting x64 for now.
       // I would have perhaps expected 4 here, but LLVM emits a 0, near
       // http://llvm.org/docs/doxygen/html/MCDwarf_8cpp_source.html#l00606. As
       // we are not using the value, only succeed for now if it's the expected
