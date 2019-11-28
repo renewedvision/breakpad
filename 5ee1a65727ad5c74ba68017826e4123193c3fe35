@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63d5fdb0_2a545b02",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-11-28T00:52:47Z",
+      "side": 1,
+      "message": "The address_size isn’t actually used anywhere, which means that someone else’s address_size must be getting borrowed for the CFI’s purposes. That’s not entirely correct, but assuming everyone’s behaving well, they’re not likely to be out of sync.\n\nCautious “OK” on this one if it’s too tricky to fix correctly, mostly because this code’s days are hopefully numbered.",
+      "revId": "5ee1a65727ad5c74ba68017826e4123193c3fe35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae9e3aa4_aa56d4a9",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2344,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-11-28T00:52:47Z",
+      "side": 1,
+      "message": "This comment is confused. All modern Unix-like systems use a flat memory model, essentially bypassing the x86’s historic segmentation scheme. (And this model is essentially mandated for x86_64).\n\nBecause this comment doesn’t have any value to me, I’d say “remove it,” but if you considered it valuable, you can keep it.",
+      "range": {
+        "startLine": 2341,
+        "startChar": 0,
+        "endLine": 2344,
+        "endChar": 11
+      },
+      "revId": "5ee1a65727ad5c74ba68017826e4123193c3fe35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
