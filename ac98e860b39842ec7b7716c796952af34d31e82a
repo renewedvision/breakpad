@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd39839e_77c3eff7",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-29T10:06:02Z",
+      "side": 1,
+      "message": "Fixed: Updated to PPC64_linux() in patch set 21.",
+      "parentUuid": "9a35c58b_4378f70f",
+      "range": {
+        "startLine": 358,
+        "startChar": 57,
+        "endLine": 358,
+        "endChar": 64
+      },
+      "revId": "ac98e860b39842ec7b7716c796952af34d31e82a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97477510_afe7be32",
         "filename": "src/common/linux/dump_symbols.cc",
         "patchSetId": 20
@@ -45,6 +69,30 @@
       "revId": "ac98e860b39842ec7b7716c796952af34d31e82a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7a52623_b5411892",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-29T10:06:02Z",
+      "side": 1,
+      "message": "Fixed :Removed the additional whitespace in patch set 21",
+      "parentUuid": "97477510_afe7be32",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 360,
+        "endChar": 6
+      },
+      "revId": "ac98e860b39842ec7b7716c796952af34d31e82a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -141,6 +141,30 @@
       "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5b5d159_3980432c",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1339422
+      },
+      "writtenOn": "2019-11-29T10:06:02Z",
+      "side": 1,
+      "message": "As per the investigation of Module header, I think its enough to resolve this issue.",
+      "parentUuid": "c91fcfcb_3caa46ed",
+      "range": {
+        "startLine": 358,
+        "startChar": 6,
+        "endLine": 358,
+        "endChar": 28
+      },
+      "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
