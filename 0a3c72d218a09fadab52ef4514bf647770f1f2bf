@@ -165,6 +165,30 @@
       "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3040b92_17dd08ff",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1335453
+      },
+      "writtenOn": "2019-12-02T19:00:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d5b5d159_3980432c",
+      "range": {
+        "startLine": 358,
+        "startChar": 6,
+        "endLine": 358,
+        "endChar": 28
+      },
+      "revId": "0a3c72d218a09fadab52ef4514bf647770f1f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
