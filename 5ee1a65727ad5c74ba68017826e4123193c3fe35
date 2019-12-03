@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "523d1004_9a2ba8de",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2019-12-03T22:52:24Z",
+      "side": 1,
+      "message": "Actually I\u0027m quite puzzled at why this does what it currently does...\n\nThe unit test for CIEs with 64bit addresses explicitly sets the ByteReader address size to 4. When I changed CallFrameInfo::Start to set the ByteReader address size to the one read from the CIE, the unit test fails (presumably because it\u0027s really 8 and not 4).\n\nAny idea what\u0027s going on?",
+      "parentUuid": "11fc3014_9aecab8e",
+      "revId": "5ee1a65727ad5c74ba68017826e4123193c3fe35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae9e3aa4_aa56d4a9",
         "filename": "src/common/dwarf/dwarf2reader.cc",
         "patchSetId": 1
