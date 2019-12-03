@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7b8b0271_c3aacbc5",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-12-03T21:35:54Z",
+      "side": 1,
+      "message": "\u003e Yeah I noticed this as well and figured it must just work, otherwise we would have noticed. What seems correct to me is if DWARF version \u003e\u003d4 then save these sizes in CIE, otherwise leave old (as in, prior to DWARF4) behavior.\n\u003e \n\u003e However, when I sat down and tried to find somewhere the address_size _would_ be used, I couldn\u0027t find one. Writing out the \"STACK CFI ...\" lines in the Breakpad symbol file doesn\u0027t seem to use it, and the StackFrameEntry-s returned by GetStackFrameEntries() don\u0027t contain the address_size.\n\u003e \n\u003e So, it appears to me like CallFrameInfo reads the real CIE into a CIE struct but then AFAICT doesn\u0027t do anything that specifies an address_size anyway, and if anyone else used the GetStackFrameEntries() API, then they already aren\u0027t getting address_size, and the one place I know we do use the StackFrameEntry-s (when we write \"STACK CFI ...\" lines) doesn\u0027t have a notion of address size.\n\u003e \n\u003e I think it\u0027s likely that I\u0027m missing something in this analysis, so please let me know if there\u0027s a place where we really must be specifying an address_size. I\u0027ve been going in circles trying to find one thus far.\n\nI think ReadEncodedPointer is where it becomes relevant, but maybe we aren’t hitting that anywhere.",
+      "parentUuid": "4cf4ef71_ea47f56d",
+      "revId": "5ee1a65727ad5c74ba68017826e4123193c3fe35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae9e3aa4_aa56d4a9",
         "filename": "src/common/dwarf/dwarf2reader.cc",
         "patchSetId": 1
