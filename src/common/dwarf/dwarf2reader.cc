@@ -188,12 +188,17 @@ const uint8_t *CompilationUnit::SkipAttribute(const uint8_t *start,
     case DW_FORM_data1:
     case DW_FORM_flag:
     case DW_FORM_ref1:
+    case DW_FORM_addrx1:
       return start + 1;
     case DW_FORM_ref2:
     case DW_FORM_data2:
+    case DW_FORM_addrx2:
       return start + 2;
+    case DW_FORM_addrx3:
+      return start + 3;
     case DW_FORM_ref4:
     case DW_FORM_data4:
+    case DW_FORM_addrx4:
       return start + 4;
     case DW_FORM_ref8:
     case DW_FORM_data8:
@@ -205,6 +210,7 @@ const uint8_t *CompilationUnit::SkipAttribute(const uint8_t *start,
     case DW_FORM_ref_udata:
     case DW_FORM_GNU_str_index:
     case DW_FORM_GNU_addr_index:
+    case DW_FORM_addrx:
       reader_->ReadUnsignedLEB128(start, &len);
       return start + len;
 
@@ -568,14 +574,27 @@ const uint8_t *CompilationUnit::ProcessAttribute(
       return start + len;
       break;
     }
-    case DW_FORM_GNU_addr_index: {
-      uint64 addr_index = reader_->ReadUnsignedLEB128(start, &len);
-      const uint8_t* addr_ptr =
-          addr_buffer_ + addr_base_ + addr_index * reader_->AddressSize();
-      ProcessAttributeUnsigned(dieoffset, attr, form,
-                               reader_->ReadAddress(addr_ptr));
+    case DW_FORM_addrx:
+    case DW_FORM_GNU_addr_index:
+      ProcessAttributeAddrIndex(
+          dieoffset, attr, form, reader_->ReadUnsignedLEB128(start, &len));
       return start + len;
-    }
+    case DW_FORM_addrx1:
+      ProcessAttributeAddrIndex(
+          dieoffset, attr, form, reader_->ReadOneByte(start));
+      return start + 1;
+    case DW_FORM_addrx2:
+      ProcessAttributeAddrIndex(
+          dieoffset, attr, form, reader_->ReadTwoBytes(start));
+      return start + 2;
+    case DW_FORM_addrx3:
+      ProcessAttributeAddrIndex(
+          dieoffset, attr, form, reader_->ReadThreeBytes(start));
+      return start + 3;
+    case DW_FORM_addrx4:
+      ProcessAttributeAddrIndex(
+          dieoffset, attr, form, reader_->ReadFourBytes(start));
+      return start + 4;
   }
   fprintf(stderr, "Unhandled form type\n");
   return NULL;
