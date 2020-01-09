@@ -90,6 +90,15 @@ class StackwalkerARM64 : public Stackwalker {
   // of the returned frame. Return NULL on failure.
   StackFrameARM64* GetCallerByStackScan(const vector<StackFrame*> &frames);
 
+  // There's no way to recover x30($LR) via the last frame's CFI.
+  // The register $LR will be zero consistently in all CFI unwinded frames.
+  // It's okay if you unwind entire backtrace by CFI only. But if we switch the
+  // unwinder to frame-pointer base, it will make unwind stop immediately due to
+  // the value of $PC is zero.
+  // This function is aiming to recover the $LR value in the last CFI frame. It simply
+  // go back to previous two frame and use the frame-pointer to get the $LR,$FP
+  void CorrectRegLRByFramePointer(const vector<StackFrame*> &frames, StackFrameARM64* last_frame);
+
   // Stores the CPU context corresponding to the youngest stack frame, to
   // be returned by GetContextFrame.
   const MDRawContextARM64* context_;
