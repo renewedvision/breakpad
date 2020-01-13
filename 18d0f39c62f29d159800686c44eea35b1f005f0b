@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b78835eb_3f96c898",
+        "filename": "src/processor/stackwalker_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T23:42:32Z",
+      "side": 1,
+      "message": "80 cols",
+      "range": {
+        "startLine": 254,
+        "startChar": 50,
+        "endLine": 254,
+        "endChar": 52
+      },
+      "revId": "18d0f39c62f29d159800686c44eea35b1f005f0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d0013a6_73e81fdd",
+        "filename": "src/processor/stackwalker_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T23:42:32Z",
+      "side": 1,
+      "message": "80 cols here too",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 9
+      },
+      "revId": "18d0f39c62f29d159800686c44eea35b1f005f0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
