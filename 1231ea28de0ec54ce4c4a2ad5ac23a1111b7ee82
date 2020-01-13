@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "654d1710_e010e293",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T21:22:52Z",
+      "side": 1,
+      "message": "agree",
+      "range": {
+        "startLine": 13,
+        "startChar": 57,
+        "endLine": 13,
+        "endChar": 63
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce86860a_6f600e69",
+        "filename": "src/processor/stackwalker_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T21:22:52Z",
+      "side": 1,
+      "message": "if (!last_frame-\u003econtext_validity \u0026 StackFrameARM64::CONTEXT_VALID_LR) {",
+      "range": {
+        "startLine": 211,
+        "startChar": 2,
+        "endLine": 211,
+        "endChar": 64
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b062c379_aad27dd2",
+        "filename": "src/processor/stackwalker_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T21:22:52Z",
+      "side": 1,
+      "message": "80 columns here and throughout this method.",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 80
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd1d534d_a91d1465",
+        "filename": "src/processor/stackwalker_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T21:22:52Z",
+      "side": 1,
+      "message": "agree",
+      "range": {
+        "startLine": 280,
+        "startChar": 34,
+        "endLine": 280,
+        "endChar": 41
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7f066f7_ca1f4ea9",
+        "filename": "src/processor/stackwalker_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T21:22:52Z",
+      "side": 1,
+      "message": "Please move this up to line 270, just after reading last_fp.",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 11
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c44f75b_98eefc5b",
+        "filename": "src/processor/stackwalker_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T21:22:52Z",
+      "side": 1,
+      "message": "\"GetCallerByFramePointer() depends on the previous frame having recovered x30($LR) which may not have been done when using CFI.\"\n\nI think it\u0027s possible for CFI to restore LR, though it may not be typical.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 30
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9ea5cab_77904943",
+        "filename": "src/processor/stackwalker_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T21:22:52Z",
+      "side": 1,
+      "message": "\"This function recovers $LR in the previous frame by using the frame-pointer two frames back to read it from the stack.\"",
+      "range": {
+        "startLine": 98,
+        "startChar": 5,
+        "endLine": 99,
+        "endChar": 79
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd4f3507_2e1f200b",
+        "filename": "src/processor/stackwalker_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-01-13T21:22:52Z",
+      "side": 1,
+      "message": "newline here to keep to 80 columns",
+      "range": {
+        "startLine": 100,
+        "startChar": 68,
+        "endLine": 100,
+        "endChar": 69
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
