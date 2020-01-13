@@ -140,6 +140,30 @@
     },
     {
       "key": {
+        "uuid": "0a4920b0_8cbfc1d6",
+        "filename": "src/processor/stackwalker_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1388596
+      },
+      "writtenOn": "2020-01-13T23:08:13Z",
+      "side": 1,
+      "message": "\u003e I think it\u0027s possible for CFI to restore LR, though it may not be typical.\n\nif I read the code correctly, there\u0027s a DWARF rule to restore $LR(x30) and breakpad calls it as \u0027.ra\u0027[1]. But $LR(x30) is not callee saved register, we need parse the current frame CFI to restore, not last_frame[2]. \n\n[1]Get register x30 as return_address_register in CIE on arm64 https://source.chromium.org/chromium/chromium/src/+/master:third_party/breakpad/breakpad/src/common/dwarf/dwarf2reader.h;l\u003d973?q\u003dunsigned%20return_address_register;%20%20%20%2F%2F%20which%20register%20holds%20the%20return%20addr\u0026ss\u003dchromium\n\n[2]The Current CFI unwinder always parses the last_frame\u0027s STACK CFI info to restore some caller\u0027s register, `.ra` and `cfa`.",
+      "parentUuid": "7c44f75b_98eefc5b",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 30
+      },
+      "revId": "1231ea28de0ec54ce4c4a2ad5ac23a1111b7ee82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9ea5cab_77904943",
         "filename": "src/processor/stackwalker_arm64.h",
         "patchSetId": 1
