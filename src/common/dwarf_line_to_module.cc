@@ -131,6 +131,26 @@ void DwarfLineToModule::AddLine(uint64 address, uint64 length,
     }
     return;
   }
+
+  // Check if the last line entry has the same file and line and if the address
+  // ranges are contiguous or overlap. If so, extend the size of the previous
+  // line and return. This reduces the size of the breakpad sym file while
+  // maintaining all of the accuracy. DWARF contains line table entries where
+  // only the column changes, so there are many redundant line table entries in
+  // breakpad files if we don't do this.
+  if (!lines_->empty()) {
+    auto &prev = lines_->back();
+    if (prev.file == file && prev.number == line_num &&
+        (prev.address + prev.size) == address) {
+      const uint64_t new_size = (address + length) - prev.address;
+      if (new_size > prev.size)
+        prev.size = new_size;
+      // We have combined the previous line entry with this one so no need to
+      // do anything else.
+      return;
+    }
+  }
+
   Module::Line line;
   line.address = address;
   // We set the size when we get the next line or the EndSequence call.
