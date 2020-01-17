@@ -80,6 +80,30 @@
       "revId": "37cad60ff8d8191eb04c51172aa790e9befb7828",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f3bb62a_195b99ad",
+        "filename": "src/common/dwarf_line_to_module.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-01-17T21:27:00Z",
+      "side": 1,
+      "message": "\u003e Good catch! The previous code looks like:\n\u003e ```\n\u003e (prev.address + prev.size) \u003e\u003d address\n\u003e ```\n\u003e \n\u003e Greg told me there\u0027s some problem if we either have bad DWARF somewhere or incorrectly converted DWARF. He switch to using:\n\u003e ```\n\u003e (prev.address + prev.size) \u003d\u003d address\n\u003e ```\n\u003e \n\u003e I will remove this comment.\n\nDon’t just remove the comment, then. Remove the overlap handling below too.",
+      "parentUuid": "d0ffefc5_59e00853",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 32
+      },
+      "revId": "37cad60ff8d8191eb04c51172aa790e9befb7828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
