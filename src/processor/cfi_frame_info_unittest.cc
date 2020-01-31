@@ -508,14 +508,12 @@ TEST_F(SimpleWalker, Walk) {
   uint64_t stack_top = 0x83254944b20d5512ULL;
 
   // Saved r0.
-  EXPECT_CALL(memory,
-              GetMemoryAtAddress(stack_top, A<uint64_t *>()))
-      .WillRepeatedly(DoAll(SetArgumentPointee<1>(0xdc1975eba8602302ULL),
+  EXPECT_CALL(memory, GetMemoryAtAddress(stack_top, A<uint64_t *>()))
+      .WillRepeatedly(DoAll(SetArgumentPointee<1>(uint64{0xdc1975eba8602302}),
                             Return(true)));
   // Saved return address.
-  EXPECT_CALL(memory,
-              GetMemoryAtAddress(stack_top + 16, A<uint64_t *>()))
-      .WillRepeatedly(DoAll(SetArgumentPointee<1>(0xba5ad6d9acce28deULL),
+  EXPECT_CALL(memory, GetMemoryAtAddress(stack_top + 16, A<uint64_t *>()))
+      .WillRepeatedly(DoAll(SetArgumentPointee<1>(uint64{0xba5ad6d9acce28de}),
                             Return(true)));
 
   call_frame_info.SetCFARule("sp 24 +");

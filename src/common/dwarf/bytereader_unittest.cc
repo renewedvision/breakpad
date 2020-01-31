@@ -64,14 +64,13 @@ TEST_F(Reader, SimpleConstructor) {
   ByteReader reader(ENDIANNESS_BIG);
   reader.SetAddressSize(4);
   CFISection section(kBigEndian, 4);
-  section
-    .D8(0xc0)
-    .D16(0xcf0d)
-    .D32(0x96fdd219)
-    .D64(0xbbf55fef0825f117ULL)
-    .ULEB128(0xa0927048ba8121afULL)
-    .LEB128(-0x4f337badf4483f83LL)
-    .D32(0xfec319c9);
+  section.D8(0xc0)
+      .D16(0xcf0d)
+      .D32(0x96fdd219)
+      .D64(0xbbf55fef0825f117ULL)
+      .ULEB128(0xa0927048ba8121afULL)
+      .LEB128(int64{-0x4f337badf4483f83})
+      .D32(0xfec319c9);
   ASSERT_TRUE(section.GetContents(&contents));
   const uint8_t *data = reinterpret_cast<const uint8_t *>(contents.data());
   EXPECT_EQ(0xc0U, reader.ReadOneByte(data));
@@ -539,7 +538,7 @@ TEST_F(Reader, DW_EH_PE_datarel) {
   };
   ByteReader reader(ENDIANNESS_BIG);
   reader.SetAddressSize(8);
-  reader.SetDataBase(0xbef308bd25ce74f0ULL);
+  reader.SetDataBase(uint64{0xbef308bd25ce74f0});
   DwarfPointerEncoding encoding =
       DwarfPointerEncoding(dwarf2reader::DW_EH_PE_datarel
                            | dwarf2reader::DW_EH_PE_sleb128);

@@ -369,15 +369,15 @@ void CUFixtureBase::StartCU() {
 
 void CUFixtureBase::ProcessStrangeAttributes(
     dwarf2reader::DIEHandler *handler) {
-  handler->ProcessAttributeUnsigned((DwarfAttribute) 0xf560dead,
-                                    (DwarfForm) 0x4106e4db,
-                                    0xa592571997facda1ULL);
-  handler->ProcessAttributeSigned((DwarfAttribute) 0x85380095,
-                                  (DwarfForm) 0x0f16fe87,
-                                  0x12602a4e3bf1f446LL);
-  handler->ProcessAttributeReference((DwarfAttribute) 0xf7f7480f,
-                                     (DwarfForm) 0x829e038a,
-                                     0x50fddef44734fdecULL);
+  handler->ProcessAttributeUnsigned((DwarfAttribute)0xf560dead,
+                                    (DwarfForm)0x4106e4db,
+                                    uint64{0xa592571997facda1});
+  handler->ProcessAttributeSigned((DwarfAttribute)0x85380095,
+                                  (DwarfForm)0x0f16fe87,
+                                  int64{0x12602a4e3bf1f446});
+  handler->ProcessAttributeReference((DwarfAttribute)0xf7f7480f,
+                                     (DwarfForm)0x829e038a,
+                                     uint64{0x50fddef44734fdec});
   static const uint8_t buffer[10] = "frobynode";
   handler->ProcessAttributeBuffer((DwarfAttribute) 0xa55ffb51,
                                   (DwarfForm) 0x2f43b041,
@@ -390,8 +390,8 @@ void CUFixtureBase::ProcessStrangeAttributes(
 DIEHandler *CUFixtureBase::StartNamedDIE(DIEHandler *parent,
                                          DwarfTag tag,
                                          const string &name) {
-  dwarf2reader::DIEHandler *handler
-    = parent->FindChildHandler(0x8f4c783c0467c989ULL, tag);
+  dwarf2reader::DIEHandler *handler =
+      parent->FindChildHandler(uint64{0x8f4c783c0467c989}, tag);
   if (!handler)
     return NULL;
   handler->ProcessAttributeString(dwarf2reader::DW_AT_name,
@@ -411,8 +411,8 @@ DIEHandler *CUFixtureBase::StartSpecifiedDIE(DIEHandler *parent,
                                              DwarfTag tag,
                                              uint64 specification,
                                              const char *name) {
-  dwarf2reader::DIEHandler *handler
-    = parent->FindChildHandler(0x8f4c783c0467c989ULL, tag);
+  dwarf2reader::DIEHandler *handler =
+      parent->FindChildHandler(uint64{0x8f4c783c0467c989}, tag);
   if (!handler)
     return NULL;
   if (name)
@@ -436,9 +436,8 @@ void CUFixtureBase::DefineFunction(dwarf2reader::DIEHandler *parent,
                                    Module::Address size,
                                    const char* mangled_name,
                                    DwarfForm high_pc_form) {
-  dwarf2reader::DIEHandler *func
-      = parent->FindChildHandler(0xe34797c7e68590a8LL,
-                                 dwarf2reader::DW_TAG_subprogram);
+  dwarf2reader::DIEHandler *func = parent->FindChildHandler(
+      uint64{0xe34797c7e68590a8}, dwarf2reader::DW_TAG_subprogram);
   ASSERT_TRUE(func != NULL);
   func->ProcessAttributeString(dwarf2reader::DW_AT_name,
                                dwarf2reader::DW_FORM_strp,
@@ -495,8 +494,8 @@ void CUFixtureBase::DefinitionDIE(DIEHandler *parent,
                                   const string &name,
                                   Module::Address address,
                                   Module::Address size) {
-  dwarf2reader::DIEHandler *die
-    = parent->FindChildHandler(0x6ccfea031a9e6cc9ULL, tag);
+  dwarf2reader::DIEHandler *die =
+      parent->FindChildHandler(uint64{0x6ccfea031a9e6cc9}, tag);
   ASSERT_TRUE(die != NULL);
   die->ProcessAttributeReference(dwarf2reader::DW_AT_specification,
                                  dwarf2reader::DW_FORM_ref4,
@@ -551,9 +550,8 @@ void CUFixtureBase::DefineInlineInstanceDIE(DIEHandler *parent,
                                             uint64 origin,
                                             Module::Address address,
                                             Module::Address size) {
-  dwarf2reader::DIEHandler *func
-      = parent->FindChildHandler(0x11c70f94c6e87ccdLL,
-                                 dwarf2reader::DW_TAG_subprogram);
+  dwarf2reader::DIEHandler *func = parent->FindChildHandler(
+      int64{0x11c70f94c6e87ccd}, dwarf2reader::DW_TAG_subprogram);
   ASSERT_TRUE(func != NULL);
   if (!name.empty()) {
     func->ProcessAttributeString(dwarf2reader::DW_AT_name,
@@ -725,10 +723,10 @@ TEST_F(SimpleCU, InlineFunction) {
   PushLine(0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL, "line-file", 75173118);
 
   StartCU();
-  AbstractInstanceDIE(&root_handler_, 0x1e8dac5d507ed7abULL,
+  AbstractInstanceDIE(&root_handler_, uint64{0x1e8dac5d507ed7ab},
                       dwarf2reader::DW_INL_inlined, 0, "inline-name");
-  DefineInlineInstanceDIE(&root_handler_, "", 0x1e8dac5d507ed7abULL,
-                       0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
+  DefineInlineInstanceDIE(&root_handler_, "", uint64{0x1e8dac5d507ed7ab},
+                          0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
   root_handler_.Finish();
 
   TestFunctionCount(1);
@@ -740,11 +738,11 @@ TEST_F(SimpleCU, InlineFunctionSignedAttribute) {
   PushLine(0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL, "line-file", 75173118);
 
   StartCU();
-  AbstractInstanceDIE(&root_handler_, 0x1e8dac5d507ed7abULL,
+  AbstractInstanceDIE(&root_handler_, uint64{0x1e8dac5d507ed7ab},
                       dwarf2reader::DW_INL_inlined, 0, "inline-name",
                       dwarf2reader::DW_FORM_sdata);
-  DefineInlineInstanceDIE(&root_handler_, "", 0x1e8dac5d507ed7abULL,
-                       0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
+  DefineInlineInstanceDIE(&root_handler_, "", uint64{0x1e8dac5d507ed7ab},
+                          0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
   root_handler_.Finish();
 
   TestFunctionCount(1);
@@ -759,9 +757,9 @@ TEST_F(SimpleCU, AbstractOriginNotInlined) {
   PushLine(0x2805c4531be6ca0eULL, 0x686b52155a8d4d2cULL, "line-file", 6111581);
 
   StartCU();
-  AbstractInstanceDIE(&root_handler_, 0x93e9cdad52826b39ULL,
+  AbstractInstanceDIE(&root_handler_, uint64{0x93e9cdad52826b39},
                       dwarf2reader::DW_INL_not_inlined, 0, "abstract-instance");
-  DefineInlineInstanceDIE(&root_handler_, "", 0x93e9cdad52826b39ULL,
+  DefineInlineInstanceDIE(&root_handler_, "", uint64{0x93e9cdad52826b39},
                           0x2805c4531be6ca0eULL, 0x686b52155a8d4d2cULL);
   root_handler_.Finish();
 
@@ -777,10 +775,10 @@ TEST_F(SimpleCU, UnknownAbstractOrigin) {
   PushLine(0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL, "line-file", 75173118);
 
   StartCU();
-  AbstractInstanceDIE(&root_handler_, 0x1e8dac5d507ed7abULL,
+  AbstractInstanceDIE(&root_handler_, uint64{0x1e8dac5d507ed7ab},
                       dwarf2reader::DW_INL_inlined, 0, "inline-name");
-  DefineInlineInstanceDIE(&root_handler_, "", 1ULL,
-                       0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
+  DefineInlineInstanceDIE(&root_handler_, "", uint64{1}, 0x1758a0f941b71efbULL,
+                          0x1cf154f1f545e146ULL);
   root_handler_.Finish();
 
   TestFunctionCount(1);
@@ -1337,9 +1335,9 @@ TEST_F(Specifications, NamedScopeDeclarationParent) {
   }
 
   {
-    DIEHandler *class_handler
-      = StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_class_type,
-                          0x419bb1d12f9a73a2ULL, "class-definition-name");
+    DIEHandler *class_handler =
+        StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_class_type,
+                          uint64{0x419bb1d12f9a73a2}, "class-definition-name");
     ASSERT_TRUE(class_handler != NULL);
     DefineFunction(class_handler, "function",
                    0x5d13433d0df13d00ULL, 0x48ebebe5ade2cab4ULL, NULL);
@@ -1361,10 +1359,11 @@ TEST_F(Specifications, InlineFunction) {
   StartCU();
   DeclarationDIE(&root_handler_, 0xcd3c51b946fb1eeeLL,
                  dwarf2reader::DW_TAG_subprogram, "inline-name", "");
-  AbstractInstanceDIE(&root_handler_, 0x1e8dac5d507ed7abULL,
-                      dwarf2reader::DW_INL_inlined, 0xcd3c51b946fb1eeeLL, "");
-  DefineInlineInstanceDIE(&root_handler_, "", 0x1e8dac5d507ed7abULL,
-                       0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
+  AbstractInstanceDIE(&root_handler_, uint64{0x1e8dac5d507ed7ab},
+                      dwarf2reader::DW_INL_inlined, uint64{0xcd3c51b946fb1eee},
+                      "");
+  DefineInlineInstanceDIE(&root_handler_, "", uint64{0x1e8dac5d507ed7ab},
+                          0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
   root_handler_.Finish();
 
   TestFunctionCount(1);
@@ -1382,10 +1381,10 @@ TEST_F(Specifications, InlineFunctionInNamespace) {
       = StartNamedDIE(&root_handler_, dwarf2reader::DW_TAG_namespace,
                       "Namespace");
   ASSERT_TRUE(space_handler != NULL);
-  AbstractInstanceDIE(space_handler, 0x1e8dac5d507ed7abULL,
-                      dwarf2reader::DW_INL_inlined, 0LL, "func-name");
-  DefineInlineInstanceDIE(space_handler, "", 0x1e8dac5d507ed7abULL,
-                       0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
+  AbstractInstanceDIE(space_handler, uint64{0x1e8dac5d507ed7ab},
+                      dwarf2reader::DW_INL_inlined, int64{0}, "func-name");
+  DefineInlineInstanceDIE(space_handler, "", uint64{0x1e8dac5d507ed7ab},
+                          0x1758a0f941b71efbULL, 0x1cf154f1f545e146ULL);
   space_handler->Finish();
   delete space_handler;
   root_handler_.Finish();
@@ -1439,9 +1438,9 @@ TEST_F(Specifications, LongChain) {
   }
 
   {
-    DIEHandler *space_B_handler
-      = StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_namespace,
-                          0x2e111126496596e2ULL);
+    DIEHandler *space_B_handler =
+        StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_namespace,
+                          uint64{0x2e111126496596e2});
     DIEHandler *struct_C_handler
       = StartNamedDIE(space_B_handler, dwarf2reader::DW_TAG_structure_type,
                       "struct_C");
@@ -1454,9 +1453,9 @@ TEST_F(Specifications, LongChain) {
   }
 
   {
-    DIEHandler *struct_D_handler
-      = StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_structure_type,
-                          0x20cd423bf2a25a4cULL);
+    DIEHandler *struct_D_handler =
+        StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_structure_type,
+                          uint64{0x20cd423bf2a25a4c});
     DIEHandler *union_E_handler
       = StartNamedDIE(struct_D_handler, dwarf2reader::DW_TAG_union_type,
                       "union_E");
@@ -1469,9 +1468,9 @@ TEST_F(Specifications, LongChain) {
   }
 
   {
-    DIEHandler *union_F_handler
-      = StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_union_type,
-                          0xe25c84805aa58c32ULL);
+    DIEHandler *union_F_handler =
+        StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_union_type,
+                          uint64{0xe25c84805aa58c32});
     DIEHandler *class_G_handler
       = StartNamedDIE(union_F_handler, dwarf2reader::DW_TAG_class_type,
                       "class_G");
@@ -1484,9 +1483,9 @@ TEST_F(Specifications, LongChain) {
   }
 
   {
-    DIEHandler *class_H_handler
-      = StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_class_type,
-                          0xb70d960dcc173b6eULL);
+    DIEHandler *class_H_handler =
+        StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_class_type,
+                          uint64{0xb70d960dcc173b6e});
     DeclarationDIE(class_H_handler, 0x27ff829e3bf69f37ULL,
                    dwarf2reader::DW_TAG_subprogram, "func_I", "");
     class_H_handler->Finish();
@@ -1534,9 +1533,9 @@ TEST_F(Specifications, InterCU) {
     ASSERT_TRUE(root2_handler.StartRootDIE(1,
                                            dwarf2reader::DW_TAG_compile_unit));
     ASSERT_TRUE(root2_handler.EndAttributes());
-    DIEHandler *class_A_handler
-      = StartSpecifiedDIE(&root2_handler, dwarf2reader::DW_TAG_class_type,
-                          0xb8fbfdd5f0b26fceULL);
+    DIEHandler *class_A_handler =
+        StartSpecifiedDIE(&root2_handler, dwarf2reader::DW_TAG_class_type,
+                          uint64{0xb8fbfdd5f0b26fce});
     DeclarationDIE(class_A_handler, 0xb01fef8b380bd1a2ULL,
                    dwarf2reader::DW_TAG_subprogram, "member_func_B", "");
     class_A_handler->Finish();
@@ -1594,9 +1593,9 @@ TEST_F(Specifications, UnhandledInterCU) {
                                            dwarf2reader::DW_TAG_compile_unit));
     ASSERT_TRUE(root2_handler.EndAttributes());
     EXPECT_CALL(reporter_, UnhandledInterCUReference(_, _)).Times(1);
-    DIEHandler *class_A_handler
-      = StartSpecifiedDIE(&root2_handler, dwarf2reader::DW_TAG_class_type,
-                          0xb8fbfdd5f0b26fceULL);
+    DIEHandler *class_A_handler =
+        StartSpecifiedDIE(&root2_handler, dwarf2reader::DW_TAG_class_type,
+                          uint64{0xb8fbfdd5f0b26fce});
     DeclarationDIE(class_A_handler, 0xb01fef8b380bd1a2ULL,
                    dwarf2reader::DW_TAG_subprogram, "member_func_B", "");
     class_A_handler->Finish();
@@ -1657,9 +1656,9 @@ TEST_F(Specifications, ClassDefinitionHasOwnName) {
   DeclarationDIE(&root_handler_, 0xd0fe467ec2f1a58cULL,
                  dwarf2reader::DW_TAG_class_type, "class-declaration-name", "");
 
-  dwarf2reader::DIEHandler *class_definition
-    = StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_class_type,
-                        0xd0fe467ec2f1a58cULL, "class-definition-name");
+  dwarf2reader::DIEHandler *class_definition =
+      StartSpecifiedDIE(&root_handler_, dwarf2reader::DW_TAG_class_type,
+                        uint64{0xd0fe467ec2f1a58c}, "class-definition-name");
   ASSERT_TRUE(class_definition);
   DeclarationDIE(class_definition, 0x6d028229c15623dbULL,
                  dwarf2reader::DW_TAG_subprogram,
@@ -1809,11 +1808,13 @@ struct Reporter: public Test {
 };
 
 TEST_F(Reporter, UnknownSpecification) {
-  reporter.UnknownSpecification(0x123456789abcdef1ULL, 0x323456789abcdef2ULL);
+  reporter.UnknownSpecification(uint64{0x123456789abcdef1},
+                                uint64{0x323456789abcdef2});
 }
 
 TEST_F(Reporter, UnknownAbstractOrigin) {
-  reporter.UnknownAbstractOrigin(0x123456789abcdef1ULL, 0x323456789abcdef2ULL);
+  reporter.UnknownAbstractOrigin(uint64{0x123456789abcdef1},
+                                 uint64{0x323456789abcdef2});
 }
 
 TEST_F(Reporter, MissingSection) {
@@ -1821,7 +1822,7 @@ TEST_F(Reporter, MissingSection) {
 }
 
 TEST_F(Reporter, BadLineInfoOffset) {
-  reporter.BadLineInfoOffset(0x123456789abcdef1ULL);
+  reporter.BadLineInfoOffset(uint64{0x123456789abcdef1});
 }
 
 TEST_F(Reporter, UncoveredFunctionDisabled) {
@@ -1847,7 +1848,7 @@ TEST_F(Reporter, UncoveredLineEnabled) {
 }
 
 TEST_F(Reporter, UnnamedFunction) {
-  reporter.UnnamedFunction(0x90c0baff9dedb2d9ULL);
+  reporter.UnnamedFunction(uint64{0x90c0baff9dedb2d9});
 }
 
 // Would be nice to also test:

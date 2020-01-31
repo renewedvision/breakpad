@@ -143,7 +143,7 @@ TEST(Dwarf2DIEHandler, SkipRootDIE) {
                                                   0xb00febffa76e2b2bLL, 0x5c));
   EXPECT_FALSE(die_dispatcher.StartDIE(0x7d08242b4b510cf2LL,
                                        (DwarfTag) 0xb4f98da6));
-  die_dispatcher.EndDIE(0x7d08242b4b510cf2LL);
+  die_dispatcher.EndDIE(int64{0x7d08242b4b510cf2});
 }
 
 // If the handler elects to skip the root DIE's children, the
@@ -177,8 +177,8 @@ TEST(Dwarf2DIEHandler, SkipRootDIEChildren) {
                                       (DwarfTag) 0xb4f98da6));
   EXPECT_FALSE(die_dispatcher.StartDIE(0x435150ceedccda18LL,
                                        (DwarfTag) 0xc3a17bba));
-  die_dispatcher.EndDIE(0x435150ceedccda18LL);
-  die_dispatcher.EndDIE(0x7d08242b4b510cf2LL);
+  die_dispatcher.EndDIE(int64{0x435150ceedccda18});
+  die_dispatcher.EndDIE(int64{0x7d08242b4b510cf2});
 }
 
 // The dispatcher should pass attribute values through to the die
@@ -258,33 +258,27 @@ TEST(Dwarf2DIEHandler, PassAttributeValues) {
                                       (DwarfTag) 0x9829445c));
 
   // Report some attribute values.
-  die_dispatcher.ProcessAttributeUnsigned(0xe2222da01e29f2a9LL,
-                                          (DwarfAttribute) 0x1cc0bfed,
-                                          (DwarfForm) 0x424f1468,
-                                          0xa592571997facda1ULL);
-  die_dispatcher.ProcessAttributeSigned(0xe2222da01e29f2a9LL,
-                                        (DwarfAttribute) 0x43694dc9,
-                                        (DwarfForm) 0xf6f78901,
-                                        0x92602a4e3bf1f446LL);
-  die_dispatcher.ProcessAttributeReference(0xe2222da01e29f2a9LL,
-                                           (DwarfAttribute) 0x4033e8c,
-                                           (DwarfForm) 0xf66fbe0b,
-                                           0x50fddef44734fdecULL);
-  die_dispatcher.ProcessAttributeBuffer(0xe2222da01e29f2a9LL,
-                                        (DwarfAttribute) 0x25d7e0af,
-                                        (DwarfForm) 0xe99a539a,
-                                        buffer, sizeof(buffer));
-  die_dispatcher.ProcessAttributeString(0xe2222da01e29f2a9LL,
-                                        (DwarfAttribute) 0x310ed065,
-                                        (DwarfForm) 0x15762fec,
-                                        str);
-  die_dispatcher.ProcessAttributeSignature(0xe2222da01e29f2a9LL,
-                                           (DwarfAttribute) 0x58790d72,
-                                           (DwarfForm) 0x4159f138,
-                                           0x94682463613e6a5fULL);
+  die_dispatcher.ProcessAttributeUnsigned(
+      uint64{0xe2222da01e29f2a9}, (DwarfAttribute)0x1cc0bfed,
+      (DwarfForm)0x424f1468, uint64{0xa592571997facda1});
+  die_dispatcher.ProcessAttributeSigned(
+      uint64{0xe2222da01e29f2a9}, (DwarfAttribute)0x43694dc9,
+      (DwarfForm)0xf6f78901, uint64{0x92602a4e3bf1f446});
+  die_dispatcher.ProcessAttributeReference(
+      uint64{0xe2222da01e29f2a9}, (DwarfAttribute)0x4033e8c,
+      (DwarfForm)0xf66fbe0b, uint64{0x50fddef44734fdec});
+  die_dispatcher.ProcessAttributeBuffer(
+      uint64{0xe2222da01e29f2a9}, (DwarfAttribute)0x25d7e0af,
+      (DwarfForm)0xe99a539a, buffer, sizeof(buffer));
+  die_dispatcher.ProcessAttributeString(uint64{0xe2222da01e29f2a9},
+                                        (DwarfAttribute)0x310ed065,
+                                        (DwarfForm)0x15762fec, str);
+  die_dispatcher.ProcessAttributeSignature(
+      uint64{0xe2222da01e29f2a9}, (DwarfAttribute)0x58790d72,
+      (DwarfForm)0x4159f138, uint64{0x94682463613e6a5f});
 
   // Finish the root DIE (and thus the CU).
-  die_dispatcher.EndDIE(0xe2222da01e29f2a9LL);
+  die_dispatcher.EndDIE(uint64{0xe2222da01e29f2a9});
 }
 
 TEST(Dwarf2DIEHandler, FindAndSkipChildren) {
@@ -373,19 +367,17 @@ TEST(Dwarf2DIEHandler, FindAndSkipChildren) {
   {
     EXPECT_TRUE(die_dispatcher.StartDIE(0x15f0e06bdfe3c372LL,
                                         (DwarfTag) 0xf5d60c59));
-    die_dispatcher.ProcessAttributeSigned(0x15f0e06bdfe3c372LL,
-                                          (DwarfAttribute) 0xf779a642,
-                                          (DwarfForm) 0x2cb63027,
-                                          0x18e744661769d08fLL);
+    die_dispatcher.ProcessAttributeSigned(
+        int64{0x15f0e06bdfe3c372}, (DwarfAttribute)0xf779a642,
+        (DwarfForm)0x2cb63027, int64{0x18e744661769d08f});
 
     // First child DIE.
     {
       EXPECT_TRUE(die_dispatcher.StartDIE(0x149f644f8116fe8cLL,
                                           (DwarfTag) 0xac2cbd8c));
-      die_dispatcher.ProcessAttributeSigned(0x149f644f8116fe8cLL,
-                                            (DwarfAttribute) 0xa6fd6f65,
-                                            (DwarfForm) 0xe4f64c41,
-                                            0x1b04e5444a55fe67LL);
+      die_dispatcher.ProcessAttributeSigned(
+          int64{0x149f644f8116fe8c}, (DwarfAttribute)0xa6fd6f65,
+          (DwarfForm)0xe4f64c41, int64{0x1b04e5444a55fe67});
 
       // First grandchild DIE.  Will be skipped.
       {
@@ -397,33 +389,32 @@ TEST(Dwarf2DIEHandler, FindAndSkipChildren) {
           EXPECT_FALSE(die_dispatcher
                        .StartDIE(0xb3076285d25cac25LL,
                                  (DwarfTag) 0xcff4061b));
-          die_dispatcher.EndDIE(0xb3076285d25cac25LL);          
+          die_dispatcher.EndDIE(uint64{0xb3076285d25cac25});
         }
-        die_dispatcher.EndDIE(0xd68de1ee0bd29419LL);
+        die_dispatcher.EndDIE(uint64{0xd68de1ee0bd29419});
       }
-      die_dispatcher.EndDIE(0x149f644f8116fe8cLL);
+      die_dispatcher.EndDIE(int64{0x149f644f8116fe8c});
     }
 
     // Second child DIE.  Root handler will decline to find a handler for it.
     {
       EXPECT_FALSE(die_dispatcher.StartDIE(0x97412be24875de9dLL,
                                            (DwarfTag) 0x505a068b));
-      die_dispatcher.EndDIE(0x97412be24875de9dLL);
+      die_dispatcher.EndDIE(uint64{0x97412be24875de9d});
     }
     
     // Third child DIE.
     {
       EXPECT_TRUE(die_dispatcher.StartDIE(0x753c964c8ab538aeLL,
                                           (DwarfTag) 0x8c22970e));
-      die_dispatcher.ProcessAttributeSigned(0x753c964c8ab538aeLL,
-                                            (DwarfAttribute) 0x4e2b7cfb,
-                                            (DwarfForm) 0x610b7ae1,
-                                            0x3ea5c609d7d7560fLL);
-      die_dispatcher.EndDIE(0x753c964c8ab538aeLL);
+      die_dispatcher.ProcessAttributeSigned(
+          int64{0x753c964c8ab538ae}, (DwarfAttribute)0x4e2b7cfb,
+          (DwarfForm)0x610b7ae1, int64{0x3ea5c609d7d7560f});
+      die_dispatcher.EndDIE(int64{0x753c964c8ab538ae});
     }
     
     // Finish the root DIE (and thus the CU).
-    die_dispatcher.EndDIE(0x15f0e06bdfe3c372LL);
+    die_dispatcher.EndDIE(int64{0x15f0e06bdfe3c372});
   }
 }
 
@@ -510,10 +501,9 @@ TEST(Dwarf2DIEHandler, FreeHandlersOnStack) {
       {
         EXPECT_TRUE(die_dispatcher.StartDIE(0x32dc00c9945dc0c8LL,
                                             (DwarfTag) 0x2802d007));
-        die_dispatcher.ProcessAttributeSigned(0x32dc00c9945dc0c8LL,
-                                              (DwarfAttribute) 0x4e2b7cfb,
-                                              (DwarfForm) 0x610b7ae1,
-                                              0x3ea5c609d7d7560fLL);
+        die_dispatcher.ProcessAttributeSigned(
+            int64{0x32dc00c9945dc0c8}, (DwarfAttribute)0x4e2b7cfb,
+            (DwarfForm)0x610b7ae1, int64{0x3ea5c609d7d7560f});
 
         // Stop the traversal abruptly, so that there will still be
         // handlers on the stack when the dispatcher is destructed.

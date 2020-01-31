@@ -2390,59 +2390,61 @@ struct CFIReporterFixture {
 class CFIReporter: public CFIReporterFixture, public Test { };
 
 TEST_F(CFIReporter, Incomplete) {
-  reporter.Incomplete(0x0102030405060708ULL, CallFrameInfo::kUnknown);
+  reporter.Incomplete(uint64{0x0102030405060708}, CallFrameInfo::kUnknown);
 }
 
 TEST_F(CFIReporter, EarlyEHTerminator) {
-  reporter.EarlyEHTerminator(0x0102030405060708ULL);
+  reporter.EarlyEHTerminator(uint64{0x0102030405060708});
 }
 
 TEST_F(CFIReporter, CIEPointerOutOfRange) {
-  reporter.CIEPointerOutOfRange(0x0123456789abcdefULL, 0xfedcba9876543210ULL);
+  reporter.CIEPointerOutOfRange(uint64{0x0123456789abcdef},
+                                uint64{0xfedcba9876543210});
 }
 
 TEST_F(CFIReporter, BadCIEId) {
-  reporter.BadCIEId(0x0123456789abcdefULL, 0xfedcba9876543210ULL);
+  reporter.BadCIEId(uint64{0x0123456789abcdef}, uint64{0xfedcba9876543210});
 }
 
 TEST_F(CFIReporter, UnrecognizedVersion) {
-  reporter.UnrecognizedVersion(0x0123456789abcdefULL, 43);
+  reporter.UnrecognizedVersion(uint64{0x0123456789abcdef}, 43);
 }
 
 TEST_F(CFIReporter, UnrecognizedAugmentation) {
-  reporter.UnrecognizedAugmentation(0x0123456789abcdefULL, "poodles");
+  reporter.UnrecognizedAugmentation(uint64{0x0123456789abcdef}, "poodles");
 }
 
 TEST_F(CFIReporter, InvalidPointerEncoding) {
-  reporter.InvalidPointerEncoding(0x0123456789abcdefULL, 0x42);
+  reporter.InvalidPointerEncoding(uint64{0x0123456789abcdef}, 0x42);
 }
 
 TEST_F(CFIReporter, UnusablePointerEncoding) {
-  reporter.UnusablePointerEncoding(0x0123456789abcdefULL, 0x42);
+  reporter.UnusablePointerEncoding(uint64{0x0123456789abcdef}, 0x42);
 }
 
 TEST_F(CFIReporter, RestoreInCIE) {
-  reporter.RestoreInCIE(0x0123456789abcdefULL, 0xfedcba9876543210ULL);
+  reporter.RestoreInCIE(uint64{0x0123456789abcdef}, uint64{0xfedcba9876543210});
 }
 
 TEST_F(CFIReporter, BadInstruction) {
-  reporter.BadInstruction(0x0123456789abcdefULL, CallFrameInfo::kFDE,
-                          0xfedcba9876543210ULL);
+  reporter.BadInstruction(uint64{0x0123456789abcdef}, CallFrameInfo::kFDE,
+                          uint64{0xfedcba9876543210});
 }
 
 TEST_F(CFIReporter, NoCFARule) {
-  reporter.NoCFARule(0x0123456789abcdefULL, CallFrameInfo::kCIE,
-                     0xfedcba9876543210ULL);
+  reporter.NoCFARule(uint64{0x0123456789abcdef}, CallFrameInfo::kCIE,
+                     uint64{0xfedcba9876543210});
 }
 
 TEST_F(CFIReporter, EmptyStateStack) {
-  reporter.EmptyStateStack(0x0123456789abcdefULL, CallFrameInfo::kTerminator,
-                           0xfedcba9876543210ULL);
+  reporter.EmptyStateStack(uint64{0x0123456789abcdef},
+                           CallFrameInfo::kTerminator,
+                           uint64{0xfedcba9876543210});
 }
 
 TEST_F(CFIReporter, ClearingCFARule) {
-  reporter.ClearingCFARule(0x0123456789abcdefULL, CallFrameInfo::kFDE,
-                           0xfedcba9876543210ULL);
+  reporter.ClearingCFARule(uint64{0x0123456789abcdef}, CallFrameInfo::kFDE,
+                           uint64{0xfedcba9876543210});
 }
 
 #ifdef WRITE_ELF

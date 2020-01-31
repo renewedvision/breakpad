@@ -48,7 +48,7 @@ TEST(SimpleModule, One) {
   DwarfLineToModule h(&m, "/", &lines);
 
   h.DefineFile("file1", 0x30bf0f27, 0, 0, 0);
-  h.AddLine(0x6fd126fbf74f2680LL, 0x63c9a14cf556712bLL, 0x30bf0f27,
+  h.AddLine(int64{0x6fd126fbf74f2680}, int64{0x63c9a14cf556712b}, 0x30bf0f27,
             0x4c090cbf, 0x1cf9fe0d);
 
   vector<Module::File *> files;
@@ -74,16 +74,16 @@ TEST(SimpleModule, Many) {
   h.DefineFile("file1", 0x63beb4a4, 0xf85de023, 0, 0);
   h.DefineFile("file2", 0x1d161d56, 0x838299ab, 0, 0);
   h.DefineFile("file2", 0x1e7a667c, 0xf85de023, 0, 0);
-  h.AddLine(0x69900c5d553b7274ULL, 0x90fded183f0d0d3cULL, 0x2b80377a,
+  h.AddLine(uint64{0x69900c5d553b7274}, uint64{0x90fded183f0d0d3c}, 0x2b80377a,
             0x15b0f0a9U, 0x3ff5abd6U);
-  h.AddLine(0x45811219a39b7101ULL, 0x25a5e6a924afc41fULL, 0x63beb4a4,
+  h.AddLine(uint64{0x45811219a39b7101}, uint64{0x25a5e6a924afc41f}, 0x63beb4a4,
             0x4d259ce9U, 0x41c5ee32U);
-  h.AddLine(0xfa90514c1dc9704bULL, 0x0063efeabc02f313ULL, 0x1d161d56,
+  h.AddLine(uint64{0xfa90514c1dc9704b}, uint64{0x0063efeabc02f313}, 0x1d161d56,
             0x1ee9fa4fU, 0xbf70e46aU);
-  h.AddLine(0x556b55fb6a647b10ULL, 0x3f3089ca2bfd80f5ULL, 0x1e7a667c,
+  h.AddLine(uint64{0x556b55fb6a647b10}, uint64{0x3f3089ca2bfd80f5}, 0x1e7a667c,
             0x77fc280eU, 0x2c4a728cU);
   h.DefineFile("file3", -1, 0, 0, 0);
-  h.AddLine(0xe2d72a37f8d9403aULL, 0x034dfab5b0d4d236ULL, 0x63beb4a5,
+  h.AddLine(uint64{0xe2d72a37f8d9403a}, uint64{0x034dfab5b0d4d236}, 0x63beb4a5,
             0x75047044U, 0xb6a0016cU);
 
   vector<Module::File *> files;
@@ -312,7 +312,7 @@ TEST(ModuleErrors, BigLine) {
   DwarfLineToModule h(&m, "/", &lines);
 
   h.DefineFile("filename1", 1, 0, 0, 0);
-  h.AddLine(0xffffffffffffffffULL, 2, 1, 0, 0);
+  h.AddLine(uint64{0xffffffffffffffff}, 2, 1, 0, 0);
 
   ASSERT_EQ(1U, lines.size());
   EXPECT_EQ(1U, lines[0].size);
