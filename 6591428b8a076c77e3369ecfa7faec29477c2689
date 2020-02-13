@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eb47e5b7_93777319",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14429270_7b3c190d",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c23ec3c_2a25f7a8",
         "filename": "docs/sym_upload_v2_protocol.md",
         "patchSetId": 6
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "ff04102a_d17170b7",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c23ec3c_2a25f7a8",
+      "range": {
+        "startLine": 4,
+        "startChar": 69,
+        "endLine": 4,
+        "endChar": 73
+      },
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f428ce43_cceb9117",
         "filename": "docs/sym_upload_v2_protocol.md",
         "patchSetId": 6
@@ -56,6 +98,24 @@
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f0529a7_22a85c3b",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f428ce43_cceb9117",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "0e1ecbad_5c1fe54b",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edb9127d_1b4e2ef6",
+      "range": {
+        "startLine": 8,
+        "startChar": 6,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f2c0010_4ddd96ba",
         "filename": "docs/sym_upload_v2_protocol.md",
         "patchSetId": 6
@@ -96,6 +180,24 @@
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "247d8134_7056d13d",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f2c0010_4ddd96ba",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -122,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "13a8d04f_1dbcaf40",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20b8b7d9_c133a007",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 54
+      },
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5ed81e5_f63c7881",
         "filename": "docs/sym_upload_v2_protocol.md",
         "patchSetId": 6
@@ -145,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "4adaa7ff_92a449ba",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5ed81e5_f63c7881",
+      "range": {
+        "startLine": 20,
+        "startChar": 19,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2344ff5f_2285296e",
         "filename": "docs/sym_upload_v2_protocol.md",
         "patchSetId": 6
@@ -159,6 +309,24 @@
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b8897eb_5d16a150",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2344ff5f_2285296e",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -179,6 +347,24 @@
     },
     {
       "key": {
+        "uuid": "a4807486_f56e6d6e",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5efd35af_6902ac02",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "419bd279_a14d0d02",
         "filename": "docs/sym_upload_v2_protocol.md",
         "patchSetId": 6
@@ -196,6 +382,24 @@
     },
     {
       "key": {
+        "uuid": "4ff1dfea_d2dadc2a",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "419bd279_a14d0d02",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b3629f5_49072d67",
         "filename": "docs/sym_upload_v2_protocol.md",
         "patchSetId": 6
@@ -207,6 +411,24 @@
       "writtenOn": "2020-02-13T04:32:05Z",
       "side": 1,
       "message": "should we put the JSON schemas in dedicated files that people can actually ingest into their tools ?",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88dbda18_2809f8cf",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "I like this idea but markdown is a bit annoying in that I cannot import the text of those files into here automatically. I don\u0027t want to duplicate the contents because it will cause confusion eventually, do you think just putting paths to the external files here makes the overall document hard to follow?",
+      "parentUuid": "1b3629f5_49072d67",
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -230,6 +452,24 @@
     },
     {
       "key": {
+        "uuid": "072a4d79_aa14bb5b",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51b2f359_648f3e33",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6586284c_42e428ec",
         "filename": "docs/sym_upload_v2_protocol.md",
         "patchSetId": 6
@@ -244,6 +484,24 @@
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b4113ff_04c0079f",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T18:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6586284c_42e428ec",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
