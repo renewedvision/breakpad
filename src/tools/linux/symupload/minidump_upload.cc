@@ -67,11 +67,12 @@ static void Start(Options *options) {
 
   // Send it
   string response, error;
-  bool success = HTTPUpload::SendRequest(options->uploadURLStr,
+  bool success = HTTPUpload::SendMultipartPostRequest(options->uploadURLStr,
                                          parameters,
                                          files,
                                          options->proxy,
                                          options->proxy_user_pwd,
+                                         "",
                                          "",
                                          &response,
                                          NULL,
