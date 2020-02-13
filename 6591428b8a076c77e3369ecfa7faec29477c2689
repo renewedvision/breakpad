@@ -522,6 +522,24 @@
     },
     {
       "key": {
+        "uuid": "27591c4b_73ec1c36",
+        "filename": "src/common/common.gyp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "So long ago I don\u0027t remember, but everything builds without them so thanks for point out :)",
+      "parentUuid": "bcfff0b9_f34c24e4",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c1594b4_74508dc9",
         "filename": "src/common/linux/http_upload.cc",
         "patchSetId": 6
@@ -584,6 +602,24 @@
       "writtenOn": "2020-02-13T04:32:05Z",
       "side": 1,
       "message": "i\u0027m looking at all this curl/libdl code and crying.  i grok that a lot of it isn\u0027t coming from you, and you\u0027re just slightly extending what\u0027s already there.\n\nbut as i look through this, it seems this module duplicates quite a bit with src/common/linux/libcurl_wrapper.h, but the latter has a lot nicer C++ layer.  can we merge all the existing libcurl usage in here with that, and then extend that instead of adding more stuff to this module ?",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c81d538e_eec165d8",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "Yeah it\u0027s tempting to try and re-implement the HTTP with libcurl_wrapper. I\u0027ll take a look at who\u0027s using that and what it would take to support the current usages of http_upload.h.",
+      "parentUuid": "5f8b8071_8ddbb448",
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -726,6 +762,24 @@
     },
     {
       "key": {
+        "uuid": "9bc92627_169dfef8",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a513e9_97a5e4bb",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6080baa9_17e900b0",
         "filename": "src/common/linux/symbol_collector_client.h",
         "patchSetId": 6
@@ -740,6 +794,24 @@
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5906b3d_95b5f9f9",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6080baa9_17e900b0",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -760,6 +832,24 @@
     },
     {
       "key": {
+        "uuid": "f46541e2_4bc1141f",
+        "filename": "src/common/linux/symbol_upload.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdceb63a_d7c149bd",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8e5b0c2_93dd42dc",
         "filename": "src/tools/linux/symupload/sym_upload.cc",
         "patchSetId": 6
@@ -774,6 +864,24 @@
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9385a82_bdb22109",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8e5b0c2_93dd42dc",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -794,6 +902,24 @@
     },
     {
       "key": {
+        "uuid": "06fc26bc_9868c3d5",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25ec9333_9b65cac8",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "251fcbc0_e4cda4ba",
         "filename": "src/tools/linux/symupload/sym_upload.cc",
         "patchSetId": 6
@@ -811,6 +937,24 @@
     },
     {
       "key": {
+        "uuid": "d2622582_0453c27f",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "251fcbc0_e4cda4ba",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cf8442c_5804a3af",
         "filename": "src/tools/linux/symupload/sym_upload.cc",
         "patchSetId": 6
@@ -825,6 +969,24 @@
       "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dee357a_2ffa8a0f",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-13T19:25:39Z",
+      "side": 1,
+      "message": "Yeah I have no idea why I changed that.",
+      "parentUuid": "8cf8442c_5804a3af",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
