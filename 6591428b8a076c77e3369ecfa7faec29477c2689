@@ -1,0 +1,572 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14429270_7b3c190d",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "Google md style says to use blank lines around # headers",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c23ec3c_2a25f7a8",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "\"based\"",
+      "range": {
+        "startLine": 4,
+        "startChar": 69,
+        "endLine": 4,
+        "endChar": 73
+      },
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f428ce43_cceb9117",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "put [TOC] here",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edb9127d_1b4e2ef6",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "`sym_upload`",
+      "range": {
+        "startLine": 8,
+        "startChar": 6,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f2c0010_4ddd96ba",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "lists should be indented",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20b8b7d9_c133a007",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "how about making this a sep sentence like\n\n ... server. If it\u0027s present, then the upload is skipped entirely.",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 54
+      },
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5ed81e5_f63c7881",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "should switch to \u003csymbol-file\u003e like the usage in the tool",
+      "range": {
+        "startLine": 20,
+        "startChar": 19,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2344ff5f_2285296e",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "could be simpler \u0026 direct like:\n\n For more options see `sym_upload --help`.",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5efd35af_6902ac02",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "period at the end",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "419bd279_a14d0d02",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "`` don\u0027t work well in # with gitiles unfortunately",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b3629f5_49072d67",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "should we put the JSON schemas in dedicated files that people can actually ingest into their tools ?",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b2f359_648f3e33",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "it\u0027d be more readable if you put spaces after the : and , in the list below",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6586284c_42e428ec",
+        "filename": "docs/sym_upload_v2_protocol.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "missing newline at the end of the file",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcfff0b9_f34c24e4",
+        "filename": "src/common/common.gyp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "what\u0027s with the pb files ?  i don\u0027t see any protobufs here ...",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c1594b4_74508dc9",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "don\u0027t need static in C++ anonymous namespaces (which this is)",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1df06293_73506062",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "use empty() instead",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1c0b07a_97211899",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "127 is not printable either ;)",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f8b8071_8ddbb448",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "i\u0027m looking at all this curl/libdl code and crying.  i grok that a lot of it isn\u0027t coming from you, and you\u0027re just slightly extending what\u0027s already there.\n\nbut as i look through this, it seems this module duplicates quite a bit with src/common/linux/libcurl_wrapper.h, but the latter has a lot nicer C++ layer.  can we merge all the existing libcurl usage in here with that, and then extend that instead of adding more stuff to this module ?",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd4802d8_8098ed3a",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "indentation incorrect ?",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a8be9dc_7dfd4948",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "indentation incorrect",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e434cabb_4c7b66ed",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "indent by one space",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a999a89d_0e994506",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "move this helper to src/common/scoped_ptr.h ?\n\ni\u0027d guess it\u0027d use the name scoped_file at that point",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d47baa1c_bfdb2187",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "incorrect indent \u0026 spacing with *",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9e44d27_42b00d0a",
+        "filename": "src/common/linux/http_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "this leaks dlclose\n\nmaybe you want to add a scoped_libdl ? :)",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b011df_72cabe62",
+        "filename": "src/common/linux/http_upload.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "Google C++ style says to put \u0026/* on the types rather than the var name.  i know not all files conform, but we should do it in new code at least.",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0a513e9_97a5e4bb",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "add space indent",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6080baa9_17e900b0",
+        "filename": "src/common/linux/symbol_collector_client.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "bad \u0026/* spacing",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdceb63a_d7c149bd",
+        "filename": "src/common/linux/symbol_upload.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "add a dangling comma",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8e5b0c2_93dd42dc",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "line is too long",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25ec9333_9b65cac8",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "use single quotes to avoid having to escape the \"",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "251fcbc0_e4cda4ba",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "you can unify these breaks to the end of the block",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cf8442c_5804a3af",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-02-13T04:32:05Z",
+      "side": 1,
+      "message": "the changes down here are just stylistic ?  seems like we should leave it as-is.",
+      "revId": "6591428b8a076c77e3369ecfa7faec29477c2689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
