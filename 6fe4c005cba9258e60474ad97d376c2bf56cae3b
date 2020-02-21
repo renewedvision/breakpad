@@ -22,6 +22,30 @@
       "revId": "6fe4c005cba9258e60474ad97d376c2bf56cae3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba46b4d_69ed93d5",
+        "filename": "src/common/linux/google_crashdump_uploader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-02-21T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14163328_6cbe0f6c",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 54
+      },
+      "revId": "6fe4c005cba9258e60474ad97d376c2bf56cae3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
