@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02e0165f_0c0dcb12",
+        "filename": "src/common/linux/libcurl_wrapper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-02-21T23:43:30Z",
+      "side": 1,
+      "message": "What if it was !curl_lib_?",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 182,
+        "endChar": 21
+      },
+      "revId": "958c229bb565e60a4b7a44d67de7eec03c37b04c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
