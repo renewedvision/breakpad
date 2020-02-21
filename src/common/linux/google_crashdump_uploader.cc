@@ -193,10 +193,13 @@ bool GoogleCrashdumpUploader::Upload(int* http_status_code,
     return false;
   }
   std::cout << "Sending request to " << crash_server_;
-  return http_layer_->SendRequest(crash_server_,
+  long status_code;
+  bool success = http_layer_->SendRequest(crash_server_,
                                   parameters_,
-                                  http_status_code,
+                                  &status_code,
                                   http_response_header,
                                   http_response_body);
+  *http_status_code = status_code;
+  return success;
 }
 }
