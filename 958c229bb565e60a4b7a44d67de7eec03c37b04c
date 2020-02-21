@@ -22,6 +22,30 @@
       "revId": "958c229bb565e60a4b7a44d67de7eec03c37b04c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56270406_80025b53",
+        "filename": "src/common/linux/libcurl_wrapper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-21T23:55:05Z",
+      "side": 1,
+      "message": "That\u0027s a good question. This was the check in HttpUpload, and it doesn\u0027t crash in this case when !curl_lib_, but I think we _shouldn\u0027t_ be calling dlclose on a nullptr. In fact we can structure this check entirely differently to make it make more sense.",
+      "parentUuid": "02e0165f_0c0dcb12",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 182,
+        "endChar": 21
+      },
+      "revId": "958c229bb565e60a4b7a44d67de7eec03c37b04c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
