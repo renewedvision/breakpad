@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be8483cd_d87423a6",
+        "filename": "src/common/linux/symbol_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-02-27T19:24:28Z",
+      "side": 1,
+      "message": "Some constants for these might be nice.\n\nAlso, DO WE NEED TO BE SO YELLY?",
+      "range": {
+        "startLine": 254,
+        "startChar": 50,
+        "endLine": 254,
+        "endChar": 60
+      },
+      "revId": "045d138fe1f7161215daea39929433d99c1c80cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
