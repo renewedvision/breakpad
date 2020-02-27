@@ -46,6 +46,29 @@
       "revId": "045d138fe1f7161215daea39929433d99c1c80cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cd32ca2_69ca4cd7",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-02-27T19:34:29Z",
+      "side": 1,
+      "message": "As far as UPPERCASE goes, I don’t really mind if the protocol dictates the use of uppercase, but I don’t think it should be a UI imposition here. I’d prefer to treat lowercase as canonical over on this end, even if you need to transform everything to uppercase to send over the wire.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 0
+      },
+      "revId": "045d138fe1f7161215daea39929433d99c1c80cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
