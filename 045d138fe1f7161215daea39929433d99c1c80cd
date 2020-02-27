@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "23e4adde_f224af6b",
+        "filename": "src/common/linux/symbol_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-27T22:04:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10a4121a_501a064e",
+      "range": {
+        "startLine": 254,
+        "startChar": 50,
+        "endLine": 254,
+        "endChar": 60
+      },
+      "revId": "045d138fe1f7161215daea39929433d99c1c80cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cd32ca2_69ca4cd7",
         "filename": "src/tools/linux/symupload/sym_upload.cc",
         "patchSetId": 1
@@ -93,6 +117,30 @@
       "revId": "045d138fe1f7161215daea39929433d99c1c80cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd23181e_12c99caf",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-27T22:04:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d0dfbf5_daa6f577",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 0
+      },
+      "revId": "045d138fe1f7161215daea39929433d99c1c80cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
