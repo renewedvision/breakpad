@@ -58,6 +58,11 @@ struct Options {
   UploadProtocol upload_protocol;
   bool force;
   string api_key;
+
+  // These only need to be set for native symbol uploads.
+  string code_file;
+  string debug_id;
+  string type;
 };
 
 // Starts upload to symbol server with options.
