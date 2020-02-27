@@ -22,6 +22,30 @@
       "revId": "045d138fe1f7161215daea39929433d99c1c80cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10a4121a_501a064e",
+        "filename": "src/common/linux/symbol_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-02-27T19:30:03Z",
+      "side": 1,
+      "message": "Good idea. I\u0027m actually not sure about the upper-case. Full disclosure is that my server implementation contains generated C++ and json serialization/deserialization and I don\u0027t know if it\u0027s case sensitive.",
+      "parentUuid": "be8483cd_d87423a6",
+      "range": {
+        "startLine": 254,
+        "startChar": 50,
+        "endLine": 254,
+        "endChar": 60
+      },
+      "revId": "045d138fe1f7161215daea39929433d99c1c80cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
