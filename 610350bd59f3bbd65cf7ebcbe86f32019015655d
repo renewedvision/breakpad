@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69233d6e_79605705",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "only 4 space indent",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8692dd32_5e9fa7de",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a599844_d5937076",
+        "filename": "src/client/linux/minidump_writer/linux_core_dumper.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "should only use 2 space indent",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be0b48f8_b74d6169",
+        "filename": "src/processor/exploitability_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "shouldn\u0027t this #if be outside the func rather than inside like done below ?",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1db03c3a_b9aafd44",
+        "filename": "src/processor/exploitability_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "why the WIN32 check ?",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "600c4507_5fc89dea",
+        "filename": "src/processor/exploitability_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "use __i386__ and __x86_64__ instead",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35585eb8_69b8f9e6",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "use 2 space indents",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9492d839_c1dcae32",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "line is too long (and below)",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45beaafe_3fd88274",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-10T06:43:03Z",
+      "side": 1,
+      "message": "use 2 space indents",
+      "revId": "610350bd59f3bbd65cf7ebcbe86f32019015655d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
