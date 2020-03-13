@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0424094f_36b061b2",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-13T22:45:19Z",
+      "side": 1,
+      "message": "i guess keep sorted",
+      "revId": "ae3d363249ab296235d432f7c3377842a64031ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
