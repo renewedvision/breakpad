@@ -16,6 +16,24 @@
       "revId": "ae3d363249ab296235d432f7c3377842a64031ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b30ea69d_3537c8c4",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1387480
+      },
+      "writtenOn": "2020-03-14T00:24:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0424094f_36b061b2",
+      "revId": "ae3d363249ab296235d432f7c3377842a64031ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
