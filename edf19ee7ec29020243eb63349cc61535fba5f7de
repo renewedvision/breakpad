@@ -34,6 +34,24 @@
       "revId": "edf19ee7ec29020243eb63349cc61535fba5f7de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "924aef7f_34016989",
+        "filename": "src/common/linux/ucontext_constants.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-15T05:26:51Z",
+      "side": 1,
+      "message": "i was trying to be a bit more defensive and head off future misuse, but maybe i\u0027m being too paranoid.  the filename \u0026 comment header above makes it sound like it\u0027s more generic/portable than it actually is.\n\nmaybe expand the comment above:\n\n // Used by src/common/linux/breakpad_getcontext.S\n // Tested by src/common/linux/breakpad_getcontext_unittest.cc\n //\n // This should not be used by anything else.",
+      "parentUuid": "4819fb0b_6e97160b",
+      "revId": "edf19ee7ec29020243eb63349cc61535fba5f7de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
