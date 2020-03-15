@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "204f1a08_db65012d",
+        "filename": "src/common/linux/breakpad_getcontext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1387480
+      },
+      "writtenOn": "2020-03-15T01:47:16Z",
+      "side": 0,
+      "message": "Done, thanks for looking into this.\n\nucontext.h was in POSIX-2001 before being dropped, so I suspect the reason that musl has it is for compatibility with existing code that includes ucontext.h or sys/ucontext.h just for the ucontext_t structure.",
+      "parentUuid": "3faa7eb9_f8ebd4e6",
+      "revId": "a5fa28ddf0396e0cd77defde67d64cb8cde30a34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ec752b0_c985f598",
         "filename": "src/common/linux/ucontext_constants.h",
         "patchSetId": 1

@@ -16,6 +16,24 @@
       "revId": "edf19ee7ec29020243eb63349cc61535fba5f7de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4819fb0b_6e97160b",
+        "filename": "src/common/linux/ucontext_constants.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1387480
+      },
+      "writtenOn": "2020-03-15T01:47:16Z",
+      "side": 1,
+      "message": "This source file is only included by source files that are conditionally compiled based on HAVE_GETCONTEXT, so I don\u0027t think this is an issue. Is your concern is that this file might get included elsewhere in the future?\n\nI have no problem making the definitions conditional, but this would involve adding\n\n#ifdef HAVE_CONFIG_H\n#include \u003cconfig.h\u003e\n#endif\n\nto expose HAVE_GETCONTEXT here. Just want to double-check the reasoning for this.",
+      "parentUuid": "45bdfa25_39283912",
+      "revId": "edf19ee7ec29020243eb63349cc61535fba5f7de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
