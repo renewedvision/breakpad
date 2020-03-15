@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "628d52dd_8a7bf221",
+        "filename": "src/common/linux/breakpad_getcontext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-15T00:40:58Z",
+      "side": 0,
+      "message": "bionic is finicky.  reading their source, they fixed signal.h in 2014 in 26a8eb50a84e131d34d10d5d167d67e9995399bd and has been in NDK r11+.  our README.ANDROID says we require r11c+, so we should be good on that front once you add signal.h below.",
+      "revId": "a5fa28ddf0396e0cd77defde67d64cb8cde30a34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3faa7eb9_f8ebd4e6",
+        "filename": "src/common/linux/breakpad_getcontext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-03-15T00:40:58Z",
+      "side": 0,
+      "message": "this is not defined by POSIX.  i\u0027m surprised musl provides it.  POSIX says ucontext_t is defined by signal.h instead.\n\nhttps://pubs.opengroup.org/onlinepubs/9699919799/basedefs/signal.h.html\n\nso we should switch to that.",
+      "revId": "a5fa28ddf0396e0cd77defde67d64cb8cde30a34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ec752b0_c985f598",
         "filename": "src/common/linux/ucontext_constants.h",
         "patchSetId": 1
