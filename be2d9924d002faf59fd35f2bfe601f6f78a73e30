@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c5af6d6_6f5e4a38",
+        "filename": "src/common/linux/ucontext_constants.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1387480
+      },
+      "writtenOn": "2020-03-16T20:34:14Z",
+      "side": 1,
+      "message": "Updated to use __BIONIC__ instead of __ANDROID__ after reading\nhttps://android.googlesource.com/platform/bionic.git/+/refs/heads/master/docs/defines.md",
+      "revId": "be2d9924d002faf59fd35f2bfe601f6f78a73e30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
