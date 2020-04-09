@@ -172,7 +172,8 @@ class Breakpad {
   void HandleNetworkResponse(NSDictionary *configuration,
                              NSData *data,
                              NSError *error);
-  NSDictionary *GenerateReport(NSDictionary *server_parameters);
+  NSDictionary* GenerateReport(NSDictionary* server_parameters,
+                               mach_port_t requesting_thread);
 
  private:
   Breakpad()
@@ -567,14 +568,14 @@ void Breakpad::UploadData(NSData *data, NSString *name,
 }
 
 //=============================================================================
-NSDictionary *Breakpad::GenerateReport(NSDictionary *server_parameters) {
+NSDictionary *Breakpad::GenerateReport(NSDictionary *server_parameters,
+                                       mach_port_t requesting_thread) {
   NSString *dumpDirAsNSString = KeyValue(@BREAKPAD_DUMP_DIRECTORY);
   if (!dumpDirAsNSString)
     return nil;
   const char *dumpDir = [dumpDirAsNSString UTF8String];
 
-  google_breakpad::MinidumpGenerator generator(mach_task_self(),
-                                               MACH_PORT_NULL);
+  google_breakpad::MinidumpGenerator generator(requesting_thread);
   std::string dumpId;
   std::string dumpFilename = generator.UniqueNameInDirectory(dumpDir, &dumpId);
   bool success = generator.Write(dumpFilename.c_str());
@@ -971,16 +972,25 @@ void BreakpadUploadData(BreakpadRef ref, NSData *data, NSString *name,
 //=============================================================================
 NSDictionary *BreakpadGenerateReport(BreakpadRef ref,
                                      NSDictionary *server_parameters) {
+  return BreakpadGenerateReportWithRequestingThread(ref, server_parameters,
+                                                    MACH_PORT_NULL);
+}
+
+//=============================================================================
+NSDictionary *BreakpadGenerateReportWithRequestingThread(
+    BreakpadRef ref,
+    NSDictionary *server_parameters,
+    mach_port_t requesting_thread) {
   try {
     // Not called at exception time
-    Breakpad *breakpad = (Breakpad *)ref;
+    Breakpad* breakpad = (Breakpad*)ref;
 
     if (breakpad) {
-      return breakpad->GenerateReport(server_parameters);
+      return breakpad->GenerateReport(server_parameters, requesting_thread);
     } else {
       return nil;
     }
-  } catch(...) {    // don't let exceptions leave this C API
+  } catch(...) {  // don't let exceptions leave this C API
     fprintf(stderr, "BreakpadGenerateReport() : error\n");
     return nil;
   }
