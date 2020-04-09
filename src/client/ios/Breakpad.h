@@ -255,6 +255,16 @@ void BreakpadUploadData(BreakpadRef ref, NSData *data, NSString *name,
 NSDictionary *BreakpadGenerateReport(BreakpadRef ref,
                                      NSDictionary *server_parameters);
 
+// Generate a breakpad minidump and configuration file in the dump directory.
+// The report will be available for uploading. The paths of the created files
+// are returned in the dictionary. |server_parameters| is additional server
+// parameters to add in the config file.
+// |requesting_thread| will be seen as the crashing thread.
+NSDictionary *BreakpadGenerateReportWithRequestingThread(
+    BreakpadRef ref,
+    NSDictionary *server_parameters,
+    mach_port_t requesting_thread);
+
 #ifdef __cplusplus
 }
 #endif

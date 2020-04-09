@@ -100,6 +100,7 @@ using std::string;
 class MinidumpGenerator {
  public:
   MinidumpGenerator();
+  MinidumpGenerator(mach_port_t requesting_thread);
   MinidumpGenerator(mach_port_t crashing_task, mach_port_t handler_thread);
 
   virtual ~MinidumpGenerator();
@@ -214,6 +215,9 @@ class MinidumpGenerator {
   MinidumpFileWriter writer_;
 
  private:
+  // Manual report generation information
+  mach_port_t requesting_thread_;
+
   // Exception information
   int exception_type_;
   int exception_code_;

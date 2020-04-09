@@ -71,6 +71,24 @@ namespace google_breakpad {
 // constructor when generating from within the crashed process
 MinidumpGenerator::MinidumpGenerator()
     : writer_(),
+      requesting_thread_(0),
+      exception_type_(0),
+      exception_code_(0),
+      exception_subcode_(0),
+      exception_thread_(0),
+      crashing_task_(mach_task_self()),
+      handler_thread_(mach_thread_self()),
+      cpu_type_(DynamicImages::GetNativeCPUType()),
+      task_context_(NULL),
+      dynamic_images_(NULL),
+      memory_blocks_(&allocator_) {
+  GatherSystemInformation();
+}
+
+// constructor when maually generating a crash report.
+MinidumpGenerator::MinidumpGenerator(mach_port_t requesting_thread)
+    : writer_(),
+      requesting_thread_(requesting_thread),
       exception_type_(0),
       exception_code_(0),
       exception_subcode_(0),
@@ -89,6 +107,7 @@ MinidumpGenerator::MinidumpGenerator()
 MinidumpGenerator::MinidumpGenerator(mach_port_t crashing_task,
                                      mach_port_t handler_thread)
     : writer_(),
+      requesting_thread_(0),
       exception_type_(0),
       exception_code_(0),
       exception_subcode_(0),
@@ -1587,7 +1606,11 @@ bool MinidumpGenerator::WriteBreakpadInfoStream(
   breakpad_info_stream->location = info.location();
   MDRawBreakpadInfo *info_ptr = info.get();
 
-  if (exception_thread_ && exception_type_) {
+  if (requesting_thread_) {
+    info_ptr->validity = MD_BREAKPAD_INFO_VALID_REQUESTING_THREAD_ID;
+    info_ptr->dump_thread_id = 0;
+    info_ptr->requesting_thread_id = requesting_thread_;
+  } else if ((exception_thread_ && exception_type_)) {
     info_ptr->validity = MD_BREAKPAD_INFO_VALID_DUMP_THREAD_ID |
                          MD_BREAKPAD_INFO_VALID_REQUESTING_THREAD_ID;
     info_ptr->dump_thread_id = handler_thread_;
