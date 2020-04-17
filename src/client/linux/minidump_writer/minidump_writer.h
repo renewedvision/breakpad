@@ -138,6 +138,14 @@ bool WriteMinidump(const char* filename,
                    const AppMemoryList& appdata,
                    LinuxDumper* dumper);
 
+// This is not safe for use from an exception handler.
+bool WriteMinidump(const char* minidump_path,
+                   off_t minidump_size_limit,
+                   pid_t crashing_process,
+                   int core_fd,
+                   bool sanitize_stacks,
+                   uintptr_t* stack_pointer);
+
 }  // namespace google_breakpad
 
 #endif  // CLIENT_LINUX_MINIDUMP_WRITER_MINIDUMP_WRITER_H_
