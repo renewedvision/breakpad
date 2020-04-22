@@ -164,6 +164,7 @@ src_client_linux_libbreakpad_client_a_SOURCES = \
 	src/client/linux/microdump_writer/microdump_writer.cc \
 	src/client/linux/microdump_writer/microdump_writer.h \
 	src/client/linux/minidump_writer/linux_core_dumper.cc \
+	src/client/linux/minidump_writer/linux_live_core_dumper.cc \
 	src/client/linux/minidump_writer/linux_dumper.cc \
 	src/client/linux/minidump_writer/linux_ptrace_dumper.cc \
 	src/client/linux/minidump_writer/minidump_writer.cc \
@@ -478,6 +479,7 @@ src_client_linux_linux_client_unittest_shlib_SOURCES = \
 	src/client/linux/minidump_writer/line_reader_unittest.cc \
 	src/client/linux/minidump_writer/linux_core_dumper.cc \
 	src/client/linux/minidump_writer/linux_core_dumper_unittest.cc \
+	src/client/linux/minidump_writer/linux_live_core_dumper.cc \
 	src/client/linux/minidump_writer/linux_ptrace_dumper_unittest.cc \
 	src/client/linux/minidump_writer/minidump_writer_unittest.cc \
 	src/client/linux/minidump_writer/minidump_writer_unittest_utils.cc \

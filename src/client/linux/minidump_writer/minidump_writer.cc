@@ -70,6 +70,7 @@
 #include "client/linux/minidump_writer/cpu_set.h"
 #include "client/linux/minidump_writer/line_reader.h"
 #include "client/linux/minidump_writer/linux_dumper.h"
+#include "client/linux/minidump_writer/linux_live_core_dumper.h"
 #include "client/linux/minidump_writer/linux_ptrace_dumper.h"
 #include "client/linux/minidump_writer/proc_cpuinfo_reader.h"
 #include "client/minidump_file_writer.h"
@@ -88,6 +89,7 @@ using google_breakpad::CpuSet;
 using google_breakpad::kDefaultBuildIdSize;
 using google_breakpad::LineReader;
 using google_breakpad::LinuxDumper;
+using google_breakpad::LinuxLiveCoreDumper;
 using google_breakpad::LinuxPtraceDumper;
 using google_breakpad::MDTypeHelper;
 using google_breakpad::MappingEntry;
@@ -1504,6 +1506,55 @@ bool WriteMinidump(const char* filename,
   if (!writer.Init())
     return false;
   return writer.Dump();
+}
+
+bool WriteMinidump(const char* minidump_path,
+                   off_t minidump_size_limit,
+                   pid_t crashing_process,
+                   int core_fd,
+                   bool sanitize_stacks,
+                   uintptr_t* stack_pointer,
+                   uintptr_t* instruction_pointer) {
+  MappingList mapping_list;
+  AppMemoryList app_memory_list;
+  LinuxLiveCoreDumper dumper(crashing_process, core_fd);
+  MinidumpWriter writer(minidump_path,
+                        -1 /* minidump_fd */,
+                        NULL /* context */,
+                        mapping_list,
+                        app_memory_list,
+                        false /* skip_stacks_if_mapping_unreferenced */,
+                        0 /* principal_mapping_address */,
+                        sanitize_stacks,
+                        &dumper);
+  // Set desired limit for file size of minidump (-1 means no limit).
+  writer.set_minidump_size_limit(minidump_size_limit);
+  if (!writer.Init())
+    return false;
+  bool success = writer.Dump();
+
+  // Return the stack pointer and instruction pointer of the crashed thread.
+  size_t crash_thread_index = 0;
+  for (size_t i = 0; i < dumper.threads().size(); ++i) {
+    if (dumper.threads()[i] == dumper.crash_thread()) {
+      crash_thread_index = i;
+      break;
+    }
+  }
+  ThreadInfo thread_info;
+  if (dumper.GetThreadInfoByIndex(crash_thread_index, &thread_info)) {
+    if (stack_pointer)
+      *stack_pointer = thread_info.stack_pointer;
+    if (instruction_pointer)
+      *instruction_pointer = thread_info.GetInstructionPointer();
+  } else {
+    if (stack_pointer)
+      *stack_pointer = 0;
+    if (instruction_pointer)
+      *instruction_pointer = 0;
+  }
+
+  return success;
 }
 
 }  // namespace google_breakpad
