@@ -176,6 +176,30 @@
     },
     {
       "key": {
+        "uuid": "b4579dd2_9f6f499d",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1266265
+      },
+      "writtenOn": "2020-05-04T21:23:06Z",
+      "side": 1,
+      "message": "I can do that; I\u0027ll note though that AFAICT there are 4 such Mac conditions in breakpad already, only one is an #if (witout a defined statement)  one is an #ifndef, and the other two are #ifdefs.",
+      "parentUuid": "dc2996e1_55860bb1",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1516d88_fdcc286f",
         "filename": "src/common/language.cc",
         "patchSetId": 2
