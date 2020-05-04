@@ -152,6 +152,30 @@
     },
     {
       "key": {
+        "uuid": "dc2996e1_55860bb1",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T21:02:39Z",
+      "side": 1,
+      "message": "\u003e No, that would break demangling of the c++ symbols; if the ifdefed code does not return (because the symbol is C++), it falls through to the current code inside the else and is demangled.\n\nOK.\n\nAt least switch this to #if defined instead of #ifdef, as is our standard.",
+      "parentUuid": "a99a0974_fc737be4",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1516d88_fdcc286f",
         "filename": "src/common/language.cc",
         "patchSetId": 2
