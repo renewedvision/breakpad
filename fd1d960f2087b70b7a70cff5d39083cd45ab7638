@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "8ebfd646_63ccba7e",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T15:12:40Z",
+      "side": 1,
+      "message": "\u003e OK.\n\u003e \n\u003e I do notice one problem though: OS_MACOSX is not defined in this part of the GN files. So, that probably requires extra GN edits (as you can see above, Android is indicated with a non-standard define)\n\u003e \n\u003e Any suggestions for the best approach?\n\nYou can just use __APPLE__ in here, the same way that __ANDROID__ was used above.",
+      "parentUuid": "2551f148_43b12b4c",
+      "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b75d5609_e28a29bb",
         "filename": "src/common/language.cc",
         "patchSetId": 1
