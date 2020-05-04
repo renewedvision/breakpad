@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4090259e_743c9cc2",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T20:13:28Z",
+      "side": 1,
+      "message": "#elif defined(__APPLE__)",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1516d88_fdcc286f",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T20:13:28Z",
+      "side": 1,
+      "message": "symbols",
+      "range": {
+        "startLine": 83,
+        "startChar": 15,
+        "endLine": 83,
+        "endChar": 21
+      },
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d86f5b79_89ec2d3d",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T20:13:28Z",
+      "side": 1,
+      "message": "symbols",
+      "range": {
+        "startLine": 84,
+        "startChar": 15,
+        "endLine": 84,
+        "endChar": 21
+      },
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edc8e595_fe3b9b1d",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T20:13:28Z",
+      "side": 1,
+      "message": "This is the end of a sentence, use a period.",
+      "range": {
+        "startLine": 84,
+        "startChar": 67,
+        "endLine": 84,
+        "endChar": 78
+      },
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a9fc734_1552e538",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T20:13:28Z",
+      "side": 1,
+      "message": "Reword, conveying more information in better logical order with fewer words:\n\n    // Attempting to demangle non-C++ symbols with the C++ demangler would print\n    // warnings and fail, so return kDontDemangle for these.\n\n(you’ll note that this gets rid of the “we” stuff, which generally only serves to reduce the text’s readability.)",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 78
+      },
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c850100_ead35c47",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T20:13:28Z",
+      "side": 1,
+      "message": "Don’t use a C string library function when you already have a C++ std::string and there’s a std::string member function that does the same job.\n\nIn this case, you can use std::string::find_first_not_of.",
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
