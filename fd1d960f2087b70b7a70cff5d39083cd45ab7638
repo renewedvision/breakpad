@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5c469cd2_b9a4a40b",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T14:54:52Z",
+      "side": 1,
+      "message": "\u003e In my environment I haven\u0027t seen this used on non-Mac, but can probably add such a restriction.\n\nThis code is used on all platforms except Windows.\n\n\u003e However, can this issue develop on other platforms, too? Or is it limited to Mac?\n\u003e \n\u003e I would guess that a non-Mac would have a different naming convention, though\n\nEverything other than Windows is using the same basic name decoration scheme, which originates with the Itanium C++ ABI that everyone follows, more or less.\n\nThe details on underscores will be different.\n\nAnother difference: macOS gets abi::__cxa_demangle from llvm libc++abi. Other platforms may be getting their demangler from somewhere else, like GCC libstdc++. Other demanglers might not be as noisy when they encounter something they don’t like.\n\nI recommend investigating this, either through the collection of empirical data, or through source code inspection, or both.",
+      "parentUuid": "00690e0b_b42b13dd",
+      "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b75d5609_e28a29bb",
         "filename": "src/common/language.cc",
         "patchSetId": 1
