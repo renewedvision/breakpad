@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "340714e0_99dcf6a6",
+        "filename": "src/common/language.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T23:53:48Z",
+      "side": 1,
+      "message": "auto doesn’t improve readability here, it obscures the type. Use size_t.\n\nhttps://google.github.io/styleguide/cppguide.html#Type_deduction",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 8
+      },
+      "revId": "1f057771814373bb888737273bd95239cf039dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
