@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2923dde4_a4a37b6f",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T14:32:46Z",
+      "side": 1,
+      "message": "Do you really want to do this on all non-Android, or do you just want to restrict it to Apple platforms?",
+      "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b75d5609_e28a29bb",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T14:32:46Z",
+      "side": 1,
+      "message": "This new block deserves a brief comment.",
+      "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9614958_c1dc961d",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T14:32:46Z",
+      "side": 1,
+      "message": "You need to be careful not to dereference beyond a NUL byte.",
+      "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e75d8def_3637cd41",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-04T14:32:46Z",
+      "side": 1,
+      "message": "I’d prefer {} to ; for an empty loop body, as it’s less fragile.",
+      "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
