@@ -79,6 +79,18 @@ class CPPLanguage: public Language {
     demangled->clear();
     return kDontDemangle;
 #else
+#ifdef __APPLE__
+    // Mac C++ labels can have up to 4 underscores, followed by a "Z".
+    // Non-C++ labels are not coded that way, but may have leading underscores
+    // For non-C++ labels we must return kDontDemangle so that we don't try to
+    // demangle the name (which would fail, and cause a warning to be printed)
+    size_t i = strspn(mangled.c_str(), "_");
+    if (i == 0 || i > 4 || mangled[i] != 'Z') {
+      demangled->clear();
+      return kDontDemangle;
+    }
+#endif
+
     int status;
     char* demangled_c =
         abi::__cxa_demangle(mangled.c_str(), NULL, NULL, &status);
