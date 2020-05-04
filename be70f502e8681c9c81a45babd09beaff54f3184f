@@ -128,6 +128,30 @@
     },
     {
       "key": {
+        "uuid": "a99a0974_fc737be4",
+        "filename": "src/common/language.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1266265
+      },
+      "writtenOn": "2020-05-04T20:32:50Z",
+      "side": 1,
+      "message": "No, that would break demangling of the c++ symbols; if the ifdefed code does not return (because the symbol is C++), it falls through to the current code inside the else and is demangled.",
+      "parentUuid": "4090259e_743c9cc2",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "be70f502e8681c9c81a45babd09beaff54f3184f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1516d88_fdcc286f",
         "filename": "src/common/language.cc",
         "patchSetId": 2
