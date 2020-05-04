@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "b7d9ce29_9f492f65",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-05-04T15:03:01Z",
+      "side": 1,
+      "message": "or maybe being moved into a LooksLikeMangledName helper function",
+      "parentUuid": "b75d5609_e28a29bb",
+      "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9614958_c1dc961d",
         "filename": "src/common/language.cc",
         "patchSetId": 1
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "OK",
       "parentUuid": "e75d8def_3637cd41",
+      "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbe65c77_a22ad832",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2020-05-04T15:03:01Z",
+      "side": 1,
+      "message": "or:\n\n  int i \u003d strspn(mangled, \"_\");\n  if (i \u003d\u003d 0 || i \u003e 4 || mangled[i] !\u003d \u0027Z\u0027) {\n    demangled-\u003eclear();\n    return kDontDemangle;\n  }",
+      "parentUuid": "8880e460_381b8927",
       "revId": "fd1d960f2087b70b7a70cff5d39083cd45ab7638",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
