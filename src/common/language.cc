@@ -79,6 +79,14 @@ class CPPLanguage: public Language {
     demangled->clear();
     return kDontDemangle;
 #else
+    size_t i;
+    for (i = 0; i < 4 && mangled[i] == '_'; i++)
+      ;
+    if (i == 0 || mangled[i] != 'Z') {
+      demangled->clear();
+      return kDontDemangle;
+    }
+
     int status;
     char* demangled_c =
         abi::__cxa_demangle(mangled.c_str(), NULL, NULL, &status);
