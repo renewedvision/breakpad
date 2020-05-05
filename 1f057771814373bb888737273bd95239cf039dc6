@@ -70,6 +70,30 @@
       "revId": "1f057771814373bb888737273bd95239cf039dc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65ec131f_3a11b883",
+        "filename": "src/common/language.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-05T00:36:13Z",
+      "side": 1,
+      "message": "\u003e Main reason I chose auto was the actual return type is string::size_type\n\u003e ; it may be size_t, but\n\nIt’s guaranteed to be size_t for std::string.\n\nstd::string is std::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e\u003e.\n\nstd::string::size_type is std::allocator_traits\u003cstd::allocator\u003cchar\u003e\u003e::size_type.\n\nstd::allocator_traits\u003cstd::allocator\u003cchar\u003e\u003e::size_type is std::allocator\u003cchar\u003e::size_type.\n\nstd::allocator\u003cchar\u003e::size_type is std::size_t.\n\nstd::size_t is the \u003ccstddef\u003e equivalent of \u003cstddef.h\u003e size_t, and is the type of the result of the sizeof operator.\n\nWithin the C++ library, a container’s size_type will only ever not be size_t if a custom allocator is in use. This must be requested via a template parameter. While this can be done for an arbitrary std::basic_string, it can’t be done for the std::basic_string known as std::string.",
+      "parentUuid": "70745e5d_1a60719b",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 8
+      },
+      "revId": "1f057771814373bb888737273bd95239cf039dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
