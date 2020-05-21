@@ -79,17 +79,10 @@ class CPPLanguage: public Language {
     demangled->clear();
     return kDontDemangle;
 #else
-#if defined(__APPLE__)
-    // Mac C++ symbols can have up to 4 underscores, followed by a "Z".
-    // Non-C++ symbols are not coded that way, but may have leading underscores.
-    // Attempting to demangle non-C++ symbols with the C++ demangler would print
-    // warnings and fail, so return kDontDemangle for these.
-    size_t i = mangled.find_first_not_of('_');
-    if (i == 0 || i == string::npos || i > 4 || mangled[i] != 'Z') {
+    if (!IsMangledName(mangled)) {
       demangled->clear();
       return kDontDemangle;
     }
-#endif
 
     int status;
     char* demangled_c =
@@ -110,6 +103,17 @@ class CPPLanguage: public Language {
 
     return result;
 #endif
+  }
+
+ private:
+  static bool IsMangledName(const string &name) {
+    // Linux C++ symbols start with "_Z".
+    // Mac C++ symbols can have up to 4 underscores, followed by a "Z".
+    // Non-C++ symbols are not coded that way, but may have leading underscores.
+    // Attempting to demangle non-C++ symbols with the C++ demangler would print
+    // warnings and fail, so return kDontDemangle for these.
+    size_t i = name.find_first_not_of('_');
+    return (i > 0 && i != string::npos && i <= 4 && name[i] == 'Z');
   }
 };
 
