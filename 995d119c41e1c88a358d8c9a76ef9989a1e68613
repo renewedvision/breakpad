@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75b6a77f_672a81e1",
+        "filename": "src/common/language.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-26T18:39:13Z",
+      "side": 1,
+      "message": "Since I’m not aware of any exceptions to the use of the Itanium ABI for name mangling (or most other things), I’d just make this the #else.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 48
+      },
+      "revId": "995d119c41e1c88a358d8c9a76ef9989a1e68613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
