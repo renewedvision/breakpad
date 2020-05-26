@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5ae81ff3_31baec7b",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-05-26T18:13:00Z",
+      "side": 1,
+      "message": "i agree that, at this point in time, cross-object-format support is not a priority (mach-o / ELF / coff / etc...), and most likely won\u0027t be unless someone specifically steps up to implement it.  so if people want to skip going out of their way to support it, that\u0027s fine.\n\nin this particular case, i think Mark is right: we should be tying this logic to macOS (which probably means just mach-o).  if we can do it at runtime and it isn\u0027t terrible, then OK.  but if we can\u0027t, we should be doing it at compile time.\n\npedantic side note: we def want cross-arch/abi support: an ELF build should be able to handle any ELF input and not just whatever the native bitness/endianness/archness is.  some breakpad tools handle this, but not all.  it isn\u0027t what was discussed here specifically, but it\u0027s somewhat related when talking generalities.",
+      "parentUuid": "371117f6_78198bfe",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 60
+      },
+      "revId": "79ec0832ff8ac320523c1886bc9e3a14a4e174e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fe2d669_51831860",
         "filename": "src/common/language.cc",
         "patchSetId": 1
