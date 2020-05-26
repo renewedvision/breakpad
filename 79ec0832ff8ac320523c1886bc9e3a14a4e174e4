@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "439f887f_92ed9e76",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-26T15:48:41Z",
+      "side": 1,
+      "message": "The code doesn’t do what this comment says.\n\nIf macOS is weird in the underscore department, then the weird implementation that’s necessary to deal with it shouldn’t be foisted on other platforms.\n\nIn other words: there’s strong cause for an #if here.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 60
+      },
+      "revId": "79ec0832ff8ac320523c1886bc9e3a14a4e174e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fe2d669_51831860",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-26T15:48:41Z",
+      "side": 1,
+      "message": "No (outer parentheses.)",
+      "revId": "79ec0832ff8ac320523c1886bc9e3a14a4e174e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
