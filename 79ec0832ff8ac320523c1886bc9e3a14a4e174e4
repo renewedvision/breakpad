@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "371117f6_78198bfe",
+        "filename": "src/common/language.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-26T17:40:56Z",
+      "side": 1,
+      "message": "\u003e How is this code supposed to work w.r.t cross-compilation?\n\u003e The problem is: what we should check is the platform of the binary being inspected, not OS of the machine dump_syms is running on (e.g. a Linux build host cross-compiling to Darwin). However it would require a far bigger change to support such dependency.\n\nUnfortunately, this code doesn’t support cross-tooling, and it probably never will.\n\nThe macOS version of dump_syms and symupload only know how to work with Mach-O files, while most other POSIX-ish versions only know how to work with ELF. So, at least in the area of cross-tooling between macOS and others, it’s not possible.",
+      "parentUuid": "28e1c91b_54faef01",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 60
+      },
+      "revId": "79ec0832ff8ac320523c1886bc9e3a14a4e174e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fe2d669_51831860",
         "filename": "src/common/language.cc",
         "patchSetId": 1
