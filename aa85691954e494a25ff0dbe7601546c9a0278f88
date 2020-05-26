@@ -16,6 +16,24 @@
       "revId": "aa85691954e494a25ff0dbe7601546c9a0278f88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdf6ce90_da4d861f",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1423527
+      },
+      "writtenOn": "2020-05-26T17:19:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9d6aef9_1331eab2",
+      "revId": "aa85691954e494a25ff0dbe7601546c9a0278f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
