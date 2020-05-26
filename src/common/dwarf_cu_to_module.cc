@@ -55,6 +55,7 @@ namespace google_breakpad {
 
 using std::accumulate;
 using std::map;
+using std::multimap;
 using std::pair;
 using std::sort;
 using std::vector;
@@ -125,6 +126,10 @@ struct DwarfCUToModule::FilePrivate {
   // cross compilation unit boundaries.
   SpecificationByOffset specifications;
 
+  // Specifications without names (e.g. for artificial compiler-generated
+  // methods) are recorded to suppress erroneous warnings
+  set<uint64_t> unnamed_specifications;
+
   AbstractOriginByOffset origins;
 };
 
@@ -155,8 +160,10 @@ DwarfCUToModule::FileContext::section_map() const {
 }
 
 void DwarfCUToModule::FileContext::ClearSpecifications() {
-  if (!handle_inter_cu_refs_)
+  if (!handle_inter_cu_refs_) {
     file_private_->specifications.clear();
+    file_private_->unnamed_specifications.clear();
+  }
 }
 
 bool DwarfCUToModule::FileContext::IsUnhandledInterCUReference(
@@ -215,7 +222,7 @@ struct DwarfCUToModule::CUContext {
 
   // Keep a list of forward references from DW_AT_abstract_origin and
   // DW_AT_specification attributes so names can be fixed up.
-  std::map<uint64_t, Module::Function *> forward_ref_die_to_func;
+  multimap<uint64_t, Module::Function *> forward_ref_die_to_func;
 };
 
 // Information about the context of a particular DIE. This is for
@@ -353,7 +360,8 @@ void DwarfCUToModule::GenericDIEHandler::ProcessAttributeReference(
         specification_ = &spec->second;
       } else if (data > offset_) {
         forward_ref_die_offset_ = data;
-      } else {
+      } else if (file_context->file_private_
+                 ->unnamed_specifications.count(data) == 0) {
         cu_context_->reporter->UnknownSpecification(offset_, data);
       }
       break;
@@ -458,6 +466,9 @@ string DwarfCUToModule::GenericDIEHandler::ComputeQualifiedName() {
       spec.unqualified_name = *unqualified_name;
     }
     cu_context_->file_context->file_private_->specifications[offset_] = spec;
+  } else if (declaration_) {
+    cu_context_->file_context->file_private_->unnamed_specifications.insert(
+        offset_);
   }
 
   return return_value;
@@ -482,6 +493,7 @@ class DwarfCUToModule::FuncHandler: public GenericDIEHandler {
                                  uint64_t data);
 
   bool EndAttributes();
+  DIEHandler *FindChildHandler(uint64_t offset, enum DwarfTag tag);
   void Finish();
 
  private:
@@ -493,6 +505,7 @@ class DwarfCUToModule::FuncHandler: public GenericDIEHandler {
   uint64_t ranges_; // DW_AT_ranges
   const AbstractOrigin* abstract_origin_;
   bool inline_;
+  DIEContext child_context_; // A context for our children.
 };
 
 void DwarfCUToModule::FuncHandler::ProcessAttributeUnsigned(
@@ -565,6 +578,7 @@ bool DwarfCUToModule::FuncHandler::EndAttributes() {
   if (name_.empty() && abstract_origin_) {
     name_ = abstract_origin_->name;
   }
+  child_context_.name = name_;
   return true;
 }
 
@@ -586,7 +600,7 @@ void DwarfCUToModule::FuncHandler::Finish() {
   // "name_" will have already been fixed up in EndAttributes().
   if (!name_.empty()) {
     auto iter = cu_context_->forward_ref_die_to_func.find(offset_);
-    if (iter != cu_context_->forward_ref_die_to_func.end())
+    for (; iter != cu_context_->forward_ref_die_to_func.end(); ++iter)
       iter->second->name = name_;
   }
 
@@ -643,14 +657,9 @@ void DwarfCUToModule::FuncHandler::Finish() {
       // description is just empty debug data and should just be discarded.
       cu_context_->functions.push_back(func.release());
       if (forward_ref_die_offset_ != 0) {
-        auto iter =
-            cu_context_->forward_ref_die_to_func.find(forward_ref_die_offset_);
-        if (iter == cu_context_->forward_ref_die_to_func.end()) {
-          cu_context_->reporter->UnknownSpecification(offset_,
-                                                      forward_ref_die_offset_);
-        } else {
-          iter->second = cu_context_->functions.back();
-        }
+        // Save this function's forward reference to be resolved later
+        cu_context_->forward_ref_die_to_func.insert(
+            {forward_ref_die_offset_, cu_context_->functions.back()});
       }
     }
   } else if (inline_) {
@@ -679,6 +688,22 @@ bool DwarfCUToModule::NamedScopeHandler::EndAttributes() {
 }
 
 dwarf2reader::DIEHandler *DwarfCUToModule::NamedScopeHandler::FindChildHandler(
+    uint64_t offset,
+    enum DwarfTag tag) {
+  switch (tag) {
+    case dwarf2reader::DW_TAG_subprogram:
+      return new FuncHandler(cu_context_, &child_context_, offset);
+    case dwarf2reader::DW_TAG_namespace:
+    case dwarf2reader::DW_TAG_class_type:
+    case dwarf2reader::DW_TAG_structure_type:
+    case dwarf2reader::DW_TAG_union_type:
+      return new NamedScopeHandler(cu_context_, &child_context_, offset);
+    default:
+      return NULL;
+  }
+}
+
+dwarf2reader::DIEHandler *DwarfCUToModule::FuncHandler::FindChildHandler(
     uint64_t offset,
     enum DwarfTag tag) {
   switch (tag) {
