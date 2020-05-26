@@ -70,6 +70,30 @@
       "revId": "995d119c41e1c88a358d8c9a76ef9989a1e68613",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78045ea6_319e55b9",
+        "filename": "src/common/language.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-05-26T18:57:14Z",
+      "side": 1,
+      "message": "\u003e i wonder if C++ name mangling is going to be the only long lasting legacy of the Itanium endeavor\n\nAlso .eh_frame.",
+      "parentUuid": "72a87bb2_9c001688",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 48
+      },
+      "revId": "995d119c41e1c88a358d8c9a76ef9989a1e68613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
