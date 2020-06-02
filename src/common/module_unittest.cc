@@ -613,4 +613,8 @@ TEST(Write, OutOfRangeAddresses) {
                "STACK CFI INIT 2000 100 \n",
                s.str().c_str());
 
+  delete entry1;
+  delete entry3;
+  delete function;
+  delete extern1;
 }
