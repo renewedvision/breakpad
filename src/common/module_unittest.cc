@@ -612,5 +612,4 @@ TEST(Write, OutOfRangeAddresses) {
   EXPECT_STREQ("MODULE os-name architecture id-string name with spaces\n"
                "STACK CFI INIT 2000 100 \n",
                s.str().c_str());
-
 }

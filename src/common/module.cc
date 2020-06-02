@@ -86,6 +86,9 @@ void Module::AddFunction(Function *function) {
   assert(!function->name.empty());
 
   if (!AddressIsInModule(function->address)) {
+    // Module takes ownership of this pointer. But if the address is outside the
+    // module, Module doesn't need to keep it.
+    delete function;
     return;
   }
 
@@ -132,6 +135,9 @@ void Module::AddFunctions(vector<Function *>::iterator begin,
 
 void Module::AddStackFrameEntry(StackFrameEntry *stack_frame_entry) {
   if (!AddressIsInModule(stack_frame_entry->address)) {
+    // Module takes ownership of this pointer. But if the address is outside the
+    // module, Module doesn't need to keep it.
+    delete stack_frame_entry;
     return;
   }
 
@@ -140,6 +146,9 @@ void Module::AddStackFrameEntry(StackFrameEntry *stack_frame_entry) {
 
 void Module::AddExtern(Extern *ext) {
   if (!AddressIsInModule(ext->address)) {
+    // Module takes ownership of this pointer. But if the address is outside the
+    // module, Module doesn't need to keep it.
+    delete ext;
     return;
   }
 
