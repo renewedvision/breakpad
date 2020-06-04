@@ -111,6 +111,24 @@
       "revId": "5f077b14f393e0f75005f2ca97e8523fac27f639",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5328dd8a_3d0c782a",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1002222
+      },
+      "writtenOn": "2020-06-04T23:30:12Z",
+      "side": 1,
+      "message": "Oops, yeah. Done.",
+      "parentUuid": "d1cdaf21_f30e244c",
+      "revId": "5f077b14f393e0f75005f2ca97e8523fac27f639",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
