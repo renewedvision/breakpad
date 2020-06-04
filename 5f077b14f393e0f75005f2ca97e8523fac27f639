@@ -70,6 +70,30 @@
       "revId": "5f077b14f393e0f75005f2ca97e8523fac27f639",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f2f19e8_7d631260",
+        "filename": "src/tools/linux/symupload/sym_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1376756
+      },
+      "writtenOn": "2020-06-04T23:15:46Z",
+      "side": 1,
+      "message": "make sense. thanks for explanation",
+      "parentUuid": "d2beca59_1641924f",
+      "range": {
+        "startLine": 114,
+        "startChar": 21,
+        "endLine": 114,
+        "endChar": 27
+      },
+      "revId": "5f077b14f393e0f75005f2ca97e8523fac27f639",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
