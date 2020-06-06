@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14e2c229_5f94deb7",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-06T04:43:27Z",
+      "side": 1,
+      "message": "no space here before the *",
+      "range": {
+        "startLine": 391,
+        "startChar": 47,
+        "endLine": 391,
+        "endChar": 48
+      },
+      "revId": "02012ec3e20fa7b066cdb5478a62340a495875b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d54fd51d_3313458e",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-06T04:43:27Z",
+      "side": 1,
+      "message": "no space before the *",
+      "range": {
+        "startLine": 542,
+        "startChar": 51,
+        "endLine": 542,
+        "endChar": 52
+      },
+      "revId": "02012ec3e20fa7b066cdb5478a62340a495875b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b807e6e_f4ec250a",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-06T04:43:27Z",
+      "side": 1,
+      "message": "* should be next to the type rather than the var name",
+      "revId": "02012ec3e20fa7b066cdb5478a62340a495875b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
