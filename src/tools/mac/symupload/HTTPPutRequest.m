@@ -1,4 +1,4 @@
-// Copyright (c) 2006, Google Inc.
+// Copyright (c) 2019, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,27 +27,36 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// HTTPMultipartUpload: A multipart/form-data HTTP uploader.
-// Each parameter pair is sent as a boundary
-// Each file is sent with a name field in addition to the filename and data
-// The data will be sent synchronously.
+#import "HTTPPutRequest.h"
 
-#import <Foundation/Foundation.h>
+@implementation HTTPPutRequest
 
-#import "HTTPRequest.h"
+//=============================================================================
+- (void)dealloc {
+  [file_ release];
 
-@interface HTTPMultipartUpload : HTTPRequest {
- @protected
-  NSDictionary *parameters_;    // The key/value pairs for sending data (STRONG)
-  NSMutableDictionary *files_;  // Dictionary of name/file-path (STRONG)
-  NSString *boundary_;          // The boundary string (STRONG)
+  [super dealloc];
 }
 
-- (void)setParameters:(NSDictionary *)parameters;
-- (NSDictionary *)parameters;
+//=============================================================================
+- (void)setFile:(NSString *)file {
+  file_ = [file copy];
+}
 
-- (void)addFileAtPath:(NSString *)path name:(NSString *)name;
-- (void)addFileContents:(NSData *)data name:(NSString *)name;
-- (NSDictionary *)files;
+//=============================================================================
+- (NSString*)HTTPMethod {
+  return @"PUT";
+}
+
+//=============================================================================
+- (NSData*)bodyData {
+  NSMutableData *postBody = [NSMutableData data];
+
+  [HTTPRequest appendFileToBodyData:postBody
+                           withName:@"symbol_file"
+                     withFileOrData:file_];
+
+  return postBody;
+}
 
 @end
