@@ -60,6 +60,7 @@ CompilationUnit::CompilationUnit(const string& path,
     : path_(path), offset_from_section_start_(offset), reader_(reader),
       sections_(sections), handler_(handler), abbrevs_(),
       string_buffer_(NULL), string_buffer_length_(0),
+      line_string_buffer_(NULL), line_string_buffer_length_(0),
       str_offsets_buffer_(NULL), str_offsets_buffer_length_(0),
       addr_buffer_(NULL), addr_buffer_length_(0),
       is_split_dwarf_(false), dwo_id_(0), dwo_name_(),
@@ -189,12 +190,17 @@ const uint8_t *CompilationUnit::SkipAttribute(const uint8_t *start,
     case DW_FORM_data1:
     case DW_FORM_flag:
     case DW_FORM_ref1:
+    case DW_FORM_strx1:
       return start + 1;
     case DW_FORM_ref2:
     case DW_FORM_data2:
+    case DW_FORM_strx2:
       return start + 2;
+    case DW_FORM_strx3:
+      return start + 3;
     case DW_FORM_ref4:
     case DW_FORM_data4:
+    case DW_FORM_strx4:
       return start + 4;
     case DW_FORM_ref8:
     case DW_FORM_data8:
@@ -204,6 +210,7 @@ const uint8_t *CompilationUnit::SkipAttribute(const uint8_t *start,
       return start + strlen(reinterpret_cast<const char *>(start)) + 1;
     case DW_FORM_udata:
     case DW_FORM_ref_udata:
+    case DW_FORM_strx:
     case DW_FORM_GNU_str_index:
     case DW_FORM_GNU_addr_index:
       reader_->ReadUnsignedLEB128(start, &len);
@@ -237,6 +244,8 @@ const uint8_t *CompilationUnit::SkipAttribute(const uint8_t *start,
       return start + size + len;
     }
     case DW_FORM_strp:
+    case DW_FORM_line_strp:
+    case DW_FORM_strp_sup:
     case DW_FORM_sec_offset:
       return start + reader_->OffsetSize();
   }
@@ -330,6 +339,17 @@ uint64_t CompilationUnit::Start() {
     string_buffer_length_ = iter->second.second;
   }
 
+  // Set the line string section if we have one.  ".debug_line_str" is
+  // the name recommended in the DWARF spec, and used on Linux;
+  // "__debug_line_str" is the name used in Mac OS X Mach-O files.
+  iter = sections_.find(".debug_line_str");
+  if (iter == sections_.end())
+    iter = sections_.find("__debug_line_str");
+  if (iter != sections_.end()) {
+    line_string_buffer_ = iter->second.first;
+    line_string_buffer_length_ = iter->second.second;
+  }
+
   // Set the string offsets section if we have one.
   iter = sections_.find(".debug_str_offsets");
   if (iter != sections_.end()) {
@@ -356,6 +376,20 @@ uint64_t CompilationUnit::Start() {
     ProcessSplitDwarf();
 
   return ourlength;
+}
+
+void CompilationUnit::ProcessFormStringIndex(
+    uint64_t dieoffset, enum DwarfAttribute attr, enum DwarfForm form,
+    uint64_t str_index) {
+  const uint8_t* offset_ptr =
+      str_offsets_buffer_ + str_index * reader_->OffsetSize();
+  const uint64_t offset = reader_->ReadOffset(offset_ptr);
+  if (offset >= string_buffer_length_) {
+    return;
+  }
+
+  const char* str = reinterpret_cast<const char*>(string_buffer_) + offset;
+  ProcessAttributeString(dieoffset, attr, form, str);
 }
 
 // If one really wanted, you could merge SkipAttribute and
@@ -498,21 +532,51 @@ const uint8_t *CompilationUnit::ProcessAttribute(
       ProcessAttributeString(dieoffset, attr, form, str);
       return start + reader_->OffsetSize();
     }
+    case DW_FORM_line_strp: {
+      assert(line_string_buffer_ != NULL);
 
+      const uint64_t offset = reader_->ReadOffset(start);
+      assert(line_string_buffer_ + offset <
+             line_string_buffer_ + line_string_buffer_length_);
+
+      const char *str =
+          reinterpret_cast<const char*>(line_string_buffer_ + offset);
+      ProcessAttributeString(dieoffset, attr, form, str);
+      return start + reader_->OffsetSize();
+    }
+    case DW_FORM_strp_sup:
+      // No support currently for suplementary object files.
+      assert(0);
+      return start + 4;
+
+    case DW_FORM_strx:
     case DW_FORM_GNU_str_index: {
       uint64_t str_index = reader_->ReadUnsignedLEB128(start, &len);
-      const uint8_t* offset_ptr =
-          str_offsets_buffer_ + str_index * reader_->OffsetSize();
-      const uint64_t offset = reader_->ReadOffset(offset_ptr);
-      if (offset >= string_buffer_length_) {
-        return NULL;
-      }
-
-      const char* str = reinterpret_cast<const char *>(string_buffer_) + offset;
-      ProcessAttributeString(dieoffset, attr, form, str);
+      ProcessFormStringIndex(dieoffset, attr, form, str_index);
       return start + len;
-      break;
     }
+    case DW_FORM_strx1: {
+      uint64_t str_index = reader_->ReadOneByte(start);
+      ProcessFormStringIndex(dieoffset, attr, form, str_index);
+      return start + 1;
+    }
+    case DW_FORM_strx2: {
+      uint64_t str_index = reader_->ReadTwoBytes(start);
+      ProcessFormStringIndex(dieoffset, attr, form, str_index);
+      return start + 2;
+    }
+    case DW_FORM_strx3: {
+      uint64_t str_index = reader_->ReadTwoBytes(start);
+      str_index *= reader_->ReadOneByte(start + 2);
+      ProcessFormStringIndex(dieoffset, attr, form, str_index);
+      return start + 3;
+    }
+    case DW_FORM_strx4: {
+      uint64_t str_index = reader_->ReadFourBytes(start);
+      ProcessFormStringIndex(dieoffset, attr, form, str_index);
+      return start + 4;
+    }
+
     case DW_FORM_GNU_addr_index: {
       uint64_t addr_index = reader_->ReadUnsignedLEB128(start, &len);
       const uint8_t* addr_ptr =
