@@ -28,6 +28,13 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "HTTPMultipartUpload.h"
+
+#import <Availability.h>
+#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && defined(__IPHONE_7_0) &&     \
+     __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0)
+#import <UIKit/UIKit.h>
+#endif
+
 #import "GTMDefines.h"
 
 // As -[NSString stringByAddingPercentEscapesUsingEncoding:] has been
@@ -47,6 +54,74 @@ static NSString *PercentEncodeNSString(NSString *key) {
 #endif
 }
 
+static NSData *SendSynchronousNSURLRequestUsingNSURLSession(
+  NSURLRequest *req,
+  NSURLResponse **out_response,
+  NSError **out_error
+) {
+  __block NSData *result = nil;
+  __block NSError *error = nil;
+  __block NSURLResponse *response = nil;
+
+  dispatch_semaphore_t wait_semaphone = dispatch_semaphore_create(0);
+
+  NSURLSessionDataTask *task = [[NSURLSession sharedSession]
+      dataTaskWithRequest:req
+        completionHandler:^(NSData *data, NSURLResponse *resp, NSError *err) {
+          if (out_error)
+            error = [err retain];
+          if (out_response)
+            response = [resp retain];
+          if (err == nil)
+            result = [data retain];
+          dispatch_semaphore_signal(wait_semaphone);
+        }];
+  [task resume];
+
+#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && defined(__IPHONE_7_0) &&     \
+     __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0)
+  __block BOOL isBackgroundTaskActive = YES;
+  __block UIBackgroundTaskIdentifier backgroundTaskIdentifier;
+  backgroundTaskIdentifier = [UIApplication.sharedApplication
+      beginBackgroundTaskWithName:@"Breakpad Upload"
+                expirationHandler:^{
+                  if (!isBackgroundTaskActive) {
+                    return;
+                  }
+                  isBackgroundTaskActive = NO;
+
+                  [task cancel];
+                  [UIApplication.sharedApplication
+                      endBackgroundTask:backgroundTaskIdentifier];
+                }];
+#endif
+
+  dispatch_semaphore_wait(wait_semaphone, DISPATCH_TIME_FOREVER);
+  dispatch_release(wait_semaphone);
+
+#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && defined(__IPHONE_7_0) &&     \
+     __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0)
+  // Dispatch to main queue in order to synchronize access to
+  // `isBackgroundTaskActive` with the background task expiration handler, which
+  // is always run on the main thread.
+  dispatch_async(dispatch_get_main_queue(), ^{
+    if (!isBackgroundTaskActive) {
+      return;
+    }
+    isBackgroundTaskActive = NO;
+
+    [UIApplication.sharedApplication
+        endBackgroundTask:backgroundTaskIdentifier];
+  });
+#endif
+
+  if (out_error)
+    *out_error = [error autorelease];
+  if (out_response)
+    *out_response = [response autorelease];
+  return [result autorelease];
+}
+
 // As -[NSURLConnection sendSynchronousRequest:returningResponse:error:] has
 // been deprecated with iOS 9.0 / OS X 10.11 SDKs, this function re-implements
 // it using -[NSURLSession dataTaskWithRequest:completionHandler:] which is
@@ -59,36 +134,15 @@ static NSData *SendSynchronousNSURLRequest(NSURLRequest *req,
     (defined(MAC_OS_X_VERSION_MIN_REQUIRED) &&                                 \
      defined(MAC_OS_X_VERSION_10_11) &&                                        \
      MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_11)
-  __block NSData* result = nil;
-  __block NSError* error = nil;
-  __block NSURLResponse* response = nil;
-  dispatch_semaphore_t wait_semaphone = dispatch_semaphore_create(0);
-  [[[NSURLSession sharedSession]
-      dataTaskWithRequest:req
-        completionHandler:^(NSData *data,
-                            NSURLResponse *resp,
-                            NSError *err) {
-            if (out_error)
-              error = [err retain];
-            if (out_response)
-              response = [resp retain];
-            if (err == nil)
-              result = [data retain];
-            dispatch_semaphore_signal(wait_semaphone);
-  }] resume];
-  dispatch_semaphore_wait(wait_semaphone, DISPATCH_TIME_FOREVER);
-  dispatch_release(wait_semaphone);
-  if (out_error)
-    *out_error = [error autorelease];
-  if (out_response)
-    *out_response = [response autorelease];
-  return [result autorelease];
+  return SendSynchronousNSURLRequestUsingNSURLSession(
+      req, out_response, out_error);
 #else
   return [NSURLConnection sendSynchronousRequest:req
                                returningResponse:out_response
                                            error:out_error];
 #endif
 }
+
 @interface HTTPMultipartUpload(PrivateMethods)
 - (NSString *)multipartBoundary;
 // Each of the following methods will append the starting multipart boundary,
