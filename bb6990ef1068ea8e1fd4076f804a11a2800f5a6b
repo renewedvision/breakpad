@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07bd7aaa_4ed32238",
+        "filename": "src/common/mac/HTTPMultipartUpload.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1430358
+      },
+      "writtenOn": "2020-06-18T01:28:37Z",
+      "side": 1,
+      "message": "1. Done. (Although the macros were already in use elsewhere in the file.)\n\n2. Not sure I understand. Doesn’t the presence of these macros already indicate that the platform is iOS?",
+      "parentUuid": "bfd07e22_b26771b7",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "bb6990ef1068ea8e1fd4076f804a11a2800f5a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2cca3cfc_d7716900",
         "filename": "src/common/mac/HTTPMultipartUpload.m",
         "patchSetId": 3
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "1bb0f8dd_388fbeaf",
+        "filename": "src/common/mac/HTTPMultipartUpload.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1430358
+      },
+      "writtenOn": "2020-06-18T01:28:37Z",
+      "side": 1,
+      "message": "Oops, I had run our internal `clang-format` on this file. Done!",
+      "parentUuid": "abf96c0d_a49ba29a",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 59
+      },
+      "revId": "bb6990ef1068ea8e1fd4076f804a11a2800f5a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f0c3a28_787635d5",
         "filename": "src/common/mac/HTTPMultipartUpload.m",
         "patchSetId": 3
@@ -79,6 +127,24 @@
       "revId": "bb6990ef1068ea8e1fd4076f804a11a2800f5a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af9166fc_b7990ce1",
+        "filename": "src/common/mac/HTTPMultipartUpload.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1430358
+      },
+      "writtenOn": "2020-06-18T01:28:37Z",
+      "side": 1,
+      "message": "I wanted to avoid nested `#if` directives to improve readability.",
+      "parentUuid": "8f0c3a28_787635d5",
+      "revId": "bb6990ef1068ea8e1fd4076f804a11a2800f5a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
