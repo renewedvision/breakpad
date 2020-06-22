@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "83067715_beb7987d",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-06-22T20:48:32Z",
+      "side": 1,
+      "message": "Since this happened on lines 334–336 just above, and it also happens elsewhere all over this file, it may be reasonable to have a helper function look for the section based on \"debug_line_str\", and have it selectively prepend the \".\" or \"__\" based on non-Mach-O vs. Mach-O.\n\nAlso, this is totally optional. But it’s something I did in the DWARF reader I was working on a few months ago.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 46
+      },
+      "revId": "3ef8eca713241939de235a33fae2a4afa2e4a583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c8ca1aa_c41233b2",
         "filename": "src/common/dwarf/dwarf2reader.cc",
         "patchSetId": 2
@@ -13,6 +36,23 @@
       "writtenOn": "2020-06-19T20:37:45Z",
       "side": 1,
       "message": "* in the incorrect place here too",
+      "revId": "3ef8eca713241939de235a33fae2a4afa2e4a583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3090272e_29385d10",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-06-22T20:48:32Z",
+      "side": 1,
+      "message": "This disappears in NDEBUG (release) builds, and I think you want something both more definite and louder here.",
       "revId": "3ef8eca713241939de235a33fae2a4afa2e4a583",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
