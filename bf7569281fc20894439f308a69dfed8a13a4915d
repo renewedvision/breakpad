@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f032795f_5fd4afa6",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-06-22T23:29:19Z",
+      "side": 1,
+      "message": "Moved into the .h, no longer needed here.",
+      "revId": "bf7569281fc20894439f308a69dfed8a13a4915d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f65ac540_b07e31c5",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-06-22T23:29:19Z",
+      "side": 1,
+      "message": "C header, belongs in the C header section (above, with \u003cstdint.h\u003e), not the C++ header section.",
+      "revId": "bf7569281fc20894439f308a69dfed8a13a4915d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
