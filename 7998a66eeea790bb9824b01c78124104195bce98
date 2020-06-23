@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c76ce6bd_92be0f26",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-23T19:14:33Z",
+      "side": 1,
+      "message": "period at the end",
+      "revId": "7998a66eeea790bb9824b01c78124104195bce98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb059143_076e8af2",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-23T19:14:33Z",
+      "side": 1,
+      "message": "* location ;)",
+      "revId": "7998a66eeea790bb9824b01c78124104195bce98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
