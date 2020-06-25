@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd564409_e1c43d0d",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-06-25T20:16:44Z",
+      "side": 1,
+      "message": "uint8_t for a single byte.",
+      "revId": "6d25a6d5aa01d645439e409e0f18332bde7904b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcdd9975_f2e4f296",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-06-25T20:16:44Z",
+      "side": 1,
+      "message": "Give a hint: fprintf(stderr, \"Unhandled compilation unit type 0x%x\", unit_type);\n\n(readability bonus: no PRIx64 machinations necessary for a uint8_t)",
+      "revId": "6d25a6d5aa01d645439e409e0f18332bde7904b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27d11e9f_0459e6ff",
+        "filename": "src/common/dwarf/dwarf2reader_test_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-06-25T20:16:44Z",
+      "side": 1,
+      "message": "You can nuke the spaces on this line while you’re in here.",
+      "revId": "6d25a6d5aa01d645439e409e0f18332bde7904b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
