@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "66e3290e_6c626da6",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-06-25T03:29:18Z",
+      "side": 1,
+      "message": "default: ???\n\n(DWARF 5 does define DW_UT_lo_user and DW_UT_hi_user, so this case doesn’t necessarily even mean malformed DWARF, but it probably does mean something we don’t know how to handle and don’t want to try handling.)",
+      "revId": "7b1dc74dc35ce87ccd658983fc3648f6cecc3446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3da42adc_ccb003d9",
         "filename": "src/common/dwarf/dwarf2reader.h",
         "patchSetId": 2
