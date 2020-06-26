@@ -22,6 +22,30 @@
       "revId": "e672162f2589fe9cb167ac566ce2043ceb043247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7510459_f44f1cbd",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-26T18:32:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f5fd048_c399a69f",
+      "range": {
+        "startLine": 69,
+        "startChar": 45,
+        "endLine": 69,
+        "endChar": 63
+      },
+      "revId": "e672162f2589fe9cb167ac566ce2043ceb043247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
