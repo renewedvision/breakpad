@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3383eef9_a94c35e6",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Dwarf has a c-style strings embedded inline in the rest of the section data (sometimes in line with .debug_line, sometimes in .debug_str, or .debug_line_str, depending on the dwarf form), so when finding the end of that embedded c-style string, the only thing more defensive than strlen would be the bounds-checked strlen_s, with the C11 standards requirement. Is the project OK with requiring C11 and #define __STDC_LIB_EXT1__ and __STDC_WANT_LIB_EXT1__?\n\nI suppose I could hack one by hand, I guess. Yuck.\n\nInterestingly, even in the old code, the bounds checking is guarded by NDEBUG. (eg, line 1050).\n\nThe good news is that these c-style strings are copied into real std::strings shortly after they are found (via the calls to DefineFile and DefineDir).\n\nSwitching to a string-based container for .debug_line would involve changing nearly every line in the bytereader files. I suppose we could switch to one for just .debug_str and .debug_line_str, but that involves either having .debug_info handling not parallel to .debug_line, or changing .debug_info too. \n\nEither way, those are very extensive changes, and probably beyond the scope of this project. So that leaves the C11 as the solution above. What do you think?",
+      "parentUuid": "61e913b8_099100e7",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a943d782_1d60976e",
         "filename": "src/common/dwarf/dwarf2reader.cc",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb1dd896_ce108a75",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a943d782_1d60976e",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8b35e3e0_ac9ffc68",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68ea6941_026468f5",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee8e100_0074aace",
         "filename": "src/common/dwarf/dwarf2reader.cc",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2510818c_357632c5",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee8e100_0074aace",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "82abbd9f_3cb4baba",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43ee767d_efac015c",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "576d1e76_184b55aa",
         "filename": "src/common/dwarf/dwarf2reader.cc",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a446c57_55a0ccad",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "576d1e76_184b55aa",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "b83be253_35367d9f",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70f1ff15_b545b134",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e47e15_fa799ece",
         "filename": "src/common/dwarf/dwarf2reader.cc",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37ad7b4d_8917c489",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done\n\nIn fact, I have converted this to a call to ReadStringForm, which keeps all the dangerous strlens into one place.",
+      "parentUuid": "83e47e15_fa799ece",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "145668ff_4cfb0162",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2694c642_5dcaf89b",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "debaa663_3946a233",
         "filename": "src/common/dwarf/dwarf2reader.h",
         "patchSetId": 1
@@ -169,6 +331,24 @@
       "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df05decd_d5f66025",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Indeed not, which is a little painful. But all of these new functions are called from either ReadHeader, or ReadLines, which in turn are called by Start, none of which return errors either.\n\nIn fact, none of the ByteReader functions return errors either--they all assume that they will succeed, and that the bounds checking has already been done.\n\nSo this problem exists in the original breakpad code. It is quite endemic. I agree that this isn\u0027t as defensive as it should be, but in practice the issues haven\u0027t surfaced. Probably only a matter of time..\n\nReworking the entire API would be a major undertaking.",
+      "parentUuid": "debaa663_3946a233",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "f90424a1_ff0a656a",
+        "filename": "src/common/dwarf/dwarf2reader_lineinfo_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f1ace8d_1bc6bf5f",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d0fda1_833ced14",
         "filename": "src/common/dwarf_cu_to_module_unittest.cc",
         "patchSetId": 1
@@ -206,6 +404,24 @@
     },
     {
       "key": {
+        "uuid": "bdccf282_506e1cef",
+        "filename": "src/common/dwarf_cu_to_module_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d0fda1_833ced14",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c74abc_38a997fb",
         "filename": "src/common/mac/dump_syms.cc",
         "patchSetId": 1
@@ -220,6 +436,24 @@
       "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69d1ce9d_3ea17a79",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c74abc_38a997fb",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
