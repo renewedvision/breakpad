@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61e913b8_099100e7",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "would these be better using the std::string container ?\n\nor is that not a pattern we use so far with our parsers ?  relying on these memory ranges without a strong bounding end (like strlen() below) feels dicey.",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a943d782_1d60976e",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "line is too long",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68ea6941_026468f5",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "nit: prefer assert(false)\n\nwe prob should add a macro for not reachable logic so we could leverage clang/gcc intrinsics at some point",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ee8e100_0074aace",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "spurious semi-colon",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ee767d_efac015c",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "missing space before the 1",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "576d1e76_184b55aa",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70f1ff15_b545b134",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "no space before the *",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83e47e15_fa799ece",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2694c642_5dcaf89b",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "spurious semi-colon",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "debaa663_3946a233",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "maybe this is a common problem we have with our APIs (i haven\u0027t looked closely), but this does not communicate errors back at all",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f1ace8d_1bc6bf5f",
+        "filename": "src/common/dwarf/dwarf2reader_lineinfo_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "use an anonymous namespace for all these local vars/funcs",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3d0fda1_833ced14",
+        "filename": "src/common/dwarf_cu_to_module_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "i think the old indentation as correct as these are arguments to the void(... func above\n\nneed to adjust the * position too",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3c74abc_38a997fb",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-06-30T17:52:46Z",
+      "side": 1,
+      "message": "line too long",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
