@@ -352,6 +352,24 @@
     },
     {
       "key": {
+        "uuid": "fc77b0f2_66c1ea4d",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-13T20:51:33Z",
+      "side": 1,
+      "message": "\u003e Indeed not, which is a little painful. But all of these new functions are called from either ReadHeader, or ReadLines, which in turn are called by Start, none of which return errors either.\n\u003e \n\u003e In fact, none of the ByteReader functions return errors either--they all assume that they will succeed, and that the bounds checking has already been done.\n\u003e \n\u003e So this problem exists in the original breakpad code. It is quite endemic. I agree that this isn\u0027t as defensive as it should be, but in practice the issues haven\u0027t surfaced. Probably only a matter of time..\n\u003e \n\u003e Reworking the entire API would be a major undertaking.\n\nI agree that revising this would be more effort than it’s worth.",
+      "parentUuid": "df05decd_d5f66025",
+      "revId": "d5555ccd3b6cc5647fb00ae75e040456fbc63fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f1ace8d_1bc6bf5f",
         "filename": "src/common/dwarf/dwarf2reader_lineinfo_unittest.cc",
         "patchSetId": 1
