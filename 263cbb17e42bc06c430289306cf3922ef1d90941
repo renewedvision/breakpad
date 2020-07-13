@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e083b31_67b80827",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-07-13T18:09:40Z",
+      "side": 1,
+      "message": "Mark, any thoughts on this? Reworking the API is beyond the scope of my work here.",
+      "revId": "263cbb17e42bc06c430289306cf3922ef1d90941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
