@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2cd4a2c_79c699eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-07-24T21:12:17Z",
+      "side": 1,
+      "message": "Thanks. Just waiting for crbug.com/1108842 to close and will submit.",
+      "revId": "8a6b9b025aec1a20c9415260167327d458ca9e3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
