@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6ec79459_7474c278",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1201,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-07-24T21:18:24Z",
+      "side": 1,
+      "message": "I don\u0027t know how lldb represents addresses, but unsigned 64-bit integers (Module::Address) and the literal -1 can have weird interactions when doing comparisons. Also, the two-way invariant this code uses (with a single check at the end) makes it somewhat harder to code it that way.",
+      "parentUuid": "02e47acc_c42a8cf9",
+      "range": {
+        "startLine": 1201,
+        "startChar": 28,
+        "endLine": 1201,
+        "endChar": 66
+      },
+      "revId": "76244590685d21ea8ce418506c176b4e5e7dbb7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70e9013b_fa855f2e",
         "filename": "src/common/module.h",
         "patchSetId": 1
