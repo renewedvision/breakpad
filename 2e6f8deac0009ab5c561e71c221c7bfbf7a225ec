@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82a04f50_6946aee3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-07-24T04:04:51Z",
+      "side": 1,
+      "message": "This will fix some breakage from fuschia, and I believe chromium had issues with it as well.\n\nSee the links below for more discussion.\n\nhttps://reviews.llvm.org/D81784\nhttp://lists.llvm.org/pipermail/llvm-dev/2020-July/143482.html",
+      "revId": "2e6f8deac0009ab5c561e71c221c7bfbf7a225ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
