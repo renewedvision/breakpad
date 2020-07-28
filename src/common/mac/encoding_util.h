@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,8 +27,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef util_h
-#define util_h
+#ifndef encoding_util_h
+#define encoding_util_h
 
 #import <Foundation/Foundation.h>
 
@@ -36,17 +36,6 @@
 // deprecated with iOS 9.0 / OS X 10.11 SDKs, this function re-implements it
 // using -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] when
 // using those SDKs.
-static NSString *PercentEncodeNSString(NSString *key) {
-#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && defined(__IPHONE_9_0) &&     \
-__IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_9_0) ||                      \
-(defined(MAC_OS_X_VERSION_MIN_REQUIRED) &&                                 \
-defined(MAC_OS_X_VERSION_10_11) &&                                        \
-MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_11)
-  return [key stringByAddingPercentEncodingWithAllowedCharacters:
-          [NSCharacterSet URLQueryAllowedCharacterSet]];
-#else
-  return [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-#endif
-}
+NSString *PercentEncodeNSString(NSString *key);
 
-#endif /* util_h */
+#endif /* encoding_util_h */

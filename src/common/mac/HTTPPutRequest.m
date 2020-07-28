@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,47 +27,36 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
+#import "HTTPPutRequest.h"
 
-NS_ASSUME_NONNULL_BEGIN
-/**
- Represents a single HTTP request. Sending the request is synchronous.
- Once the send is complete, the response will be set.
+@implementation HTTPPutRequest
 
- This is a base interface that specific HTTP requests derive from.
- It is not intended to be instantiated directly.
- */
-@interface HTTPRequest : NSObject {
- @protected
-  NSURL *URL_;                   // The destination URL (STRONG)
-  NSHTTPURLResponse *response_;  // The response from the send (STRONG)
+//=============================================================================
+- (void)dealloc {
+  [file_ release];
+
+  [super dealloc];
 }
 
-/**
- Initializes the HTTPRequest and sets its URL.
- */
-- (id)initWithURL:(NSURL *)URL;
+//=============================================================================
+- (void)setFile:(NSString *)file {
+  file_ = [file copy];
+}
 
-- (NSURL *)URL;
+//=============================================================================
+- (NSString *)HTTPMethod {
+  return @"PUT";
+}
 
-- (NSHTTPURLResponse*) response;
+//=============================================================================
+- (NSData *)bodyData {
+  NSMutableData *postBody = [NSMutableData data];
 
-- (NSString*)HTTPMethod;   // Internal, don't call outside class hierarchy.
+  [HTTPRequest appendFileToBodyData:postBody
+                           withName:@"symbol_file"
+                     withFileOrData:file_];
 
-- (NSString*)contentType;  // Internal, don't call outside class hierarchy.
-
-- (NSData*)bodyData;       // Internal, don't call outside class hierarchy.
-
-- (NSData *)send:(NSError **)error;
-
-/**
- Appends a file to the HTTP request, either by filename or by file content
- (in the form of NSData).
- */
-+ (void)appendFileToBodyData:(NSMutableData *)data
-                    withName:(NSString*)name
-              withFileOrData:(id)fileOrData;
+  return postBody;
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

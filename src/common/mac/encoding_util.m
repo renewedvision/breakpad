@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,25 +27,21 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#include "encoding_util.h"
+
+#include <Availability.h>
+#include <AvailabilityMacros.h>
 #import <Foundation/Foundation.h>
 
-#import "HTTPRequest.h"
-
-NS_ASSUME_NONNULL_BEGIN
-
-/**
- Represents an HTTP PUT request.
- */
-@interface HTTPPutRequest : HTTPRequest {
-@protected
-    NSString* file_;
+NSString *PercentEncodeNSString(NSString *key) {
+#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && defined(__IPHONE_9_0) &&     \
+     __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_9_0) ||                      \
+    (defined(MAC_OS_X_VERSION_MIN_REQUIRED) &&                                 \
+     defined(MAC_OS_X_VERSION_10_11) &&                                        \
+     MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_11)
+  return [key stringByAddingPercentEncodingWithAllowedCharacters:
+                  [NSCharacterSet URLQueryAllowedCharacterSet]];
+#else
+  return [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+#endif
 }
-
-/**
- Sets the path of the file that will be sent in the PUT request.
- */
-- (void)setFile:(NSString*)file;
-
-@end
-
-NS_ASSUME_NONNULL_END
