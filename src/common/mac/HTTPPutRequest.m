@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,43 +27,36 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "HTTPSimplePostRequest.h"
+#import "HTTPPutRequest.h"
 
-@implementation HTTPSimplePostRequest
+@implementation HTTPPutRequest
 
 //=============================================================================
 - (void)dealloc {
-    [contentType_ release];
-    [body_ release];
+  [file_ release];
 
-    [super dealloc];
+  [super dealloc];
 }
 
 //=============================================================================
-- (void)setContentType:(NSString *)contentType {
-    contentType_ = [contentType copy];
+- (void)setFile:(NSString *)file {
+  file_ = [file copy];
 }
 
 //=============================================================================
-- (void)setBody:(NSString *)body {
-  body_ = [body copy];
+- (NSString *)HTTPMethod {
+  return @"PUT";
 }
 
 //=============================================================================
-- (NSString*)HTTPMethod {
-    return @"POST";
-}
+- (NSData *)bodyData {
+  NSMutableData *postBody = [NSMutableData data];
 
-//=============================================================================
-- (NSString*)contentType {
-    return contentType_;
-}
+  [HTTPRequest appendFileToBodyData:postBody
+                           withName:@"symbol_file"
+                     withFileOrData:file_];
 
-//=============================================================================
-- (NSData*)bodyData {
-    NSMutableData* data = [NSMutableData data];
-    [data appendData:[body_ dataUsingEncoding:NSUTF8StringEncoding]];
-    return data;
+  return postBody;
 }
 
 @end

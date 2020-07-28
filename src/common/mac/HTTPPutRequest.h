@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,44 +29,22 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-/**
- Represents a single HTTP request. Sending the request is synchronous.
- Once the send is complete, the response will be set.
+#import "HTTPRequest.h"
 
- This is a base interface that specific HTTP requests derive from.
- It is not intended to be instantiated directly.
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ Represents an HTTP PUT request.
  */
-@interface HTTPRequest : NSObject {
- @protected
-  NSURL *URL_;                   // The destination URL (STRONG)
-  NSHTTPURLResponse *response_;  // The response from the send (STRONG)
+@interface HTTPPutRequest : HTTPRequest {
+@protected
+  NSString *file_;
 }
 
 /**
- Initializes the HTTPRequest and sets its URL.
+ Sets the path of the file that will be sent in the PUT request.
  */
-- (id)initWithURL:(NSURL *)URL;
-
-- (NSURL *)URL;
-
-- (NSHTTPURLResponse*) response;
-
-- (NSString*)HTTPMethod;   // Internal, don't call outside class hierarchy.
-
-- (NSString*)contentType;  // Internal, don't call outside class hierarchy.
-
-- (NSData*)bodyData;       // Internal, don't call outside class hierarchy.
-
-- (NSData *)send:(NSError **)error;
-
-/**
- Appends a file to the HTTP request, either by filename or by file content
- (in the form of NSData).
- */
-+ (void)appendFileToBodyData:(NSMutableData *)data
-                    withName:(NSString*)name
-              withFileOrData:(id)fileOrData;
+- (void)setFile:(NSString *)file;
 
 @end
 

@@ -30,7 +30,7 @@
 #import "HTTPMultipartUpload.h"
 
 #import "GTMDefines.h"
-#import "util.h"
+#import "encoding_util.h"
 
 @interface HTTPMultipartUpload(PrivateMethods)
 - (NSString *)multipartBoundary;
