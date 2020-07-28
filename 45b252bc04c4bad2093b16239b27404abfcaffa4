@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "add0e5c7_2814ee71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-28T23:35:33Z",
+      "side": 1,
+      "message": "I should have incorporated all the review feedback and made the GN build work. Also I re-tested it against the Crash v2 SymbolCollector server.",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
