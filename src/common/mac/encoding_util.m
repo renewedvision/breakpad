@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,13 +27,22 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "HTTPGetRequest.h"
+#include "encoding_util.h"
 
-@implementation HTTPGetRequest
+#include <Availability.h>
+#include <AvailabilityMacros.h>
+#import <Foundation/Foundation.h>
 
-//=============================================================================
-- (NSString*)HTTPMethod {
-    return @"GET";
+NSString *PercentEncodeNSString(NSString *key) {
+#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && defined(__IPHONE_9_0) &&     \
+     __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_9_0) ||                      \
+    (defined(MAC_OS_X_VERSION_MIN_REQUIRED) &&                                 \
+     defined(MAC_OS_X_VERSION_10_11) &&                                        \
+     MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_11)
+  return [key stringByAddingPercentEncodingWithAllowedCharacters:
+                  [NSCharacterSet URLQueryAllowedCharacterSet]];
+#else
+  return [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+#endif
 }
 
-@end

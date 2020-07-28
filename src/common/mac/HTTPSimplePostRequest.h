@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -34,17 +34,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Represents an HTTP PUT request.
+ Represents a simple (non-multipart) HTTP POST request.
  */
-@interface HTTPPutRequest : HTTPRequest {
+@interface HTTPSimplePostRequest : HTTPRequest {
 @protected
-    NSString* file_;
+  NSString *contentType_;
+  NSString *body_;
 }
 
 /**
- Sets the path of the file that will be sent in the PUT request.
+ Sets the content type of the POST request.
  */
-- (void)setFile:(NSString*)file;
+- (void)setContentType:(NSString *)contentType;
+
+/**
+ Sets the contents of the POST request's body.
+ */
+- (void)setBody:(NSString *)body;
 
 @end
 

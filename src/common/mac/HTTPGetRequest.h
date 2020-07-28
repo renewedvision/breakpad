@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -34,24 +34,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Represents a simple (non-multipart) HTTP POST request.
+ Represents a HTTP GET request
  */
-@interface HTTPSimplePostRequest : HTTPRequest {
-@protected
-  NSString* contentType_;
-  NSString* body_;
-}
-
-/**
- Sets the content type of the POST request.
- */
-- (void)setContentType:(NSString*)contentType;
-
-/**
- Sets the contents of the POST request's body.
- */
-- (void)setBody:(NSString*)body;
-
+@interface HTTPGetRequest : HTTPRequest
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Google Inc.
+// Copyright (c) 2020, Google Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,16 +27,43 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
+#import "HTTPSimplePostRequest.h"
 
-#import "HTTPRequest.h"
+@implementation HTTPSimplePostRequest
 
-NS_ASSUME_NONNULL_BEGIN
+//=============================================================================
+- (void)dealloc {
+  [contentType_ release];
+  [body_ release];
 
-/**
- Represents a HTTP GET request
- */
-@interface HTTPGetRequest : HTTPRequest
+  [super dealloc];
+}
+
+//=============================================================================
+- (void)setContentType:(NSString *)contentType {
+  contentType_ = [contentType copy];
+}
+
+//=============================================================================
+- (void)setBody:(NSString *)body {
+  body_ = [body copy];
+}
+
+//=============================================================================
+- (NSString *)HTTPMethod {
+  return @"POST";
+}
+
+//=============================================================================
+- (NSString *)contentType {
+  return contentType_;
+}
+
+//=============================================================================
+- (NSData *)bodyData {
+  NSMutableData *data = [NSMutableData data];
+  [data appendData:[body_ dataUsingEncoding:NSUTF8StringEncoding]];
+  return data;
+}
+
 @end
-
-NS_ASSUME_NONNULL_END
