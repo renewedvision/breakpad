@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48ef277a_4eae6254",
+        "filename": "src/common/mac/HTTPRequest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T00:00:24Z",
+      "side": 0,
+      "message": "This was all more correct before than it is now.\n\n(Did you maybe use “git cl format?” Maybe --style\u003dChromium isn’t in effect here?)",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 71
+      },
+      "revId": "114336881a21459d2c7fab2de5e010b5faf55e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

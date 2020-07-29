@@ -16,6 +16,74 @@
       "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba4f7035_45ce2c00",
+        "filename": "src/common/mac/SymbolCollectorClient.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T00:00:24Z",
+      "side": 1,
+      "message": "Here, line 87, and line 93: these aren’t really the names of the API. Unless the spec or something else uses these exact names, is there any reason to CamelCaseSmushThemIntoSomethingThatLooksLikeOneWord?",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65c3e101_35640757",
+        "filename": "src/common/mac/encoding_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T00:00:24Z",
+      "side": 1,
+      "message": "Write paths into the guards. In Breakpad, we’d use GOOGLE_BREAKPAD_COMMON_MAC_ENCODING_UTIL_H.",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3745c7d_61008971",
+        "filename": "src/common/mac/encoding_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T00:00:24Z",
+      "side": 1,
+      "message": "Breakpad’s a bit of a mess on this point, but in Chromium, we usually put the * on the type name, not on the function name or the variable name.",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32f897c3_597f9a83",
+        "filename": "src/common/mac/encoding_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T00:00:24Z",
+      "side": 1,
+      "message": "and // comments.",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
