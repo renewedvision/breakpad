@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "aff9237b_239d7e15",
+        "filename": "src/common/mac/SymbolCollectorClient.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T21:49:56Z",
+      "side": 1,
+      "message": "\u003e The Proto does use these exact names, yeah. So for instance if we changed the implementation to use gRPC then we\u0027d use exactly that name for the RPC. I can definitely see where you\u0027re coming from, though, since in this case we only refer to the HTTP-REST interface, where the REST verbs are deliberately rephrased to just contain the verb and not the subject/object.\n\nIf it were me, I’d have used consistent naming throughout the proto and REST interface.\n\nIf there’s nothing public about the proto, then it doesn’t seem very helpful to most people to have those names show up here. Maybe it’s helpful to you, but it’s also actively unhelpful to anyone else who isn’t seeing the proto but is seeing the REST names. For something like that, where it’s helpful to you and you want to keep it, I think it’d be better as an implementation comment in the .m file, where it would appear right next to the REST names that others would be familiar with. I don’t think that having it out here as an interface comment in the .h file contributes anything positive if those names aren’t publicly known.",
+      "parentUuid": "457b456b_664c42e2",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65c3e101_35640757",
         "filename": "src/common/mac/encoding_util.h",
         "patchSetId": 3

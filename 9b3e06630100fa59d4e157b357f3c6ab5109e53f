@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e23ba4f_c94fbc9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T21:49:56Z",
+      "side": 1,
+      "message": "LGTM otherwise",
+      "revId": "9b3e06630100fa59d4e157b357f3c6ab5109e53f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5a739cb_8d057954",
+        "filename": "src/common/mac/HTTPMultipartUpload.m",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T21:49:56Z",
+      "side": 1,
+      "message": "It seems like some files, like this one, escaped your reformatting according to Chromium style.",
+      "revId": "9b3e06630100fa59d4e157b357f3c6ab5109e53f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3ca9ffb_6fee9476",
+        "filename": "src/common/mac/minidump_upload.m",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-07-29T21:49:56Z",
+      "side": 1,
+      "message": "This one too.",
+      "revId": "9b3e06630100fa59d4e157b357f3c6ab5109e53f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
