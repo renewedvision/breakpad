@@ -22,6 +22,30 @@
       "revId": "114336881a21459d2c7fab2de5e010b5faf55e55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bc1aa7f_c66505ca",
+        "filename": "src/common/mac/HTTPRequest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-29T17:55:04Z",
+      "side": 0,
+      "message": "I was using clang-format via a VS Code extension. I figured out (I hope) what the issue is. The plugin was defaulting to \"LLVM\" style (this is logical in retrospect) and now that I\u0027ve changed it to Chromium it\u0027s formatting differently...",
+      "parentUuid": "48ef277a_4eae6254",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 71
+      },
+      "revId": "114336881a21459d2c7fab2de5e010b5faf55e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

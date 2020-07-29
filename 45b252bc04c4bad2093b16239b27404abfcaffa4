@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "457b456b_664c42e2",
+        "filename": "src/common/mac/SymbolCollectorClient.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-29T17:55:04Z",
+      "side": 1,
+      "message": "The Proto does use these exact names, yeah. So for instance if we changed the implementation to use gRPC then we\u0027d use exactly that name for the RPC. I can definitely see where you\u0027re coming from, though, since in this case we only refer to the HTTP-REST interface, where the REST verbs are deliberately rephrased to just contain the verb and not the subject/object.\n\nThe reason the Proto isn\u0027t checked in here is a pragmatic one: I just didn\u0027t want two copies going out of sync. I\u0027m the least qualified one to judge what is easiest to understand, since I wrote all the pieces of this, so if you think it\u0027s less confusing to purely refer to the HTTP-REST version of the interface then I\u0027m happy to change all the explanatory comments to that.",
+      "parentUuid": "ba4f7035_45ce2c00",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65c3e101_35640757",
         "filename": "src/common/mac/encoding_util.h",
         "patchSetId": 3
@@ -67,6 +85,24 @@
       "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "530f82b2_8636eed3",
+        "filename": "src/common/mac/encoding_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-29T17:55:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65c3e101_35640757",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "f6f33e8d_58432d7c",
+        "filename": "src/common/mac/encoding_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-29T17:55:04Z",
+      "side": 1,
+      "message": "Yeah these *s all got moved by me incorrectly formatting using LLVM style. Thankfully Chromium style seems to have moved them back to the typename.",
+      "parentUuid": "e3745c7d_61008971",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32f897c3_597f9a83",
         "filename": "src/common/mac/encoding_util.h",
         "patchSetId": 3
@@ -101,6 +155,24 @@
       "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72ef0a46_300ea216",
+        "filename": "src/common/mac/encoding_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-29T17:55:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32f897c3_597f9a83",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
