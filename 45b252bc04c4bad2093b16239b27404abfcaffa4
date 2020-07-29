@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "60fc8572_d0ddd8c2",
+        "filename": "src/common/mac/SymbolCollectorClient.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-29T23:28:10Z",
+      "side": 1,
+      "message": "Fair enough.",
+      "parentUuid": "aff9237b_239d7e15",
+      "revId": "45b252bc04c4bad2093b16239b27404abfcaffa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c3e101_35640757",
         "filename": "src/common/mac/encoding_util.h",
         "patchSetId": 3

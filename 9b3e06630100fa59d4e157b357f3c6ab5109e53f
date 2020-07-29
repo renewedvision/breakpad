@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "9be71967_4632c670",
+        "filename": "src/common/mac/HTTPMultipartUpload.m",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-29T23:28:10Z",
+      "side": 1,
+      "message": "Pilot error. I didn\u0027t have that file open when I ran it :|",
+      "parentUuid": "d5a739cb_8d057954",
+      "revId": "9b3e06630100fa59d4e157b357f3c6ab5109e53f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3ca9ffb_6fee9476",
         "filename": "src/common/mac/minidump_upload.m",
         "patchSetId": 4
@@ -50,6 +68,24 @@
       "revId": "9b3e06630100fa59d4e157b357f3c6ab5109e53f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00512c71_96fc06ff",
+        "filename": "src/common/mac/minidump_upload.m",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-07-29T23:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3ca9ffb_6fee9476",
+      "revId": "9b3e06630100fa59d4e157b357f3c6ab5109e53f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
