@@ -30,9 +30,9 @@
 #import "HTTPMultipartUpload.h"
 
 #import "GTMDefines.h"
-#import "util.h"
+#import "encoding_util.h"
 
-@interface HTTPMultipartUpload(PrivateMethods)
+@interface HTTPMultipartUpload (PrivateMethods)
 - (NSString *)multipartBoundary;
 // Each of the following methods will append the starting multipart boundary,
 // but not the ending one.
@@ -48,18 +48,17 @@
 //=============================================================================
 - (NSString *)multipartBoundary {
   // The boundary has 27 '-' characters followed by 16 hex digits
-  return [NSString stringWithFormat:@"---------------------------%08X%08X",
-    rand(), rand()];
+  return [NSString
+      stringWithFormat:@"---------------------------%08X%08X", rand(), rand()];
 }
 
 //=============================================================================
 - (NSData *)formDataForKey:(NSString *)key value:(NSString *)value {
-  NSMutableData* data = [NSMutableData data];
+  NSMutableData *data = [NSMutableData data];
   [self appendBoundaryData:data];
-  
+
   NSString *escaped = PercentEncodeNSString(key);
-  NSString *fmt =
-    @"Content-Disposition: form-data; name=\"%@\"\r\n\r\n%@\r\n";
+  NSString *fmt = @"Content-Disposition: form-data; name=\"%@\"\r\n\r\n%@\r\n";
   NSString *form = [NSString stringWithFormat:fmt, boundary_, escaped, value];
 
   [data appendData:[form dataUsingEncoding:NSUTF8StringEncoding]];
@@ -67,7 +66,7 @@
 }
 
 //=============================================================================
-- (void)appendBoundaryData: (NSMutableData*)data {
+- (void)appendBoundaryData:(NSMutableData *)data {
   NSString *fmt = @"--%@\r\n";
   NSString *pre = [NSString stringWithFormat:fmt, boundary_];
 
@@ -125,18 +124,18 @@
 }
 
 //=============================================================================
-- (NSString*)HTTPMethod {
+- (NSString *)HTTPMethod {
   return @"POST";
 }
 
 //=============================================================================
-- (NSString*)contentType {
-  return [NSString stringWithFormat:@"multipart/form-data; boundary=%@",
-          boundary_];
+- (NSString *)contentType {
+  return [NSString
+      stringWithFormat:@"multipart/form-data; boundary=%@", boundary_];
 }
 
 //=============================================================================
-- (NSData*)bodyData {
+- (NSData *)bodyData {
   NSMutableData *postBody = [NSMutableData data];
 
   // Add any parameters to the message
