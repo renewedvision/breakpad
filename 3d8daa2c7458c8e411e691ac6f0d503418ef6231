@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "834c9e9a_43b76ea9",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-05T21:29:11Z",
+      "side": 1,
+      "message": "Yeah this occurred to me as well when making the change. This was my attempt to make things work when someone passes a well-formed filename for debugFile.\n\nI don\u0027t think we need to escape strings that contain disallowed characters, because those will inevitably fail and should fail. So eg. the APIKey, APIURL, and debugID don\u0027t have any legal characters that will break a URL when substituted the way we do here. That\u0027s also why I preferred not to try escaping the whole URL-- if it behaves differently from this then it means it masked a bad input.\n\nI agree the right thing to do is reject strings with funny characters immediately.",
+      "parentUuid": "46d09613_48b48389",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 50
+      },
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b30429e_019ab72b",
         "filename": "src/common/mac/SymbolCollectorClient.m",
         "patchSetId": 2
@@ -56,6 +80,24 @@
       "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb46d52a_b16cceba",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-05T21:29:11Z",
+      "side": 1,
+      "message": "There aren\u0027t legal characters for APIURL or APIKey that need escaping. Agreed about validating inputs though.",
+      "parentUuid": "8b30429e_019ab72b",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +118,24 @@
     },
     {
       "key": {
+        "uuid": "b415559c_33c7fff6",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-05T21:29:11Z",
+      "side": 1,
+      "message": "There aren\u0027t legal characters for APIUrl, uploadKey, or APIKey that require escaping. Agreed about validating inputs though.",
+      "parentUuid": "74e5f371_1afc1a40",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620aedf0_cef74e8c",
         "filename": "src/common/mac/SymbolCollectorClient.m",
         "patchSetId": 2
@@ -87,6 +147,24 @@
       "writtenOn": "2020-08-05T20:42:01Z",
       "side": 1,
       "message": "also here, although it’d be a different type of escaping.\n\nThis is the one case where you can’t say that the input string is guaranteed to be clean. What if debug_file has a double-quote in it? What if it has a backslash?",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cb1a26b_e8f2c454",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-05T21:29:11Z",
+      "side": 1,
+      "message": "I don\u0027t think double-quote is legal in a Mac OS or iOS filename, but (to my surprise) I just found that backslash is. So yes backslashes need to be escaped here.\n\nOtherwise, as above agreed that the right thing to do is validate inputs for illegal characters.",
+      "parentUuid": "620aedf0_cef74e8c",
       "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
