@@ -186,6 +186,24 @@
       "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30469efc_c6f985c5",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-05T21:34:08Z",
+      "side": 1,
+      "message": "\u003e \u003e I don\u0027t think double-quote is legal in a Mac OS or iOS filename, but (to my surprise) I just found that backslash is. So yes backslashes need to be escaped here.\n\u003e \u003e \n\u003e \u003e Otherwise, as above agreed that the right thing to do is validate inputs for illegal characters.\n\u003e \n\u003e Both double-quote and backslash are legal characters.\n\u003e \n\u003e In fact, everything except forward slash and NUL are legal characters.\n\n(same rules as on Linux, by the way.)",
+      "parentUuid": "30cbd0ee_cb0cd01e",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
