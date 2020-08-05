@@ -204,6 +204,24 @@
       "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a77b51c8_00e41d25",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-05T21:37:05Z",
+      "side": 1,
+      "message": "Fair enough I guess we\u0027ll escape every character except forward slash and NUL. Forward slash and NUL will be illegal characters in debugFile.",
+      "parentUuid": "30469efc_c6f985c5",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
