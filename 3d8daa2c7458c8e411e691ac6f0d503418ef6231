@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "541cadc6_118935e7",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-05T20:42:01Z",
+      "side": 1,
+      "message": "Just seeing this nit now, but our naming would be apiURL and apiKey, throughout this class.",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46d09613_48b48389",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-05T20:42:01Z",
+      "side": 1,
+      "message": "Technically, you should be escaping everything that goes into the URL, unless you’re positive that they don’t have any characters that need escaping. (But in that case, it might also be nice to assert that they don’t have funny characters.)",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 50
+      },
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b30429e_019ab72b",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-05T20:42:01Z",
+      "side": 1,
+      "message": "also",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74e5f371_1afc1a40",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-05T20:42:01Z",
+      "side": 1,
+      "message": "also",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "620aedf0_cef74e8c",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-05T20:42:01Z",
+      "side": 1,
+      "message": "also here, although it’d be a different type of escaping.\n\nThis is the one case where you can’t say that the input string is guaranteed to be clean. What if debug_file has a double-quote in it? What if it has a backslash?",
+      "revId": "3d8daa2c7458c8e411e691ac6f0d503418ef6231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
