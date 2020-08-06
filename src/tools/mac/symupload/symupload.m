@@ -156,6 +156,7 @@ static void StartSymUploadProtocolV2(Options* options,
     if (symbolStatus == SymbolStatusFound) {
       fprintf(stdout, "Symbol file already exists, upload aborted."
                       " Use \"-f\" to overwrite.\n");
+      options->success = YES;
       return;
     } else if (symbolStatus == SymbolStatusUnknown) {
       fprintf(stdout, "Failed to get check for existing symbol.\n");
