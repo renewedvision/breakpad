@@ -147,6 +147,30 @@
       "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad77c1f1_ee733ea9",
+        "filename": "src/tools/mac/symupload/symupload.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-06T20:53:07Z",
+      "side": 1,
+      "message": "Fair enough I think. ivanpe@ and mark@ if I make a comment on the difference between V1 and V2 behaviour in this file, where do you think I should put it? On the line where the V1 protocol returns success/failure?",
+      "parentUuid": "47084942_c2f47fa6",
+      "range": {
+        "startLine": 165,
+        "startChar": 24,
+        "endLine": 165,
+        "endChar": 43
+      },
+      "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
