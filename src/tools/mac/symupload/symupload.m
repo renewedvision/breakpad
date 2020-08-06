@@ -50,13 +50,19 @@
 
 typedef enum { SymUploadProtocolV1, SymUploadProtocolV2 } SymUploadProtocol;
 
+typedef enum {
+  ResultSuccess = 0,
+  ResultFailure = 1,
+  ResultAlreadyExists = 2
+} Result;
+
 typedef struct {
   NSString* symbolsPath;
   NSString* uploadURLStr;
   SymUploadProtocol symUploadProtocol;
   NSString* apiKey;
   BOOL force;
-  BOOL success;
+  Result result;
 } Options;
 
 //=============================================================================
@@ -137,14 +143,14 @@ static void StartSymUploadProtocolV1(Options* options,
 
   [result release];
   [ul release];
-  options->success = !error && status == 200;
+  options->result = (!error && status == 200) ? ResultSuccess : ResultFailure;
 }
 
 //=============================================================================
 static void StartSymUploadProtocolV2(Options* options,
                                      NSArray* moduleParts,
                                      NSString* debugID) {
-  options->success = NO;
+  options->result = ResultFailure;
 
   NSString* debugFile = [moduleParts objectAtIndex:4];
   if (!options->force) {
@@ -156,6 +162,7 @@ static void StartSymUploadProtocolV2(Options* options,
     if (symbolStatus == SymbolStatusFound) {
       fprintf(stdout, "Symbol file already exists, upload aborted."
                       " Use \"-f\" to overwrite.\n");
+      options->result = ResultAlreadyExists;
       return;
     } else if (symbolStatus == SymbolStatusUnknown) {
       fprintf(stdout, "Failed to get check for existing symbol.\n");
@@ -205,7 +212,7 @@ static void StartSymUploadProtocolV2(Options* options,
   } else {
     fprintf(stdout, "Successfully sent the symbol file.\n");
   }
-  options->success = YES;
+  options->result = ResultSuccess;
 }
 
 //=============================================================================
@@ -242,6 +249,12 @@ static void Usage(int argc, const char* argv[]) {
                   "[Only in sym-upload-v2 protocol mode]\n");
   fprintf(stderr, "\t-h: Usage\n");
   fprintf(stderr, "\t-?: Usage\n");
+  fprintf(stderr, "Exit codes:\n");
+  fprintf(stderr, "\t0: Success\n");
+  fprintf(stderr, "\t1: Failure\n");
+  fprintf(
+      stderr,
+      "\t2: Symbol file already exists on server (and -f was not specified)\n");
 }
 
 //=============================================================================
@@ -319,5 +332,5 @@ int main(int argc, const char* argv[]) {
   Start(&options);
 
   [pool release];
-  return options.success ? 0 : 1;
+  return options.result;
 }
