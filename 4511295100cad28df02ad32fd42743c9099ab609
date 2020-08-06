@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1604d8fe_dd9ca4d0",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-06T20:57:07Z",
+      "side": 1,
+      "message": "You definitely want \u0026, you probably want \u003d, and it’d be good to include ; too.\n\nYou also want all control characters, those below ASCII 32, too. (Although, from memory, I don’t remember if -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] deals with this for you. It may.)",
+      "revId": "4511295100cad28df02ad32fd42743c9099ab609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "882d0d10_7b435f50",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-06T20:57:07Z",
+      "side": 1,
+      "message": "This is a good way to handle it!",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 54
+      },
+      "revId": "4511295100cad28df02ad32fd42743c9099ab609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
