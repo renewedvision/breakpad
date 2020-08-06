@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ba66dc98_d6eb5712",
+        "filename": "src/tools/mac/symupload/symupload.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-06T20:32:12Z",
+      "side": 1,
+      "message": "My one reservation about that is if we added another status then we\u0027d have to change \"Failure\" to a higher number, and so on each time. If it\u0027s \"1\" then it can stay put and avoid users having to change their logic to detect failure.",
+      "parentUuid": "ccf6909e_6c63d299",
+      "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5539e09b_5b0691e4",
         "filename": "src/tools/mac/symupload/symupload.m",
         "patchSetId": 1
@@ -54,6 +72,30 @@
       "side": 1,
       "message": "IIUC, the previous behavior would be the same as running v2 with the \"-f\" (force) option, which is mentioned in the error logging. While that does require changes to maintain backward compatibility, there are already more substantial changes required when switching to v2 (e.g. adding the API key), so I don\u0027t think that\u0027s really a problem. However, the significance of the different return codes should probably be mentioned in the Usage().",
       "parentUuid": "5539e09b_5b0691e4",
+      "range": {
+        "startLine": 165,
+        "startChar": 24,
+        "endLine": 165,
+        "endChar": 43
+      },
+      "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77be4a27_b8b6462a",
+        "filename": "src/tools/mac/symupload/symupload.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-06T20:32:12Z",
+      "side": 1,
+      "message": "ivanpe@ mmoss@ does the usage message about exit code meanings answer those questions? I think the current usage text covers both directions-- that to overwrite files you should specify -f and that if you got a \"2\" exit code then your file already existed and you didn\u0027t specify -f.",
+      "parentUuid": "bac78a12_e8343659",
       "range": {
         "startLine": 165,
         "startChar": 24,
