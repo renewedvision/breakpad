@@ -105,6 +105,30 @@
       "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47084942_c2f47fa6",
+        "filename": "src/tools/mac/symupload/symupload.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-08-06T20:33:34Z",
+      "side": 1,
+      "message": "\u003e Can you please clarify in a comment what exactly happens when the file already exists? Is it overwritten?\n\nI don’t think this documentation belongs here. The protocol, as far as there even is one, doesn’t specify. All you’d be able to write here is an observation about an implementation, but you can’t expect that to hold for other implementations. So if you do write something here, be sure to clarify that you’re only describing how Google’s v1 symbol server behaves.\n\nOn the other hand, you could just note this exact fact, “the v1 protocol doesn’t specify what happens in this case, and it may be reported as success, which may or may mean that the new file replaced the old but also may mean that the old file was maintained,” without having to talk about any specific implementation.",
+      "parentUuid": "bac78a12_e8343659",
+      "range": {
+        "startLine": 165,
+        "startChar": 24,
+        "endLine": 165,
+        "endChar": 43
+      },
+      "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
