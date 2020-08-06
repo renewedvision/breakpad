@@ -16,6 +16,29 @@
       "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5539e09b_5b0691e4",
+        "filename": "src/tools/mac/symupload/symupload.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2020-08-06T19:51:52Z",
+      "side": 1,
+      "message": "There could be a potential issue here. The behavior is different when using the V1 interface. Using the V1 endpoint, uploading the same symbol file was always succeeding. The uploaded symbol file was always overwriting the existing one.\n\nCan you please clarify in a comment what exactly happens when the file already exists? Is it overwritten? If not, then how do you overwrite a previously uploaded bad symbol file with a good one?",
+      "range": {
+        "startLine": 165,
+        "startChar": 24,
+        "endLine": 165,
+        "endChar": 43
+      },
+      "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
