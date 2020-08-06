@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "01dc665e_1481d187",
+        "filename": "src/tools/mac/symupload/symupload.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002222
+      },
+      "writtenOn": "2020-08-06T20:40:24Z",
+      "side": 1,
+      "message": "Yeah, if there\u0027s only potential for one type of \"true failure\", then checking !\u003d 1 is fine too. I was more thinking if there were multiple options for both success and failure results, in which case you could define failures as \u003e\u003d100 or something. But most likely none of that is going to happen anyhow, so as-is is fine too.",
+      "parentUuid": "ba66dc98_d6eb5712",
+      "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5539e09b_5b0691e4",
         "filename": "src/tools/mac/symupload/symupload.m",
         "patchSetId": 1
