@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72007a53_15326580",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-06T18:42:24Z",
+      "side": 1,
+      "message": "Maybe this should return a unique error code instead of succeeding, so users can tell the difference.",
+      "revId": "d8de55c0cf28923341abb37ded8808e5959a5dc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
