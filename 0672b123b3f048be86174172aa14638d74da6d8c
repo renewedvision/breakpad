@@ -39,6 +39,30 @@
       "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bac78a12_e8343659",
+        "filename": "src/tools/mac/symupload/symupload.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1002222
+      },
+      "writtenOn": "2020-08-06T20:06:28Z",
+      "side": 1,
+      "message": "IIUC, the previous behavior would be the same as running v2 with the \"-f\" (force) option, which is mentioned in the error logging. While that does require changes to maintain backward compatibility, there are already more substantial changes required when switching to v2 (e.g. adding the API key), so I don\u0027t think that\u0027s really a problem. However, the significance of the different return codes should probably be mentioned in the Usage().",
+      "parentUuid": "5539e09b_5b0691e4",
+      "range": {
+        "startLine": 165,
+        "startChar": 24,
+        "endLine": 165,
+        "endChar": 43
+      },
+      "revId": "0672b123b3f048be86174172aa14638d74da6d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
