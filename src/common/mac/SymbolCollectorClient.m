@@ -70,9 +70,21 @@
                                withAPIKey:(NSString*)APIKey
                             withDebugFile:(NSString*)debugFile
                               withDebugID:(NSString*)debugID {
-  NSString* escapedDebugFile =
+  // Remove special characters, leaving control characters.
+  // Note that forward-slash is listed as a character to escape here, for
+  // completeness, however it is illegal in a debugFile input.
+  NSCharacterSet* allowedURLAndControlCharacters = [[NSCharacterSet
+      characterSetWithCharactersInString:@" \"\\/#%:?@|^`{}<>[]&=;"]
+      invertedSet];
+  NSString* escapedExceptControlDebugFile =
       [debugFile stringByAddingPercentEncodingWithAllowedCharacters:
-                     [NSCharacterSet URLHostAllowedCharacterSet]];
+                     allowedURLAndControlCharacters];
+
+  // Remove control characters.
+  NSCharacterSet* nonControlCharacters =
+      [[NSCharacterSet controlCharacterSet] invertedSet];
+  NSString* escapedDebugFile = [escapedExceptControlDebugFile
+      stringByAddingPercentEncodingWithAllowedCharacters:nonControlCharacters];
 
   NSURL* URL = [NSURL
       URLWithString:[NSString
@@ -187,17 +199,31 @@
       URLWithString:[NSString
                         stringWithFormat:@"%@/v1/uploads/%@:complete?key=%@",
                                          APIURL, uploadKey, APIKey]];
-  NSString* body =
-      [NSString stringWithFormat:
-                    @"{ symbol_id: { debug_file: \"%@\", debug_id: \"%@\" } }",
-                    debugFile, debugID];
+
+  NSDictionary* symbolIdDictionary =
+      [NSDictionary dictionaryWithObjectsAndKeys:debugFile, @"debug_file",
+                                                 debugID, @"debug_id", nil];
+  NSDictionary* jsonDictionary = [NSDictionary
+      dictionaryWithObjectsAndKeys:symbolIdDictionary, @"symbol_id", nil];
+  NSError* error;
+  NSData* jsonData =
+      [NSJSONSerialization dataWithJSONObject:jsonDictionary
+                                      options:NSJSONWritingPrettyPrinted
+                                        error:&error];
+  if (error) {
+    fprintf(stdout,
+            "Failed to complete upload. Could not write JSON payload.\n");
+    return CompleteUploadResultError;
+  }
+  NSString* body = [[NSString alloc] initWithData:jsonData
+                                         encoding:NSUTF8StringEncoding];
 
   HTTPSimplePostRequest* postRequest =
       [[HTTPSimplePostRequest alloc] initWithURL:URL];
   [postRequest setBody:body];
   [postRequest setContentType:@"application/json"];
 
-  NSError* error = nil;
+  error = nil;
   NSData* data = [postRequest send:&error];
   NSString* result = [[NSString alloc] initWithData:data
                                            encoding:NSUTF8StringEncoding];
