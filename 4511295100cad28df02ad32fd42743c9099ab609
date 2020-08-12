@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fe63eadf_44165570",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-08-12T21:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1604d8fe_dd9ca4d0",
+      "revId": "4511295100cad28df02ad32fd42743c9099ab609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "882d0d10_7b435f50",
         "filename": "src/common/mac/SymbolCollectorClient.m",
         "patchSetId": 1
