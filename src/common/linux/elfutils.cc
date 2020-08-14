@@ -57,6 +57,11 @@ void FindElfClassSection(const char* elf_base,
   const Ehdr* elf_header = reinterpret_cast<const Ehdr*>(elf_base);
   assert(elf_header->e_ident[EI_CLASS] == ElfClass::kClass);
 
+  if (elf_header->e_shoff == 0) {
+    // e_shoff holds zero if the file has no section header table.
+    return;
+  }
+
   const Shdr* sections =
     GetOffset<ElfClass, Shdr>(elf_header, elf_header->e_shoff);
   const Shdr* section_names = sections + elf_header->e_shstrndx;
