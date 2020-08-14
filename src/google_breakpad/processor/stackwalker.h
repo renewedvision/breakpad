@@ -176,6 +176,11 @@ class Stackwalker {
       if (!memory_->GetMemoryAtAddress(location, &ip))
         break;
 
+      // The return address points to the instruction after a call. If the
+      // caller was a no return function, this might point past the end of the
+      // function. Subtract one from the instruction pointer so it points into
+      // the call instruction instead.
+      --ip;
       if (modules_ && modules_->GetModuleForAddress(ip) &&
           InstructionAddressSeemsValid(ip)) {
         *ip_found = ip;
