@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "833c54c4_bbf282af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2020-08-14T18:05:09Z",
+      "side": 1,
+      "message": "Awesome. Thanks for fixing it.",
+      "revId": "087795c851d269a49baf6cd0fb886c2990729f44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb29e8d_cf78042b",
+        "filename": "src/google_breakpad/processor/stackwalker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2020-08-14T18:05:09Z",
+      "side": 1,
+      "message": "there is an extra blank here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 54,
+        "endLine": 183,
+        "endChar": 55
+      },
+      "revId": "087795c851d269a49baf6cd0fb886c2990729f44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
