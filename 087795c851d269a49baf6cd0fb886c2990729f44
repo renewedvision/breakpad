@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "11f0b376_ab80dd34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-08-17T17:30:58Z",
+      "side": 1,
+      "message": "I expect that it will. Updates are not yet live, but it corrects the stack walk for crash/cbdcde202d48a3a8. This error was preventing the walk from abort() to sk_abort_no_print(). The proper return address was the first value on the stack when Breakpad started scanning but Breakpad decided not to use it because it didn\u0027t symbolize.",
+      "parentUuid": "221aebeb_a664f839",
+      "revId": "087795c851d269a49baf6cd0fb886c2990729f44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfb29e8d_cf78042b",
         "filename": "src/google_breakpad/processor/stackwalker.h",
         "patchSetId": 4
