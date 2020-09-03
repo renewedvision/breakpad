@@ -33,6 +33,57 @@
       "revId": "89d40806eb1a083501e96494d2f137e7ca96e2ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d8e8ed3_94ecb0e8",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-09-03T22:42:35Z",
+      "side": 1,
+      "message": "This could (should, even) check jsonData instead of error (and then you don’t really need to worry about setting error \u003d nil).",
+      "revId": "89d40806eb1a083501e96494d2f137e7ca96e2ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f568ce7_3f726707",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-09-03T22:42:35Z",
+      "side": 1,
+      "message": "Now unnecessary.",
+      "revId": "89d40806eb1a083501e96494d2f137e7ca96e2ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e41f4029_fb6f5ae9",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-09-03T22:42:35Z",
+      "side": 1,
+      "message": "This could also check data instead of error.",
+      "revId": "89d40806eb1a083501e96494d2f137e7ca96e2ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
