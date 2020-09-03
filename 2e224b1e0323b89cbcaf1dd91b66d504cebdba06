@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ae0abe9e_d54746d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1388596
+      },
+      "writtenOn": "2020-09-03T16:10:50Z",
+      "side": 1,
+      "message": "Yup, it\u0027s a phabricator default linter.\n\nhttps://github.com/phacility/arcanist/blob/master/src/lint/linter/ArcanistTextLinter.php#L226-L236",
+      "parentUuid": "e1c16ac3_39437091",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "2e224b1e0323b89cbcaf1dd91b66d504cebdba06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c15625f9_05a1a2b1",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -56,6 +80,24 @@
       "revId": "2e224b1e0323b89cbcaf1dd91b66d504cebdba06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fffd9afe_dd914658",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388596
+      },
+      "writtenOn": "2020-09-03T16:10:50Z",
+      "side": 1,
+      "message": "yup, it makes sense, let me abandon this cl :)",
+      "parentUuid": "ce2b8bc0_032a69c0",
+      "revId": "2e224b1e0323b89cbcaf1dd91b66d504cebdba06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
