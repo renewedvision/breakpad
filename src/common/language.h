@@ -78,7 +78,7 @@ class Language {
                                     const string& name) const = 0;
 
   enum DemangleResult {
-    // Demangling was not performed because it’s not appropriate to attempt.
+    // Demangling was not performed because it's not appropriate to attempt.
     kDontDemangle = -1,
 
     kDemangleSuccess,

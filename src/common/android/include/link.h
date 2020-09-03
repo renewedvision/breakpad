@@ -42,7 +42,7 @@
 // These structures are only present in traditional headers at API level 21 and
 // above. Unified headers define these structures regardless of the chosen API
 // level. __ANDROID_API_N__ is a proxy for determining whether unified headers
-// are in use. It’s only defined by unified headers.
+// are in use. It's only defined by unified headers.
 #if __ANDROID_API__ < 21 && !defined(__ANDROID_API_N__)
 
 #ifdef __cplusplus
