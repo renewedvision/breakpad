@@ -202,7 +202,7 @@
   NSDictionary* jsonDictionary = [NSDictionary
       dictionaryWithObjectsAndKeys:symbolIdDictionary, @"symbol_id", type,
                                    @"symbol_upload_type", nil];
-  NSError* error;
+  NSError* error = nil;
   NSData* jsonData =
       [NSJSONSerialization dataWithJSONObject:jsonDictionary
                                       options:NSJSONWritingPrettyPrinted
