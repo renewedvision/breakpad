@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c15625f9_05a1a2b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388596
+      },
+      "writtenOn": "2020-09-03T10:12:29Z",
+      "side": 1,
+      "message": "It\u0027s not a big deal, but our internal linter marks this as a critical issue. Maybe it\u0027s good to patch on upstream too.",
+      "revId": "2e224b1e0323b89cbcaf1dd91b66d504cebdba06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
