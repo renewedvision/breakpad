@@ -772,12 +772,17 @@ src_common_linux_google_crashdump_uploader_test_LDADD = \
 	-ldl
 
 src_tools_linux_md2core_minidump_2_core_unittest_SOURCES = \
-	src/tools/linux/md2core/minidump_memory_range_unittest.cc
+	src/tools/linux/md2core/minidump_memory_range_unittest.cc \
+	src/tools/linux/md2core/minidump_2_core_gdb_unittest.cc
 src_tools_linux_md2core_minidump_2_core_unittest_CPPFLAGS = \
 	$(AM_CPPFLAGS) $(TEST_CFLAGS)
 src_tools_linux_md2core_minidump_2_core_unittest_LDADD = \
+	src/client/linux/libbreakpad_client.a \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+src_tools_linux_md2core_minidump_2_core_unittest_DEPENDENCIES = \
+	src/client/linux/libbreakpad_client.a \
+	src/tools/linux/md2core/minidump-2-core
 
 endif LINUX_HOST
 
