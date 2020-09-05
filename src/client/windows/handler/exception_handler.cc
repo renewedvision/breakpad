@@ -1,3 +1,4 @@
+
 // Copyright (c) 2006, Google Inc.
 // All rights reserved.
 //
@@ -118,7 +119,7 @@ ExceptionHandler::ExceptionHandler(
              NULL);                    // custom_info - not used
 }
 
-ExceptionHandler::ExceptionHandler(const wstring& dump_path,
+ExceptionHandler::ExceptionHandler(const wstring &dump_path,
                                    FilterCallback filter,
                                    MinidumpCallback callback,
                                    void* callback_context,
@@ -243,7 +244,11 @@ void ExceptionHandler::Initialize(
 
     // set_dump_path calls UpdateNextID.  This sets up all of the path and id
     // strings, and their equivalent c_str pointers.
-    set_dump_path(dump_path);
+    try {
+      set_dump_path(dump_path);
+    } catch (const std::length_error& e) {
+      throw std::runtime_error(std::string("Failed to initialize exception handler\n") + e.what());
+    }
   }
 
   // Reserve one element for the instruction memory
@@ -383,12 +388,12 @@ bool ExceptionHandler::RequestUpload(DWORD crash_id) {
 
 // static
 DWORD ExceptionHandler::ExceptionHandlerThreadMain(void* lpParameter) {
-  ExceptionHandler* self = reinterpret_cast<ExceptionHandler*>(lpParameter);
+  ExceptionHandler* self = reinterpret_cast<ExceptionHandler *>(lpParameter);
   assert(self);
   assert(self->handler_start_semaphore_ != NULL);
   assert(self->handler_finish_semaphore_ != NULL);
 
-  for (;;) {
+  while (true) {
     if (WaitForSingleObject(self->handler_start_semaphore_, INFINITE) ==
         WAIT_OBJECT_0) {
       // Perform the requested action.
@@ -765,7 +770,7 @@ bool ExceptionHandler::WriteMinidumpForException(EXCEPTION_POINTERS* exinfo) {
 }
 
 // static
-bool ExceptionHandler::WriteMinidump(const wstring& dump_path,
+bool ExceptionHandler::WriteMinidump(const wstring &dump_path,
                                      MinidumpCallback callback,
                                      void* callback_context,
                                      MINIDUMP_TYPE dump_type) {
@@ -976,9 +981,7 @@ bool ExceptionHandler::WriteMinidumpWithExceptionForProcess(
 #if defined(_M_IX86)
           exinfo->ContextRecord->Eip;
 #elif defined(_M_AMD64)
-          exinfo->ContextRecord->Rip;
-#elif defined(_M_ARM64)
-          exinfo->ContextRecord->Pc;
+        exinfo->ContextRecord->Rip;
 #else
 #error Unsupported platform
 #endif
@@ -1047,8 +1050,10 @@ void ExceptionHandler::UpdateNextID() {
   next_minidump_id_c_ = next_minidump_id_.c_str();
 
   wchar_t minidump_path[MAX_PATH];
-  swprintf(minidump_path, MAX_PATH, L"%s\\%s.dmp",
-           dump_path_c_, next_minidump_id_c_);
+  wcslen(dump_path_c_) + wcslen(next_minidump_id_c_) + 5 < MAX_PATH ?
+    swprintf(minidump_path, MAX_PATH, L"%s\\%s.dmp",
+             dump_path_c_, next_minidump_id_c_):
+    throw std::length_error("Minidump path too long");
 
   // remove when VC++7.1 is no longer supported
   minidump_path[MAX_PATH - 1] = L'\0';
