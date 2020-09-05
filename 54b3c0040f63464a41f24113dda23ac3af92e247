@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea8fe451_5f15a670",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1452246
+      },
+      "writtenOn": "2020-09-05T23:22:07Z",
+      "side": 1,
+      "message": "Hi fellow developers, \n\nCould someone please take out a minute to review the change.\n\nKind Regards\nTej Partap Singh",
+      "revId": "54b3c0040f63464a41f24113dda23ac3af92e247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
