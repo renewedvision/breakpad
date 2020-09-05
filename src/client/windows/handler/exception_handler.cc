@@ -243,7 +243,11 @@ void ExceptionHandler::Initialize(
 
     // set_dump_path calls UpdateNextID.  This sets up all of the path and id
     // strings, and their equivalent c_str pointers.
-    set_dump_path(dump_path);
+    try {
+      set_dump_path(dump_path);
+    } catch (const std::length_error& e) {
+      throw std::runtime_error(std::string("Failed to initialize exception handler\n") + e.what());
+    }
   }
 
   // Reserve one element for the instruction memory
@@ -1047,8 +1051,10 @@ void ExceptionHandler::UpdateNextID() {
   next_minidump_id_c_ = next_minidump_id_.c_str();
 
   wchar_t minidump_path[MAX_PATH];
-  swprintf(minidump_path, MAX_PATH, L"%s\\%s.dmp",
-           dump_path_c_, next_minidump_id_c_);
+  wcslen(dump_path_c_) + wcslen(next_minidump_id_c_) + 5 < MAX_PATH ?
+    swprintf(minidump_path, MAX_PATH, L"%s\\%s.dmp",
+             dump_path_c_, next_minidump_id_c_):
+    throw std::length_error("Minidump path too long");
 
   // remove when VC++7.1 is no longer supported
   minidump_path[MAX_PATH - 1] = L'\0';
