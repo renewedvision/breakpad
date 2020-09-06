@@ -50,6 +50,23 @@
       "revId": "54b3c0040f63464a41f24113dda23ac3af92e247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "804609cb_e59bf2f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-09-06T15:40:20Z",
+      "side": 1,
+      "message": "\u003e Call to swprintf generates the absolute path of minidump file. This is where the crash happens.\n\nmy point is twofold:\n* a crash doesn\u0027t throw an exception, so i don\u0027t see how this change wrapping it in a try{} block helps with your case.\n* the swprintf call to a fixed size buffer specifically includes the limit in that call so as to not overflow it.  so how is it crashing ?  is the swprintf implementation buggy ?\n\nthe path will certainly be truncated when you pass it one that is too long, and we could add a static method for people to check against.  i would call it something boring like \"isValidDumpPath\" or something.\n\nwrt exceptions, we do not use them anywhere.  we\u0027re not going to start.  people are building \u0026 using breakpad in environments where exceptions are not used or allowed, so we can\u0027t break them.",
+      "revId": "54b3c0040f63464a41f24113dda23ac3af92e247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
