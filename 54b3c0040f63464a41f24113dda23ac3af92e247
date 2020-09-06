@@ -16,6 +16,23 @@
       "revId": "54b3c0040f63464a41f24113dda23ac3af92e247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0da372bc_a6ac82a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-09-06T03:16:19Z",
+      "side": 1,
+      "message": "couple of things\n\n* please revert all of your whitespace/style changes.  they\u0027re incorrect, and we don\u0027t want to mix functional \u0026 style changes in one CL.\n* breakpad doesn\u0027t use exceptions.  trying to have code throw/raise them won\u0027t work.\n* set_dump_path shouldn\u0027t throw an exception itself.\n\nso i\u0027m not sure how this fix works.",
+      "revId": "54b3c0040f63464a41f24113dda23ac3af92e247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
