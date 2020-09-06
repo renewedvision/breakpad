@@ -67,6 +67,23 @@
       "revId": "54b3c0040f63464a41f24113dda23ac3af92e247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7682afb9_f4d1e2aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1452246
+      },
+      "writtenOn": "2020-09-06T20:51:06Z",
+      "side": 1,
+      "message": "Hi Mike, \n\nThanks for the prompt response. Let me try to answer your queries.\n\n1. a crash doesn\u0027t throw an exception, so i don\u0027t see how this change wrapping it in a try{} block helps with your case.\n \u003e\u003e Wrapping in try block is an attempt to avoid crash triggered in swprintf called from ExceptionHandler::UpdateNextId().\n\n2. the swprintf call to a fixed size buffer specifically includes the limit in that call so as to not overflow it.  so how is it crashing ?  is the swprintf implementation buggy ?\n\n\u003e\u003e Yes swprintf implementation seems buggy with my use case as I can see in the stack trace in Visual Studio. The stack is triggered from swprintf with my usecase. I\u0027ll get back to you with a proper reproducer if that\u0027s what you require. Post that \"isValidDumpPath\" public member function would be nice to have for client code. This way we can avoid this abnormal exit/crash in ExceptionHandler class without having to throw exceptions from breakpad\u0027s code.\n\nThanks a lot for all your comments. Really appreciate your time devoted to this problem.\n\nKind Regards\nTej Partap Singh\n\n\n",
+      "revId": "54b3c0040f63464a41f24113dda23ac3af92e247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
