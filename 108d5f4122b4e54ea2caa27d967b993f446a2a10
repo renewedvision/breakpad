@@ -16,6 +16,24 @@
       "revId": "108d5f4122b4e54ea2caa27d967b993f446a2a10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cf7db8e_be99da96",
+        "filename": "src/common/linux/file_id_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-09-07T23:26:33Z",
+      "side": 0,
+      "message": "correct.  i had an explicit chmod() in here, but then i noticed the CopyFile calls creat with an explicit mode (\u0026 umask), so i dropped it entirely.",
+      "parentUuid": "fe5f5e67_17fcdde4",
+      "revId": "108d5f4122b4e54ea2caa27d967b993f446a2a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
