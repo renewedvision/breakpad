@@ -33,6 +33,24 @@
       "revId": "3d5c569b57d2833f59582858c014fb0937893a4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de7a2b17_1709cf4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-09-08T00:16:39Z",
+      "side": 1,
+      "message": "checking the man pages, the API has existed since glibc-2.2, and since this test+module are scoped to linux-only (and not android), i think it\u0027s safe to rely on.  if any non-glibc people show up complaining, we can point out it\u0027s been in POSIX since 2001, and we already require C++11, so maybe time to upgrade their systems.",
+      "parentUuid": "b0d4c8f8_b7e0fdbe",
+      "revId": "3d5c569b57d2833f59582858c014fb0937893a4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
