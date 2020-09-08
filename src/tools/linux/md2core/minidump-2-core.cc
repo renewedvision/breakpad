@@ -41,7 +41,9 @@
 #include <sys/user.h>
 #include <unistd.h>
 
+#include <limits>
 #include <map>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -92,6 +94,7 @@ typedef gregset_t user_regs_struct;
 using google_breakpad::MDTypeHelper;
 using google_breakpad::MemoryMappedFile;
 using google_breakpad::MinidumpMemoryRange;
+using std::numeric_limits;
 
 typedef MDTypeHelper<sizeof(ElfW(Addr))>::MDRawDebug MDRawDebug;
 typedef MDTypeHelper<sizeof(ElfW(Addr))>::MDRawLinkMap MDRawLinkMap;
@@ -1200,6 +1203,87 @@ AugmentMappings(const Options& options, CrashedProcess* crashinfo,
   }
 }
 
+static void ParseMemList(const Options& options,
+                         CrashedProcess* crashinfo,
+                         const MinidumpMemoryRange& range,
+                         const MinidumpMemoryRange& full_file) {
+  if (options.verbose) {
+    fputs("MD_MEMORY_LIST_STREAM:\n", stderr);
+  }
+
+  uint32_t region_count;
+  uint32_t offset = 0;
+  if (range.length() < sizeof(region_count)) {
+    fputs("Length error\n", stderr);
+    return;
+  }
+
+  region_count = *reinterpret_cast<const uint32_t*>(
+      range.GetData(0, sizeof(region_count)));
+  offset += sizeof(region_count);
+
+  if (options.verbose) {
+    fprintf(stderr, "Number of recorded regions: %u\n", region_count);
+  }
+
+  if (region_count >
+      numeric_limits<uint32_t>::max() / sizeof(MDMemoryDescriptor)) {
+    fprintf(stderr, "Region count %u would cause multiplication overflow\n",
+            region_count);
+    return;
+  }
+
+  uint32_t expected_size =
+      sizeof(region_count) + region_count * sizeof(MDMemoryDescriptor);
+  uint32_t actual_size = range.length();
+
+  if (actual_size != expected_size) {
+    // May be padded with 4 bytes on 64bit ABIs for alignment.
+    if (actual_size == expected_size + 4) {
+      offset += 4;
+    } else {
+      fprintf(stderr, "Size mismatch, %u != %lu\n", actual_size, expected_size);
+      return;
+    }
+  }
+
+  for (unsigned int region_index = 0; region_index < region_count;
+       ++region_index) {
+    const MDMemoryDescriptor* descriptor =
+        reinterpret_cast<const MDMemoryDescriptor*>(
+            range.GetData(offset + region_index * sizeof(MDMemoryDescriptor),
+                          sizeof(MDMemoryDescriptor)));
+
+    uint64_t base_address = descriptor->start_of_memory_range;
+    uint32_t region_size = descriptor->memory.data_size;
+
+    // Check for base + size overflow or undersize.
+    if (region_size == 0 ||
+        region_size > numeric_limits<uint64_t>::max() - base_address) {
+      fprintf(stderr,
+              "Memory region problem, region %u/%u, base: %" PRIx64 ", size %x",
+              region_index, region_count, base_address, region_size);
+      return;
+    }
+
+    string data = string(reinterpret_cast<const char*>(
+        full_file.GetData(descriptor->memory.rva, descriptor->memory.data_size),
+        descriptor->memory.data_size));
+
+    if (options.verbose) {
+      fprintf(stderr, "0x%" PRIx64 "-0x%" PRIx64 "\n",
+              descriptor->start_of_memory_range,
+              descriptor->start_of_memory_range + descriptor->memory.data_size);
+    }
+
+    AddDataToMapping(crashinfo, data, descriptor->start_of_memory_range);
+  }
+
+  if (options.verbose) {
+    fputs("\n\n\n", stderr);
+  }
+}
+
 int
 main(int argc, const char* argv[]) {
   Options options;
@@ -1239,6 +1323,9 @@ main(int argc, const char* argv[]) {
     exit(1);
   }
 
+  std::set<uint32_t> skipped_types;
+
+  // First phase to gather all info.
   for (unsigned i = 0; i < header->stream_count; ++i) {
     const MDRawDirectory* dirent =
         dump.GetArrayElement<MDRawDirectory>(header->stream_directory_rva, i);
@@ -1282,8 +1369,28 @@ main(int argc, const char* argv[]) {
                           dump);
         break;
       default:
-        if (options.verbose)
-          fprintf(stderr, "Skipping %x\n", dirent->stream_type);
+        skipped_types.insert(dirent->stream_type);
+    }
+  }
+
+  // Second phase to modify info.
+  for (unsigned i = 0; i < header->stream_count; ++i) {
+    const MDRawDirectory* dirent =
+        dump.GetArrayElement<MDRawDirectory>(header->stream_directory_rva, i);
+    switch (dirent->stream_type) {
+      case MD_MEMORY_LIST_STREAM:
+        ParseMemList(options, &crashinfo, dump.Subrange(dirent->location),
+                     dump);
+        skipped_types.erase(dirent->stream_type);
+        break;
+      default:
+        break;
+    }
+  }
+
+  if (options.verbose) {
+    for (const auto& type : skipped_types) {
+      fprintf(stderr, "Skipping %x\n", type);
     }
   }
 
