@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "884d11e7_d5a661df",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-09-09T22:03:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c9b3831_fef4a0c2",
+      "revId": "2be827fa4a7eae6ab3f9c1f496e5e6111ce47963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57d5cfe3_c0ef1f4b",
         "filename": "src/common/mac/SymbolCollectorClient.m",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "cb9c1bba_b3e1cb9c",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-09-09T22:03:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57d5cfe3_c0ef1f4b",
+      "revId": "2be827fa4a7eae6ab3f9c1f496e5e6111ce47963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1c85892_86319530",
         "filename": "src/common/mac/SymbolCollectorClient.m",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "2be827fa4a7eae6ab3f9c1f496e5e6111ce47963",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ffa3f12_8f329c6e",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2020-09-09T22:03:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1c85892_86319530",
+      "revId": "2be827fa4a7eae6ab3f9c1f496e5e6111ce47963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
