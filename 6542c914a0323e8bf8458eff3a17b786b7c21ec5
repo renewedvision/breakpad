@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac7199cd_c12013f4",
+        "filename": "src/common/mac/HTTPRequest.m",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-09-10T21:53:59Z",
+      "side": 1,
+      "message": "This is called wait_semaphore now (new line 49, also used on 85–86, moved from old lines 52 and 56). Did you compile-test this?",
+      "revId": "6542c914a0323e8bf8458eff3a17b786b7c21ec5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
