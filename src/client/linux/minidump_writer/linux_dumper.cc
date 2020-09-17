@@ -72,15 +72,19 @@ static const int DT_ANDROID_RELA = DT_LOOS + 4;
 static const char kMappedFileUnsafePrefix[] = "/dev/";
 static const char kDeletedSuffix[] = " (deleted)";
 
-inline static bool IsMappedFileOpenUnsafe(
-    const google_breakpad::MappingInfo& mapping) {
+inline static bool IsMappedFileOpenUnsafe(const char* name) {
   // It is unsafe to attempt to open a mapped file that lives under /dev,
   // because the semantics of the open may be driver-specific so we'd risk
   // hanging the crash dumper. And a file in /dev/ almost certainly has no
   // ELF file identifier anyways.
-  return my_strncmp(mapping.name,
+  return my_strncmp(name,
                     kMappedFileUnsafePrefix,
                     sizeof(kMappedFileUnsafePrefix) - 1) == 0;
+}
+
+inline static bool IsMappedFileOpenUnsafe(
+    const google_breakpad::MappingInfo& mapping) {
+  return IsMappedFileOpenUnsafe(mapping.name);
 }
 
 namespace google_breakpad {
@@ -463,6 +467,22 @@ bool ElfFileSoName(const LinuxDumper& dumper,
   return ElfFileSoNameFromMappedFile(mapped_file.data(), soname, soname_size);
 }
 
+// Checks if |mapping| starts with the ELF header, i.e. corresponds to a new
+// shared object. Note that this is called from EnumerateMappings() and thus
+// may not have access to process' memory yet (threads not suspended).
+bool IsElfFileMapping(const char* name, size_t offset) {
+  if (IsMappedFileOpenUnsafe(name)) {
+    return false;
+  }
+
+  MemoryMappedFile mapped_file(name, offset);
+  if (!mapped_file.data() || mapped_file.size() < SELFMAG) {
+    return false;
+  }
+
+  return IsValidElf(mapped_file.data());
+}
+
 }  // namespace
 
 
@@ -571,6 +591,7 @@ bool LinuxDumper::EnumerateMappings() {
     if (*i1 == '-') {
       const char* i2 = my_read_hex_ptr(&end_addr, i1 + 1);
       if (*i2 == ' ') {
+        bool readable = (*(i2 + 1) == 'r');
         bool exec = (*(i2 + 3) == 'x');
         const char* i3 = my_read_hex_ptr(&offset, i2 + 6 /* skip ' rwxp ' */);
         if (*i3 == ' ') {
@@ -587,13 +608,16 @@ bool LinuxDumper::EnumerateMappings() {
           // library mapped by the dynamic linker. Do this only if their name
           // matches and either they have the same +x protection flag, or if the
           // previous mapping is not executable and the new one is, to handle
-          // lld's output (see crbug.com/716484).
+          // lld's output (see crbug.com/716484). Don't merge if the mapping has
+          // a valid ELF header as it's likely a different library mapped from
+          // the same archive.
           if (name && !mappings_.empty()) {
             MappingInfo* module = mappings_.back();
             if ((start_addr == module->start_addr + module->size) &&
                 (my_strlen(name) == my_strlen(module->name)) &&
                 (my_strncmp(name, module->name, my_strlen(name)) == 0) &&
-                ((exec == module->exec) || (!module->exec && exec))) {
+                ((exec == module->exec) || (!module->exec && exec)) &&
+                (!readable || !IsElfFileMapping(name, offset))) {
               module->system_mapping_info.end_addr = end_addr;
               module->size = end_addr - module->start_addr;
               module->exec |= exec;
