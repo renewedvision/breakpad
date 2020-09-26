@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd9c5ca2_96d6e3bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-09-26T23:49:58Z",
+      "side": 1,
+      "message": "One of a series of probably three to get dwarf5 rangeslists working, and I will likely throw in another patch or two to add miscelaneous other dwarf5 features.",
+      "revId": "3ddeb5f0acae3330f4671fb9a566439fb0ef559c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
