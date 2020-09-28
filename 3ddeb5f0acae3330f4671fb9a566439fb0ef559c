@@ -16,6 +16,40 @@
       "revId": "3ddeb5f0acae3330f4671fb9a566439fb0ef559c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8edcd895_91349300",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-09-28T13:28:11Z",
+      "side": 1,
+      "message": "This seems reasonable so far.",
+      "revId": "3ddeb5f0acae3330f4671fb9a566439fb0ef559c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17c1a309_a8700086",
+        "filename": "src/common/dwarf_cu_to_module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2020-09-28T13:28:11Z",
+      "side": 1,
+      "message": "80 columns",
+      "revId": "3ddeb5f0acae3330f4671fb9a566439fb0ef559c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
