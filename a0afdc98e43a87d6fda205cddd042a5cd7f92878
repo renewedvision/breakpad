@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a79ecebf_93e9c6da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-10-07T23:36:17Z",
+      "side": 1,
+      "message": "Thanks for the quick review.",
+      "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1956d1b8_7f841a92",
@@ -14,6 +31,30 @@
       "writtenOn": "2020-10-07T22:05:10Z",
       "side": 1,
       "message": "Not sure I understand:  If this code is for reading dwarfv4 ranges, why are we adding the base address here when the old code didn\u0027t?",
+      "range": {
+        "startLine": 1667,
+        "startChar": 25,
+        "endLine": 1668,
+        "endChar": 63
+      },
+      "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6228908f_4364ac07",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-10-07T23:36:17Z",
+      "side": 1,
+      "message": "It\u0027s a good question, and a bit subtle. Before this change, the handler kept track of the base address and did this addition itself, which made some sense because every call to AddRange needed the base_address added. But with dwarf5, some do, but many do not. So I moved the base_address handling into the reader. See the change to dwarf_range_list_handler.cc.\n\nI debated what to do here, but adding another switch on all the different forms in AddRange seemed unnecessary, when we could do the math before the call.",
+      "parentUuid": "1956d1b8_7f841a92",
       "range": {
         "startLine": 1667,
         "startChar": 25,
