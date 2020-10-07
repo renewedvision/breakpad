@@ -16,6 +16,24 @@
       "message": "Gentle and friendly ping. (Similarly with https://chromium-review.googlesource.com/c/breakpad/breakpad/+/2446635)\n\nAlternately, what would you all think of Caroline Tice, (cc\u0027d) reviewing? She is the lead for Google\u0027s dwarf5 project.",
       "revId": "9e072d525290a2411e27986019f07b1e15e32246",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a195fc8_aa02fd34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-10-07T17:16:48Z",
+      "side": 1,
+      "message": "Sounds good to me. I have very little familiarity with this part of Breakpad, so I\u0027m sure Caroline\u0027s review is as good as (or better than) mine.",
+      "parentUuid": "551ec575_afd85b71",
+      "revId": "9e072d525290a2411e27986019f07b1e15e32246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
