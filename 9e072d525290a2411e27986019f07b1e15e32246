@@ -34,6 +34,23 @@
       "parentUuid": "551ec575_afd85b71",
       "revId": "9e072d525290a2411e27986019f07b1e15e32246",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "440f25e7_ab178a6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000684
+      },
+      "writtenOn": "2020-10-07T23:10:07Z",
+      "side": 1,
+      "message": "LGTM!\n\nI\u0027ve reviewed (and tested) this change, and I\u0027d give it a +2, only I don\u0027t seem to have that capability.  Can someone else give this the actual  Code Review +2?",
+      "revId": "9e072d525290a2411e27986019f07b1e15e32246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
