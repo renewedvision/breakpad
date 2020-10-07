@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1956d1b8_7f841a92",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1000684
+      },
+      "writtenOn": "2020-10-07T22:05:10Z",
+      "side": 1,
+      "message": "Not sure I understand:  If this code is for reading dwarfv4 ranges, why are we adding the base address here when the old code didn\u0027t?",
+      "range": {
+        "startLine": 1667,
+        "startChar": 25,
+        "endLine": 1668,
+        "endChar": 63
+      },
+      "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
