@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16cfadf_2e58c9be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000684
+      },
+      "writtenOn": "2020-10-08T14:39:38Z",
+      "side": 1,
+      "message": "LGTM!  I have reviewed and tested this CL, and I would give it a +2 Code Review, but I don\u0027t seem to have permissions for that.  Could someone with permissions please give this a +2?",
+      "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1956d1b8_7f841a92",
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "It\u0027s a good question, and a bit subtle. Before this change, the handler kept track of the base address and did this addition itself, which made some sense because every call to AddRange needed the base_address added. But with dwarf5, some do, but many do not. So I moved the base_address handling into the reader. See the change to dwarf_range_list_handler.cc.\n\nI debated what to do here, but adding another switch on all the different forms in AddRange seemed unnecessary, when we could do the math before the call.",
       "parentUuid": "1956d1b8_7f841a92",
+      "range": {
+        "startLine": 1667,
+        "startChar": 25,
+        "endLine": 1668,
+        "endChar": 63
+      },
+      "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b398421d_3a3ed8f4",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1000684
+      },
+      "writtenOn": "2020-10-08T14:39:38Z",
+      "side": 1,
+      "message": "OK, makes sense.  Thanks for the explanation.",
+      "parentUuid": "6228908f_4364ac07",
       "range": {
         "startLine": 1667,
         "startChar": 25,
