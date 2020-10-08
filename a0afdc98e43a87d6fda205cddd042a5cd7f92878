@@ -104,6 +104,29 @@
       },
       "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38382c13_a36e44ad",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2020-10-08T17:37:47Z",
+      "side": 1,
+      "message": "This else block used to hang off \"if (ranges_handler)\" but no longer. Change intentional?",
+      "range": {
+        "startLine": 670,
+        "startChar": 7,
+        "endLine": 672,
+        "endChar": 7
+      },
+      "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
