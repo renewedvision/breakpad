@@ -127,6 +127,30 @@
       },
       "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f583ee_36680dea",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1386395
+      },
+      "writtenOn": "2020-10-08T17:55:31Z",
+      "side": 1,
+      "message": "Intentional, but it does create a slightly different, more aggressive, error-reporting situation. I actually don\u0027t think the else-clause was takable in the original code. I\u0027m not sure if the old situation was intentional or not, but it went like this:\n\nIn dump_symbols.cc, only create a ranges_handler if .debug_ranges is found. So if no .debug_ranges, the handler would always be null, and the code could never report it was missing. (I suppose there might be other clients not in the source base that setup their range handler differently, but both mac and linux did it this way.)\n\nIf the old code encountered a DW_AT_ranges but had no handler, it wouldn\u0027t report an error. (Perhaps a binary that had .debug_ranges stripped but not .debug_info? That\u0027s a weird situation.)\n\nIn the new code, as we don\u0027t know if we want .debug_ranges or .debug_rnglists, dump_symbols.cc always creates a handler. Then, if a DW_AT_ranges attribute is found, but there is no ranges section (of the appropriate kind) in the debug info, then report an error.\n\nMy sense is that, as a practical matter, it doesn\u0027t matter. But I don\u0027t know enough about any use cases not present in the local source to really know.",
+      "parentUuid": "38382c13_a36e44ad",
+      "range": {
+        "startLine": 670,
+        "startChar": 7,
+        "endLine": 672,
+        "endChar": 7
+      },
+      "revId": "a0afdc98e43a87d6fda205cddd042a5cd7f92878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
