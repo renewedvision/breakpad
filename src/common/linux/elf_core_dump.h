@@ -139,9 +139,15 @@ class ElfCoreDump {
   // an empty note if no note is found.
   Note GetFirstNote() const;
 
+  // Sets the mem fd.
+  void SetProcMem(const int fd);
+
  private:
   // Core dump content.
   MemoryRange content_;
+
+  // descriptor for /proc/<pid>/mem
+  int proc_mem_fd_;
 };
 
 }  // namespace google_breakpad
