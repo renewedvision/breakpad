@@ -137,6 +137,16 @@ bool LinuxCoreDumper::EnumerateThreads() {
     return false;
   }
 
+  char proc_mem_path[NAME_MAX];
+  if (BuildProcPath(proc_mem_path, pid_, "mem")) {
+    int fd = open(proc_mem_path, O_RDONLY | O_LARGEFILE, 0);
+    if (fd != -1) {
+      core_.SetProcMem(fd);
+    } else {
+      fprintf(stderr, "Cannot open %s (%d)\n", proc_mem_path, errno);
+    }
+  }
+
   core_.SetContent(mapped_core_file_.content());
   if (!core_.IsValid()) {
     fprintf(stderr, "Invalid core dump file\n");

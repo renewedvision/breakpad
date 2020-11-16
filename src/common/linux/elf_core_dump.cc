@@ -34,6 +34,7 @@
 
 #include <stddef.h>
 #include <string.h>
+#include <unistd.h>
 
 namespace google_breakpad {
 
@@ -95,14 +96,18 @@ size_t ElfCoreDump::Note::AlignedSize(size_t size) {
 
 // Implementation of ElfCoreDump.
 
-ElfCoreDump::ElfCoreDump() {}
+ElfCoreDump::ElfCoreDump(): proc_mem_fd_(-1) {}
 
 ElfCoreDump::ElfCoreDump(const MemoryRange& content)
-    : content_(content) {
+    : content_(content), proc_mem_fd_(-1) {
 }
 
 void ElfCoreDump::SetContent(const MemoryRange& content) {
   content_ = content;
+}
+
+void ElfCoreDump::SetProcMem(int fd) {
+  proc_mem_fd_ = fd;
 }
 
 bool ElfCoreDump::IsValid() const {
@@ -162,6 +167,19 @@ bool ElfCoreDump::CopyData(void* buffer, Addr virtual_address, size_t length) {
         return true;
       }
     }
+  }
+
+  /* fallback: if available, read from /proc/<pid>/mem */
+  if (proc_mem_fd_ != -1) {
+    off_t offset = virtual_address;
+    if (-1 == lseek(proc_mem_fd_, offset, SEEK_SET)) {
+      return false;
+    }
+    ssize_t r = read(proc_mem_fd_, buffer, length);
+    if (r < ssize_t(length)) {
+      return false;
+    }
+    return true;
   }
   return false;
 }
