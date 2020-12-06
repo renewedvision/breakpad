@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b04fac8_5f3efbce",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4853,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-12-06T03:16:21Z",
+      "side": 1,
+      "message": "open to ideas for improving this.  i wanted to avoid copying \u0026 pasting:\n\n case AT_FOO:\n   return \"AT_FOO\";",
+      "revId": "6f4b6cfbfa71e83c7e112f76f17ea0bf9c869d2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
