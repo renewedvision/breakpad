@@ -29,10 +29,10 @@
 
 // core_handler.cc: A tool to handle coredumps on Linux
 
+#include <linux/memfd.h>
 #include <pwd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/mman.h>
 #include <sys/types.h>
 #include <syslog.h>
 #include <unistd.h>
@@ -41,6 +41,36 @@
 #include "client/linux/minidump_writer/linux_core_dumper.h"
 #include "client/linux/minidump_writer/minidump_writer.h"
 #include "common/scoped_ptr.h"
+
+// memfd_create is available from glibc version 2.27. See reference:
+//   https://manpages.debian.org/testing/manpages-dev/memfd_create.2.en.html
+#if (__GLIBC__ > 2) || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 27)
+#include <sys/mman.h>
+#else
+// For systems without memfd_create(), create one as a wrapper around syscall.
+// Code taken from:
+//   https://swiftshader-review.googlesource.com/c/SwiftShader/+/17208/
+namespace {
+// Create a file descriptor for anonymous memory with the given
+// name. Returns -1 on failure.
+inline int memfd_create(const char* name, unsigned int flags) {
+#if __powerpc64__
+#define __NR_memfd_create 360
+#elif __i386__
+#define __NR_memfd_create 356
+#elif __x86_64__
+#define __NR_memfd_create 319
+#endif /* __NR_memfd_create__ */
+#ifdef __NR_memfd_create
+  // In the event of no system call this returns -1 with errno set
+  // as ENOSYS.
+  return syscall(__NR_memfd_create, name, flags);
+#else
+  return -1;
+#endif
+}
+}  // namespace
+#endif
 
 namespace {
 
