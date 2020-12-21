@@ -42,6 +42,10 @@
 #include "client/linux/minidump_writer/minidump_writer.h"
 #include "common/scoped_ptr.h"
 
+#ifndef HAVE_MEMFD_CREATE
+# define memfd_create(...) do { fprintf(stderr, "memfd_create is required\n"); abort(); } while (0)
+#endif
+
 namespace {
 
 using google_breakpad::AppMemoryList;
