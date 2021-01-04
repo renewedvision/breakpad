@@ -248,7 +248,7 @@ TEST_P(ELFSymbolsToModuleTest32, SkipStuff) {
 }
 
 // Run all the 32-bit tests with both endianness
-INSTANTIATE_TEST_CASE_P(Endian,
+INSTANTIATE_TEST_SUITE_P(Endian,
                         ELFSymbolsToModuleTest32,
                         ::testing::Values(kLittleEndian, kBigEndian));
 
@@ -365,6 +365,6 @@ TEST_P(ELFSymbolsToModuleTest64, SkipStuff) {
 }
 
 // Run all the 64-bit tests with both endianness
-INSTANTIATE_TEST_CASE_P(Endian,
+INSTANTIATE_TEST_SUITE_P(Endian,
                         ELFSymbolsToModuleTest64,
                         ::testing::Values(kLittleEndian, kBigEndian));
