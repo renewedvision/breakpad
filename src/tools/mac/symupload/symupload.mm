@@ -47,6 +47,9 @@
 #include "HTTPMultipartUpload.h"
 #include "HTTPPutRequest.h"
 #include "SymbolCollectorClient.h"
+#include "common/mac/dump_syms.h"
+
+using google_breakpad::DumpSymbols;
 
 NSString* const kBreakpadSymbolType = @"BREAKPAD";
 
@@ -410,6 +413,18 @@ static void SetupOptions(int argc, const char* argv[], Options* options) {
     Usage(argc, argv);
     exit(1);
   }
+
+  if (!isBreakpadUpload && hasCodeFile && !hasDebugID) {
+    DumpSymbols dump_symbols(NO_CFI, false);
+    if (dump_symbols.Read(argv[optind])) {
+      std::string identifier = dump_symbols.Identifier();
+      options->debugID = [NSString stringWithUTF8String:identifier.c_str()];
+      NSLog(@"%@", options->debugID);
+      exit(0);
+      hasDebugID = options->debugID != nil;
+    }
+  }
+
   if (!isBreakpadUpload && (!hasCodeFile || !hasDebugID)) {
     fprintf(stderr, "\n");
     fprintf(stderr,
