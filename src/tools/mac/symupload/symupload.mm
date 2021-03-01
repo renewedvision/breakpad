@@ -27,7 +27,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// symupload.m: Upload a symbol file to a HTTP server.  The upload is sent as
+// symupload.mm: Upload a symbol file to a HTTP server.  The upload is sent as
 // a multipart/form-data POST request with the following parameters:
 //  code_file: the basename of the module, e.g. "app"
 //  debug_file: the basename of the debugging file, e.g. "app"
@@ -47,6 +47,9 @@
 #include "HTTPMultipartUpload.h"
 #include "HTTPPutRequest.h"
 #include "SymbolCollectorClient.h"
+#include "common/mac/dump_syms.h"
+
+using google_breakpad::DumpSymbols;
 
 NSString* const kBreakpadSymbolType = @"BREAKPAD";
 
@@ -410,6 +413,18 @@ static void SetupOptions(int argc, const char* argv[], Options* options) {
     Usage(argc, argv);
     exit(1);
   }
+
+  if (!isBreakpadUpload && hasCodeFile && !hasDebugID) {
+    DumpSymbols dump_symbols(NO_CFI, false);
+    if (dump_symbols.Read(argv[optind])) {
+      std::string identifier = dump_symbols.Identifier();
+      if (!identifier.empty()) {
+        options->debugID = [NSString stringWithUTF8String:identifier.c_str()];
+        hasDebugID = true;
+      }
+    }
+  }
+
   if (!isBreakpadUpload && (!hasCodeFile || !hasDebugID)) {
     fprintf(stderr, "\n");
     fprintf(stderr,
