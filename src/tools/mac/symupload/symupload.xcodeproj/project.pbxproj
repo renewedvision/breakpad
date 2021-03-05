@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5B6060BD222716FC0015F0A0 /* HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6060BC222716FC0015F0A0 /* HTTPRequest.m */; };
-		5B6060C02227201B0015F0A0 /* HTTPPutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6060BF2227201B0015F0A0 /* HTTPPutRequest.m */; };
 		5B6060C7222735E50015F0A0 /* HTTPGetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6060C6222735E50015F0A0 /* HTTPGetRequest.m */; };
 		5B6060CA2227374E0015F0A0 /* HTTPSimplePostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6060C92227374E0015F0A0 /* HTTPSimplePostRequest.m */; };
 		5B6060D022273BDA0015F0A0 /* SymbolCollectorClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6060CF22273BDA0015F0A0 /* SymbolCollectorClient.m */; };
@@ -63,8 +62,6 @@
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5B6060BB222716FC0015F0A0 /* HTTPRequest.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = HTTPRequest.h; path = ../../../common/mac/HTTPRequest.h; sourceTree = "<group>"; tabWidth = 2; };
 		5B6060BC222716FC0015F0A0 /* HTTPRequest.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; name = HTTPRequest.m; path = ../../../common/mac/HTTPRequest.m; sourceTree = "<group>"; tabWidth = 2; };
-		5B6060BE2227201B0015F0A0 /* HTTPPutRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HTTPPutRequest.h; path = ../../../common/mac/HTTPPutRequest.h; sourceTree = "<group>"; };
-		5B6060BF2227201B0015F0A0 /* HTTPPutRequest.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; name = HTTPPutRequest.m; path = ../../../common/mac/HTTPPutRequest.m; sourceTree = "<group>"; tabWidth = 2; };
 		5B6060C22227303A0015F0A0 /* encoding_util.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = encoding_util.h; path = ../../../common/mac/encoding_util.h; sourceTree = "<group>"; tabWidth = 2; };
 		5B6060C5222735E50015F0A0 /* HTTPGetRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HTTPGetRequest.h; path = ../../../common/mac/HTTPGetRequest.h; sourceTree = "<group>"; };
 		5B6060C6222735E50015F0A0 /* HTTPGetRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HTTPGetRequest.m; path = ../../../common/mac/HTTPGetRequest.m; sourceTree = "<group>"; };
@@ -165,8 +162,6 @@
 				5B6060C6222735E50015F0A0 /* HTTPGetRequest.m */,
 				5B6060C22227303A0015F0A0 /* encoding_util.h */,
 				5B97447424D0AA5F000C71F5 /* encoding_util.m */,
-				5B6060BE2227201B0015F0A0 /* HTTPPutRequest.h */,
-				5B6060BF2227201B0015F0A0 /* HTTPPutRequest.m */,
 				5B6060BB222716FC0015F0A0 /* HTTPRequest.h */,
 				5B6060BC222716FC0015F0A0 /* HTTPRequest.m */,
 				8B31022B11F0CE6900FCF3E4 /* Breakpad.xcconfig */,
@@ -341,7 +336,6 @@
 				930DA25E25ED56DB008558E3 /* elf_reader.cc in Sources */,
 				930DA26E25ED571F008558E3 /* arch_utilities.cc in Sources */,
 				930DA24225ED55BF008558E3 /* macho_id.cc in Sources */,
-				5B6060C02227201B0015F0A0 /* HTTPPutRequest.m in Sources */,
 				930DA25C25ED56DB008558E3 /* dwarf_range_list_handler.cc in Sources */,
 				5B6060BD222716FC0015F0A0 /* HTTPRequest.m in Sources */,
 				930DA25D25ED56DB008558E3 /* cfi_assembler.cc in Sources */,

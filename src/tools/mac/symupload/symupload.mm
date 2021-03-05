@@ -45,7 +45,6 @@
 #include <Foundation/Foundation.h>
 
 #include "HTTPMultipartUpload.h"
-#include "HTTPPutRequest.h"
 #include "SymbolCollectorClient.h"
 #include "common/mac/dump_syms.h"
 
@@ -188,8 +187,10 @@ static void StartSymUploadProtocolV2(Options* options,
   }
 
   NSURL* uploadURL = [NSURL URLWithString:[URLResponse uploadURL]];
-  HTTPPutRequest* putRequest = [[HTTPPutRequest alloc] initWithURL:uploadURL];
-  [putRequest setFile:options->symbolsPath];
+  HTTPMultipartUpload* putRequest =
+      [[HTTPMultipartUpload alloc] initWithURL:uploadURL];
+  [putRequest addFileAtPath:options->symbolsPath name:@"symbol_file"];
+
 
   NSError* error = nil;
   NSData* data = [putRequest send:&error];
