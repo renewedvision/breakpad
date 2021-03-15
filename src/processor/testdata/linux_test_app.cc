@@ -39,6 +39,7 @@
 // generate an executable with STABS symbols (needs -m32), or -gdwarf-2 for one
 // with DWARF symbols (32- or 64-bit)
 
+#include <pthread.h>
 #include <stdio.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -46,6 +47,7 @@
 #include <string>
 
 #include "client/linux/handler/exception_handler.h"
+#include "common/scoped_ptr.h"
 #include "third_party/lss/linux_syscall_support.h"
 
 namespace {
@@ -69,6 +71,30 @@ static void CrashFunction() {
   *i = 5;  // crash!
 }
 
+static void* ChildThreadFunction(void* b_ptr) {
+  pthread_barrier_t* b = reinterpret_cast<pthread_barrier_t*>(b_ptr);
+  pthread_barrier_wait(b);
+  usleep(1000000);
+}
+
+static bool StartNewThreadsAndWaitSleep() {
+  int num_threads = 2;
+  google_breakpad::scoped_array<pthread_t> threads(new pthread_t[num_threads]);
+  pthread_barrier_t b;
+  if (0 != pthread_barrier_init(&b, NULL, num_threads + 1)) {
+    printf("Failed to init barriers\n");
+    return false;
+  }
+  for (int i = 0; i < num_threads; ++i) {
+    if (0 != pthread_create(&threads[i], NULL, CrashFunction, &b)) {
+      printf("Failed to create thread %d\n", i);
+      return false;
+    }
+  }
+  pthread_barrier_wait(&b);
+}
+
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -76,6 +102,7 @@ int main(int argc, char** argv) {
   if (!eh.WriteMinidump()) {
     printf("Failed to generate on-demand minidump\n");
   }
+  StartNewThreadsAndWaitSleep();
   CrashFunction();
   printf("did not crash?\n");
   return 0;
