@@ -4854,9 +4854,9 @@ MinidumpCrashpadInfo::MinidumpCrashpadInfo(Minidump* minidump)
 bool MinidumpCrashpadInfo::Read(uint32_t expected_size) {
   valid_ = false;
 
-  if (expected_size != sizeof(crashpad_info_)) {
+  if (expected_size < sizeof(crashpad_info_)) {
     BPLOG(ERROR) << "MinidumpCrashpadInfo size mismatch, " << expected_size <<
-                    " != " << sizeof(crashpad_info_);
+                    " < " << sizeof(crashpad_info_);
     return false;
   }
 
