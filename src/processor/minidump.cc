@@ -1626,6 +1626,63 @@ bool MinidumpThread::GetThreadID(uint32_t* thread_id) const {
   return true;
 }
 
+typedef unsigned long DWORD;
+typedef unsigned short USHORT;
+typedef void* PVOID;
+typedef unsigned char BYTE;
+typedef DWORD ULONG;
+typedef wchar_t* PWSTR;
+
+typedef struct _UNICODE_STRING {
+  USHORT Length;
+  USHORT MaximumLength;
+  PWSTR  Buffer;
+} UNICODE_STRING, *PUNICODE_STRING;
+
+typedef struct _RTL_USER_PROCESS_PARAMETERS {
+    BYTE Reserved1[16];
+    PVOID Reserved2[10];
+    UNICODE_STRING ImagePathName;
+    UNICODE_STRING CommandLine;
+} RTL_USER_PROCESS_PARAMETERS, *PRTL_USER_PROCESS_PARAMETERS;
+
+typedef struct _LIST_ENTRY {
+  struct _LIST_ENTRY *Flink;
+  struct _LIST_ENTRY *Blink;
+} LIST_ENTRY, *PLIST_ENTRY, PRLIST_ENTRY;
+
+typedef struct _PEB_LDR_DATA {
+    BYTE Reserved1[8];
+    PVOID Reserved2[3];
+    LIST_ENTRY InMemoryOrderModuleList;
+} PEB_LDR_DATA, *PPEB_LDR_DATA;
+
+typedef struct _PEB {
+    BYTE Reserved1[2];
+    BYTE BeingDebugged;
+    BYTE Reserved2[1];
+    PVOID Reserved3[2];
+    PPEB_LDR_DATA Ldr;
+    PRTL_USER_PROCESS_PARAMETERS ProcessParameters;
+    PVOID Reserved4[3];
+    PVOID AtlThunkSListPtr;
+    PVOID Reserved5;
+    ULONG Reserved6;
+    PVOID Reserved7;
+    ULONG Reserved8;
+    ULONG AtlThunkSListPtr32;
+    PVOID Reserved9[45];
+    BYTE Reserved10[96];
+    PVOID PostProcessInitRoutine;
+    BYTE Reserved11[128];
+    PVOID Reserved12[1];
+    ULONG SessionId;
+} PEB, *PPEB;
+
+typedef struct _TEB {
+    PVOID Reserved1[12];
+    PPEB ProcessEnvironmentBlock;
+} TEB, *PTEB;
 
 void MinidumpThread::Print() {
   if (!valid_) {
@@ -1657,6 +1714,28 @@ void MinidumpThread::Print() {
     printf("  (no context)\n");
     printf("\n");
   }
+
+  printf("Command line\n");
+  MinidumpMemoryRegion* memory_teb = 
+      minidump_->GetMemoryList()->GetMemoryRegionForAddress(thread_.teb);
+  const TEB* teb = reinterpret_cast<const TEB*>(memory_teb->GetMemory());
+  MinidumpMemoryRegion* memory_peb =
+      minidump_->GetMemoryList()->GetMemoryRegionForAddress(
+          reinterpret_cast<uint64_t>(teb->ProcessEnvironmentBlock));
+  const PEB* peb = reinterpret_cast<const PEB*>(memory_peb->GetMemory());
+  MinidumpMemoryRegion* memory_proc_param =
+      minidump_->GetMemoryList()->GetMemoryRegionForAddress(
+          reinterpret_cast<uint64_t>(peb->ProcessParameters));
+  const RTL_USER_PROCESS_PARAMETERS* proc_param =
+      reinterpret_cast<const RTL_USER_PROCESS_PARAMETERS*>(
+          memory_proc_param->GetMemory());
+  MinidumpMemoryRegion* memory_cmd_line =
+      minidump_->GetMemoryList()->GetMemoryRegionForAddress(
+          reinterpret_cast<uint64_t>(proc_param->CommandLine.Buffer));
+  memory_cmd_line->hexdump_ = 1;
+  memory_cmd_line->hexdump_width_ = 16;
+  memory_cmd_line->Print();
+  printf("\n");
 
   MinidumpMemoryRegion* memory = GetMemory();
   if (memory) {
