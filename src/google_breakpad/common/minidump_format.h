@@ -1092,6 +1092,7 @@ typedef struct {
   MDGUID client_id;
   MDLocationDescriptor simple_annotations;  /* MDRawSimpleStringDictionary */
   MDLocationDescriptor module_list;  /* MDRawModuleCrashpadInfoList */
+  uint64_t pointer_authentication_address_mask;
 } MDRawCrashpadInfo;
 
 #if defined(_MSC_VER)

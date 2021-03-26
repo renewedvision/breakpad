@@ -4854,15 +4854,19 @@ MinidumpCrashpadInfo::MinidumpCrashpadInfo(Minidump* minidump)
 bool MinidumpCrashpadInfo::Read(uint32_t expected_size) {
   valid_ = false;
 
-  // TODO(justincohen): Be smarter here and add support for reading each field,
-  // including new fields from crashpad.
-  if (expected_size < sizeof(crashpad_info_)) {
+  // Support old minidumps that do not implement the PAC field.
+  size_t crashpad_info_size = sizeof(crashpad_info_);
+  if (expected_size == crashpad_info_size - 8) {
+    crashpad_info_size -= 8;
+  }
+
+  if (expected_size < crashpad_info_size) {
     BPLOG(ERROR) << "MinidumpCrashpadInfo size mismatch, " << expected_size <<
                     " < " << sizeof(crashpad_info_);
     return false;
   }
 
-  if (!minidump_->ReadBytes(&crashpad_info_, sizeof(crashpad_info_))) {
+  if (!minidump_->ReadBytes(&crashpad_info_, crashpad_info_size)) {
     BPLOG(ERROR) << "MinidumpCrashpadInfo cannot read Crashpad info";
     return false;
   }
@@ -4873,6 +4877,7 @@ bool MinidumpCrashpadInfo::Read(uint32_t expected_size) {
     Swap(&crashpad_info_.client_id);
     Swap(&crashpad_info_.simple_annotations);
     Swap(&crashpad_info_.module_list);
+    Swap(&crashpad_info_.pointer_authentication_address_mask);
   }
 
   if (crashpad_info_.simple_annotations.data_size) {
@@ -4985,6 +4990,9 @@ void MinidumpCrashpadInfo::Print() {
          MDGUIDToString(crashpad_info_.report_id).c_str());
   printf("  client_id = %s\n",
          MDGUIDToString(crashpad_info_.client_id).c_str());
+  printf("  pointer_authentication_address_mask = 0x%x\n",
+         crashpad_info_.pointer_authentication_address_mask);
+
   for (std::map<std::string, std::string>::const_iterator iterator =
            simple_annotations_.begin();
        iterator != simple_annotations_.end();
