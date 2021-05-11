@@ -255,18 +255,19 @@ class RangeListReader {
   // from the compilation unit. Package it conveniently.
   struct CURangesInfo {
     CURangesInfo() :
-        version_(0), base_address_(0), ranges_base_(0),
-        buffer_(nullptr), size_(0), addr_buffer_(nullptr),
+        version_(0), base_address_(0), offset_array_base_(0),
+        buffer_(nullptr), size_(0), header_size(0), addr_buffer_(nullptr),
         addr_buffer_size_(0), addr_base_(0) { }
 
     uint16_t version_;
     // Ranges base address. Ordinarily the CU's low_pc.
     uint64_t base_address_;
     // Offset into .debug_rnglists for this CU's rangelists.
-    uint64_t ranges_base_;
+    uint64_t offset_array_base_;
     // Contents of either .debug_ranges or .debug_rnglists.
     const uint8_t* buffer_;
     uint64_t size_;
+    uint64_t header_size;
     // Contents of .debug_addr. This cu's contribution starts at
     // addr_base_
     const uint8_t* addr_buffer_;
@@ -283,7 +284,7 @@ class RangeListReader {
   bool ReadRanges(enum DwarfForm form, uint64_t data);
 
  private:
-  bool SetRangesBase(uint64_t base);
+  bool ReadRngListsHeader(uint64_t offset_array_, bool isDwarf32);
 
   // Read dwarf4 .debug_ranges at offset.
   bool ReadDebugRanges(uint64_t offset);
