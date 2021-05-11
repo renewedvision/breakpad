@@ -256,7 +256,7 @@ class RangeListReader {
   struct CURangesInfo {
     CURangesInfo() :
         version_(0), base_address_(0), ranges_base_(0),
-        buffer_(nullptr), size_(0), addr_buffer_(nullptr),
+        buffer_(nullptr), size_(0), header_size(0), addr_buffer_(nullptr),
         addr_buffer_size_(0), addr_base_(0) { }
 
     uint16_t version_;
@@ -267,6 +267,7 @@ class RangeListReader {
     // Contents of either .debug_ranges or .debug_rnglists.
     const uint8_t* buffer_;
     uint64_t size_;
+    uint64_t header_size;
     // Contents of .debug_addr. This cu's contribution starts at
     // addr_base_
     const uint8_t* addr_buffer_;
@@ -277,13 +278,13 @@ class RangeListReader {
   RangeListReader(ByteReader* reader, CURangesInfo* cu_info,
                   RangeListHandler* handler) :
       reader_(reader), cu_info_(cu_info), handler_(handler),
-      offset_array_(0), offset_entry_count_(0) { }
+      offset_array_(0) { }
 
   // Read ranges from cu_info as specified by form and data.
   bool ReadRanges(enum DwarfForm form, uint64_t data);
 
  private:
-  bool SetRangesBase(uint64_t base);
+  bool ReadRngListsHeader(uint64_t offset_array_);
 
   // Read dwarf4 .debug_ranges at offset.
   bool ReadDebugRanges(uint64_t offset);
@@ -316,7 +317,6 @@ class RangeListReader {
   CURangesInfo* cu_info_;
   RangeListHandler* handler_;
   uint64_t offset_array_;
-  uint64_t offset_entry_count_;
 };
 
 // This class is the main interface between the reader and the
