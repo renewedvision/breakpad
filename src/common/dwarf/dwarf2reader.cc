@@ -1776,16 +1776,19 @@ void LineInfo::ReadLines() {
   after_header_ = lengthstart + header_.total_length;
 }
 
-bool RangeListReader::SetRangesBase(uint64_t offset) {
+bool RangeListReader::ReadRngListsHeader(uint64_t offset_array_base_) {
   // Versions less than 5 don't use ranges base.
   if (cu_info_->version_ < 5) {
     return true;
   }
-  // Length may not be 12 bytes, but if 12 bytes aren't available
-  // at this point, then the header is too short.
-  if (offset + 12 >= cu_info_->size_) {
+  // Header length can't be smaller than 12 bytes.
+  if (offset_array_base_ < 12) {
     return false;
   }
+
+  cu_info_->header_size = reader_->OffsetSize() == 4 ? 12 : 20;
+  uint64_t offset = offset_array_base_ - cu_info_->header_size;
+
   // The length of this CU's contribution.
   uint64_t cu_length = reader_->ReadFourBytes(cu_info_->buffer_ + offset);
   offset += 4;
@@ -1819,8 +1822,7 @@ bool RangeListReader::SetRangesBase(uint64_t offset) {
   }
   offset += 1;
   offset_entry_count_ = reader_->ReadFourBytes(cu_info_->buffer_ + offset);
-  offset += 4;
-  offset_array_ = offset;
+  offset_array_ = offset_array_base_;
   return true;
 }
 
@@ -1829,18 +1831,18 @@ bool RangeListReader::ReadRanges(enum DwarfForm form, uint64_t data) {
     if (cu_info_->version_ <= 4) {
       return ReadDebugRanges(data);
     } else {
-      return ReadDebugRngList(data);
+      return ReadDebugRngList(cu_info_->header_size + data);
     }
   } else if (form == DW_FORM_rnglistx) {
-    SetRangesBase(cu_info_->ranges_base_);
+    ReadRngListsHeader(cu_info_->offset_array_base_);
     if (data >= offset_entry_count_) {
       return false;
     }
     uint64_t index_offset = reader_->AddressSize() * data;
     uint64_t range_list_offset =
-        reader_->ReadAddress(cu_info_->buffer_ + offset_array_ + index_offset);
+        reader_->ReadOffset(cu_info_->buffer_ + offset_array_ + index_offset);
 
-    return ReadDebugRngList(range_list_offset);
+    return ReadDebugRngList(offset_array_ + range_list_offset);
   }
   return false;
 }

@@ -236,7 +236,7 @@ struct DwarfCUToModule::CUContext {
         = file_context->section_map();
     info->version_ = version;
     info->base_address_ = low_pc;
-    info->ranges_base_ = ranges_base;
+    info->offset_array_base_ = ranges_base;
     const char* section_name = (version <= 4 ?
                                 ".debug_ranges" : ".debug_rnglists");
     dwarf2reader::SectionMap::const_iterator map_entry
