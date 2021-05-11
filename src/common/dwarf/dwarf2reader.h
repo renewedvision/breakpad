@@ -277,13 +277,13 @@ class RangeListReader {
   RangeListReader(ByteReader* reader, CURangesInfo* cu_info,
                   RangeListHandler* handler) :
       reader_(reader), cu_info_(cu_info), handler_(handler),
-      offset_array_(0), offset_entry_count_(0) { }
+      offset_array_(0) { }
 
   // Read ranges from cu_info as specified by form and data.
   bool ReadRanges(enum DwarfForm form, uint64_t data);
 
  private:
-  bool SetRangesBase(uint64_t base);
+  bool ReadRngListsHeader(uint64_t offset_array_);
 
   // Read dwarf4 .debug_ranges at offset.
   bool ReadDebugRanges(uint64_t offset);
@@ -316,7 +316,6 @@ class RangeListReader {
   CURangesInfo* cu_info_;
   RangeListHandler* handler_;
   uint64_t offset_array_;
-  uint64_t offset_entry_count_;
 };
 
 // This class is the main interface between the reader and the
