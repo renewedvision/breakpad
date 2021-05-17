@@ -437,6 +437,7 @@ uint64_t CompilationUnit::Start() {
   if (iter != sections_.end()) {
     addr_buffer_ = iter->second.first;
     addr_buffer_length_ = iter->second.second;
+    addr_base_ = reader_->OffsetSize() == 4 ? 8 : 16;
   }
 
   // Now that we have our abbreviations, start processing DIE's.
