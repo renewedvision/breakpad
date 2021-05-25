@@ -43,7 +43,6 @@ Both i386 and x86_64 architectures will be dumped and uploaded.
 package main
 
 import (
-	"debug/macho"
 	"flag"
 	"fmt"
 	"io"
@@ -393,40 +392,6 @@ func (fq *findQueue) worker() {
 			continue
 		}
 
-		fatFile, err := macho.NewFatFile(f)
-		if err == nil {
-			// The file is fat, so dump its architectures.
-			for _, fatArch := range fatFile.Arches {
-				fq.dumpMachOFile(fp, fatArch.File)
-			}
-			fatFile.Close()
-		} else if err == macho.ErrNotFat {
-			// The file isn't fat but may still be MachO.
-			thinFile, err := macho.NewFile(f)
-			if err != nil {
-				log.Printf("%s: %v", fp, err)
-				continue
-			}
-			fq.dumpMachOFile(fp, thinFile)
-			thinFile.Close()
-		} else {
-			f.Close()
-		}
-	}
-}
-
-func (fq *findQueue) dumpMachOFile(fp string, image *macho.File) {
-	if image.Type != MachODylib && image.Type != MachOBundle && image.Type != MachODylinker {
-		return
-	}
-
-	arch := getArchStringFromHeader(image.FileHeader)
-	if arch == "" {
-		// Don't know about this architecture type.
-		return
-	}
-
-	if (*dumpArchitecture != "" && *dumpArchitecture == arch) || *dumpArchitecture == "" {
-		fq.dq.DumpSymbols(fp, arch)
+		f.Close()
 	}
 }
