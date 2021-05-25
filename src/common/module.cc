@@ -81,9 +81,8 @@ void Module::SetAddressRanges(const vector<Range>& ranges) {
 }
 
 void Module::AddFunction(Function* function) {
-  // FUNC lines must not hold an empty name, so catch the problem early if
-  // callers try to add one.
-  assert(!function->name.empty());
+  if (function->name.empty())
+    function->name = "<name omitted>";
 
   if (!AddressIsInModule(function->address)) {
     return;
@@ -300,6 +299,26 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
 
         if (!stream.good())
           return ReportError();
+
+        for (auto i : func->inlines) {
+          Inline* head = i;
+          while (head) {
+            auto ranges = head->ranges;
+            stream << "INLINE ";
+            stream << head->parent_site_number << " "
+                   << head->call_site_line << " "
+                   << head->name << " "
+                   << (head->file ? head->file->source_id : -1)
+                   << hex;
+            for (auto r : ranges)
+              stream << " " << (r.address - load_address_) << " " << r.size;
+            stream << dec << "\n";
+            head = head->child_inline;
+          }
+
+          if (!stream.good())
+            return ReportError();
+        }
 
         while ((line_it != func->lines.end()) &&
                (line_it->address >= range_it->address) &&
