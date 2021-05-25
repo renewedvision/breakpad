@@ -66,6 +66,7 @@ class Module {
   static constexpr uint64_t kMaxAddress = std::numeric_limits<Address>::max();
   struct File;
   struct Function;
+  struct Inline;
   struct Line;
   struct Extern;
 
@@ -120,6 +121,37 @@ class Module {
     // Source lines belonging to this function, sorted by increasing
     // address.
     vector<Line> lines;
+
+    // Inlined call sites belonging to this functions.
+    vector<Inline*> inlines;
+  };
+
+  // A inlined call site.
+  struct Inline {
+    Inline(const string& name,
+           const vector<Range>& ranges,
+           int call_site_line,
+           int parent_site_number,
+           Inline* child_inline)
+        : name(name),
+          ranges(ranges),
+          call_site_line(call_site_line),
+          parent_site_number(parent_site_number),
+          child_inline(child_inline), file(NULL) {}
+
+    // The inlined function's name.
+    string name;
+
+    // The list of addresses and sizes.
+    vector<Range> ranges;
+
+    int call_site_line;
+
+    int parent_site_number;
+
+    Inline* child_inline;
+
+    File* file;
   };
 
   // A source line.

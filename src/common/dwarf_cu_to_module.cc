@@ -98,6 +98,81 @@ struct AbstractOrigin {
 
 typedef map<uint64_t, AbstractOrigin> AbstractOriginByOffset;
 
+// The "real" subprogram which is the specification/abstract_origin referred by
+// other DW_TAG_subprogram/DW_TAG_inlined_subroutine.
+struct Subprogram {
+  Subprogram(uint64_t offset)
+      : offset(offset), decl_file(NULL) {}
+  uint64_t offset;
+  Module::File* decl_file;
+  vector<Module::Inline*> inlines;
+
+  void AddInline(Module::Inline* in) {
+    if (decl_file)
+      in->file = decl_file;
+    else
+      inlines.push_back(in);;
+  }
+
+  void SetFile(Module::File* file) {
+    if (decl_file)
+      return;
+    decl_file = file;
+    for (Module::Inline* in : inlines)
+      in->file = file;
+  }
+};
+
+typedef map<uint64_t, Subprogram*> SubprogramByOffset;
+
+class SubprogramMap {
+ public:
+  Subprogram* AddSubprogram(uint64_t offset) {
+    offset = references[offset];
+    if (subprograms.find(offset) == subprograms.end())
+      subprograms[offset] = new Subprogram(offset);
+    return subprograms[offset];
+  }
+
+  void AddInline(uint64_t offset, Module::Inline* in) {
+    Subprogram* subprogram = AddSubprogram(references[offset]);
+    subprogram->AddInline(in);
+  }
+
+  void SetReference(uint64_t key, uint64_t val) {
+    if (references.find(key) == references.end()) {
+      references.insert({key, val});
+      return;
+    }
+    // If key equals val, don't override existing mapping.
+    if (key == val)
+      return;
+
+    if (subprograms.find(references[key]) != subprograms.end()) {
+      subprograms[val] = subprograms[references[key]];
+      subprograms.erase(references[key]);
+    }
+    references[key] = val;
+  }
+
+  uint64_t GetReference(uint64_t offset) { return references[offset]; }
+
+  void AssignFilesToSubprograms(vector<uint64_t>& subprogram_offsets,
+                                Module::File* file) {
+    for (uint64_t offset : subprogram_offsets) {
+      subprograms[offset]->SetFile(file);
+    }
+  }
+
+ private:
+  // A map from a subprogram's offset to the subprogram.
+  SubprogramByOffset subprograms;
+
+  // A map from a subprogram's offset to the offset of its specification or
+  // abstract origin subprogram.
+  map<uint64_t, uint64_t> references;
+};
+
 // Data global to the DWARF-bearing file that is private to the
 // DWARF-to-Module process.
 struct DwarfCUToModule::FilePrivate {
@@ -130,6 +205,10 @@ struct DwarfCUToModule::FilePrivate {
   // Keep a list of forward references from DW_AT_abstract_origin and
   // DW_AT_specification attributes so names can be fixed up.
   std::map<uint64_t, Module::Function*> forward_ref_die_to_func;
+
+  std::map<uint64_t, std::vector<Module::Inline*>> forward_ref_die_to_inline;
+
+  SubprogramMap subprogram_map;
 };
 
 DwarfCUToModule::FileContext::FileContext(const string& filename,
@@ -269,6 +348,13 @@ struct DwarfCUToModule::CUContext {
   //
   // Destroying this destroys all the functions this vector points to.
   vector<Module::Function*> functions;
+
+  Module::Inline* recent_inline;
+
+  vector<Module::Inline*> inlines;
+
+  // from file index to vector of subprogram's offset which is in the file.
+  std::map<uint64_t, vector<uint64_t>> subprograms;
 };
 
 // Information about the context of a particular DIE. This is for
@@ -301,7 +387,8 @@ class DwarfCUToModule::GenericDIEHandler: public dwarf2reader::DIEHandler {
         offset_(offset),
         declaration_(false),
         specification_(NULL),
-        forward_ref_die_offset_(0) { }
+        abstract_origin_(NULL),
+        forward_ref_die_offset_(0), offset_reference(0) { }
 
   // Derived classes' ProcessAttributeUnsigned can defer to this to
   // handle DW_AT_declaration, or simply not override it.
@@ -353,10 +440,18 @@ class DwarfCUToModule::GenericDIEHandler: public dwarf2reader::DIEHandler {
   // Otherwise, this is NULL.
   Specification* specification_;
 
+  // If this DIE has a DW_AT_abstract_origin attribute, this is the
+  // AbstractOrigin structure for the DIE the attribute refers to.
+  // Otherwise, this is NULL.
+  const AbstractOrigin* abstract_origin_;
+
   // If this DIE has a DW_AT_specification or DW_AT_abstract_origin and it is a
   // forward reference, no Specification will be available. Track the reference
   // to be fixed up when the DIE is parsed.
   uint64_t forward_ref_die_offset_;
+
+  // The root offset of Specification or abstract origin.
+  uint64_t offset_reference;
 
   // The value of the DW_AT_name attribute, or the empty string if the
   // DIE has no such attribute.
@@ -409,6 +504,21 @@ void DwarfCUToModule::GenericDIEHandler::ProcessAttributeReference(
       } else {
         cu_context_->reporter->UnknownSpecification(offset_, data);
       }
+      offset_reference = data;
+      break;
+    }
+    case dwarf2reader::DW_AT_abstract_origin: {
+      const AbstractOriginByOffset& origins =
+          cu_context_->file_context->file_private_->origins;
+      AbstractOriginByOffset::const_iterator origin = origins.find(data);
+      if (origin != origins.end()) {
+        abstract_origin_ = &(origin->second);
+      } else if (data > offset_) {
+        forward_ref_die_offset_ = data;
+      } else {
+        cu_context_->reporter->UnknownAbstractOrigin(offset_, data);
+      }
+      offset_reference = data;
       break;
     }
     default: break;
@@ -516,6 +626,163 @@ string DwarfCUToModule::GenericDIEHandler::ComputeQualifiedName() {
   return return_value;
 }
 
+static bool IsEmptyRange(const vector<Module::Range>& ranges) {
+  uint64_t size = accumulate(ranges.cbegin(), ranges.cend(), 0,
+    [](uint64_t total, Module::Range entry) {
+      return total + entry.size;
+    }
+  );
+
+  return size == 0;
+}
+
+
+// A handler for DW_TAG_inlined_subroutine DIEs.
+class DwarfCUToModule::InlineHandler : public GenericDIEHandler {
+ public:
+  InlineHandler(CUContext* cu_context,
+                DIEContext* parent_context,
+                uint64_t offset, int parent_site_number)
+      : GenericDIEHandler(cu_context, parent_context, offset),
+        low_pc_(0),
+        high_pc_(0),
+        high_pc_form_(dwarf2reader::DW_FORM_addr),
+        ranges_form_(dwarf2reader::DW_FORM_sec_offset),
+        ranges_data_(0),
+        call_site_line(0),
+        parent_site_number(parent_site_number) {}
+
+  void ProcessAttributeUnsigned(enum DwarfAttribute attr,
+                                enum DwarfForm form,
+                                uint64_t data);
+  DIEHandler* FindChildHandler(uint64_t offset, enum DwarfTag tag);
+  bool EndAttributes();
+  void Finish();
+
+ private:
+  // The fully-qualified name, as derived from name_attribute_,
+  // specification_, parent_context_. Computed in EndAttributes.
+  string name_;
+  uint64_t low_pc_, high_pc_;  // DW_AT_low_pc, DW_AT_high_pc
+  DwarfForm high_pc_form_;     // DW_AT_high_pc can be length or address.
+  DwarfForm ranges_form_;      // DW_FORM_sec_offset or DW_FORM_rnglistx
+  uint64_t ranges_data_;       // DW_AT_ranges
+  int call_site_line;
+  int parent_site_number;
+};
+
+void DwarfCUToModule::InlineHandler::ProcessAttributeUnsigned(
+    enum DwarfAttribute attr,
+    enum DwarfForm form,
+    uint64_t data) {
+  switch (attr) {
+    case dwarf2reader::DW_AT_low_pc:      low_pc_  = data; break;
+    case dwarf2reader::DW_AT_high_pc:
+      high_pc_form_ = form;
+      high_pc_ = data;
+      break;
+    case dwarf2reader::DW_AT_ranges:
+      ranges_data_ = data;
+      ranges_form_ = form;
+      break;
+    case dwarf2reader::DW_AT_call_line:
+      call_site_line = data; 
+      break;
+    default:
+      GenericDIEHandler::ProcessAttributeUnsigned(attr, form, data);
+      break;
+  }
+}
+
+dwarf2reader::DIEHandler* DwarfCUToModule::InlineHandler::FindChildHandler(
+    uint64_t offset,
+    enum DwarfTag tag) {
+  switch (tag) {
+    case dwarf2reader::DW_TAG_inlined_subroutine:
+      return new InlineHandler(cu_context_, new DIEContext(), offset,
+                               parent_site_number + 1);
+    default:
+      return NULL;
+  }
+}
+
+bool DwarfCUToModule::InlineHandler::EndAttributes() {
+  if (abstract_origin_)
+    name_ = abstract_origin_->name;
+  return true;
+}
+
+void DwarfCUToModule::InlineHandler::Finish() {
+  // If we don't know offset_reference, we don't have reference to the inlined
+  // function.
+  if (offset_reference == 0)
+    return;
+
+  vector<Module::Range> ranges;
+
+  if (low_pc_ && high_pc_) {
+    if (high_pc_form_ != dwarf2reader::DW_FORM_addr &&
+        high_pc_form_ != dwarf2reader::DW_FORM_GNU_addr_index &&
+        high_pc_form_ != dwarf2reader::DW_FORM_addrx &&
+        high_pc_form_ != dwarf2reader::DW_FORM_addrx1 &&
+        high_pc_form_ != dwarf2reader::DW_FORM_addrx2 &&
+        high_pc_form_ != dwarf2reader::DW_FORM_addrx3 &&
+        high_pc_form_ != dwarf2reader::DW_FORM_addrx4) {
+      high_pc_ += low_pc_;
+    }
+
+    Module::Range range(low_pc_, high_pc_ - low_pc_);
+    ranges.push_back(range);
+  } else {
+    RangesHandler* ranges_handler = cu_context_->ranges_handler;
+    if (ranges_handler) {
+      dwarf2reader::RangeListReader::CURangesInfo cu_info;
+      if (cu_context_->AssembleRangeListInfo(&cu_info)) {
+        if (!ranges_handler->ReadRanges(ranges_form_, ranges_data_,
+                                        &cu_info, &ranges)) {
+          ranges.clear();
+          cu_context_->reporter->MalformedRangeList(ranges_data_);
+        }
+      } else {
+        cu_context_->reporter->MissingRanges();
+      }
+    }
+  }
+
+  // Malformed DWARF may omit the name, but all Module::Functions must
+  // have names.
+  string name;
+  if (!name_.empty()) {
+    name = name_;
+  } else {
+    // If we have a forward reference to a DW_AT_specification or
+    // DW_AT_abstract_origin, then don't warn, the name will be fixed up
+    // later
+    if (forward_ref_die_offset_ == 0)
+      cu_context_->reporter->UnnamedFunction(offset_);
+  }
+
+  if (!IsEmptyRange(ranges)) {
+    Module::Inline* in =
+        new Module::Inline(name_, ranges, call_site_line, parent_site_number,
+                           cu_context_->recent_inline);
+    if (in->parent_site_number == 0)
+      cu_context_->inlines.push_back(in);
+    if (forward_ref_die_offset_ != 0) {
+      cu_context_->file_context->file_private_
+          ->forward_ref_die_to_inline[forward_ref_die_offset_]
+          .push_back(in);
+    }
+    in->child_inline = cu_context_->recent_inline;
+    cu_context_->recent_inline = in;
+
+    uint64_t offset = offset_reference;
+    cu_context_->file_context->file_private_->subprogram_map.SetReference(offset, offset);
+    cu_context_->file_context->file_private_->subprogram_map.AddInline(offset,
+                                                                       in);
+  }
+}
+
 // A handler class for DW_TAG_subprogram DIEs.
 class DwarfCUToModule::FuncHandler: public GenericDIEHandler {
  public:
@@ -524,7 +791,7 @@ class DwarfCUToModule::FuncHandler: public GenericDIEHandler {
       : GenericDIEHandler(cu_context, parent_context, offset),
         low_pc_(0), high_pc_(0), high_pc_form_(dwarf2reader::DW_FORM_addr),
         ranges_form_(dwarf2reader::DW_FORM_sec_offset), ranges_data_(0),
-        abstract_origin_(NULL), inline_(false) { }
+        decl_file_data_(INT64_MAX), inline_(false) { }
 
   void ProcessAttributeUnsigned(enum DwarfAttribute attr,
                                 enum DwarfForm form,
@@ -532,10 +799,7 @@ class DwarfCUToModule::FuncHandler: public GenericDIEHandler {
   void ProcessAttributeSigned(enum DwarfAttribute attr,
                               enum DwarfForm form,
                               int64_t data);
-  void ProcessAttributeReference(enum DwarfAttribute attr,
-                                 enum DwarfForm form,
-                                 uint64_t data);
-
+  DIEHandler* FindChildHandler(uint64_t offset, enum DwarfTag tag);
   bool EndAttributes();
   void Finish();
 
@@ -547,7 +811,7 @@ class DwarfCUToModule::FuncHandler: public GenericDIEHandler {
   DwarfForm high_pc_form_; // DW_AT_high_pc can be length or address.
   DwarfForm ranges_form_; // DW_FORM_sec_offset or DW_FORM_rnglistx
   uint64_t ranges_data_; // DW_AT_ranges
-  const AbstractOrigin* abstract_origin_;
+  uint64_t decl_file_data_;
   bool inline_;
 };
 
@@ -570,7 +834,9 @@ void DwarfCUToModule::FuncHandler::ProcessAttributeUnsigned(
       ranges_data_ = data;
       ranges_form_ = form;
       break;
-
+    case dwarf2reader::DW_AT_decl_file:
+      decl_file_data_ = data;
+      break;
     default:
       GenericDIEHandler::ProcessAttributeUnsigned(attr, form, data);
       break;
@@ -592,27 +858,16 @@ void DwarfCUToModule::FuncHandler::ProcessAttributeSigned(
   }
 }
 
-void DwarfCUToModule::FuncHandler::ProcessAttributeReference(
-    enum DwarfAttribute attr,
-    enum DwarfForm form,
-    uint64_t data) {
-  switch (attr) {
-    case dwarf2reader::DW_AT_abstract_origin: {
-      const AbstractOriginByOffset& origins =
-          cu_context_->file_context->file_private_->origins;
-      AbstractOriginByOffset::const_iterator origin = origins.find(data);
-      if (origin != origins.end()) {
-        abstract_origin_ = &(origin->second);
-      } else if (data > offset_) {
-        forward_ref_die_offset_ = data;
-      } else {
-        cu_context_->reporter->UnknownAbstractOrigin(offset_, data);
-      }
-      break;
-    }
+dwarf2reader::DIEHandler* DwarfCUToModule::FuncHandler::FindChildHandler(
+    uint64_t offset,
+    enum DwarfTag tag) {
+  switch (tag) {
+    case dwarf2reader::DW_TAG_inlined_subroutine:
+      // Start a new top-level inline subroutine.
+      cu_context_->recent_inline = NULL;
+      return new InlineHandler(cu_context_, new DIEContext(), offset, 0);
     default:
-      GenericDIEHandler::ProcessAttributeReference(attr, form, data);
-      break;
+      return NULL;
   }
 }
 
@@ -625,16 +880,6 @@ bool DwarfCUToModule::FuncHandler::EndAttributes() {
   return true;
 }
 
-static bool IsEmptyRange(const vector<Module::Range>& ranges) {
-  uint64_t size = accumulate(ranges.cbegin(), ranges.cend(), 0,
-    [](uint64_t total, Module::Range entry) {
-      return total + entry.size;
-    }
-  );
-
-  return size == 0;
-}
-
 void DwarfCUToModule::FuncHandler::Finish() {
   vector<Module::Range> ranges;
 
@@ -642,12 +887,20 @@ void DwarfCUToModule::FuncHandler::Finish() {
   // to be processed, and fix up the name of the appropriate Module::Function.
   // "name_" will have already been fixed up in EndAttributes().
   if (!name_.empty()) {
-    auto iter =
+    auto func_iter =
         cu_context_->file_context->file_private_->forward_ref_die_to_func.find(
             offset_);
-    if (iter !=
+    if (func_iter !=
         cu_context_->file_context->file_private_->forward_ref_die_to_func.end())
-      iter->second->name = name_;
+      func_iter->second->name = name_;
+    auto inline_iter = cu_context_->file_context->file_private_
+                           ->forward_ref_die_to_inline.find(offset_);
+    if (inline_iter != cu_context_->file_context->file_private_
+                           ->forward_ref_die_to_inline.end()) {
+      for (Module::Inline* i : inline_iter->second) {
+        i->name = name_;
+      }
+    }
   }
 
   if (!ranges_data_) {
@@ -680,26 +933,21 @@ void DwarfCUToModule::FuncHandler::Finish() {
     }
   }
 
-  // Did we collect the information we need?  Not all DWARF function
-  // entries are non-empty (for example, inlined functions that were never
-  // used), but all the ones we're interested in cover a non-empty range of
-  // bytes.
+  // Malformed DWARF may omit the name, but all Module::Functions must
+  // have names.
+  string name;
+  if (!name_.empty()) {
+    name = name_;
+  } else {
+    // If we have a forward reference to a DW_AT_specification or
+    // DW_AT_abstract_origin, then don't warn, the name will be fixed up
+    // later
+    if (forward_ref_die_offset_ == 0)
+      cu_context_->reporter->UnnamedFunction(offset_);
+  }
+
   if (!IsEmptyRange(ranges)) {
     low_pc_ = ranges.front().address;
-
-    // Malformed DWARF may omit the name, but all Module::Functions must
-    // have names.
-    string name;
-    if (!name_.empty()) {
-      name = name_;
-    } else {
-      // If we have a forward reference to a DW_AT_specification or
-      // DW_AT_abstract_origin, then don't warn, the name will be fixed up
-      // later
-      if (forward_ref_die_offset_ == 0)
-        cu_context_->reporter->UnnamedFunction(offset_);
-      name = "<name omitted>";
-    }
 
     // Create a Module::Function based on the data we've gathered, and
     // add it to the functions_ list.
@@ -715,11 +963,21 @@ void DwarfCUToModule::FuncHandler::Finish() {
             ->forward_ref_die_to_func[forward_ref_die_offset_] =
             cu_context_->functions.back();
       }
+
+      cu_context_->functions.back()->inlines = cu_context_->inlines;
+      cu_context_->inlines.clear();
     }
   } else if (inline_) {
     AbstractOrigin origin(name_);
     cu_context_->file_context->file_private_->origins[offset_] = origin;
   }
+  uint64_t offset = offset_reference != 0 ? offset_reference : offset_;
+  cu_context_->file_context->file_private_->subprogram_map.SetReference(offset_,
+                                                                        offset);
+  cu_context_->file_context->file_private_->subprogram_map.AddSubprogram(
+      offset_);
+  if (decl_file_data_ != INT64_MAX)
+    cu_context_->subprograms[decl_file_data_].push_back(offset);
 }
 
 // A handler for DIEs that contain functions and contribute a
@@ -1036,7 +1294,7 @@ void DwarfCUToModule::ReadSourceLines(uint64_t offset) {
       line_section_start, line_section_length,
       string_section_start, string_section_length,
       line_string_section_start, line_string_section_length,
-      cu_context_->file_context->module_, &lines_);
+      cu_context_->file_context->module_, &lines_, files_);
 }
 
 namespace {
@@ -1295,6 +1553,14 @@ void DwarfCUToModule::AssignLinesToFunctions() {
   }
 }
 
+void DwarfCUToModule::AssignFilesToInlines() {
+  for (auto iter : files_) {
+    cu_context_->file_context->file_private_->subprogram_map
+        .AssignFilesToSubprograms(cu_context_->subprograms[iter.first],
+                                  iter.second);
+  }
+}
+
 void DwarfCUToModule::Finish() {
   // Assembly language files have no function data, and that gives us
   // no place to store our line numbers (even though the GNU toolchain
@@ -1312,6 +1578,8 @@ void DwarfCUToModule::Finish() {
 
   // Dole out lines to the appropriate functions.
   AssignLinesToFunctions();
+
+  AssignFilesToInlines();
 
   // Add our functions, which now have source lines assigned to them,
   // to module_.
