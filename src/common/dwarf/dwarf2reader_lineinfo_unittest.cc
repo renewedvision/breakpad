@@ -29,7 +29,7 @@
 
 // Original author: Sterling Augustine <saugustine@google.com>
 
-// dwarf2reader_lineinfo_unittest.cc: Unit tests for dwarf2reader::LineInfo
+// dwarf2reader_lineinfo_unittest.cc: Unit tests for google_breakpad::LineInfo
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -49,7 +49,7 @@ using testing::Sequence;
 using testing::Test;
 using testing::_;
 
-using namespace dwarf2reader;
+using namespace google_breakpad;
 
 namespace {
 
@@ -184,4 +184,4 @@ TEST_F(LineProgram, ReadLinesDwarf4) {
   EXPECT_EQ(line_reader.Start(), sizeof(dwarf4_line_program));
 }
 
-}  // anonymous namespace
+}  // namespace google_breakpad
