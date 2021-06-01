@@ -66,6 +66,8 @@ class Module {
   static constexpr uint64_t kMaxAddress = std::numeric_limits<Address>::max();
   struct File;
   struct Function;
+  struct InlineOrigin;
+  struct Inline;
   struct Line;
   struct Extern;
 
@@ -120,6 +122,49 @@ class Module {
     // Source lines belonging to this function, sorted by increasing
     // address.
     vector<Line> lines;
+
+    // Inlined call sites belonging to this functions.
+    vector<Inline*> inlines;
+  };
+
+  struct InlineOrigin {
+    InlineOrigin(const string& name): id(-1), name(name), file(NULL) {}
+
+    // A unique id for each InlineOrigin object. INLINE records use the id to
+    // refer to its INLINE_ORIGIN record.
+    int id;
+
+    // The inlined function's name.
+    string name;
+
+    File* file;
+
+    int getFileID() { return file ? file->source_id : -1; }
+  };
+
+  // A inlined call site.
+  struct Inline {
+    Inline(InlineOrigin* origin,
+           const vector<Range>& ranges,
+           int call_site_line,
+           int parent_site_number,
+           Inline* child_inline)
+        : origin(origin),
+          ranges(ranges),
+          call_site_line(call_site_line),
+          parent_site_number(parent_site_number),
+          child_inline(child_inline) {}
+
+    InlineOrigin* origin;
+
+    // The list of addresses and sizes.
+    vector<Range> ranges;
+
+    int call_site_line;
+
+    int parent_site_number;
+
+    Inline* child_inline;
   };
 
   // A source line.
@@ -280,6 +325,9 @@ class Module {
   // symbol file, at which point we omit any unused files.
   void AssignSourceIds();
 
+  // AssignSourceIds() should be called before calling this function.
+  void CreateInlineOrigins();
+
   // Call AssignSourceIds, and write this module to STREAM in the
   // breakpad symbol format. Return true if all goes well, or false if
   // an error occurs. This method writes out:
@@ -347,7 +395,8 @@ class Module {
   // point to.
   FileByNameMap files_;    // This module's source files.
   FunctionSet functions_;  // This module's functions.
-
+  vector<InlineOrigin*> inline_origins; // This module's inline origins.
+  
   // The module owns all the call frame info entries that have been
   // added to it.
   vector<StackFrameEntry*> stack_frame_entries_;
