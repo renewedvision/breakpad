@@ -38,6 +38,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <functional>
 #include <iostream>
 #include <utility>
 
@@ -81,9 +82,8 @@ void Module::SetAddressRanges(const vector<Range>& ranges) {
 }
 
 void Module::AddFunction(Function* function) {
-  // FUNC lines must not hold an empty name, so catch the problem early if
-  // callers try to add one.
-  assert(!function->name.empty());
+  if (function->name.empty())
+    function->name = "<name omitted>";
 
   if (!AddressIsInModule(function->address)) {
     return;
@@ -219,6 +219,10 @@ void Module::AssignSourceIds() {
          line_it != func->lines.end(); ++line_it)
       line_it->file->source_id = 0;
   }
+  // Also mark all files cited by inline functions by setting each one's source
+  // id to zero.
+  for (InlineOrigin* origin : inline_origins)
+    origin->file->source_id = 0;
 
   // Finally, assign source ids to those files that have been marked.
   // We could have just assigned source id numbers while traversing
@@ -229,6 +233,37 @@ void Module::AssignSourceIds() {
        file_it != files_.end(); ++file_it) {
     if (!file_it->second->source_id)
       file_it->second->source_id = next_source_id++;
+  }
+}
+
+static void InlineDFS(const vector<Module::Inline*>& inlines,
+                      std::function<void(Module::Inline*)> const& forEach) {
+  for (Module::Inline* in : inlines) {
+    forEach(in);
+    InlineDFS(in->child_inlines, forEach);
+  }
+}
+
+void Module::CreateInlineOrigins() {
+  // Only add origins that have file and deduplicate origins with same name and
+  // file id by doing a DFS.
+  auto addInlineOrigins = [&](Inline* in) {
+    auto it = inline_origins.find(in->origin);
+    if (it == inline_origins.end()) {
+      // There are some artificial inline functions which don't belong to
+      // any file.
+      if (in->origin->file) {
+        inline_origins.insert(in->origin);
+      }
+    } else {
+      in->origin = *it;
+    }
+  };
+  for (Function* func : functions_)
+    InlineDFS(func->inlines, addInlineOrigins);
+  int next_id = 0;
+  for (InlineOrigin* origin: inline_origins) {
+    origin->id = next_id++;
   }
 }
 
@@ -272,6 +307,7 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
   }
 
   if (symbol_data != ONLY_CFI) {
+    CreateInlineOrigins();
     AssignSourceIds();
 
     // Write out files.
@@ -284,8 +320,15 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
           return ReportError();
       }
     }
+    // Write out inline origins.
+    for (InlineOrigin* origin: inline_origins) {
+      stream << "INLINE_ORIGIN " << origin->id << " " << origin->getFileID()
+             << " " << origin->name << "\n";
+      if (!stream.good())
+        return ReportError();
+    }
 
-    // Write out functions and their lines.
+    // Write out functions and their inlines and lines.
     for (FunctionSet::const_iterator func_it = functions_.begin();
          func_it != functions_.end(); ++func_it) {
       Function* func = *func_it;
@@ -300,6 +343,21 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
 
         if (!stream.good())
           return ReportError();
+
+        // Write out inlines.
+        auto write_inline = [&] (Inline* in) {
+          stream << "INLINE ";
+          stream << in->inline_nest_level << " "
+                 << in->call_site_line << " "
+                 << in->origin->id
+                 << hex;
+          for (const Range& r : in->ranges)
+            stream << " " << (r.address - load_address_) << " " << r.size;
+          stream << dec << "\n";
+        };
+        InlineDFS(func->inlines, write_inline);
+        if (!stream.good())
+            return ReportError();
 
         while ((line_it != func->lines.end()) &&
                (line_it->address >= range_it->address) &&
