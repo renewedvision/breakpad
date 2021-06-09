@@ -117,11 +117,6 @@ void Module::AddFunction(Function* function) {
 #endif
 
   std::pair<FunctionSet::iterator,bool> ret = functions_.insert(function);
-  if (!ret.second && (*ret.first != function)) {
-    // Free the duplicate that was not inserted because this Module
-    // now owns it.
-    delete function;
-  }
 }
 
 void Module::AddFunctions(vector<Function*>::iterator begin,
