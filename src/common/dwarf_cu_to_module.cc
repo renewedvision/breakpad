@@ -269,6 +269,9 @@ struct DwarfCUToModule::CUContext {
   //
   // Destroying this destroys all the functions this vector points to.
   vector<Module::Function*> functions;
+
+  // A map of function pointers to the its forward specification DIE's offset.
+  map<Module::Function*, uint64_t> spec_function_offsets;
 };
 
 // Information about the context of a particular DIE. This is for
@@ -714,6 +717,9 @@ void DwarfCUToModule::FuncHandler::Finish() {
         cu_context_->file_context->file_private_
             ->forward_ref_die_to_func[forward_ref_die_offset_] =
             cu_context_->functions.back();
+
+        cu_context_->spec_function_offsets[cu_context_->functions.back()] =
+            forward_ref_die_offset_;
       }
     }
   } else if (inline_) {
@@ -1312,10 +1318,24 @@ void DwarfCUToModule::Finish() {
   // Dole out lines to the appropriate functions.
   AssignLinesToFunctions();
 
+  // The functions need to be deleted due to duplication.
+  vector<Module::Function*> delete_functions;
+
   // Add our functions, which now have source lines assigned to them,
   // to module_.
-  cu_context_->file_context->module_->AddFunctions(functions->begin(),
-                                                   functions->end());
+  for (Module::Function* func: *functions)
+    if (!cu_context_->file_context->module_->AddFunction(func))
+      delete_functions.push_back(func);
+
+  // Delete duplicate functions and remove its DIE's offset from
+  // forward_ref_die_to_func.
+  for (Module::Function* func : delete_functions) {
+    auto iter = cu_context_->spec_function_offsets.find(func);
+    if (iter != cu_context_->spec_function_offsets.end())
+      cu_context_->file_context->file_private_->forward_ref_die_to_func.erase(
+          iter->second);
+    delete func;
+  }
 
   // Ownership of the function objects has shifted from cu_context to
   // the Module.
