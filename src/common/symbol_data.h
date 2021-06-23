@@ -34,9 +34,21 @@
 
 // Control what data is used from the symbol file.
 enum SymbolData {
-  ALL_SYMBOL_DATA,
-  NO_CFI,
-  ONLY_CFI
+  NONE_DATA = 0,
+  ALL_SYMBOL_DATA = 1 << 0,
+  NO_CFI = 1 << 1,
+  ONLY_CFI = 1 << 2,
+  NO_INLINE = 1 << 3,
 };
+
+inline SymbolData operator&(SymbolData data1, SymbolData data2) {
+  return static_cast<SymbolData>(static_cast<int>(data1) &
+                                 static_cast<int>(data2));
+}
+
+inline SymbolData operator|(SymbolData data1, SymbolData data2) {
+  return static_cast<SymbolData>(static_cast<int>(data1) |
+                                 static_cast<int>(data2));
+}
 
 #endif  // COMMON_SYMBOL_DATA_H_
