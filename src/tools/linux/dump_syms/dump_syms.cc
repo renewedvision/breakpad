@@ -127,7 +127,9 @@ int main(int argc, char** argv) {
       return 1;
     }
   } else {
-    SymbolData symbol_data = cfi ? ALL_SYMBOL_DATA : NO_CFI;
+    SymbolData symbol_data = ALL_SYMBOL_DATA;
+    if (!cfi)
+      symbol_data = symbol_data ^ CFI;
     google_breakpad::DumpOptions options(symbol_data, handle_inter_cu_refs);
     if (!WriteSymbolFile(binary, obj_name, obj_os, debug_dirs, options,
                          std::cout)) {

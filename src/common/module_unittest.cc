@@ -255,7 +255,7 @@ TEST(Write, NoCFI) {
   // the module must work fine.
   m.SetLoadAddress(0x2ab698b0b6407073ULL);
 
-  m.Write(s, NO_CFI);
+  m.Write(s, ALL_SYMBOL_DATA ^ CFI);
   string contents = s.str();
   EXPECT_STREQ("MODULE os-name architecture id-string name with spaces\n"
                "FILE 0 filename.cc\n"
