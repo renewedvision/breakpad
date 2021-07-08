@@ -456,8 +456,11 @@ uint64_t CompilationUnit::Start() {
 void CompilationUnit::ProcessFormStringIndex(
     uint64_t dieoffset, enum DwarfAttribute attr, enum DwarfForm form,
     uint64_t str_index) {
+  const size_t kStringOffsetsTableHeaderSize =
+      reader_->OffsetSize() == 8 ? 16 : 8;
   const uint8_t* offset_ptr =
-      str_offsets_buffer_ + str_offsets_base_ + str_index * reader_->OffsetSize();
+      str_offsets_buffer_ + str_offsets_base_ + kStringOffsetsTableHeaderSize +
+      str_index * reader_->OffsetSize();
   const uint64_t offset = reader_->ReadOffset(offset_ptr);
   if (offset >= string_buffer_length_) {
     return;
