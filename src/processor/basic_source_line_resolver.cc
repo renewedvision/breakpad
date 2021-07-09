@@ -202,6 +202,10 @@ bool BasicSourceLineResolver::Module::LoadMapFromMemory(
       // Ignore these as well, they're similarly just for housekeeping.
       //
       // INFO CODE_ID <code id> <filename>
+    } else if (strncmp(buffer, "INLINE ", 7) == 0) {
+      // TODO: Parsing INLNIE records.
+    } else if (strncmp(buffer, "INLINE_ORIGIN ", 14) == 0) {
+      // TODO: Parsing INLNIE_ORIGIN records.
     } else {
       if (!cur_func.get()) {
         LogParseError("Found source line data without a function",
