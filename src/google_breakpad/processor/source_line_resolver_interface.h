@@ -35,6 +35,7 @@
 #define GOOGLE_BREAKPAD_PROCESSOR_SOURCE_LINE_RESOLVER_INTERFACE_H__
 
 #include <string>
+#include <vector>
 
 #include "common/using_std_string.h"
 #include "google_breakpad/common/breakpad_types.h"
@@ -92,7 +93,9 @@ class SourceLineResolverInterface {
   // Fills in the function_base, function_name, source_file_name,
   // and source_line fields of the StackFrame.  The instruction and
   // module_name fields must already be filled in.
-  virtual void FillSourceLineInfo(StackFrame* frame) = 0;
+  virtual void FillSourceLineInfo(
+      StackFrame* frame,
+      std::vector<StackFrame*>* inlined_frames = NULL) = 0;
 
   // If Windows stack walking information is available covering
   // FRAME's instruction address, return a WindowsFrameInfo structure
