@@ -66,8 +66,15 @@ BasicSourceLineResolver::Function : public SourceLineResolverBase::Function {
                                    code_size,
                                    set_parameter_size,
                                    is_mutiple),
+                              inlines(),
                               lines() { }
-  RangeMap< MemAddr, linked_ptr<Line> > lines;
+  RangeMap<MemAddr, Inline*> inlines;
+  RangeMap<MemAddr, linked_ptr<Line>> lines;
+
+  // Append inline into coresponding RangeMap. 
+  // This function assumes it's called in the order of reading INLINE records.
+  bool appendInline(Inline* in);
+
  private:
   typedef SourceLineResolverBase::Function Base;
 };
@@ -92,7 +99,18 @@ class BasicSourceLineResolver::Module : public SourceLineResolverBase::Module {
 
   // Looks up the given relative address, and fills the StackFrame struct
   // with the result.
-  virtual void LookupAddress(StackFrame* frame) const;
+  virtual void LookupAddress(
+      StackFrame* frame,
+      std::vector<StackFrame*>* inlined_frames = NULL) const;
+
+  // Construct inlined frame for frame and return inlined function call site
+  // source line.
+  virtual int constructInlineFrames(
+      StackFrame* frame,
+      MemAddr address,
+      const std::map<int, string>& files_,
+      const RangeMap<uint64_t, Inline*>& inlines,
+      std::vector<StackFrame*>* inline_frames) const;
 
   // If Windows stack walking information is available covering ADDRESS,
   // return a WindowsFrameInfo structure describing it. If the information
@@ -125,6 +143,12 @@ class BasicSourceLineResolver::Module : public SourceLineResolverBase::Module {
   // Parses a file declaration
   bool ParseFile(char* file_line);
 
+  // Parses an inline origin declaration.
+  bool ParseInlineOrigin(char* inline_origin_line);
+
+  // Parses an inline declaration.
+  Inline* ParseInline(char* inline_line);
+
   // Parses a function declaration, returning a new Function object.
   Function* ParseFunction(char* function_line);
 
@@ -144,6 +168,7 @@ class BasicSourceLineResolver::Module : public SourceLineResolverBase::Module {
 
   string name_;
   FileMap files_;
+  std::map<int, linked_ptr<InlineOrigin>> inline_origins_;
   RangeMap< MemAddr, linked_ptr<Function> > functions_;
   AddressMap< MemAddr, linked_ptr<PublicSymbol> > public_symbols_;
   bool is_corrupt_;
