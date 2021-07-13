@@ -37,6 +37,7 @@
 
 #include <set>
 #include <string>
+#include <vector>
 
 #include "common/using_std_string.h"
 #include "google_breakpad/common/breakpad_types.h"
@@ -79,7 +80,8 @@ class StackFrameSymbolizer {
       const CodeModules* modules,
       const CodeModules* unloaded_modules,
       const SystemInfo* system_info,
-      StackFrame* stack_frame);
+      StackFrame* stack_frame, 
+      std::vector<StackFrame*>* inlined_frames = NULL);
 
   virtual WindowsFrameInfo* FindWindowsFrameInfo(const StackFrame* frame);
 
