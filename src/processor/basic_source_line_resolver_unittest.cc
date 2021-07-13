@@ -413,6 +413,48 @@ TEST_F(TestBasicSourceLineResolver, TestUnload)
   ASSERT_TRUE(resolver.HasModule(&module1));
 }
 
+TEST_F(TestBasicSourceLineResolver, TestLoadAndResolveInlines) {
+  TestCodeModule module("linux_inline");
+  ASSERT_TRUE(resolver.LoadModule(
+      &module, testdata_dir +
+                   "/symbols/linux_inline/BBA6FA10B8AAB33D00000000000000000/"
+                   "linux_inline.sym"));
+  ASSERT_TRUE(resolver.HasModule(&module));
+  StackFrame frame;
+  std::vector<StackFrame*> inlined_frames;
+  frame.instruction = 0x161b6;
+  frame.module = &module;
+  // main frame.
+  resolver.FillSourceLineInfo(&frame, &inlined_frames);
+  ASSERT_EQ(frame.function_name, "main");
+  ASSERT_EQ(frame.function_base, 0x15b30U);
+  ASSERT_EQ(frame.source_file_name, "linux_inline.cpp");
+  ASSERT_EQ(frame.source_line, 42);
+  ASSERT_EQ(frame.source_line_base, 0x161b6U);
+
+  // Inlined frames inside main frame.
+  ASSERT_EQ(inlined_frames[0]->function_name, "foo()");
+  ASSERT_EQ(inlined_frames[0]->function_base, 0x15b45U);
+  ASSERT_EQ(inlined_frames[0]->source_file_name, "linux_inline.cpp");
+  ASSERT_EQ(inlined_frames[0]->source_line, 39);
+  ASSERT_EQ(inlined_frames[0]->source_line_base, 0x161b6U);
+  ASSERT_EQ(inlined_frames[0]->trust, StackFrame::FRAME_TRUST_INLINE);
+
+  ASSERT_EQ(inlined_frames[1]->function_name, "bar()");
+  ASSERT_EQ(inlined_frames[1]->function_base, 0x15b72U);
+  ASSERT_EQ(inlined_frames[1]->source_file_name, "linux_inline.cpp");
+  ASSERT_EQ(inlined_frames[1]->source_line, 32);
+  ASSERT_EQ(inlined_frames[1]->source_line_base, 0x161b6U);
+  ASSERT_EQ(inlined_frames[1]->trust, StackFrame::FRAME_TRUST_INLINE);
+
+  ASSERT_EQ(inlined_frames[2]->function_name, "func()");
+  ASSERT_EQ(inlined_frames[2]->function_base, 0x15b83U);
+  ASSERT_EQ(inlined_frames[2]->source_file_name, "linux_inline.cpp");
+  ASSERT_EQ(inlined_frames[2]->source_line, 27);
+  ASSERT_EQ(inlined_frames[2]->source_line_base, 0x161b6U);
+  ASSERT_EQ(inlined_frames[2]->trust, StackFrame::FRAME_TRUST_INLINE);
+}
+
 // Test parsing of valid FILE lines.  The format is:
 // FILE <id> <filename>
 TEST(SymbolParseHelper, ParseFileValid) {
@@ -734,6 +776,122 @@ TEST(SymbolParseHelper, ParsePublicSymbolInvalid) {
   ASSERT_FALSE(SymbolParseHelper::ParsePublicSymbol(kTestLine6, &multiple,
                                                     &address, &stack_param_size,
                                                     &name));
+}
+
+// Test parsing of valid INLINE_ORIGIN lines.  The format is:
+// INLINE_ORIGIN <origin_id> <file_id> <name>
+TEST(SymbolParseHelper, ParseInlineOriginValid) {
+  long origin_id;
+  long file_id;
+  char* name;
+
+  char kTestLine[] = "INLINE_ORIGIN 1 1 function name";
+  ASSERT_TRUE(SymbolParseHelper::ParseInlineOrigin(kTestLine, &origin_id,
+                                                   &file_id, &name));
+  EXPECT_EQ(1, origin_id);
+  EXPECT_EQ(1, file_id);
+  EXPECT_EQ("function name", string(name));
+
+  // -1 is a file id, which is used when the function is artifical.
+  char kTestLine1[] = "INLINE_ORIGIN 0 -1 function name";
+  ASSERT_TRUE(SymbolParseHelper::ParseInlineOrigin(kTestLine1, &origin_id,
+                                                   &file_id, &name));
+  EXPECT_EQ(0, origin_id);
+  EXPECT_EQ(-1, file_id);
+  EXPECT_EQ("function name", string(name));
+}
+
+// Test parsing of valid INLINE ORIGIN lines.  The format is:
+// INLINE_ORIGIN <origin_id> <file_id> <name>
+TEST(SymbolParseHelper, ParseInlineOriginInvalid) {
+  long origin_id;
+  long file_id;
+  char* name;
+
+  // Test missing function name.
+  char kTestLine[] = "INLINE_ORIGIN 1 1";
+  ASSERT_FALSE(SymbolParseHelper::ParseInlineOrigin(kTestLine, &origin_id,
+                                                   &file_id, &name));
+
+  // Test bad origin id.
+  char kTestLine1[] = "INLINE_ORIGIN x1 1 function name";
+  ASSERT_FALSE(SymbolParseHelper::ParseInlineOrigin(kTestLine1, &origin_id,
+                                                   &file_id, &name));
+
+  // Test large origin id.
+  char kTestLine2[] = "INLINE_ORIGIN 123123123123123123123123 1 function name";
+  ASSERT_FALSE(SymbolParseHelper::ParseInlineOrigin(kTestLine2, &origin_id,
+                                                   &file_id, &name));
+
+  // Test negative origin id.
+  char kTestLine3[] = "INLINE_ORIGIN -1 1 function name";
+  ASSERT_FALSE(SymbolParseHelper::ParseInlineOrigin(kTestLine3, &origin_id,
+                                                   &file_id, &name));
+}
+
+// Test parsing of valid INLINE lines.  The format is:
+// INLINE <inline_nest_level> <call_site_line> <origin_id> <address> <size> ...
+TEST(SymbolParseHelper, ParseInlineValid) {
+  long inline_nest_level;
+  long call_site_line;
+  long origin_id;
+  std::vector<std::pair<uint64_t, uint64_t>> ranges;
+
+  char kTestLine[] = "INLINE 0 1 2 3 4";
+  ASSERT_TRUE(SymbolParseHelper::ParseInline(
+      kTestLine, &inline_nest_level, &call_site_line, &origin_id, &ranges));
+  EXPECT_EQ(0, inline_nest_level);
+  EXPECT_EQ(1, call_site_line);
+  EXPECT_EQ(2, origin_id);
+  EXPECT_EQ(0x3ULL, ranges[0].first);
+  EXPECT_EQ(0x4ULL, ranges[0].second);
+  ranges.clear();
+
+  // Test hex and discontinuous ranges.
+  char kTestLine1[] = "INLINE 0 1 2 a b 1a 1b";
+  ASSERT_TRUE(SymbolParseHelper::ParseInline(
+      kTestLine1, &inline_nest_level, &call_site_line, &origin_id, &ranges));
+  EXPECT_EQ(0, inline_nest_level);
+  EXPECT_EQ(1, call_site_line);
+  EXPECT_EQ(2, origin_id);
+  EXPECT_EQ(0xaULL, ranges[0].first);
+  EXPECT_EQ(0xbULL, ranges[0].second);
+  EXPECT_EQ(0x1aULL, ranges[1].first);
+  EXPECT_EQ(0x1bULL, ranges[1].second);
+}
+
+// Test parsing of Invalid INLINE lines.  The format is:
+// INLINE <inline_nest_level> <call_site_line> <origin_id> <address> <size> ...
+TEST(SymbolParseHelper, ParseInlineInvalid) {
+  long inline_nest_level;
+  long call_site_line;
+  long origin_id;
+  std::vector<std::pair<uint64_t, uint64_t>> ranges;
+
+  // Test negative inline_nest_level.
+  char kTestLine[] = "INLINE -1 1 2 3 4";
+  ASSERT_FALSE(SymbolParseHelper::ParseInline(
+      kTestLine, &inline_nest_level, &call_site_line, &origin_id, &ranges));
+
+  // Test negative call_site_line.
+  char kTestLine1[] = "INLINE 0 -1 2 3 4";
+  ASSERT_FALSE(SymbolParseHelper::ParseInline(
+      kTestLine1, &inline_nest_level, &call_site_line, &origin_id, &ranges));
+
+  // Test negative origin_id.
+  char kTestLine2[] = "INLINE 0 1 -2 3 4";
+  ASSERT_FALSE(SymbolParseHelper::ParseInline(
+      kTestLine2, &inline_nest_level, &call_site_line, &origin_id, &ranges));
+
+  // Test missing ranges.
+  char kTestLine3[] = "INLINE 0 1 -2";
+  ASSERT_FALSE(SymbolParseHelper::ParseInline(
+      kTestLine3, &inline_nest_level, &call_site_line, &origin_id, &ranges));
+
+  // Test missing size for range.
+  char kTestLine4[] = "INLINE 0 1 -2 3";
+  ASSERT_FALSE(SymbolParseHelper::ParseInline(
+      kTestLine4, &inline_nest_level, &call_site_line, &origin_id, &ranges));
 }
 
 }  // namespace
