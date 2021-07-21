@@ -16,6 +16,69 @@
       "message": "Fixed with a map.",
       "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6a2ae4b_c180f095",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-07-21T21:18:06Z",
+      "side": 1,
+      "message": "Generally looks good!",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e0771a_c93eac48",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-07-21T21:18:06Z",
+      "side": 1,
+      "message": "Optional: here and in the definition of constructInlineFrames, you check the value of source_line is not zero before assigning to frame-\u003esource_line, but source_line might be validly zero for artificial functions? Optional because frame-\u003esource_line defaults to zero, so I think there\u0027s no functional difference, but the if condition might give the impression that this is an error.",
+      "range": {
+        "startLine": 304,
+        "startChar": 10,
+        "endLine": 306,
+        "endChar": 41
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9da61f0b_fa842940",
+        "filename": "src/processor/basic_source_line_resolver_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-07-21T21:18:06Z",
+      "side": 1,
+      "message": "Move these below the appendInline() declaration.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 44
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
