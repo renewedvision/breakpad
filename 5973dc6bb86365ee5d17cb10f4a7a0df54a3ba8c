@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7c0cd28_1a4a6231",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T21:48:15Z",
+      "side": 1,
+      "message": "Ping. \n\nThe processor change https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3024690 is landed, we should be able to have inlined frame stacks on for Linux binaries after this lands and rolled out.",
+      "revId": "5973dc6bb86365ee5d17cb10f4a7a0df54a3ba8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

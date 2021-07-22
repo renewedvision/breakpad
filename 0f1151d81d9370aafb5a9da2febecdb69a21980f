@@ -604,6 +604,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e212f499_a159849a",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T21:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e149a47_8b732d9b",
+      "range": {
+        "startLine": 697,
+        "startChar": 0,
+        "endLine": 698,
+        "endChar": 35
+      },
+      "revId": "0f1151d81d9370aafb5a9da2febecdb69a21980f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cf2b00c_7adad22c",
@@ -641,6 +665,30 @@
       "side": 1,
       "message": "For 2, actually I think this is not necessary. I tested with chrome, this condition is never true. I also asked David Blaikie if every DW_TAG_inlined_subroutine has a DW_AT_abstract_origin. He said \"Practically speaking, yes.\".",
       "parentUuid": "7cf2b00c_7adad22c",
+      "range": {
+        "startLine": 705,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 11
+      },
+      "revId": "0f1151d81d9370aafb5a9da2febecdb69a21980f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b15f6db3_106c5036",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T21:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47eb108b_381c2b03",
       "range": {
         "startLine": 705,
         "startChar": 0,
@@ -887,6 +935,30 @@
       "side": 1,
       "message": "The implementation was incorrect. child_inline should be a vector of Inline*. The structure of Inline should like a tree.\nHere is an example:\n - foo() a function\n  - f1() inlined\n    - f2() inlined\n      - f3() inlined\n    - f4() inlined\n\nFunction foo owns Inline f1. Inline f1 owns Inline f2 and f4. Inline f2 owns Inline f3.\n\nI corrected the implementation in the update.",
       "parentUuid": "2993027d_4067dc71",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 25
+      },
+      "revId": "0f1151d81d9370aafb5a9da2febecdb69a21980f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22ad05a9_d8bcfa46",
+        "filename": "src/common/module.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T21:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e415b49_b9983e31",
       "range": {
         "startLine": 167,
         "startChar": 4,

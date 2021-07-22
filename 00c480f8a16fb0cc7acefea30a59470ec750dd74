@@ -335,6 +335,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65518c8e_1adb8ca0",
+        "filename": "src/common/module.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T21:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d65cae6a_352cc04e",
+      "range": {
+        "startLine": 225,
+        "startChar": 12,
+        "endLine": 225,
+        "endChar": 16
+      },
+      "revId": "00c480f8a16fb0cc7acefea30a59470ec750dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "991a5ea5_3ce0b7f2",
