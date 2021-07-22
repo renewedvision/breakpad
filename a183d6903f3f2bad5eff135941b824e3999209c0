@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e63db0b_cba83188",
+        "filename": "src/google_breakpad/processor/basic_source_line_resolver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "No, the char* will be used as first argument for strtok_r which can\u0027t be const. Same reason for other char* in Parse* Functions.",
+      "parentUuid": "a865fa68_babfddd2",
+      "range": {
+        "startLine": 106,
+        "startChar": 32,
+        "endLine": 106,
+        "endChar": 56
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fb95213_c482a8ac",
@@ -71,6 +95,24 @@
       "writtenOn": "2021-07-21T21:37:38Z",
       "side": 1,
       "message": "Default arguments are banned for virtual methods. https://google.github.io/styleguide/cppguide.html#Default_Arguments\n\nThere are only a few callers, right? Just change them to pass in nullptr. (Not NULL.) Alternatively, add a separate FillSourceLineInfoWithInlinedFrames().\n\nSane goes for the other methods.",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2310f668_9e6ca94a",
+        "filename": "src/google_breakpad/processor/source_line_resolver_base.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fb95213_c482a8ac",
       "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +134,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0988343f_579b17ba",
+        "filename": "src/google_breakpad/processor/source_line_resolver_interface.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6581413_b03a863d",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "114a2198_359b82d8",
@@ -105,6 +165,30 @@
       "writtenOn": "2021-07-21T21:37:38Z",
       "side": 1,
       "message": "Can we use nullptr in new code whenever possible?",
+      "range": {
+        "startLine": 247,
+        "startChar": 57,
+        "endLine": 247,
+        "endChar": 61
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b59411_86c7d85f",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "114a2198_359b82d8",
       "range": {
         "startLine": 247,
         "startChar": 57,
@@ -138,6 +222,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "905d54aa_0e96536b",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ced1ebcc_549e0cf3",
+      "range": {
+        "startLine": 250,
+        "startChar": 13,
+        "endLine": 250,
+        "endChar": 21
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1875ce08_93bcaee2",
@@ -155,6 +263,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ce457f_5e48d0ef",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1875ce08_93bcaee2",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a44d258_4c70eda7",
@@ -168,6 +294,24 @@
       "writtenOn": "2021-07-21T21:37:38Z",
       "side": 1,
       "message": "Add curly braces.",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f175771f_efb1322e",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a44d258_4c70eda7",
       "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -195,6 +339,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "464f34c5_59172672",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Changed to return -1 if failed.",
+      "parentUuid": "b4e0771a_c93eac48",
+      "range": {
+        "startLine": 304,
+        "startChar": 10,
+        "endLine": 306,
+        "endChar": 41
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc8858a3_c3e8d1a6",
@@ -212,6 +380,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60d94e8a_2b9588a7",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Changed to shared_ptr as it will be shared by multiple maps.",
+      "parentUuid": "cc8858a3_c3e8d1a6",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f675ac1f_dbee26ef",
@@ -225,6 +411,30 @@
       "writtenOn": "2021-07-21T21:37:38Z",
       "side": 1,
       "message": "Rename this, so there\u0027s no confusion between `this-\u003einlines` and the local `inlines` variable.",
+      "range": {
+        "startLine": 588,
+        "startChar": 30,
+        "endLine": 588,
+        "endChar": 37
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd14d3e2_9500dc2f",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f675ac1f_dbee26ef",
       "range": {
         "startLine": 588,
         "startChar": 30,
@@ -258,6 +468,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeeb153a_c4fd86f6",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa3c097a_1feca9fb",
+      "range": {
+        "startLine": 591,
+        "startChar": 15,
+        "endLine": 591,
+        "endChar": 56
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8efd57f8_2629e96e",
@@ -271,6 +505,30 @@
       "writtenOn": "2021-07-21T21:37:38Z",
       "side": 1,
       "message": "Isn\u0027t there already a constant called INT_MAX? Why not use that? Or use std::numeric_limits\u003cint\u003e::max(), as std::numeric_limits\u003clong\u003e::max() is already being used below.",
+      "range": {
+        "startLine": 681,
+        "startChar": 37,
+        "endLine": 681,
+        "endChar": 48
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90869753_20f61e7f",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8efd57f8_2629e96e",
       "range": {
         "startLine": 681,
         "startChar": 37,
@@ -304,6 +562,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4963872_dd2eccae",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Thanks for catching it.",
+      "parentUuid": "585d66ce_68c92d20",
+      "range": {
+        "startLine": 684,
+        "startChar": 20,
+        "endLine": 684,
+        "endChar": 24
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9da61f0b_fa842940",
@@ -317,6 +599,30 @@
       "writtenOn": "2021-07-21T21:18:06Z",
       "side": 1,
       "message": "Move these below the appendInline() declaration.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 44
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18fff6ed_a0dc7543",
+        "filename": "src/processor/basic_source_line_resolver_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9da61f0b_fa842940",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -350,6 +656,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a40f4b4_3f6af496",
+        "filename": "src/processor/basic_source_line_resolver_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "722b43de_9163f388",
+      "range": {
+        "startLine": 77,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 19
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "889ba6a8_5e7f00d2",
@@ -363,6 +693,30 @@
       "writtenOn": "2021-07-21T21:37:38Z",
       "side": 1,
       "message": "Capitalize the first letter.",
+      "range": {
+        "startLine": 115,
+        "startChar": 14,
+        "endLine": 115,
+        "endChar": 35
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "913cd03c_d6d1b066",
+        "filename": "src/processor/basic_source_line_resolver_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "889ba6a8_5e7f00d2",
       "range": {
         "startLine": 115,
         "startChar": 14,
@@ -390,6 +744,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a788389c_a25e4e3b",
+        "filename": "src/processor/basic_source_line_resolver_unittest.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca609f65_6d6b8da3",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15316d08_8b23c357",
@@ -407,6 +779,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2adbc9e6_8f3873c0",
+        "filename": "src/processor/basic_source_line_resolver_unittest.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "For the same reason above, it will be used as first argument for strtok_r which can\u0027t be const.",
+      "parentUuid": "15316d08_8b23c357",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c465bf5_6bd62542",
@@ -420,6 +810,24 @@
       "writtenOn": "2021-07-21T21:37:38Z",
       "side": 1,
       "message": "using InlineRanges \u003d std::vector\u003c...\u003e;",
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6b54d5f_46403ea1",
+        "filename": "src/processor/source_line_resolver_base_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T17:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c465bf5_6bd62542",
       "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
