@@ -16,6 +16,80 @@
       "message": "Addressed comments.",
       "revId": "eccd859f7f188b404804b56c2dca8b900d348647",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439435a2_e2d07871",
+        "filename": "src/google_breakpad/processor/stack_frame_symbolizer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-07-22T17:50:52Z",
+      "side": 1,
+      "message": "Extra space at the end.",
+      "revId": "eccd859f7f188b404804b56c2dca8b900d348647",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b482d97_098f1b31",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-07-22T17:50:52Z",
+      "side": 1,
+      "message": "Note that std::shared_ptr is banned in Chromium. Probably carries over to Breakpad, as their is no existing shared_ptr usage. I think Breakpad uses its own linked_ptr?",
+      "revId": "eccd859f7f188b404804b56c2dca8b900d348647",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff1e728b_09a634a1",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-07-22T17:50:52Z",
+      "side": 1,
+      "message": "Curly braces.",
+      "revId": "eccd859f7f188b404804b56c2dca8b900d348647",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "690fc74d_88357b36",
+        "filename": "src/processor/basic_source_line_resolver_types.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-07-22T17:50:52Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 72,
+        "startChar": 24,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "eccd859f7f188b404804b56c2dca8b900d348647",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
