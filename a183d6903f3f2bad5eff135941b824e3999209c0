@@ -610,6 +610,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "515b3c0a_2fe90ec8",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-07-22T18:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9302615_4d88ef3e",
+      "range": {
+        "startLine": 684,
+        "startChar": 20,
+        "endLine": 684,
+        "endChar": 24
+      },
+      "revId": "a183d6903f3f2bad5eff135941b824e3999209c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9da61f0b_fa842940",
