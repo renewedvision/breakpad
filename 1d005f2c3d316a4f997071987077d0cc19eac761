@@ -50,6 +50,23 @@
       "message": "Hi, sorry about the delay I think my email for this repo is not set up right. I\u0027ll fix it now. Reading the changes now 😊",
       "revId": "1d005f2c3d316a4f997071987077d0cc19eac761",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c93909e_afc2e98c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1324403
+      },
+      "writtenOn": "2021-07-29T15:54:58Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1d005f2c3d316a4f997071987077d0cc19eac761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
