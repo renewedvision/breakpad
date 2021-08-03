@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14063ad8_87187e5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-08-03T21:35:18Z",
+      "side": 1,
+      "message": "Do not emit Inline records by default. Using flag -d to enable that.",
+      "revId": "e02ef2ed6ddb44002ca6553cd94d5b76118064bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
