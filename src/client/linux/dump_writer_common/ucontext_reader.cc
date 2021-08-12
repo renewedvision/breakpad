@@ -254,6 +254,48 @@ void UContextReader::FillCPUContext(RawContextCPU* out, const ucontext_t* uc) {
   out->float_save.fir = uc->uc_mcontext.fpc_eir;  // Unused.
 #endif
 }
+
+#elif defined(__powerpc64__)
+
+uintptr_t UContextReader::GetStackPointer(const ucontext_t* uc) {
+    return uc->uc_mcontext.gp_regs[MD_CONTEXT_PPC64_REG_SP];
+}
+
+uintptr_t UContextReader::GetInstructionPointer(const ucontext_t* uc) {
+    return uc->uc_mcontext.gp_regs[PT_NIP];
+}
+
+void UContextReader::FillCPUContext(RawContextCPU* out, const ucontext_t* uc,
+                                    const struct _libc_vrstate* vregs) {
+    out->context_flags = MD_CONTEXT_PPC64_FULL;
+
+    for (int i = 0; i < MD_CONTEXT_PPC64_GPR_COUNT; i++)
+        out->gpr[i] = uc->uc_mcontext.gp_regs[i];
+
+    out->lr = uc->uc_mcontext.gp_regs[PT_LNK];
+    out->srr0 = uc->uc_mcontext.gp_regs[PT_NIP];
+    out->srr1 = uc->uc_mcontext.gp_regs[PT_MSR];
+    out->cr = uc->uc_mcontext.gp_regs[PT_CCR];
+    out->xer = uc->uc_mcontext.gp_regs[PT_XER];
+    out->ctr = uc->uc_mcontext.gp_regs[PT_CTR];
+
+    for (int i = 0; i < MD_FLOATINGSAVEAREA_PPC_FPR_COUNT; i++)
+        out->float_save.fpregs[i] = uc->uc_mcontext.fp_regs[i];
+
+    out->float_save.fpscr = uc->uc_mcontext.fp_regs[NFPREG-1];
+
+    for (int i = 0; i < MD_VECTORSAVEAREA_PPC_VR_COUNT; i++)
+        out->vector_save.save_vr[i] =
+            {(((uint64_t)vregs->vrregs[i][0]) << 32)
+                         | vregs->vrregs[i][1],
+             (((uint64_t)vregs->vrregs[i][2]) << 32)
+                         | vregs->vrregs[i][3]};
+
+    out->vrsave = vregs->vrsave;
+    out->vector_save.save_vscr = {0, vregs->vscr.vscr_word};
+    out->vector_save.save_vrvalid = 0xFFFFFFFF;
+}
+
 #endif
 
 }  // namespace google_breakpad

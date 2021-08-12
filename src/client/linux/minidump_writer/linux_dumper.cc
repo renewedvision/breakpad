@@ -765,7 +765,9 @@ bool LinuxDumper::GetStackInfo(const void** stack, size_t* stack_len,
       reinterpret_cast<uint8_t*>(int_stack_pointer & ~(page_size - 1));
 
   // The number of bytes of stack which we try to capture.
-  static const ptrdiff_t kStackToCapture = 32 * 1024;
+  // This now depends on page_size to avoid missing data
+  // on systems with larger page sizes.
+  static const ptrdiff_t kStackToCapture = 8 * page_size;
 
   const MappingInfo* mapping = FindMapping(stack_pointer);
   if (!mapping)

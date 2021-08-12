@@ -138,7 +138,9 @@ class MicrodumpWriter {
                   const MicrodumpExtraInfo& microdump_extra_info,
                   LinuxDumper* dumper)
       : ucontext_(context ? &context->context : NULL),
-#if !defined(__ARM_EABI__) && !defined(__mips__)
+#if defined(__powerpc64__)
+        vector_state_(context ? &context->vector_state : NULL),
+#elif !defined(__ARM_EABI__) && !defined(__mips__)
         float_state_(context ? &context->float_state : NULL),
 #endif
         dumper_(dumper),
@@ -337,6 +339,8 @@ class MicrodumpWriter {
 # else
 #  error "This mips ABI is currently not supported (n32)"
 #endif
+#elif defined(__powerpc64__)
+    const char kArch[] = "ppc64";
 #else
 #error "This code has not been ported to your platform yet"
 #endif
@@ -409,7 +413,9 @@ class MicrodumpWriter {
   void DumpCPUState() {
     RawContextCPU cpu;
     my_memset(&cpu, 0, sizeof(RawContextCPU));
-#if !defined(__ARM_EABI__) && !defined(__mips__)
+#if defined(__powerpc64__)
+    UContextReader::FillCPUContext(&cpu, ucontext_, vector_state_);
+#elif !defined(__ARM_EABI__) && !defined(__mips__)
     UContextReader::FillCPUContext(&cpu, ucontext_, float_state_);
 #else
     UContextReader::FillCPUContext(&cpu, ucontext_);
@@ -605,7 +611,9 @@ class MicrodumpWriter {
   void* Alloc(unsigned bytes) { return dumper_->allocator()->Alloc(bytes); }
 
   const ucontext_t* const ucontext_;
-#if !defined(__ARM_EABI__) && !defined(__mips__)
+#if defined(__powerpc64__)
+  const google_breakpad::vstate_t* const vector_state_;
+#elif !defined(__ARM_EABI__) && !defined(__mips__)
   const google_breakpad::fpstate_t* const float_state_;
 #endif
   LinuxDumper* dumper_;

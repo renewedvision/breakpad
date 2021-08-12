@@ -280,9 +280,18 @@ TEST(MicrodumpWriterTest, BasicWithMappings) {
   ASSERT_TRUE(ContainsMicrodump(buf));
 
 #ifdef __LP64__
-  ASSERT_NE(std::string::npos,
-            buf.find("M 0000000000001000 000000000000002A 0000000000001000 "
-                     "33221100554477668899AABBCCDDEEFF0 libfoo.so"));
+  int page_size = getpagesize();
+  // This test is only available for the following page sizes
+  ASSERT_TRUE((page_size == 4096) || (page_size == 65536));
+  if (page_size == 4096) {
+    ASSERT_NE(std::string::npos,
+              buf.find("M 0000000000001000 000000000000002A 0000000000001000 "
+                       "33221100554477668899AABBCCDDEEFF0 libfoo.so"));
+  } else {
+    ASSERT_NE(std::string::npos,
+              buf.find("M 0000000000010000 000000000000002A 0000000000010000 "
+                       "33221100554477668899AABBCCDDEEFF0 libfoo.so"));
+  }
 #else
   ASSERT_NE(std::string::npos,
             buf.find("M 00001000 0000002A 00001000 "
