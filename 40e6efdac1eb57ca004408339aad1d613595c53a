@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fce3b0cf_ae57221f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2021-08-16T19:55:58Z",
+      "side": 1,
+      "message": "Grammar nit: \"fall back\" (\"fallback\" is a noun, \"fall back\" is the verb; we don\u0027t say \"fallbacking\" :-) )",
+      "range": {
+        "startLine": 13,
+        "startChar": 58,
+        "endLine": 13,
+        "endChar": 66
+      },
+      "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "644ba86d_3039bfe4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2021-08-16T19:55:58Z",
+      "side": 1,
+      "message": "Nit: Should be \"b/196817261\", right?  Otherwise it links to a non-existent Chromium issue in Monorail.",
+      "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35aea9b9_2da617d7",
@@ -14,6 +54,57 @@
       "writtenOn": "2021-08-16T15:58:00Z",
       "side": 1,
       "message": "Hi, could you please check this change? Also I couldn\u0027t think of any workaround for this duplicated call to GetMappingEffectiveNameAndPath. ",
+      "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f40cce_ce43edb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2021-08-16T19:55:58Z",
+      "side": 1,
+      "message": "FYI I\u0027m not a good reviewer for Breakpad changes -- I\u0027m not an owner and I\u0027m not familiar with this code.",
+      "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b7d9bb6_b5cd8d7c",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2021-08-16T19:55:58Z",
+      "side": 1,
+      "message": "Nit: lines should be \u003c\u003d80 chars",
+      "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea325d7_ea1e42cf",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2021-08-16T19:55:58Z",
+      "side": 1,
+      "message": "Nit: unnecessary whitespace change",
       "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
