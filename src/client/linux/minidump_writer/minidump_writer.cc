@@ -55,6 +55,7 @@
 #if defined(__ANDROID__)
 #include <sys/system_properties.h>
 #endif
+#include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/ucontext.h>
 #include <sys/user.h>
@@ -63,6 +64,7 @@
 #include <unistd.h>
 
 #include <algorithm>
+#include <filesystem>
 
 #include "client/linux/dump_writer_common/thread_info.h"
 #include "client/linux/dump_writer_common/ucontext_reader.h"
@@ -619,6 +621,29 @@ class MinidumpWriter {
     return true;
   }
 
+  bool IsPEModule(const std::string &file_path) {
+    static constexpr uint8_t mz_magic[] = { 0x4du, 0x5au };
+    static constexpr uint8_t header_size = 2;
+
+    int fd = open(file_path.c_str(), O_RDONLY);
+    if (fd < 0) {
+      return false;
+    }
+
+    struct stat st;
+    if (fstat(fd, &st) != 0 && st.st_size <= header_size) {
+      close(fd);
+      return false;
+    }
+
+    char buffer[header_size];
+    read(fd, buffer, header_size);
+    auto file_is_pe = (memcmp(mz_magic, buffer, header_size) == 0);
+    close(fd);
+
+    return file_is_pe;
+  }
+
   // Fill the MDRawModule |mod| with information about the provided
   // |mapping|. If |identifier| is non-NULL, use it instead of calculating
   // a file ID from the mapping.
@@ -631,40 +656,55 @@ class MinidumpWriter {
 
     mod->base_of_image = mapping.start_addr;
     mod->size_of_image = mapping.size;
-
-    auto_wasteful_vector<uint8_t, kDefaultBuildIdSize> identifier_bytes(
-        dumper_->allocator());
-
-    if (identifier) {
-      // GUID was provided by caller.
-      identifier_bytes.insert(identifier_bytes.end(),
-                              identifier,
-                              identifier + sizeof(MDGUID));
-    } else {
-      // Note: ElfFileIdentifierForMapping() can manipulate the |mapping.name|.
-      dumper_->ElfFileIdentifierForMapping(mapping,
-                                           member,
-                                           mapping_id,
-                                           identifier_bytes);
-    }
-
-    if (!identifier_bytes.empty()) {
-      UntypedMDRVA cv(&minidump_writer_);
-      if (!cv.Allocate(MDCVInfoELF_minsize + identifier_bytes.size()))
-        return false;
-
-      const uint32_t cv_signature = MD_CVINFOELF_SIGNATURE;
-      cv.Copy(&cv_signature, sizeof(cv_signature));
-      cv.Copy(cv.position() + sizeof(cv_signature), &identifier_bytes[0],
-              identifier_bytes.size());
-
-      mod->cv_record = cv.location();
-    }
-
     char file_name[NAME_MAX];
     char file_path[NAME_MAX];
     dumper_->GetMappingEffectiveNameAndPath(
         mapping, file_path, sizeof(file_path), file_name, sizeof(file_name));
+
+    if (IsPEModule(file_path)) {
+      TypedMDRVA<MDCVInfoPDB70> cv(&minidump_writer_);
+      size_t file_name_length = strlen(file_name);
+      if (!cv.AllocateObjectAndArray(file_name_length + 1, sizeof(uint8_t)))
+        return false;
+      if (!cv.CopyIndexAfterObject(0, file_name, file_name_length))
+        return false;
+
+      MDCVInfoPDB70* cv_ptr = cv.get();
+      cv_ptr->cv_signature = MD_CVINFOPDB70_SIGNATURE;
+      cv_ptr->age = 0;
+      mod->cv_record = cv.location();
+    } else {
+      auto_wasteful_vector<uint8_t, kDefaultBuildIdSize> identifier_bytes(
+          dumper_->allocator());
+
+      if (identifier) {
+        // GUID was provided by caller.
+        identifier_bytes.insert(identifier_bytes.end(),
+                                identifier,
+                                identifier + sizeof(MDGUID));
+      } else {
+        // Note: ElfFileIdentifierForMapping() can manipulate the |mapping.name|.
+        dumper_->ElfFileIdentifierForMapping(mapping,
+                                             member,
+                                             mapping_id,
+                                             identifier_bytes);
+        dumper_->GetMappingEffectiveNameAndPath(
+            mapping, file_path, sizeof(file_path), file_name, sizeof(file_name));
+      }
+
+      if (!identifier_bytes.empty()) {
+        UntypedMDRVA cv(&minidump_writer_);
+        if (!cv.Allocate(MDCVInfoELF_minsize + identifier_bytes.size()))
+          return false;
+
+        const uint32_t cv_signature = MD_CVINFOELF_SIGNATURE;
+        cv.Copy(&cv_signature, sizeof(cv_signature));
+        cv.Copy(cv.position() + sizeof(cv_signature), &identifier_bytes[0],
+                identifier_bytes.size());
+
+        mod->cv_record = cv.location();
+      }
+    }
 
     MDLocationDescriptor ld;
     if (!minidump_writer_.WriteString(file_path, my_strlen(file_path), &ld))
@@ -672,6 +712,7 @@ class MinidumpWriter {
     mod->module_name_rva = ld.rva;
     return true;
   }
+
 
   bool WriteMemoryListStream(MDRawDirectory* dirent) {
     TypedMDRVA<uint32_t> list(&minidump_writer_);
