@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca79dab5_29d155ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-08-16T19:04:34Z",
+      "side": 1,
+      "message": "LGTM, but I don\u0027t have permission to vote on code-review.",
+      "revId": "ea4bb1f544c556a3c6ec34ffa477f0015755f2e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
