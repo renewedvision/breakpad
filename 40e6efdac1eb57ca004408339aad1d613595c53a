@@ -43,6 +43,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "98bbf956_bb32ce74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2021-08-17T07:28:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "644ba86d_3039bfe4",
+      "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "35aea9b9_2da617d7",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -92,6 +110,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b9c56a1_de32aa44",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2021-08-17T07:28:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b7d9bb6_b5cd8d7c",
+      "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dea325d7_ea1e42cf",
@@ -105,6 +141,24 @@
       "writtenOn": "2021-08-16T19:55:58Z",
       "side": 1,
       "message": "Nit: unnecessary whitespace change",
+      "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5128647b_5e97cc0c",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2021-08-17T07:28:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dea325d7_ea1e42cf",
       "revId": "40e6efdac1eb57ca004408339aad1d613595c53a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
