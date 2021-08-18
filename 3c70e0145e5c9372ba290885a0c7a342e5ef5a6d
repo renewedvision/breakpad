@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f78c58b0_a47e0ef6",
+        "filename": "src/tools/mac/dump_syms/dump_syms_tool.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2021-08-18T13:50:32Z",
+      "side": 1,
+      "message": "Add \u0027d\u0027 here.",
+      "revId": "3c70e0145e5c9372ba290885a0c7a342e5ef5a6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f445ec68_c5fb3fd9",
+        "filename": "src/tools/mac/dump_syms/dump_syms_tool.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2021-08-18T13:50:32Z",
+      "side": 1,
+      "message": "Missing break;",
+      "revId": "3c70e0145e5c9372ba290885a0c7a342e5ef5a6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
