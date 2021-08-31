@@ -99,9 +99,59 @@ class PDBSourceLineWriter {
   bool UsesGUID(bool *uses_guid);
 
  private:
-  // Outputs the line/address pairs for each line in the enumerator.
+  struct InlineOrigin {
+    int id;
+    DWORD file_id;
+    wstring name;
+  };
+
+  struct Line {
+    DWORD rva;
+    DWORD length;
+    DWORD line_num;
+    DWORD file_id;
+    bool operator==(const Line& l) const {
+      return this->rva == l.rva && this->length == l.length &&
+             this->line_num == l.line_num && this->file_id == l.file_id;
+    }
+  };
+
+  struct Inline {
+    int inline_nest_level;
+    DWORD call_site_line;
+    int origin_id;
+    // A map from rva to length.
+    std::map<DWORD, DWORD> ranges;
+    std::vector<std::unique_ptr<Inline>> child_inlines;
+
+    // Adding line's range into ranges.
+    // If line is adjacent with any existing lines, extand the range. Otherwise,
+    // add line as a new range.
+    void ExtendRanges(Line line);
+  };
+  
+  struct Lines {
+    // The key is rva.
+    std::map<DWORD, Line> lineMap;
+
+    // Found the line contains given rva and return its line_num.
+    DWORD GetLineNum(DWORD rva);
+
+    // Add line into lineMap. If the line is within the range of existing lines,
+    // split the old line into 2 or 3 lines.
+    void AddLine(Line line);
+  };
+
+  // Construct Line from IDiaLineNumber.
+  // Return true on success.
+  bool GetLine(IDiaLineNumber* line, Line* l);
+
+  // Get all lines' information.
   // Returns true on success.
-  bool PrintLines(IDiaEnumLineNumbers *lines);
+  bool GetLines(IDiaEnumLineNumbers* lines);
+
+  // Outputs the line/address pairs for each line in the enumerator.
+  void PrintLines();
 
   // Outputs a function address and name, followed by its source line list.
   // block can be the same object as function, or it can be a reference to a
@@ -117,6 +167,18 @@ class PDBSourceLineWriter {
   // Outputs all of the source files in the session's pdb file.
   // Returns true on success.
   bool PrintSourceFiles();
+
+  // Output all inline origins.
+  void PrintInlineOrigins();
+
+  // Retrieve top-level inlines in block.
+  // Returns true on success.
+  bool GetInlines(IDiaSymbol* block,
+                  int inline_nest_level,
+                  std::vector<std::unique_ptr<Inline>>* inlines);
+
+  // Outputs all inlines.
+  void PrintInlines(std::vector<std::unique_ptr<Inline>>* inlines);
 
   // Outputs all of the frame information necessary to construct stack
   // backtraces in the absence of frame pointers. For x86 data stored in
@@ -212,6 +274,12 @@ class PDBSourceLineWriter {
   unordered_map<DWORD, DWORD> file_ids_;
   // This maps unique filenames to file IDs.
   unordered_map<wstring, DWORD> unique_files_;
+
+  // The lines inside current function.
+  Lines lines_;
+
+  // The INLINE_ORIGINS records.
+  std::map<wstring, InlineOrigin> inline_origins_;
 
   // This is used for calculating post-transform symbol addresses and lengths.
   ImageMap image_map_;
