@@ -1,0 +1,215 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef013748_0e245cbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "Since this CL is in the Breakpad project, it\u0027s best to prefix the \"Bug:\" number with \"chromium:\". Some tools may otherwise interpret this as https://bugs.chromium.org/p/google-breakpad/issues/detail?id\u003d1190878",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7745ffed_f092a6e8",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "Just return after this line.",
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69a1617b_bb48dec5",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "Curly braces on both sides.",
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a2f26f_8ea962d6",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "Same here. Early return to avoid layers and layers of if/else { if/else { ... }}.",
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b6a880b_9e58ec87",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "No need for else after a return.",
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c89b9a3c_1984fb8c",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "nullptr?",
+      "range": {
+        "startLine": 702,
+        "startChar": 53,
+        "endLine": 702,
+        "endChar": 57
+      },
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc8929cb_02c45c75",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "Newline after to separate members from methods.",
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4175208f_d30944c8",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "Include \u003cmap\u003e and \u003cvector\u003e",
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "088b7050_0bc41989",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "const-ref? Same for parameter to AddLine().",
+      "range": {
+        "startLine": 130,
+        "startChar": 22,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31844b8d_3f9e26af",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "line_map",
+      "range": {
+        "startLine": 135,
+        "startChar": 26,
+        "endLine": 135,
+        "endChar": 33
+      },
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1a493b0_f4bce357",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-08-31T17:53:00Z",
+      "side": 1,
+      "message": "- Can the in-param to const-ref?\n- Instead of bool GetFoo(..., Line* l), can this be optional\u003cLine\u003e GetFoo(...)?\n- Can the method itself be const?\n- Same applies to other functions that take a single out parameter.",
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
