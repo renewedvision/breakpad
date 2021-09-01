@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4717867_9adc6d07",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-01T23:50:39Z",
+      "side": 1,
+      "message": "Added a condition for checking if line.rva \u003d\u003d iter-\u003efirst.\nFrom the logging results I got from various dll and exe files, iter.rva is always equals to line.rva if iter \u003d\u003d ranges.begin().",
+      "parentUuid": "38635adc_f18ed7f1",
+      "range": {
+        "startLine": 225,
+        "startChar": 4,
+        "endLine": 225,
+        "endChar": 35
+      },
+      "revId": "a864406a99e9847f1ce22975495966e36f03f44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "335e2e2e_f39bc516",
@@ -37,6 +61,54 @@
       "writtenOn": "2021-09-01T20:04:32Z",
       "side": 1,
       "message": "This assumes there is a valid range containing rva? What if the next lower range\u0027s length isn\u0027t long enough to contain rva?",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "a864406a99e9847f1ce22975495966e36f03f44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e6be643_3d62618d",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-01T23:50:39Z",
+      "side": 1,
+      "message": "Done.\nSome functions don\u0027t have any top level line. But calling findInlineelines API on inlined call site gives some inlinee lines. In this case, we don\u0027t have call site line number for those inlined call site.",
+      "parentUuid": "335e2e2e_f39bc516",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "a864406a99e9847f1ce22975495966e36f03f44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c8f3ddd_9875f0d3",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-01T23:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "335e2e2e_f39bc516",
       "range": {
         "startLine": 248,
         "startChar": 4,

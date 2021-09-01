@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcd4f07a_3ef1622f",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-01T23:50:39Z",
+      "side": 1,
+      "message": "In some rare cases (52 logs for chrome.dll), old_line.length is smaller than line.length. Right now, I just ignore this case here as this doesn\u0027t make sense.",
+      "revId": "79474ea639a75e98eb7d8d1cbded6885577f08fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
