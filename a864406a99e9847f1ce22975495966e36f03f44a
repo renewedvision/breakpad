@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38635adc_f18ed7f1",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-01T20:04:32Z",
+      "side": 1,
+      "message": "lower_bound() finds the lowest rva greater than or equal to line.rva. What if line.rva + line.length \u003e\u003d iter-\u003efirst?",
+      "range": {
+        "startLine": 225,
+        "startChar": 4,
+        "endLine": 225,
+        "endChar": 35
+      },
+      "revId": "a864406a99e9847f1ce22975495966e36f03f44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "335e2e2e_f39bc516",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-01T20:04:32Z",
+      "side": 1,
+      "message": "This assumes there is a valid range containing rva? What if the next lower range\u0027s length isn\u0027t long enough to contain rva?",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "a864406a99e9847f1ce22975495966e36f03f44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
