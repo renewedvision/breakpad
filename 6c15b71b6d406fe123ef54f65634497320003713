@@ -432,6 +432,24 @@
       "parentUuid": "c1a493b0_f4bce357",
       "revId": "6c15b71b6d406fe123ef54f65634497320003713",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8878b17d_3edd574f",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-02T00:18:05Z",
+      "side": 1,
+      "message": "OK, if we want to pass pointers instead of references, then can we pass a const pointer at least?",
+      "parentUuid": "c8a4f1bf_36ef1701",
+      "revId": "6c15b71b6d406fe123ef54f65634497320003713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
