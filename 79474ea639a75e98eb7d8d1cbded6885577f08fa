@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "132db2ca_604575c0",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-02T00:35:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b222764_9c2f5e62",
+      "revId": "79474ea639a75e98eb7d8d1cbded6885577f08fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bcd4f07a_3ef1622f",
         "filename": "src/common/windows/pdb_source_line_writer.cc",
         "patchSetId": 4
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48eea0f2_2efe2790",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-02T00:35:01Z",
+      "side": 1,
+      "message": "Oh, it\u0027s redundant. Removed.",
+      "parentUuid": "890aff84_89995a5f",
+      "revId": "79474ea639a75e98eb7d8d1cbded6885577f08fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "147924a9_462ce638",
@@ -65,6 +101,30 @@
       "writtenOn": "2021-09-02T00:18:05Z",
       "side": 1,
       "message": "Rename.",
+      "range": {
+        "startLine": 145,
+        "startChar": 21,
+        "endLine": 145,
+        "endChar": 28
+      },
+      "revId": "79474ea639a75e98eb7d8d1cbded6885577f08fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5067ef5c_ab5cfb95",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-02T00:35:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "147924a9_462ce638",
       "range": {
         "startLine": 145,
         "startChar": 21,
@@ -98,6 +158,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62af7a8b_f59304bd",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-02T00:35:01Z",
+      "side": 1,
+      "message": "This function may change line\u0027s rva/length in some cases.",
+      "parentUuid": "6efb9af6_5fe1fcd0",
+      "range": {
+        "startLine": 147,
+        "startChar": 17,
+        "endLine": 147,
+        "endChar": 21
+      },
+      "revId": "79474ea639a75e98eb7d8d1cbded6885577f08fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8db41b1d_90707073",
@@ -111,6 +195,24 @@
       "writtenOn": "2021-09-02T00:18:05Z",
       "side": 1,
       "message": "Please document what the key is for this map.",
+      "revId": "79474ea639a75e98eb7d8d1cbded6885577f08fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70a44224_efba2148",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-02T00:35:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8db41b1d_90707073",
       "revId": "79474ea639a75e98eb7d8d1cbded6885577f08fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
