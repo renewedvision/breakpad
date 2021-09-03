@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59319f6c_f0e7839c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-03T14:44:57Z",
+      "side": 1,
+      "message": "Breakpad has src/common/scoped_ptr.h, AKA pre-C++11 unique_ptr. It wouldn\u0027t be too hard to add a pre-C++14 make_unique. See [1] for the old Chromium implementation. If Breakpad added that, then developers can use it to follow modern C++ best practices and avoid using new statements.\n\nBTW, src/common/scoped_ptr.h probably should be removed in favor of std::make_unique. I filed https://bugs.chromium.org/p/google-breakpad/issues/detail?id\u003d847\n\n[1] https://chromium.googlesource.com/chromium/src/+/6dcb76a584/base/memory/ptr_util.h",
+      "revId": "4959def222d7e1ff2de0ed0280beb0ba3721c68e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
