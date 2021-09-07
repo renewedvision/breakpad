@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bec026d5_09007d37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1163549
+      },
+      "writtenOn": "2021-09-07T20:49:50Z",
+      "side": 1,
+      "message": "Tested locally and generate_breakpad_symbols.py was able to successfully dump symbols for the dylib that was having issues before.",
+      "revId": "d2c4fbfd1338268518cbe567ed429d807b4d2d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
