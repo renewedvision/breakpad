@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b6f258d_f1d5ff91",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-15T23:34:46Z",
+      "side": 1,
+      "message": "I think this is not necessary after filtering zero length lines. Tested chrome.dll.pdb, the condition \"if (iter \u003d\u003d ranges.begin())\" is never true if zero length lines are filtered.\nFor the cases of neither zero length but different lengths, I never see this case. I think we can just ignore it as this doesn\u0027t make sense. ExtendRanges() is called with lines from the same callsite at same level, and they shouldn\u0027t overlap.",
+      "parentUuid": "90d78388_ab71dad9",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 37
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95b7fc47_baeefe03",
         "filename": "src/common/windows/pdb_source_line_writer.cc",
         "patchSetId": 7
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-15T19:13:24Z",
       "side": 1,
       "message": "Is this still true with indirect inlines? e.g. when foo() inlines bar() from bar.h and bar inlines baz() from baz.h?",
+      "range": {
+        "startLine": 716,
+        "startChar": 4,
+        "endLine": 716,
+        "endChar": 47
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11e30ba_d06916d2",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-15T23:34:46Z",
+      "side": 1,
+      "message": "Yes. In your example, bar() has inline_nest_level 0, the loop \"while (SUCCEEDED(lines-\u003eNext(1, \u0026line, \u0026count)) \u0026\u0026 count \u003d\u003d 1)\" iterates all source lines in bar\u0027s function body, which are all in bar.h. And baz() has inline_nest_level 1, all source lines are in baz\u0027s function body. So, lines in bar will have file id x and lines in baz will have file id y. \n\nI also tested this with chrome.dll.pdb, and the file ids are always the same while iterating the lines.",
+      "parentUuid": "95b7fc47_baeefe03",
       "range": {
         "startLine": 716,
         "startChar": 4,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c32aecc7_3c8dd516",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-15T23:34:46Z",
+      "side": 1,
+      "message": "The logic is that at the point when we calling lines_.GetLineNum(l.rva), we should have a line from the parent function/inline whose range cover l.rva. That line\u0027s line number is the call site line number for the child inline.\n\nExample:\nfoo calls bar at line 10, and bar is inlined. When we are iterating lines inside bar, we already have all lines of foo\u0027s body. The line 10 is the call site line number for the inlined function bar.",
+      "parentUuid": "297fa3d5_c7950e18",
+      "range": {
+        "startLine": 731,
+        "startChar": 10,
+        "endLine": 731,
+        "endChar": 56
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cce8a901_47b05517",
         "filename": "src/common/windows/pdb_source_line_writer.cc",
         "patchSetId": 7
@@ -83,6 +155,30 @@
       "writtenOn": "2021-09-15T19:13:24Z",
       "side": 1,
       "message": "Do we want to be merging all the \u003cname omitted\u003e functions into a single InlineOrigin?",
+      "range": {
+        "startLine": 742,
+        "startChar": 37,
+        "endLine": 742,
+        "endChar": 41
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aa160ae_10649daf",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-15T23:34:46Z",
+      "side": 1,
+      "message": "The reason is if we don\u0027t know the name of the function, we can\u0027t distinguish them. inline_origins_ uses function names to distinguish different functions.",
+      "parentUuid": "cce8a901_47b05517",
       "range": {
         "startLine": 742,
         "startChar": 37,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57e5cd9e_ef590317",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-15T23:34:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13aabfa8_b92ad2b2",
+      "range": {
+        "startLine": 145,
+        "startChar": 80,
+        "endLine": 145,
+        "endChar": 81
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9b983f3_e1841a1d",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-09-15T19:13:24Z",
       "side": 1,
       "message": "It seems strange and asymmetrical that some of these methods operate on parameters while others implicitly operate on data members.\n\ne.g. This function prints (and clears!) lines_ while PrintInlines() just prints the inlines that are directly passed to it. I prefer the passing variables as parameters, rather than keeping them as members on this object which obfuscates their lifetime and validity. Rather than needing to explicitly clear() lines_ when we move on to the next function, give it automatic storage so the lines are cleared automatically when they go out of scope.",
+      "range": {
+        "startLine": 159,
+        "startChar": 2,
+        "endLine": 159,
+        "endChar": 20
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad110835_9b33736c",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-15T23:34:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9b983f3_e1841a1d",
       "range": {
         "startLine": 159,
         "startChar": 2,
