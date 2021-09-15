@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90d78388_ab71dad9",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-15T19:13:24Z",
+      "side": 1,
+      "message": "1. GetInlines() only calls ExtendRanges() for lines with length \u003e 0.\n2. What if the zero length line appears second?\n3. What if neither are zero length, just different?",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 37
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95b7fc47_baeefe03",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-15T19:13:24Z",
+      "side": 1,
+      "message": "Is this still true with indirect inlines? e.g. when foo() inlines bar() from bar.h and bar inlines baz() from baz.h?",
+      "range": {
+        "startLine": 716,
+        "startChar": 4,
+        "endLine": 716,
+        "endChar": 47
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297fa3d5_c7950e18",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-15T19:13:24Z",
+      "side": 1,
+      "message": "Do we know that the first line returned by findInlineeLines() has the right line number?",
+      "range": {
+        "startLine": 731,
+        "startChar": 10,
+        "endLine": 731,
+        "endChar": 56
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cce8a901_47b05517",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-15T19:13:24Z",
+      "side": 1,
+      "message": "Do we want to be merging all the \u003cname omitted\u003e functions into a single InlineOrigin?",
+      "range": {
+        "startLine": 742,
+        "startChar": 37,
+        "endLine": 742,
+        "endChar": 41
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13aabfa8_b92ad2b2",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-15T19:13:24Z",
+      "side": 1,
+      "message": "line \u003e 80 chars",
+      "range": {
+        "startLine": 145,
+        "startChar": 80,
+        "endLine": 145,
+        "endChar": 81
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b983f3_e1841a1d",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-15T19:13:24Z",
+      "side": 1,
+      "message": "It seems strange and asymmetrical that some of these methods operate on parameters while others implicitly operate on data members.\n\ne.g. This function prints (and clears!) lines_ while PrintInlines() just prints the inlines that are directly passed to it. I prefer the passing variables as parameters, rather than keeping them as members on this object which obfuscates their lifetime and validity. Rather than needing to explicitly clear() lines_ when we move on to the next function, give it automatic storage so the lines are cleared automatically when they go out of scope.",
+      "range": {
+        "startLine": 159,
+        "startChar": 2,
+        "endLine": 159,
+        "endChar": 20
+      },
+      "revId": "d938475b8ada244c75ff57c8733b767e59e68d48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
