@@ -258,9 +258,11 @@ class DIEHandler {
 
 // A subclass of DIEHandler, with additional kludges for handling the
 // compilation unit's root die.
-class RootDIEHandler: public DIEHandler {
+class RootDIEHandler : public DIEHandler {
  public:
-  RootDIEHandler() { }
+  bool handle_inline;
+
+  RootDIEHandler(bool handle_inline = false) : handle_inline(handle_inline) {}
   virtual ~RootDIEHandler() { }
 
   // We pass the values reported via Dwarf2Handler::StartCompilationUnit
