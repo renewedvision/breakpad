@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56788883_3aca12ef",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a262460_552e5c1d",
+      "range": {
+        "startLine": 106,
+        "startChar": 9,
+        "endLine": 106,
+        "endChar": 21
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3e270cc_30a06eb3",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-16T00:24:49Z",
       "side": 1,
       "message": "I would suggest commenting all these fields.",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 10
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f40d811_4a41fb29",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3e270cc_30a06eb3",
       "range": {
         "startLine": 107,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bcf136f_ce910284",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c8b006d_67e2d9ad",
+      "range": {
+        "startLine": 118,
+        "startChar": 26,
+        "endLine": 118,
+        "endChar": 33
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3606f9a7_c416e8f2",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-09-16T00:24:49Z",
       "side": 1,
       "message": "Given that there is a non-trivial function, it may be better to change this to a class.",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 15
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "436c0fa3_58dcc9b0",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3606f9a7_c416e8f2",
       "range": {
         "startLine": 124,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af66be91_9a6bab49",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ab16bfa_885025c7",
+      "range": {
+        "startLine": 138,
+        "startChar": 9,
+        "endLine": 138,
+        "endChar": 14
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "793999d9_bdb7d50a",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-09-16T00:24:49Z",
       "side": 1,
       "message": "Can you please clarify the comment.",
+      "range": {
+        "startLine": 142,
+        "startChar": 7,
+        "endLine": 142,
+        "endChar": 30
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5886346b_02e0b470",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "793999d9_bdb7d50a",
       "range": {
         "startLine": 142,
         "startChar": 7,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "816492c4_47741d72",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2ed25fb_a647a67e",
+      "range": {
+        "startLine": 152,
+        "startChar": 37,
+        "endLine": 152,
+        "endChar": 44
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd6470e2_52ab5407",
@@ -202,6 +370,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48f58cbc_e6302000",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Changed to const method. The first parameter can\u0027t be const, because IDiaEnumLineNumbers::Next is not const method and called inside this method.",
+      "parentUuid": "bd6470e2_52ab5407",
+      "range": {
+        "startLine": 156,
+        "startChar": 51,
+        "endLine": 156,
+        "endChar": 60
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f198ff6a_5f508996",
@@ -215,6 +407,30 @@
       "writtenOn": "2021-09-16T00:24:49Z",
       "side": 1,
       "message": "Please, describe all parameters.",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 35
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e4812c_f3a60205",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T17:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f198ff6a_5f508996",
       "range": {
         "startLine": 181,
         "startChar": 18,
