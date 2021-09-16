@@ -35,8 +35,10 @@
 
 #include <atlcomcli.h>
 
+#include <map>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 #include "common/windows/module_info.h"
 #include "common/windows/omap.h"
@@ -47,6 +49,8 @@ struct IDiaSymbol;
 
 namespace google_breakpad {
 
+using std::map;
+using std::vector;
 using std::wstring;
 using std::unordered_map;
 
@@ -99,9 +103,85 @@ class PDBSourceLineWriter {
   bool UsesGUID(bool *uses_guid);
 
  private:
-  // Outputs the line/address pairs for each line in the enumerator.
+  // InlineOrigin represents INLINE_ORIGIN record in a symbol file. It's an
+  // inlined function.
+  struct InlineOrigin {
+    // The unique id for an InlineOrigin.
+    int id;
+    // The file id where this inlined function is defined at.
+    DWORD file_id;
+    // The name of the inlined function.
+    wstring name;
+  };
+
+  // Line represents LINE record in a symbol file. It represents a source code
+  // line.
+  struct Line {
+    // The relative address of a line.
+    DWORD rva;
+    // The number bytes this line has.
+    DWORD length;
+    // The source line number.
+    DWORD line_num;
+    // The source file id where the source line is located at.
+    DWORD file_id;
+  };
+
+  // Inline represents INLINE record in a symbol file.  
+  class Inline {
+   public:
+    // The nest level of this inline record.
+    int inline_nest_level;
+    // The source line number at where this inlined function is called.
+    DWORD call_site_line;
+    // The id used for referring to an InlineOrigin.
+    int origin_id;
+    // A map from rva to length.
+    map<DWORD, DWORD> ranges;
+    // The list of direct Inlines inlined inside this Inline.
+    vector<std::unique_ptr<Inline>> child_inlines;
+
+    // Adding inlinee line's range into ranges. If line is adjacent with any
+    // existing lines, extand the range. Otherwise, add line as a new range.
+    void ExtendRanges(const Line& line);
+  };
+
+  // Lines is a list of lines with some helper functions.
+  class Lines {
+   public:
+    // The key is rva. AddLine function ensures that all inlines in the map do
+    // not overlap.
+    map<DWORD, Line> line_map;
+
+    // Finds the line from line_map that contains the given rva returns its 
+    // line_num. If not found, return 0.
+    DWORD GetLineNum(DWORD rva) const;
+
+    // Add line into line_map. If the line overlaps with existing lines,
+    // truncate the existing lines and add the give line. It ensures that all
+    // lines in line_map do not overlap with each other.
+    // For example, suppose there is a line A in the map and we call AddLine
+    // with Line B. 
+    // Line A: rva: 100, length: 20, line_num: 10, file_id: 1
+    // Line B: rva: 105, length: 10, line_num: 4, file_id: 2
+    // After calling AddLine with Line B, we will have the following lines:
+    // Line 1: rva: 100, length: 5, line_num: 10, file_id: 1
+    // Line 2: rva: 105, length: 10, line_num: 4, file_id: 2
+    // Line 3: rva: 115, length: 5, line_num: 10, file_id: 1
+    void AddLine(const Line& line);
+  };
+
+  // Construct Line from IDiaLineNumber. The output Line is stored at line.
+  // Return true on success.
+  bool GetLine(IDiaLineNumber* dia_line, Line* line) const;
+
+  // Construct Lines from IDiaEnumLineNumbers. The list of Lines are stored at
+  // line_list. 
   // Returns true on success.
-  bool PrintLines(IDiaEnumLineNumbers *lines);
+  bool GetLines(IDiaEnumLineNumbers* lines, Lines* line_list) const;
+
+  // Outputs the line/address pairs for each line in the enumerator.
+  void PrintLines(const Lines& lines) const;
 
   // Outputs a function address and name, followed by its source line list.
   // block can be the same object as function, or it can be a reference to a
@@ -117,6 +197,26 @@ class PDBSourceLineWriter {
   // Outputs all of the source files in the session's pdb file.
   // Returns true on success.
   bool PrintSourceFiles();
+
+  // Output all inline origins.
+  void PrintInlineOrigins() const;
+
+  // Retrieve inlines inside the given block. The list of Inlines are stored at
+  // inlines. It also adds inlinee lines to line_list since inner lines are more
+  // precise source location. If the block has children wih SymTagInlineSite
+  // Tag, it will recursivelly (DFS) call itself with each child as first
+  // argument. Returns true on success.
+  // @param block the IDiaSymbol that may have inline sites.
+  // @param line_list the list of lines inside current function.
+  // @param inline_nest_level the nest level of block's Inlines.
+  // @param inlines the list of block's inlines.
+  bool GetInlines(IDiaSymbol* block,
+                  Lines* line_list,
+                  int inline_nest_level,
+                  vector<std::unique_ptr<Inline>>* inlines);
+
+  // Outputs all inlines.
+  void PrintInlines(const vector<std::unique_ptr<Inline>>* inlines) const;
 
   // Outputs all of the frame information necessary to construct stack
   // backtraces in the absence of frame pointers. For x86 data stored in
@@ -172,8 +272,8 @@ class PDBSourceLineWriter {
   // reference it. There may be multiple files with identical filenames
   // but different unique IDs. The cache attempts to coalesce these into
   // one ID per unique filename.
-  DWORD GetRealFileID(DWORD id) {
-    unordered_map<DWORD, DWORD>::iterator iter = file_ids_.find(id);
+  DWORD GetRealFileID(DWORD id) const {
+    unordered_map<DWORD, DWORD>::const_iterator iter = file_ids_.find(id);
     if (iter == file_ids_.end())
       return id;
     return iter->second;
@@ -212,6 +312,9 @@ class PDBSourceLineWriter {
   unordered_map<DWORD, DWORD> file_ids_;
   // This maps unique filenames to file IDs.
   unordered_map<wstring, DWORD> unique_files_;
+
+  // The INLINE_ORIGINS records. The key is the function name.
+  std::map<wstring, InlineOrigin> inline_origins_;
 
   // This is used for calculating post-transform symbol addresses and lengths.
   ImageMap image_map_;
