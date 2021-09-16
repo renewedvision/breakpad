@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da7eb1ca_edd674c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-16T22:39:56Z",
+      "side": 1,
+      "message": "It saves about 6gb peak memory, when -d is not given.",
+      "revId": "f2e2c50669b91ffad54f02c8307a412d9907aa37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
