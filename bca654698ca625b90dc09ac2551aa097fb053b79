@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc042e5_52738268",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "You may need to polish the header file a bit.",
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a262460_552e5c1d",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "Commenting all these structures and classes will be nice.",
+      "range": {
+        "startLine": 106,
+        "startChar": 9,
+        "endLine": 106,
+        "endChar": 21
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e270cc_30a06eb3",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "I would suggest commenting all these fields.",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 10
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c8b006d_67e2d9ad",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "Please, avoid using abbreviations.",
+      "range": {
+        "startLine": 118,
+        "startChar": 26,
+        "endLine": 118,
+        "endChar": 33
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3606f9a7_c416e8f2",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "Given that there is a non-trivial function, it may be better to change this to a class.",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 15
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ab16bfa_885025c7",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "Multiple methods. It may be better to switch to a class.",
+      "range": {
+        "startLine": 138,
+        "startChar": 9,
+        "endLine": 138,
+        "endChar": 14
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "793999d9_bdb7d50a",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "Can you please clarify the comment.",
+      "range": {
+        "startLine": 142,
+        "startChar": 7,
+        "endLine": 142,
+        "endChar": 30
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2ed25fb_a647a67e",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "Abbreviations are not recommended.",
+      "range": {
+        "startLine": 152,
+        "startChar": 37,
+        "endLine": 152,
+        "endChar": 44
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6470e2_52ab5407",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "Please, describe all parameters. Can this be a const method? How about the first parameter, const \u0026?",
+      "range": {
+        "startLine": 156,
+        "startChar": 51,
+        "endLine": 156,
+        "endChar": 60
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f198ff6a_5f508996",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2021-09-16T00:24:49Z",
+      "side": 1,
+      "message": "Please, describe all parameters.",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 35
+      },
+      "revId": "bca654698ca625b90dc09ac2551aa097fb053b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
