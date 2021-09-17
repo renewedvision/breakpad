@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "841e93fd_95799b20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-17T01:00:55Z",
+      "side": 1,
+      "message": "Verified for chrome that the symbol files are the same before https://chromium.googlesource.com/breakpad/breakpad/+/30020c0d4706a76ea574225650062c6bdb3e67ac and after this change.",
+      "revId": "17d00b3c4da9cd89d191b514eacbdb9ac1140875",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
