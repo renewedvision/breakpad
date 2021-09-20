@@ -129,7 +129,7 @@ class Module {
   };
 
   struct InlineOrigin {
-    InlineOrigin(const string& name): id(-1), name(name), file(NULL) {}
+    explicit InlineOrigin(const string& name): id(-1), name(name), file(NULL) {}
 
     // A unique id for each InlineOrigin object. INLINE records use the id to
     // refer to its INLINE_ORIGIN record.
@@ -145,7 +145,7 @@ class Module {
 
   // A inlined call site.
   struct Inline {
-    Inline(InlineOrigin* origin,
+    Inline(std::shared_ptr<InlineOrigin> origin,
            const vector<Range>& ranges,
            int call_site_line,
            int inline_nest_level,
@@ -156,7 +156,7 @@ class Module {
           inline_nest_level(inline_nest_level),
           child_inlines(std::move(child_inlines)) {}
 
-    InlineOrigin* origin;
+    std::shared_ptr<InlineOrigin> origin;
 
     // The list of addresses and sizes.
     vector<Range> ranges;
@@ -227,7 +227,8 @@ class Module {
   };
 
   struct InlineOriginCompare {
-    bool operator() (const InlineOrigin* lhs, const InlineOrigin* rhs) const {
+    bool operator()(const std::shared_ptr<InlineOrigin> lhs,
+                    const std::shared_ptr<InlineOrigin> rhs) const {
       if (lhs->getFileID() == rhs->getFileID())
         return lhs->name < rhs->name;
       return lhs->getFileID() < rhs->getFileID();
@@ -394,7 +395,8 @@ class Module {
   typedef set<Function*, FunctionCompare> FunctionSet;
 
   // A set containing Function structures, sorted by address.
-  typedef set<InlineOrigin*, InlineOriginCompare> InlineOriginSet;
+  typedef set<std::shared_ptr<InlineOrigin>, InlineOriginCompare>
+      InlineOriginSet;
 
   // A set containing Extern structures, sorted by address.
   typedef set<Extern*, ExternCompare> ExternSet;

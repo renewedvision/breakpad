@@ -48,6 +48,7 @@ namespace google_breakpad {
 using std::dec;
 using std::hex;
 using std::unique_ptr;
+using std::shared_ptr;
 
 Module::Module(const string& name, const string& os,
                const string& architecture, const string& id,
@@ -218,7 +219,7 @@ void Module::AssignSourceIds() {
   }
   // Also mark all files cited by inline functions by setting each one's source
   // id to zero.
-  for (InlineOrigin* origin : inline_origins_)
+  for (const shared_ptr<InlineOrigin>& origin : inline_origins_)
     // There are some artificial inline functions which don't belong to
     // any file. Those will have file id -1.
     if (origin->file)
@@ -258,7 +259,7 @@ void Module::CreateInlineOrigins() {
   for (Function* func : functions_)
     InlineDFS(func->inlines, addInlineOrigins);
   int next_id = 0;
-  for (InlineOrigin* origin: inline_origins_) {
+  for (const shared_ptr<InlineOrigin>& origin : inline_origins_) {
     origin->id = next_id++;
   }
 }
@@ -317,7 +318,7 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
       }
     }
     // Write out inline origins.
-    for (InlineOrigin* origin : inline_origins_) {
+    for (const shared_ptr<InlineOrigin>& origin : inline_origins_) {
       stream << "INLINE_ORIGIN " << origin->id << " " << origin->getFileID()
              << " " << origin->name << "\n";
       if (!stream.good())

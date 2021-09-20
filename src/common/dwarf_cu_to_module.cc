@@ -60,6 +60,7 @@ using std::pair;
 using std::sort;
 using std::vector;
 using std::unique_ptr;
+using std::shared_ptr;
 
 // Data provided by a DWARF specification DIE.
 //
@@ -100,12 +101,12 @@ struct AbstractOrigin {
 
 typedef map<uint64_t, AbstractOrigin> AbstractOriginByOffset;
 
-using InlineOriginByOffset = map<uint64_t, Module::InlineOrigin*>;
+using InlineOriginByOffset = map<uint64_t, shared_ptr<Module::InlineOrigin>>;
 
 class InlineOriginMap {
  public:
-  Module::InlineOrigin* GetOrCreateInlineOrigin(uint64_t offset,
-                                                const string& name) {
+  shared_ptr<Module::InlineOrigin> GetOrCreateInlineOrigin(uint64_t offset,
+                                                           const string& name) {
     uint64_t specification_offset = references_[offset];
     if (inline_origins_.find(specification_offset) != inline_origins_.end()) {
       if (inline_origins_[specification_offset]->name == "<name omitted>") {
@@ -113,7 +114,8 @@ class InlineOriginMap {
       }
       return inline_origins_[specification_offset];
     }
-    inline_origins_[specification_offset] = new Module::InlineOrigin(name);
+    inline_origins_.insert(
+        {specification_offset, std::make_shared<Module::InlineOrigin>(name)});
     return inline_origins_[specification_offset];
   }
 
@@ -753,7 +755,7 @@ void DwarfCUToModule::InlineHandler::Finish() {
 
   cu_context_->file_context->file_private_->inline_origin_map.SetReference(
       specification_offset_, specification_offset_);
-  Module::InlineOrigin* origin =
+  shared_ptr<Module::InlineOrigin> origin =
       cu_context_->file_context->file_private_->inline_origin_map
           .GetOrCreateInlineOrigin(specification_offset_, name_);
   unique_ptr<Module::Inline> in(
