@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f31b7d83_b4d5147e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002871
+      },
+      "writtenOn": "2021-09-21T08:47:39Z",
+      "side": 1,
+      "message": "Hmm I have to admit I have never been a huge user of autotools, maybe Mike is a better candidate for this one. sry for bouncing this Mike, I am not too familiar with what are the best patterns to follow for autotools.\n\n\nThe only thing that makes me a bit skeptical here is the fact that when looking at https://www.gnu.org/software/autoconf/manual/autoconf-2.67/html_node/Preset-Output-Variables.html I see:\n```\nFor example, it is permissible to reference ‘$srcdir’ when constructing a list of directories to pass via option -I during a compiler feature check. When used in this manner, coupled with the fact that configure is always run from the top build directory, it is sufficient to use just ‘$srcdir’ instead of ‘$top_srcdir’.\n```\n\nSo if configure always runs from the root, why top_srcdir is not enough here?",
+      "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
