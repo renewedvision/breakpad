@@ -87,6 +87,24 @@
       "parentUuid": "9d14b834_de8ba73d",
       "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c6b4e73_137898a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-21T15:56:42Z",
+      "side": 1,
+      "message": "normally i use ../build, but even with your path setup, things work fine for me, so i can\u0027t repro the issue you\u0027re having\n\n rm -rf ~/breakpad-test\n mkdir ~/breakpad-test\n cd ~/breakpad-test\n fetch breakpad  # comes from depot_tools\n cd src\n mkdir build\n cd build\n ../configure\n make -j\n \u003ceverything builds fine\u003e",
+      "parentUuid": "45f0744c_8509c72c",
+      "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
