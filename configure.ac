@@ -30,14 +30,14 @@
 
 AC_PREREQ([2.69])
 
-AC_INIT(breakpad, 0.1, google-breakpad-dev@googlegroups.com)
+AC_INIT([breakpad],[0.1],[google-breakpad-dev@googlegroups.com])
 dnl Sanity check: the argument is just a file that should exist.
-AC_CONFIG_SRCDIR(README.md)
-AC_CONFIG_AUX_DIR(autotools)
+AC_CONFIG_SRCDIR([README.md])
+AC_CONFIG_AUX_DIR([autotools])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CANONICAL_HOST
 
-AM_INIT_AUTOMAKE(subdir-objects tar-ustar 1.11.1)
+AM_INIT_AUTOMAKE([subdir-objects tar-ustar 1.11.1])
 AC_CONFIG_HEADERS([src/config.h])
 AM_MAINTAINER_MODE
 
@@ -49,7 +49,7 @@ AC_PROG_CXX
 AC_PROG_RANLIB
 
 dnl This must come before all the feature tests below.
-AC_ARG_ENABLE(m32,
+AC_ARG_ENABLE([m32],
               AS_HELP_STRING([--enable-m32],
                              [Compile/build with -m32]
                              [(default is no)]),
@@ -75,7 +75,7 @@ AC_CHECK_FUNCS([arc4random getcontext getrandom memfd_create])
 AM_CONDITIONAL([HAVE_GETCONTEXT], [test "x$ac_cv_func_getcontext" = xyes])
 AM_CONDITIONAL([HAVE_MEMFD_CREATE], [test "x$ac_cv_func_memfd_create" = xyes])
 
-AX_CXX_COMPILE_STDCXX(11, noext, mandatory)
+AX_CXX_COMPILE_STDCXX([11], [noext], [mandatory])
 
 dnl Test supported warning flags.
 WARN_CXXFLAGS=
@@ -111,7 +111,7 @@ case $host in
     LINUX_HOST=true
     ;;
 esac
-AM_CONDITIONAL(LINUX_HOST, test x$LINUX_HOST = xtrue)
+AM_CONDITIONAL([LINUX_HOST], [test x$LINUX_HOST = xtrue])
 
 # Only use Android support headers when compiling for Android
 case $host in
@@ -119,7 +119,7 @@ case $host in
     ANDROID_HOST=true
     ;;
 esac
-AM_CONDITIONAL(ANDROID_HOST, test x$ANDROID_HOST = xtrue)
+AM_CONDITIONAL([ANDROID_HOST], [test x$ANDROID_HOST = xtrue])
 
 # Some tools (like mac ones) only support x86 currently.
 case $host_cpu in
@@ -127,9 +127,9 @@ case $host_cpu in
     X86_HOST=true
     ;;
 esac
-AM_CONDITIONAL(X86_HOST, test x$X86_HOST = xtrue)
+AM_CONDITIONAL([X86_HOST], [test x$X86_HOST = xtrue])
 
-AC_ARG_ENABLE(processor,
+AC_ARG_ENABLE([processor],
               AS_HELP_STRING([--disable-processor],
                              [Don't build processor library]
                              [(default is no)]),
@@ -145,9 +145,9 @@ AC_ARG_ENABLE(processor,
                    ;;
                esac],
               [disable_processor=false])
-AM_CONDITIONAL(DISABLE_PROCESSOR, test x$disable_processor = xtrue)
+AM_CONDITIONAL([DISABLE_PROCESSOR], [test x$disable_processor = xtrue])
 
-AC_ARG_ENABLE(tools,
+AC_ARG_ENABLE([tools],
               AS_HELP_STRING([--disable-tools],
                              [Don't build tool binaries]
                              [(default is no)]),
@@ -163,13 +163,13 @@ AC_ARG_ENABLE(tools,
                    ;;
                esac],
               [disable_tools=false])
-AM_CONDITIONAL(DISABLE_TOOLS, test x$disable_tools = xtrue)
+AM_CONDITIONAL([DISABLE_TOOLS], [test x$disable_tools = xtrue])
 
 if test x$LINUX_HOST = xfalse -a x$disable_processor = xtrue -a x$disable_tools = xtrue; then
    AC_MSG_ERROR([--disable-processor and --disable-tools were specified, and not building for Linux. Nothing to build!])
 fi
 
-AC_ARG_ENABLE(system-test-libs,
+AC_ARG_ENABLE([system-test-libs],
               AS_HELP_STRING([--enable-system-test-libs],
                              [Use gtest/gmock/etc... from the system instead ]
                              [of the local copies (default is local)]),
@@ -185,7 +185,7 @@ AC_ARG_ENABLE(system-test-libs,
                    ;;
                esac],
               [system_test_libs=false])
-AM_CONDITIONAL(SYSTEM_TEST_LIBS, test x$system_test_libs = xtrue)
+AM_CONDITIONAL([SYSTEM_TEST_LIBS], [test x$system_test_libs = xtrue])
 
 AC_ARG_VAR([GMOCK_CFLAGS], [Compiler flags for gmock])
 AC_ARG_VAR([GMOCK_LIBS], [Linker flags for gmock])
@@ -198,7 +198,7 @@ if test x$system_test_libs = xtrue; then
   : "${GTEST_LIBS:=-lgtest -pthread -lpthread}"
 fi
 
-AC_ARG_ENABLE(selftest,
+AC_ARG_ENABLE([selftest],
               AS_HELP_STRING([--enable-selftest],
                              [Run extra tests with "make check" ]
                              [(may conflict with optimizations) ]
@@ -215,9 +215,9 @@ AC_ARG_ENABLE(selftest,
                    ;;
                esac],
               [selftest=false])
-AM_CONDITIONAL(SELFTEST, test x$selftest = xtrue)
+AM_CONDITIONAL([SELFTEST], [test x$selftest = xtrue])
 
-AC_ARG_WITH(rust-demangle,
+AC_ARG_WITH([rust-demangle],
             AS_HELP_STRING([--with-rust-demangle=/path/to/rust-demangle-capi],
                              [Link against the rust-demangle library]
                              [to demangle Rust language symbols during]
@@ -242,7 +242,7 @@ AC_ARG_WITH(rust-demangle,
 AC_ARG_VAR([RUST_DEMANGLE_CFLAGS], [Compiler flags for rust-demangle])
 AC_ARG_VAR([RUST_DEMANGLE_LIBS], [Linker flags for rust-demangle])
 
-AC_ARG_WITH(tests-as-root,
+AC_ARG_WITH([tests-as-root],
             AS_HELP_STRING([--with-tests-as-root],
                            [Run the tests as root. Use this on platforms]
                            [like travis-ci.org that require root privileges]
@@ -259,7 +259,7 @@ AC_ARG_WITH(tests-as-root,
                  ;;
              esac],
             [tests_as_root=false])
-AM_CONDITIONAL(TESTS_AS_ROOT, test x$tests_as_root = xtrue)
+AM_CONDITIONAL([TESTS_AS_ROOT], [test x$tests_as_root = xtrue])
 
 AC_CONFIG_FILES(m4_flatten([
   breakpad.pc
