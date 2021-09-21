@@ -123,6 +123,24 @@
       "parentUuid": "6c6b4e73_137898a2",
       "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b02bc3fc_a4d45b9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-21T20:13:12Z",
+      "side": 1,
+      "message": "https://wh0rd.org/~vapier/log.typescript.gz",
+      "parentUuid": "41e86e13_8be9c5ad",
+      "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
