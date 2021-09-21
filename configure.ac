@@ -28,7 +28,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-AC_PREREQ(2.64)
+AC_PREREQ([2.69])
 
 AC_INIT(breakpad, 0.1, google-breakpad-dev@googlegroups.com)
 dnl Sanity check: the argument is just a file that should exist.
@@ -38,13 +38,12 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_CANONICAL_HOST
 
 AM_INIT_AUTOMAKE(subdir-objects tar-ustar 1.11.1)
-AM_CONFIG_HEADER(src/config.h)
+AC_CONFIG_HEADERS([src/config.h])
 AM_MAINTAINER_MODE
 
 AM_PROG_AR
 AM_PROG_AS
 AC_PROG_CC
-AM_PROG_CC_C_O
 AC_PROG_CPP
 AC_PROG_CXX
 AC_PROG_RANLIB
@@ -69,7 +68,6 @@ AC_ARG_ENABLE(m32,
                esac],
               [usem32=false])
 
-AC_HEADER_STDC
 AC_SYS_LARGEFILE
 AX_PTHREAD
 AC_CHECK_HEADERS([a.out.h sys/mman.h sys/random.h])
