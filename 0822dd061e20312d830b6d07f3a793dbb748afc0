@@ -105,6 +105,24 @@
       "parentUuid": "45f0744c_8509c72c",
       "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41e86e13_8be9c5ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2021-09-21T16:39:17Z",
+      "side": 1,
+      "message": "That\u0027s weird, could you provide me with the full build log?",
+      "parentUuid": "6c6b4e73_137898a2",
+      "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
