@@ -129,7 +129,10 @@ class Module {
   };
 
   struct InlineOrigin {
-    InlineOrigin(const string& name): id(-1), name(name), file(NULL) {}
+    static int static_id;
+
+    explicit InlineOrigin(const string& name)
+        : id(static_id++), name(name), file(nullptr) {}
 
     // A unique id for each InlineOrigin object. INLINE records use the id to
     // refer to its INLINE_ORIGIN record.
@@ -145,18 +148,18 @@ class Module {
 
   // A inlined call site.
   struct Inline {
-    Inline(InlineOrigin* origin,
+    Inline(int origin_id,
            const vector<Range>& ranges,
            int call_site_line,
            int inline_nest_level,
            vector<std::unique_ptr<Inline>> child_inlines)
-        : origin(origin),
+        : origin_id(origin_id),
           ranges(ranges),
           call_site_line(call_site_line),
           inline_nest_level(inline_nest_level),
           child_inlines(std::move(child_inlines)) {}
 
-    InlineOrigin* origin;
+    int origin_id;
 
     // The list of addresses and sizes.
     vector<Range> ranges;
@@ -168,6 +171,46 @@ class Module {
     // A list of inlines which are children of this inline.
     vector<std::unique_ptr<Inline>> child_inlines;
   };
+
+  struct InlineOriginCompare {
+    bool operator()(const std::unique_ptr<InlineOrigin>& lhs,
+                    const std::unique_ptr<InlineOrigin>& rhs) const {
+      if (lhs->getFileID() == rhs->getFileID())
+        return lhs->name < rhs->name;
+      return lhs->getFileID() < rhs->getFileID();
+    }
+  };
+
+  typedef map<uint64_t, std::unique_ptr<Module::InlineOrigin>>
+      InlineOriginByOffset;
+
+  class InlineOriginMap {
+   public:
+    // Add INLINE ORIGIN to the module.
+    // offset is the offset of a DW_TAG_subprogram. specification_offset is the
+    // value of its DW_AT_specification or equals to offset if
+    // DW_AT_specification doesn't exist in that DIE.
+    uint64_t GetOrCreateInlineOrigin(uint64_t offset, const string& name);
+    void SetReference(uint64_t offset, uint64_t specification_offset);
+    void AssignFilesToInlineOrigins(vector<uint64_t>& inline_origin_offsets,
+                                    File* file);
+    // Move all inline origins referenced by inlines from inline_origins_ to the
+    // given set.
+    void GetInlineOrigins(set<int> origin_ids,
+                          set<std::unique_ptr<InlineOrigin>,
+                              InlineOriginCompare>& inline_origins);
+
+   private:
+    // A map from a DW_TAG_subprogram's offset to the DW_TAG_subprogram.
+    InlineOriginByOffset inline_origins_;
+
+    // A map from a DW_TAG_subprogram's offset to the offset of its
+    // specification or abstract origin subprogram. The set of values in this
+    // map should always be the same set of keys in inline_origins_.
+    map<uint64_t, uint64_t> references_;
+  };
+
+  InlineOriginMap inline_origin_map;
 
   // A source line.
   struct Line {
@@ -223,14 +266,6 @@ class Module {
       if (lhs->address == rhs->address)
         return lhs->name < rhs->name;
       return lhs->address < rhs->address;
-    }
-  };
-
-  struct InlineOriginCompare {
-    bool operator() (const InlineOrigin* lhs, const InlineOrigin* rhs) const {
-      if (lhs->getFileID() == rhs->getFileID())
-        return lhs->name < rhs->name;
-      return lhs->getFileID() < rhs->getFileID();
     }
   };
 
@@ -328,11 +363,13 @@ class Module {
   // Set the source id numbers for all other files --- unused by the
   // source line data --- to -1.  We do this before writing out the
   // symbol file, at which point we omit any unused files.
-  void AssignSourceIds();
+  void AssignSourceIds(
+      set<std::unique_ptr<InlineOrigin>, InlineOriginCompare>& inline_origins);
 
-  // This function should be called before AssignSourceIds() to get the set of
-  // valid InlineOrigins*.
-  void CreateInlineOrigins();
+  // This function should be called before AssignSourceIds() to get the vector
+  // of referenced InlineOrigins.
+  void GetInlineOrigins(
+      set<std::unique_ptr<InlineOrigin>, InlineOriginCompare>& inline_origins);
 
   // Call AssignSourceIds, and write this module to STREAM in the
   // breakpad symbol format. Return true if all goes well, or false if
@@ -393,9 +430,6 @@ class Module {
   // A set containing Function structures, sorted by address.
   typedef set<Function*, FunctionCompare> FunctionSet;
 
-  // A set containing Function structures, sorted by address.
-  typedef set<InlineOrigin*, InlineOriginCompare> InlineOriginSet;
-
   // A set containing Extern structures, sorted by address.
   typedef set<Extern*, ExternCompare> ExternSet;
 
@@ -404,7 +438,6 @@ class Module {
   // point to.
   FileByNameMap files_;    // This module's source files.
   FunctionSet functions_;  // This module's functions.
-  InlineOriginSet inline_origins_; // This module's inline origins.
 
   // The module owns all the call frame info entries that have been
   // added to it.
