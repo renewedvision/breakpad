@@ -31,16 +31,16 @@
 
 
 # This allows #includes to be relative to src/
-AM_CPPFLAGS = -I$(top_srcdir)/src
+AM_CPPFLAGS = -I$(abs_top_srcdir)/src
 AM_CFLAGS =
 AM_CXXFLAGS =
 
 if ANDROID_HOST
 # This allows using fixed NDK headers when building for Android.
-AM_CXXFLAGS += -I$(top_srcdir)/src/common/android/include
+AM_CXXFLAGS += -I$(abs_top_srcdir)/src/common/android/include
 # This is only necessary for building the unit tests until GTest is upgraded
 # to a future version.
-AM_CXXFLAGS += -I$(top_srcdir)/src/common/android/testing/include
+AM_CXXFLAGS += -I$(abs_top_srcdir)/src/common/android/testing/include
 endif
 
 AM_CXXFLAGS += $(WARN_CXXFLAGS)
@@ -71,32 +71,32 @@ dist_doc_DATA = \
 ## Headers
 if LINUX_HOST
 includeclhdir = $(includedir)/$(PACKAGE)/client/linux/handler
-includeclh_HEADERS = $(top_srcdir)/src/client/linux/handler/*.h
+includeclh_HEADERS = $(abs_top_srcdir)/src/client/linux/handler/*.h
 
 includecldwcdir = $(includedir)/$(PACKAGE)/client/linux/dump_writer_common
-includecldwc_HEADERS = $(top_srcdir)/src/client/linux/dump_writer_common/*.h
+includecldwc_HEADERS = $(abs_top_srcdir)/src/client/linux/dump_writer_common/*.h
 
 includeclmdir = $(includedir)/$(PACKAGE)/client/linux/minidump_writer
-includeclm_HEADERS = $(top_srcdir)/src/client/linux/minidump_writer/*.h
+includeclm_HEADERS = $(abs_top_srcdir)/src/client/linux/minidump_writer/*.h
 
 includeclcdir = $(includedir)/$(PACKAGE)/client/linux/crash_generation
-includeclc_HEADERS = $(top_srcdir)/src/client/linux/crash_generation/*.h
+includeclc_HEADERS = $(abs_top_srcdir)/src/client/linux/crash_generation/*.h
 
 includelssdir = $(includedir)/$(PACKAGE)/third_party/lss
-includelss_HEADERS = $(top_srcdir)/src/third_party/lss/*.h
+includelss_HEADERS = $(abs_top_srcdir)/src/third_party/lss/*.h
 
 includecldir = $(includedir)/$(PACKAGE)/common/linux
-includecl_HEADERS = $(top_srcdir)/src/common/linux/*.h
+includecl_HEADERS = $(abs_top_srcdir)/src/common/linux/*.h
 endif
 
 includegbcdir = $(includedir)/$(PACKAGE)/google_breakpad/common
-includegbc_HEADERS = $(top_srcdir)/src/google_breakpad/common/*.h
+includegbc_HEADERS = $(abs_top_srcdir)/src/google_breakpad/common/*.h
 
 includecdir = $(includedir)/$(PACKAGE)/common
-includec_HEADERS = $(top_srcdir)/src/common/*.h
+includec_HEADERS = $(abs_top_srcdir)/src/common/*.h
 
 includepdir = $(includedir)/$(PACKAGE)/processor
-includep_HEADERS = $(top_srcdir)/src/processor/*.h
+includep_HEADERS = $(abs_top_srcdir)/src/processor/*.h
 
 ## pkgconfig files
 pkgconfigdir = $(libdir)/pkgconfig
@@ -109,12 +109,12 @@ TEST_LIBS = $(GTEST_LIBS) -lgtest_main $(GMOCK_LIBS)
 TEST_DEPS =
 else
 TEST_CFLAGS = \
-	-I$(top_srcdir)/src/testing/include \
-	-I$(top_srcdir)/src/testing/googletest/include \
-	-I$(top_srcdir)/src/testing/googletest \
-	-I$(top_srcdir)/src/testing/googlemock/include \
-	-I$(top_srcdir)/src/testing/googlemock \
-	-I$(top_srcdir)/src/testing
+	-I$(abs_top_srcdir)/src/testing/include \
+	-I$(abs_top_srcdir)/src/testing/googletest/include \
+	-I$(abs_top_srcdir)/src/testing/googletest \
+	-I$(abs_top_srcdir)/src/testing/googlemock/include \
+	-I$(abs_top_srcdir)/src/testing/googlemock \
+	-I$(abs_top_srcdir)/src/testing
 TEST_LIBS = src/testing/libtesting.a
 TEST_DEPS = $(TEST_LIBS)
 endif
@@ -456,13 +456,13 @@ if ANDROID_HOST
 # Unfortunately, it's not possible anymore to specify an alternative shell to
 # run them on connected devices, so use a slightly modified version of the
 # driver for Android.
-LOG_DRIVER = $(top_srcdir)/android/test-driver
+LOG_DRIVER = $(abs_top_srcdir)/android/test-driver
 else
 # The default Autotools test driver script.
 if TESTS_AS_ROOT
-LOG_DRIVER = $(top_srcdir)/autotools/root-test-driver $(top_srcdir)/autotools/test-driver
+LOG_DRIVER = $(abs_top_srcdir)/autotools/root-test-driver $(abs_top_srcdir)/autotools/test-driver
 else
-LOG_DRIVER = $(top_srcdir)/autotools/test-driver
+LOG_DRIVER = $(abs_top_srcdir)/autotools/test-driver
 endif !TESTS_AS_ROOT
 endif !ANDROID_HOST
 
@@ -682,7 +682,7 @@ src_tools_mac_dump_syms_dump_syms_mac_SOURCES = \
 	src/common/mac/macho_walker.h \
 	src/tools/mac/dump_syms/dump_syms_tool.cc
 src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS= \
-	-I$(top_srcdir)/src/third_party/mac_headers \
+	-I$(abs_top_srcdir)/src/third_party/mac_headers \
 	$(RUST_DEMANGLE_CFLAGS) \
 	-DHAVE_MACH_O_NLIST_H
 src_tools_mac_dump_syms_dump_syms_mac_LDADD= \
@@ -781,7 +781,7 @@ src_common_mac_macho_reader_unittest_SOURCES = \
 	src/common/tests/file_utils.cc
 src_common_mac_macho_reader_unittest_CPPFLAGS = \
 	$(AM_CPPFLAGS) $(TEST_CFLAGS) \
-	-I$(top_srcdir)/src/third_party/mac_headers \
+	-I$(abs_top_srcdir)/src/third_party/mac_headers \
 	-DHAVE_MACH_O_NLIST_H \
 	$(PTHREAD_CFLAGS)
 src_common_mac_macho_reader_unittest_LDADD = \

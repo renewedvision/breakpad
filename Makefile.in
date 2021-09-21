@@ -125,9 +125,8 @@ host_triplet = @host@
 # This allows using fixed NDK headers when building for Android.
 # This is only necessary for building the unit tests until GTest is upgraded
 # to a future version.
-@ANDROID_HOST_TRUE@am__append_1 =  \
-@ANDROID_HOST_TRUE@	-I$(top_srcdir)/src/common/android/include \
-@ANDROID_HOST_TRUE@	-I$(top_srcdir)/src/common/android/testing/include
+@ANDROID_HOST_TRUE@am__append_1 = -I$(abs_top_srcdir)/src/common/android/include \
+@ANDROID_HOST_TRUE@	-I$(abs_top_srcdir)/src/common/android/testing/include
 
 # Build as PIC on Linux, for linux_client_unittest_shlib
 @LINUX_HOST_TRUE@am__append_2 = -fPIC
@@ -2069,16 +2068,17 @@ am__can_run_installinfo = \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
 DATA = $(dist_doc_DATA) $(pkgconfig_DATA)
-am__includecl_HEADERS_DIST = $(top_srcdir)/src/common/linux/*.h
+am__includecl_HEADERS_DIST = $(abs_top_srcdir)/src/common/linux/*.h
 am__includeclc_HEADERS_DIST =  \
-	$(top_srcdir)/src/client/linux/crash_generation/*.h
+	$(abs_top_srcdir)/src/client/linux/crash_generation/*.h
 am__includecldwc_HEADERS_DIST =  \
-	$(top_srcdir)/src/client/linux/dump_writer_common/*.h
+	$(abs_top_srcdir)/src/client/linux/dump_writer_common/*.h
 am__includeclh_HEADERS_DIST =  \
-	$(top_srcdir)/src/client/linux/handler/*.h
+	$(abs_top_srcdir)/src/client/linux/handler/*.h
 am__includeclm_HEADERS_DIST =  \
-	$(top_srcdir)/src/client/linux/minidump_writer/*.h
-am__includelss_HEADERS_DIST = $(top_srcdir)/src/third_party/lss/*.h
+	$(abs_top_srcdir)/src/client/linux/minidump_writer/*.h
+am__includelss_HEADERS_DIST =  \
+	$(abs_top_srcdir)/src/third_party/lss/*.h
 HEADERS = $(includec_HEADERS) $(includecl_HEADERS) \
 	$(includeclc_HEADERS) $(includecldwc_HEADERS) \
 	$(includeclh_HEADERS) $(includeclm_HEADERS) \
@@ -2369,10 +2369,12 @@ PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PTHREAD_CC = @PTHREAD_CC@
 PTHREAD_CFLAGS = @PTHREAD_CFLAGS@
+PTHREAD_CXX = @PTHREAD_CXX@
 PTHREAD_LIBS = @PTHREAD_LIBS@
 RANLIB = @RANLIB@
 RUST_DEMANGLE_CFLAGS = @RUST_DEMANGLE_CFLAGS@
 RUST_DEMANGLE_LIBS = @RUST_DEMANGLE_LIBS@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -2434,7 +2436,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 
 # This allows #includes to be relative to src/
-AM_CPPFLAGS = -I$(top_srcdir)/src
+AM_CPPFLAGS = -I$(abs_top_srcdir)/src
 AM_CFLAGS = $(am__append_2)
 AM_CXXFLAGS = $(am__append_1) $(WARN_CXXFLAGS) $(am__append_3)
 
@@ -2452,32 +2454,32 @@ dist_doc_DATA = \
 	README.md
 
 @LINUX_HOST_TRUE@includeclhdir = $(includedir)/$(PACKAGE)/client/linux/handler
-@LINUX_HOST_TRUE@includeclh_HEADERS = $(top_srcdir)/src/client/linux/handler/*.h
+@LINUX_HOST_TRUE@includeclh_HEADERS = $(abs_top_srcdir)/src/client/linux/handler/*.h
 @LINUX_HOST_TRUE@includecldwcdir = $(includedir)/$(PACKAGE)/client/linux/dump_writer_common
-@LINUX_HOST_TRUE@includecldwc_HEADERS = $(top_srcdir)/src/client/linux/dump_writer_common/*.h
+@LINUX_HOST_TRUE@includecldwc_HEADERS = $(abs_top_srcdir)/src/client/linux/dump_writer_common/*.h
 @LINUX_HOST_TRUE@includeclmdir = $(includedir)/$(PACKAGE)/client/linux/minidump_writer
-@LINUX_HOST_TRUE@includeclm_HEADERS = $(top_srcdir)/src/client/linux/minidump_writer/*.h
+@LINUX_HOST_TRUE@includeclm_HEADERS = $(abs_top_srcdir)/src/client/linux/minidump_writer/*.h
 @LINUX_HOST_TRUE@includeclcdir = $(includedir)/$(PACKAGE)/client/linux/crash_generation
-@LINUX_HOST_TRUE@includeclc_HEADERS = $(top_srcdir)/src/client/linux/crash_generation/*.h
+@LINUX_HOST_TRUE@includeclc_HEADERS = $(abs_top_srcdir)/src/client/linux/crash_generation/*.h
 @LINUX_HOST_TRUE@includelssdir = $(includedir)/$(PACKAGE)/third_party/lss
-@LINUX_HOST_TRUE@includelss_HEADERS = $(top_srcdir)/src/third_party/lss/*.h
+@LINUX_HOST_TRUE@includelss_HEADERS = $(abs_top_srcdir)/src/third_party/lss/*.h
 @LINUX_HOST_TRUE@includecldir = $(includedir)/$(PACKAGE)/common/linux
-@LINUX_HOST_TRUE@includecl_HEADERS = $(top_srcdir)/src/common/linux/*.h
+@LINUX_HOST_TRUE@includecl_HEADERS = $(abs_top_srcdir)/src/common/linux/*.h
 includegbcdir = $(includedir)/$(PACKAGE)/google_breakpad/common
-includegbc_HEADERS = $(top_srcdir)/src/google_breakpad/common/*.h
+includegbc_HEADERS = $(abs_top_srcdir)/src/google_breakpad/common/*.h
 includecdir = $(includedir)/$(PACKAGE)/common
-includec_HEADERS = $(top_srcdir)/src/common/*.h
+includec_HEADERS = $(abs_top_srcdir)/src/common/*.h
 includepdir = $(includedir)/$(PACKAGE)/processor
-includep_HEADERS = $(top_srcdir)/src/processor/*.h
+includep_HEADERS = $(abs_top_srcdir)/src/processor/*.h
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = $(am__append_5) $(am__append_8)
 @SYSTEM_TEST_LIBS_FALSE@TEST_CFLAGS = \
-@SYSTEM_TEST_LIBS_FALSE@	-I$(top_srcdir)/src/testing/include \
-@SYSTEM_TEST_LIBS_FALSE@	-I$(top_srcdir)/src/testing/googletest/include \
-@SYSTEM_TEST_LIBS_FALSE@	-I$(top_srcdir)/src/testing/googletest \
-@SYSTEM_TEST_LIBS_FALSE@	-I$(top_srcdir)/src/testing/googlemock/include \
-@SYSTEM_TEST_LIBS_FALSE@	-I$(top_srcdir)/src/testing/googlemock \
-@SYSTEM_TEST_LIBS_FALSE@	-I$(top_srcdir)/src/testing
+@SYSTEM_TEST_LIBS_FALSE@	-I$(abs_top_srcdir)/src/testing/include \
+@SYSTEM_TEST_LIBS_FALSE@	-I$(abs_top_srcdir)/src/testing/googletest/include \
+@SYSTEM_TEST_LIBS_FALSE@	-I$(abs_top_srcdir)/src/testing/googletest \
+@SYSTEM_TEST_LIBS_FALSE@	-I$(abs_top_srcdir)/src/testing/googlemock/include \
+@SYSTEM_TEST_LIBS_FALSE@	-I$(abs_top_srcdir)/src/testing/googlemock \
+@SYSTEM_TEST_LIBS_FALSE@	-I$(abs_top_srcdir)/src/testing
 
 @SYSTEM_TEST_LIBS_TRUE@TEST_CFLAGS = $(GTEST_CFLAGS) $(GMOCK_CFLAGS)
 @SYSTEM_TEST_LIBS_FALSE@TEST_LIBS = src/testing/libtesting.a
@@ -2688,15 +2690,15 @@ CLEANFILES = $(am__append_12)
 @DISABLE_PROCESSOR_FALSE@	src/processor/minidump_stackwalk_machine_readable_test
 
 TESTS = $(check_PROGRAMS) $(check_SCRIPTS)
-@ANDROID_HOST_FALSE@@TESTS_AS_ROOT_FALSE@LOG_DRIVER = $(top_srcdir)/autotools/test-driver
+@ANDROID_HOST_FALSE@@TESTS_AS_ROOT_FALSE@LOG_DRIVER = $(abs_top_srcdir)/autotools/test-driver
 # The default Autotools test driver script.
-@ANDROID_HOST_FALSE@@TESTS_AS_ROOT_TRUE@LOG_DRIVER = $(top_srcdir)/autotools/root-test-driver $(top_srcdir)/autotools/test-driver
+@ANDROID_HOST_FALSE@@TESTS_AS_ROOT_TRUE@LOG_DRIVER = $(abs_top_srcdir)/autotools/root-test-driver $(abs_top_srcdir)/autotools/test-driver
 
 # Since Autotools 1.2, tests are run through a special "test driver" script.
 # Unfortunately, it's not possible anymore to specify an alternative shell to
 # run them on connected devices, so use a slightly modified version of the
 # driver for Android.
-@ANDROID_HOST_TRUE@LOG_DRIVER = $(top_srcdir)/android/test-driver
+@ANDROID_HOST_TRUE@LOG_DRIVER = $(abs_top_srcdir)/android/test-driver
 @LINUX_HOST_TRUE@src_client_linux_linux_dumper_unittest_helper_SOURCES = \
 @LINUX_HOST_TRUE@	src/client/linux/minidump_writer/linux_dumper_unittest_helper.cc
 
@@ -2894,7 +2896,7 @@ TESTS = $(check_PROGRAMS) $(check_SCRIPTS)
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/tools/mac/dump_syms/dump_syms_tool.cc
 
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-I$(top_srcdir)/src/third_party/mac_headers \
+@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-I$(abs_top_srcdir)/src/third_party/mac_headers \
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(RUST_DEMANGLE_CFLAGS) \
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-DHAVE_MACH_O_NLIST_H
 
@@ -2997,7 +2999,7 @@ TESTS = $(check_PROGRAMS) $(check_SCRIPTS)
 
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_mac_macho_reader_unittest_CPPFLAGS = \
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(AM_CPPFLAGS) $(TEST_CFLAGS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-I$(top_srcdir)/src/third_party/mac_headers \
+@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-I$(abs_top_srcdir)/src/third_party/mac_headers \
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-DHAVE_MACH_O_NLIST_H \
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(PTHREAD_CFLAGS)
 
