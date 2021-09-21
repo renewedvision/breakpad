@@ -69,6 +69,24 @@
       "message": "sorry, but i\u0027m not understanding the issue here",
       "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f0744c_8509c72c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2021-09-21T15:09:25Z",
+      "side": 1,
+      "message": "The specific issue I am fixing is building in a subfolder like so:\n\n      $ mkdir build \u0026\u0026 cd build\n      $ ../configure\n      $ make\n      \nI tried to update the commit message with more information\nabout that, but git cl upload fails with:\n\u003e Change https://chromium-review.googlesource.com/3168664 has been abandoned, new uploads are not allowed\n\nI must have messed up something when submitting these as individual changes…",
+      "parentUuid": "9d14b834_de8ba73d",
+      "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
