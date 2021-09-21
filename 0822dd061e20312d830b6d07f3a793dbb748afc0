@@ -34,6 +34,41 @@
       "parentUuid": "f31b7d83_b4d5147e",
       "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f91e7aa_75f357a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-21T13:46:58Z",
+      "side": 1,
+      "message": "i think Primiano meant he avoids \"autotools\" in general ;)\n\ni\u0027m not really understanding what this is fixing.  there is only 1 Makefile in breakpad, so there is no possibility of building in subdirs.\n\nare you talking about out-of-tree builds ?  i do that all the time and it works fine.\n\nplease include in the commit message the exact setup/commands you\u0027re running.",
+      "parentUuid": "73a8ac8e_60c0b01f",
+      "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d14b834_de8ba73d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-21T13:46:58Z",
+      "side": 1,
+      "message": "sorry, but i\u0027m not understanding the issue here",
+      "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
