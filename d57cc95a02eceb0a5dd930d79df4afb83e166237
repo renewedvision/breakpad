@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "171f2ed3_b4697926",
+        "filename": "src/common/module.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-23T19:05:57Z",
+      "side": 1,
+      "message": "Yes, I restored some changes. So, it\u0027s just moving InlineOriginMap to Module and release allocated memory at destruction.",
+      "parentUuid": "53c47ee3_000b7ec3",
+      "range": {
+        "startLine": 414,
+        "startChar": 24,
+        "endLine": 414,
+        "endChar": 33
+      },
+      "revId": "d57cc95a02eceb0a5dd930d79df4afb83e166237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9909e1dc_bf883a7c",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-22T20:10:33Z",
       "side": 1,
       "message": "This comment is for SetReference()",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "d57cc95a02eceb0a5dd930d79df4afb83e166237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "252e9301_fef26715",
+        "filename": "src/common/module.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-23T19:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9909e1dc_bf883a7c",
       "range": {
         "startLine": 190,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "180b10e9_2e7c642c",
+        "filename": "src/common/module.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-23T19:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7213179e_6afe49a4",
+      "range": {
+        "startLine": 195,
+        "startChar": 36,
+        "endLine": 195,
+        "endChar": 37
+      },
+      "revId": "d57cc95a02eceb0a5dd930d79df4afb83e166237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "989fb437_dd771c64",
@@ -83,6 +155,54 @@
       "writtenOn": "2021-09-22T20:10:33Z",
       "side": 1,
       "message": "This function is getting all origins specified by origin_ids.",
+      "range": {
+        "startLine": 197,
+        "startChar": 31,
+        "endLine": 197,
+        "endChar": 52
+      },
+      "revId": "d57cc95a02eceb0a5dd930d79df4afb83e166237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81f8b132_b8ba0314",
+        "filename": "src/common/module.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-23T19:05:57Z",
+      "side": 1,
+      "message": "Function deleted.",
+      "parentUuid": "989fb437_dd771c64",
+      "range": {
+        "startLine": 197,
+        "startChar": 31,
+        "endLine": 197,
+        "endChar": 52
+      },
+      "revId": "d57cc95a02eceb0a5dd930d79df4afb83e166237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1641558d_451e7b5a",
+        "filename": "src/common/module.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-23T19:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "989fb437_dd771c64",
       "range": {
         "startLine": 197,
         "startChar": 31,
