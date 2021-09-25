@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "666c8563_f50333f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-25T05:38:34Z",
+      "side": 1,
+      "message": "can you please split your changes up into discrete commits ?  it\u0027s a lot harder to review things when there\u0027s multiple issues all squashed into one",
+      "revId": "f071d9e0d527be03a1f0829d33f28b5b7a2dc288",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c25653f_29333d42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-25T05:38:34Z",
+      "side": 1,
+      "message": "we also have https://crrev.com/c/1426283 (and its previous https://crrev.com/c/926028) for adding ppc64 support.  we went through a lot of review on those.  it\u0027d be nice to not have to keep repeating the same stuff.",
+      "revId": "f071d9e0d527be03a1f0829d33f28b5b7a2dc288",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
