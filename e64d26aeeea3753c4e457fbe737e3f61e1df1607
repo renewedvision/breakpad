@@ -41,6 +41,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb90e61_06323f9d",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T21:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6798904_283763d5",
+      "range": {
+        "startLine": 969,
+        "startChar": 24,
+        "endLine": 969,
+        "endChar": 30
+      },
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8176e840_889f0b5a",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T21:28:36Z",
+      "side": 1,
+      "message": "changed str().",
+      "parentUuid": "b6798904_283763d5",
+      "range": {
+        "startLine": 969,
+        "startChar": 24,
+        "endLine": 969,
+        "endChar": 30
+      },
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "879e6e6e_50721876",
@@ -58,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2930fcfd_2dd14c65",
+        "filename": "src/common/module.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T21:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "879e6e6e_50721876",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aec5918_ab64a7c1",
@@ -71,6 +137,30 @@
       "writtenOn": "2021-09-28T17:19:44Z",
       "side": 1,
       "message": "common_strings_",
+      "range": {
+        "startLine": 455,
+        "startChar": 24,
+        "endLine": 455,
+        "endChar": 38
+      },
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44a6e8d8_7b26e8b5",
+        "filename": "src/common/module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T21:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aec5918_ab64a7c1",
       "range": {
         "startLine": 455,
         "startChar": 24,
@@ -100,6 +190,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69eb1bd8_47853886",
+        "filename": "src/common/string_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T21:28:36Z",
+      "side": 1,
+      "message": "\u003ccstring\u003e not found, so I\u0027m using \"cstring\".",
+      "parentUuid": "4574f32e_734ee49e",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c2f6fea_506b8c02",
         "filename": "src/common/string_ref.h",
         "patchSetId": 2
@@ -111,6 +219,42 @@
       "writtenOn": "2021-09-28T09:58:46Z",
       "side": 1,
       "message": "I don\u0027t think we can use LLVM\u0027s StringRef since it\u0027s from another project.\n\nBut it should be easy to write our own with just the functionality that\u0027s needed for Breakpad. Maybe looking at Chromium\u0027s base/strings/string_piece.h would also be useful.",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c0bf0ee_3f29b85c",
+        "filename": "src/common/string_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T21:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2f6fea_506b8c02",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63000acc_3744bb96",
+        "filename": "src/common/string_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T21:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2f6fea_506b8c02",
       "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
