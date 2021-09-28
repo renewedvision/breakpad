@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09065833_0f2c3b6a",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T22:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9182aa5_95506af4",
+      "range": {
+        "startLine": 106,
+        "startChar": 73,
+        "endLine": 106,
+        "endChar": 74
+      },
+      "revId": "1718f5defe0edc0a762a7573c9bad88bacdf3067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f290fea4_e9c6967f",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-16T18:57:41Z",
       "side": 1,
       "message": "Maybe update like this: \"Finds ... that contains the given ... returns ...\"",
+      "range": {
+        "startLine": 156,
+        "startChar": 7,
+        "endLine": 156,
+        "endChar": 12
+      },
+      "revId": "1718f5defe0edc0a762a7573c9bad88bacdf3067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6785699_2a3f9fc7",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-28T22:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f290fea4_e9c6967f",
       "range": {
         "startLine": 156,
         "startChar": 7,
