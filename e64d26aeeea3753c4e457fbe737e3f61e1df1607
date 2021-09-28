@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43826f5d_3f5e496f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-28T09:58:46Z",
+      "side": 1,
+      "message": "So this makes peak memory usage with inline records enabled the same as it was before with inline records disabled. That\u0027s great!",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "879e6e6e_50721876",
+        "filename": "src/common/module.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-28T09:58:46Z",
+      "side": 1,
+      "message": "Maybe there could be an operator\u003c\u003c overload for StringRef?",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4574f32e_734ee49e",
+        "filename": "src/common/string_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-28T09:58:46Z",
+      "side": 1,
+      "message": "#include \u003ccstring\u003e ?",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c2f6fea_506b8c02",
+        "filename": "src/common/string_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-28T09:58:46Z",
+      "side": 1,
+      "message": "I don\u0027t think we can use LLVM\u0027s StringRef since it\u0027s from another project.\n\nBut it should be easy to write our own with just the functionality that\u0027s needed for Breakpad. Maybe looking at Chromium\u0027s base/strings/string_piece.h would also be useful.",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
