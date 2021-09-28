@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "459d24b8_aaf2cd37",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-28T22:44:22Z",
+      "side": 1,
+      "message": "Sort the list.",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d826898_0d48a7f8",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-28T22:44:22Z",
+      "side": 1,
+      "message": "No need for else after the return.",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c19a87ea_96565157",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-28T22:44:22Z",
+      "side": 1,
+      "message": "Similarly, no need for an else after a break.",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ae04fba_bba1f4e7",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-28T22:44:22Z",
+      "side": 1,
+      "message": "Isn\u0027t the |\u003d operator a no-op? `is_intercept` has to start off as true. true |\u003d anything is still true.",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb0203b4_b9d528ee",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-28T22:44:22Z",
+      "side": 1,
+      "message": "If this is going to be part of a class, use encapsulation?",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de3970aa_3fd85fcf",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-28T22:44:22Z",
+      "side": 1,
+      "message": "It can be a bit confusing when one wants to talk about a line and also the `line` variable in the same sentence. That\u0027s a good time to use backticks to refer to variables.",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
