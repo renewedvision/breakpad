@@ -32,6 +32,7 @@
 // module.cc: Implement google_breakpad::Module.  See module.h.
 
 #include "common/module.h"
+#include "common/string_ref.h"
 
 #include <assert.h>
 #include <errno.h>
@@ -51,7 +52,7 @@ using std::unique_ptr;
 
 Module::InlineOrigin* Module::InlineOriginMap::GetOrCreateInlineOrigin(
     uint64_t offset,
-    const string& name) {
+    StringRef name) {
   uint64_t specification_offset = references_[offset];
   // Find the root offset.
   auto iter = references_.find(specification_offset);
@@ -381,7 +382,7 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
     // Write out inline origins.
     for (InlineOrigin* origin : inline_origins) {
       stream << "INLINE_ORIGIN " << origin->id << " " << origin->getFileID()
-             << " " << origin->name << "\n";
+             << " " << origin->name.str() << "\n";
       if (!stream.good())
         return ReportError();
     }
@@ -397,7 +398,7 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
                << (range_it->address - load_address_) << " "
                << range_it->size << " "
                << func->parameter_size << " "
-               << func->name << dec << "\n";
+               << func->name.str() << dec << "\n";
 
         if (!stream.good())
           return ReportError();
