@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6798904_283763d5",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-28T17:19:44Z",
+      "side": 1,
+      "message": "data() doesn\u0027t guarantee null-termination.",
+      "range": {
+        "startLine": 969,
+        "startChar": 24,
+        "endLine": 969,
+        "endChar": 30
+      },
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "879e6e6e_50721876",
         "filename": "src/common/module.cc",
         "patchSetId": 2
@@ -31,6 +54,29 @@
       "writtenOn": "2021-09-28T09:58:46Z",
       "side": 1,
       "message": "Maybe there could be an operator\u003c\u003c overload for StringRef?",
+      "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aec5918_ab64a7c1",
+        "filename": "src/common/module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-09-28T17:19:44Z",
+      "side": 1,
+      "message": "common_strings_",
+      "range": {
+        "startLine": 455,
+        "startChar": 24,
+        "endLine": 455,
+        "endChar": 38
+      },
       "revId": "e64d26aeeea3753c4e457fbe737e3f61e1df1607",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
