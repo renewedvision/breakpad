@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0367517f_4b7fbc41",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "Add curly braces.",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "943344d0_a1f7cb6a",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "Thoughts about encapsulating this class?",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acb91fec_b561f589",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "I think every class can be described as a list of something being stored, plus helper functions. It would be better to mention how this class stores its list of lines. What makes it special?",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f85c40a3_c0ae51da",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "Maybe change this to `line_map_` ?",
+      "range": {
+        "startLine": 158,
+        "startChar": 27,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d59860a_53448465",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "typo: given",
+      "range": {
+        "startLine": 159,
+        "startChar": 47,
+        "endLine": 159,
+        "endChar": 51
+      },
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4080524_9c7538fa",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "`line_map_`",
+      "range": {
+        "startLine": 160,
+        "startChar": 16,
+        "endLine": 160,
+        "endChar": 24
+      },
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0447ef6c_b5b8d288",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "nit: trailing space.",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8ed0d37_372274a7",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "Take a const-ref, since the callers never pass in nullptr?",
+      "range": {
+        "startLine": 222,
+        "startChar": 57,
+        "endLine": 222,
+        "endChar": 58
+      },
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

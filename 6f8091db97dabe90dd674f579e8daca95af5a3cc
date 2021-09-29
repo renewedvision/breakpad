@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f49409ea_c5c78862",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-29T23:56:36Z",
+      "side": 1,
+      "message": "In that case, for this line: is_intercept |\u003d intercept(iter-\u003esecond);\n\nIt at the minimum needs a comment, as someone may think it is possible to refactor this into: is_intercept \u003d is_intercept || intercept(iter-\u003esecond);\n\nThe difference being the latter statement may not call intercept() and miss that adjustment. Given this is subtle, a unit test for this corner case would be even better.",
+      "parentUuid": "f6f61398_7d464bfc",
+      "revId": "6f8091db97dabe90dd674f579e8daca95af5a3cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0336cbe4_14598239",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 12
