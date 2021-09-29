@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6ed20cd_4dfdb7a8",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "This still looks strange to me. If it refers to the standard library header, it should be \u003ccstring\u003e, if it refers to a non-system header it should be \"cstring.h\".\n\ntools/linux/dump_syms/dump_syms.cc uses \u003ccstring\u003e. I don\u0027t see why it shouldn\u0027t work here.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8382a93f_aaec7537",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "I\u0027d skip the \"it can be used...\" part. Just explaining that it\u0027s a non-owning reference to a string should be enough.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d1e5de6_a368d95b",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "Sorry to be picky about the name, but BasicString could be confusing since it sounds like std::basic_string, which is an owning string, not a reference.\n\nStringRef or StringView (or maybe StringPiece) would be better I think.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "054aa0a8_b9a03b89",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "Might be good to mention here whether this points to data that needs to be null terminated or not.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ad3c11a_8bd728cf",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "the call to c_str() suggests that you want a null-terminated string, but then the length is kind of unnecessary\n\nif data doesn\u0027t have to be null-terminated, str.data() could be used instead",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d099520b_f34e90c4",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "I\u0027m not sure if it\u0027s useful for the accessors to be constexpr when the constructors are not.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38ce28bd_de5f5012",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "instead of compareCstring, this could be a call to memcmp (which might be faster, and at least it saves some code).\n\nNote that memcmp() doesn\u0027t necessarily return -1, 0 or 1, but a value \u003c0, \u003d\u003d0, or \u003e0, so some adjustments need to be made to the comparison operators below.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f91f55d_82bc8e52",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "since res is an integer, I think \"if (res \u003d\u003d 0)\" would be more clear",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91f9d861_991c26df",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "also here, I think \u003d\u003d 0 would be clearer",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfda8579_aa865d8c",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "checking for \"\u003c 0\" would be safer, and if we use memcmp() for the comparison above, it\u0027s necessary",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c7f7350_70c213d6",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-29T08:53:25Z",
+      "side": 1,
+      "message": "same as above, but \u003e 0",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
