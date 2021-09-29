@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e863694_43e7fcb0",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "I got this error if use \u003ccstring\u003e:\n../../third_party/breakpad/breakpad/src/common/string_view.h:33:10: error: \u0027\u003ccstring\u003e\u0027 file not found, did you mean \u0027cstring\u0027?\n#include \"\u003ccstring\u003e\"\n\nUsing clangd, it shows cstring and \u003ccstring\u003e in dump_syms.cc are pointing to the same file at chromium/src/buildtools/third_party/libc++/trunk/include/cstring",
+      "parentUuid": "a6ed20cd_4dfdb7a8",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8382a93f_aaec7537",
         "filename": "src/common/basic_string.h",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2021-09-29T08:53:25Z",
       "side": 1,
       "message": "I\u0027d skip the \"it can be used...\" part. Just explaining that it\u0027s a non-owning reference to a string should be enough.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1fbd257_555ef152",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8382a93f_aaec7537",
       "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44a9f8a3_dc541c58",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d1e5de6_a368d95b",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "054aa0a8_b9a03b89",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-09-29T08:53:25Z",
       "side": 1,
       "message": "Might be good to mention here whether this points to data that needs to be null terminated or not.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7ad6dcb_290704c2",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "054aa0a8_b9a03b89",
       "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a89df8a4_b00640f7",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ad3c11a_8bd728cf",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d099520b_f34e90c4",
@@ -99,6 +189,24 @@
       "writtenOn": "2021-09-29T08:53:25Z",
       "side": 1,
       "message": "I\u0027m not sure if it\u0027s useful for the accessors to be constexpr when the constructors are not.",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c4365d5_ba2dce5c",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d099520b_f34e90c4",
       "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +228,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9382b0a7_6396bc0a",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38ce28bd_de5f5012",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f91f55d_82bc8e52",
@@ -133,6 +259,24 @@
       "writtenOn": "2021-09-29T08:53:25Z",
       "side": 1,
       "message": "since res is an integer, I think \"if (res \u003d\u003d 0)\" would be more clear",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77dc6d33_c782c3f0",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f91f55d_82bc8e52",
       "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -154,6 +298,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "677ce7d9_632b0ab1",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91f9d861_991c26df",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfda8579_aa865d8c",
@@ -171,6 +333,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff38dbbd_1ab9cd42",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfda8579_aa865d8c",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c7f7350_70c213d6",
@@ -184,6 +364,24 @@
       "writtenOn": "2021-09-29T08:53:25Z",
       "side": 1,
       "message": "same as above, but \u003e 0",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39fff90a_9200ce77",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T18:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c7f7350_70c213d6",
       "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
