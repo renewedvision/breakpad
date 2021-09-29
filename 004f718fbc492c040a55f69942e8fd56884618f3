@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f784261c_9f469648",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "459d24b8_aaf2cd37",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d826898_0d48a7f8",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-09-28T22:44:22Z",
       "side": 1,
       "message": "No need for else after the return.",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c03bbe5f_7cb5ce64",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d826898_0d48a7f8",
       "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1243da0b_119dc590",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c19a87ea_96565157",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ae04fba_bba1f4e7",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-09-28T22:44:22Z",
       "side": 1,
       "message": "Isn\u0027t the |\u003d operator a no-op? `is_intercept` has to start off as true. true |\u003d anything is still true.",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c7c0b9e_8cfd941d",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T22:42:05Z",
+      "side": 1,
+      "message": "The loop was incorrect. What I want is to iterate at least once if any call to intercept function returns true, continue the iteration.\n\nFixed in update.",
+      "parentUuid": "5ae04fba_bba1f4e7",
       "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8d644be_3a5fec15",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T22:42:05Z",
+      "side": 1,
+      "message": "Move line_map to private field.",
+      "parentUuid": "bb0203b4_b9d528ee",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de3970aa_3fd85fcf",
@@ -99,6 +189,24 @@
       "writtenOn": "2021-09-28T22:44:22Z",
       "side": 1,
       "message": "It can be a bit confusing when one wants to talk about a line and also the `line` variable in the same sentence. That\u0027s a good time to use backticks to refer to variables.",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b42a97fd_c0fae9cd",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de3970aa_3fd85fcf",
       "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
