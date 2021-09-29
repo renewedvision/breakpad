@@ -41,6 +41,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f61398_7d464bfc",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T23:30:55Z",
+      "side": 1,
+      "message": "Yes. prev-\u003esecond is the line with rva less than given line\u0027s rva. iter-\u003esecond is the line with rva greater than or equals to the given line\u0027s rva. The intercept function will adjust the existing line range in map if it overlaps with given line. So, it has side effect.",
+      "parentUuid": "9aaf4071_9d9d5293",
+      "revId": "6f8091db97dabe90dd674f579e8daca95af5a3cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa51e1fd_794f5c1d",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T23:30:55Z",
+      "side": 1,
+      "message": "Yes, it\u0027s only necessary at line 310, since it\u0027s possible to have multiple lines with greater rva within the range of given line, but not possible for smaller rva.",
+      "parentUuid": "9a767236_a0271c43",
+      "range": {
+        "startLine": 308,
+        "startChar": 19,
+        "endLine": 308,
+        "endChar": 21
+      },
+      "revId": "6f8091db97dabe90dd674f579e8daca95af5a3cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0336cbe4_14598239",
@@ -54,6 +96,24 @@
       "writtenOn": "2021-09-29T22:58:40Z",
       "side": 1,
       "message": "public first, then private.",
+      "revId": "6f8091db97dabe90dd674f579e8daca95af5a3cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56659def_3f846908",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T23:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0336cbe4_14598239",
       "revId": "6f8091db97dabe90dd674f579e8daca95af5a3cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -81,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15064366_6fdafda9",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T23:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b87964a_9ca73d3e",
+      "range": {
+        "startLine": 154,
+        "startChar": 21,
+        "endLine": 154,
+        "endChar": 29
+      },
+      "revId": "6f8091db97dabe90dd674f579e8daca95af5a3cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f28f894_bab5d0c0",
@@ -94,6 +178,24 @@
       "writtenOn": "2021-09-29T22:58:40Z",
       "side": 1,
       "message": "I think there may have been some confusion over my last comment here. I was advocating for the use of backticks to refer to variable names, as described on [1]. Here, \"line\" has been changed to \"line_\", yet there\u0027s no variable by that name.\n\n[1] https://google.github.io/styleguide/cppguide.html#Function_Comments",
+      "revId": "6f8091db97dabe90dd674f579e8daca95af5a3cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1b21662_27212163",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-29T23:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f28f894_bab5d0c0",
       "revId": "6f8091db97dabe90dd674f579e8daca95af5a3cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
