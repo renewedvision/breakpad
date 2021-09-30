@@ -40,6 +40,7 @@
 #include <algorithm>
 #include <limits>
 #include <map>
+#include <memory>
 #include <set>
 #include <utility>
 
@@ -58,6 +59,8 @@ namespace google_breakpad {
 
 namespace {
 
+using std::set;
+using std::unique_ptr;
 using std::vector;
 
 // The symbol (among possibly many) selected to represent an rva.
@@ -208,6 +211,111 @@ void StripLlvmSuffixAndUndecorate(BSTR* name) {
 
 }  // namespace
 
+void PDBSourceLineWriter::Inline::ExtendRanges(const Line& line) {
+  if (ranges.empty()) {
+    ranges[line.rva] = line.length;
+    return;
+  }
+  auto iter = ranges.lower_bound(line.rva);
+  // There is no overlap if this function is called with inlinee lines from
+  // the same callsite.
+  if (iter == ranges.begin()) {
+    return;
+  }
+  if (line.rva + line.length == iter->first) {
+    // If they are connected, merge their ranges into one.
+    DWORD length = line.length + iter->second;
+    ranges.erase(iter);
+    ranges[line.rva] = length;
+  } else {
+    --iter;
+    if (iter->first + iter->second == line.rva) {
+      ranges[iter->first] = iter->second + line.length;
+    } else {
+      ranges[line.rva] = line.length;
+    }
+  }
+}
+
+DWORD PDBSourceLineWriter::Lines::GetLineNum(DWORD rva) const {
+  auto iter = line_map_.find(rva);
+  if (iter == line_map_.end()) {
+    // If not found exact rva, check if it's within any range.
+    iter = line_map_.lower_bound(rva);
+    if (iter == line_map_.begin())
+      return 0;
+    --iter;
+    auto l = iter->second;
+    // This happens when there is no top level lines cover this rva (e.g. empty
+    // lines found for the function). Then we don't know the call site line
+    // number for this inlined function.
+    if (rva >= l.rva + l.length)
+      return 0;
+  }
+  return iter->second.line_num;
+}
+
+void PDBSourceLineWriter::Lines::AddLine(const Line& line) {
+  if (line_map_.empty()) {
+    line_map_[line.rva] = line;
+    return;
+  }
+
+  // Given an existing line in line_map_, remove it from line_map_ if it
+  // overlaps with the line and add a new line for the non-overlap range. Return
+  // true if there is an overlap.
+  auto intercept = [&](Line old_line) {
+    DWORD end = old_line.rva + old_line.length;
+    // No overlap.
+    if (old_line.rva >= line.rva + line.length || line.rva >= end)
+      return false;
+    // old_line is within the line.
+    if (old_line.rva >= line.rva && end <= line.rva + line.length) {
+      line_map_.erase(old_line.rva);
+      return true;
+    }
+    // Then there is a overlap.
+    if (old_line.rva < line.rva) {
+      old_line.length -= end - line.rva;
+      if (end > line.rva + line.length) {
+        Line new_line = old_line;
+        new_line.rva = line.rva + line.length;
+        new_line.length = end - new_line.rva;
+        line_map_[new_line.rva] = new_line;
+      }
+    } else {
+      line_map_.erase(old_line.rva);
+      old_line.length -= line.rva + line.length - old_line.rva;
+      old_line.rva = line.rva + line.length;
+    }
+    line_map_[old_line.rva] = old_line;
+    return true;
+  };
+
+  bool is_intercept;
+  // Use a loop in cases that there are multiple lines within the given line.
+  do {
+    auto iter = line_map_.lower_bound(line.rva);
+    if (iter == line_map_.end()) {
+      --iter;
+      intercept(iter->second);
+      break;
+    }
+    is_intercept = false;
+    if (iter != line_map_.begin()) {
+      // Check if the given line overlaps a line with smaller in the map.
+      auto prev = line_map_.lower_bound(line.rva);
+      --prev;
+      is_intercept = intercept(prev->second);
+    }
+    // Check if the given line overlaps a line with greater or equal rva in the
+    // map. Using operator |= here since it's possible that there are multiple
+    // lines with greater rva in the map overlap with the given line.
+    is_intercept |= intercept(iter->second);
+  } while (is_intercept);
+  line_map_[line.rva] = line;
+}
+
 PDBSourceLineWriter::PDBSourceLineWriter() : output_(NULL) {
 }
 
@@ -280,48 +388,61 @@ bool PDBSourceLineWriter::Open(const wstring& file, FileFormat format) {
   return true;
 }
 
-bool PDBSourceLineWriter::PrintLines(IDiaEnumLineNumbers* lines) {
-  // The line number format is:
-  // <rva> <line number> <source file id>
+bool PDBSourceLineWriter::GetLine(IDiaLineNumber* dia_line, Line* line) const {
+  if (FAILED(dia_line->get_relativeVirtualAddress(&line->rva))) {
+    fprintf(stderr, "failed to get line rva\n");
+    return false;
+  }
+
+  if (FAILED(dia_line->get_length(&line->length))) {
+    fprintf(stderr, "failed to get line code length\n");
+    return false;
+  }
+
+  DWORD dia_source_id;
+  if (FAILED(dia_line->get_sourceFileId(&dia_source_id))) {
+    fprintf(stderr, "failed to get line source file id\n");
+    return false;
+  }
+  // duplicate file names are coalesced to share one ID
+  line->file_id = GetRealFileID(dia_source_id);
+
+  if (FAILED(dia_line->get_lineNumber(&line->line_num))) {
+    fprintf(stderr, "failed to get line number\n");
+    return false;
+  }
+  return true;
+}
+
+bool PDBSourceLineWriter::GetLines(IDiaEnumLineNumbers* lines,
+                                   Lines* line_list) const {
   CComPtr<IDiaLineNumber> line;
   ULONG count;
 
   while (SUCCEEDED(lines->Next(1, &line, &count)) && count == 1) {
-    DWORD rva;
-    if (FAILED(line->get_relativeVirtualAddress(&rva))) {
-      fprintf(stderr, "failed to get line rva\n");
+    Line l;
+    if (!GetLine(line, &l))
       return false;
-    }
-
-    DWORD length;
-    if (FAILED(line->get_length(&length))) {
-      fprintf(stderr, "failed to get line code length\n");
-      return false;
-    }
-
-    DWORD dia_source_id;
-    if (FAILED(line->get_sourceFileId(&dia_source_id))) {
-      fprintf(stderr, "failed to get line source file id\n");
-      return false;
-    }
-    // duplicate file names are coalesced to share one ID
-    DWORD source_id = GetRealFileID(dia_source_id);
-
-    DWORD line_num;
-    if (FAILED(line->get_lineNumber(&line_num))) {
-      fprintf(stderr, "failed to get line number\n");
-      return false;
-    }
-
-    AddressRangeVector ranges;
-    MapAddressRange(image_map_, AddressRange(rva, length), &ranges);
-    for (size_t i = 0; i < ranges.size(); ++i) {
-      fprintf(output_, "%lx %lx %lu %lu\n", ranges[i].rva, ranges[i].length,
-              line_num, source_id);
-    }
+    // Silently ignore zero-length lines.
+    if (l.length != 0)
+      line_list->AddLine(l);
     line.Release();
   }
   return true;
+}
+
+void PDBSourceLineWriter::PrintLines(const Lines& lines) const {
+  // The line number format is:
+  // <rva> <line number> <source file id>
+  for (const auto& kv : lines.GetLineMap()) {
+    const Line& l = kv.second;
+    AddressRangeVector ranges;
+    MapAddressRange(image_map_, AddressRange(l.rva, l.length), &ranges);
+    for (auto& range : ranges) {
+      fprintf(output_, "%lx %lx %lu %lu\n", range.rva, range.length, l.line_num,
+              l.file_id);
+    }
+  }
 }
 
 bool PDBSourceLineWriter::PrintFunction(IDiaSymbol* function,
@@ -372,9 +493,19 @@ bool PDBSourceLineWriter::PrintFunction(IDiaSymbol* function,
     return false;
   }
 
-  if (!PrintLines(lines)) {
+  // Get top level lines first, which later may be split into multiple smaller
+  // lines if any inline exists in their ranges.
+  Lines line_list;
+  if (!GetLines(lines, &line_list)) {
     return false;
   }
+
+  vector<unique_ptr<Inline>> inlines;
+  if (!GetInlines(block, &line_list, 0, &inlines)) {
+    return false;
+  }
+  PrintInlines(inlines);
+  PrintLines(line_list);
   return true;
 }
 
@@ -553,6 +684,102 @@ bool PDBSourceLineWriter::PrintFunctions() {
 
   global.Release();
   return true;
+}
+
+void PDBSourceLineWriter::PrintInlineOrigins() const {
+  struct OriginCompare {
+    bool operator()(const InlineOrigin lhs, const InlineOrigin rhs) const {
+      return lhs.id < rhs.id;
+    }
+  };
+  set<InlineOrigin, OriginCompare> origins;
+  // Sort by origin id.
+  for (auto const& origin : inline_origins_)
+    origins.insert(origin.second);
+  for (auto o : origins) {
+    fprintf(output_, "INLINE_ORIGIN %d %lu %ls\n", o.id, o.file_id,
+            o.name.c_str());
+  }
+}
+
+bool PDBSourceLineWriter::GetInlines(IDiaSymbol* block,
+                                     Lines* line_list,
+                                     int inline_nest_level,
+                                     vector<unique_ptr<Inline>>* inlines) {
+  CComPtr<IDiaEnumSymbols> inline_callsites;
+  if (FAILED(block->findChildrenEx(SymTagInlineSite, nullptr, nsNone,
+                                   &inline_callsites))) {
+    return false;
+  }
+  ULONG count;
+  CComPtr<IDiaSymbol> callsite;
+  while (SUCCEEDED(inline_callsites->Next(1, &callsite, &count)) &&
+         count == 1) {
+    unique_ptr<Inline> in(new Inline());
+    in->call_site_line = 0;
+    CComPtr<IDiaEnumLineNumbers> lines;
+    // All inlinee lines have the same file id.
+    DWORD file_id;
+    if (FAILED(session_->findInlineeLines(callsite, &lines))) {
+      return false;
+    }
+    CComPtr<IDiaLineNumber> line;
+    while (SUCCEEDED(lines->Next(1, &line, &count)) && count == 1) {
+      Line l;
+      if (!GetLine(line, &l)) {
+        return false;
+      }
+      // Silently ignore zero-length lines.
+      if (l.length != 0) {
+        // Use the first line num at rva as this inline's call site line number,
+        // because after adding lines it may be changed to inner line number.
+        if (in->call_site_line == 0)
+          in->call_site_line = line_list->GetLineNum(l.rva);
+        line_list->AddLine(l);
+        in->ExtendRanges(l);
+        file_id = l.file_id;
+      }
+      line.Release();
+    }
+    // Find origin id.
+    BSTR name;
+    if (FAILED(callsite->get_name(&name))) {
+      name = SysAllocString(L"<name omitted>");
+    }
+    auto iter = inline_origins_.find(name);
+    if (iter == inline_origins_.end()) {
+      InlineOrigin origin;
+      origin.id = inline_origins_.size();
+      origin.file_id = file_id;
+      origin.name = name;
+      inline_origins_[name] = origin;
+    }
+    in->origin_id = inline_origins_[name].id;
+    in->inline_nest_level = inline_nest_level;
+    // Go to nest level.
+    if (!GetInlines(callsite, line_list, inline_nest_level + 1,
+                    &in->child_inlines)) {
+      return false;
+    }
+
+    inlines->push_back(std::move(in));
+    callsite.Release();
+  }
+  return true;
+}
+
+void PDBSourceLineWriter::PrintInlines(
+    const vector<unique_ptr<Inline>>& inlines) const {
+  for (const unique_ptr<Inline>& in : inlines) {
+    fprintf(output_, "INLINE %d %lu %d", in->inline_nest_level,
+            in->call_site_line, in->origin_id);
+    for (const auto& r : in->ranges) {
+      fprintf(output_, " %lx %lx", r.first, r.second);
+    }
+    fprintf(output_, "\n");
+    // Print nested inlines.
+    PrintInlines(in->child_inlines);
+  }
 }
 
 #undef max
@@ -1105,10 +1332,8 @@ bool PDBSourceLineWriter::WriteSymbols(FILE* symbol_file) {
   bool ret = PrintPDBInfo();
   // This is not a critical piece of the symbol file.
   PrintPEInfo();
-  ret = ret &&
-      PrintSourceFiles() &&
-      PrintFunctions() &&
-      PrintFrameData();
+  ret = ret && PrintSourceFiles() && PrintFunctions() && PrintFrameData();
+  PrintInlineOrigins();
 
   output_ = NULL;
   return ret;
