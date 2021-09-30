@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d77e9ee_bd847390",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T18:13:38Z",
+      "side": 1,
+      "message": "Oh, my bad. I shouldn\u0027t add double quote around it.",
+      "parentUuid": "7e6c7899_9654e563",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8382a93f_aaec7537",
