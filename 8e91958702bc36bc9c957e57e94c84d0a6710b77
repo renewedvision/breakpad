@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c721ccd_22860d71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "s/BasicString/StringView/",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97d82d9d_bd95a977",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "A few more comments, but I think this is pretty close now.",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ded80af_e7252432",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "Would it work to have qualified_name, unqualified_name, and enclosing_name be pointers to StringView instead?",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6f0975b_b14b176f",
+        "filename": "src/common/dwarf_cu_to_module.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "Would just using a default-constructed StringView be enough here? I.e.\n\nStringView empty_str;",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08c8464c_6e381bfd",
+        "filename": "src/common/module.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "With the new operator\u003c\u003c, I guess the .str() call isn\u0027t necessary anymore?",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab194f94_ccb53e7e",
+        "filename": "src/common/module.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "Could this be result-\u003efirst?",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11955b45_cd743929",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "I think it would be more common (and i think this is what LLVM\u0027s StringRef, Chromium\u0027s StringPiece, and C++\u0027s string_view does) to not require the data to be null-terminated, and keep track of the length explicitly.\n\nI guess in Breakpad this class wouldn\u0027t need to handle any strings with null bytes in them, so maybe it doesn\u0027t matter. But someone might run into problems with this later, so I think it would be a good idea.",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "851854c0_eef06a4a",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "If you made the default value \"\" instead of nullptr, you could make it an invariant that data_ is never nullptr, and skip all the null checks below.",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d6b0e4a_2356bd9f",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "Technically, one is not allowed to call memcmp() with a nullptr argument, even when min_len \u003d\u003d 0. So we\u0027d have to check for that, or ensure that data_ is never null.\n\nAlso, if the strings are null terminated, this could just call strcmp() and return its result directly (it also doesn\u0027t accept null pointer arguments though).",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82c5f2a1_145c61e7",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "This looks wrong, I think it should be either\n\n  lhs.compare(rhs) !\u003d 0;\n\nor\n\n  !(lhs \u003d\u003d rhs);",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

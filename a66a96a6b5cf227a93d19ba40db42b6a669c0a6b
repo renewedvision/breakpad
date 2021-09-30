@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e6c7899_9654e563",
+        "filename": "src/common/basic_string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:28:26Z",
+      "side": 1,
+      "message": "Mysterious. I tried adding #include \u003ccstring\u003e in src/common/module.h and that works fine for me.\n\nDoes it help if you add the new string_view.h file to third_party/breakpad/BUILD.gn? (I\u0027m not sure why it would, but we should do that when rolling this into Chromium anyway.)",
+      "parentUuid": "2e863694_43e7fcb0",
+      "revId": "a66a96a6b5cf227a93d19ba40db42b6a669c0a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8382a93f_aaec7537",
         "filename": "src/common/basic_string.h",
         "patchSetId": 4
