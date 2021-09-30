@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b69d8a08_5480d6c9",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T19:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4df68b6f_138c78a9",
+      "revId": "a253170edb4dee4ab99f5b6b1dbdaad01e9c66cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99bff835_0c7e93e9",
@@ -52,6 +70,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a86b87e_bda0b1cf",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T19:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99bff835_0c7e93e9",
+      "revId": "a253170edb4dee4ab99f5b6b1dbdaad01e9c66cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18b38a6a_ed18add1",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T19:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5acb0d51_bde13f27",
+      "revId": "a253170edb4dee4ab99f5b6b1dbdaad01e9c66cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9c40d96_65469b97",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-09-30T18:31:51Z",
       "side": 1,
       "message": "Now that it\u0027s not guaranteed to be null terminated, we need the memcmp() version again. (Sorry for causing confusion.) But at least we don\u0027t need the null checks because we know data_ won\u0027t be null.",
+      "revId": "a253170edb4dee4ab99f5b6b1dbdaad01e9c66cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "defb5810_21238955",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T19:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9c40d96_65469b97",
       "revId": "a253170edb4dee4ab99f5b6b1dbdaad01e9c66cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
