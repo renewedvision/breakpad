@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da2f2b2b_c0fb0eeb",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-09-30T22:15:52Z",
+      "side": 1,
+      "message": "Use encapsulation for the class members, like with class Lines.",
+      "parentUuid": "0264126a_b5dc7afc",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "acb91fec_b561f589",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 13
