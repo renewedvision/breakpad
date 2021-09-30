@@ -139,6 +139,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bd828c6_9090af98",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T12:33:36Z",
+      "side": 1,
+      "message": "Actually, are the comparison functions even needed at this point? If we don\u0027t need them, maybe we can just skip defining them at all.",
+      "revId": "8e91958702bc36bc9c957e57e94c84d0a6710b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d6b0e4a_2356bd9f",
         "filename": "src/common/string_view.h",
         "patchSetId": 7
