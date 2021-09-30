@@ -197,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48146e6f_f07e8ea3",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "It\u0027s a mistake.\n\nThere is no existing unit test for windows dump_syms. And using configure with make to build dump_syms fails on Windows. I don\u0027t know how to add one to the build system.",
+      "parentUuid": "6b0d5344_912a5c73",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb0203b4_b9d528ee",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 11

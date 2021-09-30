@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a9cc43_43438667",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0367517f_4b7fbc41",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "943344d0_a1f7cb6a",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-09-29T23:56:36Z",
       "side": 1,
       "message": "Thoughts about encapsulating this class?",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0264126a_b5dc7afc",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "What do you mean by encapsulating the class?",
+      "parentUuid": "943344d0_a1f7cb6a",
       "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "760e3869_dca6992e",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acb91fec_b561f589",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f85c40a3_c0ae51da",
@@ -65,6 +119,30 @@
       "writtenOn": "2021-09-29T23:56:36Z",
       "side": 1,
       "message": "Maybe change this to `line_map_` ?",
+      "range": {
+        "startLine": 158,
+        "startChar": 27,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "251d9684_c587fddc",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f85c40a3_c0ae51da",
       "range": {
         "startLine": 158,
         "startChar": 27,
@@ -98,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6f478f0_fb2b2322",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d59860a_53448465",
+      "range": {
+        "startLine": 159,
+        "startChar": 47,
+        "endLine": 159,
+        "endChar": 51
+      },
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4080524_9c7538fa",
@@ -111,6 +213,30 @@
       "writtenOn": "2021-09-29T23:56:36Z",
       "side": 1,
       "message": "`line_map_`",
+      "range": {
+        "startLine": 160,
+        "startChar": 16,
+        "endLine": 160,
+        "endChar": 24
+      },
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a87e42bc_56c6cb02",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4080524_9c7538fa",
       "range": {
         "startLine": 160,
         "startChar": 16,
@@ -138,6 +264,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18daab9d_5feee973",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0447ef6c_b5b8d288",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8ed0d37_372274a7",
@@ -151,6 +295,30 @@
       "writtenOn": "2021-09-29T23:56:36Z",
       "side": 1,
       "message": "Take a const-ref, since the callers never pass in nullptr?",
+      "range": {
+        "startLine": 222,
+        "startChar": 57,
+        "endLine": 222,
+        "endChar": 58
+      },
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ae6d0d_175ead5d",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-09-30T22:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8ed0d37_372274a7",
       "range": {
         "startLine": 222,
         "startChar": 57,
