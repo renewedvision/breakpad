@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e1d2a6d_cf50e43a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002927
+      },
+      "writtenOn": "2021-09-30T19:54:42Z",
+      "side": 1,
+      "message": "lgtm!\n\n(I\u0027m not a breakpad owner though.)",
+      "revId": "7edff976c951e0554b8744812348b00f98c3a54e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
