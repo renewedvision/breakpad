@@ -141,6 +141,24 @@
       "parentUuid": "41e86e13_8be9c5ad",
       "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6ea927b_862c8d86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2021-10-04T13:24:12Z",
+      "side": 1,
+      "message": "Thanks, after further testing it suddenly works fine for me as well, I have no idea why...",
+      "parentUuid": "b02bc3fc_a4d45b9d",
+      "revId": "0822dd061e20312d830b6d07f3a793dbb748afc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
