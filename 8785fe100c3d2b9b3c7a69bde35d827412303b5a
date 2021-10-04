@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b746991d_760957ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2021-10-04T13:25:27Z",
+      "side": 1,
+      "message": "Thanks for the review, am I supposed to do anything else on my side to get this merged?",
+      "revId": "8785fe100c3d2b9b3c7a69bde35d827412303b5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
