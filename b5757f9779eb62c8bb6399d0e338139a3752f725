@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46a5fd2b_1806dfe2",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T19:32:54Z",
+      "side": 1,
+      "message": "BTW, this can also just be initialized as: int origin_id \u003d 0;",
+      "revId": "b5757f9779eb62c8bb6399d0e338139a3752f725",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
