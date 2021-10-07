@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c8c1107_c4b75152",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T20:50:44Z",
+      "side": 1,
+      "message": "If you go down the encapsulation route, the way to deal with that is to add a Inline::ToString(). Then the caller doesn\u0027t need to know about the internal representation of Inline.",
+      "parentUuid": "dff2a8d3_c0538967",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "acb91fec_b561f589",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 13
