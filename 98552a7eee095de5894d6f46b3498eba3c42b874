@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dff2a8d3_c0538967",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-07T20:13:58Z",
+      "side": 1,
+      "message": "I would just change Inline to struct, because we need to access those members at PDBSourceLineWriter::PrintInlines and using getters for all of them seems unnecessary.",
+      "parentUuid": "535f07ac_b898aefa",
+      "revId": "98552a7eee095de5894d6f46b3498eba3c42b874",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "acb91fec_b561f589",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 13
