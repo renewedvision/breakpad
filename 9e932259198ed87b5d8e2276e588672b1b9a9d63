@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7353cf1a_217d774d",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T22:15:21Z",
+      "side": 1,
+      "message": "BTW, as others mentioned on another recent Breakpad CL, 1 letter variables that are not counters are a bit annoying. \u0027l\u0027 in particular is bad because it looks like a 1 or an \u0027i\u0027, depending on one\u0027s font.\n\nHow about:\nline -\u003e com_line\nl -\u003e line\nin -\u003e inline",
+      "revId": "9e932259198ed87b5d8e2276e588672b1b9a9d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dcd092e_77fecb59",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T22:15:21Z",
+      "side": 1,
+      "message": "Did you mean \"Go to next level\" ?",
+      "revId": "9e932259198ed87b5d8e2276e588672b1b9a9d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a85a9b0_bbe89644",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T22:15:21Z",
+      "side": 1,
+      "message": "GetChildInlines() used here is weird, because the goal is really to set the child inlines.\n\nWhat if the caller passed in a separate std::vector here, and then call SetChildInlines() on success?",
+      "revId": "9e932259198ed87b5d8e2276e588672b1b9a9d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aa04bb8_5f9bfcac",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T22:15:21Z",
+      "side": 1,
+      "message": "An alternative is to have Inline::Print() do the recursion internally.",
+      "revId": "9e932259198ed87b5d8e2276e588672b1b9a9d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f49cfd5_31dd30c0",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T22:15:21Z",
+      "side": 1,
+      "message": "Public first, then private, as mentioned previously on this CL last week.",
+      "revId": "9e932259198ed87b5d8e2276e588672b1b9a9d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56e6f673_79e0b382",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T22:15:21Z",
+      "side": 1,
+      "message": "BTW, this isn\u0027t Java / JavaScript. C++ code generally doesn\u0027t use @param.",
+      "revId": "9e932259198ed87b5d8e2276e588672b1b9a9d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
