@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b17883d_05282cd4",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T23:18:06Z",
+      "side": 1,
+      "message": "The goal is to set the child inlines, right? Wouldn\u0027t it be more logical to have SetChildInlines()? Why does the code use GetChildInlines() to set the child inlines? Doesn\u0027t that seem confusing?\n\nTo be clear, what I\u0027m suggesting is:\n\nstd::vector\u003cstd::unique_ptr\u003cInline\u003e\u003e child_inlines;\nif (!GetInlines(..., \u0026child_inlines) {\n  return false;\n}\n\nin-\u003eSetChildInlines(std::move(child_inlines));",
+      "parentUuid": "1eba5e95_0a033e1c",
+      "revId": "9e932259198ed87b5d8e2276e588672b1b9a9d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2aa04bb8_5f9bfcac",
         "filename": "src/common/windows/pdb_source_line_writer.cc",
         "patchSetId": 16

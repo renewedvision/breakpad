@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39d7f5fb_2419a6f0",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T23:18:06Z",
+      "side": 1,
+      "message": "How about \"new_inline\" then?",
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfe1e20c_eea71b9d",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T23:18:06Z",
+      "side": 1,
+      "message": "Don\u0027t inline the ctor. Put the definition in the .cc file. Also add a new line to separate the ctor for the other methods.",
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1450f23_37dd9fed",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T23:18:06Z",
+      "side": 1,
+      "message": "Can Print() be a const method?",
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbbd6ce5_e1d375f0",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T23:18:06Z",
+      "side": 1,
+      "message": "Write in tickmarks to make it clear this is the variable, or maybe omit this sentence if it\u0027s redundant with line 236.",
+      "range": {
+        "startLine": 229,
+        "startChar": 5,
+        "endLine": 229,
+        "endChar": 12
+      },
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5def02fb_6afa550e",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T23:18:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 231,
+        "startChar": 18,
+        "endLine": 231,
+        "endChar": 30
+      },
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "333bba81_e5df6ea8",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-07T23:18:06Z",
+      "side": 1,
+      "message": "Given this is an out parameter, the description probably should say something like \"the vector to store the list of inlines for the block\"",
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
