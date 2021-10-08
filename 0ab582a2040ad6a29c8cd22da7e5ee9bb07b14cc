@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03f841ec_3a013c24",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-08T00:27:56Z",
+      "side": 1,
+      "message": "Would it make more sense to perform this work in the caller, and let SetOriginId() be a trivial setter?",
+      "revId": "0ab582a2040ad6a29c8cd22da7e5ee9bb07b14cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6bf0781_1e691ea4",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-08T00:27:56Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 143,
+        "startChar": 23,
+        "endLine": 143,
+        "endChar": 29
+      },
+      "revId": "0ab582a2040ad6a29c8cd22da7e5ee9bb07b14cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c18b6916_62c2184c",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-08T00:27:56Z",
+      "side": 1,
+      "message": "The class\u0027s methods would be better organized if Print() isn\u0027t wedged between 2 setters.",
+      "revId": "0ab582a2040ad6a29c8cd22da7e5ee9bb07b14cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44790be3_5ec04dff",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-08T00:27:56Z",
+      "side": 1,
+      "message": "Most Chromium code don\u0027t bother. e.g. the examples on pastebin linked from https://www.chromium.org/rvalue-references#TOC-4.-std::move-will-cast-a-variable-to-an-rvalue.",
+      "range": {
+        "startLine": 150,
+        "startChar": 61,
+        "endLine": 150,
+        "endChar": 63
+      },
+      "revId": "0ab582a2040ad6a29c8cd22da7e5ee9bb07b14cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff3e434d_427c9385",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-08T00:27:56Z",
+      "side": 1,
+      "message": "Did you mean to return const map\u003cDWORD, Line\u003e\u0026, as to not create a copy?",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 170,
+        "endChar": 26
+      },
+      "revId": "0ab582a2040ad6a29c8cd22da7e5ee9bb07b14cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
