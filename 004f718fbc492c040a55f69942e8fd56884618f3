@@ -233,6 +233,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e677e5f_d3b3aaaf",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-08T20:29:17Z",
+      "side": 1,
+      "message": "On my Windows machine, I installed Cygwin, with basic GNU buildtools like make and gcc-g++. I checked out breakpad with \"fetch breakpad\", and the ran \"./configure \u0026\u0026 make check -j12\" and it fully built and passed.",
+      "parentUuid": "2666e358_25024842",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb0203b4_b9d528ee",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 11
