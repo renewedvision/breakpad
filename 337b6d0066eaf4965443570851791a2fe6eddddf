@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e324b3_28a3eeb6",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-08T19:59:40Z",
+      "side": 1,
+      "message": "Comment\u0027s out of date.",
+      "revId": "337b6d0066eaf4965443570851791a2fe6eddddf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddac5325_c3ff4bbb",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-08T19:59:40Z",
+      "side": 1,
+      "message": "Actually, remove this too. Just take a value here.",
+      "range": {
+        "startLine": 146,
+        "startChar": 61,
+        "endLine": 146,
+        "endChar": 62
+      },
+      "revId": "337b6d0066eaf4965443570851791a2fe6eddddf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
