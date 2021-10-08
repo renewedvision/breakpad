@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e3440ee_f49d724c",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-08T00:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d7f5fb_2419a6f0",
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfe1e20c_eea71b9d",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-10-07T23:18:06Z",
       "side": 1,
       "message": "Don\u0027t inline the ctor. Put the definition in the .cc file. Also add a new line to separate the ctor for the other methods.",
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9be3417a_d996ec08",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-08T00:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfe1e20c_eea71b9d",
       "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b37343_8470b617",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-08T00:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1450f23_37dd9fed",
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbbd6ce5_e1d375f0",
@@ -65,6 +119,30 @@
       "writtenOn": "2021-10-07T23:18:06Z",
       "side": 1,
       "message": "Write in tickmarks to make it clear this is the variable, or maybe omit this sentence if it\u0027s redundant with line 236.",
+      "range": {
+        "startLine": 229,
+        "startChar": 5,
+        "endLine": 229,
+        "endChar": 12
+      },
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4712ca40_d29a6a99",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-08T00:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbbd6ce5_e1d375f0",
       "range": {
         "startLine": 229,
         "startChar": 5,
@@ -98,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7011e421_ec2f8923",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-08T00:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5def02fb_6afa550e",
+      "range": {
+        "startLine": 231,
+        "startChar": 18,
+        "endLine": 231,
+        "endChar": 30
+      },
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "333bba81_e5df6ea8",
@@ -111,6 +213,24 @@
       "writtenOn": "2021-10-07T23:18:06Z",
       "side": 1,
       "message": "Given this is an out parameter, the description probably should say something like \"the vector to store the list of inlines for the block\"",
+      "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4d9353_b083b4d1",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-08T00:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "333bba81_e5df6ea8",
       "revId": "1da27e7bdbd7f19874ed7af5e682d1792e0538f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
