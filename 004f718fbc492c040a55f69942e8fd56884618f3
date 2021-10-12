@@ -251,6 +251,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62e3cd94_60bdb2c4",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-10-12T17:24:30Z",
+      "side": 1,
+      "message": "Anyway, if you are confident in the current code and would like to get this CL in sooner rather than later, we can work out the Windows testing situation on the Breakpad mailing list and add tests later.",
+      "parentUuid": "0e677e5f_d3b3aaaf",
+      "revId": "004f718fbc492c040a55f69942e8fd56884618f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb0203b4_b9d528ee",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 11
