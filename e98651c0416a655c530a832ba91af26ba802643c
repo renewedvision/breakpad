@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1a448ed_22a141ff",
+        "filename": "src/common/dwarf_cu_to_module_unittest.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-10-13T20:49:58Z",
+      "side": 1,
+      "message": "The comment on StringView::data_ says this value might not be null-terminated.",
+      "range": {
+        "startLine": 1573,
+        "startChar": 60,
+        "endLine": 1573,
+        "endChar": 64
+      },
+      "revId": "e98651c0416a655c530a832ba91af26ba802643c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
