@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc360ee9_6faa75bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-10-13T02:44:51Z",
+      "side": 1,
+      "message": "this is breaking building with GCC-10.  can you take a look ?  this is reproducible on gLinux with just `./configure \u0026\u0026 make check`.\n\n g++ -DHAVE_CONFIG_H -I. -I./src  -I./src -I./src/testing/include -I./src/testing/googletest/include -I./src/testing/googletest -I./src/testing/googlemock/include -I./src/testing/googlemock -I./src/testing  -pthread   -Wmissing-braces -Wnon-virtual-dtor -Woverloaded-virtual -Wreorder -Wsign-compare -Wunused-local-typedefs -Wunused-variable -Wvla -Werror -fPIC -g -O2 -MT src/common/dumper_unittest-dwarf_cu_to_module_unittest.o -MD -MP -MF src/common/.deps/dumper_unittest-dwarf_cu_to_module_unittest.Tpo -c -o src/common/dumper_unittest-dwarf_cu_to_module_unittest.o `test -f \u0027src/common/dwarf_cu_to_module_unittest.cc\u0027 || echo \u0027./\u0027`src/common/dwarf_cu_to_module_unittest.cc\nIn file included from ./src/testing/googletest/include/gtest/gtest.h:387,\n                 from ./src/breakpad_googletest_includes.h:33,\n                 from src/common/dwarf_cu_to_module_unittest.cc:40:\nsrc/common/dwarf_cu_to_module_unittest.cc: In member function ‘virtual void Specifications_InterCU_Test::TestBody()’:\nsrc/common/dwarf_cu_to_module_unittest.cc:1573:61: error: ‘class google_breakpad::StringView’ has no member named ‘c_str’; did you mean ‘str’?\n 1573 |   EXPECT_STREQ(\"class_A::member_func_B\", functions[0]-\u003ename.c_str());\n      |                                                             ^~~~~",
+      "revId": "ff5892c5da86c50af1951328215a5a3a203a9bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
