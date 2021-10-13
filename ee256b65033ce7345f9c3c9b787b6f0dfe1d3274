@@ -16,6 +16,24 @@
       "message": "Would have been cute if you sent this as a GitHub pull request.",
       "revId": "ee256b65033ce7345f9c3c9b787b6f0dfe1d3274",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52020d8c_f025c542",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-10-13T00:56:09Z",
+      "side": 1,
+      "message": "i didn\u0027t think it would activate ;)\n\ni created a test account of my own and it seems to work, so ship it",
+      "parentUuid": "51ecf364_7fd93394",
+      "revId": "ee256b65033ce7345f9c3c9b787b6f0dfe1d3274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
