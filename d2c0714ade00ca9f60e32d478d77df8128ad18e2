@@ -16,6 +16,23 @@
       "message": "To land with https://chromium-review.googlesource.com/c/crashpad/crashpad/+/3087721",
       "revId": "d2c0714ade00ca9f60e32d478d77df8128ad18e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40164004_c84d5cf7",
+        "filename": "src/google_breakpad/common/minidump_exception_mac.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2021-10-14T15:51:52Z",
+      "side": 1,
+      "message": "src/processor/minidump_processor.cc too?",
+      "revId": "d2c0714ade00ca9f60e32d478d77df8128ad18e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
