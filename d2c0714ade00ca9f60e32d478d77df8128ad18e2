@@ -33,6 +33,24 @@
       "message": "src/processor/minidump_processor.cc too?",
       "revId": "d2c0714ade00ca9f60e32d478d77df8128ad18e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "090a4275_a9ec4040",
+        "filename": "src/google_breakpad/common/minidump_exception_mac.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2021-10-14T16:46:50Z",
+      "side": 1,
+      "message": "Done, although I\u0027m not sure what to put there.  I started with UNCAUGHT_NS_EXCEPTION so it shows up the same way on crash/ server... but do we want something else?  I\u0027m fine with leaving it, although perhaps we want to indicate to folks looking at crash reports that now, these stacks are \u0027real\u0027 ?",
+      "parentUuid": "40164004_c84d5cf7",
+      "revId": "d2c0714ade00ca9f60e32d478d77df8128ad18e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
