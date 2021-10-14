@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ec82df_56c54ba9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-10-14T11:53:46Z",
+      "side": 1,
+      "message": "prefer to have commit messages that don\u0027t require people to have an internet connection to look up more info.  seems like this could just be summarized as \"introduction of StringView\" or something.",
+      "range": {
+        "startLine": 7,
+        "startChar": 41,
+        "endLine": 7,
+        "endChar": 111
+      },
+      "revId": "33ecb8732a317d9b0807150801489d3ed9fe3cc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
