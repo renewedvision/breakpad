@@ -16,6 +16,24 @@
       "message": "These shouldn’t be Breakpad-internal names. “Uncaught NSException” or “Simulated NSException” or something.",
       "revId": "3a253d2feb996a1ffd659912a8f518a189cbbbbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c4bdf94_66f126d9",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2021-10-14T17:04:47Z",
+      "side": 1,
+      "message": "\u0027Uncaught NSException\u0027 SGTM.",
+      "parentUuid": "101dd365_937a3122",
+      "revId": "3a253d2feb996a1ffd659912a8f518a189cbbbbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
