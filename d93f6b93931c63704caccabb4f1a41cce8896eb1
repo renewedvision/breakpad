@@ -16,6 +16,24 @@
       "message": "Missing a comma here.",
       "revId": "d93f6b93931c63704caccabb4f1a41cce8896eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4585572c_f3564686",
+        "filename": "src/google_breakpad/common/minidump_exception_mac.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2021-10-14T18:16:06Z",
+      "side": 1,
+      "message": "Yeah, I just noticed: https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3222826",
+      "parentUuid": "6e22ebe0_3978f107",
+      "revId": "d93f6b93931c63704caccabb4f1a41cce8896eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
