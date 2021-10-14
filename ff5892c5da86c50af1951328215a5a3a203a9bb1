@@ -34,6 +34,23 @@
       "parentUuid": "cc360ee9_6faa75bd",
       "revId": "ff5892c5da86c50af1951328215a5a3a203a9bb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbe56276_f77b982f",
+        "filename": "src/common/string_view.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-10-14T11:53:43Z",
+      "side": 1,
+      "message": "this sounds like std::string_view.  is this just a compat layer until we can use C++17, or is there something significantly different in this API ?\n\nwould be good to add a comment to this file explaining why it exists, and with a note that we can delete it with std::string_view once we require C++17.",
+      "revId": "ff5892c5da86c50af1951328215a5a3a203a9bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
