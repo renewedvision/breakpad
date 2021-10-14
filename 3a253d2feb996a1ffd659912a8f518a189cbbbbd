@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "101dd365_937a3122",
+        "filename": "src/processor/minidump_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2021-10-14T17:03:16Z",
+      "side": 1,
+      "message": "These shouldn’t be Breakpad-internal names. “Uncaught NSException” or “Simulated NSException” or something.",
+      "revId": "3a253d2feb996a1ffd659912a8f518a189cbbbbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
