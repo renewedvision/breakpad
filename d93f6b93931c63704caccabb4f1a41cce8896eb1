@@ -34,6 +34,24 @@
       "parentUuid": "6e22ebe0_3978f107",
       "revId": "d93f6b93931c63704caccabb4f1a41cce8896eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17467b81_50af5dd8",
+        "filename": "src/google_breakpad/common/minidump_exception_mac.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1508803
+      },
+      "writtenOn": "2021-10-14T18:18:04Z",
+      "side": 1,
+      "message": "Cool, sorry for the noise!",
+      "parentUuid": "4585572c_f3564686",
+      "revId": "d93f6b93931c63704caccabb4f1a41cce8896eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
