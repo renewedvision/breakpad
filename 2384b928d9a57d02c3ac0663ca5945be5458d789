@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca1bee48_88469b32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2021-10-14T18:07:42Z",
+      "side": 1,
+      "message": "\u003d[  Would you prefer a revert/reland?\n\nI don\u0027t have permission for either.",
+      "revId": "2384b928d9a57d02c3ac0663ca5945be5458d789",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
