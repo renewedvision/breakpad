@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce0e7820_95a9f51c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1395734
+      },
+      "writtenOn": "2021-10-19T17:17:06Z",
+      "side": 1,
+      "message": "glibc 2.34 breaks Yocto honister build of Chromium too.",
+      "revId": "f3db99d82d01d0ca96f32b60551082a58170b90f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
