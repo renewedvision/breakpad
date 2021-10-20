@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a30cb310_b93305ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-20T21:41:29Z",
+      "side": 1,
+      "message": "Updated to reflect the change on https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3232838\n\nHere is folder containing the symbol files and a sample crash report for 94.0.4606.81:\nhttps://drive.google.com/drive/folders/1BO-SfyNs8JeYpNCOCA7CrjqoknQfCCmd?resourcekey\u003d0-OMM1s80iTIbolWM0OZTAKg\u0026usp\u003dsharing\nThe sample crash report is from this crash:\nhttps://crash.corp.google.com/browse?q\u003dproduct.Version%3D%2794.0.4606.81%27\u0026stbtiq\u003d\u0026reportid\u003dd1e644923b8176cb\u0026index\u003d0#0\n\nAnd I think it\u0027s good now.",
+      "revId": "1408575e6a078119c818fbdd32469ffeab708d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
