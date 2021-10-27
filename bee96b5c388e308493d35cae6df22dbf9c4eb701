@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1741745_9462fc68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-27T20:44:27Z",
+      "side": 1,
+      "message": "Only land this changes after processor service is built with the compatibility to both old and new formats.",
+      "revId": "bee96b5c388e308493d35cae6df22dbf9c4eb701",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
