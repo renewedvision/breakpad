@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3011992_4419b00f",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-29T19:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5470b647_74aae56d",
+      "range": {
+        "startLine": 654,
+        "startChar": 48,
+        "endLine": 654,
+        "endChar": 61
+      },
+      "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea85b88c_530b953a",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-29T18:23:41Z",
       "side": 1,
       "message": "Seems like it\u0027d be simpler to start this function with a call to Tokenize(inline_origin_line, kWhitespace, 3, \u0026tokens). Then *is_old_format \u003d tokens.size \u003d\u003d 3, similar to what you did for ParseInline().",
+      "range": {
+        "startLine": 680,
+        "startChar": 0,
+        "endLine": 691,
+        "endChar": 3
+      },
+      "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5c3c058_77a7bbba",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-29T19:19:48Z",
+      "side": 1,
+      "message": "It\u0027s common that \u003cname\u003e has spaces.\nThe following INLINE_ORIGIN uses different formats. Calling \"Tokenize(inline_origin_line, kWhitespace, 3, \u0026tokens).\" on both lines gives a token of size 3.\nINLINE_ORIGIN 1 2 function\nINLINE_ORIGIN 1 function name",
+      "parentUuid": "ea85b88c_530b953a",
       "range": {
         "startLine": 680,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc32eb8_a35c6c83",
+        "filename": "src/processor/basic_source_line_resolver_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-29T19:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2efdfaf7_4a689b92",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 66
+      },
+      "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7e7c008_b5e5862d",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-10-29T18:23:41Z",
       "side": 1,
       "message": "\"left to right\" doesn\u0027t mean anything for stack frames. I think using terms \"inner/outer frames\" or \"callee/caller frames\" would be preferable.",
+      "range": {
+        "startLine": 177,
+        "startChar": 61,
+        "endLine": 177,
+        "endChar": 79
+      },
+      "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c996b3e_7fb98615",
+        "filename": "src/processor/stackwalker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-10-29T19:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7e7c008_b5e5862d",
       "range": {
         "startLine": 177,
         "startChar": 61,
