@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92c8612_4cabf96f",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-10-29T23:07:24Z",
+      "side": 1,
+      "message": "||",
+      "range": {
+        "startLine": 702,
+        "startChar": 22,
+        "endLine": 702,
+        "endChar": 23
+      },
+      "revId": "5b2176b99025b320a5114d2bd67797fc7f3d01e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "209415a6_06fa17a5",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-10-29T23:07:24Z",
+      "side": 1,
+      "message": "You didn\u0027t consider this condition an error for file_id in ParseInline()",
+      "range": {
+        "startLine": 763,
+        "startChar": 9,
+        "endLine": 763,
+        "endChar": 62
+      },
+      "revId": "5b2176b99025b320a5114d2bd67797fc7f3d01e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
