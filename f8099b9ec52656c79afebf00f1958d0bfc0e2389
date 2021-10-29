@@ -16,6 +16,98 @@
       "message": "Ping.",
       "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5470b647_74aae56d",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-10-29T18:23:41Z",
+      "side": 1,
+      "message": "The comments explaining what new and old formats are are helpful, but calling things \"old format\" and \"new format\" only makes sense in the context of this patch. There isn\u0027t one canonical \"old\" format. I think naming this variable something like |file_id_is_valid| would be better because it directly encodes what \"old format\" means. Similarly for other uses of is_old_format or is_new_format in this patch.",
+      "range": {
+        "startLine": 654,
+        "startChar": 48,
+        "endLine": 654,
+        "endChar": 61
+      },
+      "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea85b88c_530b953a",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-10-29T18:23:41Z",
+      "side": 1,
+      "message": "Seems like it\u0027d be simpler to start this function with a call to Tokenize(inline_origin_line, kWhitespace, 3, \u0026tokens). Then *is_old_format \u003d tokens.size \u003d\u003d 3, similar to what you did for ParseInline().",
+      "range": {
+        "startLine": 680,
+        "startChar": 0,
+        "endLine": 691,
+        "endChar": 3
+      },
+      "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2efdfaf7_4a689b92",
+        "filename": "src/processor/basic_source_line_resolver_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-10-29T18:23:41Z",
+      "side": 1,
+      "message": "comment needs updating",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 66
+      },
+      "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7e7c008_b5e5862d",
+        "filename": "src/processor/stackwalker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-10-29T18:23:41Z",
+      "side": 1,
+      "message": "\"left to right\" doesn\u0027t mean anything for stack frames. I think using terms \"inner/outer frames\" or \"callee/caller frames\" would be preferable.",
+      "range": {
+        "startLine": 177,
+        "startChar": 61,
+        "endLine": 177,
+        "endChar": 79
+      },
+      "revId": "f8099b9ec52656c79afebf00f1958d0bfc0e2389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
