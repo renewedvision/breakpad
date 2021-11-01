@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "773b2127_b7527726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1348395
+      },
+      "writtenOn": "2021-11-01T23:20:12Z",
+      "side": 1,
+      "message": "rsesek: ptal - this should allow crashpad to upload dumps to crash/ that are currently rejected.",
+      "revId": "02ebb6fa0a07655172676ec62b014beb3520ed5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
