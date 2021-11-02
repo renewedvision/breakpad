@@ -16,6 +16,29 @@
       "message": "rsesek: ptal - this should allow crashpad to upload dumps to crash/ that are currently rejected.",
       "revId": "02ebb6fa0a07655172676ec62b014beb3520ed5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b2025ff_bca5cf42",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2021-11-02T19:27:12Z",
+      "side": 1,
+      "message": "nit: || and \u0026\u0026 should go on the previous line per Chromium style",
+      "range": {
+        "startLine": 481,
+        "startChar": 6,
+        "endLine": 482,
+        "endChar": 12
+      },
+      "revId": "02ebb6fa0a07655172676ec62b014beb3520ed5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
