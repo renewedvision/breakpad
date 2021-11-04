@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7052633d_38ddd1cd",
+        "filename": "src/client/linux/handler/exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-11-04T17:33:34Z",
+      "side": 1,
+      "message": "line is too long.  you can probably simplify it by using 16834U instead of casting with (unsigned).",
+      "revId": "50315f71cc1770c8a41eec9c977b47320cb0bab0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
