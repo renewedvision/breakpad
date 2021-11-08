@@ -96,6 +96,22 @@ which other records (line records, in particular) can use to refer to that file
 name. The _number_ field is a decimal number. The _name_ field is the name of
 the file; it may contain spaces.
 
+# `INLINE_ORIGIN` records
+
+An `INLINE_ORIGIN` record holds an inline function name for `INLINE` records to
+refer to. It hasthe form:
+
+> `INLINE_ORIGIN` _number_ _name_
+
+For example: `INLINE_ORIGIN 2 nsQueryInterfaceWithError::operator()(nsID const&,
+void**) const
+`
+
+An `INLINE_ORIGIN` record provides the name of an inline function, and assigns
+it a number which other records (`INLINE` records, in particular) can use to
+refer to that function name. The _number_ field is a decimal number. The _name_
+field is the name of the inline function; it may contain spaces.
+
 # `FUNC` records
 
 A `FUNC` record describes a source-language function. It has the form:
@@ -126,6 +142,49 @@ records, to step from the called function's frame to the caller's frame.
 The _name_ field is the name of the function. In languages that use linker
 symbol name mangling like C++, this should be the source language name (the
 "unmangled" form). This field may contain spaces.
+
+# `INLINE` records
+
+An `INLINE` record describes the inline function's nest level, call site line
+and call site source file to which the given ranges of machine code should be
+attributed. It has the form:
+
+> `INLINE` _inline_nest_level_ _call_site_line_ _call_site_file_num_
+> _origin_num_ [_address_ _size_]+
+
+For example: `INLINE 0 10 3 4 d30 2a fa1 b
+`
+
+The _inline_nest_level_ field is a decimal number that describes in which level
+this record represents. In the example below, first and third `INLINE` records
+have _inline_nest_level_ 0, which means they are inlined inside the function
+described by the `FUNC` record. The second `INLINE` record has
+_inline_nest_level 1 means that it's inlined at the inline function described by
+first `INLINE` record.
+```
+FUNC ...
+INLINE 0 ...
+INLINE 1 ...
+INLINE 0 ...
+```
+
+The _call_site_line_ and _call_site_file_num_ fields are decimal numbers
+indicating where this inline function being called at.
+
+The _origin_num_ field refers to an `INLINE_ORIGIN` record that gives the name
+of the inline function.
+
+The _address_ and _size_ fields are hexadecimal numbers indicating the start
+address and length in bytes of the machine code. The address is relative to the
+module's load address. There could be more than one [_address_ _size_] range
+pair, since inline functions could have discontinuous addres ranges. The ranges
+of a `INLINE` record are always inside the ranges described by its parent
+(a `FUNC` record or an `INLINE` record).
+
+The `INLINE` record is assumed to belong to the function described by the last
+preceding `FUNC` record. `INLINE` records may not appear before the first `FUNC`
+record.
+
 
 # Line records
 
