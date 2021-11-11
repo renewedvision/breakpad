@@ -16,6 +16,23 @@
       "message": "Ping. Was the processor service rebuilt with https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3232838/ after the import to google3?",
       "revId": "1c61f041a60b3d6d7c2c1b31bb1352c3996c2231",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "558e9002_2264c3f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-11-11T20:12:53Z",
+      "side": 1,
+      "message": "Hi Ivan, since you mentioned the processor service was rebuilt successfully with that change, we can now land this change on dump_syms.",
+      "revId": "1c61f041a60b3d6d7c2c1b31bb1352c3996c2231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
