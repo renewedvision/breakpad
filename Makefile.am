@@ -623,9 +623,13 @@ src_tools_linux_dump_syms_dump_syms_SOURCES = \
 	src/common/linux/safe_readlink.cc \
 	src/tools/linux/dump_syms/dump_syms.cc
 src_tools_linux_dump_syms_dump_syms_CXXFLAGS = \
-	$(RUST_DEMANGLE_CFLAGS)
+	$(RUSTC_DEMANGLE_CFLAGS)
 src_tools_linux_dump_syms_dump_syms_LDADD = \
-	$(RUST_DEMANGLE_LIBS)
+	$(RUSTC_DEMANGLE_LIBS)
+if HAVE_RUSTC_DEMANGLE
+src_tools_linux_dump_syms_dump_syms_DEPENDENCIES = \
+        rustc-demangle-lib
+endif
 
 src_tools_linux_md2core_minidump_2_core_SOURCES = \
 	src/common/linux/memory_mapped_file.cc \
@@ -683,10 +687,14 @@ src_tools_mac_dump_syms_dump_syms_mac_SOURCES = \
 	src/tools/mac/dump_syms/dump_syms_tool.cc
 src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS= \
 	-I$(top_srcdir)/src/third_party/mac_headers \
-	$(RUST_DEMANGLE_CFLAGS) \
+	$(RUSTC_DEMANGLE_CFLAGS) \
 	-DHAVE_MACH_O_NLIST_H
 src_tools_mac_dump_syms_dump_syms_mac_LDADD= \
-	$(RUST_DEMANGLE_LIBS)
+	$(RUSTC_DEMANGLE_LIBS)
+if HAVE_RUSTC_DEMANGLE
+src_tools_mac_dump_syms_dump_syms_mac_DEPENDENCIES = \
+        rustc-demangle-lib
+endif
 
 src_common_dumper_unittest_SOURCES = \
 	src/common/byte_cursor_unittest.cc \
@@ -748,12 +756,16 @@ src_common_dumper_unittest_SOURCES = \
 	src/common/tests/file_utils.cc
 src_common_dumper_unittest_CPPFLAGS = \
 	$(AM_CPPFLAGS) $(TEST_CFLAGS) \
-	$(RUST_DEMANGLE_CFLAGS) \
+	$(RUSTC_DEMANGLE_CFLAGS) \
 	$(PTHREAD_CFLAGS)
 src_common_dumper_unittest_LDADD = \
 	$(TEST_LIBS) \
-	$(RUST_DEMANGLE_LIBS) \
+	$(RUSTC_DEMANGLE_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+if HAVE_RUSTC_DEMANGLE
+src_common_dumper_unittest_DEPENDENCIES = \
+        rustc-demangle-lib
+endif
 
 src_common_mac_macho_reader_unittest_SOURCES = \
 	src/common/dwarf_cfi_to_module.cc \
@@ -1626,5 +1638,22 @@ EXTRA_DIST = \
 	src/tools/windows/symupload/symupload.cc \
 	src/tools/windows/symupload/symupload.gyp
 
+# rustc-demangle-lib needs to be built again if any of these files change
+# find src/third_party/rustc-demangle -type f \
+#      \( -name "*.toml" -o -name "*.rs" -o -name "*.c" -o -name "*.h" \)
+RUSTC_DEMANGLE_DEPS = \
+        src/third_party/rustc-demangle/Cargo.toml\
+	src/third_party/rustc-demangle/fuzz/Cargo.toml \
+	src/third_party/rustc-demangle/fuzz/fuzz_targets/demangle.rs \
+	src/third_party/rustc-demangle/crates/capi/Cargo.toml \
+	src/third_party/rustc-demangle/crates/capi/src/lib.rs \
+	src/third_party/rustc-demangle/crates/capi/include/rustc_demangle.h \
+	src/third_party/rustc-demangle/src/lib.rs \
+	src/third_party/rustc-demangle/src/legacy.rs \
+	src/third_party/rustc-demangle/src/v0.rs
+
+rustc-demangle-lib: $(RUSTC_DEMANGLE_DEPS)
+	cd src/third_party/rustc-demangle && cargo build -p rustc-demangle-capi --release
+
 mostlyclean-local:
-	-find src -name '*.dwo' -exec rm -f {} +
+	-find src -name '*.dwo' -exec rm -f {} +; cd src/third_party/rustc-demangle && cargo clean

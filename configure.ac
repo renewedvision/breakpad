@@ -219,30 +219,59 @@ AC_ARG_ENABLE(selftest,
               [selftest=false])
 AM_CONDITIONAL(SELFTEST, test x$selftest = xtrue)
 
-AC_ARG_WITH(rust-demangle,
-            AS_HELP_STRING([--with-rust-demangle=/path/to/rust-demangle-capi],
-                             [Link against the rust-demangle library]
-                             [to demangle Rust language symbols during]
-                             [symbol dumping (default is no)]
-                             [Pass the path to the crate root.]),
+AC_ARG_WITH(rust-toolchain-prefix,
+            AS_HELP_STRING([--with-rust-toolchain-prefix],
+                           [Tell the build system where to find]
+                           [a Rust toolchain. Use this when third party]
+                           [Rust crates need to be built, like]
+                           [rustc-demangler (default is no)]),
             [case "${withval}" in
-               yes)
-                 AC_MSG_ERROR(You must pass the path to the rust-demangle-capi crate for --with-rust-demangle)
+               default)
+                  if ! test -f $(which cargo); then
+                    AC_MSG_ERROR(You must have cargo installed for --with-rust-toolchain-prefix=default)
+                  else
+                    CARGO_PATH=$(which cargo)
+                    has_cargo=true
+                  fi
                  ;;
                no)
-                 rust_demangle=false
+                 has_cargo=false
                  ;;
                *)
-                 if ! test -f "${withval}/Cargo.toml"; then
-                   AC_MSG_ERROR(You must pass the path to the rust-demangle-capi crate for --with-rust-demangle)
+                 if ! test -f "${withval}/cargo"; then
+                   AC_MSG_ERROR(You must pass the path to a Rust toolchain --with-rust-toolchain-prefix)
                  fi
-                 RUST_DEMANGLE_CFLAGS="-DHAVE_RUST_DEMANGLE -I${withval}/target/include"
-                 RUST_DEMANGLE_LIBS="-L${withval}/target/release -lrust_demangle -lpthread -ldl"
+                 CARGO_PATH="${withval}/cargo"
+                 has_cargo=true
                  ;;
-             esac],
-            [rust_demangle=false])
-AC_ARG_VAR([RUST_DEMANGLE_CFLAGS], [Compiler flags for rust-demangle])
-AC_ARG_VAR([RUST_DEMANGLE_LIBS], [Linker flags for rust-demangle])
+            esac],
+            [has_cargo=false])
+
+AC_ARG_ENABLE(rustc-demangle,
+              AS_HELP_STRING([--enable-rustc-demangle],
+                             [Demangle Rust symbols. Requires a]
+                             [Rust toolchain prefix be passed]
+                             [(default is no)]),
+              [case "${enableval}" in
+                 yes)
+                   if ! test x$has_cargo = xtrue; then
+                       AC_MSG_ERROR(A Rust toolchain must be providing using --with-rust-toolchain-prefix)
+                   fi
+                   rustc_demangle=true
+                   RUSTC_DEMANGLE_CFLAGS="-DHAVE_RUSTC_DEMANGLE -I./src/third_party/rustc-demangle/crates/capi/include"
+                   RUSTC_DEMANGLE_LIBS="src/third_party/rustc-demangle/target/release/librustc_demangle.a -lpthread -ldl"
+                   ;;
+                 no)
+                   rustc_demangle=false
+                   ;;
+                 *)
+                   AC_MSG_ERROR(bad value ${enableval} for --enable-rustc-demangle)
+                   ;;
+               esac],
+              [rustc_demangle=false])
+AM_CONDITIONAL(HAVE_RUSTC_DEMANGLE, test x$rustc_demangle = xtrue)
+AC_ARG_VAR([RUSTC_DEMANGLE_CFLAGS], [Compiler flags for rustc-demangle])
+AC_ARG_VAR([RUSTC_DEMANGLE_LIBS], [Linker flags for rustc-demangle])
 
 AC_ARG_WITH(tests-as-root,
             AS_HELP_STRING([--with-tests-as-root],

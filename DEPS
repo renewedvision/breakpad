@@ -52,6 +52,11 @@ deps = {
   "src/src/third_party/lss":
     "https://chromium.googlesource.com/linux-syscall-support/" +
       "@e1e7b0ad8ee99a875b272c8e33e308472e897660",
+
+  # Rust demangler
+  "src/src/third_party/rustc-demangle":
+    "https://github.com/rust-lang/rustc-demangle.git" +
+      "@2811a1ad6f7c8bead2ef3671e4fdc10de1553e96"
 }
 
 hooks = [
