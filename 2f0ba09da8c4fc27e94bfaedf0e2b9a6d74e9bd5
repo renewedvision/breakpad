@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8143ee3_ee5381bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1525627
+      },
+      "writtenOn": "2021-11-16T02:25:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a56a14c_dfe64d15",
+      "revId": "2f0ba09da8c4fc27e94bfaedf0e2b9a6d74e9bd5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8567fd31_030a479e",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-11-10T04:10:46Z",
       "side": 1,
       "message": "Sort #includes within a section alphabetically. https://google.github.io/styleguide/cppguide.html#Names_and_Order_of_Includes",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "2f0ba09da8c4fc27e94bfaedf0e2b9a6d74e9bd5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d56795f8_05e5ba00",
+        "filename": "src/tools/windows/dump_syms/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1525627
+      },
+      "writtenOn": "2021-11-16T02:25:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8567fd31_030a479e",
       "range": {
         "startLine": 36,
         "startChar": 0,
