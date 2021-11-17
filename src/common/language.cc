@@ -35,14 +35,17 @@
 #include "common/language.h"
 
 #include <stdlib.h>
+#include <array>
 
 #if !defined(__ANDROID__)
 #include <cxxabi.h>
 #endif
 
-#if defined(HAVE_RUST_DEMANGLE)
-#include <rust_demangle.h>
+#if defined(HAVE_RUSTC_DEMANGLE)
+#include <rustc_demangle.h>
 #endif
+
+#include "llvm/Demangle/Demangle.h"
 
 #include <limits>
 
@@ -63,7 +66,7 @@ string MakeQualifiedNameWithSeparator(const string& parent_name,
 namespace google_breakpad {
 
 // C++ language-specific operations.
-class CPPLanguage: public Language {
+class CPPLanguage : public Language {
  public:
   CPPLanguage() {}
 
@@ -126,7 +129,7 @@ class CPPLanguage: public Language {
 CPPLanguage CPPLanguageSingleton;
 
 // Java language-specific operations.
-class JavaLanguage: public Language {
+class JavaLanguage : public Language {
  public:
   JavaLanguage() {}
 
@@ -139,7 +142,7 @@ class JavaLanguage: public Language {
 JavaLanguage JavaLanguageSingleton;
 
 // Swift language-specific operations.
-class SwiftLanguage: public Language {
+class SwiftLanguage : public Language {
  public:
   SwiftLanguage() {}
 
@@ -163,7 +166,7 @@ class SwiftLanguage: public Language {
 SwiftLanguage SwiftLanguageSingleton;
 
 // Rust language-specific operations.
-class RustLanguage: public Language {
+class RustLanguage : public Language {
  public:
   RustLanguage() {}
 
@@ -174,30 +177,31 @@ class RustLanguage: public Language {
 
   virtual DemangleResult DemangleName(const string& mangled,
                                       string* demangled) const {
-    // Rust names use GCC C++ name mangling, but demangling them with
-    // abi_demangle doesn't produce stellar results due to them having
-    // another layer of encoding.
-    // If callers provide rustc-demangle, use that.
-#if defined(HAVE_RUST_DEMANGLE)
-    char* rust_demangled = rust_demangle(mangled.c_str());
-    if (rust_demangled == nullptr) {
-      return kDemangleFailure;
+    int status;
+    char* demangled_rust =
+        llvm::rustDemangle(mangled.c_str(), NULL, NULL, &status);
+
+    DemangleResult result;
+    if (status == llvm::demangle_success) {
+      result = kDemangleSuccess;
+      demangled->assign(demangled_rust);
+    } else {
+      result = kDemangleFailure;
+      demangled->clear();
     }
-    demangled->assign(rust_demangled);
-    free_rust_demangled_name(rust_demangled);
-#else
-    // Otherwise, pass through the mangled name so callers can demangle
-    // after the fact.
-    demangled->assign(mangled);
-#endif
-    return kDemangleSuccess;
+
+    if (demangled_rust) {
+      free(reinterpret_cast<void*>(demangled_rust));
+    }
+
+    return result;
   }
 };
 
 RustLanguage RustLanguageSingleton;
 
 // Assembler language-specific operations.
-class AssemblerLanguage: public Language {
+class AssemblerLanguage : public Language {
  public:
   AssemblerLanguage() {}
 
@@ -210,10 +214,10 @@ class AssemblerLanguage: public Language {
 
 AssemblerLanguage AssemblerLanguageSingleton;
 
-const Language * const Language::CPlusPlus = &CPPLanguageSingleton;
-const Language * const Language::Java = &JavaLanguageSingleton;
-const Language * const Language::Swift = &SwiftLanguageSingleton;
-const Language * const Language::Rust = &RustLanguageSingleton;
-const Language * const Language::Assembler = &AssemblerLanguageSingleton;
+const Language* const Language::CPlusPlus = &CPPLanguageSingleton;
+const Language* const Language::Java = &JavaLanguageSingleton;
+const Language* const Language::Swift = &SwiftLanguageSingleton;
+const Language* const Language::Rust = &RustLanguageSingleton;
+const Language* const Language::Assembler = &AssemblerLanguageSingleton;
 
-} // namespace google_breakpad
+}  // namespace google_breakpad

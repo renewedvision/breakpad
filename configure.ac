@@ -28,9 +28,9 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-AC_PREREQ(2.64)
+AC_PREREQ([2.71])
 
-AC_INIT(breakpad, 0.1, google-breakpad-dev@googlegroups.com)
+AC_INIT([breakpad],[0.1],[google-breakpad-dev@googlegroups.com])
 dnl Sanity check: the argument is just a file that should exist.
 AC_CONFIG_SRCDIR(README.md)
 AC_CONFIG_AUX_DIR(autotools)
@@ -69,7 +69,15 @@ AC_ARG_ENABLE(m32,
                esac],
               [usem32=false])
 
-AC_HEADER_STDC
+m4_warn([obsolete],
+[The preprocessor macro `STDC_HEADERS' is obsolete.
+  Except in unusual embedded environments, you can safely include all
+  ISO C90 headers unconditionally.])dnl
+# Autoupdate added the next two lines to ensure that your configure
+# script's behavior did not change.  They are probably safe to remove.
+AC_CHECK_INCLUDES_DEFAULT
+AC_PROG_EGREP
+
 AC_SYS_LARGEFILE
 AX_PTHREAD
 AC_CHECK_HEADERS([a.out.h sys/mman.h sys/random.h])
@@ -219,30 +227,30 @@ AC_ARG_ENABLE(selftest,
               [selftest=false])
 AM_CONDITIONAL(SELFTEST, test x$selftest = xtrue)
 
-AC_ARG_WITH(rust-demangle,
-            AS_HELP_STRING([--with-rust-demangle=/path/to/rust-demangle-capi],
-                             [Link against the rust-demangle library]
+AC_ARG_WITH(rustc-demangle,
+            AS_HELP_STRING([--with-rustc-demangle=/path/to/rustc-demangle],
+                             [Link against the rustc-demangle library]
                              [to demangle Rust language symbols during]
                              [symbol dumping (default is no)]
                              [Pass the path to the crate root.]),
             [case "${withval}" in
                yes)
-                 AC_MSG_ERROR(You must pass the path to the rust-demangle-capi crate for --with-rust-demangle)
+                 AC_MSG_ERROR(You must pass the path to the rustc-demangle crate for --with-rustc-demangle)
                  ;;
                no)
-                 rust_demangle=false
+                 rustc_demangle=false
                  ;;
                *)
                  if ! test -f "${withval}/Cargo.toml"; then
-                   AC_MSG_ERROR(You must pass the path to the rust-demangle-capi crate for --with-rust-demangle)
+                   AC_MSG_ERROR(You must pass the path to the rustc-demangle crate for --with-rustc-demangle)
                  fi
-                 RUST_DEMANGLE_CFLAGS="-DHAVE_RUST_DEMANGLE -I${withval}/target/include"
-                 RUST_DEMANGLE_LIBS="-L${withval}/target/release -lrust_demangle -lpthread -ldl"
+                 RUSTC_DEMANGLE_CFLAGS="-DHAVE_RUSTC_DEMANGLE -I${withval}/crates/capi/include"
+                 RUSTC_DEMANGLE_LIBS="-L${withval}/target/release -lrustc_demangle -lpthread -ldl"
                  ;;
              esac],
-            [rust_demangle=false])
-AC_ARG_VAR([RUST_DEMANGLE_CFLAGS], [Compiler flags for rust-demangle])
-AC_ARG_VAR([RUST_DEMANGLE_LIBS], [Linker flags for rust-demangle])
+            [rustc_demangle=false])
+AC_ARG_VAR([RUSTC_DEMANGLE_CFLAGS], [Compiler flags for rustc-demangle])
+AC_ARG_VAR([RUSTC_DEMANGLE_LIBS], [Linker flags for rustc-demangle])
 
 AC_ARG_WITH(tests-as-root,
             AS_HELP_STRING([--with-tests-as-root],

@@ -141,6 +141,17 @@ src_testing_libtesting_a_CPPFLAGS = \
 	$(AM_CPPFLAGS) $(TEST_CFLAGS)
 endif
 
+LLVM_DEMANGLE_SOURCES = \
+ 	src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp \
+ 	src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp \
+ 	src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp \
+ 	src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp \
+ 	src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp \
+ 	src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp
+
+LLVM_DEMANGLE_CPPFLAGS = \
+	-I$(top_srcdir)/src/third_party/llvm/llvm/include
+
 if !DISABLE_PROCESSOR
 lib_LIBRARIES += src/libbreakpad.a
 pkgconfig_DATA += breakpad.pc
@@ -341,6 +352,7 @@ src_third_party_libdisasm_libdisasm_a_SOURCES = \
 	src/third_party/libdisasm/x86_misc.c \
 	src/third_party/libdisasm/x86_operand_list.c \
 	src/third_party/libdisasm/x86_operand_list.h
+
 
 ## Programs
 bin_PROGRAMS += \
@@ -621,11 +633,11 @@ src_tools_linux_dump_syms_dump_syms_SOURCES = \
 	src/common/linux/linux_libc_support.cc \
 	src/common/linux/memory_mapped_file.cc \
 	src/common/linux/safe_readlink.cc \
-	src/tools/linux/dump_syms/dump_syms.cc
+	src/tools/linux/dump_syms/dump_syms.cc \
+	$(LLVM_DEMANGLE_SOURCES)
+
 src_tools_linux_dump_syms_dump_syms_CXXFLAGS = \
-	$(RUST_DEMANGLE_CFLAGS)
-src_tools_linux_dump_syms_dump_syms_LDADD = \
-	$(RUST_DEMANGLE_LIBS)
+	$(LLVM_DEMANGLE_CPPFLAGS)
 
 src_tools_linux_md2core_minidump_2_core_SOURCES = \
 	src/common/linux/memory_mapped_file.cc \
@@ -683,10 +695,10 @@ src_tools_mac_dump_syms_dump_syms_mac_SOURCES = \
 	src/tools/mac/dump_syms/dump_syms_tool.cc
 src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS= \
 	-I$(top_srcdir)/src/third_party/mac_headers \
-	$(RUST_DEMANGLE_CFLAGS) \
+	$(RUSTC_DEMANGLE_CFLAGS) \
 	-DHAVE_MACH_O_NLIST_H
 src_tools_mac_dump_syms_dump_syms_mac_LDADD= \
-	$(RUST_DEMANGLE_LIBS)
+	$(RUSTC_DEMANGLE_LIBS)
 
 src_common_dumper_unittest_SOURCES = \
 	src/common/byte_cursor_unittest.cc \
@@ -748,11 +760,11 @@ src_common_dumper_unittest_SOURCES = \
 	src/common/tests/file_utils.cc
 src_common_dumper_unittest_CPPFLAGS = \
 	$(AM_CPPFLAGS) $(TEST_CFLAGS) \
-	$(RUST_DEMANGLE_CFLAGS) \
+	$(RUSTC_DEMANGLE_CFLAGS) \
 	$(PTHREAD_CFLAGS)
 src_common_dumper_unittest_LDADD = \
 	$(TEST_LIBS) \
-	$(RUST_DEMANGLE_LIBS) \
+	$(RUSTC_DEMANGLE_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 
 src_common_mac_macho_reader_unittest_SOURCES = \

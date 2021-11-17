@@ -52,6 +52,12 @@ deps = {
   "src/src/third_party/lss":
     "https://chromium.googlesource.com/linux-syscall-support/" +
       "@e1e7b0ad8ee99a875b272c8e33e308472e897660",
+
+  # LLVMDemangle
+  "src/src/third_party/llvm":
+     "https://github.com/llvm/llvm-project.git" +
+       "@b715b79d54d5ca2d4e8c91089b8f6a9389d9dc48",
+
 }
 
 hooks = [
