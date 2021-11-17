@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94f32654_00ed46c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525627
+      },
+      "writtenOn": "2021-11-17T11:13:09Z",
+      "side": 1,
+      "message": "The patch is ready. Could anyone help to merge?",
+      "revId": "13a89d95e52f8bab34718e4821575dae8b7e07f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
