@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d698ad1a_3dfb73f5",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2021-11-19T03:12:38Z",
+      "side": 1,
+      "message": "BTW, Tokenize() will try to reserve space for this many tokens. Is there a practical limit for the number of tokens that we can use instead?",
+      "range": {
+        "startLine": 686,
+        "startChar": 37,
+        "endLine": 686,
+        "endChar": 68
+      },
+      "revId": "f0803507950279bd1e48d05f5fb4b4377c2917f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
