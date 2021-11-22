@@ -62,6 +62,7 @@
 
 
 #include <map>
+#include <vector>
 
 
 namespace google_breakpad {
@@ -75,9 +76,14 @@ class ContainedRangeMap {
   // The default constructor creates a ContainedRangeMap with no geometry
   // and no entry, and as such is only suitable for the root node of a
   // ContainedRangeMap tree.
-  ContainedRangeMap() : base_(), entry_(), map_(NULL) {}
+  ContainedRangeMap()
+      : base_(), entry_(), map_(NULL), allow_equal_range_(false) {}
 
   ~ContainedRangeMap();
+
+  void SetEqualRange(bool allow_equal_range) {
+    allow_equal_range_ = allow_equal_range;
+  }
 
   // Inserts a range into the map.  If the new range is encompassed by
   // an existing child range, the new range is passed into the child range's
@@ -95,7 +101,12 @@ class ContainedRangeMap {
   // child ranges, and not the entry contained by |this|.  This is necessary
   // to support a sparsely-populated root range.  If no descendant range
   // encompasses the address, returns false.
-  bool RetrieveRange(const AddressType& address, EntryType* entry) const;
+  bool RetrieveRange(const AddressType& address, EntryType* entries) const;
+
+  // Retrieves the vector of entries encompassing the specified address from the
+  // innermost entry to the outermost entry.
+  bool RetrieveRange(const AddressType& address,
+                     std::vector<const EntryType*>& entries) const;
 
   // Removes all children.  Note that Clear only removes descendants,
   // leaving the node on which it is called intact.  Because the only
@@ -141,6 +152,12 @@ class ContainedRangeMap {
   // address.  This is a pointer to avoid allocating map structures for
   // leaf nodes, where they are not needed.
   AddressToRangeMap* map_;
+
+  // Wether or not we allow storing an entry into a range that equals to
+  // existing range in the map. Default is false.
+  // If this is true, the newly added range will become a child of existing
+  // innermost range which has same base and size.
+  bool allow_equal_range_;
 };
 
 
