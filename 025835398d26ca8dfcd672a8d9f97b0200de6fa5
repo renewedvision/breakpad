@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97eed0e4_b91f1d00",
+        "filename": "src/processor/contained_range_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-11-24T19:30:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5598f893_48b02ee2",
+      "range": {
+        "startLine": 84,
+        "startChar": 26,
+        "endLine": 84,
+        "endChar": 43
+      },
+      "revId": "025835398d26ca8dfcd672a8d9f97b0200de6fa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27cf00b8_37ca5d6e",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8781ab4_0477901b",
+        "filename": "src/processor/contained_range_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-11-24T19:30:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27cf00b8_37ca5d6e",
+      "range": {
+        "startLine": 108,
+        "startChar": 7,
+        "endLine": 108,
+        "endChar": 20
+      },
+      "revId": "025835398d26ca8dfcd672a8d9f97b0200de6fa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60d52f9c_c39f6d2e",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-11-24T19:06:39Z",
       "side": 1,
       "message": "Whether",
+      "range": {
+        "startLine": 156,
+        "startChar": 5,
+        "endLine": 156,
+        "endChar": 11
+      },
+      "revId": "025835398d26ca8dfcd672a8d9f97b0200de6fa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c91589e6_4b96909e",
+        "filename": "src/processor/contained_range_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-11-24T19:30:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60d52f9c_c39f6d2e",
       "range": {
         "startLine": 156,
         "startChar": 5,
