@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f3d3b0_91847e07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-11-24T23:22:04Z",
+      "side": 1,
+      "message": "Currently the max number of tokens I\u0027ve seen in Chrome symbol files when parsing INLINE records is 234.",
+      "revId": "97e9efc36789e8926e177ab141b5e949722b84db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
