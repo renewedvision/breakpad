@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb99a839_176b842d",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-11-24T19:57:55Z",
+      "side": 1,
+      "message": "Yes, updated to use \"\u003cname omitted\u003e\" for unknown function name.",
+      "parentUuid": "e0cbc9e1_b3ead5b1",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 5
+      },
+      "revId": "2faf6f3c07f34283e4d9d8670b8ceef55bf86516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c64f5514_82617266",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89ddf52e_784cfdef",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-11-24T19:57:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c64f5514_82617266",
+      "range": {
+        "startLine": 269,
+        "startChar": 24,
+        "endLine": 269,
+        "endChar": 30
+      },
+      "revId": "2faf6f3c07f34283e4d9d8670b8ceef55bf86516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a25ee9ff_b5c3e150",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-11-24T19:06:45Z",
       "side": 1,
       "message": "comment says front, but instead we call push_back()",
+      "range": {
+        "startLine": 279,
+        "startChar": 28,
+        "endLine": 279,
+        "endChar": 33
+      },
+      "revId": "2faf6f3c07f34283e4d9d8670b8ceef55bf86516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "580785d3_c1bd1c5f",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-11-24T19:57:55Z",
+      "side": 1,
+      "message": "Because the loop iterate through \"inlines\", which is from RetrieveRanges, the first Inline object is the innermost one. So, we are adding frames in the order of innermost frames to outermost frames via push_back().\n\nUpdated the comment.",
+      "parentUuid": "a25ee9ff_b5c3e150",
       "range": {
         "startLine": 279,
         "startChar": 28,
