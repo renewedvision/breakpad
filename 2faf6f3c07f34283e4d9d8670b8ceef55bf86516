@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0cbc9e1_b3ead5b1",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-11-24T19:06:45Z",
+      "side": 1,
+      "message": "Does this imply an error in the debug info or our parsing of it? Log something? If we failed to find the origin for one inline, might we still be able to create frames for the next inlines?",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 5
+      },
+      "revId": "2faf6f3c07f34283e4d9d8670b8ceef55bf86516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c64f5514_82617266",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-11-24T19:06:45Z",
+      "side": 1,
+      "message": "address",
+      "range": {
+        "startLine": 269,
+        "startChar": 24,
+        "endLine": 269,
+        "endChar": 30
+      },
+      "revId": "2faf6f3c07f34283e4d9d8670b8ceef55bf86516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a25ee9ff_b5c3e150",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-11-24T19:06:45Z",
+      "side": 1,
+      "message": "comment says front, but instead we call push_back()",
+      "range": {
+        "startLine": 279,
+        "startChar": 28,
+        "endLine": 279,
+        "endChar": 33
+      },
+      "revId": "2faf6f3c07f34283e4d9d8670b8ceef55bf86516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
