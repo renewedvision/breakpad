@@ -81,6 +81,10 @@ class ContainedRangeMap {
 
   ~ContainedRangeMap();
 
+  void SetEqualRange(bool allow_equal_range) {
+    allow_equal_range_ = allow_equal_range;
+  }
+
   // Inserts a range into the map.  If the new range is encompassed by
   // an existing child range, the new range is passed into the child range's
   // StoreRange method.  If the new range encompasses any existing child
