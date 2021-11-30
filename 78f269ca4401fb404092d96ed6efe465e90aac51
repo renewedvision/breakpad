@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddcd1c01_2f72b330",
+        "filename": "src/processor/basic_source_line_resolver_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2021-11-30T21:37:10Z",
+      "side": 1,
+      "message": "needs to set allow_equal_ranges?",
+      "range": {
+        "startLine": 76,
+        "startChar": 49,
+        "endLine": 76,
+        "endChar": 56
+      },
+      "revId": "78f269ca4401fb404092d96ed6efe465e90aac51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
