@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e1fa69e_ce59dc78",
+        "filename": "src/processor/contained_range_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-12-01T00:29:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb904ab8_86b6cee5",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 0
+      },
+      "revId": "34ba3f30dd3fc383336c33a33203594e8de7358f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33154de9_946d1e4c",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-01T00:06:21Z",
       "side": 1,
       "message": "Can you give this the same treatment you gave BasicSourceLineResolver\u0027s ConstructInlineFrames()?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 5
+      },
+      "revId": "34ba3f30dd3fc383336c33a33203594e8de7358f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "270b526b_74082ac3",
+        "filename": "src/processor/fast_source_line_resolver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2021-12-01T00:29:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33154de9_946d1e4c",
       "range": {
         "startLine": 131,
         "startChar": 0,
