@@ -184,12 +184,19 @@ bool DumpSymbols::Read(const string& filename) {
             error.c_str());
     return false;
   }
+  return ReadData(&contents_[0], st.st_size);
+}
 
+bool DumpSymbols::ReadData(const uint8_t *contents, size_t size){
   // Get the list of object files present in the file.
+  uint8_t* copy = new uint8_t[size];
+  memcpy(copy, contents, size);
+  contents_.reset(copy);
+  size_ = size;
+
   FatReader::Reporter fat_reporter(object_filename_);
   FatReader fat_reader(&fat_reporter);
-  if (!fat_reader.Read(&contents_[0],
-                       st.st_size)) {
+  if (!fat_reader.Read(contents, size)) {
     return false;
   }
 
@@ -283,7 +290,13 @@ SuperFatArch* DumpSymbols::FindBestMatchForArchitecture(
 }
 
 string DumpSymbols::Identifier() {
-  FileID file_id(object_filename_.c_str());
+  scoped_ptr<FileID> file_id;
+  if (input_pathname_.empty()){
+    file_id.reset(new FileID(contents_.get(), size_));
+  }
+  else {
+    file_id.reset(new FileID(object_filename_.c_str()));
+  }
   unsigned char identifier_bytes[16];
   scoped_ptr<Module> module;
   if (!selected_object_file_) {
@@ -292,7 +305,7 @@ string DumpSymbols::Identifier() {
   }
   cpu_type_t cpu_type = selected_object_file_->cputype;
   cpu_subtype_t cpu_subtype = selected_object_file_->cpusubtype;
-  if (!file_id.MachoIdentifier(cpu_type, cpu_subtype, identifier_bytes)) {
+  if (!file_id->MachoIdentifier(cpu_type, cpu_subtype, identifier_bytes)) {
     fprintf(stderr, "Unable to calculate UUID of mach-o binary %s!\n",
             object_filename_.c_str());
     return "";
