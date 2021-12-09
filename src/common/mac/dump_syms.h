@@ -72,6 +72,12 @@ class DumpSymbols {
   // problem reading |filename|, report it and return false.
   bool Read(const std::string& filename);
 
+  // Prepare to read debugging information from |contents|. |contents| is
+  // expected to be the data obtained from reading a universal binary, or a
+  // Mach-O file. On success, return true; if there is a problem reading
+  // |contents|, report it and return false.
+  bool ReadData(const uint8_t* contents, size_t size);
+
   // If this dumper's file includes an object file for |cpu_type| and
   // |cpu_subtype|, then select that object file for dumping, and return
   // true. Otherwise, return false, and leave this dumper's selected
@@ -174,6 +180,9 @@ class DumpSymbols {
 
   // The complete contents of object_filename_, mapped into memory.
   scoped_array<uint8_t> contents_;
+
+  // The size_t representing the size of contents_.
+  size_t size_;
 
   // A vector of SuperFatArch structures describing the object files
   // object_filename_ contains. If object_filename_ refers to a fat binary,

@@ -40,14 +40,11 @@
 
 #include "common/mac/file_id.h"
 #include "common/mac/macho_id.h"
+#include "common/scoped_ptr.h"
 
 using MacFileUtilities::MachoID;
 
 namespace google_breakpad {
-
-FileID::FileID(const char *path) {
-  snprintf(path_, sizeof(path_), "%s", path);
-}
 
 bool FileID::FileIdentifier(unsigned char identifier[16]) {
   int fd = open(path_, O_RDONLY);
@@ -74,12 +71,17 @@ bool FileID::FileIdentifier(unsigned char identifier[16]) {
 bool FileID::MachoIdentifier(cpu_type_t cpu_type,
                              cpu_subtype_t cpu_subtype,
                              unsigned char identifier[16]) {
-  MachoID macho(path_);
+  scoped_ptr<MachoID> macho;
+  if (memory_) {
+    macho.reset(new MachoID(path_, memory_, size_));
+  } else {
+    macho.reset(new MachoID(path_));
+  }
 
-  if (macho.UUIDCommand(cpu_type, cpu_subtype, identifier))
+  if (macho->UUIDCommand(cpu_type, cpu_subtype, identifier))
     return true;
 
-  return macho.MD5(cpu_type, cpu_subtype, identifier);
+  return macho->MD5(cpu_type, cpu_subtype, identifier);
 }
 
 // static
