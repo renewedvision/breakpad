@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9be8d6cf_0c855b76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1529972
+      },
+      "writtenOn": "2021-12-15T21:36:50Z",
+      "side": 1,
+      "message": "Seeing that this isn\u0027t moving forward, I made my own version of the fix at https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3340721 taking into account the comments on this MR.",
+      "revId": "4a332d01186b09a9d46390b845024d914d9149cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b16afd0b_34bd55cc",
