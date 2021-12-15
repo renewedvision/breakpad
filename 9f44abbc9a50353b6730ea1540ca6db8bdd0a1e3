@@ -16,6 +16,24 @@
       "message": "Can you reference the predecessor change in the description?",
       "revId": "9f44abbc9a50353b6730ea1540ca6db8bdd0a1e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a56afd18_5526cfda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1529972
+      },
+      "writtenOn": "2021-12-15T21:46:44Z",
+      "side": 1,
+      "message": "Just to be sure:\n\nThe commit log should refer to a gerrit URL? (many projects don\u0027t like this)\n\nAlso, note that I didn\u0027t keep any code change from https://chromium-review.googlesource.com/c/breakpad/breakpad/+/2776379, only parts of the commit log (which I assume isn\u0027t copyrighted) :)\n\nBut sure, I\u0027m happy to add\n\nInitially based on https://chromium-review.googlesource.com/c/breakpad/breakpad/+/2776379\n\nif that\u0027s what it takes to get it in :)",
+      "parentUuid": "4510943a_9fd5e194",
+      "revId": "9f44abbc9a50353b6730ea1540ca6db8bdd0a1e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
