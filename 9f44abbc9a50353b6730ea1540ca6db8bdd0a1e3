@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4510943a_9fd5e194",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2021-12-15T21:41:37Z",
+      "side": 1,
+      "message": "Can you reference the predecessor change in the description?",
+      "revId": "9f44abbc9a50353b6730ea1540ca6db8bdd0a1e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
