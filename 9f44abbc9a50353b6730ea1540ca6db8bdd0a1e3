@@ -34,6 +34,24 @@
       "parentUuid": "4510943a_9fd5e194",
       "revId": "9f44abbc9a50353b6730ea1540ca6db8bdd0a1e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fd51619_9efa18cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2021-12-15T21:49:46Z",
+      "side": 1,
+      "message": "\u003e Just to be sure:\n\u003e \n\u003e The commit log should refer to a gerrit URL? (many projects don\u0027t like this)\n\nYes. Your commit is going to wind up with a Gerrit URL in it when it lands anyway.\n\n\u003e Also, note that I didn\u0027t keep any code change from https://chromium-review.googlesource.com/c/breakpad/breakpad/+/2776379, only parts of the commit log (which I assume isn\u0027t copyrighted) :)\n\u003e \n\u003e But sure, I\u0027m happy to add\n\u003e \n\u003e Initially based on https://chromium-review.googlesource.com/c/breakpad/breakpad/+/2776379\n\u003e \n\u003e if that\u0027s what it takes to get it in :)\n\nThat’s fine. You can also shorten to https://chromium-review.googlesource.com/c/2776379 if you like.",
+      "parentUuid": "a56afd18_5526cfda",
+      "revId": "9f44abbc9a50353b6730ea1540ca6db8bdd0a1e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
