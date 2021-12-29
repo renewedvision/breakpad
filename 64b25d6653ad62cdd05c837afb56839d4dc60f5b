@@ -16,6 +16,23 @@
       "message": "Comment removed by: Mike Frysinger; Reason: spam",
       "revId": "64b25d6653ad62cdd05c837afb56839d4dc60f5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a07de2_85f545fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1530817
+      },
+      "writtenOn": "2021-12-29T23:22:20Z",
+      "side": 1,
+      "message": "Comment removed by: Mike Frysinger; Reason: spam",
+      "revId": "64b25d6653ad62cdd05c837afb56839d4dc60f5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
