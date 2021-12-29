@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44cabeb3_e83d9209",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1530817
+      },
+      "writtenOn": "2021-12-29T23:21:57Z",
+      "side": 1,
+      "message": "Comment removed by: Mike Frysinger; Reason: spam",
+      "revId": "64b25d6653ad62cdd05c837afb56839d4dc60f5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
