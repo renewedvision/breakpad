@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ea5610fb_9fcf1e72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2022-01-05T21:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec2990ad_6e112b01",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "e353af073eae6d288db2321623742009fc17f85c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fc8df1d6_5badaeae",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -55,6 +79,24 @@
       "side": 1,
       "message": "I suspect symupload is the real binary used for producing symbols for Windows Chrome instead of dump_syms, so it would need flags to enable inlines. https://source.chromium.org/chromium/chromium/tools/build/+/main:recipes/recipe_modules/symupload/api.py;drc\u003d7f78a89bec7e391d44e44a78ca5c629a2c41bec2;l\u003d127",
       "parentUuid": "fc8df1d6_5badaeae",
+      "revId": "e353af073eae6d288db2321623742009fc17f85c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fffd4927_023f2a8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2022-01-05T21:27:53Z",
+      "side": 1,
+      "message": "Added --i flag to symupload.",
+      "parentUuid": "674778c6_455e3d75",
       "revId": "e353af073eae6d288db2321623742009fc17f85c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
