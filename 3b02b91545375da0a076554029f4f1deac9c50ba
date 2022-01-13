@@ -16,6 +16,24 @@
       "message": "Hi Mark, does breakpad auto-roll into Chrome or do I need to poke something after making this change?\n\nThanks!",
       "revId": "3b02b91545375da0a076554029f4f1deac9c50ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a538213_850b7038",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-13T19:36:04Z",
+      "side": 1,
+      "message": "\u003e Hi Mark, does breakpad auto-roll into Chrome or do I need to poke something after making this change?\n\u003e \n\u003e Thanks!\n\nNo auto-roller, you’ve got to touch DEPS with your bare hands (or script).",
+      "parentUuid": "f45c6875_3c4305f9",
+      "revId": "3b02b91545375da0a076554029f4f1deac9c50ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
