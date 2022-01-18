@@ -156,13 +156,14 @@ bool DumpSymbols::Read(const string& filename) {
   // Read the file's contents into memory.
   bool read_ok = true;
   string error;
+  scoped_array<uint8_t> contents;
   if (stat(object_filename_.c_str(), &st) != -1) {
     FILE* f = fopen(object_filename_.c_str(), "rb");
     if (f) {
-      contents_.reset(new uint8_t[st.st_size]);
+      contents.reset(new uint8_t[st.st_size]);
       off_t total = 0;
       while (total < st.st_size && !feof(f)) {
-        size_t read = fread(&contents_[0] + total, 1, st.st_size - total, f);
+        size_t read = fread(&contents[0] + total, 1, st.st_size - total, f);
         if (read == 0) {
           if (ferror(f)) {
             read_ok = false;
@@ -184,12 +185,20 @@ bool DumpSymbols::Read(const string& filename) {
             error.c_str());
     return false;
   }
+  return ReadData(object_filename_, contents.release(), st.st_size);
+}
 
+bool DumpSymbols::ReadData(const std::string& filename, uint8_t* contents,
+                           size_t size) {
   // Get the list of object files present in the file.
-  FatReader::Reporter fat_reporter(object_filename_);
+  contents_.reset(contents);
+  size_ = size;
+
+  object_filename_ = filename;
+
+  FatReader::Reporter fat_reporter(filename);
   FatReader fat_reader(&fat_reporter);
-  if (!fat_reader.Read(&contents_[0],
-                       st.st_size)) {
+  if (!fat_reader.Read(contents_.get(), size)) {
     return false;
   }
 
@@ -283,7 +292,17 @@ SuperFatArch* DumpSymbols::FindBestMatchForArchitecture(
 }
 
 string DumpSymbols::Identifier() {
-  FileID file_id(object_filename_.c_str());
+  scoped_ptr<FileID> file_id;
+
+  // input_pathname being empty here is used to indicate that we're operating
+  // on a file that was already in memory rather than being read directly
+  // from the file system, so use the FileID constructor that operates on
+  // a file already in memory.
+  if (input_pathname_.empty()) {
+    file_id.reset(new FileID(object_filename_.c_str(), contents_.get(), size_));
+  } else {
+    file_id.reset(new FileID(object_filename_.c_str()));
+  }
   unsigned char identifier_bytes[16];
   scoped_ptr<Module> module;
   if (!selected_object_file_) {
@@ -292,7 +311,7 @@ string DumpSymbols::Identifier() {
   }
   cpu_type_t cpu_type = selected_object_file_->cputype;
   cpu_subtype_t cpu_subtype = selected_object_file_->cpusubtype;
-  if (!file_id.MachoIdentifier(cpu_type, cpu_subtype, identifier_bytes)) {
+  if (!file_id->MachoIdentifier(cpu_type, cpu_subtype, identifier_bytes)) {
     fprintf(stderr, "Unable to calculate UUID of mach-o binary %s!\n",
             object_filename_.c_str());
     return "";
