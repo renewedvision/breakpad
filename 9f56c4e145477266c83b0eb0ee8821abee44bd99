@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e74c7bf3_5fded5e8",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-19T22:14:27Z",
+      "side": 1,
+      "message": "I\u0027m open to trying an mmap approach as a separate follow on change. Would it be possible to move forward with adding the ReadData function and address the mmap usage in a follow up CL?",
+      "parentUuid": "928fb04a_54a0b569",
+      "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6a99961_192e5b0b",
         "filename": "src/common/mac/dump_syms.cc",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2021-12-09T21:46:14Z",
       "side": 1,
       "message": "What if you reached eof before total arrived at st.st_size because the file shrank or because the stat and fopen referred to totally different files?",
+      "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d13f3ace_0bf375f6",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-19T22:14:27Z",
+      "side": 1,
+      "message": "My read is that the existing implementation also has this issue, so if possible would prefer to move forward with adding the ReadData function and address this in a follow up CL.",
+      "parentUuid": "f6a99961_192e5b0b",
       "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bfe9068_30af4752",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-19T22:14:27Z",
+      "side": 1,
+      "message": "I opted for an approach that avoids the copy altogether and makes the caller not responsible for the data. The `contents_` member variable is referenced in several other functions, so it potentially needs to stick around far beyond the initial call to `ReadData` and should be the responsibility of the DumpSymbols instance to manage.",
+      "parentUuid": "ca178ab9_35991014",
+      "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "07b24751_4f1ffd3b",
         "filename": "src/common/mac/dump_syms.cc",
         "patchSetId": 1
@@ -99,6 +153,24 @@
       "writtenOn": "2021-12-09T21:46:14Z",
       "side": 1,
       "message": "Is this what generates the first line of dumped output? If so, you\u0027re going to need to provide a way for the caller to pass in a filename. The filename in the first line of output is significant.",
+      "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d1af24d_79ae88c9",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-19T22:14:27Z",
+      "side": 1,
+      "message": "You are correct that this is needed for to generate the correct output. I added a constructor that allows creating a `FileID` with a name, memory, and size to support this logic branch.",
+      "parentUuid": "07b24751_4f1ffd3b",
       "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
