@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "806e303e_39df321d",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "\u003e I\u0027m open to trying an mmap approach as a separate follow on change. Would it be possible to move forward with adding the ReadData function and address the mmap usage in a follow up CL?\n\nThat sounds OK.",
+      "parentUuid": "e74c7bf3_5fded5e8",
+      "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6a99961_192e5b0b",

@@ -16,6 +16,316 @@
       "message": "I pushed patchset 3 to address some of the comments on patchset 1. The Gerrit workflow is a little confusing, so it\u0027s not clear that my additional follow up comments will appear next to the corresponding code they reference.",
       "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74f5ad87_89e4f7c1",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "We discussed yesterday that there’s nothing wrong with your handling of object_filename_ from a memory-correctness perspective, but reading this through, I still find it more confusing than it needs to be that Read sets object_filename_ and then calls ReadData which also sets object_filename_. Since there doesn’t seem to be any strong reason to have object_filename_ set for the duration of Read, I suggest using a different string variable in Read to fill this role (even an un-underscored object_filename local variable would be fine), replacing all of the underscored object_filename_ member-variable occurrences in this function with the new one. You’d pass that to ReadData, which would be the sole thing responsible for setting object_filename_ (along with contents_ and size_).",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 39
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed2c4eab_a8d44474",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "This should use total instead of st.st_size. If the file shrank while you were reading it, you would have exited the loop on line 165 because of the feof condition instead of the size one, having only read |total| bytes.\n\n(This was an existing bug, but it’s a good time to fix it.)",
+      "range": {
+        "startLine": 188,
+        "startChar": 56,
+        "endLine": 188,
+        "endChar": 66
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9dcaa8_a07c94d5",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "This comment discusses what fat_reporter does, but it’s been disembodied from the related code.",
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47d5f874_c97dfae0",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "You should initialize size_ here too:\n\n      contents_(),\n      size_(0),\n      object_files_(),\n      \notherwise it will contain garbage until something (ReadData, in this case) sets it, which could, in turn, result in bugs if ReadData is never called, which may happen even under normal use if Read fails early.",
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d8df00d_8285baac",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "The comment above should explain how filename is used, since it’s not obvious from just this declaration. How filename is NOT used is even more important here, since there may be a presumption that the file will be opened, but it won’t be.",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 43
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1175ae16_f395d25a",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "From a readability perspective, I think it makes more sense for the parameter order to be structured putting the more important parameters up front, so:\n\n  bool ReadData(uint8_t* contents, size_t size, const std::string\u0026 filename);",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 75
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "208e44bb_35ad78be",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "You’re adding a new meaning to input_pathname_ when empty, and should document it.",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 30
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9258069f_12aefba8",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "You don’t have to repeat the type of a declaration in a comment describing it.",
+      "range": {
+        "startLine": 184,
+        "startChar": 5,
+        "endLine": 184,
+        "endChar": 29
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71426235_0633d70f",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "Don’t inline this constructor, leave it in the .cc file where it was. And move the other (new) constructor’s implementation to the .cc file too. When doing so, don’t forget to remove the \u003cstdio.h\u003e #include from this header.",
+      "range": {
+        "startLine": 46,
+        "startChar": 27,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff35d5c7_9df22e28",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "You need to set memory_ and size_, otherwise they’ll be garbage. Since you use memory_’s null-ness as the determinant of whether this object was initialized with memory_ or not, this bug will send you down a path where FileID::MachoIdentifier attempts to dereference memory_, and will either wind up using garbage data or crashing (or both!)\n\n  FileID(const char* path) : memory_(NULL), size_(0) {",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70ab32ee_bf5457e8",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "This is not wrong, but it’s a pre-1998 construct, at least on BSD-derived systems (like macOS). For the past 24 years, we’ve been able to write\n\n  #include \u003cstring.h\u003e\n\n  strlcpy(path_, path, sizeof(path_));\n\nThis is better than snprintf, although I wonder if there’s a strong reason to have this be char path_[PATH_MAX] instead of std::string path_.",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 72
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49ea029b_a7372e03",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "The same comment about the argument order from DumpSymbols::ReadData applies to this constructor.",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 52
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c900d11_f27266d2",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "Here, too, you should have a comment saying how path is used in this case, because it won’t be the sort-of-obvious thing where path is opened and read.",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 25
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83a92b92_59487f59",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-20T14:30:58Z",
+      "side": 1,
+      "message": "The comment should also say that the null-ness of memory is used as a determining factor of whether path_ should be opened and read.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 0
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
