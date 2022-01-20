@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5afe22a_5fd099e1",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d13f3ace_0bf375f6",
+      "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca178ab9_35991014",
@@ -158,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bb946d6_dfba4a3c",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfe9068_30af4752",
+      "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07b24751_4f1ffd3b",
@@ -189,6 +225,24 @@
       "side": 1,
       "message": "You are correct that this is needed for to generate the correct output. I added a constructor that allows creating a `FileID` with a name, memory, and size to support this logic branch.",
       "parentUuid": "07b24751_4f1ffd3b",
+      "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bcab4ae_e0441c64",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d1af24d_79ae88c9",
       "revId": "9f56c4e145477266c83b0eb0ee8821abee44bd99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

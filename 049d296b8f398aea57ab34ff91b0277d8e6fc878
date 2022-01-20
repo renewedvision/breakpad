@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2e03a7_4884f2d4",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74f5ad87_89e4f7c1",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 39
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed2c4eab_a8d44474",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-20T14:30:58Z",
       "side": 1,
       "message": "This should use total instead of st.st_size. If the file shrank while you were reading it, you would have exited the loop on line 165 because of the feof condition instead of the size one, having only read |total| bytes.\n\n(This was an existing bug, but it’s a good time to fix it.)",
+      "range": {
+        "startLine": 188,
+        "startChar": 56,
+        "endLine": 188,
+        "endChar": 66
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58357aca_a1a38c7f",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed2c4eab_a8d44474",
       "range": {
         "startLine": 188,
         "startChar": 56,
@@ -81,6 +129,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90c0d12e_52418a94",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a9dcaa8_a07c94d5",
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47d5f874_c97dfae0",
@@ -94,6 +160,24 @@
       "writtenOn": "2022-01-20T14:30:58Z",
       "side": 1,
       "message": "You should initialize size_ here too:\n\n      contents_(),\n      size_(0),\n      object_files_(),\n      \notherwise it will contain garbage until something (ReadData, in this case) sets it, which could, in turn, result in bugs if ReadData is never called, which may happen even under normal use if Read fails early.",
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9025113_be048220",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47d5f874_c97dfae0",
       "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -144,6 +228,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2369961_743a05eb",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1175ae16_f395d25a",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 75
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00348e89_34d8da7d",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d8df00d_8285baac",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 43
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "208e44bb_35ad78be",
@@ -169,6 +301,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e98354d_f2d118cc",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "It didn\u0027t feel right giving extra meaning to this member variable, so I opted instead for a new member variable with its explicit purpose indicating wether the contents had been read from disk or not. Its default value is false, and toggled to true when reading from disk. It can then be switched on without confusion later in the code.",
+      "parentUuid": "208e44bb_35ad78be",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 30
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9258069f_12aefba8",
         "filename": "src/common/mac/dump_syms.h",
         "patchSetId": 3
@@ -180,6 +336,30 @@
       "writtenOn": "2022-01-20T14:30:58Z",
       "side": 1,
       "message": "You don’t have to repeat the type of a declaration in a comment describing it.",
+      "range": {
+        "startLine": 184,
+        "startChar": 5,
+        "endLine": 184,
+        "endChar": 29
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "499a88f6_1db7dc23",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9258069f_12aefba8",
       "range": {
         "startLine": 184,
         "startChar": 5,
@@ -259,6 +439,78 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d5cb94a_0298cda5",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff35d5c7_9df22e28",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c4a2c2_271fd371",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71426235_0633d70f",
+      "range": {
+        "startLine": 46,
+        "startChar": 27,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737cf8b2_6c370329",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "It looks like `strlcpy` is BSD specific? I don\u0027t see any platform agnostic uses in the existing breakpad source but I did find an implementation of `my_strlcpy` that also seems platform specific.\n https://chromium.googlesource.com/breakpad/breakpad/+/refs/heads/main/src/common/linux/linux_libc_support.h\n\nFWIW, the `snprintf` construct is used quite a bit throughout the breakpad source, but I\u0027m open to trying other options.",
+      "parentUuid": "70ab32ee_bf5457e8",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 72
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49ea029b_a7372e03",
@@ -305,6 +557,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d92b253_1bb16c25",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "It turns out that I was wrong about the path being used here to compute the file name in the output. In the case that we\u0027re operating on in memory data, the path is not used by any downstream code, so I opted to remove it.",
+      "parentUuid": "8c900d11_f27266d2",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 25
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fa7df80_b3022795",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49ea029b_a7372e03",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 52
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83a92b92_59487f59",
@@ -318,6 +618,30 @@
       "writtenOn": "2022-01-20T14:30:58Z",
       "side": 1,
       "message": "The comment should also say that the null-ness of memory is used as a determining factor of whether path_ should be opened and read.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 0
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a76f7a_d0b894dc",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-20T20:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83a92b92_59487f59",
       "range": {
         "startLine": 86,
         "startChar": 0,
