@@ -129,9 +129,11 @@ bool DumpSymbols::Read(const string& filename) {
   }
 
   input_pathname_ = filename;
+  from_disk_ = true;
 
   // Does this filename refer to a dSYM bundle?
   string contents_path = input_pathname_ + "/Contents/Resources/DWARF";
+  string object_filename;
   if (S_ISDIR(st.st_mode) &&
       access(contents_path.c_str(), F_OK) == 0) {
     // If there's one file under Contents/Resources/DWARF then use that,
@@ -148,21 +150,22 @@ bool DumpSymbols::Read(const string& filename) {
       return false;
     }
 
-    object_filename_ = entries[0];
+    object_filename = entries[0];
   } else {
-    object_filename_ = input_pathname_;
+    object_filename = input_pathname_;
   }
 
   // Read the file's contents into memory.
   bool read_ok = true;
   string error;
-  if (stat(object_filename_.c_str(), &st) != -1) {
-    FILE* f = fopen(object_filename_.c_str(), "rb");
+  scoped_array<uint8_t> contents;
+  off_t total = 0;
+  if (stat(object_filename.c_str(), &st) != -1) {
+    FILE* f = fopen(object_filename.c_str(), "rb");
     if (f) {
-      contents_.reset(new uint8_t[st.st_size]);
-      off_t total = 0;
+      contents.reset(new uint8_t[st.st_size]);
       while (total < st.st_size && !feof(f)) {
-        size_t read = fread(&contents_[0] + total, 1, st.st_size - total, f);
+        size_t read = fread(&contents[0] + total, 1, st.st_size - total, f);
         if (read == 0) {
           if (ferror(f)) {
             read_ok = false;
@@ -180,16 +183,23 @@ bool DumpSymbols::Read(const string& filename) {
 
   if (!read_ok) {
     fprintf(stderr, "Error reading object file: %s: %s\n",
-            object_filename_.c_str(),
+            object_filename.c_str(),
             error.c_str());
     return false;
   }
+  return ReadData(contents.release(), total, object_filename);
+}
+
+bool DumpSymbols::ReadData(uint8_t* contents, size_t size,
+                           const std::string& filename) {
+  contents_.reset(contents);
+  size_ = size;
+  object_filename_ = filename;
 
   // Get the list of object files present in the file.
   FatReader::Reporter fat_reporter(object_filename_);
   FatReader fat_reader(&fat_reporter);
-  if (!fat_reader.Read(&contents_[0],
-                       st.st_size)) {
+  if (!fat_reader.Read(contents_.get(), size)) {
     return false;
   }
 
@@ -283,7 +293,13 @@ SuperFatArch* DumpSymbols::FindBestMatchForArchitecture(
 }
 
 string DumpSymbols::Identifier() {
-  FileID file_id(object_filename_.c_str());
+  scoped_ptr<FileID> file_id;
+
+  if (from_disk_) {
+    file_id.reset(new FileID(object_filename_.c_str()));
+  } else {
+    file_id.reset(new FileID(contents_.get(), size_));
+  }
   unsigned char identifier_bytes[16];
   scoped_ptr<Module> module;
   if (!selected_object_file_) {
@@ -292,7 +308,7 @@ string DumpSymbols::Identifier() {
   }
   cpu_type_t cpu_type = selected_object_file_->cputype;
   cpu_subtype_t cpu_subtype = selected_object_file_->cpusubtype;
-  if (!file_id.MachoIdentifier(cpu_type, cpu_subtype, identifier_bytes)) {
+  if (!file_id->MachoIdentifier(cpu_type, cpu_subtype, identifier_bytes)) {
     fprintf(stderr, "Unable to calculate UUID of mach-o binary %s!\n",
             object_filename_.c_str());
     return "";
