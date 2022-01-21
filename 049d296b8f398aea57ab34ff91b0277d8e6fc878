@@ -561,6 +561,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e45ab63_4b2f9392",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-21T18:15:06Z",
+      "side": 1,
+      "message": "We\u0027re planning to use this code in a non macOS backend (borg). Internally, we already have a build target for the dump_syms cli designed to extract symbol information from mac binaries while running on a linux workstation.",
+      "parentUuid": "e745ac56_8e47ec1f",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 72
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49ea029b_a7372e03",
         "filename": "src/common/mac/file_id.h",
         "patchSetId": 3
