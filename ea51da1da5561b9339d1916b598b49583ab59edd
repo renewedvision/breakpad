@@ -219,6 +219,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42acbcab_11e36137",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T20:01:51Z",
+      "side": 1,
+      "message": "\u003e Is making it a documented limitation acceptable for now, and we can include a functional implementation for the in memory case in the planned follow up?\n\nYes, but please include the assertion. When we get to the mmap thing, we want this to crash loudly if it’s used, rather than silently changing behavior from the intended.\n\n\u003e Is a //TODO: appropriate here? I did try a test program and open(nullptr, O_RDONLY) returns -1, so it shouldn\u0027t crash.\n\nRight, that’s the problem, because we do want a crash. A TODO is fine, but it’s not enough.",
+      "parentUuid": "c6d3e063_31f93ceb",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab21f1e7_f83553c3",
         "filename": "src/common/mac/file_id.cc",
         "patchSetId": 4
@@ -248,6 +266,24 @@
       "side": 1,
       "message": "I also noticed that MachoID::IDCommand is unused, however it does appear in the header. If someone has decided to use the class outside of breakpad, like I have with DumpSymbols, removing it would break their build. Is that a concern? In general, I would prefer the healthier code option, but also don\u0027t want to break existing code that relies on it.\n\nIf the breakage is not a concern, FileID::FileIdentifier also appears unused, allowing it to be removed, and avoiding having to update it to support the in memory case.",
       "parentUuid": "ab21f1e7_f83553c3",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c52ecdd8_a191b3c3",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T20:01:51Z",
+      "side": 1,
+      "message": "\u003e I also noticed that MachoID::IDCommand is unused, however it does appear in the header. If someone has decided to use the class outside of breakpad, like I have with DumpSymbols, removing it would break their build. Is that a concern? In general, I would prefer the healthier code option, but also don\u0027t want to break existing code that relies on it.\n\nThis isn’t a concern. MachoID is Breakpad “guts”, nobody outside of Breakpad should be depending directly on it.\n\n\u003e If the breakage is not a concern, FileID::FileIdentifier also appears unused, allowing it to be removed, and avoiding having to update it to support the in memory case.\n\nGreat!",
+      "parentUuid": "8e4a4bfd_b5e1d6a7",
       "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
