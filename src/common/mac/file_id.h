@@ -36,12 +36,17 @@
 
 #include <limits.h>
 #include <mach/machine.h>
+#include <stddef.h>
 
 namespace google_breakpad {
 
 class FileID {
  public:
-  FileID(const char *path);
+  // Constructs a FileID given a path to a file
+  FileID(const char* path);
+
+  // Constructs a FileID given the contents of a file and its size.
+  FileID(void* memory, size_t size);
   ~FileID() {}
 
   // Load the identifier for the file path specified in the constructor into
@@ -74,6 +79,16 @@ class FileID {
  private:
   // Storage for the path specified
   char path_[PATH_MAX];
+
+  // Storage for contents of a file if this instance is used to operate on in
+  // memory file data rather than directly from a filesystem. If memory_ is
+  // null, the file represented by path_ will be opened/read. If memory_ is
+  // non-null, it is assumed to contain valid data, and no file operations will
+  // occur.
+  void* memory_;
+
+  // Size of memory_
+  size_t size_;
 };
 
 }  // namespace google_breakpad
