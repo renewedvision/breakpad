@@ -16,6 +16,143 @@
       "message": "pushed patchset 4 to hopefully address most outstanding feedback",
       "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4429b8d8_b55daf7b",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "At this layer, they’re called “fat files”—“universal binary” is an upper-layer, more marketing-oriented name. But here, you should use terminology consistent with the rest of what Breakpad uses.",
+      "range": {
+        "startLine": 78,
+        "startChar": 53,
+        "endLine": 78,
+        "endChar": 69
+      },
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "023fa0ed_6f048f2b",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "there will not be an attempt",
+      "range": {
+        "startLine": 80,
+        "startChar": 23,
+        "endLine": 80,
+        "endChar": 48
+      },
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "086f19bb_3523fcaf",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "We’d put this on the preceding line.",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "804f4657_f4e58e32",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "You don’t need to reach for memset, it’s valid to just write path_() in the initializer list. It’s more concise, less error-prone (no need to re-specify the size and keep in sync with the declaration), and functionally completely identical.",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb494d2f_8a3a3eb5",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "This function hasn’t been updated to deal with in-memory data, but the documentation doesn’t say anything about this case not working.\n\nShould this work? Should it be a documented limitation? If intentionally limited, is an assertion appropriate?",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab21f1e7_f83553c3",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "Aha! Here, we’ve spotted a difference between snprintf and strlcpy.\n\nMachoID is going to make a copy of the path parameter using the same sort of snprintf that is currently in this file (but that I’m saying should be changed to strlcpy):\n\n  snprintf(path_, sizeof(path_), \"%s\", path);\n\npath is now nullptr. snprintf’s behavior is unspecified in this case. On macOS, it’ll substitute the string \"(null)\". Is that what you intended? Is that what the rest of the program expects? Is that OK?\n\nYou may have made this change figuring that it’s safe as long as the result runs, and it did. Doesn’t make it right.\n\nstrclpy’s behavior is also unspecified for a null argument, but as you’d probably expect, it actually will crash, alerting you to the error if you tried to run the program. That’s better, because it gives you an opportunity to fix this correctly.\n\nAnd what is the correct fix? Unlike this FileID class, there is one case where MachoID does use path_, even when reading from memory: the LC_ID_DYLIB handling in IDCommand. So:\n - It seems that you do need to pass the filename through to MachoID (meaning that you need to carry it through FileID, even when it’s operating directly on memory) after all. But:\n  - MachoID::IDCommand appears to be unused throughout the codebase, so another option would be to remove it along with support code like IDWalkerCB. This would actually free you to eliminate the path argument from the in-memory form of the MachoID constructor altogether, so you wouldn’t need to answer questions here like “what should I pass as this argument?” The downside is that you’ll need to hunt down existing uses of the in-memory MachoID constructor and remove the unnecessary first parameter. Healthier code is more work.",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11fffc3b_70dd227a",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "opened",
+      "range": {
+        "startLine": 84,
+        "startChar": 49,
+        "endLine": 84,
+        "endChar": 53
+      },
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

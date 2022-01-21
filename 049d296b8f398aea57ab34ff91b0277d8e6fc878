@@ -323,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fe226c5_a8afdd00",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "\u003e It didn\u0027t feel right giving extra meaning to this member variable, so I opted instead for a new member variable with its explicit purpose indicating wether the contents had been read from disk or not. Its default value is false, and toggled to true when reading from disk. It can then be switched on without confusion later in the code.\n\nOK.",
+      "parentUuid": "4e98354d_f2d118cc",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 30
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9258069f_12aefba8",
@@ -501,6 +525,30 @@
       "side": 1,
       "message": "It looks like `strlcpy` is BSD specific? I don\u0027t see any platform agnostic uses in the existing breakpad source but I did find an implementation of `my_strlcpy` that also seems platform specific.\n https://chromium.googlesource.com/breakpad/breakpad/+/refs/heads/main/src/common/linux/linux_libc_support.h\n\nFWIW, the `snprintf` construct is used quite a bit throughout the breakpad source, but I\u0027m open to trying other options.",
       "parentUuid": "70ab32ee_bf5457e8",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 72
+      },
+      "revId": "049d296b8f398aea57ab34ff91b0277d8e6fc878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e745ac56_8e47ec1f",
+        "filename": "src/common/mac/file_id.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-21T15:55:29Z",
+      "side": 1,
+      "message": "\u003e It looks like `strlcpy` is BSD specific? I don\u0027t see any platform agnostic uses in the existing breakpad source but I did find an implementation of `my_strlcpy` that also seems platform specific.\n\u003e  https://chromium.googlesource.com/breakpad/breakpad/+/refs/heads/main/src/common/linux/linux_libc_support.h\n\nstrlcpy is a BSDism as I said, but this is macOS-only code, so it’s fine to do that here.",
+      "parentUuid": "737cf8b2_6c370329",
       "range": {
         "startLine": 46,
         "startChar": 29,
