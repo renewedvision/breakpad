@@ -237,6 +237,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e7dd649_a0e5e93a",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-24T17:22:43Z",
+      "side": 1,
+      "message": "I opted for removing the unused FileIdentifier function as mentioned in the comment regarding removing MachoID::IDCommand.",
+      "parentUuid": "42acbcab_11e36137",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab21f1e7_f83553c3",
         "filename": "src/common/mac/file_id.cc",
         "patchSetId": 4
@@ -284,6 +302,24 @@
       "side": 1,
       "message": "\u003e I also noticed that MachoID::IDCommand is unused, however it does appear in the header. If someone has decided to use the class outside of breakpad, like I have with DumpSymbols, removing it would break their build. Is that a concern? In general, I would prefer the healthier code option, but also don\u0027t want to break existing code that relies on it.\n\nThis isn’t a concern. MachoID is Breakpad “guts”, nobody outside of Breakpad should be depending directly on it.\n\n\u003e If the breakage is not a concern, FileID::FileIdentifier also appears unused, allowing it to be removed, and avoiding having to update it to support the in memory case.\n\nGreat!",
       "parentUuid": "8e4a4bfd_b5e1d6a7",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1839c32a_185acef5",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-24T17:22:43Z",
+      "side": 1,
+      "message": "I removed the path argument from the in-memory form of the MachoID constructor and the associated IDCommand and supporting code. Also updated the usages that previously passed a path argument.\n\nGiven that the breakage is not a concern, I also removed the unused Adler32 function and it\u0027s supporting code.",
+      "parentUuid": "c52ecdd8_a191b3c3",
       "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
