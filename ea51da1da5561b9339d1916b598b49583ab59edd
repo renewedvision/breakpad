@@ -253,6 +253,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26fdd1bc_4a32b7bd",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-25T21:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5e7dd649_a0e5e93a",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab21f1e7_f83553c3",
@@ -320,6 +338,24 @@
       "side": 1,
       "message": "I removed the path argument from the in-memory form of the MachoID constructor and the associated IDCommand and supporting code. Also updated the usages that previously passed a path argument.\n\nGiven that the breakage is not a concern, I also removed the unused Adler32 function and it\u0027s supporting code.",
       "parentUuid": "c52ecdd8_a191b3c3",
+      "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e90d1d6_08b823dd",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-25T21:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1839c32a_185acef5",
       "revId": "ea51da1da5561b9339d1916b598b49583ab59edd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

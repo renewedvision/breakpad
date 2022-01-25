@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ffc7b77_8fc34229",
+        "filename": "src/common/mac/macho_id.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-25T21:22:27Z",
+      "side": 0,
+      "message": "Thanks for all of the clean-up!",
+      "revId": "64b25d6653ad62cdd05c837afb56839d4dc60f5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

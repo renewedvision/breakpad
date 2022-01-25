@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a7b1953_7344d040",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-25T21:22:27Z",
+      "side": 1,
+      "message": "LGTM with these two small changes.",
+      "revId": "17a2e07218f8082601f4ec9b2efcbd5ed5ccb121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ebd8c3d_987661fb",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-25T21:22:27Z",
+      "side": 1,
+      "message": "There ought to be no reason to hold this in a member variable now. You can have it be a local variable in the one function that uses it.",
+      "revId": "17a2e07218f8082601f4ec9b2efcbd5ed5ccb121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b445b146_3f8e52a0",
+        "filename": "src/common/mac/file_id.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-01-25T21:22:27Z",
+      "side": 1,
+      "message": "Should be on two lines as it was before.",
+      "revId": "17a2e07218f8082601f4ec9b2efcbd5ed5ccb121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
