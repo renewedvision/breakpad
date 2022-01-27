@@ -63,6 +63,7 @@
 #endif
 
 using namespace google_breakpad;
+using google_breakpad::elf::FileID;
 
 namespace {
 
