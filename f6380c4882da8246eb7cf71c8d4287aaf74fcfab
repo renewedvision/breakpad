@@ -16,6 +16,41 @@
       "message": "LGTM.\n\nSince we don’t have any sort of CI here, can you just say a few words about which configurations you tested?",
       "revId": "f6380c4882da8246eb7cf71c8d4287aaf74fcfab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f483bdd_75930616",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-28T17:07:21Z",
+      "side": 1,
+      "message": "I\u0027ve run `make clean check` from my macbook on macOS 12.1 and also from my linux workstation which is an internal Google distro. In both cases I ran the checks using revision 92a20b650400d110bf14378195e1346c7b0635de, which is before my last two CLs, and then compared the test results to a run including my recent/latest changes. There are a few test failures in both cases, but there are no NEW test failures since 92a20b650400d110bf14378195e1346c7b0635de that I\u0027m aware of.",
+      "parentUuid": "15273bd4_35b07d8f",
+      "revId": "f6380c4882da8246eb7cf71c8d4287aaf74fcfab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0899652_327216dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-01-28T17:07:21Z",
+      "side": 1,
+      "message": "Updated to include information about what was tested. Thanks!",
+      "revId": "f6380c4882da8246eb7cf71c8d4287aaf74fcfab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
