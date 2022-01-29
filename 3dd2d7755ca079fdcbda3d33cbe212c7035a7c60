@@ -16,6 +16,29 @@
       "message": "This fixes b/216638964. ",
       "revId": "3dd2d7755ca079fdcbda3d33cbe212c7035a7c60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "716df3f5_ff4caa0c",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-01-29T00:43:05Z",
+      "side": 1,
+      "message": "I think even just evaluating this causes undefined behavior for an empty map.",
+      "range": {
+        "startLine": 346,
+        "startChar": 6,
+        "endLine": 346,
+        "endChar": 13
+      },
+      "revId": "3dd2d7755ca079fdcbda3d33cbe212c7035a7c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
