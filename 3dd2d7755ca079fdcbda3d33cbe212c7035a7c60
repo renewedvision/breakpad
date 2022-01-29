@@ -39,6 +39,30 @@
       },
       "revId": "3dd2d7755ca079fdcbda3d33cbe212c7035a7c60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06db5fb_77f47eee",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2022-01-29T00:49:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "716df3f5_ff4caa0c",
+      "range": {
+        "startLine": 346,
+        "startChar": 6,
+        "endLine": 346,
+        "endChar": 13
+      },
+      "revId": "3dd2d7755ca079fdcbda3d33cbe212c7035a7c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
