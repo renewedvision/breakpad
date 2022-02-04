@@ -16,6 +16,57 @@
       "message": "LGTM but adding Mark to approve of the Objective C code since I\u0027m not very familiar.",
       "revId": "85bed10046cf9507f3608d065fc843ed9730689c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b790ccaa_0ea0d3cd",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-02-04T19:48:11Z",
+      "side": 1,
+      "message": "1. Can you build up a single dictionary like this one, substituting NSMutableDictionary for NSDictionary, and then add the metadata dictionary to it if you have a product name?\n\n2. Can you use the much nicer form?:\n\n  NSMutableDictionary* jsonDictionary \u003d [@{@\"symbol_id\": symbolIdDictionary, @\"symbol_upload_type\": type} mutableCopy];\n\nFeel free to do the same with symbolIdDictionary above (doesn’t need to be mutable), or even better, just write the whole thing here:\n\n  NSMutableDictionary* jsonDictionary \u003d [@{@\"symbol_id\": @{@\"debug_file\": debugFile, @\"debug_id\": debugId}, @\"symbol_upload_type\": type} mutableCopy];",
+      "revId": "85bed10046cf9507f3608d065fc843ed9730689c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "191cb1a3_d27aae5a",
+        "filename": "src/tools/mac/symupload/symupload.mm",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-02-04T19:48:11Z",
+      "side": 1,
+      "message": "Can you get rid of this useless semicolon and the one on line 375 while you’re in here?",
+      "revId": "85bed10046cf9507f3608d065fc843ed9730689c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e894504d_c5c77e25",
+        "filename": "src/tools/mac/symupload/symupload.mm",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-02-04T19:48:11Z",
+      "side": 1,
+      "message": "Observe the 80-column limit (look at the code above which is nearly identical).",
+      "revId": "85bed10046cf9507f3608d065fc843ed9730689c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
