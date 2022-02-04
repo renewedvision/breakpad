@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d14be33_9f09fe5b",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1533962
+      },
+      "writtenOn": "2022-02-04T20:29:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b790ccaa_0ea0d3cd",
+      "revId": "85bed10046cf9507f3608d065fc843ed9730689c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "191cb1a3_d27aae5a",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e040f7_e7779d5b",
+        "filename": "src/tools/mac/symupload/symupload.mm",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1533962
+      },
+      "writtenOn": "2022-02-04T20:29:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "191cb1a3_d27aae5a",
+      "revId": "85bed10046cf9507f3608d065fc843ed9730689c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e894504d_c5c77e25",
@@ -65,6 +101,24 @@
       "writtenOn": "2022-02-04T19:48:11Z",
       "side": 1,
       "message": "Observe the 80-column limit (look at the code above which is nearly identical).",
+      "revId": "85bed10046cf9507f3608d065fc843ed9730689c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43793dc8_6bc88d5a",
+        "filename": "src/tools/mac/symupload/symupload.mm",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1533962
+      },
+      "writtenOn": "2022-02-04T20:29:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e894504d_c5c77e25",
       "revId": "85bed10046cf9507f3608d065fc843ed9730689c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
