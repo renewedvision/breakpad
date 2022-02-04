@@ -73,6 +73,7 @@ typedef struct {
   NSString* type;
   NSString* codeFile;
   NSString* debugID;
+  NSString* productName;
 } Options;
 
 //=============================================================================
@@ -212,7 +213,8 @@ static void StartSymUploadProtocolV2(Options* options,
                                       withUploadKey:[URLResponse uploadKey]
                                       withDebugFile:debugFile
                                         withDebugID:debugID
-                                           withType:options->type];
+                                           withType:options->type
+                                    withProductName:options->productName];
   [URLResponse release];
   if (completeUploadResult == CompleteUploadResultError) {
     fprintf(stdout, "Failed to complete upload.\n");
@@ -283,6 +285,8 @@ static void Usage(int argc, const char* argv[]) {
                   "upload (typically build ID of executable). The debug-id for "
                   "symbol-types 'dsym' and 'macho' will be determined "
                   "automatically. \n");
+  fprintf(stderr, "-n:\t <product-name> Optionally set 'product_name' for "
+                  "symbol upload\n");
   fprintf(stderr, "\t-h: Usage\n");
   fprintf(stderr, "\t-?: Usage\n");
   fprintf(stderr, "\n");
@@ -329,11 +333,12 @@ static void SetupOptions(int argc, const char* argv[], Options* options) {
   options->codeFile = nil;
   options->debugID = nil;
   options->force = NO;
+  options->productName = nil;
 
   extern int optind;
   int ch;
 
-  while ((ch = getopt(argc, (char* const*)argv, "p:k:t:c:i:hf?")) != -1) {
+  while ((ch = getopt(argc, (char* const*)argv, "p:k:t:c:i:n:hf?")) != -1) {
     switch (ch) {
       case 'p':
         if (strcmp(optarg, "sym-upload-v2") == 0) {
@@ -362,12 +367,15 @@ static void SetupOptions(int argc, const char* argv[], Options* options) {
       case 'c':
         options->codeFile = [NSString stringWithCString:optarg
                                                encoding:NSASCIIStringEncoding];
-        ;
         break;
       case 'i':
         options->debugID = [NSString stringWithCString:optarg
                                               encoding:NSASCIIStringEncoding];
-        ;
+        break;
+      case 'n':
+        options->productName =
+            [NSString stringWithCString:optarg
+                               encoding:NSASCIIStringEncoding];
         break;
       case 'f':
         options->force = YES;
