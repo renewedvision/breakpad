@@ -16,6 +16,24 @@
       "message": "Again:\n\n  jsonDictionary[@\"metadata\"] \u003d @{@\"product_name\": productName};",
       "revId": "18dbe7e48c125fe1366b858ad3ec654ffd888b0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81da07ef_f986ebe7",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1533962
+      },
+      "writtenOn": "2022-02-04T22:27:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc2407e4_2aebdb9d",
+      "revId": "18dbe7e48c125fe1366b858ad3ec654ffd888b0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
