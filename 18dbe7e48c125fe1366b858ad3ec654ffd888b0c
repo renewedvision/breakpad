@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc2407e4_2aebdb9d",
+        "filename": "src/common/mac/SymbolCollectorClient.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-02-04T20:50:19Z",
+      "side": 1,
+      "message": "Again:\n\n  jsonDictionary[@\"metadata\"] \u003d @{@\"product_name\": productName};",
+      "revId": "18dbe7e48c125fe1366b858ad3ec654ffd888b0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
