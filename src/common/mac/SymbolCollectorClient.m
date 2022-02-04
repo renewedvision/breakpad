@@ -190,7 +190,8 @@
                                  withUploadKey:(NSString*)uploadKey
                                  withDebugFile:(NSString*)debugFile
                                    withDebugID:(NSString*)debugID
-                                      withType:(NSString*)type {
+                                      withType:(NSString*)type
+                               withProductName:(NSString*)productName {
   NSURL* URL = [NSURL
       URLWithString:[NSString
                         stringWithFormat:@"%@/v1/uploads/%@:complete?key=%@",
@@ -199,9 +200,18 @@
   NSDictionary* symbolIdDictionary =
       [NSDictionary dictionaryWithObjectsAndKeys:debugFile, @"debug_file",
                                                  debugID, @"debug_id", nil];
-  NSDictionary* jsonDictionary = [NSDictionary
-      dictionaryWithObjectsAndKeys:symbolIdDictionary, @"symbol_id", type,
-                                   @"symbol_upload_type", nil];
+  NSMutableDictionary* jsonDictionary = [@{@"symbol_id": @{@"debug_file": debugFile, @"debug_id": debugId}, @"symbol_upload_type": type} mutableCopy];
+  if (productName != nil) {
+    NSDictionary* metadataDictionary =
+        [NSDictionary dictionaryWithObjectsAndKeys:productName, @"product_name", nil];
+    jsonDictionary = [NSDictionary
+        dictionaryWithObjectsAndKeys:symbolIdDictionary, @"symbol_id", type, @"symbol_upload_type",
+                                     metadataDictionary, @"metadata", nil];
+  } else {
+    jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:symbolIdDictionary, @"symbol_id",
+                                                                type, @"symbol_upload_type", nil];
+  }
+  
   NSError* error = nil;
   NSData* jsonData =
       [NSJSONSerialization dataWithJSONObject:jsonDictionary
