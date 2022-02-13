@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a02e560d_bd2efa13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525627
+      },
+      "writtenOn": "2022-02-13T01:36:08Z",
+      "side": 1,
+      "message": "Related: https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3438886",
+      "revId": "2eab26775749fd141b4d4ec3012e0d734304ab2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
