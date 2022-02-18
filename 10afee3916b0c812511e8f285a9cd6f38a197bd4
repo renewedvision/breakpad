@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78c2eb54_b4a2b957",
+        "filename": "src/tools/windows/dump_syms/dump_syms.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-02-18T23:00:14Z",
+      "side": 1,
+      "message": "For all platforms:\n\nThis should have been -i or --inline. Short (one-letter) options have one dash, long (wordy) ones have two dashes.\n\nThese should be turned into --inline, and for temporary backwards compatibility with the scripts that drive this that are currently using --i, you can tolerate --i for the time being, but the goal should be to deprecate it.",
+      "revId": "10afee3916b0c812511e8f285a9cd6f38a197bd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
