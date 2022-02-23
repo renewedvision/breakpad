@@ -33,6 +33,24 @@
       "message": "The existing Markdown is broken: https://chromium.googlesource.com/breakpad/breakpad/+/34af6bcff113f26e0a27eb98f1b86228b5870844/docs/symbol_files.md#records-1\n\nBut the preview with this CL looks the same here: https://chromium.googlesource.com/breakpad/breakpad/+/9860c0c8bada99fec430209fc063a723d9eb61ef/docs/symbol_files.md#records-1",
       "revId": "9860c0c8bada99fec430209fc063a723d9eb61ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "902aaa77_f5dc9dac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1177266
+      },
+      "writtenOn": "2022-02-23T21:40:59Z",
+      "side": 1,
+      "message": "Ah it worked in my vscode preview so I assumed it worked on gitiles too. Adding newlines seems to have fixed it now. Thanks a lot for checking (also I didn\u0027t realize you could preview gitiles, very neat.)",
+      "parentUuid": "dfcfcb01_ca84de25",
+      "revId": "9860c0c8bada99fec430209fc063a723d9eb61ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
