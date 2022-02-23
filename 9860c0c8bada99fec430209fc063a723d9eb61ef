@@ -16,6 +16,23 @@
       "message": "Noticed the formatting was broken in https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/symbol_files.md. PTAL, thanks!",
       "revId": "9860c0c8bada99fec430209fc063a723d9eb61ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfcfcb01_ca84de25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-02-23T21:06:33Z",
+      "side": 1,
+      "message": "The existing Markdown is broken: https://chromium.googlesource.com/breakpad/breakpad/+/34af6bcff113f26e0a27eb98f1b86228b5870844/docs/symbol_files.md#records-1\n\nBut the preview with this CL looks the same here: https://chromium.googlesource.com/breakpad/breakpad/+/9860c0c8bada99fec430209fc063a723d9eb61ef/docs/symbol_files.md#records-1",
+      "revId": "9860c0c8bada99fec430209fc063a723d9eb61ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
