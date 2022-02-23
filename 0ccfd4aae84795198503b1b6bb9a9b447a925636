@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09f208d9_f24e0249",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-02-23T21:50:16Z",
+      "side": 1,
+      "message": "There\u0027s no CQ, so I think this requires a manual submission. Let me know if you are missing permissions.",
+      "revId": "0ccfd4aae84795198503b1b6bb9a9b447a925636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
