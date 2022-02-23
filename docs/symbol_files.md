@@ -396,14 +396,14 @@ func+22:     pc = *sp; sp += 4       ; pop return address and jump to it
 
 The following table would describe the function above:
 
-**code address** | **.cfa** | **r0 (on Google Code)** | **r1 (on Google Code)** | ... | **.ra**
-:--------------- | :------- | :---------------------- | :---------------------- | :-- | :-------
-func+0           | sp       |                         |                         |     | `cfa[0]`
-func+1           | sp+16    |                         |                         |     | `cfa[0]`
-func+2           | sp+16    | `cfa[-4]`               |                         |     | `cfa[0]`
-func+11          | sp+20    | `cfa[-4]`               |                         |     | `cfa[0]`
-func+21          | sp+20    |                         |                         |     | `cfa[0]`
-func+22          | sp       |                         |                         |     | `cfa[0]`
+| **code address** | **.cfa** | **r0 (on Google Code)** | **r1 (on Google Code)** | ... | **.ra**  |
+|:----------------|:--------|:-----------------------|:-----------------------|:---|:--------|
+| func+0           | sp       |                         |                         |     | `cfa[0]` |
+| func+1           | sp+16    |                         |                         |     | `cfa[0]` |
+| func+2           | sp+16    | `cfa[-4]`               |                         |     | `cfa[0]` |
+| func+11          | sp+20    | `cfa[-4]`               |                         |     | `cfa[0]` |
+| func+21          | sp+20    |                         |                         |     | `cfa[0]` |
+| func+22          | sp       |                         |                         |     | `cfa[0]` |
 
 Some things to note here:
 
