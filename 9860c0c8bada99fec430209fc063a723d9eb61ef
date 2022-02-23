@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7862456d_9edaa380",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1177266
+      },
+      "writtenOn": "2022-02-23T20:58:50Z",
+      "side": 1,
+      "message": "Noticed the formatting was broken in https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/symbol_files.md. PTAL, thanks!",
+      "revId": "9860c0c8bada99fec430209fc063a723d9eb61ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
