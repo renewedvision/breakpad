@@ -16,6 +16,24 @@
       "message": "Not sure if we should add description about the old INLINE/INLINE_ORIGIN formats.",
       "revId": "c2127fb2d5e1a292e7e916977b32062ad0a26dbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79cfe058_c2277b88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-02-24T22:36:28Z",
+      "side": 1,
+      "message": "I think just describing the current format is fine.",
+      "parentUuid": "dfb8d764_4aad5c4f",
+      "revId": "c2127fb2d5e1a292e7e916977b32062ad0a26dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
