@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "137dc828_3a34ea85",
+        "filename": "docs/symbol_files.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1177266
+      },
+      "writtenOn": "2022-03-02T16:23:05Z",
+      "side": 0,
+      "message": "Can we add INLINE + INLINE_ORIGIN in this list?",
+      "revId": "622a582fa684085811bd34d58494792446b7c98b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
