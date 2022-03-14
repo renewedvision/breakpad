@@ -39,6 +39,30 @@
       },
       "revId": "c8b2005d70fd93f7348460ba50322417b54af214",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2a5e2db_23ae6a41",
+        "filename": "docs/symbol_files.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2022-03-14T22:46:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcfa9b05_3dbbccc7",
+      "range": {
+        "startLine": 36,
+        "startChar": 80,
+        "endLine": 36,
+        "endChar": 81
+      },
+      "revId": "c8b2005d70fd93f7348460ba50322417b54af214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
