@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "843fadfd_7c709e68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001921
+      },
+      "writtenOn": "2022-03-29T22:27:51Z",
+      "side": 1,
+      "message": "Looks like I don\u0027t have trybot permissions in this repo, so could you please land this?",
+      "revId": "6d435dd7861249f7526e1b6b626d08e458b47fb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
