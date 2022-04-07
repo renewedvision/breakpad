@@ -413,6 +413,10 @@ bool DumpSymbols::CreateEmptyModule(scoped_ptr<Module>& module) {
       google_breakpad::BreakpadGetArchInfoFromCpuType(
           selected_object_file_->cputype, selected_object_file_->cpusubtype);
 
+  if (selected_arch_info == NULL) {
+    return false;
+  }
+
   const char* selected_arch_name = selected_arch_info->name;
   if (strcmp(selected_arch_name, "i386") == 0)
     selected_arch_name = "x86";
