@@ -22,6 +22,30 @@
       },
       "revId": "6393829a8e061fafdbb134d35d9cec50e6087bbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08666e4e_6e43b4d1",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1529482
+      },
+      "writtenOn": "2022-04-08T14:48:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61c5b0a8_1a369101",
+      "range": {
+        "startLine": 416,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 35
+      },
+      "revId": "6393829a8e061fafdbb134d35d9cec50e6087bbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
