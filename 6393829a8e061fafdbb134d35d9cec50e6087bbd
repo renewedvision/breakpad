@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c5b0a8_1a369101",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2022-04-08T00:06:19Z",
+      "side": 1,
+      "message": "I would suggest adding the comment from the CL description in a code comment above this line: \"In certain\ncases, it is possible that architecture info can\u0027t be reliably\ndetermined, e.g. new architectures that breakpad is unware of. In that\ncase, dump_syms should avoid crashing when calling ReadSymbolData and\nreturn false instead.\"",
+      "range": {
+        "startLine": 416,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 35
+      },
+      "revId": "6393829a8e061fafdbb134d35d9cec50e6087bbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
