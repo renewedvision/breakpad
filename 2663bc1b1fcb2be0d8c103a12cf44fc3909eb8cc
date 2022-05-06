@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11ae2732_75d4d80b",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-05-06T21:52:06Z",
+      "side": 1,
+      "message": "Though you might not be using that way, this code sometimes runs in a signal handler context so it should only do async-signal-safe things. This precludes using standard library classes like std::string because they may interact with memory allocators which isn\u0027t async-signal-safe. Use char* instead.",
+      "range": {
+        "startLine": 628,
+        "startChar": 31,
+        "endLine": 628,
+        "endChar": 42
+      },
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3db24cb3_086e1f21",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-05-06T21:52:06Z",
+      "side": 1,
+      "message": "Rather than reading the module from the file, can you get the information you need by reading the module image directly from memory (or in this case, the core file)? That would avoid mixups where the dll you\u0027re reading from the filesystem has been updated since this crash occurred as well as avoiding needing to open another file descriptor.",
+      "range": {
+        "startLine": 634,
+        "startChar": 18,
+        "endLine": 634,
+        "endChar": 40
+      },
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db092c2_0f5316d2",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-05-06T21:52:06Z",
+      "side": 1,
+      "message": "Similar to std::string, this isn\u0027t async-signal-safe. Instead use plain file descriptors with sys_read() and sys_write().",
+      "range": {
+        "startLine": 634,
+        "startChar": 4,
+        "endLine": 634,
+        "endChar": 17
+      },
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3ad75d9_e9ee8793",
         "filename": "src/client/linux/minidump_writer/pe_file.h",
         "patchSetId": 1
@@ -48,6 +117,29 @@
       "writtenOn": "2022-05-06T09:55:22Z",
       "side": 1,
       "message": "I think this should be `sizeof(TStruct)` instead of `size`.",
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "287a916b_c68bbfb4",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-05-06T21:52:06Z",
+      "side": 1,
+      "message": "Breakpad provides some utilities for allocating memory in a signal handler: https://source.chromium.org/chromium/chromium/src/+/main:third_party/breakpad/breakpad/src/common/memory_allocator.h;l\u003d60;drc\u003db4b29e96cfc3bfcba484f83cb8f7bc25c023a874;bpv\u003d0;bpt\u003d1\n\nBut it\u0027d be better to avoid allocating any memory at all.",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 13
+      },
       "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
