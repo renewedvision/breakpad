@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9de3de91_c2dc61ef",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-10T13:32:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11ae2732_75d4d80b",
+      "range": {
+        "startLine": 628,
+        "startChar": 31,
+        "endLine": 628,
+        "endChar": 42
+      },
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3db24cb3_086e1f21",
@@ -70,6 +94,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "961429bd_536cada3",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-10T13:32:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3db24cb3_086e1f21",
+      "range": {
+        "startLine": 634,
+        "startChar": 18,
+        "endLine": 634,
+        "endChar": 40
+      },
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2bf401_09a8441e",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-10T13:32:37Z",
+      "side": 1,
+      "message": "I\u0027ve switched to MemoryMappedFile (it\u0027s used also in the ELF-processing branch).",
+      "parentUuid": "7db092c2_0f5316d2",
+      "range": {
+        "startLine": 634,
+        "startChar": 4,
+        "endLine": 634,
+        "endChar": 17
+      },
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3ad75d9_e9ee8793",
@@ -83,6 +155,24 @@
       "writtenOn": "2022-05-06T09:55:22Z",
       "side": 1,
       "message": "Nit: You might consider replacing the two bool return values with an enum. It is really hard to figure out what combination of return value and *pe are allowed and what they mean.",
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da000928_59690796",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-10T13:32:37Z",
+      "side": 1,
+      "message": "Introduced PEFileFormat enum (not PE, PE with no BuildId, PE with BuildId)",
+      "parentUuid": "d3ad75d9_e9ee8793",
       "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -117,6 +207,24 @@
       "writtenOn": "2022-05-06T09:55:22Z",
       "side": 1,
       "message": "I think this should be `sizeof(TStruct)` instead of `size`.",
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0107257d_e1d48b75",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-10T13:32:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "391389b7_ccb8f0a1",
       "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
