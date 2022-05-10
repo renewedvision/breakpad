@@ -194,6 +194,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36f997b1_3edd3a56",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-10T13:40:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9437757b_153e1ec8",
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "391389b7_ccb8f0a1",
@@ -242,6 +260,30 @@
       "writtenOn": "2022-05-06T21:52:06Z",
       "side": 1,
       "message": "Breakpad provides some utilities for allocating memory in a signal handler: https://source.chromium.org/chromium/chromium/src/+/main:third_party/breakpad/breakpad/src/common/memory_allocator.h;l\u003d60;drc\u003db4b29e96cfc3bfcba484f83cb8f7bc25c023a874;bpv\u003d0;bpt\u003d1\n\nBut it\u0027d be better to avoid allocating any memory at all.",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 13
+      },
+      "revId": "2663bc1b1fcb2be0d8c103a12cf44fc3909eb8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5fd77a_207e01fd",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-10T13:40:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "287a916b_c68bbfb4",
       "range": {
         "startLine": 186,
         "startChar": 2,
