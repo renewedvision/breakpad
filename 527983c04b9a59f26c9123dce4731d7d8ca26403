@@ -561,6 +561,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d04393f7_766bc0cb",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T19:40:39Z",
+      "side": 1,
+      "message": "I\u0027ve copied the struct declarations from Windows API and would like to avoid changing them :) (x32 and x64 have different field types for part of the fields)",
+      "parentUuid": "640ecb9d_91684d02",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 69
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6db777a_d36a8a7b",
