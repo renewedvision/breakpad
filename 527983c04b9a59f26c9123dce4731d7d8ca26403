@@ -77,6 +77,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9ae8d25e_38844575",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T07:32:35Z",
+      "side": 1,
+      "message": "from the module, when trying to figure out if it is a PE, I can say only if it is a PE module, if it has BuildId set, and another option is \"not PE\". It might happen that it\u0027s still not ELF and the check for ELF validity happens in different place.",
+      "parentUuid": "a365d1cc_de2e5169",
+      "range": {
+        "startLine": 651,
+        "startChar": 20,
+        "endLine": 651,
+        "endChar": 46
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8d23b75d_dd48e37c",
         "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
         "patchSetId": 3
@@ -111,6 +135,30 @@
       "writtenOn": "2022-05-11T07:09:56Z",
       "side": 1,
       "message": "Does BuildId have a variable size?",
+      "range": {
+        "startLine": 652,
+        "startChar": 36,
+        "endLine": 652,
+        "endChar": 55
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ee62f8_35fd48f0",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T07:32:35Z",
+      "side": 1,
+      "message": "yep, in ELF there are multilple formats possible",
+      "parentUuid": "defcc83f_9a928034",
       "range": {
         "startLine": 652,
         "startChar": 36,
@@ -157,6 +205,30 @@
       "writtenOn": "2022-05-11T07:09:56Z",
       "side": 1,
       "message": "Nit: I do not think you need it.",
+      "range": {
+        "startLine": 675,
+        "startChar": 8,
+        "endLine": 675,
+        "endChar": 14
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf9cae2d_a7c43614",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T07:32:35Z",
+      "side": 1,
+      "message": "this part is not changed from the original version. I\u0027ve just moved the code a bit to fit in the PE processing",
+      "parentUuid": "bf244de3_cfec92aa",
       "range": {
         "startLine": 675,
         "startChar": 8,
