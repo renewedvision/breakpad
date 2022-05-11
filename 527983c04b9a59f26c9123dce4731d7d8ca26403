@@ -373,6 +373,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1424f2e1_d00349a2",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T08:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27bffc8e_e2d4a66a",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0014224_57cf6a88",
@@ -396,6 +420,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "954ece59_841f9621",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T08:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0014224_57cf6a88",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "781b5719_0341a211",
@@ -409,6 +457,30 @@
       "writtenOn": "2022-05-11T07:09:56Z",
       "side": 1,
       "message": "Nit: x64?",
+      "range": {
+        "startLine": 83,
+        "startChar": 49,
+        "endLine": 83,
+        "endChar": 52
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e28db646_845c34ac",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T08:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "781b5719_0341a211",
       "range": {
         "startLine": 83,
         "startChar": 49,
@@ -506,6 +578,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7efd1f3b_d8dea461",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T08:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6db777a_d36a8a7b",
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c1d0cf7_3d4be158",
@@ -529,6 +619,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09546024_4015ca8e",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T08:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c1d0cf7_3d4be158",
+      "range": {
+        "startLine": 187,
+        "startChar": 11,
+        "endLine": 187,
+        "endChar": 31
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ce1d58f_31082493",
@@ -542,6 +656,30 @@
       "writtenOn": "2022-05-11T07:09:56Z",
       "side": 1,
       "message": "Nit: sort? from 8 to 64",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a7d31e_2d9b2b10",
+        "filename": "src/client/linux/minidump_writer/pe_structs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T08:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ce1d58f_31082493",
       "range": {
         "startLine": 35,
         "startChar": 0,
