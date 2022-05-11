@@ -18,6 +18,172 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4aa4bf0_0a950cd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Hi Iryna, thank you for the change.\nJust a few nits-like from my side.",
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a365d1cc_de2e5169",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Nit: Isn\u0027t there enum for elf file?\nBackground: this is a negative condition and we should avoid them. I have already mixed up two times, where elf should be and not 😄\n\nLater: reviewed completely and have seen that there is no elf enum.",
+      "range": {
+        "startLine": 651,
+        "startChar": 20,
+        "endLine": 651,
+        "endChar": 46
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53c1783f_3bf97a66",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Nit: you could have two functions just to make it easier to read:\n```\nif (file_format \u003d\u003d PEFileFormat::notPeCoff) {\n   ParseElf();\n}\nelse {\n   ParsePeCoff();\n}\n```",
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d23b75d_dd48e37c",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "nice name 👍",
+      "range": {
+        "startLine": 652,
+        "startChar": 6,
+        "endLine": 652,
+        "endChar": 26
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "defcc83f_9a928034",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Does BuildId have a variable size?",
+      "range": {
+        "startLine": 652,
+        "startChar": 36,
+        "endLine": 652,
+        "endChar": 55
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c13cc5f_3d668e85",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "As I do not see the definition of this one: how big is it? Does it consider the complete  length or just a part of guid?",
+      "range": {
+        "startLine": 658,
+        "startChar": 52,
+        "endLine": 658,
+        "endChar": 58
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf244de3_cfec92aa",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Nit: I do not think you need it.",
+      "range": {
+        "startLine": 675,
+        "startChar": 8,
+        "endLine": 675,
+        "endChar": 14
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44d56170_f5965d1b",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "I am not familiar with untypedMDRVA, but wouldn\u0027t the cursor (cv.position()) be already moved to the end after the line above?",
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4dc759b_3fe22dbb",
@@ -114,6 +280,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27bffc8e_e2d4a66a",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "formatting",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0014224_57cf6a88",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "can be removed",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "781b5719_0341a211",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Nit: x64?",
+      "range": {
+        "startLine": 83,
+        "startChar": 49,
+        "endLine": 83,
+        "endChar": 52
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3cfa9fb4_4bea8510",
         "filename": "src/client/linux/minidump_writer/pe_file.h",
         "patchSetId": 3
@@ -154,6 +389,92 @@
         "startChar": 4,
         "endLine": 92,
         "endChar": 43
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "640ecb9d_91684d02",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Seems to be a reusable code here and below.\nWould it make sense to create a small helper function for it and just reuse for x32 and x64?",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 69
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6db777a_d36a8a7b",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "It could be moved 1 line up, directly after section is created.",
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c1d0cf7_3d4be158",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "range": {
+        "startLine": 187,
+        "startChar": 11,
+        "endLine": 187,
+        "endChar": 31
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ce1d58f_31082493",
+        "filename": "src/client/linux/minidump_writer/pe_structs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1466583
+      },
+      "writtenOn": "2022-05-11T07:09:56Z",
+      "side": 1,
+      "message": "Nit: sort? from 8 to 64",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 27
       },
       "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
