@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b88ca631_20f4bbbe",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-05-11T23:50:40Z",
+      "side": 1,
+      "message": "o",
+      "range": {
+        "startLine": 683,
+        "startChar": 53,
+        "endLine": 683,
+        "endChar": 54
+      },
+      "revId": "d928688c52cf37ee8ab09bdfbfbbdb4d4f2f279d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e97ab8_b35853ca",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-05-11T23:50:40Z",
+      "side": 1,
+      "message": "This is a lot of code for a header file.",
+      "revId": "d928688c52cf37ee8ab09bdfbfbbdb4d4f2f279d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d844a56d_0355a6eb",
+        "filename": "src/client/linux/minidump_writer/pe_structs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-05-11T23:50:40Z",
+      "side": 1,
+      "message": "add a blank line before and after this one",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "d928688c52cf37ee8ab09bdfbfbbdb4d4f2f279d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7e7b12_b3ed64a6",
+        "filename": "src/client/linux/minidump_writer/pe_structs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-05-11T23:50:40Z",
+      "side": 1,
+      "message": "blank line above this one",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 1
+      },
+      "revId": "d928688c52cf37ee8ab09bdfbfbbdb4d4f2f279d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
