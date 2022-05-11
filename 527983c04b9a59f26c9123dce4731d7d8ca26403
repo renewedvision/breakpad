@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c01dc8cc_78948e6c",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T06:50:39Z",
+      "side": 1,
+      "message": "yep, removed. I forgot about these includes, thank you",
+      "parentUuid": "c4dc759b_3fe22dbb",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3edabb8c_ab4b011e",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cfbbf21_a540bd34",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T06:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3edabb8c_ab4b011e",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 1
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cfa9fb4_4bea8510",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-05-11T06:26:51Z",
       "side": 1,
       "message": "I think it would be easier to follow the code if the \u0027return\u0027s would have explicit constant value. That means replacing all \u0027return result;\u0027 after this line (with the exception of line 163) with \u0027return PEFileFormat::peWithoutBuildId;\u0027, etc.\n\nWhat do you think?",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 43
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f562ef5_9e708ece",
+        "filename": "src/client/linux/minidump_writer/pe_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-11T06:50:39Z",
+      "side": 1,
+      "message": "done :) I was unsure about this, and considered both options",
+      "parentUuid": "3cfa9fb4_4bea8510",
       "range": {
         "startLine": 92,
         "startChar": 4,
