@@ -101,6 +101,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e7d5f85c_dc2f89d0",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-12T09:34:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "53c1783f_3bf97a66",
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8d23b75d_dd48e37c",
         "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
         "patchSetId": 3
@@ -192,6 +210,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30b67d36_ea1e63c5",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-12T09:34:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7c13cc5f_3d668e85",
+      "range": {
+        "startLine": 658,
+        "startChar": 52,
+        "endLine": 658,
+        "endChar": 58
+      },
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf244de3_cfec92aa",
@@ -252,6 +294,24 @@
       "writtenOn": "2022-05-11T07:09:56Z",
       "side": 1,
       "message": "I am not familiar with untypedMDRVA, but wouldn\u0027t the cursor (cv.position()) be already moved to the end after the line above?",
+      "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c034f00e_82a23529",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-05-12T09:34:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "44d56170_f5965d1b",
       "revId": "527983c04b9a59f26c9123dce4731d7d8ca26403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
