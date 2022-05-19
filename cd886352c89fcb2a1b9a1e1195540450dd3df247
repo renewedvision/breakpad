@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5380393e_ccc186d0",
+        "filename": "src/common/windows/sym_upload_v2_protocol.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2022-05-19T19:05:10Z",
+      "side": 1,
+      "message": "Maybe \"Sends\"?",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 8,
+        "endChar": 7
+      },
+      "revId": "cd886352c89fcb2a1b9a1e1195540450dd3df247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e29ca0d5_84a653fa",
+        "filename": "src/common/windows/sym_upload_v2_protocol.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2022-05-19T19:05:10Z",
+      "side": 1,
+      "message": "typo: milliseconds",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 44
+      },
+      "revId": "cd886352c89fcb2a1b9a1e1195540450dd3df247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b9448c_a5e2e357",
+        "filename": "src/common/windows/sym_upload_v2_protocol.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2022-05-19T19:05:10Z",
+      "side": 1,
+      "message": "Optional: Instead of using \"we\", you can say something like \"... it waits before terminating.\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "cd886352c89fcb2a1b9a1e1195540450dd3df247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7ae718a_d850a3e3",
+        "filename": "src/common/windows/sym_upload_v2_protocol.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2022-05-19T19:05:10Z",
+      "side": 1,
+      "message": "Optional: same.",
+      "range": {
+        "startLine": 11,
+        "startChar": 46,
+        "endLine": 11,
+        "endChar": 48
+      },
+      "revId": "cd886352c89fcb2a1b9a1e1195540450dd3df247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
