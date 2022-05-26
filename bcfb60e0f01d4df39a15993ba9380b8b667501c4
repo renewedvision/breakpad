@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "194d511e_dfd2e878",
+        "filename": "src/common/windows/sym_upload_v2_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2022-05-26T00:10:38Z",
+      "side": 1,
+      "message": "same: symbol_type",
+      "range": {
+        "startLine": 73,
+        "startChar": 66,
+        "endLine": 73,
+        "endChar": 70
+      },
+      "revId": "bcfb60e0f01d4df39a15993ba9380b8b667501c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf0960ef_8f9e9a23",
+        "filename": "src/common/windows/sym_upload_v2_protocol.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2022-05-26T00:10:38Z",
+      "side": 1,
+      "message": "Instead of eg., maybe we should say \"which is one of\" and enumerate all options.",
+      "range": {
+        "startLine": 40,
+        "startChar": 74,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "bcfb60e0f01d4df39a15993ba9380b8b667501c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dc0a689_d26f9380",
+        "filename": "src/common/windows/sym_upload_v2_protocol.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2022-05-26T00:10:38Z",
+      "side": 1,
+      "message": "Maybe: symbol_type",
+      "range": {
+        "startLine": 49,
+        "startChar": 49,
+        "endLine": 49,
+        "endChar": 53
+      },
+      "revId": "bcfb60e0f01d4df39a15993ba9380b8b667501c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
