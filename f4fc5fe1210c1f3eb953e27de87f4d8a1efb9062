@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa61102d_aa895cda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532397
+      },
+      "writtenOn": "2022-06-06T16:24:24Z",
+      "side": 1,
+      "message": "I tried testing this by running `xcodebuild -project src/tools/mac/crash_report/crash_report.xcodeproj` but it seems like that tool has bit-rotted and no longer builds at `HEAD`.\n\nPlease let me know how I can test this. I found an example minidump with thread names here:\n\nhttps://github.com/GregTheDev/MinidumpExplorer/issues/3#issuecomment-692475176\n",
+      "revId": "f4fc5fe1210c1f3eb953e27de87f4d8a1efb9062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
