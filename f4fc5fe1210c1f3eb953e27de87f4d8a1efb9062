@@ -16,6 +16,24 @@
       "message": "I tried testing this by running `xcodebuild -project src/tools/mac/crash_report/crash_report.xcodeproj` but it seems like that tool has bit-rotted and no longer builds at `HEAD`.\n\nPlease let me know how I can test this. I found an example minidump with thread names here:\n\nhttps://github.com/GregTheDev/MinidumpExplorer/issues/3#issuecomment-692475176\n",
       "revId": "f4fc5fe1210c1f3eb953e27de87f4d8a1efb9062",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b61a98e_2916a9d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532397
+      },
+      "writtenOn": "2022-06-07T01:02:53Z",
+      "side": 1,
+      "message": "jperaza@ kindly told me about `src/processor/minidump_dump` which revealed a few bugs (the struct for `MINIDUMP_THREAD_NAME` needs `#pragma pack(push, 4)` or it doesn\u0027t align correctly on 64-bit systems).\n\nAdded the example minidump from the link above to `src/processor/testdata/thread_name_list.dmp` and confirmed `src/processor/minidump_dump` now works with and without `MINIDUMP_THREAD_NAME_LIST` streams.",
+      "parentUuid": "fa61102d_aa895cda",
+      "revId": "f4fc5fe1210c1f3eb953e27de87f4d8a1efb9062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
