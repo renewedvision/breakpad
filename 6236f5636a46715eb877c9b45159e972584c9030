@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d880377_62933ea6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2022-06-08T19:30:50Z",
+      "side": 1,
+      "message": "Sorry, I think my revert was too aggressive.  Assuming https://chromium-review.googlesource.com/c/chromium/src/+/3696718 goes green, ptal.",
+      "revId": "6236f5636a46715eb877c9b45159e972584c9030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
