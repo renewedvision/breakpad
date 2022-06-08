@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b05520fc_d4d0a033",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2022-06-08T02:55:31Z",
+      "side": 1,
+      "message": "Still used in chromium for dump_syms",
+      "revId": "b2b77f9601372c310a9ec0f1f97bfc120a42da81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
