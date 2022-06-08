@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6609a24_df544fb3",
+        "filename": "src/common/dwarf_cfi_to_module.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-06-08T14:00:09Z",
+      "side": 0,
+      "message": "normally returning a buffer on the stack wouldn\u0027t make any sense.  this works because the return is a `std::string` so a string container is automatically constructed for us.  but that means we really should do this ourselves and avoid sprintf altogether.\n\n return string(\"unnamed_register\") + std::to_string(reg);",
+      "revId": "4d85225467d47f3e9245543543b9a9d4e265067a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
