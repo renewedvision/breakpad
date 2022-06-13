@@ -33,6 +33,23 @@
       "message": "The patch is also uploaded as cl/454061566 which passes the presubmit checks.",
       "revId": "c2f15869de0cb0be46773a97b9df7d70e4778451",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e753e608_353f0f03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306103
+      },
+      "writtenOn": "2022-06-13T16:55:46Z",
+      "side": 1,
+      "message": "LGTM, but I don\u0027t have power here. Joshua is back tomorrow and should have background!",
+      "revId": "c2f15869de0cb0be46773a97b9df7d70e4778451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
