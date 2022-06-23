@@ -16,6 +16,40 @@
       "message": "PTAL. I only tested this on CrOS, and can\u0027t touch labels on this Gerrit, so I\u0027m unsure what sort of presubmit testing should be performed here.\n\nI considered \u0027asking for forgiveness\u0027 here, too: since we `setrlimit` in a forked child, that required weaving very specific exit codes through \u0026\u0026 refactoring `CreateChildCrash` to return one of 3 values. If that\u0027s what folks would prefer, I\u0027m happy to do it, but I think we can get the same answer in a more direct way by asking for `getrlimit` ahead of time?",
       "revId": "2cf230efe0ffe7f99e2de7ffce734cc48e1822ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a8ae2f_1b54d527",
+        "filename": "src/common/linux/elf_core_dump_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-06-23T23:03:53Z",
+      "side": 1,
+      "message": "Does `GTEST_SKIP` work in here?",
+      "revId": "2cf230efe0ffe7f99e2de7ffce734cc48e1822ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fe39a16_aea1943a",
+        "filename": "src/common/linux/tests/crash_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-06-23T23:03:53Z",
+      "side": 1,
+      "message": "No need to expend any energy on initialization.",
+      "revId": "2cf230efe0ffe7f99e2de7ffce734cc48e1822ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
