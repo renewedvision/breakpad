@@ -410,9 +410,43 @@ static const MDRawSystemInfo* GetSystemInfo(Minidump* dump,
   return minidump_system_info->system_info();
 }
 
+/*
+static uint64_t GetAddressForAmd64(size_t raw_address,
+                                   Minidump* dump,
+                                   ProcessState* state,
+                                   uint32_t thread_index,
+                                   bool allow_objdump) {
+  MinidumpException* exception = dump->GetException();
+  MinidumpContext* context = exception ? exception->GetContext() : nullptr;
+
+  uint64_t ip = 0;
+  if (!context || !context->GetInstructionPointer(&ip)) {
+    return raw_address;
+  }
+
+  MinidumpMemoryList* memory_list = dump->GetMemoryList();
+  MinidumpMemoryRegion* memory_region = memory_list ? memory_list->GetMemoryRegionForAddress(ip) : nullptr;
+  if (!memory_region) {
+    return raw_address;
+  }
+
+  const kMaxAmd64InstructionLength = 15;
+  uint8_t ip_bytes[kMaxAmd64InstructionLength] = {0};
+  size_t ip_bytes_length;
+  for (ip_bytes_length = 0; ip_bytes_length < kMaxAmd64InstructionLength; ++ip_bytes_length) {
+    if (!memory_region->GetMemoryAtAddress(ip + ip_bytes_length, &ip_bytes[ip_bytes_length])) {
+      break;
+    }
+  }
+
+
+}
+*/
 static uint64_t GetAddressForArchitecture(const MDCPUArchitecture architecture,
-                                          size_t raw_address)
-{
+                                          size_t raw_address,
+                                          Minidump* dump = nullptr,
+                                          ProcessState* state = nullptr,
+                                          uint32_t thread_index = 0) {
   switch (architecture) {
     case MD_CPU_ARCHITECTURE_X86:
     case MD_CPU_ARCHITECTURE_MIPS:
@@ -422,6 +456,9 @@ static uint64_t GetAddressForArchitecture(const MDCPUArchitecture architecture,
     case MD_CPU_ARCHITECTURE_X86_WIN64:
       // 32-bit architectures, mask the upper bits.
       return raw_address & 0xffffffffULL;
+
+  //  case MD_CPU_ARCHITECTURE_AMD64:
+  //    return GetAddressForAmd64(raw_address, dump, state, thread_index);
 
     default:
       // All other architectures either have 64-bit pointers or it's impossible
