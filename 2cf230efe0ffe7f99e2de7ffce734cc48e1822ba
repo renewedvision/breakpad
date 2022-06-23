@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0598d3d_1276cd7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1158719
+      },
+      "writtenOn": "2022-06-23T22:59:48Z",
+      "side": 1,
+      "message": "PTAL. I only tested this on CrOS, and can\u0027t touch labels on this Gerrit, so I\u0027m unsure what sort of presubmit testing should be performed here.\n\nI considered \u0027asking for forgiveness\u0027 here, too: since we `setrlimit` in a forked child, that required weaving very specific exit codes through \u0026\u0026 refactoring `CreateChildCrash` to return one of 3 values. If that\u0027s what folks would prefer, I\u0027m happy to do it, but I think we can get the same answer in a more direct way by asking for `getrlimit` ahead of time?",
+      "revId": "2cf230efe0ffe7f99e2de7ffce734cc48e1822ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
