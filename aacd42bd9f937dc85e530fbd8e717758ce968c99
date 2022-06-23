@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d5ac35b_856c0759",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-06-23T15:40:10Z",
+      "side": 1,
+      "message": "I\u0027ve been looking at fixing up the non-canonical address handling, and this seemed like the most obvious path to reuse the existing code. This CL ended up a bit larger than I expected since the existing parsing code is not very robust. It might make more sense for me to split this into a CL that extracts out the code, and a second CL that fixes the issues - let me know if you\u0027d find that easier to review.\n\nI\u0027m not sure whether this objdump approach is really ideal, but the other existing third party disassembler engine in use (libdisasm) doesn\u0027t support amd64. If you\u0027d prefer that I bring in a different disassembler engine to replace this, I can give that a try, but I\u0027m not sure what the preferred option would be (or what the process for incorporating another third party dependency is!)\n\nI haven\u0027t sent a breakpad CL before, so I wasn\u0027t sure what the correct build/test methodology is - the instructions I found suggested using the ./configure; make approach, but I assume that I should probably be generating the updated makefiles using gyp instead?",
+      "revId": "aacd42bd9f937dc85e530fbd8e717758ce968c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
