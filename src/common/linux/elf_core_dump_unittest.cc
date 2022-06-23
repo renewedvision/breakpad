@@ -135,6 +135,12 @@ TEST(ElfCoreDumpTest, ValidCoreFile) {
     return;
   }
 
+  if (!crash_generator.HasResourceLimitsAmenableToCrashCollection()) {
+    fprintf(stderr, "ElfCoreDumpTest.ValidCoreFile test is skipped "
+            "due to inadequate system resource limits");
+    return;
+  }
+
   const unsigned kNumOfThreads = 3;
   const unsigned kCrashThread = 1;
   const int kCrashSignal = SIGABRT;
