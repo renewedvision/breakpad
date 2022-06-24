@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e44faa4f_3369ee13",
+        "filename": "src/common/linux/elf_core_dump_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1158719
+      },
+      "writtenOn": "2022-06-24T19:04:01Z",
+      "side": 1,
+      "message": "SGTM; I\u0027ll apply it above, too",
+      "parentUuid": "86a8ae2f_1b54d527",
+      "revId": "2cf230efe0ffe7f99e2de7ffce734cc48e1822ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fe39a16_aea1943a",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-06-23T23:03:53Z",
       "side": 1,
       "message": "No need to expend any energy on initialization.",
+      "revId": "2cf230efe0ffe7f99e2de7ffce734cc48e1822ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a1793dc_22cd82df",
+        "filename": "src/common/linux/tests/crash_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1158719
+      },
+      "writtenOn": "2022-06-24T19:04:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fe39a16_aea1943a",
       "revId": "2cf230efe0ffe7f99e2de7ffce734cc48e1822ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
