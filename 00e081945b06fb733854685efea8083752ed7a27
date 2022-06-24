@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65d8bc3a_994ea31a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1158719
+      },
+      "writtenOn": "2022-06-24T19:25:22Z",
+      "side": 1,
+      "message": "Tested within CrOS and on a Linux Cloudtop",
+      "revId": "00e081945b06fb733854685efea8083752ed7a27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
