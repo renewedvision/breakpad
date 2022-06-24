@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a34e2ce9_d034aba4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1158719
+      },
+      "writtenOn": "2022-06-24T19:05:04Z",
+      "side": 1,
+      "message": "I have no power here to click the submit button; if someone could please do that for me (assuming no new comments), that\u0027d be great. Thanks in advance, and thanks for the quick review! :) ",
+      "revId": "4e9429f75892d3f4986fdf262a186558e9cfdc47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
