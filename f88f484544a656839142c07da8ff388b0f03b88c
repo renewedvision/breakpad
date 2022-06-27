@@ -33,6 +33,24 @@
       "message": "Zequan: can you please make sure to run `make check` on Linux with your CLs",
       "revId": "f88f484544a656839142c07da8ff388b0f03b88c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5025fc0e_d7b64a2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2022-06-27T21:58:28Z",
+      "side": 1,
+      "message": "Yeah, will do. I usually build it inside chromium with gn build which is faster but doesn\u0027t have test build configuration. I\u0027ll double check it with `make check` next time.",
+      "parentUuid": "aef09cab_458cab2a",
+      "revId": "f88f484544a656839142c07da8ff388b0f03b88c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
