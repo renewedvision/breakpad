@@ -16,6 +16,23 @@
       "message": "Hey,\n\nI\u0027m not 100% on keeping this test around; opinions on whether it should simply be deleted are appreciated. :)",
       "revId": "f88f484544a656839142c07da8ff388b0f03b88c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aef09cab_458cab2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-06-27T21:49:40Z",
+      "side": 1,
+      "message": "Zequan: can you please make sure to run `make check` on Linux with your CLs",
+      "revId": "f88f484544a656839142c07da8ff388b0f03b88c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
