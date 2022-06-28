@@ -34,6 +34,24 @@
       "parentUuid": "db497719_84ec32a9",
       "revId": "f8a7349eea19e7370419ce3276e980b6d46bf622",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bb6efa9_02cbc1ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1519912
+      },
+      "writtenOn": "2022-06-28T14:11:36Z",
+      "side": 1,
+      "message": "Joshua Peraza did the review for me and they are in the list of owners",
+      "parentUuid": "3c665c10_74b885fb",
+      "revId": "f8a7349eea19e7370419ce3276e980b6d46bf622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
