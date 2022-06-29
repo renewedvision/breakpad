@@ -16,6 +16,24 @@
       "message": "lgtm, though i have no voting perms here :) ",
       "revId": "733ec934b5b8d99272fe23810105a7a51c2661fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a99e2f8c_86e750df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-06-29T12:48:30Z",
+      "side": 1,
+      "message": "hrm, this repo has semi-weird settings.  i\u0027ve added CrOS committers to the Code-Review label, so you should be able to do things now.",
+      "parentUuid": "973bb2e7_8b8e028f",
+      "revId": "733ec934b5b8d99272fe23810105a7a51c2661fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
