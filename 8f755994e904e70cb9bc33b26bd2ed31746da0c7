@@ -33,6 +33,23 @@
       "message": "i sent you some cleanup CLs first so you can clean this one up to match",
       "revId": "8f755994e904e70cb9bc33b26bd2ed31746da0c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f921241e_b86177d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369013
+      },
+      "writtenOn": "2022-06-29T17:51:30Z",
+      "side": 1,
+      "message": "LGTM as a non-OWNER of Breakpad",
+      "revId": "8f755994e904e70cb9bc33b26bd2ed31746da0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
