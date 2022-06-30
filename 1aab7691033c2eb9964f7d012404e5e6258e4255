@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d721f83b_21a0f9ee",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-06-30T23:54:05Z",
+      "side": 1,
+      "message": "It might be a good idea to also assert that the numbers are sequential. I\u0027m looking at the dwarf spec\u0027s description for .debug_abbrev and it only describes these numbers as \"codes\" and not indices. It makes no guarantees that they will be sequential, but apparently breakpad depends on that to use this vector.",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 46
+      },
+      "revId": "1aab7691033c2eb9964f7d012404e5e6258e4255",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
