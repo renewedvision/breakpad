@@ -22,6 +22,30 @@
       },
       "revId": "1aab7691033c2eb9964f7d012404e5e6258e4255",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90da11ba_4c842c42",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-07-01T00:08:10Z",
+      "side": 1,
+      "message": "oh, nvm, I guess this assert does approximately that",
+      "parentUuid": "d721f83b_21a0f9ee",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 46
+      },
+      "revId": "1aab7691033c2eb9964f7d012404e5e6258e4255",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
