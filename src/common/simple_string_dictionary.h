@@ -32,6 +32,7 @@
 
 #include <assert.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "common/basictypes.h"
 
@@ -202,6 +203,9 @@ class NonAllocatingMap {
     for (size_t i = 0; i < num_entries; ++i) {
       if (strncmp(entries_[i].key, key, key_size) == 0)
         ++count;
+    }
+    if (count != 1) {
+      fprintf(stderr, "count=%d, key=%s\n", count, key);
     }
     assert(count == 1);
 #endif
