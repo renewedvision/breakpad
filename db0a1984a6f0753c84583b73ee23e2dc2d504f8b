@@ -16,6 +16,23 @@
       "message": "there\u0027re cleanups in the area to potentially do, but i tried to not. if you\u0027d rather i break local convention, i can use `size_t`/`std::extent`/etc  in surrounding code, too",
       "revId": "db0a1984a6f0753c84583b73ee23e2dc2d504f8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0f528c1_00150ff0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-07-11T19:44:23Z",
+      "side": 1,
+      "message": "we prob should start leveraging std::array instead of accepting raw pointers like this.  we require C++11 so it shouldn\u0027t be a problem ...",
+      "revId": "db0a1984a6f0753c84583b73ee23e2dc2d504f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
