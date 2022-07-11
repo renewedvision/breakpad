@@ -418,7 +418,9 @@ TEST(Construct, DuplicateFunctions) {
   Module::Function* function2 = generate_duplicate_function("_without_form");
 
   m.AddFunction(function1);
-  m.AddFunction(function2);
+  // If this succeeds, we'll have a double-free with the `delete` below. Avoid
+  // that.
+  ASSERT_FALSE(m.AddFunction(function2));
 
   m.Write(s, ALL_SYMBOL_DATA);
   string contents = s.str();
@@ -426,6 +428,7 @@ TEST(Construct, DuplicateFunctions) {
                "FUNC d35402aac7a7ad5c 200b26e605f99071 f14ac4fed48c4a99"
                " _without_form\n",
                contents.c_str());
+  delete function2;
 }
 
 TEST(Construct, FunctionsWithSameAddress) {
