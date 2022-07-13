@@ -57,10 +57,15 @@ template<typename AddressType, typename EntryType>
 bool RangeMap<AddressType, EntryType>::StoreRangeInternal(
     const AddressType& base, const AddressType& delta,
     const AddressType& size, const EntryType& entry) {
-  AddressType high = base + (size - 1);
-
+  AddressType high;
+  bool high_ok = false;
+  if (size > 0) {
+    std::pair<AddressType, bool> result = AddWithOverflowCheck(base, size - 1);
+    high = result.first;
+    high_ok = !result.second;
+  }
   // Check for undersize or overflow.
-  if (size <= 0 || high < base) {
+  if (!high_ok) {
     // The processor will hit this case too frequently with common symbol
     // files in the size == 0 case, which is more suited to a DEBUG channel.
     // Filter those out since there's no DEBUG channel at the moment.
