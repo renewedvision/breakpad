@@ -44,9 +44,10 @@
 namespace {
 
 
+using google_breakpad::AddWithOverflowCheck;
+using google_breakpad::RangeMap;
 using google_breakpad::linked_ptr;
 using google_breakpad::scoped_ptr;
-using google_breakpad::RangeMap;
 
 
 // A CountedObject holds an int.  A global (not thread safe!) count of
@@ -120,6 +121,14 @@ static bool StoreTest(TestMap* range_map, const RangeTest* range_test) {
   return true;
 }
 
+template <typename T>
+static T AddIgnoringOverflow(T a, T b) {
+  T result;
+  // Using this builtin causes sanitizers like UBSan to treat overflow as
+  // intended and properly handled.
+  __builtin_add_overflow(a, b, &result);
+  return result;
+}
 
 // RetrieveTest uses the data in RangeTest and calls RetrieveRange on the
 // test RangeMap.  If it retrieves the expected value (which can be no
@@ -148,10 +157,10 @@ static bool RetrieveTest(TestMap* range_map, const RangeTest* range_test) {
     }
 
     for (AddressType offset = low_offset; offset <= high_offset; ++offset) {
-      AddressType address =
-          offset +
-          (!side ? range_test->address :
-                   range_test->address + range_test->size - 1);
+      AddressType address = AddIgnoringOverflow(
+          offset, (!side ? range_test->address
+                         : AddIgnoringOverflow(range_test->address,
+                                               range_test->size - 1)));
 
       bool expected_result = false;  // This is correct for tests not stored.
       if (range_test->expect_storable) {
@@ -368,9 +377,51 @@ static bool RetriveAtIndexTest2() {
   return true;
 }
 
+struct OverflowTester {
+  bool ok = true;
+
+  template <typename T>
+  void check(T a, T b, T expected_result, bool expected_overflow) {
+    std::pair<T, bool> result = AddWithOverflowCheck(a, b);
+    if (result.first == expected_result && result.second == expected_overflow)
+      return;
+
+    fprintf(
+        stderr,
+        "FAILED: RunOverflowTests expected %d + %d == {%d, %d}; got {%d, %d}\n",
+        int(a), int(b), int(expected_result), int(expected_overflow),
+        int(result.first), int(result.second));
+    ok = false;
+  }
+};
+
+
+static bool RunOverflowTests() {
+  OverflowTester t{};
+
+  t.check<uint8_t>(0, 0, 0, false);
+  t.check<uint8_t>(0, 255, 255, false);
+  t.check<uint8_t>(1, 255, 0, true);
+
+  t.check<int8_t>(-128, 127, -1, false);
+  t.check<int8_t>(127, -128, -1, false);
+  t.check<int8_t>(1, -128, -127, false);
+  t.check<int8_t>(127, -1, 126, false);
+
+  t.check<int8_t>(-128, -1, 127, true);
+  t.check<int8_t>(-128, -128, 0, true);
+  t.check<int8_t>(127, 1, -128, true);
+  t.check<int8_t>(127, 127, -2, true);
+
+  return t.ok;
+}
 
 // RunTests runs a series of test sets.
 static bool RunTests() {
+  if (!RunOverflowTests()) {
+    return false;
+  }
+
   // These tests will be run sequentially.  The first set of tests exercises
   // most functions of RangeTest, and verifies all of the bounds-checking.
   const RangeTest range_tests_0[] = {
