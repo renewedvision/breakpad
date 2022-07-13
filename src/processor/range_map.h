@@ -42,6 +42,7 @@
 
 
 #include <map>
+#include <utility>
 
 
 namespace google_breakpad {
@@ -164,7 +165,47 @@ class RangeMap {
   AddressToRangeMap map_;
 };
 
+// Adds `a` and `b`, returning a pair of:
+// - The result after any truncation.
+// - Whether an overflow/underflow occurred.
+template <typename T>
+std::pair<T, bool> AddWithOverflowCheck(T a, T b) {
+#ifdef _WIN32
+  // Since C++11, unsigned overflow is well-defined; do everything unsigned,
+  // assuming 2's complement.
+  if (std::is_unsigned<T>::value) {
+    T result = a + b;
+    // Since we're adding two values >= 0, having a smaller value implies
+    // overflow.
+    bool overflow = result < a;
+    return {result, overflow};
+  }
 
+  using TUnsigned = typename std::make_unsigned<T>::type;
+  T result = TUnsigned(a) + TUnsigned(b);
+  bool overflow;
+  if ((a >= 0) == (b >= 0)) {
+    if (a >= 0) {
+      overflow = result < a;
+    } else {
+      overflow = result > a;
+    }
+  } else {
+    // If signs are different, it's impossible for overflow to happen.
+    overflow = false;
+  }
+  return {result, overflow};
+#else
+  T result;
+  bool overflow = __builtin_add_overflow(a, b, &result);
+  return {result, overflow};
+#endif
+}
+
+template <typename T>
+T AddIgnoringOverflow(T a, T b) {
+  return AddWithOverflowCheck(a, b).first;
+}
 }  // namespace google_breakpad
 
 
