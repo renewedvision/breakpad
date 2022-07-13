@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e91722b2_ce27841a",
+        "filename": "src/processor/range_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-07-13T01:40:34Z",
+      "side": 0,
+      "message": "keep a blank line before the closing scope",
+      "revId": "eb087c33835da15af4449b18e1c27448fda6e156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f6f60e7_adfdb7eb",
+        "filename": "src/processor/range_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-07-13T01:40:34Z",
+      "side": 1,
+      "message": "this doesn\u0027t really look like it\u0027s specific to range_map.h.  seems like we\u0027d be better creating a dedicated header in src/common/.  safe_math.h or something ?",
+      "revId": "74eb28ce3d835337110209046210ef09c198f028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
