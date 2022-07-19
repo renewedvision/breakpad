@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a9e364d_ed26be22",
+        "filename": "aclocal.m4",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-07-19T13:10:45Z",
+      "side": 1,
+      "message": "this used the incorrect autoconf version.  i fixed it in a follow up, but please keep this in mind when regenerating in the future.",
+      "revId": "c4c43b80ea8854c57a4374ac32579b577172dc23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
