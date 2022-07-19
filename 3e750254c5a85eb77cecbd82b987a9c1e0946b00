@@ -16,6 +16,23 @@
       "message": "rsesek - ptal - this will add useful reasons to crash/ now that we can collect\nthese crashes.\n\n",
       "revId": "3e750254c5a85eb77cecbd82b987a9c1e0946b00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5abed953_5573cd86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1348395
+      },
+      "writtenOn": "2022-07-19T13:02:50Z",
+      "side": 1,
+      "message": "thanks - can you +2 I\u0027m not a breakpad member?",
+      "revId": "3e750254c5a85eb77cecbd82b987a9c1e0946b00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
