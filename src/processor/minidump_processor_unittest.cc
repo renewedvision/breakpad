@@ -779,6 +779,22 @@ TEST_F(MinidumpProcessorTest, TestXStateAmd64ContextMinidump) {
             "family 6 model 140 stepping 1");
   ASSERT_FALSE(state.crashed());
   ASSERT_EQ(state.threads()->size(), size_t(1));
+  ASSERT_EQ(state.crash_reason(), "FAST_FAIL_FATAL_APP_EXIT");
+}
+
+TEST_F(MinidumpProcessorTest, TestFastFailException) {
+  // This tests if we can understand fastfail exception subcodes.
+  // Dump is captured from a toy executable and is readable by windbg.
+  MinidumpProcessor processor(nullptr, nullptr /*&supplier, &resolver*/);
+
+  string minidump_file = GetTestDataPath()
+                         + "tiny-exe-fastfail.dmp";
+
+  ProcessState state;
+  ASSERT_EQ(processor.Process(minidump_file, &state),
+            google_breakpad::PROCESS_OK);
+  ASSERT_TRUE(state.crashed());
+  ASSERT_EQ(state.threads()->size(), size_t(4));
 
   // TODO: verify cetumsr and cetussp once these are supported by
   // breakpad.
