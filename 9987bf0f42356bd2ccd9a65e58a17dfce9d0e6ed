@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4268b36a_59ca69d4",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2725,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-07-22T00:18:22Z",
+      "side": 1,
+      "message": "Maybe include a `static_assert` that the two are equal?",
+      "range": {
+        "startLine": 2724,
+        "startChar": 0,
+        "endLine": 2725,
+        "endChar": 34
+      },
+      "revId": "9987bf0f42356bd2ccd9a65e58a17dfce9d0e6ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
