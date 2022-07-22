@@ -22,6 +22,30 @@
       },
       "revId": "9987bf0f42356bd2ccd9a65e58a17dfce9d0e6ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34105a2f_2ac4c7b6",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2725,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-07-22T00:20:33Z",
+      "side": 1,
+      "message": "These are breakpad\u0027s own enums so DW_CFA_AARCH64_negate_ra_state doesn\u0027t have a definition.",
+      "parentUuid": "4268b36a_59ca69d4",
+      "range": {
+        "startLine": 2724,
+        "startChar": 0,
+        "endLine": 2725,
+        "endChar": 34
+      },
+      "revId": "9987bf0f42356bd2ccd9a65e58a17dfce9d0e6ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
