@@ -70,6 +70,30 @@
       },
       "revId": "9987bf0f42356bd2ccd9a65e58a17dfce9d0e6ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b788ac1f_1ac4300b",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2725,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-07-22T00:24:39Z",
+      "side": 1,
+      "message": "I considered it, but since it would only used in this comment, the comment seemed sufficient.",
+      "parentUuid": "c26e2d68_265b28c2",
+      "range": {
+        "startLine": 2724,
+        "startChar": 0,
+        "endLine": 2725,
+        "endChar": 34
+      },
+      "revId": "9987bf0f42356bd2ccd9a65e58a17dfce9d0e6ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
