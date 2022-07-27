@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daf0169a_0b2fe850",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-07-27T02:22:53Z",
+      "side": 1,
+      "message": "It was only the context frame and frame pointers which were stripping PACs previously (all that was needed for iOS). Scanning to come!",
+      "revId": "40dc4aa17bdfcd03c4a5d0e88775de709a4281e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
