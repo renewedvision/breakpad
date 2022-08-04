@@ -381,6 +381,29 @@ bool PDBSourceLineWriter::SetCodeFile(const wstring& exe_file) {
   return exe_file == code_file_;
 }
 
+void PDBSourceLineWriter::PrintOpenError(HRESULT err_code, char const *fn_name) {
+  switch (err_code) {
+    case E_PDB_NOT_FOUND:
+      fprintf(stderr, "%s: Failed to open the file, or the file has an invalid format.\n", fn_name);
+      break;
+    case E_PDB_FORMAT:
+      fprintf(stderr, "%s: Attempted to access a file with an obsolete format.\n", fn_name);
+      break;
+    case E_PDB_INVALID_SIG:
+      fprintf(stderr, "%s: Signature does not match.\n", fn_name);
+      break;
+    case E_PDB_INVALID_AGE:
+      fprintf(stderr, "%s: Age does not match.\n", fn_name);
+      break;
+    case E_INVALIDARG:
+      fprintf(stderr, "%s: Invalid parameter.\n", fn_name);
+      break;
+    default: /* E_UNEXPECTED */
+      fprintf(stderr, "%s: Data source has already been prepared.\n", fn_name);
+      break;
+  }
+}
+
 bool PDBSourceLineWriter::Open(const wstring& file, FileFormat format) {
   Close();
   code_file_.clear();
@@ -400,6 +423,8 @@ bool PDBSourceLineWriter::Open(const wstring& file, FileFormat format) {
     return false;
   }
 
+  HRESULT from_pdb;
+  HRESULT for_exe;
   switch (format) {
     case PDB_FILE:
       if (FAILED(data_source->loadDataFromPdb(file.c_str()))) {
@@ -415,9 +440,14 @@ bool PDBSourceLineWriter::Open(const wstring& file, FileFormat format) {
       code_file_ = file;
       break;
     case ANY_FILE:
-      if (FAILED(data_source->loadDataFromPdb(file.c_str()))) {
-        if (FAILED(data_source->loadDataForExe(file.c_str(), NULL, NULL))) {
-          fprintf(stderr, "loadDataForPdb and loadDataFromExe failed for %ws\n",
+      from_pdb = data_source->loadDataFromPdb(file.c_str());
+      if (FAILED(from_pdb)) {
+        PrintOpenError(from_pdb, "loadDataFromPdb");
+
+        for_exe = data_source->loadDataForExe(file.c_str(), NULL, NULL);
+        if (FAILED(for_exe)) {
+          PrintOpenError(for_exe, "loadDataForExe");
+          fprintf(stderr, "loadDataFromPdb and loadDataForExe failed for %ws\n",
                   file.c_str());
           return false;
         }
