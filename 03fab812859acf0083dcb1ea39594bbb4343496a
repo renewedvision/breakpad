@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2668c7b0_5d009739",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-04T15:03:04Z",
+      "side": 1,
+      "message": "done!",
+      "parentUuid": "78bfde35_c8846d47",
+      "revId": "03fab812859acf0083dcb1ea39594bbb4343496a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad45fafc_a8e59645",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-08-04T14:14:48Z",
       "side": 1,
       "message": "are you sure this actually compiles ?",
+      "revId": "03fab812859acf0083dcb1ea39594bbb4343496a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "659f8d81_5313f883",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-04T15:03:04Z",
+      "side": 1,
+      "message": "I ran it several times to test the output",
+      "parentUuid": "ad45fafc_a8e59645",
       "revId": "03fab812859acf0083dcb1ea39594bbb4343496a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
