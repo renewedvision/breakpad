@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f9ee4cb_9de0dc93",
+        "filename": "AUTHORS",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-05T15:47:48Z",
+      "side": 1,
+      "message": "sorry, but we haven\u0027t been changing this file as you can see.  i think we only rely on `git log` to list authors.",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16df88a3_e6854d71",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-05T15:47:48Z",
+      "side": 1,
+      "message": "does this need to be a class method in the first place ?  it\u0027s only used in this one module.  would it ever be used by anyone else ?\n\nif not, this func should be moved up into the anonymous namespace around line 211.",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ca9eec3_059348e7",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-05T15:47:48Z",
+      "side": 1,
+      "message": "these are only used in the ANY_FILE case below, so move the decls down to where they\u0027re actually used",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff413969_d8ff8dca",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-05T15:47:48Z",
+      "side": 1,
+      "message": "please add a short comment block explaining what this does like we have with other methods",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
