@@ -37,6 +37,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "179d97cd_86cf23a9",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-05T15:54:19Z",
+      "side": 1,
+      "message": "File names might be helpful in these messages.",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de3dd313_66d25a23",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-05T15:54:19Z",
+      "side": 1,
+      "message": "Meaning that this must be E_UNEXPECTED, or just that you expect it to be E_UNEXPECTED?",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2ca9eec3_059348e7",
         "filename": "src/common/windows/pdb_source_line_writer.cc",
         "patchSetId": 7
@@ -54,6 +88,103 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0bc458c_99ba9986",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-05T15:54:19Z",
+      "side": 1,
+      "message": "Naming should be parallel: choose `from` or `for` but be consistent.\n\nNaming should indicate what this is, whether it’s “from” or “for”: it’s the result?",
+      "range": {
+        "startLine": 428,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 18
+      },
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee3aaa5_4afe2236",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-05T15:54:19Z",
+      "side": 1,
+      "message": "Why not use your new function here?",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3080ef0_e0286db7",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-05T15:54:19Z",
+      "side": 1,
+      "message": "And here?",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99980542_c13cbdf2",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-05T15:54:19Z",
+      "side": 1,
+      "message": "There’s only a real error if both the pdb and exe loads fail. You shouldn’t be printing any errors (which are confusing) when there’s still a chance that this may succeed.",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d44cc5_91b4ac94",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-05T15:54:19Z",
+      "side": 1,
+      "message": "Do you need both error messages?",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 453,
+        "endChar": 32
+      },
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff413969_d8ff8dca",
         "filename": "src/common/windows/pdb_source_line_writer.h",
         "patchSetId": 7
@@ -65,6 +196,23 @@
       "writtenOn": "2022-08-05T15:47:48Z",
       "side": 1,
       "message": "please add a short comment block explaining what this does like we have with other methods",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e5bfad_e8440e17",
+        "filename": "src/common/windows/pdb_source_line_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-05T15:54:19Z",
+      "side": 1,
+      "message": "Can be `private`.\n\nCan be `static`, even.\n\n`private` + `static` often supports moving this out of being a member function altogether, it can be a free anonymous-namespaced function in the `.cc` file.",
       "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
