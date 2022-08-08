@@ -66,6 +66,7 @@ class PDBSourceLineWriter {
   explicit PDBSourceLineWriter(bool handle_inline = false);
   ~PDBSourceLineWriter();
 
+
   // Opens the given file.  For executable files, the corresponding pdb
   // file must be available; Open will be if it is not.
   // If there is already a pdb file open, it is automatically closed.
