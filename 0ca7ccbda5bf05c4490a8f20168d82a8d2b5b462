@@ -212,6 +212,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07f77df3_aa15f25c",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T14:51:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb525e25_0e116bac",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0bc458c_99ba9986",
@@ -249,6 +267,30 @@
       "side": 1,
       "message": "it\u0027s the related function name; would `\u003cfrom_pdb|for_exe\u003e_result` be better?",
       "parentUuid": "d0bc458c_99ba9986",
+      "range": {
+        "startLine": 428,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 18
+      },
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2f1ce37_5e2f6f8a",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T14:51:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cea0b6f_d6e17c46",
       "range": {
         "startLine": 428,
         "startChar": 0,
