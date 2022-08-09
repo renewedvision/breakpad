@@ -248,6 +248,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1337d980_bf2b133f",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-09T23:30:28Z",
+      "side": 1,
+      "message": "now that they\u0027re used in multiple cases this comment is no longer relevant.  but in PS7, they should be inside the `ANY_FILE` case, and you most likely didn\u0027t create a new `{}` scope which is why it failed to compile.",
+      "parentUuid": "4f55c4cc_be8c0349",
+      "revId": "0ca7ccbda5bf05c4490a8f20168d82a8d2b5b462",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0bc458c_99ba9986",
