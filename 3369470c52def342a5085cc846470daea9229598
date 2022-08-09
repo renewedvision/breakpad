@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "630e91be_eaf076e1",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-09T14:52:32Z",
+      "side": 1,
+      "message": "If this string doesn’t actually convey anything valuable, just 0x%x-format the error_code.",
+      "revId": "3369470c52def342a5085cc846470daea9229598",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
