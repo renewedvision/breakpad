@@ -47,6 +47,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd5cdb66_21be60ff",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T10:42:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8c40f193_a8c13d2f",
+      "range": {
+        "startLine": 214,
+        "startChar": 34,
+        "endLine": 214,
+        "endChar": 44
+      },
+      "revId": "c21afb7bd2b157d86c962fbdc6ec987f17e690fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fe554e3_5986a7ee",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T10:42:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca20868c_d7a26fab",
+      "range": {
+        "startLine": 214,
+        "startChar": 61,
+        "endLine": 214,
+        "endChar": 74
+      },
+      "revId": "c21afb7bd2b157d86c962fbdc6ec987f17e690fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76f99e60_77a231c6",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-08-09T00:38:50Z",
       "side": 1,
       "message": "is this triggering a warning ?  i thought `HRESULT` was a scalar (i.e. integer) rather than an enum.\n\nalternatively, should this be emitting an error message about unknown result (assuming it isn\u0027t 0 or whatever Windows uses to mean \"success\") ?",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 12
+      },
+      "revId": "c21afb7bd2b157d86c962fbdc6ec987f17e690fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e858b852_56e797c3",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T10:42:16Z",
+      "side": 1,
+      "message": "right, added it with \"Unexpected error code for %s: %s, file: %ws.\" which should cover all of the information needed (windows function, error code and file)",
+      "parentUuid": "76f99e60_77a231c6",
       "range": {
         "startLine": 237,
         "startChar": 0,
