@@ -16,6 +16,24 @@
       "message": "If this string doesn’t actually convey anything valuable, just 0x%x-format the error_code.",
       "revId": "3369470c52def342a5085cc846470daea9229598",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a4fbab_51fa79d5",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T16:36:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "630e91be_eaf076e1",
+      "revId": "3369470c52def342a5085cc846470daea9229598",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
