@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca20868c_d7a26fab",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-09T00:38:50Z",
+      "side": 1,
+      "message": "style in this code base is `char* foo`, not `char *foo`",
+      "range": {
+        "startLine": 214,
+        "startChar": 61,
+        "endLine": 214,
+        "endChar": 74
+      },
+      "revId": "c21afb7bd2b157d86c962fbdc6ec987f17e690fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c40f193_a8c13d2f",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-09T00:38:50Z",
+      "side": 1,
+      "message": "should be `const char`",
+      "range": {
+        "startLine": 214,
+        "startChar": 34,
+        "endLine": 214,
+        "endChar": 44
+      },
+      "revId": "c21afb7bd2b157d86c962fbdc6ec987f17e690fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76f99e60_77a231c6",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-09T00:38:50Z",
+      "side": 1,
+      "message": "is this triggering a warning ?  i thought `HRESULT` was a scalar (i.e. integer) rather than an enum.\n\nalternatively, should this be emitting an error message about unknown result (assuming it isn\u0027t 0 or whatever Windows uses to mean \"success\") ?",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 12
+      },
+      "revId": "c21afb7bd2b157d86c962fbdc6ec987f17e690fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
