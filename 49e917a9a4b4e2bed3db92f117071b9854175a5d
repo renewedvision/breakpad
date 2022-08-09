@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc81d287_426d7456",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-09T14:22:52Z",
+      "side": 1,
+      "message": "?",
+      "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aa0f2a0_83ec2ef6",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-09T14:22:52Z",
+      "side": 1,
+      "message": "Is `CStringA` the right type here?",
+      "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c07a21cb_04ef06b2",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-09T14:22:52Z",
+      "side": 1,
+      "message": "Why are you putting `error_code_cstr` into a `std::string` when you really just want a `char *const` which you access via `std::string::c_str` below anyway?",
+      "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede2b416_dc1c5b14",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-09T14:22:52Z",
+      "side": 1,
+      "message": "Don’t do this out here, only do it in the default case if you need it.\n\nOr, if this error string would always be applicable, just use it instead of coming up with your own custom strings for a selection of `E_PDB_*`. I don’t know if `_com_error::ErrorMessage` gives good messages from `E_PDB_*` but it very well may.",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 37
+      },
+      "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
