@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "141c46b7_782693a7",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T14:48:16Z",
+      "side": 1,
+      "message": "woops, removed!",
+      "parentUuid": "bc81d287_426d7456",
+      "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aa0f2a0_83ec2ef6",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-08-09T14:22:52Z",
       "side": 1,
       "message": "Is `CStringA` the right type here?",
+      "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb1143a4_45f0e0cf",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T14:48:16Z",
+      "side": 1,
+      "message": "as far as my testing went with the other types, yes; the other types are specified somewhere here https://docs.microsoft.com/en-us/cpp/atl-mfc-shared/reference/cstringt-class",
+      "parentUuid": "5aa0f2a0_83ec2ef6",
       "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,48 @@
         "endLine": 219,
         "endChar": 37
       },
+      "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e755e8b_cb2b9f1b",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T14:48:16Z",
+      "side": 1,
+      "message": "\u003e I don’t know if  _com_error::ErrorMessage  gives good messages from  E_PDB_*  but it very well may.\\\n\nit doesn\u0027t, it\u0027s just the usual Microsoft codes in the format of `0x...`;\nkeep in mind that my custom messages refer the ones specified in https://docs.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/idiadatasource-loaddataforexe?view\u003dvs-2022 and https://docs.microsoft.com/en-us/visualstudio/debugger/debug-interface-access/idiadatasource-loaddatafrompdb?view\u003dvs-2022 as mentioned in the commit message, plus the added function (since it\u0027s ambiguous in the above docs) and the file name. it just happens that the function is called \"errormessage\" but it\u0027s not a human-readable message unfortunately, I don\u0027t think there\u0027s one available (using code)\n\n\u003e Don’t do this out here, only do it in the default case if you need it.\n\nack",
+      "parentUuid": "ede2b416_dc1c5b14",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 37
+      },
+      "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8274bfe3_f8fd758a",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1551392
+      },
+      "writtenOn": "2022-08-09T14:48:16Z",
+      "side": 1,
+      "message": "leftover of some experiments, refactored + put it in the default case as suggested",
+      "parentUuid": "c07a21cb_04ef06b2",
       "revId": "49e917a9a4b4e2bed3db92f117071b9854175a5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
