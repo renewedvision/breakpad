@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a65e8d8_fefa81b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-12T16:09:18Z",
+      "side": 1,
+      "message": "This concerns the macOS 13 SDK, not macOS 12.",
+      "revId": "f63333c7409b655450958d50499cc87b55e6814f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b077d6d7_e24af5e0",
@@ -14,6 +31,29 @@
       "writtenOn": "2022-08-12T14:27:18Z",
       "side": 1,
       "message": "I think there are more in the codebase but this one for sure is hit by https://ci.chromium.org/ui/p/chromium/builders/webrtc.fyi/WebRTC%20Chromium%20FYI%20Mac%20Builder/11674/overview.",
+      "revId": "f63333c7409b655450958d50499cc87b55e6814f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c120498f_80d78e8f",
+        "filename": "src/client/mac/crash_generation/ConfigFile.mm",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-12T16:09:18Z",
+      "side": 1,
+      "message": "%z is not really correct for a time_t.",
+      "range": {
+        "startLine": 114,
+        "startChar": 68,
+        "endLine": 114,
+        "endChar": 70
+      },
       "revId": "f63333c7409b655450958d50499cc87b55e6814f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
