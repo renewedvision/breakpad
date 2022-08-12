@@ -98,6 +98,30 @@
       },
       "revId": "f63333c7409b655450958d50499cc87b55e6814f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e2ee234_4eaaca63",
+        "filename": "src/client/mac/crash_generation/ConfigFile.mm",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-08-12T17:14:42Z",
+      "side": 1,
+      "message": "\u003e Done, I have done the same as line 108.\n\u003e \n\u003e Do we have CQ for breakpad?\n\nNope, we don\u0027t. LGTM.",
+      "parentUuid": "f3ad9488_c0d173a6",
+      "range": {
+        "startLine": 114,
+        "startChar": 68,
+        "endLine": 114,
+        "endChar": 70
+      },
+      "revId": "f63333c7409b655450958d50499cc87b55e6814f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
