@@ -32,7 +32,7 @@
 
   <project path='src/src/third_party/lss'
            name='linux-syscall-support/'
-           revision='e1e7b0ad8ee99a875b272c8e33e308472e897660'
+           revision='1d387f43f3702818f7fc04d334539a2f05cafccd'
            remote='chromium' />
 
   <project path='src/src/third_party/protobuf/protobuf'

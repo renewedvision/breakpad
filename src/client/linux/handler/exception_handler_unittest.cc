@@ -307,7 +307,12 @@ TEST(ExceptionHandlerTest, ParallelChildCrashesDontHang) {
   }
 
   // Wait a while until the child should have crashed.
+#if defined(__riscv)
+  // Current RISC-V processors can be pretty slow. Better wait a bit more.
+  usleep(5000000);
+#else
   usleep(1000000);
+#endif
   // Kill the child if it is still running.
   kill(child, SIGKILL);
 
