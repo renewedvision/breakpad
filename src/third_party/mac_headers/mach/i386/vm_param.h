@@ -57,7 +57,6 @@
 /* 
  * Copyright (c) 1994 The University of Utah and
  * the Computer Systems Laboratory at the University of Utah (CSL).
- * All rights reserved.
  *
  * Permission to use, copy, modify and distribute this software is hereby
  * granted provided that (1) source code retains these copyright, permission,
