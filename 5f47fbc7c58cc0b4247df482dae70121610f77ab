@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1088c56b_ee17f339",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T06:54:31Z",
+      "side": 1,
+      "message": "Dear reviewers,\nthis PR involves a large number of files, even if most of them contain only few new `#if defined(__riscv)` directives.\n\nSince I don\u0027t know who are the owners of the different files, I selected 7 reviewers. Please pick the files you really own and ignore the others.\n\nAs suggested by Mike, it would be probably better to break the CL in smaller parts. I can do that, but again I don\u0027t know which pieces to put in each part, as all these mods are necessary to enable RISCV compatibility.\n\nThank you in advance.\n\nIacopo\n",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
