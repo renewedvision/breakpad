@@ -16,6 +16,125 @@
       "message": "Dear reviewers,\nthis PR involves a large number of files, even if most of them contain only few new `#if defined(__riscv)` directives.\n\nSince I don\u0027t know who are the owners of the different files, I selected 7 reviewers. Please pick the files you really own and ignore the others.\n\nAs suggested by Mike, it would be probably better to break the CL in smaller parts. I can do that, but again I don\u0027t know which pieces to put in each part, as all these mods are necessary to enable RISCV compatibility.\n\nThank you in advance.\n\nIacopo\n",
       "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70507fe0_8b5bb461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-06T07:29:09Z",
+      "side": 1,
+      "message": "please don\u0027t add everyone you can find.  you rarely add more than 2 or 3 people.",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85970dc4_a78552b5",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-06T07:29:09Z",
+      "side": 1,
+      "message": "this (and default.xml) should be a dedicated CL to roll LSS",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdbdbacc_764aaa8c",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-06T07:29:09Z",
+      "side": 1,
+      "message": "fix all your whitespace errors",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e44430_e9c7d80a",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-06T07:29:09Z",
+      "side": 1,
+      "message": "bad indentation",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "888cffa1_5130df26",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-06T07:29:09Z",
+      "side": 1,
+      "message": "spaces around `\u003d`",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c57e0c5a_d2471554",
+        "filename": "src/client/linux/handler/exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-06T07:29:09Z",
+      "side": 1,
+      "message": "keep within 80 cols",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4d1a22_6f42b893",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-06T07:29:09Z",
+      "side": 1,
+      "message": "we shouldn\u0027t be conditionalizing like this.  ideally this should be a poll loop with a longish timeout so that when the test succeeds, it does so quickly, and when it fails, it takes a while.\n\nsomething like \"for (count \u003d 0; count \u003c 100; ++count) { ...see if process terminated... ; if not, sleep for 100 milliseconds; }\".",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
