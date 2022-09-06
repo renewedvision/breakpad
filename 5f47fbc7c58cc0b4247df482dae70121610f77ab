@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89117351_5ecca1d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T10:09:39Z",
+      "side": 1,
+      "message": "Removed all but 3 reviewers.\nPlease correct me if I removed someone that should instead be present.",
+      "parentUuid": "70507fe0_8b5bb461",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85970dc4_a78552b5",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-09-06T07:29:09Z",
       "side": 1,
       "message": "this (and default.xml) should be a dedicated CL to roll LSS",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "100b5dc5_6547c242",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T10:09:39Z",
+      "side": 1,
+      "message": "Is there a way to create another CL and link it to this one? I know how to do it on GitHub but I\u0027ve never used Gerrit before.\n\nAlso, here i linked the first LSS revision that contains support for riscv64 architecture, but there are more recent versions, so maybe it would be better to add a more recent one.",
+      "parentUuid": "85970dc4_a78552b5",
       "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "430c886e_b6a0fc73",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T10:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdbdbacc_764aaa8c",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32e44430_e9c7d80a",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-09-06T07:29:09Z",
       "side": 1,
       "message": "bad indentation",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5630c1b_d213d2b2",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T10:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32e44430_e9c7d80a",
       "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62792678_71d01351",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T10:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "888cffa1_5130df26",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c57e0c5a_d2471554",
@@ -120,6 +210,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c12daf35_24605552",
+        "filename": "src/client/linux/handler/exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T10:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c57e0c5a_d2471554",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d4d1a22_6f42b893",
@@ -133,6 +241,24 @@
       "writtenOn": "2022-09-06T07:29:09Z",
       "side": 1,
       "message": "we shouldn\u0027t be conditionalizing like this.  ideally this should be a poll loop with a longish timeout so that when the test succeeds, it does so quickly, and when it fails, it takes a while.\n\nsomething like \"for (count \u003d 0; count \u003c 100; ++count) { ...see if process terminated... ; if not, sleep for 100 milliseconds; }\".",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a8f7e03_baa3230f",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T10:09:39Z",
+      "side": 1,
+      "message": "Added the polling cycle as suggested",
+      "parentUuid": "6d4d1a22_6f42b893",
       "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
