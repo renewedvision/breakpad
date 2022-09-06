@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39bdf446_ed4a8a07",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-06T12:01:16Z",
+      "side": 1,
+      "message": "Gerrit is just a git viewer.  create a local branch with separate commits and push them to Gerrit.\n\nyou should roll LSS to the latest version available.",
+      "parentUuid": "100b5dc5_6547c242",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdbdbacc_764aaa8c",
         "filename": "Makefile.am",
         "patchSetId": 2
