@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "729c56b0_6a0126ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T12:17:44Z",
+      "side": 1,
+      "message": "This is needed to add riscv64 support to the breakpad library after merging [this commit](https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3873291/). \nIndeed, the current version of the LSS dep does not support riscv, throwing compile-time errors.",
+      "revId": "18c6444ba174134cb05eb6df9349e2e2d1f2f5f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
