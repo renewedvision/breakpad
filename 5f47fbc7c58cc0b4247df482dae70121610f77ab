@@ -106,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d9ca82_ddf61bbd",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-06T12:18:43Z",
+      "side": 1,
+      "message": "Moved LSS update to [this commit](https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3873644).",
+      "parentUuid": "39bdf446_ed4a8a07",
+      "revId": "5f47fbc7c58cc0b4247df482dae70121610f77ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdbdbacc_764aaa8c",
