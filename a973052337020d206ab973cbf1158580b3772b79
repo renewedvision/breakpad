@@ -16,6 +16,24 @@
       "message": "i only just now noticed your git settings are msiconfigured.  please fix and reupload your CLs.",
       "revId": "a973052337020d206ab973cbf1158580b3772b79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a251c7e_1d7ecde3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T19:38:29Z",
+      "side": 1,
+      "message": "What should I fix precisely?\nI am committing using my GitHub account name and email.",
+      "parentUuid": "963141c6_96ddf07c",
+      "revId": "a973052337020d206ab973cbf1158580b3772b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
