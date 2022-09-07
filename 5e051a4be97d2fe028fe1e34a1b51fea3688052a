@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53e19b13_440f4bab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-09-07T14:34:29Z",
+      "side": 1,
+      "message": "Thanks for giving this more thought than just a rubber stamp.",
+      "revId": "5e051a4be97d2fe028fe1e34a1b51fea3688052a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

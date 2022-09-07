@@ -16,6 +16,24 @@
       "message": "grepping the source shows a few more hits.  guess we should convert them to Google?\n\n```\nsrc/google_breakpad/processor/proc_maps_linux.h:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\nsrc/processor/proc_maps_linux.cc:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\nsrc/processor/proc_maps_linux_unittest.cc:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\n\nsrc/processor/disassembler_x86.h:// All rights reserved.\n```\n\nalso the license text prob needs updating everywhere too.\n\n```\nsrc/tools/mac/tools_mac.gypi:#     * Neither the name of Google Inc. nor the names of its\n```",
       "revId": "f20f7590fb989eb252d2f7e91ae92f42b5c266b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95a39190_1780c5bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-09-07T14:34:29Z",
+      "side": 1,
+      "message": "\u003e grepping the source shows a few more hits.  guess we should convert them to Google?\n\u003e \n\u003e ```\n\u003e src/google_breakpad/processor/proc_maps_linux.h:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\n\u003e src/processor/proc_maps_linux.cc:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\n\u003e src/processor/proc_maps_linux_unittest.cc:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\n\u003e ```\n\nDone.\n\n\u003e ```\n\u003e src/processor/disassembler_x86.h:// All rights reserved.\n\u003e ```\n\nThis one and the .cc had front-truncated license blocks. Fixed.\n\n\u003e also the license text prob needs updating everywhere too.\n\u003e \n\u003e ```\n\u003e src/tools/mac/tools_mac.gypi:#     * Neither the name of Google Inc. nor the names of its\n\u003e ```\n\nDone, throughout.\n\nAlso converted the few .cc and .h files with CRLF line endings to LF.",
+      "parentUuid": "a0d30d7c_96fac410",
+      "revId": "f20f7590fb989eb252d2f7e91ae92f42b5c266b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
