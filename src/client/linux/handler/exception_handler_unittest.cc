@@ -306,8 +306,20 @@ TEST(ExceptionHandlerTest, ParallelChildCrashesDontHang) {
     }
   }
 
-  // Wait a while until the child should have crashed.
-  usleep(1000000);
+  // Poll the child to see if it crashed.
+  int status, wp_pid;
+  for (int i = 0; i < 100; i++) {
+    wp_pid = HANDLE_EINTR(waitpid(child, &status, WNOHANG));
+    ASSERT_NE(-1, wp_pid);
+    if (WIFSIGNALED(status)) {
+      // If the child process terminated by itself,
+      // it will have returned SIGSEGV.
+      ASSERT_EQ(SIGSEGV, WTERMSIG(status));
+      return;
+    }
+    usleep(100000);
+  }
+
   // Kill the child if it is still running.
   kill(child, SIGKILL);
 
