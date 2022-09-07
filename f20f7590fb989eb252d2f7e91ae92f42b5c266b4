@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d30d7c_96fac410",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T06:58:45Z",
+      "side": 1,
+      "message": "grepping the source shows a few more hits.  guess we should convert them to Google?\n\n```\nsrc/google_breakpad/processor/proc_maps_linux.h:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\nsrc/processor/proc_maps_linux.cc:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\nsrc/processor/proc_maps_linux_unittest.cc:// Copyright (c) 2013 The Chromium Authors. All rights reserved.\n\nsrc/processor/disassembler_x86.h:// All rights reserved.\n```\n\nalso the license text prob needs updating everywhere too.\n\n```\nsrc/tools/mac/tools_mac.gypi:#     * Neither the name of Google Inc. nor the names of its\n```",
+      "revId": "f20f7590fb989eb252d2f7e91ae92f42b5c266b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
