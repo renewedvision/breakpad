@@ -34,6 +34,24 @@
       "parentUuid": "963141c6_96ddf07c",
       "revId": "a973052337020d206ab973cbf1158580b3772b79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25dc6c3b_f018a6d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T20:38:03Z",
+      "side": 1,
+      "message": "i strongly doubt \"GlassOfWhiskey\" is your real name.  your Gerrit settings suggest it\u0027s actually \"Iacopo Colonnelli\".",
+      "parentUuid": "7a251c7e_1d7ecde3",
+      "revId": "a973052337020d206ab973cbf1158580b3772b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
