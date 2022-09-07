@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb2d34fb_befdf160",
+        "filename": "src/client/linux/handler/exception_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T10:13:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8078a8e_fc7811c7",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 55
+      },
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4877e73_5e0b32db",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-09-07T08:43:55Z",
       "side": 1,
       "message": "you\u0027re certainly following the existing pattern, and in that way, you\u0027re not wrong.  but this is growing a bit out of control.  imo we should collapse this into a named define, and update all the other places to use that named define rather than copying \u0026 pasting the arch logic like this.\n\nunfortunately i don\u0027t think we can do this at the C++ level which means resorting to preprocessor.  and i can\u0027t find prior art with exported headers.  so let\u0027s do:\n\n```\n#if !defined(__ARM_EABI__) \u0026\u0026 !defined(__mips__)\n# define GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE 1\n#else\n# define GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE 0\n#endif\n```\n\nthen you can update all the other call sites with:\n\n```\n#if GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE\n...\n#endif\n```\n\nyou can do this refactor before your riscv change, and build on top of that by just updating this specific header with the new riscv check.",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1baa8308_496e971c",
+        "filename": "src/client/linux/handler/exception_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T10:13:54Z",
+      "side": 1,
+      "message": "I can do that but first please take a look at lines 456 and 701 of `exception_handler.cc`.\nIt seems that also `__aarch64__` should be included in the `GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE 1`. However, there are other cases where the `__aarch64__` is not referenced. To me, this seems an inconsistence (maybe a bug?). However, I have not `__aarch64__` hardware to experiment.",
+      "parentUuid": "d4877e73_5e0b32db",
       "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -94,6 +136,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12e3d9a5_3654ab76",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T10:13:54Z",
+      "side": 1,
+      "message": "There are many other places in the same file (related to other architectures) that do not use `O_CLOEXEC`. Should I change them, too?",
+      "parentUuid": "3e935c82_c07e565b",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b4e0a8a_cc2a4a8a",
         "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
         "patchSetId": 4
@@ -122,6 +182,30 @@
       "writtenOn": "2022-09-07T08:43:55Z",
       "side": 1,
       "message": "just use `std::min()`",
+      "range": {
+        "startLine": 1304,
+        "startChar": 0,
+        "endLine": 1306,
+        "endChar": 28
+      },
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5841015b_7b5ba3c8",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T10:13:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12656a1f_fe9a1d2f",
       "range": {
         "startLine": 1304,
         "startChar": 0,

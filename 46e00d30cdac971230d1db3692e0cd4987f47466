@@ -16,6 +16,24 @@
       "message": "delete this comment too",
       "revId": "46e00d30cdac971230d1db3692e0cd4987f47466",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ae7015b_e64b31e4",
+        "filename": "src/client/linux/handler/exception_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T10:13:54Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "6bcaa04b_4534236d",
+      "revId": "46e00d30cdac971230d1db3692e0cd4987f47466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
