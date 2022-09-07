@@ -16,6 +16,24 @@
       "message": "hmm, this is broken.  `buffer_len` is the max bytes to be read.  we pretty much never get that many bytes back.  so `\u003c\u003d 0` was correct ...",
       "revId": "30c7f3cfc11cdbf93a12efbe9d46c66d9785879e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e39b8c6d_b3b990df",
+        "filename": "src/processor/exploitability_linux.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-09-07T16:40:16Z",
+      "side": 1,
+      "message": "Doh. Back we go. https://chromium-review.googlesource.com/3879289",
+      "parentUuid": "f1ea2c87_e21ec85a",
+      "revId": "30c7f3cfc11cdbf93a12efbe9d46c66d9785879e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
