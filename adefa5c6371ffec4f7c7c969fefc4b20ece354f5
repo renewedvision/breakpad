@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8078a8e_fc7811c7",
+        "filename": "src/client/linux/handler/exception_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T08:43:55Z",
+      "side": 1,
+      "message": "let\u0027s just delete this comment since it doesn\u0027t add value",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 55
+      },
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4877e73_5e0b32db",
+        "filename": "src/client/linux/handler/exception_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T08:43:55Z",
+      "side": 1,
+      "message": "you\u0027re certainly following the existing pattern, and in that way, you\u0027re not wrong.  but this is growing a bit out of control.  imo we should collapse this into a named define, and update all the other places to use that named define rather than copying \u0026 pasting the arch logic like this.\n\nunfortunately i don\u0027t think we can do this at the C++ level which means resorting to preprocessor.  and i can\u0027t find prior art with exported headers.  so let\u0027s do:\n\n```\n#if !defined(__ARM_EABI__) \u0026\u0026 !defined(__mips__)\n# define GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE 1\n#else\n# define GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE 0\n#endif\n```\n\nthen you can update all the other call sites with:\n\n```\n#if GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE\n...\n#endif\n```\n\nyou can do this refactor before your riscv change, and build on top of that by just updating this specific header with the new riscv check.",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "234773c2_3a643cb8",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T08:43:55Z",
+      "side": 1,
+      "message": "this change looks good, but i think would be better to pull out by itself for bisecting purposes in case something goes wrong",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "800fd31a_c796903a",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T08:43:55Z",
+      "side": 1,
+      "message": "should `ASSERT_EQ(0, WIFEXITED(status));` too",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e935c82_c07e565b",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T08:43:55Z",
+      "side": 1,
+      "message": "always use `O_CLOEXEC` with open calls unless you have explicit reason not to (which should be documented)",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4e0a8a_cc2a4a8a",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T08:43:55Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12656a1f_fe9a1d2f",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T08:43:55Z",
+      "side": 1,
+      "message": "just use `std::min()`",
+      "range": {
+        "startLine": 1304,
+        "startChar": 0,
+        "endLine": 1306,
+        "endChar": 28
+      },
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
