@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "282994d5_ef529c0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T12:25:22Z",
+      "side": 1,
+      "message": "As suggested during the review process of [this commit](https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3873291).",
+      "revId": "3693c51f03e48ec28cfa2b75169efec59e223236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
