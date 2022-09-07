@@ -1,5 +1,4 @@
-// Copyright (c) 2008, Google Inc.
-// All rights reserved
+// Copyright 2008 Google LLC
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
 // met:
@@ -31,7 +30,7 @@
 //  minidump_test
 //
 //  Created by Neal Sidhwaney on 4/13/08.
-//  Copyright 2008 Google Inc. All rights reserved.
+//  Copyright 2008 Google LLC
 //
 //
 
