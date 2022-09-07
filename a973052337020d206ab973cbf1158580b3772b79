@@ -52,6 +52,24 @@
       "parentUuid": "7a251c7e_1d7ecde3",
       "revId": "a973052337020d206ab973cbf1158580b3772b79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0913e51f_a800c18f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T22:25:52Z",
+      "side": 1,
+      "message": "Yes, you are right.\nHowever, `GlassOfWhiskey` is the GitHub account I used to sign the Google Contributor License Agreement.\nThis is why I used this account to mark all my CLs, including [this](https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3873644) and [this](https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3876345) you already ported on the main branch.",
+      "parentUuid": "25dc6c3b_f018a6d0",
+      "revId": "a973052337020d206ab973cbf1158580b3772b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
