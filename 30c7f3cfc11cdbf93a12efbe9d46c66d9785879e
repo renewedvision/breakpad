@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ea2c87_e21ec85a",
+        "filename": "src/processor/exploitability_linux.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T16:18:05Z",
+      "side": 1,
+      "message": "hmm, this is broken.  `buffer_len` is the max bytes to be read.  we pretty much never get that many bytes back.  so `\u003c\u003d 0` was correct ...",
+      "revId": "30c7f3cfc11cdbf93a12efbe9d46c66d9785879e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
