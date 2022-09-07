@@ -121,6 +121,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45c7f602_0fc356fc",
+        "filename": "src/client/linux/handler/exception_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T12:11:04Z",
+      "side": 1,
+      "message": "please move the `GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE` change into a sep commit so we can merge that one now",
+      "parentUuid": "9b298dce_412bb1c6",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "234773c2_3a643cb8",
         "filename": "src/client/linux/handler/exception_handler_unittest.cc",
         "patchSetId": 4
