@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9af6b507_d462d2d7",
+        "filename": "src/client/linux/handler/exception_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-07T10:19:55Z",
+      "side": 1,
+      "message": "i had noticed that ... i agree that it seems wrong/out of sync.  you can keep the logic as-is with something like `#if GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE \u0026\u0026 !defined(__aarch64__)`.  asking you to dig into that is a bit too out of scope for the riscv port.",
+      "parentUuid": "1baa8308_496e971c",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "234773c2_3a643cb8",
         "filename": "src/client/linux/handler/exception_handler_unittest.cc",
         "patchSetId": 4
