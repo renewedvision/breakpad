@@ -101,6 +101,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b298dce_412bb1c6",
+        "filename": "src/client/linux/handler/exception_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-07T11:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9af6b507_d462d2d7",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "234773c2_3a643cb8",
