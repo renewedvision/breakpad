@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8dd9741_0d75ea46",
+        "filename": "src/processor/stackwalker_riscv64_unittest.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-08T22:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6551ae5b_138109d2",
+      "revId": "c9441d6716d05692e4569d434ec2f83450145c85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86fc0bce_4781fb92",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-09-08T15:29:35Z",
       "side": 1,
       "message": "80 cols\n\ncomes up a few times below too",
+      "revId": "c9441d6716d05692e4569d434ec2f83450145c85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75d6042d_a91a6554",
+        "filename": "src/processor/stackwalker_riscv_unittest.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-08T22:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86fc0bce_4781fb92",
       "revId": "c9441d6716d05692e4569d434ec2f83450145c85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
