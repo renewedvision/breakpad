@@ -334,6 +334,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb0be5dd_305df298",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-08T10:37:38Z",
+      "side": 1,
+      "message": "if you want to post a sep cleanup CL to use `O_CLOEXEC` places, that\u0027d be appreciated.  for this riscv CL, you need only fix the new code you\u0027re adding.",
+      "parentUuid": "9bbc2d27_7d723d0d",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b4e0a8a_cc2a4a8a",
         "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
         "patchSetId": 4
