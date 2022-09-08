@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f451dcaf_a74b01d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-08T07:57:07Z",
+      "side": 1,
+      "message": "Gerrit doesn\u0027t want to let me submit, so you\u0027ll prob have to hit the \"rebase\" button first",
+      "revId": "b959b28a959f8ce5402185248557a91e136c34b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
