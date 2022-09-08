@@ -350,6 +350,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c30451b_ae0b7a4a",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-08T13:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb0be5dd_305df298",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b4e0a8a_cc2a4a8a",
@@ -363,6 +381,24 @@
       "writtenOn": "2022-09-07T08:43:55Z",
       "side": 1,
       "message": "same here",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f04b7987_02d50fa0",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-08T13:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b4e0a8a_cc2a4a8a",
       "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
