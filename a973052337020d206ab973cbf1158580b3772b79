@@ -70,6 +70,24 @@
       "parentUuid": "25dc6c3b_f018a6d0",
       "revId": "a973052337020d206ab973cbf1158580b3772b79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a15b02bd_a152c4cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-08T07:08:20Z",
+      "side": 1,
+      "message": "\u003e However,  GlassOfWhiskey  is the GitHub account I used to sign the Google Contributor License Agreement.\n\nthat doesn\u0027t matter.  the CLA is associated with your Gerrit account that you\u0027re authenticating against.  you can use proper details in your git commits.\n\n\u003e This is why I used this account to mark all my CLs, including  this  and  this  you already ported on the main branch.\n\nif i had noticed this earlier, i wouldn\u0027t have accepted those CLs either",
+      "parentUuid": "0913e51f_a800c18f",
+      "revId": "a973052337020d206ab973cbf1158580b3772b79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
