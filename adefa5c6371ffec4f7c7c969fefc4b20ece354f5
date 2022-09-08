@@ -316,6 +316,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9bbc2d27_7d723d0d",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1554533
+      },
+      "writtenOn": "2022-09-08T10:34:16Z",
+      "side": 1,
+      "message": "I reply because I suspect this question got lost through the subsequent comments.",
+      "parentUuid": "12e3d9a5_3654ab76",
+      "revId": "adefa5c6371ffec4f7c7c969fefc4b20ece354f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b4e0a8a_cc2a4a8a",
         "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
         "patchSetId": 4
