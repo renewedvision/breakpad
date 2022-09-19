@@ -150,6 +150,8 @@ bool Module::AddFunction(Function* function) {
     it_ext = externs_.find(&arm_thumb_ext);
   }
   if (it_ext != externs_.end()) {
+    if ((*it_ext)->is_multiple)
+      function->is_multiple = true;
     delete *it_ext;
     externs_.erase(it_ext);
   }
@@ -189,6 +191,7 @@ void Module::AddExtern(Extern* ext) {
 
   std::pair<ExternSet::iterator,bool> ret = externs_.insert(ext);
   if (!ret.second) {
+    (*ret.first)->is_multiple = true;
     // Free the duplicate that was not inserted because this Module
     // now owns it.
     delete ext;
@@ -378,7 +381,7 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
       vector<Line>::iterator line_it = func->lines.begin();
       for (auto range_it = func->ranges.cbegin();
            range_it != func->ranges.cend(); ++range_it) {
-        stream << "FUNC " << hex
+        stream << "FUNC " << (func->is_multiple ? "m " : "") << hex
                << (range_it->address - load_address_) << " "
                << range_it->size << " "
                << func->parameter_size << " "
@@ -422,7 +425,7 @@ bool Module::Write(std::ostream& stream, SymbolData symbol_data) {
     for (ExternSet::const_iterator extern_it = externs_.begin();
          extern_it != externs_.end(); ++extern_it) {
       Extern* ext = *extern_it;
-      stream << "PUBLIC " << hex
+      stream << "PUBLIC " << (ext->is_multiple ? "m " : "") << hex
              << (ext->address - load_address_) << " 0 "
              << ext->name << dec << "\n";
     }
