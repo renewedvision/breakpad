@@ -129,6 +129,9 @@ class Module {
 
     // Inlined call sites belonging to this functions.
     vector<std::unique_ptr<Inline>> inlines;
+
+    // If this symbol has been folded with other symbols in the linked binary.
+    bool is_multiple = false;
   };
 
   struct InlineOrigin {
@@ -242,6 +245,8 @@ class Module {
     explicit Extern(const Address& address_input) : address(address_input) {}
     const Address address;
     string name;
+    // If this symbol has been folded with other symbols in the linked binary.
+    bool is_multiple = false;
   };
 
   // A map from register names to postfix expressions that recover
