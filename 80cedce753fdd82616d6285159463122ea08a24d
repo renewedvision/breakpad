@@ -33,6 +33,24 @@
       "message": "Nothing against updating the autotools used to generate things, but for better isolation of changes, we should do a regeneration for a tool version change with no input file changes. Here, it looks like you’ve done the regeneration following your other (“Fix Makefile conditionals”) change, which means that the generated files might mix changes from the tool version update with changes from the input file change.\n\nThe two approaches are:\n\n1. Regenerate to the new version before making changes to input files like Makefile.am. This would look like three changes:\n   a. regenerate with the new autotools versions.\n   b. make changes to Makefile.am.\n   c. regenerate again with the new autotools version, according to the Makefile.am changes.\n2. Make your input file changes first and regenerate on the old version, then move to the new tool version afterwards. That would be:\n   a. make changes to Makefile.am.\n   b. regenerate with the old autotools version, according to the Makefile.am changes.\n   c. regenerate again with the new autotools version.\n\n1.b and 1.c could be combined into a single change. So could 2.a and 2.b. I actually consider this preferable. It’s clear in those cases which files were human-edited and which were machine-generated.\n\nOption 1 is probably easier if you don’t have old autotools versions available. This is fine.\n\nThese approaches help us isolate the source of changes in generated output, which is helpful both for code review and the possible (hopefully remote) need to selectively revert in the future.",
       "revId": "80cedce753fdd82616d6285159463122ea08a24d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d630854_1fbf3b19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-09-30T14:59:23Z",
+      "side": 1,
+      "message": "if we\u0027re going to raise the version of autotools used, we should be updating the min requirements in the files too.  otherwise we risk people committing a lot of noise as people use different versions with whatever is installed in their system.\n\nso configure.ac should have its AC_PREREQ set to 2.71 at least.  and AM_INIT_AUTOMAKE set to 1.16.",
+      "parentUuid": "d214e0ba_e0f17a48",
+      "revId": "80cedce753fdd82616d6285159463122ea08a24d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
