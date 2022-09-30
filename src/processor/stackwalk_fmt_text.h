@@ -26,19 +26,18 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// stackwalk_common.cc: Module shared by the {micro,mini}dump_stackwalck
+// stackwalk_fmt_*.cc: Modules shared by the {micro,mini}dump_stackwalck
 // executables to print the content of dumps (w/ stack traces) on the console.
 
 
-#ifndef PROCESSOR_STACKWALK_COMMON_H__
-#define PROCESSOR_STACKWALK_COMMON_H__
+#ifndef PROCESSOR_STACKWALK_FMT_TEXT_H__
+#define PROCESSOR_STACKWALK_FMT_TEXT_H__
 
 namespace google_breakpad {
 
 class ProcessState;
 class SourceLineResolverInterface;
 
-void PrintProcessStateMachineReadable(const ProcessState& process_state);
 void PrintProcessState(const ProcessState& process_state,
                        bool output_stack_contents,
                        bool output_requesting_thread_only,
@@ -46,4 +45,4 @@ void PrintProcessState(const ProcessState& process_state,
 
 }  // namespace google_breakpad
 
-#endif  // PROCESSOR_STACKWALK_COMMON_H__
+#endif  // PROCESSOR_STACKWALK_FMT_TEXT_H__

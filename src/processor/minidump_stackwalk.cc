@@ -48,7 +48,8 @@
 #include "google_breakpad/processor/process_state.h"
 #include "processor/logging.h"
 #include "processor/simple_symbol_supplier.h"
-#include "processor/stackwalk_common.h"
+#include "processor/stackwalk_fmt_text.h"
+#include "processor/stackwalk_fmt_machinereadable.h"
 
 
 namespace {

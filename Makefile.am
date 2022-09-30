@@ -279,8 +279,10 @@ src_libbreakpad_a_SOURCES = \
 	src/processor/source_line_resolver_base.cc \
 	src/processor/stack_frame_cpu.cc \
 	src/processor/stack_frame_symbolizer.cc \
-	src/processor/stackwalk_common.cc \
-	src/processor/stackwalk_common.h \
+	src/processor/stackwalk_fmt_text.cc \
+	src/processor/stackwalk_fmt_text.h \
+	src/processor/stackwalk_fmt_machinereadable.cc \
+	src/processor/stackwalk_fmt_machinereadable.h \
 	src/processor/stackwalker.cc \
 	src/processor/stackwalker_amd64.cc \
 	src/processor/stackwalker_amd64.h \
@@ -1479,8 +1481,6 @@ EXTRA_DIST = \
 	src/common/windows/string_utils-inl.h \
 	src/common/windows/string_utils.cc \
 	src/processor/microdump_stackwalk_test_vars \
-	src/processor/stackwalk_common.cc \
-	src/processor/stackwalk_common.h \
 	src/processor/stackwalker_selftest_sol.s \
 	src/processor/testdata/ascii_read_av_block_write.dmp \
 	src/processor/testdata/ascii_read_av_clobber_write.dmp \

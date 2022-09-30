@@ -47,7 +47,8 @@
 #include "google_breakpad/processor/stack_frame_symbolizer.h"
 #include "processor/logging.h"
 #include "processor/simple_symbol_supplier.h"
-#include "processor/stackwalk_common.h"
+#include "processor/stackwalk_fmt_text.h"
+#include "processor/stackwalk_fmt_machinereadable.h"
 
 
 namespace {
