@@ -710,111 +710,61 @@ src_client_linux_linux_dumper_unittest_helper_LINK = $(CXXLD) \
 	$(CXXFLAGS) \
 	$(src_client_linux_linux_dumper_unittest_helper_LDFLAGS) \
 	$(LDFLAGS) -o $@
-am__src_common_dumper_unittest_SOURCES_DIST =  \
-	src/common/byte_cursor_unittest.cc src/common/convert_UTF.cc \
-	src/common/dwarf_cfi_to_module.cc \
-	src/common/dwarf_cfi_to_module_unittest.cc \
-	src/common/dwarf_cu_to_module.cc \
-	src/common/dwarf_cu_to_module_unittest.cc \
-	src/common/dwarf_line_to_module.cc \
-	src/common/dwarf_line_to_module_unittest.cc \
-	src/common/dwarf_range_list_handler.cc src/common/language.cc \
-	src/common/memory_range_unittest.cc src/common/module.cc \
-	src/common/module_unittest.cc src/common/path_helper.cc \
-	src/common/stabs_reader.cc src/common/stabs_reader_unittest.cc \
-	src/common/stabs_to_module.cc \
-	src/common/stabs_to_module_unittest.cc \
-	src/common/string_conversion.cc \
-	src/common/string_conversion_unittest.cc \
-	src/common/test_assembler.cc src/common/dwarf/bytereader.cc \
-	src/common/dwarf/bytereader.h \
-	src/common/dwarf/bytereader-inl.h \
-	src/common/dwarf/bytereader_unittest.cc \
-	src/common/dwarf/cfi_assembler.cc \
-	src/common/dwarf/cfi_assembler.h \
-	src/common/dwarf/dwarf2diehandler.cc \
-	src/common/dwarf/dwarf2diehandler_unittest.cc \
-	src/common/dwarf/dwarf2reader.cc \
-	src/common/dwarf/dwarf2reader.h src/common/dwarf/elf_reader.cc \
-	src/common/dwarf/elf_reader.h \
-	src/common/dwarf/dwarf2reader_cfi_unittest.cc \
-	src/common/dwarf/dwarf2reader_die_unittest.cc \
-	src/common/dwarf/dwarf2reader_test_common.h \
-	src/common/linux/crc32.cc src/common/linux/dump_symbols.cc \
-	src/common/linux/dump_symbols_unittest.cc \
-	src/common/linux/elf_core_dump.cc \
-	src/common/linux/elf_core_dump_unittest.cc \
-	src/common/linux/elf_symbols_to_module.cc \
-	src/common/linux/elf_symbols_to_module_unittest.cc \
-	src/common/linux/elfutils.cc src/common/linux/file_id.cc \
-	src/common/linux/file_id_unittest.cc \
-	src/common/linux/linux_libc_support.cc \
-	src/common/linux/memory_mapped_file.cc \
-	src/common/linux/memory_mapped_file_unittest.cc \
-	src/common/linux/safe_readlink.cc \
-	src/common/linux/safe_readlink_unittest.cc \
-	src/common/linux/synth_elf.cc \
-	src/common/linux/synth_elf_unittest.cc \
-	src/common/linux/tests/crash_generator.cc \
-	src/common/linux/tests/crash_generator.h \
-	src/common/testdata/func-line-pairing.h \
-	src/common/tests/file_utils.cc
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@am_src_common_dumper_unittest_OBJECTS = src/common/dumper_unittest-byte_cursor_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-convert_UTF.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-dwarf_cfi_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-dwarf_cfi_to_module_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-dwarf_cu_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-dwarf_cu_to_module_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-dwarf_line_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-dwarf_line_to_module_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-dwarf_range_list_handler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-language.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-memory_range_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-module_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-path_helper.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-stabs_reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-stabs_reader_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-stabs_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-stabs_to_module_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-string_conversion.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-string_conversion_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dumper_unittest-test_assembler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-bytereader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-bytereader_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-cfi_assembler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-dwarf2diehandler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-dwarf2diehandler_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-dwarf2reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-elf_reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-dwarf2reader_cfi_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dumper_unittest-dwarf2reader_die_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-crc32.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-dump_symbols.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-dump_symbols_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-elf_core_dump.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-elf_core_dump_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-elf_symbols_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-elf_symbols_to_module_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-elfutils.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-file_id.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-file_id_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-linux_libc_support.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-memory_mapped_file.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-memory_mapped_file_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-safe_readlink.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-safe_readlink_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-synth_elf.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dumper_unittest-synth_elf_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/tests/dumper_unittest-crash_generator.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tests/dumper_unittest-file_utils.$(OBJEXT)
+am_src_common_dumper_unittest_OBJECTS =  \
+	src/common/dumper_unittest-byte_cursor_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-convert_UTF.$(OBJEXT) \
+	src/common/dumper_unittest-dwarf_cfi_to_module.$(OBJEXT) \
+	src/common/dumper_unittest-dwarf_cfi_to_module_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-dwarf_cu_to_module.$(OBJEXT) \
+	src/common/dumper_unittest-dwarf_cu_to_module_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-dwarf_line_to_module.$(OBJEXT) \
+	src/common/dumper_unittest-dwarf_line_to_module_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-dwarf_range_list_handler.$(OBJEXT) \
+	src/common/dumper_unittest-language.$(OBJEXT) \
+	src/common/dumper_unittest-memory_range_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-module.$(OBJEXT) \
+	src/common/dumper_unittest-module_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-path_helper.$(OBJEXT) \
+	src/common/dumper_unittest-stabs_reader.$(OBJEXT) \
+	src/common/dumper_unittest-stabs_reader_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-stabs_to_module.$(OBJEXT) \
+	src/common/dumper_unittest-stabs_to_module_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-string_conversion.$(OBJEXT) \
+	src/common/dumper_unittest-string_conversion_unittest.$(OBJEXT) \
+	src/common/dumper_unittest-test_assembler.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-bytereader.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-bytereader_unittest.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-cfi_assembler.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-dwarf2diehandler.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-dwarf2diehandler_unittest.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-dwarf2reader.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-elf_reader.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-dwarf2reader_cfi_unittest.$(OBJEXT) \
+	src/common/dwarf/dumper_unittest-dwarf2reader_die_unittest.$(OBJEXT) \
+	src/common/linux/dumper_unittest-crc32.$(OBJEXT) \
+	src/common/linux/dumper_unittest-dump_symbols.$(OBJEXT) \
+	src/common/linux/dumper_unittest-dump_symbols_unittest.$(OBJEXT) \
+	src/common/linux/dumper_unittest-elf_core_dump.$(OBJEXT) \
+	src/common/linux/dumper_unittest-elf_core_dump_unittest.$(OBJEXT) \
+	src/common/linux/dumper_unittest-elf_symbols_to_module.$(OBJEXT) \
+	src/common/linux/dumper_unittest-elf_symbols_to_module_unittest.$(OBJEXT) \
+	src/common/linux/dumper_unittest-elfutils.$(OBJEXT) \
+	src/common/linux/dumper_unittest-file_id.$(OBJEXT) \
+	src/common/linux/dumper_unittest-file_id_unittest.$(OBJEXT) \
+	src/common/linux/dumper_unittest-linux_libc_support.$(OBJEXT) \
+	src/common/linux/dumper_unittest-memory_mapped_file.$(OBJEXT) \
+	src/common/linux/dumper_unittest-memory_mapped_file_unittest.$(OBJEXT) \
+	src/common/linux/dumper_unittest-safe_readlink.$(OBJEXT) \
+	src/common/linux/dumper_unittest-safe_readlink_unittest.$(OBJEXT) \
+	src/common/linux/dumper_unittest-synth_elf.$(OBJEXT) \
+	src/common/linux/dumper_unittest-synth_elf_unittest.$(OBJEXT) \
+	src/common/linux/tests/dumper_unittest-crash_generator.$(OBJEXT) \
+	src/common/tests/dumper_unittest-file_utils.$(OBJEXT)
 src_common_dumper_unittest_OBJECTS =  \
 	$(am_src_common_dumper_unittest_OBJECTS)
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_dumper_unittest_DEPENDENCIES =  \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_2) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1)
+src_common_dumper_unittest_DEPENDENCIES = $(am__DEPENDENCIES_2) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 am__src_common_dwarf_dwarf2reader_lineinfo_unittest_SOURCES_DIST =  \
 	src/common/dwarf/dwarf2reader.h \
 	src/common/dwarf/dwarf2reader_lineinfo_unittest.cc
@@ -840,73 +790,48 @@ src_common_dwarf_dwarf2reader_splitfunctions_unittest_OBJECTS = $(am_src_common_
 @DISABLE_PROCESSOR_FALSE@	$(am__DEPENDENCIES_2) \
 @DISABLE_PROCESSOR_FALSE@	$(am__DEPENDENCIES_1) \
 @DISABLE_PROCESSOR_FALSE@	$(am__DEPENDENCIES_1)
-am__src_common_linux_google_crashdump_uploader_test_SOURCES_DIST =  \
-	src/common/linux/google_crashdump_uploader.cc \
-	src/common/linux/google_crashdump_uploader_test.cc \
-	src/common/linux/libcurl_wrapper.cc
-@LINUX_HOST_TRUE@am_src_common_linux_google_crashdump_uploader_test_OBJECTS = src/common/linux/google_crashdump_uploader_test-google_crashdump_uploader.$(OBJEXT) \
-@LINUX_HOST_TRUE@	src/common/linux/google_crashdump_uploader_test-google_crashdump_uploader_test.$(OBJEXT) \
-@LINUX_HOST_TRUE@	src/common/linux/google_crashdump_uploader_test-libcurl_wrapper.$(OBJEXT)
+am_src_common_linux_google_crashdump_uploader_test_OBJECTS = src/common/linux/google_crashdump_uploader_test-google_crashdump_uploader.$(OBJEXT) \
+	src/common/linux/google_crashdump_uploader_test-google_crashdump_uploader_test.$(OBJEXT) \
+	src/common/linux/google_crashdump_uploader_test-libcurl_wrapper.$(OBJEXT)
 src_common_linux_google_crashdump_uploader_test_OBJECTS =  \
 	$(am_src_common_linux_google_crashdump_uploader_test_OBJECTS)
-@LINUX_HOST_TRUE@src_common_linux_google_crashdump_uploader_test_DEPENDENCIES =  \
-@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1) \
-@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1)
-am__src_common_mac_macho_reader_unittest_SOURCES_DIST =  \
-	src/common/dwarf_cfi_to_module.cc \
-	src/common/dwarf_cu_to_module.cc \
-	src/common/dwarf_line_to_module.cc src/common/language.cc \
-	src/common/md5.cc src/common/module.cc \
-	src/common/path_helper.cc src/common/stabs_reader.cc \
-	src/common/stabs_to_module.cc src/common/test_assembler.cc \
-	src/common/dwarf/bytereader.cc \
-	src/common/dwarf/cfi_assembler.cc \
-	src/common/dwarf/dwarf2diehandler.cc \
-	src/common/dwarf/dwarf2reader.cc \
-	src/common/dwarf/elf_reader.cc \
-	src/common/mac/arch_utilities.cc src/common/mac/file_id.cc \
-	src/common/mac/macho_id.cc src/common/mac/macho_reader.cc \
-	src/common/mac/macho_reader_unittest.cc \
-	src/common/mac/macho_utilities.cc \
-	src/common/mac/macho_walker.cc src/common/tests/file_utils.cc
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@am_src_common_mac_macho_reader_unittest_OBJECTS = src/common/mac_macho_reader_unittest-dwarf_cfi_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-dwarf_cu_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-dwarf_line_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-language.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-md5.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-path_helper.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-stabs_reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-stabs_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac_macho_reader_unittest-test_assembler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/mac_macho_reader_unittest-bytereader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/mac_macho_reader_unittest-cfi_assembler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/mac_macho_reader_unittest-dwarf2diehandler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/mac_macho_reader_unittest-dwarf2reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/mac_macho_reader_unittest-elf_reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader_unittest-arch_utilities.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader_unittest-file_id.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader_unittest-macho_id.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader_unittest-macho_reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader_unittest-macho_reader_unittest.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader_unittest-macho_utilities.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader_unittest-macho_walker.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tests/mac_macho_reader_unittest-file_utils.$(OBJEXT)
+src_common_linux_google_crashdump_uploader_test_DEPENDENCIES =  \
+	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+am_src_common_mac_macho_reader_unittest_OBJECTS = src/common/mac_macho_reader_unittest-dwarf_cfi_to_module.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-dwarf_cu_to_module.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-dwarf_line_to_module.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-language.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-md5.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-module.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-path_helper.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-stabs_reader.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-stabs_to_module.$(OBJEXT) \
+	src/common/mac_macho_reader_unittest-test_assembler.$(OBJEXT) \
+	src/common/dwarf/mac_macho_reader_unittest-bytereader.$(OBJEXT) \
+	src/common/dwarf/mac_macho_reader_unittest-cfi_assembler.$(OBJEXT) \
+	src/common/dwarf/mac_macho_reader_unittest-dwarf2diehandler.$(OBJEXT) \
+	src/common/dwarf/mac_macho_reader_unittest-dwarf2reader.$(OBJEXT) \
+	src/common/dwarf/mac_macho_reader_unittest-elf_reader.$(OBJEXT) \
+	src/common/mac/macho_reader_unittest-arch_utilities.$(OBJEXT) \
+	src/common/mac/macho_reader_unittest-file_id.$(OBJEXT) \
+	src/common/mac/macho_reader_unittest-macho_id.$(OBJEXT) \
+	src/common/mac/macho_reader_unittest-macho_reader.$(OBJEXT) \
+	src/common/mac/macho_reader_unittest-macho_reader_unittest.$(OBJEXT) \
+	src/common/mac/macho_reader_unittest-macho_utilities.$(OBJEXT) \
+	src/common/mac/macho_reader_unittest-macho_walker.$(OBJEXT) \
+	src/common/tests/mac_macho_reader_unittest-file_utils.$(OBJEXT)
 src_common_mac_macho_reader_unittest_OBJECTS =  \
 	$(am_src_common_mac_macho_reader_unittest_OBJECTS)
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_mac_macho_reader_unittest_DEPENDENCIES =  \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_2) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1)
-am__src_common_safe_math_unittest_SOURCES_DIST =  \
-	src/common/safe_math.h src/common/safe_math_unittest.cc
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@am_src_common_safe_math_unittest_OBJECTS = src/common/safe_math_unittest-safe_math_unittest.$(OBJEXT)
+src_common_mac_macho_reader_unittest_DEPENDENCIES =  \
+	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+am_src_common_safe_math_unittest_OBJECTS =  \
+	src/common/safe_math_unittest-safe_math_unittest.$(OBJEXT)
 src_common_safe_math_unittest_OBJECTS =  \
 	$(am_src_common_safe_math_unittest_OBJECTS)
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_safe_math_unittest_DEPENDENCIES =  \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_2) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1)
+src_common_safe_math_unittest_DEPENDENCIES = $(am__DEPENDENCIES_2) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
 am__src_common_test_assembler_unittest_SOURCES_DIST =  \
 	src/common/test_assembler.cc src/common/test_assembler.h \
 	src/common/test_assembler_unittest.cc
@@ -1640,32 +1565,32 @@ am__src_tools_mac_dump_syms_dump_syms_mac_SOURCES_DIST =  \
 	src/common/mac/macho_utilities.h \
 	src/common/mac/macho_walker.cc src/common/mac/macho_walker.h \
 	src/tools/mac/dump_syms/dump_syms_tool.cc
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@am_src_tools_mac_dump_syms_dump_syms_mac_OBJECTS = src/common/tools_mac_dump_syms_dump_syms_mac-dwarf_cfi_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-dwarf_cu_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-dwarf_line_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-dwarf_range_list_handler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-language.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-md5.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-path_helper.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-stabs_reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tools_mac_dump_syms_dump_syms_mac-stabs_to_module.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/tools_mac_dump_syms_dump_syms_mac-bytereader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/tools_mac_dump_syms_dump_syms_mac-dwarf2diehandler.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/tools_mac_dump_syms_dump_syms_mac-dwarf2reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/tools_mac_dump_syms_dump_syms_mac-elf_reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-arch_utilities.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-dump_syms.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-file_id.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-macho_id.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-macho_reader.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-macho_utilities.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-macho_walker.$(OBJEXT) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/tools/mac/dump_syms/dump_syms_mac-dump_syms_tool.$(OBJEXT)
+@DISABLE_TOOLS_FALSE@am_src_tools_mac_dump_syms_dump_syms_mac_OBJECTS = src/common/tools_mac_dump_syms_dump_syms_mac-dwarf_cfi_to_module.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-dwarf_cu_to_module.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-dwarf_line_to_module.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-dwarf_range_list_handler.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-language.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-md5.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-module.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-path_helper.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-stabs_reader.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/tools_mac_dump_syms_dump_syms_mac-stabs_to_module.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf/tools_mac_dump_syms_dump_syms_mac-bytereader.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf/tools_mac_dump_syms_dump_syms_mac-dwarf2diehandler.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf/tools_mac_dump_syms_dump_syms_mac-dwarf2reader.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf/tools_mac_dump_syms_dump_syms_mac-elf_reader.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-arch_utilities.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-dump_syms.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-file_id.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-macho_id.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-macho_reader.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-macho_utilities.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/common/mac/tools_mac_dump_syms_dump_syms_mac-macho_walker.$(OBJEXT) \
+@DISABLE_TOOLS_FALSE@	src/tools/mac/dump_syms/dump_syms_mac-dump_syms_tool.$(OBJEXT)
 src_tools_mac_dump_syms_dump_syms_mac_OBJECTS =  \
 	$(am_src_tools_mac_dump_syms_dump_syms_mac_OBJECTS)
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_tools_mac_dump_syms_dump_syms_mac_DEPENDENCIES =  \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(am__DEPENDENCIES_1)
+@DISABLE_TOOLS_FALSE@src_tools_mac_dump_syms_dump_syms_mac_DEPENDENCIES =  \
+@DISABLE_TOOLS_FALSE@	$(am__DEPENDENCIES_1)
 src_tools_mac_dump_syms_dump_syms_mac_LINK = $(CXXLD) \
 	$(src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -2086,12 +2011,12 @@ DIST_SOURCES =  \
 	$(src_client_linux_linux_client_unittest_SOURCES) \
 	$(am__src_client_linux_linux_client_unittest_shlib_SOURCES_DIST) \
 	$(am__src_client_linux_linux_dumper_unittest_helper_SOURCES_DIST) \
-	$(am__src_common_dumper_unittest_SOURCES_DIST) \
+	$(src_common_dumper_unittest_SOURCES) \
 	$(am__src_common_dwarf_dwarf2reader_lineinfo_unittest_SOURCES_DIST) \
 	$(am__src_common_dwarf_dwarf2reader_splitfunctions_unittest_SOURCES_DIST) \
-	$(am__src_common_linux_google_crashdump_uploader_test_SOURCES_DIST) \
-	$(am__src_common_mac_macho_reader_unittest_SOURCES_DIST) \
-	$(am__src_common_safe_math_unittest_SOURCES_DIST) \
+	$(src_common_linux_google_crashdump_uploader_test_SOURCES) \
+	$(src_common_mac_macho_reader_unittest_SOURCES) \
+	$(src_common_safe_math_unittest_SOURCES) \
 	$(am__src_common_test_assembler_unittest_SOURCES_DIST) \
 	$(am__src_processor_address_map_unittest_SOURCES_DIST) \
 	$(am__src_processor_basic_source_line_resolver_unittest_SOURCES_DIST) \
@@ -2943,171 +2868,171 @@ TESTS = $(check_PROGRAMS) $(check_SCRIPTS)
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/tools/linux/symupload/sym_upload.cc
 
 @DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_tools_linux_symupload_sym_upload_LDADD = -ldl
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_tools_mac_dump_syms_dump_syms_mac_SOURCES = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_cfi_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_cu_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_line_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_range_list_handler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/language.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/md5.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/path_helper.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/stabs_reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/stabs_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/bytereader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2diehandler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/elf_reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/arch_utilities.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/dump_syms.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/dump_syms.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/file_id.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/file_id.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_id.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_id.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_utilities.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_utilities.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_walker.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_walker.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/tools/mac/dump_syms/dump_syms_tool.cc
+@DISABLE_TOOLS_FALSE@src_tools_mac_dump_syms_dump_syms_mac_SOURCES = \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf_cfi_to_module.cc \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf_cu_to_module.cc \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf_line_to_module.cc \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf_range_list_handler.cc \
+@DISABLE_TOOLS_FALSE@	src/common/language.cc \
+@DISABLE_TOOLS_FALSE@	src/common/md5.cc \
+@DISABLE_TOOLS_FALSE@	src/common/module.cc \
+@DISABLE_TOOLS_FALSE@	src/common/path_helper.cc \
+@DISABLE_TOOLS_FALSE@	src/common/stabs_reader.cc \
+@DISABLE_TOOLS_FALSE@	src/common/stabs_to_module.cc \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf/bytereader.cc \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf/dwarf2diehandler.cc \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf/dwarf2reader.cc \
+@DISABLE_TOOLS_FALSE@	src/common/dwarf/elf_reader.cc \
+@DISABLE_TOOLS_FALSE@	src/common/mac/arch_utilities.cc \
+@DISABLE_TOOLS_FALSE@	src/common/mac/dump_syms.cc \
+@DISABLE_TOOLS_FALSE@	src/common/mac/dump_syms.h \
+@DISABLE_TOOLS_FALSE@	src/common/mac/file_id.cc \
+@DISABLE_TOOLS_FALSE@	src/common/mac/file_id.h \
+@DISABLE_TOOLS_FALSE@	src/common/mac/macho_id.cc \
+@DISABLE_TOOLS_FALSE@	src/common/mac/macho_id.h \
+@DISABLE_TOOLS_FALSE@	src/common/mac/macho_reader.cc \
+@DISABLE_TOOLS_FALSE@	src/common/mac/macho_reader.h \
+@DISABLE_TOOLS_FALSE@	src/common/mac/macho_utilities.cc \
+@DISABLE_TOOLS_FALSE@	src/common/mac/macho_utilities.h \
+@DISABLE_TOOLS_FALSE@	src/common/mac/macho_walker.cc \
+@DISABLE_TOOLS_FALSE@	src/common/mac/macho_walker.h \
+@DISABLE_TOOLS_FALSE@	src/tools/mac/dump_syms/dump_syms_tool.cc
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-I$(top_srcdir)/src/third_party/mac_headers \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(RUSTC_DEMANGLE_CFLAGS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-DHAVE_MACH_O_NLIST_H
+@DISABLE_TOOLS_FALSE@src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS = \
+@DISABLE_TOOLS_FALSE@	-I$(top_srcdir)/src/third_party/mac_headers \
+@DISABLE_TOOLS_FALSE@	$(RUSTC_DEMANGLE_CFLAGS) \
+@DISABLE_TOOLS_FALSE@	-DHAVE_MACH_O_NLIST_H
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_tools_mac_dump_syms_dump_syms_mac_LDADD = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(RUSTC_DEMANGLE_LIBS)
+@DISABLE_TOOLS_FALSE@src_tools_mac_dump_syms_dump_syms_mac_LDADD = \
+@DISABLE_TOOLS_FALSE@	$(RUSTC_DEMANGLE_LIBS)
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_safe_math_unittest_SOURCES = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/safe_math.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/safe_math_unittest.cc
+src_common_safe_math_unittest_SOURCES = \
+	src/common/safe_math.h \
+	src/common/safe_math_unittest.cc
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_safe_math_unittest_CPPFLAGS = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(AM_CPPFLAGS) $(TEST_CFLAGS)
+src_common_safe_math_unittest_CPPFLAGS = \
+	$(AM_CPPFLAGS) $(TEST_CFLAGS)
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_safe_math_unittest_LDADD = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(TEST_LIBS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+src_common_safe_math_unittest_LDADD = \
+	$(TEST_LIBS) \
+	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_dumper_unittest_SOURCES = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/byte_cursor_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/convert_UTF.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_cfi_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_cfi_to_module_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_cu_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_cu_to_module_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_line_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_line_to_module_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_range_list_handler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/language.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/memory_range_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/module_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/path_helper.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/stabs_reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/stabs_reader_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/stabs_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/stabs_to_module_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/string_conversion.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/string_conversion_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/test_assembler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/bytereader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/bytereader.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/bytereader-inl.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/bytereader_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/cfi_assembler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/cfi_assembler.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2diehandler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2diehandler_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2reader.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/elf_reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/elf_reader.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2reader_cfi_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2reader_die_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2reader_test_common.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/crc32.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dump_symbols.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/dump_symbols_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/elf_core_dump.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/elf_core_dump_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/elf_symbols_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/elf_symbols_to_module_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/elfutils.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/file_id.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/file_id_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/linux_libc_support.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/memory_mapped_file.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/memory_mapped_file_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/safe_readlink.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/safe_readlink_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/synth_elf.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/synth_elf_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/tests/crash_generator.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/linux/tests/crash_generator.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/testdata/func-line-pairing.h \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tests/file_utils.cc
+src_common_dumper_unittest_SOURCES = \
+	src/common/byte_cursor_unittest.cc \
+	src/common/convert_UTF.cc \
+	src/common/dwarf_cfi_to_module.cc \
+	src/common/dwarf_cfi_to_module_unittest.cc \
+	src/common/dwarf_cu_to_module.cc \
+	src/common/dwarf_cu_to_module_unittest.cc \
+	src/common/dwarf_line_to_module.cc \
+	src/common/dwarf_line_to_module_unittest.cc \
+	src/common/dwarf_range_list_handler.cc \
+	src/common/language.cc \
+	src/common/memory_range_unittest.cc \
+	src/common/module.cc \
+	src/common/module_unittest.cc \
+	src/common/path_helper.cc \
+	src/common/stabs_reader.cc \
+	src/common/stabs_reader_unittest.cc \
+	src/common/stabs_to_module.cc \
+	src/common/stabs_to_module_unittest.cc \
+	src/common/string_conversion.cc \
+	src/common/string_conversion_unittest.cc \
+	src/common/test_assembler.cc \
+	src/common/dwarf/bytereader.cc \
+	src/common/dwarf/bytereader.h \
+	src/common/dwarf/bytereader-inl.h \
+	src/common/dwarf/bytereader_unittest.cc \
+	src/common/dwarf/cfi_assembler.cc \
+	src/common/dwarf/cfi_assembler.h \
+	src/common/dwarf/dwarf2diehandler.cc \
+	src/common/dwarf/dwarf2diehandler_unittest.cc \
+	src/common/dwarf/dwarf2reader.cc \
+	src/common/dwarf/dwarf2reader.h \
+	src/common/dwarf/elf_reader.cc \
+	src/common/dwarf/elf_reader.h \
+	src/common/dwarf/dwarf2reader_cfi_unittest.cc \
+	src/common/dwarf/dwarf2reader_die_unittest.cc \
+	src/common/dwarf/dwarf2reader_test_common.h \
+	src/common/linux/crc32.cc \
+	src/common/linux/dump_symbols.cc \
+	src/common/linux/dump_symbols_unittest.cc \
+	src/common/linux/elf_core_dump.cc \
+	src/common/linux/elf_core_dump_unittest.cc \
+	src/common/linux/elf_symbols_to_module.cc \
+	src/common/linux/elf_symbols_to_module_unittest.cc \
+	src/common/linux/elfutils.cc \
+	src/common/linux/file_id.cc \
+	src/common/linux/file_id_unittest.cc \
+	src/common/linux/linux_libc_support.cc \
+	src/common/linux/memory_mapped_file.cc \
+	src/common/linux/memory_mapped_file_unittest.cc \
+	src/common/linux/safe_readlink.cc \
+	src/common/linux/safe_readlink_unittest.cc \
+	src/common/linux/synth_elf.cc \
+	src/common/linux/synth_elf_unittest.cc \
+	src/common/linux/tests/crash_generator.cc \
+	src/common/linux/tests/crash_generator.h \
+	src/common/testdata/func-line-pairing.h \
+	src/common/tests/file_utils.cc
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_dumper_unittest_CPPFLAGS = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(AM_CPPFLAGS) $(TEST_CFLAGS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(RUSTC_DEMANGLE_CFLAGS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(PTHREAD_CFLAGS)
+src_common_dumper_unittest_CPPFLAGS = \
+	$(AM_CPPFLAGS) $(TEST_CFLAGS) \
+	$(RUSTC_DEMANGLE_CFLAGS) \
+	$(PTHREAD_CFLAGS)
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_dumper_unittest_LDADD = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(TEST_LIBS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(RUSTC_DEMANGLE_LIBS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+src_common_dumper_unittest_LDADD = \
+	$(TEST_LIBS) \
+	$(RUSTC_DEMANGLE_LIBS) \
+	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_mac_macho_reader_unittest_SOURCES = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_cfi_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_cu_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf_line_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/language.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/md5.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/path_helper.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/stabs_reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/stabs_to_module.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/test_assembler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/bytereader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/cfi_assembler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2diehandler.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/dwarf2reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/dwarf/elf_reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/arch_utilities.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/file_id.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_id.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_reader_unittest.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_utilities.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/mac/macho_walker.cc \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	src/common/tests/file_utils.cc
+src_common_mac_macho_reader_unittest_SOURCES = \
+	src/common/dwarf_cfi_to_module.cc \
+	src/common/dwarf_cu_to_module.cc \
+	src/common/dwarf_line_to_module.cc \
+	src/common/language.cc \
+	src/common/md5.cc \
+	src/common/module.cc \
+	src/common/path_helper.cc \
+	src/common/stabs_reader.cc \
+	src/common/stabs_to_module.cc \
+	src/common/test_assembler.cc \
+	src/common/dwarf/bytereader.cc \
+	src/common/dwarf/cfi_assembler.cc \
+	src/common/dwarf/dwarf2diehandler.cc \
+	src/common/dwarf/dwarf2reader.cc \
+	src/common/dwarf/elf_reader.cc \
+	src/common/mac/arch_utilities.cc \
+	src/common/mac/file_id.cc \
+	src/common/mac/macho_id.cc \
+	src/common/mac/macho_reader.cc \
+	src/common/mac/macho_reader_unittest.cc \
+	src/common/mac/macho_utilities.cc \
+	src/common/mac/macho_walker.cc \
+	src/common/tests/file_utils.cc
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_mac_macho_reader_unittest_CPPFLAGS = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(AM_CPPFLAGS) $(TEST_CFLAGS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-I$(top_srcdir)/src/third_party/mac_headers \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	-DHAVE_MACH_O_NLIST_H \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(PTHREAD_CFLAGS)
+src_common_mac_macho_reader_unittest_CPPFLAGS = \
+	$(AM_CPPFLAGS) $(TEST_CFLAGS) \
+	-I$(top_srcdir)/src/third_party/mac_headers \
+	-DHAVE_MACH_O_NLIST_H \
+	$(PTHREAD_CFLAGS)
 
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@src_common_mac_macho_reader_unittest_LDADD = \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(TEST_LIBS) \
-@DISABLE_TOOLS_FALSE@@LINUX_HOST_TRUE@	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+src_common_mac_macho_reader_unittest_LDADD = \
+	$(TEST_LIBS) \
+	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 
-@LINUX_HOST_TRUE@src_common_linux_google_crashdump_uploader_test_SOURCES = \
-@LINUX_HOST_TRUE@	src/common/linux/google_crashdump_uploader.cc \
-@LINUX_HOST_TRUE@	src/common/linux/google_crashdump_uploader_test.cc \
-@LINUX_HOST_TRUE@	src/common/linux/libcurl_wrapper.cc
+src_common_linux_google_crashdump_uploader_test_SOURCES = \
+	src/common/linux/google_crashdump_uploader.cc \
+	src/common/linux/google_crashdump_uploader_test.cc \
+	src/common/linux/libcurl_wrapper.cc
 
-@LINUX_HOST_TRUE@src_common_linux_google_crashdump_uploader_test_CPPFLAGS = \
-@LINUX_HOST_TRUE@	$(AM_CPPFLAGS) $(TEST_CFLAGS)
+src_common_linux_google_crashdump_uploader_test_CPPFLAGS = \
+	$(AM_CPPFLAGS) $(TEST_CFLAGS)
 
-@LINUX_HOST_TRUE@src_common_linux_google_crashdump_uploader_test_LDADD = \
-@LINUX_HOST_TRUE@	$(TEST_LIBS) \
-@LINUX_HOST_TRUE@	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS) \
-@LINUX_HOST_TRUE@	-ldl
+src_common_linux_google_crashdump_uploader_test_LDADD = \
+	$(TEST_LIBS) \
+	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS) \
+	-ldl
 
 @LINUX_HOST_TRUE@src_tools_linux_md2core_minidump_2_core_unittest_SOURCES = \
 @LINUX_HOST_TRUE@	src/tools/linux/md2core/minidump_memory_range_unittest.cc
