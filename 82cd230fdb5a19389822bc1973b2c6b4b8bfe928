@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb54e4e_47d3e095",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-09-30T12:01:50Z",
+      "side": 1,
+      "message": "I am not sure who to select to review this, it\u0027s needed to fix the build when doing make check on macOS or when doing make check with --disable-tools",
+      "revId": "82cd230fdb5a19389822bc1973b2c6b4b8bfe928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
