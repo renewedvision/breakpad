@@ -580,8 +580,11 @@ src_client_linux_linux_client_unittest_LDADD = \
 
 src_client_linux_linux_client_unittest_DEPENDENCIES = \
 	src/client/linux/linux_client_unittest_shlib
+endif LINUX_HOST
 
 if !DISABLE_TOOLS
+if LINUX_HOST
+
 src_tools_linux_core2md_core2md_SOURCES = \
 	src/tools/linux/core2md/core2md.cc
 
@@ -660,6 +663,8 @@ src_tools_linux_symupload_sym_upload_SOURCES = \
 	src/tools/linux/symupload/sym_upload.cc
 src_tools_linux_symupload_sym_upload_LDADD = -ldl
 
+endif LINUX_HOST
+
 src_tools_mac_dump_syms_dump_syms_mac_SOURCES = \
 	src/common/dwarf_cfi_to_module.cc \
 	src/common/dwarf_cu_to_module.cc \
@@ -695,6 +700,8 @@ src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS= \
 	-DHAVE_MACH_O_NLIST_H
 src_tools_mac_dump_syms_dump_syms_mac_LDADD= \
 	$(RUSTC_DEMANGLE_LIBS)
+
+endif !DISABLE_TOOLS
 
 src_common_safe_math_unittest_SOURCES = \
 	src/common/safe_math.h \
@@ -804,7 +811,6 @@ src_common_mac_macho_reader_unittest_CPPFLAGS = \
 src_common_mac_macho_reader_unittest_LDADD = \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
-endif
 
 src_common_linux_google_crashdump_uploader_test_SOURCES = \
 	src/common/linux/google_crashdump_uploader.cc \
@@ -816,6 +822,8 @@ src_common_linux_google_crashdump_uploader_test_LDADD = \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS) \
 	-ldl
+
+if LINUX_HOST
 
 src_tools_linux_md2core_minidump_2_core_unittest_SOURCES = \
 	src/tools/linux/md2core/minidump_memory_range_unittest.cc
