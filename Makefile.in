@@ -488,8 +488,11 @@ am__src_libbreakpad_a_SOURCES_DIST =  \
 	src/processor/source_line_resolver_base.cc \
 	src/processor/stack_frame_cpu.cc \
 	src/processor/stack_frame_symbolizer.cc \
-	src/processor/stackwalk_common.cc \
-	src/processor/stackwalk_common.h src/processor/stackwalker.cc \
+	src/processor/stackwalk_format_text.cc \
+	src/processor/stackwalk_format_text.h \
+	src/processor/stackwalk_format_machinereadable.cc \
+	src/processor/stackwalk_format_machinereadable.h \
+	src/processor/stackwalker.cc \
 	src/processor/stackwalker_amd64.cc \
 	src/processor/stackwalker_amd64.h \
 	src/processor/stackwalker_arm.cc \
@@ -551,7 +554,8 @@ am__src_libbreakpad_a_SOURCES_DIST =  \
 @DISABLE_PROCESSOR_FALSE@	src/processor/source_line_resolver_base.$(OBJEXT) \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stack_frame_cpu.$(OBJEXT) \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stack_frame_symbolizer.$(OBJEXT) \
-@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_common.$(OBJEXT) \
+@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_format_text.$(OBJEXT) \
+@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_format_machinereadable.$(OBJEXT) \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stackwalker.$(OBJEXT) \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stackwalker_amd64.$(OBJEXT) \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stackwalker_arm.$(OBJEXT) \
@@ -1949,7 +1953,8 @@ am__depfiles_remade = src/client/$(DEPDIR)/minidump_file_writer.Po \
 	src/processor/$(DEPDIR)/source_line_resolver_base.Po \
 	src/processor/$(DEPDIR)/stack_frame_cpu.Po \
 	src/processor/$(DEPDIR)/stack_frame_symbolizer.Po \
-	src/processor/$(DEPDIR)/stackwalk_common.Po \
+	src/processor/$(DEPDIR)/stackwalk_format_machinereadable.Po \
+	src/processor/$(DEPDIR)/stackwalk_format_text.Po \
 	src/processor/$(DEPDIR)/stackwalker.Po \
 	src/processor/$(DEPDIR)/stackwalker_address_list.Po \
 	src/processor/$(DEPDIR)/stackwalker_address_list_unittest-stackwalker_address_list_unittest.Po \
@@ -2720,8 +2725,10 @@ CLEANFILES = $(am__append_12)
 @DISABLE_PROCESSOR_FALSE@	src/processor/source_line_resolver_base.cc \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stack_frame_cpu.cc \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stack_frame_symbolizer.cc \
-@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_common.cc \
-@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_common.h \
+@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_format_text.cc \
+@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_format_text.h \
+@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_format_machinereadable.cc \
+@DISABLE_PROCESSOR_FALSE@	src/processor/stackwalk_format_machinereadable.h \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stackwalker.cc \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stackwalker_amd64.cc \
 @DISABLE_PROCESSOR_FALSE@	src/processor/stackwalker_amd64.h \
@@ -3877,8 +3884,6 @@ EXTRA_DIST = \
 	src/common/windows/string_utils-inl.h \
 	src/common/windows/string_utils.cc \
 	src/processor/microdump_stackwalk_test_vars \
-	src/processor/stackwalk_common.cc \
-	src/processor/stackwalk_common.h \
 	src/processor/stackwalker_selftest_sol.s \
 	src/processor/testdata/ascii_read_av_block_write.dmp \
 	src/processor/testdata/ascii_read_av_clobber_write.dmp \
@@ -4465,7 +4470,10 @@ src/processor/stack_frame_cpu.$(OBJEXT):  \
 src/processor/stack_frame_symbolizer.$(OBJEXT):  \
 	src/processor/$(am__dirstamp) \
 	src/processor/$(DEPDIR)/$(am__dirstamp)
-src/processor/stackwalk_common.$(OBJEXT):  \
+src/processor/stackwalk_format_text.$(OBJEXT):  \
+	src/processor/$(am__dirstamp) \
+	src/processor/$(DEPDIR)/$(am__dirstamp)
+src/processor/stackwalk_format_machinereadable.$(OBJEXT):  \
 	src/processor/$(am__dirstamp) \
 	src/processor/$(DEPDIR)/$(am__dirstamp)
 src/processor/stackwalker.$(OBJEXT): src/processor/$(am__dirstamp) \
@@ -5805,7 +5813,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/source_line_resolver_base.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/stack_frame_cpu.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/stack_frame_symbolizer.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/stackwalk_common.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/stackwalk_format_machinereadable.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/stackwalk_format_text.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/stackwalker.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/stackwalker_address_list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/processor/$(DEPDIR)/stackwalker_address_list_unittest-stackwalker_address_list_unittest.Po@am__quote@ # am--include-marker
@@ -10011,7 +10020,8 @@ distclean: distclean-am
 	-rm -f src/processor/$(DEPDIR)/source_line_resolver_base.Po
 	-rm -f src/processor/$(DEPDIR)/stack_frame_cpu.Po
 	-rm -f src/processor/$(DEPDIR)/stack_frame_symbolizer.Po
-	-rm -f src/processor/$(DEPDIR)/stackwalk_common.Po
+	-rm -f src/processor/$(DEPDIR)/stackwalk_format_machinereadable.Po
+	-rm -f src/processor/$(DEPDIR)/stackwalk_format_text.Po
 	-rm -f src/processor/$(DEPDIR)/stackwalker.Po
 	-rm -f src/processor/$(DEPDIR)/stackwalker_address_list.Po
 	-rm -f src/processor/$(DEPDIR)/stackwalker_address_list_unittest-stackwalker_address_list_unittest.Po
@@ -10365,7 +10375,8 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/processor/$(DEPDIR)/source_line_resolver_base.Po
 	-rm -f src/processor/$(DEPDIR)/stack_frame_cpu.Po
 	-rm -f src/processor/$(DEPDIR)/stack_frame_symbolizer.Po
-	-rm -f src/processor/$(DEPDIR)/stackwalk_common.Po
+	-rm -f src/processor/$(DEPDIR)/stackwalk_format_machinereadable.Po
+	-rm -f src/processor/$(DEPDIR)/stackwalk_format_text.Po
 	-rm -f src/processor/$(DEPDIR)/stackwalker.Po
 	-rm -f src/processor/$(DEPDIR)/stackwalker_address_list.Po
 	-rm -f src/processor/$(DEPDIR)/stackwalker_address_list_unittest-stackwalker_address_list_unittest.Po
