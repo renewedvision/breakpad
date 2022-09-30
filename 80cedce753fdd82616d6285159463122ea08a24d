@@ -51,6 +51,24 @@
       "parentUuid": "d214e0ba_e0f17a48",
       "revId": "80cedce753fdd82616d6285159463122ea08a24d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eacef92_51fb411e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-09-30T15:16:33Z",
+      "side": 1,
+      "message": "I was wondering, whats the reason those generated files are in the repository in the first place instead of just in release tarballs like for most projects?\n\nSorry for the huge change, I wasn\u0027t sure what the preferred approach here was regarding re-generating these files. I will update the patch to only include the relevant changes without the version bump of new autoconf/automake.\n\nRequiring autoconf 2.71 right now is probably not the best idea given that Debian stable and Ubuntu Focal only have 2.69 apparently.",
+      "parentUuid": "9d630854_1fbf3b19",
+      "revId": "80cedce753fdd82616d6285159463122ea08a24d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
