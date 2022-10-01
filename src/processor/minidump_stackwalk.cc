@@ -53,8 +53,14 @@
 
 namespace {
 
+enum class OutputFormat {
+  FORMAT_UNDEFINED, // Undefined format (Sentinel for ParseOutputFormatString)
+  FORMAT_TEXT,      // Human readable text output
+  FORMAT_MACHINE,   // Machine readable output (Pipe-delimited)
+};
+
 struct Options {
-  bool machine_readable;
+  OutputFormat output_format;
   bool output_stack_contents;
   bool output_requesting_thread_only;
 
@@ -70,6 +76,16 @@ using google_breakpad::MinidumpProcessor;
 using google_breakpad::ProcessState;
 using google_breakpad::SimpleSymbolSupplier;
 using google_breakpad::scoped_ptr;
+
+// Returns the OutputFormat described by the |input| string.
+OutputFormat ParseOutputFormatString(const std::string& s) {
+  if (s == "text") {
+    return OutputFormat::FORMAT_TEXT;
+  } else if (s == "machine") {
+    return OutputFormat::FORMAT_MACHINE;
+  }
+  return OutputFormat::FORMAT_UNDEFINED;
+}
 
 // Processes |options.minidump_file| using MinidumpProcessor.
 // |options.symbol_path|, if non-empty, is the base directory of a
@@ -108,11 +124,16 @@ bool PrintMinidumpProcess(const Options& options) {
     return false;
   }
 
-  if (options.machine_readable) {
-    PrintProcessStateMachineReadable(process_state);
-  } else {
-    PrintProcessState(process_state, options.output_stack_contents,
+  switch (options.output_format) {
+    case OutputFormat::FORMAT_TEXT:
+      PrintProcessState(process_state, options.output_stack_contents,
                       options.output_requesting_thread_only, &resolver);
+      break;
+    case OutputFormat::FORMAT_MACHINE:
+      PrintProcessStateMachineReadable(process_state);
+      break;
+    default:
+      assert(0);
   }
 
   return true;
@@ -128,7 +149,8 @@ static void Usage(int argc, const char *argv[], bool error) {
           "\n"
           "Options:\n"
           "\n"
-          "  -m         Output in machine-readable format\n"
+          "  -f         Output format [text/machine] (default: text)\n"
+          "  -m         Output in machine-readable format (deprecated)\n"
           "  -s         Output stack contents\n"
           "  -c         Output thread that causes crash or dump only\n",
           google_breakpad::BaseName(argv[0]).c_str());
@@ -137,22 +159,30 @@ static void Usage(int argc, const char *argv[], bool error) {
 static void SetupOptions(int argc, const char *argv[], Options* options) {
   int ch;
 
-  options->machine_readable = false;
+  options->output_format = OutputFormat::FORMAT_TEXT;
   options->output_stack_contents = false;
   options->output_requesting_thread_only = false;
 
-  while ((ch = getopt(argc, (char * const*)argv, "chms")) != -1) {
+  while ((ch = getopt(argc, (char * const*)argv, "chmsf:")) != -1) {
     switch (ch) {
       case 'h':
         Usage(argc, argv, false);
         exit(0);
         break;
 
+      case 'f':
+        options->output_format = ParseOutputFormatString(optarg);
+        if (options->output_format == OutputFormat::FORMAT_UNDEFINED) {
+          fprintf(stderr, "%s: Unknown output format '%s'\n", argv[0], optarg);
+          Usage(argc, argv, true);
+          exit(1);
+          break;
+        }
       case 'c':
         options->output_requesting_thread_only = true;
         break;
       case 'm':
-        options->machine_readable = true;
+        options->output_format = OutputFormat::FORMAT_MACHINE;
         break;
       case 's':
         options->output_stack_contents = true;
