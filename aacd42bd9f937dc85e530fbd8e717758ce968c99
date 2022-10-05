@@ -16,6 +16,69 @@
       "message": "I\u0027ve been looking at fixing up the non-canonical address handling, and this seemed like the most obvious path to reuse the existing code. This CL ended up a bit larger than I expected since the existing parsing code is not very robust. It might make more sense for me to split this into a CL that extracts out the code, and a second CL that fixes the issues - let me know if you\u0027d find that easier to review.\n\nI\u0027m not sure whether this objdump approach is really ideal, but the other existing third party disassembler engine in use (libdisasm) doesn\u0027t support amd64. If you\u0027d prefer that I bring in a different disassembler engine to replace this, I can give that a try, but I\u0027m not sure what the preferred option would be (or what the process for incorporating another third party dependency is!)\n\nI haven\u0027t sent a breakpad CL before, so I wasn\u0027t sure what the correct build/test methodology is - the instructions I found suggested using the ./configure; make approach, but I assume that I should probably be generating the updated makefiles using gyp instead?",
       "revId": "aacd42bd9f937dc85e530fbd8e717758ce968c99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "714c1344_cc07d611",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2022-10-05T17:18:48Z",
+      "side": 1,
+      "message": "Seems like a good idea, but I think you need to better document the new class with comments.",
+      "revId": "aacd42bd9f937dc85e530fbd8e717758ce968c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed8a856_18851a10",
+        "filename": "src/processor/disassembler_objdump.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2022-10-05T17:18:48Z",
+      "side": 1,
+      "message": "Please, provide a class comment. https://google.github.io/styleguide/cppguide.html#Class_Comments\n\nAn example on how to use this class will be nice. Either here or in the file comment.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 25
+      },
+      "revId": "aacd42bd9f937dc85e530fbd8e717758ce968c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0718ea50_651329a5",
+        "filename": "src/processor/disassembler_objdump.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2022-10-05T17:18:48Z",
+      "side": 1,
+      "message": "Function comments are needed. https://google.github.io/styleguide/cppguide.html#Function_Comments",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 21
+      },
+      "revId": "aacd42bd9f937dc85e530fbd8e717758ce968c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
