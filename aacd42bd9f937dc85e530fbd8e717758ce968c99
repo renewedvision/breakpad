@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e61f64a_fdab5876",
+        "filename": "src/processor/disassembler_objdump.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-07T08:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ed8a856_18851a10",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 25
+      },
+      "revId": "aacd42bd9f937dc85e530fbd8e717758ce968c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0718ea50_651329a5",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-10-05T17:18:48Z",
       "side": 1,
       "message": "Function comments are needed. https://google.github.io/styleguide/cppguide.html#Function_Comments",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 21
+      },
+      "revId": "aacd42bd9f937dc85e530fbd8e717758ce968c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82301afb_9c6f9b68",
+        "filename": "src/processor/disassembler_objdump.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-07T08:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0718ea50_651329a5",
       "range": {
         "startLine": 47,
         "startChar": 1,
