@@ -34,6 +34,24 @@
       "parentUuid": "3198eddb_cef63084",
       "revId": "5daec9d3ffedf3b3398bb6d1ff989b07dc05695a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b39725b_9d792a59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-10-12T19:18:11Z",
+      "side": 1,
+      "message": "I actually don\u0027t understand why Chrome OS folks still use BUG\u003d.",
+      "parentUuid": "f78ce127_cb4c61cd",
+      "revId": "5daec9d3ffedf3b3398bb6d1ff989b07dc05695a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
