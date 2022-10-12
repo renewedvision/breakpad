@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90e6b29a_6c68d94c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-10-12T17:30:26Z",
+      "side": 1,
+      "message": "Not needed? Does every Chrome OS CL need to have a \"chromeos:\" prefix?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "9947b39ce49340018a994e6e9d1f299b28848df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c25e6a68_36d9af65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-10-12T17:30:26Z",
+      "side": 1,
+      "message": "Wrap at 72 columns.",
+      "revId": "9947b39ce49340018a994e6e9d1f299b28848df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e99e11ce_1a152c2f",
+        "filename": "src/common/stabs_to_module_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-10-12T17:30:26Z",
+      "side": 1,
+      "message": "Just use `testing::ContainsRegex()` on the next line? Not seeing a big different from using this `using` statement.",
+      "revId": "9947b39ce49340018a994e6e9d1f299b28848df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee683068_a1938613",
+        "filename": "src/common/stabs_to_module_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-10-12T17:30:26Z",
+      "side": 1,
+      "message": "Does ContainsRegex() require a C-string?",
+      "range": {
+        "startLine": 214,
+        "startChar": 34,
+        "endLine": 214,
+        "endChar": 42
+      },
+      "revId": "9947b39ce49340018a994e6e9d1f299b28848df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "257e1dd9_4e366390",
+        "filename": "src/common/stabs_to_module_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-10-12T17:30:26Z",
+      "side": 1,
+      "message": "Instead of a raw string literal that goes over 80 columns, how about using multiple strings like the existing code?",
+      "revId": "9947b39ce49340018a994e6e9d1f299b28848df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
