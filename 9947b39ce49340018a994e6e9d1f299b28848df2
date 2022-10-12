@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f4cbd69_32cd468d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-10-12T18:29:17Z",
+      "side": 1,
+      "message": "Sure, but this is not Chrome OS. Looking though this git repo, nobody uses that convention.",
+      "parentUuid": "4ef9ac8f_eb2d95c8",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "9947b39ce49340018a994e6e9d1f299b28848df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c25e6a68_36d9af65",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
