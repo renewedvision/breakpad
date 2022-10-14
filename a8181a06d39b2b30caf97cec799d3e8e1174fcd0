@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d13df57b_ef1e2d13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-10-14T00:53:53Z",
+      "side": 1,
+      "message": "configure.ac has a macro checking for c++11. Can that just be updated to 17?\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/breakpad/breakpad/configure.ac;drc\u003d90a0d9a9ffa2f7a50a452092412422e3c691b32d;l\u003d71\n\nAlso, breakpad has checked in the results from running autotools.",
+      "revId": "a8181a06d39b2b30caf97cec799d3e8e1174fcd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
