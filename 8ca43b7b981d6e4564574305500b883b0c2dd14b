@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89f251d5_a2a10d5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-10-14T18:30:19Z",
+      "side": 1,
+      "message": "\u003e Done\n\nThis is the correct thread, regarding the commit message wrap.\n\nNot reflected in Gerrit yet. Use “git cl description” if you’re using git cl, or edit the description in the Gerrit web interface by clicking “Edit” below the description at https://chromium-review.googlesource.com/c/3954471.",
+      "parentUuid": "68c778c5_1e74b6c1",
+      "revId": "8ca43b7b981d6e4564574305500b883b0c2dd14b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef33b62b_dc99052e",
         "filename": "Makefile.am",
         "patchSetId": 4
