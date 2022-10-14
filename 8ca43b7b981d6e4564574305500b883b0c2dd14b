@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe3579f4_8a73fa6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-10-14T02:33:52Z",
+      "side": 1,
+      "message": "Wrap commit messages at 72 columns.",
+      "revId": "8ca43b7b981d6e4564574305500b883b0c2dd14b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef33b62b_dc99052e",
+        "filename": "Makefile.am",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-10-14T02:33:52Z",
+      "side": 1,
+      "message": "If you\u0027ve made the change in the other file and run autoreconf (with the proper versions of the autotools), is this even necessary?",
+      "revId": "8ca43b7b981d6e4564574305500b883b0c2dd14b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
