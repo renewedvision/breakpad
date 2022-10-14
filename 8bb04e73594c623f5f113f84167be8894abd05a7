@@ -16,6 +16,24 @@
       "message": "AX_CXX_COMPILE_STDCXX(17, noext, mandatory)\n\nOtherwise you also need to add https://git.savannah.gnu.org/gitweb/?p\u003dautoconf-archive.git;a\u003dblob_plain;f\u003dm4/ax_cxx_compile_stdcxx_17.m4",
       "revId": "8bb04e73594c623f5f113f84167be8894abd05a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3776dee5_817d2e5a",
+        "filename": "configure.ac",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1457772
+      },
+      "writtenOn": "2022-10-14T17:53:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98f5fc97_acb5bae6",
+      "revId": "8bb04e73594c623f5f113f84167be8894abd05a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
