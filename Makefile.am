@@ -42,7 +42,7 @@ AM_CXXFLAGS += -I$(top_srcdir)/src/common/android/include
 AM_CXXFLAGS += -I$(top_srcdir)/src/common/android/testing/include
 endif
 
-AM_CXXFLAGS += $(WARN_CXXFLAGS)
+AM_CXXFLAGS += -std=gnu++17 $(WARN_CXXFLAGS)
 
 if LINUX_HOST
 # Build as PIC on Linux, for linux_client_unittest_shlib
