@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f7e33c6_cb05a85b",
+        "filename": "src/processor/disassembler_objdump_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2022-10-17T18:41:36Z",
+      "side": 1,
+      "message": "It sounds to me like the warning was pointing out that we\u0027re writing to an MDRawContext object, but only writing enough bytes for a pointer, which is still the case.\n\nThis should be sizeof(*raw_context) and same on line 173.",
+      "range": {
+        "startLine": 150,
+        "startChar": 49,
+        "endLine": 150,
+        "endChar": 50
+      },
+      "revId": "1bfafe7cb319e97f234627707a148c24b5d55f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
