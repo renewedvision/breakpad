@@ -280,7 +280,12 @@ TEST(MicrodumpWriterTest, BasicWithMappings) {
 
 #ifdef __LP64__
   ASSERT_NE(std::string::npos,
+  #if defined(__loongarch__) && __loongarch_grlen == 64
+            // default page size in loongarch64 is 16k
+            buf.find("M 0000000000004000 000000000000002A 0000000000004000 "
+#else
             buf.find("M 0000000000001000 000000000000002A 0000000000001000 "
+#endif
                      "33221100554477668899AABBCCDDEEFF0 libfoo.so"));
 #else
   ASSERT_NE(std::string::npos,

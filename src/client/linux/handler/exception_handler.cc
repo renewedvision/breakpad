@@ -460,6 +460,17 @@ bool ExceptionHandler::HandleSignal(int /*sig*/, siginfo_t* info, void* uc) {
     memcpy(&g_crash_context_.float_state, fp_ptr,
            sizeof(g_crash_context_.float_state));
   }
+#elif defined(__loongarch__) && __loongarch_frlen == 64
+  ucontext_t* uc_ptr = (ucontext_t*)uc;
+  struct sctx_info* ctx_info_ptr =
+      (struct sctx_info*)&uc_ptr->uc_mcontext.__extcontext;
+  if (ctx_info_ptr->magic == FPU_CTX_MAGIC) {
+    struct fpu_context* fpu_ptr =
+        (struct fpu_context*)(&uc_ptr->uc_mcontext.__extcontext +
+                              sizeof(struct sctx_info));
+    memcpy(&g_crash_context_.float_state, fpu_ptr,
+           sizeof(g_crash_context_.float_state));
+  }
 #elif GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE
   ucontext_t* uc_ptr = (ucontext_t*)uc;
   if (uc_ptr->uc_mcontext.fpregs) {
@@ -697,7 +708,8 @@ bool ExceptionHandler::WriteMinidump() {
   }
 #endif
 
-#if GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE && !defined(__aarch64__)
+#if GOOGLE_BREAKPAD_CRASH_CONTEXT_HAS_FLOAT_STATE && !defined(__aarch64__) && \
+    !defined(__loongarch__)
   memcpy(&context.float_state, context.context.uc_mcontext.fpregs,
          sizeof(context.float_state));
 #endif
@@ -724,6 +736,9 @@ bool ExceptionHandler::WriteMinidump() {
 #elif defined(__riscv)
   context.siginfo.si_addr =
       reinterpret_cast<void*>(context.context.uc_mcontext.__gregs[REG_PC]);
+#elif defined(__loongarch__) && __loongarch_grlen == 64
+  context.siginfo.si_addr =
+      reinterpret_cast<void*>(context.context.uc_mcontext.__pc);
 #else
 # error "This code has not been ported to your platform yet."
 #endif

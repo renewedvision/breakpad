@@ -87,6 +87,10 @@ void FlushInstructionCache(const char* memory, uint32_t memory_size) {
 # elif defined(__linux__)
   // See http://www.linux-mips.org/wiki/Cacheflush_Syscall.
   cacheflush(const_cast<char*>(memory), memory_size, ICACHE);
+#elif defined(__loongarch__)
+# if defined(__linux__)
+  asm volatile("ibar 0\n\t ");
+# endif
 # else
 #   error "Your operating system is not supported yet"
 # endif
@@ -767,10 +771,10 @@ TEST(ExceptionHandlerTest, InstructionPointerMemoryMaxBound) {
 
   // These are defined here so the parent can use them to check the
   // data from the minidump afterwards.
-  // Use 4k here because the OS will hand out a single page even
+  // Use PAGESIZE here because the OS will hand out a single page even
   // if a smaller size is requested, and this test wants to
   // test the upper bound of the memory range.
-  const uint32_t kMemorySize = 4096;  // bytes
+  const uint32_t kMemorySize = sysconf(_SC_PAGESIZE);  // bytes
   const int kOffset = kMemorySize - sizeof(kIllegalInstruction);
 
   const pid_t child = fork();

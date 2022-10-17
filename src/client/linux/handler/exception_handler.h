@@ -36,6 +36,10 @@
 
 #include <string>
 
+#if defined(__loongarch__)
+#include <asm/sigcontext.h>
+#endif
+
 #include "client/linux/crash_generation/crash_generation_client.h"
 #include "client/linux/handler/minidump_descriptor.h"
 #include "client/linux/minidump_writer/minidump_writer.h"

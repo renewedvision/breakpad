@@ -322,6 +322,32 @@ void UContextReader::FillCPUContext(RawContextCPU* out, const ucontext_t* uc) {
   out->float_save.fpcsr = uc->uc_mcontext.__fpregs.__q.__fcsr;
 # endif
 }
+
+#elif defined(__loongarch__) && __loongarch_grlen == 64
+
+uintptr_t UContextReader::GetStackPointer(const ucontext_t* uc) {
+  return uc->uc_mcontext.__gregs[MD_CONTEXT_LOONGARCH64_REG_SP];
+}
+
+uintptr_t UContextReader::GetInstructionPointer(const ucontext_t* uc) {
+  return uc->uc_mcontext.__pc;
+}
+
+void UContextReader::FillCPUContext(RawContextCPU* out,
+                                    const ucontext_t* uc,
+                                    const fpstate_t* fpregs) {
+  out->context_flags = MD_CONTEXT_LOONGARCH64_FULL;
+
+  for (int i = 0; i < MD_CONTEXT_LOONGARCH64_GPR_COUNT; ++i)
+    out->iregs[i] = uc->uc_mcontext.__gregs[i];
+
+  for (int i = 0; i < MD_FLOATINGSAVEAREA_LOONGARCH64_FPR_COUNT; ++i)
+    out->float_save.regs[i] = fpregs->regs[i];
+  out->float_save.fcc = fpregs->fcc;
+  out->float_save.fcsr = fpregs->fcsr;
+
+  out->csr_era = uc->uc_mcontext.__pc;
+}
 #endif
 
 }  // namespace google_breakpad

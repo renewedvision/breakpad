@@ -126,8 +126,12 @@ case $host_cpu in
   i?86|x86_64)
     X86_HOST=true
     ;;
+  loongarch64)
+    LOONGARCH64_HOST=true
+    ;;
 esac
 AM_CONDITIONAL(X86_HOST, test x$X86_HOST = xtrue)
+AM_CONDITIONAL(LOONGARCH64_HOST, test x$LOONGARCH64_HOST = xtrue)
 
 AC_ARG_ENABLE(processor,
               AS_HELP_STRING([--disable-processor],

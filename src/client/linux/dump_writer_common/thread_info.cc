@@ -336,7 +336,27 @@ void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
 #  error "Unexpected __riscv_flen"
 # endif
 }
-#endif  // __riscv
+
+#elif defined(__loongarch__) && __loongarch_grlen == 64
+
+uintptr_t ThreadInfo::GetInstructionPointer() const {
+  return regs.csr_era;
+}
+
+void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
+  out->context_flags = MD_CONTEXT_LOONGARCH64_FULL;
+
+  for (int i = 0; i < MD_CONTEXT_LOONGARCH64_GPR_COUNT; ++i)
+    out->iregs[i] = regs.regs[i];
+
+  for (int i = 0; i < MD_FLOATINGSAVEAREA_LOONGARCH64_FPR_COUNT; ++i)
+    out->float_save.regs[i] = fpregs.fpr[i];
+  out->float_save.fcc = fpregs.fcc;
+  out->float_save.fcsr = fpregs.fcsr;
+
+  out->csr_era = regs.csr_era;
+}
+#endif  // __loongarch__
 
 void ThreadInfo::GetGeneralPurposeRegisters(void** gp_regs, size_t* size) {
   assert(gp_regs || size);

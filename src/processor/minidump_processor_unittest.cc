@@ -799,7 +799,7 @@ TEST_F(MinidumpProcessorTest, TestFastFailException) {
   ASSERT_EQ(state.crash_reason(), "FAST_FAIL_FATAL_APP_EXIT");
 }
 
-#ifdef __linux__
+#if defined(__linux__) && !defined(__loongarch__)
 TEST_F(MinidumpProcessorTest, TestNonCanonicalAddress) {
   // This tests if we can correctly fixup non-canonical address GPF fault
   // addresses.
