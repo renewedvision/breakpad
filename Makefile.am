@@ -306,6 +306,8 @@ src_libbreakpad_a_SOURCES = \
 	src/processor/stackwalker_sparc.h \
 	src/processor/stackwalker_x86.cc \
 	src/processor/stackwalker_x86.h \
+	src/processor/stackwalker_loongarch64.cc \
+	src/processor/stackwalker_loongarch64.h \
 	src/processor/static_address_map-inl.h \
 	src/processor/static_address_map.h \
 	src/processor/static_contained_range_map-inl.h \
@@ -392,7 +394,6 @@ check_PROGRAMS += \
 	src/processor/basic_source_line_resolver_unittest \
 	src/processor/cfi_frame_info_unittest \
 	src/processor/contained_range_map_unittest \
-	src/processor/disassembler_objdump_unittest \
 	src/processor/disassembler_x86_unittest \
 	src/processor/exploitability_unittest \
 	src/processor/fast_source_line_resolver_unittest \
@@ -419,7 +420,11 @@ check_PROGRAMS += \
 	src/processor/stackwalker_riscv_unittest \
 	src/processor/stackwalker_riscv64_unittest \
 	src/processor/stackwalker_x86_unittest \
+	src/processor/stackwalker_loongarch64_unittest \
 	src/processor/synth_minidump_unittest
+if !LOONGARCH_HOST
+check_PROGRAMS += src/processor/disassembler_objdump_unittest
+endif
 endif
 
 if LINUX_HOST
@@ -907,12 +912,14 @@ src_processor_exploitability_unittest_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/symbolic_constants_win.o \
 	src/processor/tokenize.o \
 	src/third_party/libdisasm/libdisasm.a \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 
+if !LOONGARCH_HOST
 src_processor_disassembler_objdump_unittest_SOURCES = \
 	src/processor/disassembler_objdump_unittest.cc
 src_processor_disassembler_objdump_unittest_CPPFLAGS = \
@@ -925,6 +932,7 @@ src_processor_disassembler_objdump_unittest_LDADD = \
 	src/processor/pathname_stripper.o \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+endif
 
 src_processor_disassembler_x86_unittest_SOURCES = \
 	src/processor/disassembler_x86_unittest.cc
@@ -995,6 +1003,7 @@ src_processor_microdump_processor_unittest_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/tokenize.o \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
@@ -1037,6 +1046,7 @@ src_processor_minidump_processor_unittest_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/symbolic_constants_win.o \
 	src/processor/tokenize.o \
 	src/third_party/libdisasm/libdisasm.a \
@@ -1183,6 +1193,7 @@ src_processor_stackwalker_selftest_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/tokenize.o \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 
@@ -1274,6 +1285,16 @@ src_processor_stackwalker_x86_unittest_LDADD = \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 src_processor_stackwalker_x86_unittest_CPPFLAGS = \
+	$(AM_CPPFLAGS) $(TEST_CFLAGS)
+
+src_processor_stackwalker_loongarch64_unittest_SOURCES = \
+	src/common/test_assembler.cc \
+	src/processor/stackwalker_loongarch64_unittest.cc
+src_processor_stackwalker_loongarch64_unittest_LDADD = \
+	src/libbreakpad.a \
+	$(TEST_LIBS) \
+	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+src_processor_stackwalker_loongarch64_unittest_CPPFLAGS = \
 	$(AM_CPPFLAGS) $(TEST_CFLAGS)
 
 src_processor_synth_minidump_unittest_SOURCES = \
@@ -1373,6 +1394,7 @@ src_processor_microdump_stackwalk_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/tokenize.o \
 	src/third_party/libdisasm/libdisasm.a
 
@@ -1415,6 +1437,7 @@ src_processor_minidump_stackwalk_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/symbolic_constants_win.o \
 	src/processor/tokenize.o \
 	src/third_party/libdisasm/libdisasm.a

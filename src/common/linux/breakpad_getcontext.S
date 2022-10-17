@@ -620,6 +620,46 @@ breakpad_getcontext:
   .cfi_endproc
   .size breakpad_getcontext, . - breakpad_getcontext
 
+#elif defined(__loongarch__)
+
+#define  _NSIG                       64
+#define  __NR_rt_sigprocmask         135
+
+  .text
+  .global breakpad_getcontext
+  .hidden breakpad_getcontext
+  .type breakpad_getcontext, @function
+  .align 4
+breakpad_getcontext:
+  STORE_GP $ra, $a0, MCONTEXT_PC_OFFSET
+  STORE_GP $ra, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 1)
+  STORE_GP $tp, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 2)
+  STORE_GP $sp, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 3)
+  STORE_GP $x,  $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 21)
+  STORE_GP $fp, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 22)
+  STORE_GP $s0, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 23)
+  STORE_GP $s1, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 24)
+  STORE_GP $s2, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 25)
+  STORE_GP $s3, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 26)
+  STORE_GP $s4, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 27)
+  STORE_GP $s5, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 28)
+  STORE_GP $s6, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 29)
+  STORE_GP $s7, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 30)
+  STORE_GP $s8, $a0, (MCONTEXT_GREGS_OFFSET + MCONTEXT_GREG_SIZE * 31)
+
+  /* rt_sigprocmask (SIG_BLOCK, NULL, &ucp->uc.uc_sigmask, _NSIG8) */
+  li.d    $a0, 0  /* SIG_BLOCK */
+  li.d    $a1, 0  /* NULL */
+  addi.d  $a2, $a0, UCONTEXT_SIGMASK_OFFSET
+  li.d    $a3, (_NSIG / 8)
+  li.d    $a7, __NR_rt_sigprocmask
+  syscall 0
+
+  /* Return zero for success */
+  move $a0, $zero
+  jirl $zero, $ra, 0
+
+  .size breakpad_getcontext, . - breakpad_getcontext
 #else
 # error "This file has not been ported for your CPU!"
 #endif

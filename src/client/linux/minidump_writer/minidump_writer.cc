@@ -949,7 +949,8 @@ class MinidumpWriter {
     dirent->location.rva = 0;
   }
 
-#if defined(__i386__) || defined(__x86_64__) || defined(__mips__)
+#if defined(__i386__) || defined(__x86_64__) || defined(__mips__) || \
+    (defined(__loongarch__) && __loongarch_grlen == 64)
   bool WriteCPUInformation(MDRawSystemInfo* sys_info) {
     char vendor_id[sizeof(sys_info->cpu.x86_cpu_info.vendor_id) + 1] = {0};
     static const char vendor_id_name[] = "vendor_id";
@@ -977,6 +978,8 @@ class MinidumpWriter {
 # else
 #  error "This mips ABI is currently not supported (n32)"
 #endif
+#elif defined(__loongarch__) && __loongarch_grlen == 64
+        MD_CPU_ARCHITECTURE_LOONGARCH64;
 #elif defined(__i386__)
         MD_CPU_ARCHITECTURE_X86;
 #else

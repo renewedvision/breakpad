@@ -175,9 +175,10 @@ TEST_F(MemoryMappedFileTest, RemapAfterMap) {
 TEST_F(MemoryMappedFileTest, MapWithOffset) {
   // Put more data in the test file this time. Offsets can only be
   // done on page boundaries, so we need a two page file to test this.
-  const int page_size = 4096;
-  char data1[2 * page_size];
-  size_t data1_size = sizeof(data1);
+  const int page_size = sysconf(_SC_PAGESIZE);
+  char* data1 = static_cast<char*>(malloc(2 * page_size));
+  ASSERT_TRUE(data1 != NULL);
+  size_t data1_size = page_size * 2;
   for (size_t i = 0; i < data1_size; ++i) {
     data1[i] = i & 0x7f;
   }
@@ -204,4 +205,5 @@ TEST_F(MemoryMappedFileTest, MapWithOffset) {
         0,
         memcmp(data1 + page_size, mapped_file.data(), data1_size - page_size));
   }
+  free(data1);
 }
