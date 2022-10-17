@@ -129,6 +129,14 @@ case $host_cpu in
 esac
 AM_CONDITIONAL(X86_HOST, test x$X86_HOST = xtrue)
 
+# exclude some tools that do not support loongarch
+case $host_cpu in
+  loongarch*)
+    LOONGARCH64_HOST=true
+    ;;
+esac
+AM_CONDITIONAL(LOONGARCH64_HOST, test x$LOONGARCH64_HOST = xtrue)
+
 AC_ARG_ENABLE(processor,
               AS_HELP_STRING([--disable-processor],
                              [Don't build processor library]

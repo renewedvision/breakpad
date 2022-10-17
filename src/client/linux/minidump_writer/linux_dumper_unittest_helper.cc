@@ -52,6 +52,8 @@
 #define TID_PTR_REGISTER "$1"
 #elif defined(__riscv)
 #define TID_PTR_REGISTER "x4"
+#elif defined(__loongarch__)
+#define TID_PTR_REGISTER "$r1"
 #else
 #error This test has not been ported to this platform.
 #endif

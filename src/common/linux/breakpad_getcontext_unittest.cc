@@ -161,7 +161,13 @@ TEST(AndroidUContext, GRegsOffset) {
   // sigcontext is an analog to mcontext_t. The layout should be the same.
   COMPILE_ASSERT_EQ(offsetof(mcontext_t,fpregs),
                     offsetof(sigcontext,fpstate), sigcontext_fpstate);
-
+#elif defined(__loongarch__) && __loongarch_frlen == 64
+  ASSERT_EQ(static_cast<size_t>(MCONTEXT_GREGS_OFFSET),
+            offsetof(ucontext_t, uc.uc_mcontext.__regs[0]));
+  ASSERT_EQ(static_cast<size_t>(MCONTEXT_PC_OFFSET),
+            offsetof(ucontext_t, uc.uc_mcontext.__pc));
+  ASSERT_EQ(static_cast<size_t>(MCONTEXT_EXTENSION_OFFSET),
+            offsetof(ucontext_t, uc.uc_mcontext.__extcontext));
 #if defined(__ANDROID__)
   // Check that _fpstate from asm/sigcontext.h is essentially the same
   // as _libc_fpstate.

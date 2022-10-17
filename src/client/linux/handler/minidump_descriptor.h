@@ -34,6 +34,10 @@
 
 #include <string>
 
+#if defined(__loongarch__)
+#include <cstdint>
+#endif
+
 #include "client/linux/handler/microdump_extra_info.h"
 #include "common/using_std_string.h"
 
