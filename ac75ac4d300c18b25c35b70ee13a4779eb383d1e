@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5773b38_bb44caa7",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "some bugs were fixed in the latest commit, syncing the update to prevent this patch from being unusable.\ni updated default.xml",
+      "parentUuid": "3a6d068a_2f3199ad",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d0f7efb_4181fef4",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-10-17T09:13:04Z",
       "side": 1,
       "message": "split the host checks into a sep CL as a follow up to adding basic support",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b39c12c_66af2583",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d0f7efb_4181fef4",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ed028d_645b53d8",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0b53415_233b415b",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d83b9a54_5f2b6daf",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c379ae1_f9a4d142",
+        "filename": "src/client/linux/dump_writer_common/thread_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "already fixed",
+      "parentUuid": "d83b9a54_5f2b6daf",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af1cc64b_fb110512",
@@ -99,6 +171,24 @@
       "writtenOn": "2022-10-17T09:13:04Z",
       "side": 1,
       "message": "why can\u0027t your port define a more common mcontext_t ?",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "925646e0_d8335749",
+        "filename": "src/client/linux/dump_writer_common/thread_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "The mcontext_t definition does not contain floating-point register and can\u0027t  replace user_regs_struct and user_fp_struct\n```c\ntypedef struct mcontext_t\n{\n  unsigned long long __pc;\n  unsigned long long __gregs[32];\n  unsigned int __flags;\n  unsigned long long __extcontext[0] __attribute__((__aligned__(16)));\n} mcontext_t;\n```",
+      "parentUuid": "af1cc64b_fb110512",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +229,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bda3b1e5_7558ed34",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "here is a manual for ibar\nhttps://loongson.github.io/LoongArch-Documentation/LoongArch-Vol1-EN.html#_ibar",
+      "parentUuid": "1c9b6875_45c4618d",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "089c20d6_ef0839ab",
         "filename": "src/client/linux/handler/exception_handler_unittest.cc",
         "patchSetId": 1
@@ -150,6 +258,24 @@
       "writtenOn": "2022-10-17T09:13:04Z",
       "side": 1,
       "message": "why is this linux specific ?",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8d04c79_9010df34",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "i removed it",
+      "parentUuid": "089c20d6_ef0839ab",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -217,6 +343,72 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "170d4238_edf08989",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e43273e3_32697d4d",
+      "range": {
+        "startLine": 92,
+        "startChar": 22,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d53a4cb2_4feee1ba",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "I don\u0027t see this system call provided in the C library.",
+      "parentUuid": "6503e270_de44e5c8",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7da0902b_8bfcb449",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "already fixed",
+      "parentUuid": "a74073e2_134e2752",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 14
+      },
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b676880_355bb8ac",
@@ -230,6 +422,24 @@
       "writtenOn": "2022-10-17T09:13:04Z",
       "side": 1,
       "message": "why do you need this change ?  it isn\u0027t specific to loongson.",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a2f4e6e_55048b18",
+        "filename": "src/client/linux/handler/minidump_descriptor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "i need to add `cstdint` in loongarch gcc-13.0.0 to be able to use uintptr_t, I will test whether I need to add `cstdint` on x86",
+      "parentUuid": "0b676880_355bb8ac",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -251,6 +461,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "607a448e_e06d79e9",
+        "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05d5006e_c15727ef",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eec72197_2709ba23",
@@ -264,6 +492,24 @@
       "writtenOn": "2022-10-17T09:13:04Z",
       "side": 1,
       "message": "can\u0027t we use something like `getpagesize()` to handle this instead without any `#if` checks ?",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ebda936_839727e0",
+        "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eec72197_2709ba23",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -285,6 +531,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d33cf22_f857bbc0",
+        "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8eb24cf_98e2f2c0",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ac7e19a_16a2b01a",
@@ -298,6 +562,24 @@
       "writtenOn": "2022-10-17T09:13:04Z",
       "side": 1,
       "message": "add dangling comma and put }; on next line",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c68fcd7d_55915468",
+        "filename": "src/common/dwarf_cfi_to_module.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "already fixed",
+      "parentUuid": "5ac7e19a_16a2b01a",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -319,6 +601,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9e30eb8_70f9e21e",
+        "filename": "src/common/dwarf_cfi_to_module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9af3e87_f89401f3",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "711c6ba6_e47be068",
@@ -336,6 +636,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b449ea0_076bba5b",
+        "filename": "src/processor/stackwalk_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "already fixed",
+      "parentUuid": "711c6ba6_e47be068",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ce18509_7eaf25f3",
@@ -349,6 +667,24 @@
       "writtenOn": "2022-10-17T09:13:04Z",
       "side": 1,
       "message": "outdated copyright info",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e4ca0c_f0603d27",
+        "filename": "src/processor/stackwalker_loongarch64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T13:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ce18509_7eaf25f3",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
