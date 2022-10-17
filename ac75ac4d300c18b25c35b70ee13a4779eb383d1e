@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40c02b90_d927dd96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-17T08:24:36Z",
+      "side": 1,
+      "message": "Dear reviewer\nI provided some material on the loongarch64 architecture at\nhttps://crbug.com/google-breakpad/870\nThank you in advance.",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
