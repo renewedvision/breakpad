@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc6f7555_9d88d64b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171009
+      },
+      "writtenOn": "2022-10-17T19:31:22Z",
+      "side": 1,
+      "message": "Noticed this in rolling ChromeOS copy where this commit is causing a build failure.\n\nhttps://logs.chromium.org/logs/chromeos/buildbucket/cr-buildbucket/8800268935726267681/+/u/run_SDK_package_unit_tests/call_chromite.api.TestService_BuildTargetUnitTest/call_response:_google-breakpad/chromeos-base_google-breakpad_log",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f84a2d58_90ff087a",
+        "filename": "src/processor/disassembler_objdump_unittest.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1171009
+      },
+      "writtenOn": "2022-10-17T19:31:22Z",
+      "side": 1,
+      "message": "the last arg should be sizeof(*raw_context), since raw_context is a pointer.",
+      "range": {
+        "startLine": 150,
+        "startChar": 26,
+        "endLine": 150,
+        "endChar": 46
+      },
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e758a1_2cabed52",
+        "filename": "src/processor/disassembler_objdump_unittest.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1171009
+      },
+      "writtenOn": "2022-10-17T19:31:22Z",
+      "side": 1,
+      "message": "the last arg should be sizeof(*raw_context), since raw_context is a pointer.",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 48
+      },
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
