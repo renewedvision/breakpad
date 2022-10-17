@@ -157,6 +157,15 @@ const MDRawContextRISCV64* DumpContext::GetContextRISCV64() const {
   return context_.riscv64;
 }
 
+const MDRawContextLOONGARCH64* DumpContext::GetContextLOONGARCH64() const {
+  if (GetContextCPU() != MD_CONTEXT_LOONGARCH64) {
+    BPLOG(ERROR) << "DumpContext cannot get LOONGARCH64 context";
+    return NULL;
+  }
+
+  return context_.loongarch64;
+}
+
 bool DumpContext::GetInstructionPointer(uint64_t* ip) const {
   BPLOG_IF(ERROR, !ip) << "DumpContext::GetInstructionPointer requires |ip|";
   assert(ip);
@@ -198,6 +207,9 @@ bool DumpContext::GetInstructionPointer(uint64_t* ip) const {
     break;
   case MD_CONTEXT_RISCV64:
     *ip = GetContextRISCV64()->pc;
+    break;
+  case MD_CONTEXT_LOONGARCH64:
+    *ip = GetContextLOONGARCH64()->csr_era;
     break;
   default:
     // This should never happen.
@@ -248,6 +260,9 @@ bool DumpContext::GetStackPointer(uint64_t* sp) const {
     break;
   case MD_CONTEXT_RISCV64:
     *sp = GetContextRISCV64()->sp;
+    break;
+  case MD_CONTEXT_LOONGARCH64:
+    *sp = GetContextLOONGARCH64()->iregs[MD_CONTEXT_LOONGARCH64_REG_SP];
     break;
   default:
     // This should never happen.
@@ -301,6 +316,10 @@ void DumpContext::SetContextRISCV64(MDRawContextRISCV64* riscv64) {
   context_.riscv64 = riscv64;
 }
 
+void DumpContext::SetContextLOONGARCH64(MDRawContextLOONGARCH64* loongarch64) {
+  context_.loongarch64 = loongarch64;
+}
+
 void DumpContext::FreeContext() {
   switch (GetContextCPU()) {
     case MD_CONTEXT_X86:
@@ -342,6 +361,10 @@ void DumpContext::FreeContext() {
 
     case MD_CONTEXT_RISCV64:
       delete context_.riscv64;
+      break;
+
+    case MD_CONTEXT_LOONGARCH64:
+      delete context_.loongarch64;
       break;
 
     default:
@@ -886,6 +909,37 @@ void DumpContext::Print() {
       printf("  float_save.fpcsr     = 0x%" PRIx32 "\n",
              context_riscv64->float_save.fpcsr);
 #endif
+      break;
+    }
+
+    case MD_CONTEXT_LOONGARCH64: {
+      const MDRawContextLOONGARCH64* context_loongarch =
+          GetContextLOONGARCH64();
+      const char* const names[] = {
+          "r0", "ra", "tp", "sp", "a0", "a1", "a2", "a3", "a4", "a5", "a6",
+          "a7", "t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "x",
+          "fp", "s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8",
+      };
+      printf("MDRawContextLOONGARCH64\n");
+      printf("  context_flags        = 0x%x\n",
+             context_loongarch->context_flags);
+      for (int ireg_index = 0; ireg_index < MD_CONTEXT_LOONGARCH64_GPR_COUNT;
+           ++ireg_index) {
+        printf("  iregs[%-2s]           = 0x%" PRIx64 "\n", names[ireg_index],
+               context_loongarch->iregs[ireg_index]);
+      }
+
+      printf("  csr_era                  = 0x%" PRIx64 "\n",
+             context_loongarch->csr_era);
+      printf("  float_save.fpsr          = 0x%" PRIx64 "\n",
+             context_loongarch->float_save.fcc);
+      printf("  float_save.fpcr          = 0x%" PRIx32 "\n",
+             context_loongarch->float_save.fcsr);
+      for (int fpr_index = 0;
+           fpr_index < MD_FLOATINGSAVEAREA_LOONGARCH64_FPR_COUNT; ++fpr_index) {
+        printf("  float_save.regs[%2d] = 0x%" PRIx64 "\n", fpr_index,
+               context_loongarch->float_save.regs[fpr_index]);
+      }
       break;
     }
 

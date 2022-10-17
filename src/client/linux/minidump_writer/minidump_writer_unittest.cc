@@ -719,6 +719,9 @@ TEST(MinidumpWriterTest, InvalidStackPointer) {
 #elif defined(__riscv)
   context.context.uc_mcontext.__gregs[MD_CONTEXT_RISCV_REG_SP] =
       invalid_stack_pointer;
+#elif defined(__loongarch__) && __loongarch_grlen == 64
+  context.context.uc_mcontext.__gregs[MD_CONTEXT_LOONGARCH64_REG_SP] =
+      invalid_stack_pointer;
 #else
 # error "This code has not been ported to your platform yet."
 #endif

@@ -244,6 +244,15 @@
 
 #define MCONTEXT_FPC_CSR      MCONTEXT_FPREGS_OFFSET + 32*MCONTEXT_FPREGS_SIZE
 
+#elif defined(__loongarch__) && __loongarch_grlen == 64
+
+#define MCONTEXT_GREG_SIZE 8
+#define MCONTEXT_FPREG_SIZE 8
+#define UCONTEXT_SIGMASK_OFFSET 40
+#define MCONTEXT_PC_OFFSET 176
+#define MCONTEXT_GREGS_OFFSET 184
+#define STORE_GP st.d
+
 #else
 # error "This header has not been ported for your CPU"
 #endif

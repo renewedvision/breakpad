@@ -669,6 +669,8 @@ DISABLE_TOOLS_FALSE
 DISABLE_TOOLS_TRUE
 DISABLE_PROCESSOR_FALSE
 DISABLE_PROCESSOR_TRUE
+LOONGARCH64_HOST_FALSE
+LOONGARCH64_HOST_TRUE
 X86_HOST_FALSE
 X86_HOST_TRUE
 ANDROID_HOST_FALSE
@@ -8832,6 +8834,21 @@ else
 fi
 
 
+# exclude some tools that do not support loongarch
+case $host_cpu in
+  loongarch*)
+    LOONGARCH64_HOST=true
+    ;;
+esac
+ if test x$LOONGARCH64_HOST = xtrue; then
+  LOONGARCH64_HOST_TRUE=
+  LOONGARCH64_HOST_FALSE='#'
+else
+  LOONGARCH64_HOST_TRUE='#'
+  LOONGARCH64_HOST_FALSE=
+fi
+
+
 # Check whether --enable-processor was given.
 if test ${enable_processor+y}
 then :
@@ -9202,6 +9219,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${X86_HOST_TRUE}" && test -z "${X86_HOST_FALSE}"; then
   as_fn_error $? "conditional \"X86_HOST\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${LOONGARCH64_HOST_TRUE}" && test -z "${LOONGARCH64_HOST_FALSE}"; then
+  as_fn_error $? "conditional \"LOONGARCH64_HOST\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${DISABLE_PROCESSOR_TRUE}" && test -z "${DISABLE_PROCESSOR_FALSE}"; then

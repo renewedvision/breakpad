@@ -104,6 +104,10 @@ using google_breakpad::wasteful_vector;
 #define EM_AARCH64      183
 #endif
 
+#ifndef EM_LOONGARCH
+#define EM_LOONGARCH    258
+#endif
+
 //
 // FDWrapper
 //
@@ -371,6 +375,9 @@ bool DwarfCFIRegisterNames(const typename ElfClass::Ehdr* elf_header,
       return true;
     case EM_X86_64:
       *register_names = DwarfCFIToModule::RegisterNames::X86_64();
+      return true;
+    case EM_LOONGARCH:
+      *register_names = DwarfCFIToModule::RegisterNames::LOONGARCH64();
       return true;
     default:
       return false;
@@ -912,6 +919,7 @@ const char* ElfArchitecture(const typename ElfClass::Ehdr* elf_header) {
     case EM_SPARC:      return "sparc";
     case EM_SPARCV9:    return "sparcv9";
     case EM_X86_64:     return "x86_64";
+    case EM_LOONGARCH:  return "loongarch64";
     default: return NULL;
   }
 }
