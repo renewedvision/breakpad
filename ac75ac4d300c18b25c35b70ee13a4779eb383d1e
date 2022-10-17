@@ -16,6 +16,341 @@
       "message": "Dear reviewer\nI provided some material on the loongarch64 architecture at\nhttps://crbug.com/google-breakpad/870\nThank you in advance.",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a6d068a_2f3199ad",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "this one we could land by itself\n\nyou\u0027ll also want to update the default.xml",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d0f7efb_4181fef4",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "split the host checks into a sep CL as a follow up to adding basic support",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0b53415_233b415b",
+        "filename": "src/client/linux/dump_writer_common/thread_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "drop the comment",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d83b9a54_5f2b6daf",
+        "filename": "src/client/linux/dump_writer_common/thread_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "do you need the 64bit check ?  seems like `__loongarch__` alone suffices.\n\nyou should do this in general -- only check the len when actually necessary.",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af1cc64b_fb110512",
+        "filename": "src/client/linux/dump_writer_common/thread_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "why can\u0027t your port define a more common mcontext_t ?",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ab6004_6f1bfdde",
+        "filename": "src/client/linux/handler/exception_handler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "don\u0027t do this.  fix whatever C or kernel UAPI headers that are broken and forcing this.  userland should never include asm/ directly.",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c9b6875_45c4618d",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "is this actually necessary ?  does loongson have sep i/d caches ?",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "089c20d6_ef0839ab",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "why is this linux specific ?",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a74073e2_134e2752",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "never use bare `asm volatile`.  use `__asm__ __volatile__` instead.",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 14
+      },
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e43273e3_32697d4d",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "don\u0027t abuse whitespace to terminate insns.  use `;` instead (i\u0027m assuming your assembler supports that since also everyone does).",
+      "range": {
+        "startLine": 92,
+        "startChar": 22,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6503e270_de44e5c8",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "seems like loongarch should be providing C library or kernel syscalls for this instead of having to write custom inline asm",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b676880_355bb8ac",
+        "filename": "src/client/linux/handler/minidump_descriptor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "why do you need this change ?  it isn\u0027t specific to loongson.",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d5006e_c15727ef",
+        "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "never indent the `#`",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eec72197_2709ba23",
+        "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "can\u0027t we use something like `getpagesize()` to handle this instead without any `#if` checks ?",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8eb24cf_98e2f2c0",
+        "filename": "src/client/linux/microdump_writer/microdump_writer_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "missing space after `#`",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ac7e19a_16a2b01a",
+        "filename": "src/common/dwarf_cfi_to_module.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "add dangling comma and put }; on next line",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9af3e87_f89401f3",
+        "filename": "src/common/dwarf_cfi_to_module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "period at the end",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "711c6ba6_e47be068",
+        "filename": "src/processor/stackwalk_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "don\u0027t need the 2nd set of parens",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ce18509_7eaf25f3",
+        "filename": "src/processor/stackwalker_loongarch64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 1,
+      "message": "outdated copyright info",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

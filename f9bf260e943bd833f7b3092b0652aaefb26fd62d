@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "765c94a0_5ac609ac",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-17T09:13:04Z",
+      "side": 0,
+      "message": "should generalize this",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
