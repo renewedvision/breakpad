@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4dbb717_c3f9060a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-18T09:26:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6f7555_9d88d64b",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f84a2d58_90ff087a",
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff3e2db9_497b17de",
+        "filename": "src/processor/disassembler_objdump_unittest.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-18T09:26:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f84a2d58_90ff087a",
+      "range": {
+        "startLine": 150,
+        "startChar": 26,
+        "endLine": 150,
+        "endChar": 46
+      },
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7e758a1_2cabed52",
@@ -71,6 +113,30 @@
       "writtenOn": "2022-10-17T19:31:22Z",
       "side": 1,
       "message": "the last arg should be sizeof(*raw_context), since raw_context is a pointer.",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 48
+      },
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "142f9e48_790d64bb",
+        "filename": "src/processor/disassembler_objdump_unittest.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-18T09:26:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7e758a1_2cabed52",
       "range": {
         "startLine": 173,
         "startChar": 0,
