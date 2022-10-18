@@ -444,6 +444,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "539b4908_d8103d0a",
+        "filename": "src/client/linux/handler/minidump_descriptor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-18T03:06:56Z",
+      "side": 1,
+      "message": "I have no problems using gcc-13 on x86, it\u0027s Loongson specific.",
+      "parentUuid": "7a2f4e6e_55048b18",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05d5006e_c15727ef",
