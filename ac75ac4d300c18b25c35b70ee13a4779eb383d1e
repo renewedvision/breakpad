@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a30b6a48_95ce6656",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-18T18:55:22Z",
+      "side": 1,
+      "message": "i mean you can make a separate commit/CL that only updates DEPS/default.xml and we could merge that now",
+      "parentUuid": "e5773b38_bb44caa7",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d0f7efb_4181fef4",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "5d0f7efb_4181fef4",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c01846a4_fd59e34e",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-18T18:55:22Z",
+      "side": 1,
+      "message": "the host checks are still in this one commit",
+      "parentUuid": "0b39c12c_66af2583",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -429,6 +465,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "472f59c1_b2bf9127",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-18T18:55:22Z",
+      "side": 1,
+      "message": "i\u0027m suggesting you get such APIs added to the kernel and/or C library.  if you look at arm/mips/etc..., they provide syscalls.",
+      "parentUuid": "d53a4cb2_4feee1ba",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49f6f65a_3c096e36",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-18T18:55:22Z",
+      "side": 1,
+      "message": "this hasn\u0027t been fixed",
+      "parentUuid": "170d4238_edf08989",
+      "range": {
+        "startLine": 92,
+        "startChar": 22,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b676880_355bb8ac",
         "filename": "src/client/linux/handler/minidump_descriptor.h",
         "patchSetId": 1
@@ -476,6 +554,24 @@
       "side": 1,
       "message": "I have no problems using gcc-13 on x86, it\u0027s Loongson specific.",
       "parentUuid": "7a2f4e6e_55048b18",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0dc2d2c_c0d415bc",
+        "filename": "src/client/linux/handler/minidump_descriptor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-18T18:55:22Z",
+      "side": 1,
+      "message": "standard headers should not be ifdef gated.  look in the standards to see what headers provide which types, and then figure out whether we\u0027re missing an include in breakpad, or loongson is broken.\nhttps://pubs.opengroup.org/onlinepubs/9699919799/\n\nif breakpad should be including this header for everyone, then post a CL by itself fixing the issue.",
+      "parentUuid": "539b4908_d8103d0a",
       "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

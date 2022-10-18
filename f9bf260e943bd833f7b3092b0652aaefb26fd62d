@@ -34,6 +34,41 @@
       "parentUuid": "765c94a0_5ac609ac",
       "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "658fbf20_048383de",
+        "filename": "src/client/linux/handler/exception_handler_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-18T18:55:22Z",
+      "side": 0,
+      "message": "\"generalize\" means \"stop hardcoding specific architectures\"",
+      "parentUuid": "a175775c_c57be97f",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66284389_a5fbe320",
+        "filename": "src/common/linux/breakpad_getcontext_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-18T18:55:22Z",
+      "side": 0,
+      "message": "this is all x86_64-specific code, so you\u0027ve inserted the new loongson code at the wrong place",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
