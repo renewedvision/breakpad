@@ -210,6 +210,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2860438_fc03cda1",
+        "filename": "src/client/linux/handler/exception_handler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-18T03:10:00Z",
+      "side": 1,
+      "message": "i removed this",
+      "parentUuid": "e9ab6004_6f1bfdde",
+      "revId": "ac75ac4d300c18b25c35b70ee13a4779eb383d1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c9b6875_45c4618d",
