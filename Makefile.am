@@ -392,7 +392,6 @@ check_PROGRAMS += \
 	src/processor/basic_source_line_resolver_unittest \
 	src/processor/cfi_frame_info_unittest \
 	src/processor/contained_range_map_unittest \
-	src/processor/disassembler_objdump_unittest \
 	src/processor/disassembler_x86_unittest \
 	src/processor/exploitability_unittest \
 	src/processor/fast_source_line_resolver_unittest \
@@ -420,6 +419,9 @@ check_PROGRAMS += \
 	src/processor/stackwalker_riscv64_unittest \
 	src/processor/stackwalker_x86_unittest \
 	src/processor/synth_minidump_unittest
+if !LOONGARCH_HOST
+check_PROGRAMS += src/processor/disassembler_objdump_unittest
+endif
 endif
 
 if LINUX_HOST
@@ -913,6 +915,7 @@ src_processor_exploitability_unittest_LDADD = \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 
+if !LOONGARCH_HOST
 src_processor_disassembler_objdump_unittest_SOURCES = \
 	src/processor/disassembler_objdump_unittest.cc
 src_processor_disassembler_objdump_unittest_CPPFLAGS = \
@@ -925,6 +928,7 @@ src_processor_disassembler_objdump_unittest_LDADD = \
 	src/processor/pathname_stripper.o \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+endif
 
 src_processor_disassembler_x86_unittest_SOURCES = \
 	src/processor/disassembler_x86_unittest.cc
