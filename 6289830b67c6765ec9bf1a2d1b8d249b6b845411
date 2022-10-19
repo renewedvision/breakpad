@@ -55,6 +55,91 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92831b46_5cf4ea9a",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-19T19:20:31Z",
+      "side": 1,
+      "message": "this logic belongs in the build files.  i.e. you shouldn\u0027t be compiling this for non-Linux hosts.",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1be0b9d_3eba3b55",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-19T19:20:31Z",
+      "side": 1,
+      "message": "this duplicates logic we already have in src/common/linux/tests/auto_testfile.h",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f09bebc7_5e0f477f",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-19T19:20:31Z",
+      "side": 1,
+      "message": "```\n*** CID 282514:  Uninitialized members  (UNINIT_CTOR)\n/src/src/processor/disassembler_objdump.cc: 78 in google_breakpad::\u003cunnamed\u003e::ScopedTmpFile::ScopedTmpFile(const char *)()\n72     \n73      private:\n74       int fd_;\n75       string path_;\n76     };\n77     \n\u003e\u003e\u003e     CID 282514:  Uninitialized members  (UNINIT_CTOR)\n\u003e\u003e\u003e     Non-static class member \"fd_\" is not initialized in this constructor nor in any functions that it calls.\n78     ScopedTmpFile::ScopedTmpFile(const char* path_format) : path_(path_format) {}\n79     \n80     ScopedTmpFile::~ScopedTmpFile() {\n81       if (fd_) {\n82         close(fd_);\n83         unlink(path_.c_str());\n```",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "817ec106_ecfaaec4",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-19T19:20:31Z",
+      "side": 1,
+      "message": "```\n*** CID 282517:  Uninitialized variables  (UNINIT)\n/src/src/processor/disassembler_objdump.cc: 295 in google_breakpad::DisassemblerObjdump::DisassembleInstruction(unsigned int, const unsigned char *, unsigned int, std::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e\u003e \u0026)()\n289       // objdump, and one for the output, and write the bytes to the input file.\n290       ScopedTmpFile raw_bytes_file(\"/tmp/breakpad_mem_region-raw_bytes-XXXXXX\");\n291       ScopedTmpFile disassembly_file(\"/tmp/breakpad_mem_region-disassembly-XXXXXX\");\n292       if (!raw_bytes_file.Create() || !disassembly_file.Create() ||\n293           !raw_bytes_file.Write(raw_bytes, raw_bytes_len)) {\n294         BPLOG(ERROR) \u003c\u003c \"Failed creating temporary files.\";\n\u003e\u003e\u003e     CID 282517:  Uninitialized variables  (UNINIT)\n\u003e\u003e\u003e     Using uninitialized value \"disassembly_file.fd_\" when calling \"~ScopedTmpFile\".\n295         return false;\n296       }\n297     \n298       char cmd[1024] \u003d {0};\n299       snprintf(cmd, 1024,\n300                \"objdump -D --no-show-raw-insn -b binary -M intel -m %s %s \u003e %s\",\n```",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed537023_ee787e23",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-19T19:20:31Z",
+      "side": 1,
+      "message": "you really should never use `system()`.  seems like you should fork, dup2 the fd of the tmpfiles to stdout, and then exec the objdump program.  then you don\u0027t need to fork a shell just to do the dup2 for you.",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f84a2d58_90ff087a",
         "filename": "src/processor/disassembler_objdump_unittest.cc",
         "patchSetId": 9
