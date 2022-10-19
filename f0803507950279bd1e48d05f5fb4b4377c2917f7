@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "085093c2_d46488b9",
+        "filename": "src/processor/basic_source_line_resolver.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-19T19:18:20Z",
+      "side": 1,
+      "message": "```\n*** CID 282516:  Performance inefficiencies  (AUTO_CAUSES_COPY)\n/src/src/processor/basic_source_line_resolver.cc: 629 in google_breakpad::BasicSourceLineResolver::Function::AppendInline(google_breakpad::linked_ptr\u003cgoogle_breakpad::SourceLineResolverBase::Inline\u003e)()\n623       if (in-\u003einline_nest_level \u003e last_added_inline_nest_level + 1)\n624         return false;\n625     \n626       last_added_inline_nest_level \u003d in-\u003einline_nest_level;\n627     \n628       // Store all ranges into current level of inlines.\n\u003e\u003e\u003e     CID 282516:  Performance inefficiencies  (AUTO_CAUSES_COPY)\n\u003e\u003e\u003e     Using the \"auto\" keyword without an \"\u0026\" causes the copy of an object of type pair.\n629       for (auto range : in-\u003einline_ranges)\n630         inlines.StoreRange(range.first, range.second, in);\n631       return true;\n632     }\n633     \n634     // static\n```",
+      "revId": "f0803507950279bd1e48d05f5fb4b4377c2917f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d698ad1a_3dfb73f5",
         "filename": "src/processor/basic_source_line_resolver.cc",
         "patchSetId": 9
