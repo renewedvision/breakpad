@@ -16,6 +16,24 @@
       "message": "please keep sorted",
       "revId": "8c2d40164eb6c2a58e1a6f6bf9d43b7b1c198428",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "593b4086_8880e745",
+        "filename": "src/client/linux/handler/minidump_descriptor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-20T01:31:27Z",
+      "side": 1,
+      "message": "I swapped `string` and `cstdint`",
+      "parentUuid": "e0186e0d_62c5b461",
+      "revId": "8c2d40164eb6c2a58e1a6f6bf9d43b7b1c198428",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
