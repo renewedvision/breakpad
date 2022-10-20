@@ -31,6 +31,11 @@
     '../build/common.gypi',
     'processor_tools.gypi',
   ],
+  'target_defaults': {
+    'target_conditions': [
+      ['OS!="linux"', {'sources/': [['exclude', '(^|/)disassembler_objdump.*']]}],
+    ],
+  },
   'targets': [
     {
       'target_name': 'processor',
