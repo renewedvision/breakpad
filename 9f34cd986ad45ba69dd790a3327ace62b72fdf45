@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac74987_3e90fd9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-20T17:05:06Z",
+      "side": 1,
+      "message": "As per your comment on change 3720740.\n\nThis approach seems messier to me, but if you\u0027d prefer it done this way then I can finish cleaning this up.\n\nHow do I use the gyp build? I did manage to get gyp to run and generate makefiles, but the build fails for me:\n\n```\nsrc$ python2 ./src/build/gyp_breakpad --depth\u003d. -f make --generator-output\u003dout -I./src/build/common.gypi ./src/build/all.gyp\nUpdating projects from gyp files...\n\nsrc$ cd out; make All\n  CXX(target) out/Debug/obj.target/common/src/common/dwarf/functioninfo.o\nIn file included from ../src/common/dwarf/functioninfo.cc:40:\n../src/common/dwarf/functioninfo.h:72:18: error: ‘uint64’ was not declared in this scope; did you mean ‘uint64_t’?\n   72 | typedef std::map\u003cuint64, FunctionInfo*\u003e FunctionMap;\n      |                  ^~~~~~\n      |                  uint64_t\n../src/common/dwarf/functioninfo.h:72:39: error: template argument 1 is invalid\n   72 | typedef std::map\u003cuint64, FunctionInfo*\u003e FunctionMap;\n```",
+      "revId": "9f34cd986ad45ba69dd790a3327ace62b72fdf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "095c649d_5378eb4f",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-20T17:05:06Z",
+      "side": 1,
+      "message": "I\u0027d remove these once I can test the gyp build on at least linux and windows.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "9f34cd986ad45ba69dd790a3327ace62b72fdf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d918e4f_d54ecdb8",
+        "filename": "src/processor/disassembler_objdump.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-20T17:05:06Z",
+      "side": 1,
+      "message": "I\u0027d remove these once I can test the gyp build on at least linux and windows.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "9f34cd986ad45ba69dd790a3327ace62b72fdf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
