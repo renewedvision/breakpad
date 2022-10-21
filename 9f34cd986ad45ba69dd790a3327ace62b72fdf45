@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb6e885_c5b35d7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-10-21T15:15:49Z",
+      "side": 1,
+      "message": "See the rest of the relation chain for my proposed fixes for the rest of the comments - I haven\u0027t made any gyp changes for the follow-on cls yet, so I\u0027ll send those for review properly once this one is cleared up.",
+      "revId": "9f34cd986ad45ba69dd790a3327ace62b72fdf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "095c649d_5378eb4f",
