@@ -146,6 +146,10 @@ EXTRA_PROGRAMS = $(am__EXEEXT_1)
 @HAVE_GETCONTEXT_FALSE@@LINUX_HOST_TRUE@	src/common/linux/breakpad_getcontext.S
 
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__append_10 = \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.h \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.cc \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.h \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.cc \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.h \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.cc
 
@@ -234,22 +238,34 @@ EXTRA_PROGRAMS = $(am__EXEEXT_1)
 @ANDROID_HOST_TRUE@@LINUX_HOST_TRUE@        -llog
 
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__append_25 = \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.o
 
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__append_26 = \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.o
 
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__append_27 = \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.o
 
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__append_28 = \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.o
 
 noinst_PROGRAMS =
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__append_29 = \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.o
 
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__append_30 = \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.o
 
 subdir = .
@@ -548,9 +564,14 @@ am__src_libbreakpad_a_SOURCES_DIST =  \
 	src/processor/symbolic_constants_win.cc \
 	src/processor/symbolic_constants_win.h \
 	src/processor/tokenize.cc src/processor/tokenize.h \
+	src/common/linux/scoped_pipe.h src/common/linux/scoped_pipe.cc \
+	src/common/linux/scoped_tmpfile.h \
+	src/common/linux/scoped_tmpfile.cc \
 	src/processor/disassembler_objdump.h \
 	src/processor/disassembler_objdump.cc
-@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__objects_2 = src/processor/disassembler_objdump.$(OBJEXT)
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am__objects_2 = src/common/linux/scoped_pipe.$(OBJEXT) \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.$(OBJEXT) \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.$(OBJEXT)
 @DISABLE_PROCESSOR_FALSE@am_src_libbreakpad_a_OBJECTS = src/processor/basic_code_modules.$(OBJEXT) \
 @DISABLE_PROCESSOR_FALSE@	src/processor/basic_source_line_resolver.$(OBJEXT) \
 @DISABLE_PROCESSOR_FALSE@	src/processor/call_stack.$(OBJEXT) \
@@ -1016,7 +1037,9 @@ am__src_processor_disassembler_objdump_unittest_SOURCES_DIST =  \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@am_src_processor_disassembler_objdump_unittest_OBJECTS = src/processor/disassembler_objdump_unittest-disassembler_objdump_unittest.$(OBJEXT)
 src_processor_disassembler_objdump_unittest_OBJECTS =  \
 	$(am_src_processor_disassembler_objdump_unittest_OBJECTS)
-@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@src_processor_disassembler_objdump_unittest_DEPENDENCIES = src/processor/disassembler_objdump.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@src_processor_disassembler_objdump_unittest_DEPENDENCIES = src/common/linux/scoped_pipe.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/dump_context.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/dump_object.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/logging.o \
@@ -1911,7 +1934,9 @@ am__depfiles_remade = src/client/$(DEPDIR)/minidump_file_writer.Po \
 	src/common/linux/$(DEPDIR)/linux_libc_support.Po \
 	src/common/linux/$(DEPDIR)/memory_mapped_file.Po \
 	src/common/linux/$(DEPDIR)/safe_readlink.Po \
+	src/common/linux/$(DEPDIR)/scoped_pipe.Po \
 	src/common/linux/$(DEPDIR)/scoped_pipe_unittest-scoped_pipe_unittest.Po \
+	src/common/linux/$(DEPDIR)/scoped_tmpfile.Po \
 	src/common/linux/$(DEPDIR)/scoped_tmpfile_unittest-scoped_tmpfile_unittest.Po \
 	src/common/linux/$(DEPDIR)/symbol_collector_client.Po \
 	src/common/linux/$(DEPDIR)/symbol_upload.Po \
@@ -3317,6 +3342,8 @@ TESTS = $(check_PROGRAMS) $(check_SCRIPTS)
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	$(AM_CPPFLAGS) $(TEST_CFLAGS)
 
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@src_processor_disassembler_objdump_unittest_LDADD = \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_pipe.o \
+@DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/common/linux/scoped_tmpfile.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/disassembler_objdump.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/dump_context.o \
 @DISABLE_PROCESSOR_FALSE@@LINUX_HOST_TRUE@	src/processor/dump_object.o \
@@ -4570,6 +4597,12 @@ src/processor/symbolic_constants_win.$(OBJEXT):  \
 	src/processor/$(DEPDIR)/$(am__dirstamp)
 src/processor/tokenize.$(OBJEXT): src/processor/$(am__dirstamp) \
 	src/processor/$(DEPDIR)/$(am__dirstamp)
+src/common/linux/scoped_pipe.$(OBJEXT):  \
+	src/common/linux/$(am__dirstamp) \
+	src/common/linux/$(DEPDIR)/$(am__dirstamp)
+src/common/linux/scoped_tmpfile.$(OBJEXT):  \
+	src/common/linux/$(am__dirstamp) \
+	src/common/linux/$(DEPDIR)/$(am__dirstamp)
 src/processor/disassembler_objdump.$(OBJEXT):  \
 	src/processor/$(am__dirstamp) \
 	src/processor/$(DEPDIR)/$(am__dirstamp)
@@ -5801,7 +5834,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/linux_libc_support.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/memory_mapped_file.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/safe_readlink.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/scoped_pipe.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/scoped_pipe_unittest-scoped_pipe_unittest.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/scoped_tmpfile.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/scoped_tmpfile_unittest-scoped_tmpfile_unittest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/symbol_collector_client.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/common/linux/$(DEPDIR)/symbol_upload.Po@am__quote@ # am--include-marker
@@ -10066,7 +10101,9 @@ distclean: distclean-am
 	-rm -f src/common/linux/$(DEPDIR)/linux_libc_support.Po
 	-rm -f src/common/linux/$(DEPDIR)/memory_mapped_file.Po
 	-rm -f src/common/linux/$(DEPDIR)/safe_readlink.Po
+	-rm -f src/common/linux/$(DEPDIR)/scoped_pipe.Po
 	-rm -f src/common/linux/$(DEPDIR)/scoped_pipe_unittest-scoped_pipe_unittest.Po
+	-rm -f src/common/linux/$(DEPDIR)/scoped_tmpfile.Po
 	-rm -f src/common/linux/$(DEPDIR)/scoped_tmpfile_unittest-scoped_tmpfile_unittest.Po
 	-rm -f src/common/linux/$(DEPDIR)/symbol_collector_client.Po
 	-rm -f src/common/linux/$(DEPDIR)/symbol_upload.Po
@@ -10423,7 +10460,9 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/common/linux/$(DEPDIR)/linux_libc_support.Po
 	-rm -f src/common/linux/$(DEPDIR)/memory_mapped_file.Po
 	-rm -f src/common/linux/$(DEPDIR)/safe_readlink.Po
+	-rm -f src/common/linux/$(DEPDIR)/scoped_pipe.Po
 	-rm -f src/common/linux/$(DEPDIR)/scoped_pipe_unittest-scoped_pipe_unittest.Po
+	-rm -f src/common/linux/$(DEPDIR)/scoped_tmpfile.Po
 	-rm -f src/common/linux/$(DEPDIR)/scoped_tmpfile_unittest-scoped_tmpfile_unittest.Po
 	-rm -f src/common/linux/$(DEPDIR)/symbol_collector_client.Po
 	-rm -f src/common/linux/$(DEPDIR)/symbol_upload.Po
