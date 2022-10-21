@@ -433,6 +433,7 @@ CLEANFILES += \
 
 check_PROGRAMS += \
 	src/client/linux/linux_client_unittest \
+	src/common/linux/scoped_pipe_unittest \
 	src/common/linux/scoped_tmpfile_unittest \
 	src/common/linux/google_crashdump_uploader_test \
 	src/processor/disassembler_objdump_unittest
@@ -923,6 +924,15 @@ src_processor_exploitability_unittest_LDADD += \
 endif
 
 if LINUX_HOST
+src_common_linux_scoped_pipe_unittest_SOURCES = \
+	src/common/linux/scoped_pipe_unittest.cc
+src_common_linux_scoped_pipe_unittest_CPPFLAGS = \
+	$(AM_CPPFLAGS) $(TEST_CFLAGS)
+src_common_linux_scoped_pipe_unittest_LDADD = \
+	src/common/linux/scoped_pipe.o \
+	$(TEST_LIBS) \
+	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+
 src_common_linux_scoped_tmpfile_unittest_SOURCES = \
 	src/common/linux/scoped_tmpfile_unittest.cc
 src_common_linux_scoped_tmpfile_unittest_CPPFLAGS = \
