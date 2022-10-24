@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef51d6ed_20e9e421",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1326772
+      },
+      "writtenOn": "2022-10-24T21:21:32Z",
+      "side": 1,
+      "message": "Friendly ping. Any progress on this? This is blocking us from switching to symbol level 2 for lacros in crbug.com/1373038#c28.",
+      "revId": "d764d4d28e3faeabf9c36c8c7702e5d6b7902b34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca904819_c4f7c8ee",
