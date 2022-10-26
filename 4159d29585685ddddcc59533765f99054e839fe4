@@ -87,6 +87,30 @@
       },
       "revId": "4159d29585685ddddcc59533765f99054e839fe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e79bbe92_5cf5cafa",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4857,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2022-10-26T17:03:23Z",
+      "side": 1,
+      "message": "Moved to https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3982824",
+      "parentUuid": "0bad6a32_46ac0098",
+      "range": {
+        "startLine": 4857,
+        "startChar": 6,
+        "endLine": 4857,
+        "endChar": 19
+      },
+      "revId": "4159d29585685ddddcc59533765f99054e839fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
