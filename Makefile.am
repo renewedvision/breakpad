@@ -306,6 +306,8 @@ src_libbreakpad_a_SOURCES = \
 	src/processor/stackwalker_sparc.h \
 	src/processor/stackwalker_x86.cc \
 	src/processor/stackwalker_x86.h \
+	src/processor/stackwalker_loongarch64.cc \
+	src/processor/stackwalker_loongarch64.h \
 	src/processor/static_address_map-inl.h \
 	src/processor/static_address_map.h \
 	src/processor/static_contained_range_map-inl.h \
@@ -414,6 +416,7 @@ check_PROGRAMS += \
 	src/processor/stackwalker_arm_unittest \
 	src/processor/stackwalker_arm64_unittest \
 	src/processor/stackwalker_address_list_unittest \
+	src/processor/stackwalker_loongarch64_unittest \
 	src/processor/stackwalker_mips_unittest \
 	src/processor/stackwalker_mips64_unittest \
 	src/processor/stackwalker_riscv_unittest \
@@ -909,6 +912,7 @@ src_processor_exploitability_unittest_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/symbolic_constants_win.o \
 	src/processor/tokenize.o \
 	src/third_party/libdisasm/libdisasm.a \
@@ -997,6 +1001,7 @@ src_processor_microdump_processor_unittest_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/tokenize.o \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
@@ -1039,6 +1044,7 @@ src_processor_minidump_processor_unittest_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/symbolic_constants_win.o \
 	src/processor/tokenize.o \
 	src/third_party/libdisasm/libdisasm.a \
@@ -1185,6 +1191,7 @@ src_processor_stackwalker_selftest_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/tokenize.o \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 
@@ -1276,6 +1283,16 @@ src_processor_stackwalker_x86_unittest_LDADD = \
 	$(TEST_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
 src_processor_stackwalker_x86_unittest_CPPFLAGS = \
+	$(AM_CPPFLAGS) $(TEST_CFLAGS)
+
+src_processor_stackwalker_loongarch64_unittest_SOURCES = \
+	src/common/test_assembler.cc \
+	src/processor/stackwalker_loongarch64_unittest.cc
+src_processor_stackwalker_loongarch64_unittest_LDADD = \
+	src/libbreakpad.a \
+	$(TEST_LIBS) \
+	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS)
+src_processor_stackwalker_loongarch64_unittest_CPPFLAGS = \
 	$(AM_CPPFLAGS) $(TEST_CFLAGS)
 
 src_processor_synth_minidump_unittest_SOURCES = \
@@ -1375,6 +1392,7 @@ src_processor_microdump_stackwalk_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/tokenize.o \
 	src/third_party/libdisasm/libdisasm.a
 
@@ -1417,6 +1435,7 @@ src_processor_minidump_stackwalk_LDADD = \
 	src/processor/stackwalker_riscv64.o \
 	src/processor/stackwalker_sparc.o \
 	src/processor/stackwalker_x86.o \
+	src/processor/stackwalker_loongarch64.o \
 	src/processor/symbolic_constants_win.o \
 	src/processor/tokenize.o \
 	src/third_party/libdisasm/libdisasm.a
