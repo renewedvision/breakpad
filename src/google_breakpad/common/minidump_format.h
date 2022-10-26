@@ -120,6 +120,7 @@ typedef struct {
 #include "minidump_cpu_riscv.h"
 #include "minidump_cpu_sparc.h"
 #include "minidump_cpu_x86.h"
+#include "minidump_cpu_loongarch64.h"
 
 /*
  * WinVer.h
@@ -686,6 +687,7 @@ typedef enum {
   MD_CPU_ARCHITECTURE_MIPS64    = 0x8004, /* Breakpad-defined value for MIPS64 */
   MD_CPU_ARCHITECTURE_RISCV     = 0x8005, /* Breakpad-defined value for RISCV */
   MD_CPU_ARCHITECTURE_RISCV64   = 0x8006, /* Breakpad-defined value for RISCV64 */
+  MD_CPU_ARCHITECTURE_LOONGARCH64 = 0x8007, /* Breakpad-defined value for LOONGARCH64 */
   MD_CPU_ARCHITECTURE_UNKNOWN   = 0xffff  /* PROCESSOR_ARCHITECTURE_UNKNOWN */
 } MDCPUArchitecture;
 

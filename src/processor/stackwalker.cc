@@ -56,6 +56,7 @@
 #include "processor/stackwalker_mips.h"
 #include "processor/stackwalker_riscv.h"
 #include "processor/stackwalker_riscv64.h"
+#include "processor/stackwalker_loongarch64.h"
 
 namespace google_breakpad {
 
@@ -285,6 +286,12 @@ Stackwalker* Stackwalker::StackwalkerForCPU(
                                                context->GetContextRISCV64(),
                                                memory, modules,
                                                frame_symbolizer);
+      break;
+
+    case MD_CONTEXT_LOONGARCH64:
+      cpu_stackwalker = new StackwalkerLOONGARCH64(
+          system_info, context->GetContextLOONGARCH64(), memory, modules,
+          frame_symbolizer);
       break;
   }
 
