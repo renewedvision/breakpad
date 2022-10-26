@@ -16,6 +16,24 @@
       "message": "Can you make sure `make check`  passes?\n\nI\u0027m getting a link error:\np_symbols.o src/common/linux/dumper_unittest-dump_symbols_unittest.o src/common/linux/dumper_unittest-elf_core_dump.o src/common/linux/dumper_unittest-elf_core_dump_unittest.o src/common/linux/dumper_unittest-elf_symbols_to_module.o src/common/linux/dumper_unittest-elf_symbols_to_module_unittest.o src/common/linux/dumper_unittest-elfutils.o src/common/linux/dumper_unittest-file_id.o src/common/linux/dumper_unittest-file_id_unittest.o src/common/linux/dumper_unittest-linux_libc_support.o src/common/linux/dumper_unittest-memory_mapped_file.o src/common/linux/dumper_unittest-memory_mapped_file_unittest.o src/common/linux/dumper_unittest-safe_readlink.o src/common/linux/dumper_unittest-safe_readlink_unittest.o src/common/linux/dumper_unittest-synth_elf.o src/common/linux/dumper_unittest-synth_elf_unittest.o src/common/linux/tests/dumper_unittest-crash_generator.o src/common/tests/dumper_unittest-file_utils.o src/testing/libtesting.a    \n/usr/bin/ld: src/common/linux/dumper_unittest-dump_symbols.o: in function `(anonymous namespace)::UncompressSectionContents(unsigned char const*, unsigned long, unsigned long)\u0027:\n/usr/local/google/home/jperaza/breakpad/src/src/common/linux/dump_symbols.cc:316: undefined reference to `inflateInit_\u0027\n/usr/bin/ld: /usr/local/google/home/jperaza/breakpad/src/src/common/linux/dump_symbols.cc:321: undefined reference to `inflate\u0027\n/usr/bin/ld: /usr/local/google/home/jperaza/breakpad/src/src/common/linux/dump_symbols.cc:325: undefined reference to `inflateReset\u0027\n/usr/bin/ld: /usr/local/google/home/jperaza/breakpad/src/src/common/linux/dump_symbols.cc:328: undefined reference to `inflateEnd\u0027",
       "revId": "0b54719455342d9f6c5adc2a4139f171791e558c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11e6f3a4_8a24d57e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548297
+      },
+      "writtenOn": "2022-10-26T20:17:18Z",
+      "side": 1,
+      "message": "Sorry about that - done.",
+      "parentUuid": "b9fd1d99_72924dea",
+      "revId": "0b54719455342d9f6c5adc2a4139f171791e558c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
