@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce03cc5_558f9c36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171009
+      },
+      "writtenOn": "2022-10-26T23:30:39Z",
+      "side": 1,
+      "message": "hitting errors after this change:\n\nhttps://logs.chromium.org/logs/chromeos/buildbucket/cr-buildbucket/8799202385695601953/+/u/init_sdk/call_chromite.api.SdkService_Create/call_build_API_script/stdout\n\n google-breakpad-2022.10.26.202920-r215: /var/tmp/portage/chromeos-base/google-breakpad-2022.10.26.202920-r215/work/google-breakpad-2022.10.26.202920/src/common/linux/elfutils.h:43:15: error: \n google-breakpad-2022.10.26.202920-r215:       anonymous non-C-compatible type given name for linkage purposes by typedef\n google-breakpad-2022.10.26.202920-r215:       declaration; add a tag name here [-Werror,-Wnon-c-typedef-for-linkage]\n google-breakpad-2022.10.26.202920-r215: typedef struct {\n google-breakpad-2022.10.26.202920-r215:               ^\n google-breakpad-2022.10.26.202920-r215:                Elf32_Chdr\n google-breakpad-2022.10.26.202920-r215: /var/tmp/portage/chromeos-base/google-breakpad-2022.10.26.202920-r215/work/google-breakpad-2022.10.26.202920/src/common/linux/elfutils.h:44:3: note: \n google-breakpad-2022.10.26.202920-r215:       type is not C-compatible due to this member declaration\n google-breakpad-2022.10.26.202920-r215:   typedef Elf32_Word Type;\n google-breakpad-2022.10.26.202920-r215:   ^~~~~~~~~~~~~~~~~~~~~~~\n \n The typedefs need to be of syntax:\n \n typedef struct \u003ctype\u003e {\n } type;",
+      "revId": "de086a98595f68715c1dce9860f77014a2a1b187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
