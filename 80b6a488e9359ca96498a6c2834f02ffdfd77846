@@ -16,6 +16,24 @@
       "message": "all use of LOONGARCH_HOST should be split out into your other change -- https://crrev.com/c/3964167",
       "revId": "80b6a488e9359ca96498a6c2834f02ffdfd77846",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f1ff493_791255ab",
+        "filename": "Makefile.am",
+        "patchSetId": 4
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-26T10:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c4a14e9_3ca5dad1",
+      "revId": "80b6a488e9359ca96498a6c2834f02ffdfd77846",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
