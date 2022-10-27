@@ -34,6 +34,24 @@
       "parentUuid": "2ce03cc5_558f9c36",
       "revId": "de086a98595f68715c1dce9860f77014a2a1b187",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e8df51d_4c7454b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171009
+      },
+      "writtenOn": "2022-10-27T15:45:38Z",
+      "side": 1,
+      "message": "already fixed in https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3984802 . \nIt will probably repro with CC\u003dclang CXX\u003dclang++ if the clang is sufficiently newer.",
+      "parentUuid": "6088f166_01144c4f",
+      "revId": "de086a98595f68715c1dce9860f77014a2a1b187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
