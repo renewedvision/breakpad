@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "022558bd_32a74047",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5271,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2022-10-27T14:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ac07734_df5bd736",
+      "range": {
+        "startLine": 5270,
+        "startChar": 0,
+        "endLine": 5271,
+        "endChar": 47
+      },
+      "revId": "aca2dbc7aa8b78267d804fe5831daf03b4a7e62e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40841642_abb2eb22",
@@ -78,6 +102,24 @@
       "writtenOn": "2022-10-27T14:35:07Z",
       "side": 1,
       "message": "1. From the final paragraph of my very old comment that you pasted here: in case the structure grows again in the future, use `\u003e\u003d` instead of `\u003d\u003d`.\n2. `else { crashpad_info_.pointer_authentication_address_mask \u003d 0; }`?",
+      "revId": "aca2dbc7aa8b78267d804fe5831daf03b4a7e62e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af1a1628_ea692ab6",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5291,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2022-10-27T14:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40841642_abb2eb22",
       "revId": "aca2dbc7aa8b78267d804fe5831daf03b4a7e62e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
