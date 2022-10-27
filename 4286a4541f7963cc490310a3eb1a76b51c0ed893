@@ -16,6 +16,24 @@
       "message": "`expected_size -\u003d crashpad_pac_size` to set you up for future extensions too.",
       "revId": "4286a4541f7963cc490310a3eb1a76b51c0ed893",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1990ec1_2c317514",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5297,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2022-10-27T14:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdc11726_d7a9bf34",
+      "revId": "4286a4541f7963cc490310a3eb1a76b51c0ed893",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
