@@ -63,6 +63,23 @@
       },
       "revId": "aca2dbc7aa8b78267d804fe5831daf03b4a7e62e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40841642_abb2eb22",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5291,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-10-27T14:35:07Z",
+      "side": 1,
+      "message": "1. From the final paragraph of my very old comment that you pasted here: in case the structure grows again in the future, use `\u003e\u003d` instead of `\u003d\u003d`.\n2. `else { crashpad_info_.pointer_authentication_address_mask \u003d 0; }`?",
+      "revId": "aca2dbc7aa8b78267d804fe5831daf03b4a7e62e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
