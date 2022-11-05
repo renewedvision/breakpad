@@ -28,7 +28,7 @@
 
 // asm/sigcontext.h can't be included with signal.h on glibc or
 // musl, so only compare _libc_fpstate and _fpstate on Android.
-#if defined(__ANDROID__) && defined(__x86_64__)
+#if (defined(__ANDROID__) && defined(__x86_64__)) || defined(__loongarch64)
 #include <asm/sigcontext.h>
 #endif
 
@@ -132,6 +132,16 @@ TEST(AndroidUContext, GRegsOffset) {
 
   ASSERT_EQ(static_cast<size_t>(MCONTEXT_FPC_CSR),
             offsetof(ucontext_t,uc_mcontext.__fpregs.__fcsr));
+#elif defined(__loongarch__)
+  ASSERT_EQ(static_cast<size_t>(MCONTEXT_GREGS_OFFSET),
+            offsetof(ucontext_t, uc_mcontext.__gregs));
+
+  // PC for loongarch is not part of gregs.
+  ASSERT_EQ(static_cast<size_t>(MCONTEXT_PC_OFFSET),
+            offsetof(ucontext_t, uc_mcontext.__pc));
+
+  ASSERT_EQ(static_cast<size_t>(MCONTEXT_FPREGS_OFFSET),
+            offsetof(fpu_context, regs));
 #elif defined(__x86_64__)
 
   COMPILE_ASSERT_EQ(static_cast<size_t>(MCONTEXT_GREGS_OFFSET),

@@ -1055,6 +1055,9 @@ EOF
     mips64el:Linux:*:*)
 	echo "$UNAME_MACHINE"-unknown-linux-"$LIBC"
 	exit ;;
+    loongarch64:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
     openrisc*:Linux:*:*)
 	echo or1k-unknown-linux-"$LIBC"
 	exit ;;

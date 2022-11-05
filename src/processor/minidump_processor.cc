@@ -417,6 +417,7 @@ static uint64_t GetAddressForArchitecture(const MDCPUArchitecture architecture,
   switch (architecture) {
     case MD_CPU_ARCHITECTURE_X86:
     case MD_CPU_ARCHITECTURE_MIPS:
+    case MD_CPU_ARCHITECTURE_LOONG64:
     case MD_CPU_ARCHITECTURE_PPC:
     case MD_CPU_ARCHITECTURE_SHX:
     case MD_CPU_ARCHITECTURE_ARM:
@@ -623,6 +624,11 @@ bool MinidumpProcessor::GetCPUInfo(Minidump* dump, SystemInfo* info) {
     }
     case MD_CPU_ARCHITECTURE_MIPS64: {
       info->cpu = "mips64";
+      break;
+    }
+
+    case MD_CPU_ARCHITECTURE_LOONG64: {
+      info->cpu = "loongarch64";
       break;
     }
 

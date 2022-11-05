@@ -51,6 +51,8 @@ typedef MDRawContextRISCV64 RawContextCPU;
 # else
 #  error "Unexpected __riscv_xlen"
 # endif
+#elif defined(__loongarch64)
+typedef MDRawContextLOONG64 RawContextCPU;
 #else
 #error "This code has not been ported to your platform yet."
 #endif

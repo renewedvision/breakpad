@@ -63,6 +63,7 @@ class DumpContext : public DumpObject {
   const MDRawContextX86*     GetContextX86() const;
   const MDRawContextRISCV*   GetContextRISCV() const;
   const MDRawContextRISCV64* GetContextRISCV64() const;
+  const MDRawContextLOONG64*  GetContextLOONG64() const;
 
   // A convenience method to get the instruction pointer out of the
   // MDRawContext, since it varies per-CPU architecture.
@@ -90,6 +91,7 @@ class DumpContext : public DumpObject {
   void SetContextMIPS(MDRawContextMIPS* ctx_mips);
   void SetContextRISCV(MDRawContextRISCV* riscv);
   void SetContextRISCV64(MDRawContextRISCV64* riscv64);
+  void SetContextLOONG64(MDRawContextLOONG64* loong64);
 
   // Free the CPU-specific context structure.
   void FreeContext();
@@ -110,6 +112,7 @@ class DumpContext : public DumpObject {
     MDRawContextMIPS*    ctx_mips;
     MDRawContextRISCV*   riscv;
     MDRawContextRISCV64* riscv64;
+    MDRawContextLOONG64*  loong64;
   } context_;
 
   // Store this separately because of the weirdo AMD64 context

@@ -52,6 +52,9 @@
 #if defined(__i386)
 #include <cpuid.h>
 #endif
+#if defined(__loongarch64)
+#include <asm/reg.h>
+#endif
 
 #include "client/linux/minidump_writer/directory_reader.h"
 #include "client/linux/minidump_writer/line_reader.h"
@@ -285,6 +288,12 @@ bool LinuxPtraceDumper::GetThreadInfoByIndex(size_t index, ThreadInfo* info) {
              reinterpret_cast<void*>(DSP_CONTROL), &info->mcontext.dsp);
 #endif
 
+/* FIXME does it needed */
+#if defined(__loongarch64)
+  sys_ptrace(PTRACE_PEEKUSER, tid,
+             reinterpret_cast<void*>(LOONGARCH_EF_CSR_ERA), &info->regs.csr_era);
+#endif
+
   const uint8_t* stack_pointer;
 #if defined(__i386)
   my_memcpy(&stack_pointer, &info->regs.esp, sizeof(info->regs.esp));
@@ -294,6 +303,10 @@ bool LinuxPtraceDumper::GetThreadInfoByIndex(size_t index, ThreadInfo* info) {
   my_memcpy(&stack_pointer, &info->regs.ARM_sp, sizeof(info->regs.ARM_sp));
 #elif defined(__aarch64__)
   my_memcpy(&stack_pointer, &info->regs.sp, sizeof(info->regs.sp));
+#elif defined(__loongarch64)
+  my_memcpy(&stack_pointer,
+    &info->regs.regs[MD_CONTEXT_LOONG64_REG_SP],
+    sizeof(info->regs.regs[MD_CONTEXT_LOONG64_REG_SP]));
 #elif defined(__mips__)
   stack_pointer =
       reinterpret_cast<uint8_t*>(info->mcontext.gregs[MD_CONTEXT_MIPS_REG_SP]);

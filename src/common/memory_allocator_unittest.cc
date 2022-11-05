@@ -53,9 +53,15 @@ TEST(PageAllocatorTest, SmallObjects) {
 
 TEST(PageAllocatorTest, LargeObject) {
   PageAllocator allocator;
+  uint8_t* p = NULL;
 
   EXPECT_EQ(0U, allocator.pages_allocated());
-  uint8_t* p = reinterpret_cast<uint8_t*>(allocator.Alloc(10000));
+  if (sysconf(_SC_PAGESIZE) == 16384) {
+    p = reinterpret_cast<uint8_t*>(allocator.Alloc(40000));
+  } else {
+    EXPECT_EQ(4096U, sysconf(_SC_PAGESIZE));
+    p = reinterpret_cast<uint8_t*>(allocator.Alloc(10000));
+  }
   ASSERT_FALSE(p == NULL);
   EXPECT_EQ(3U, allocator.pages_allocated());
   for (unsigned i = 1; i < 10; ++i) {

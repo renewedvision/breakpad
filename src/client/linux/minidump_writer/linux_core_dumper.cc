@@ -41,6 +41,10 @@
 // To get register definitions.
 #include <asm/reg.h>
 #endif
+#if defined(__loongarch64)
+#include <asm/reg.h>
+#endif
+
 
 #include "common/linux/elf_gnu_compat.h"
 #include "common/linux/linux_libc_support.h"
@@ -108,13 +112,16 @@ bool LinuxCoreDumper::GetThreadInfoByIndex(size_t index, ThreadInfo* info) {
   memcpy(&stack_pointer, &info->regs.ARM_sp, sizeof(info->regs.ARM_sp));
 #elif defined(__aarch64__)
   memcpy(&stack_pointer, &info->regs.sp, sizeof(info->regs.sp));
+#elif defined(__loongarch__)
+  memcpy(&stack_pointer,
+    &info->regs.regs[MD_CONTEXT_LOONG64_REG_SP],
+    sizeof(info->regs.regs[MD_CONTEXT_LOONG64_REG_SP]));
 #elif defined(__mips__)
   stack_pointer =
       reinterpret_cast<uint8_t*>(info->mcontext.gregs[MD_CONTEXT_MIPS_REG_SP]);
 #elif defined(__riscv)
     stack_pointer = reinterpret_cast<uint8_t*>(
         info->mcontext.__gregs[MD_CONTEXT_RISCV_REG_SP]);
-#else
 # error "This code hasn't been ported to your platform yet."
 #endif
   info->stack_pointer = reinterpret_cast<uintptr_t>(stack_pointer);
@@ -223,9 +230,16 @@ bool LinuxCoreDumper::EnumerateThreads() {
 #elif defined(__riscv)
         memcpy(&info.mcontext.__gregs, status->pr_reg,
                sizeof(info.mcontext.__gregs));
-#else  // __riscv
+#elif defined(__loongarch64)
+        memcpy(info.regs.regs,
+               &status->pr_reg[LOONGARCH_EF_R0],
+               sizeof(info.regs.regs));
+        memcpy(&info.regs.csr_era,
+               &status->pr_reg[LOONGARCH_EF_CSR_ERA],
+               sizeof(info.regs.csr_era));
+#else
         memcpy(&info.regs, status->pr_reg, sizeof(info.regs));
-#endif
+#endif // __loongarch64
         if (first_thread) {
           crash_thread_ = pid;
           crash_signal_ = status->pr_info.si_signo;

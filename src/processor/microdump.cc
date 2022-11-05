@@ -64,6 +64,7 @@ static const char kArm64Architecture[] = "arm64";
 static const char kX86Architecture[] = "x86";
 static const char kMipsArchitecture[] = "mips";
 static const char kMips64Architecture[] = "mips64";
+static const char kLoong64Architecture[] = "loongarch64";
 static const char kGpuUnknown[] = "UNKNOWN";
 
 template<typename T>
@@ -147,6 +148,12 @@ void MicrodumpContext::SetContextMIPS(MDRawContextMIPS* mips32) {
 void MicrodumpContext::SetContextMIPS64(MDRawContextMIPS* mips64) {
   DumpContext::SetContextFlags(MD_CONTEXT_MIPS64);
   DumpContext::SetContextMIPS(mips64);
+  valid_ = true;
+}
+
+void MicrodumpContext::SetContextLOONG64(MDRawContextLOONG64* loong64) {
+  DumpContext::SetContextFlags(MD_CONTEXT_LOONG64);
+  DumpContext::SetContextLOONG64(loong64);
   valid_ = true;
 }
 
@@ -358,6 +365,16 @@ Microdump::Microdump(const string& contents)
         MDRawContextMIPS* mips64 = new MDRawContextMIPS();
         memcpy(mips64, &cpu_state_raw[0], cpu_state_raw.size());
         context_->SetContextMIPS64(mips64);
+      } else if (strcmp(arch.c_str(), kLoong64Architecture) == 0) {
+        if (cpu_state_raw.size() != sizeof(MDRawContextLOONG64)) {
+          std::cerr << "Malformed CPU context. Got " << cpu_state_raw.size()
+                    << " bytes instead of " << sizeof(MDRawContextLOONG64)
+                    << std::endl;
+          continue;
+        }
+        MDRawContextLOONG64* loong64 = new MDRawContextLOONG64();
+        memcpy(loong64, &cpu_state_raw[0], cpu_state_raw.size());
+        context_->SetContextLOONG64(loong64);
       } else {
         std::cerr << "Unsupported architecture: " << arch << std::endl;
       }

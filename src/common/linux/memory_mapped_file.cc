@@ -32,6 +32,7 @@
 #include "common/linux/memory_mapped_file.h"
 
 #include <fcntl.h>
+#include <linux/stat.h>
 #include <sys/mman.h>
 #if defined(__ANDROID__)
 #include <sys/stat.h>
@@ -65,7 +66,8 @@ bool MemoryMappedFile::Map(const char* path, size_t offset) {
 
 #if defined(__x86_64__) || defined(__aarch64__) || \
    (defined(__mips__) && _MIPS_SIM == _ABI64) || \
-   (defined(__riscv) && __riscv_xlen == 64)
+   (defined(__riscv) && __riscv_xlen == 64) || \
+   defined(__loongarch64)
 
   struct kernel_stat st;
   if (sys_fstat(fd, &st) == -1 || st.st_size < 0) {
