@@ -166,6 +166,7 @@
         'stackwalker_amd64_unittest.cc',
         'stackwalker_arm64_unittest.cc',
         'stackwalker_arm_unittest.cc',
+        'stackwalker_loong64_unittest.cc',
         'stackwalker_mips_unittest.cc',
         'stackwalker_mips64_unittest.cc',
         'stackwalker_riscv_unittest.cc',

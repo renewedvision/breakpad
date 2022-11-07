@@ -47,6 +47,8 @@ class ExceptionHandler;
 
 #if defined(__aarch64__)
 typedef struct fpsimd_context fpstate_t;
+#elif defined(__loongarch64)
+typedef struct fpu_context fpstate_t;
 #elif !defined(__ARM_EABI__) && !defined(__mips__)
 typedef std::remove_pointer<fpregset_t>::type fpstate_t;
 #endif

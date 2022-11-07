@@ -157,6 +157,15 @@ const MDRawContextRISCV64* DumpContext::GetContextRISCV64() const {
   return context_.riscv64;
 }
 
+const MDRawContextLOONG64* DumpContext::GetContextLOONG64() const {
+  if (GetContextCPU() != MD_CONTEXT_LOONG64) {
+    BPLOG(ERROR) << "DumpContext cannot get loongarch64 context";
+    return NULL;
+  }
+
+  return context_.loong64;
+}
+
 bool DumpContext::GetInstructionPointer(uint64_t* ip) const {
   BPLOG_IF(ERROR, !ip) << "DumpContext::GetInstructionPointer requires |ip|";
   assert(ip);
@@ -198,6 +207,9 @@ bool DumpContext::GetInstructionPointer(uint64_t* ip) const {
     break;
   case MD_CONTEXT_RISCV64:
     *ip = GetContextRISCV64()->pc;
+    break;
+  case MD_CONTEXT_LOONG64:
+    *ip = GetContextLOONG64()->csr_era;
     break;
   default:
     // This should never happen.
@@ -249,6 +261,8 @@ bool DumpContext::GetStackPointer(uint64_t* sp) const {
   case MD_CONTEXT_RISCV64:
     *sp = GetContextRISCV64()->sp;
     break;
+  case MD_CONTEXT_LOONG64:
+   *sp = GetContextLOONG64()->iregs[MD_CONTEXT_LOONG64_REG_SP];
   default:
     // This should never happen.
     BPLOG(ERROR) << "Unknown CPU architecture in GetStackPointer";
@@ -301,6 +315,10 @@ void DumpContext::SetContextRISCV64(MDRawContextRISCV64* riscv64) {
   context_.riscv64 = riscv64;
 }
 
+void DumpContext::SetContextLOONG64(MDRawContextLOONG64* loong64) {
+  context_.loong64 = loong64;
+}
+
 void DumpContext::FreeContext() {
   switch (GetContextCPU()) {
     case MD_CONTEXT_X86:
@@ -342,6 +360,10 @@ void DumpContext::FreeContext() {
 
     case MD_CONTEXT_RISCV64:
       delete context_.riscv64;
+      break;
+
+    case MD_CONTEXT_LOONG64:
+      delete context_.loong64;
       break;
 
     default:
@@ -886,6 +908,29 @@ void DumpContext::Print() {
       printf("  float_save.fpcsr     = 0x%" PRIx32 "\n",
              context_riscv64->float_save.fpcsr);
 #endif
+      break;
+    }
+
+    case MD_CONTEXT_LOONG64: {
+      const MDRawContextLOONG64* context_loongarch = GetContextLOONG64();
+      printf("MDRawContextLOONG64\n");
+      printf("  context_flags        = 0x%x\n",
+             context_loongarch->context_flags);
+      for (int ireg_index = 0;
+           ireg_index < MD_CONTEXT_LOONG64_GPR_COUNT;
+           ++ireg_index) {
+      printf("  iregs[%2d]           = 0x%" PRIx64 "\n",
+               ireg_index, context_loongarch->iregs[ireg_index]);
+      }
+
+      printf("  csr_era                  = 0x%" PRIx64 "\n",
+             context_loongarch->csr_era);
+      for (int fpr_index = 0;
+           fpr_index < MD_FLOATINGSAVEAREA_LOONG64_FPR_COUNT;
+           ++fpr_index) {
+        printf("  float_save.regs[%2d] = 0x%" PRIx64 "\n",
+               fpr_index, context_loongarch->float_save.regs[fpr_index]);
+      }
       break;
     }
 

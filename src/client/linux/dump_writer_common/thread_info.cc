@@ -227,6 +227,26 @@ void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
       MD_FLOATINGSAVEAREA_ARM64_FPR_COUNT * 16);
 }
 
+#elif defined(__loongarch64)
+
+uintptr_t ThreadInfo::GetInstructionPointer() const {
+  return regs.csr_era;
+}
+
+void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
+  out->context_flags = MD_CONTEXT_LOONG64_FULL;
+
+  for (int i = 0; i < MD_CONTEXT_LOONG64_GPR_COUNT; ++i)
+    out->iregs[i] = regs.regs[i];
+
+  for (int i = 0; i < MD_FLOATINGSAVEAREA_LOONG64_FPR_COUNT; ++i)
+    out->float_save.regs[i] = fpregs.fpr[i];
+  out->float_save.fcc = fpregs.fcc;
+  out->float_save.fcsr = fpregs.fcsr;
+
+  out->csr_era = regs.csr_era;
+}
+
 #elif defined(__mips__)
 
 uintptr_t ThreadInfo::GetInstructionPointer() const {

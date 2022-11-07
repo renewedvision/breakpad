@@ -344,6 +344,8 @@ class MicrodumpWriter {
 # else
 #  error "Unexpected __riscv_xlen"
 # endif
+#elif defined(__loongarch64)
+    const char kArch[] = "loongarch64";
 #else
 # error "This code has not been ported to your platform yet"
 #endif

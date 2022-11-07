@@ -104,6 +104,11 @@ using google_breakpad::wasteful_vector;
 #define EM_AARCH64      183
 #endif
 
+// Define LOONGARCH ELF architecture if host machine does not include this define.
+#ifndef EM_LOONGARCH
+#define EM_LOONGARCH      258
+#endif
+
 //
 // FDWrapper
 //
@@ -441,6 +446,9 @@ bool DwarfCFIRegisterNames(const typename ElfClass::Ehdr* elf_header,
       return true;
     case EM_MIPS:
       *register_names = DwarfCFIToModule::RegisterNames::MIPS();
+      return true;
+    case EM_LOONGARCH:
+      *register_names = DwarfCFIToModule::RegisterNames::LOONG64();
       return true;
     case EM_X86_64:
       *register_names = DwarfCFIToModule::RegisterNames::X86_64();
@@ -979,6 +987,7 @@ const char* ElfArchitecture(const typename ElfClass::Ehdr* elf_header) {
     case EM_ARM:        return "arm";
     case EM_AARCH64:    return "arm64";
     case EM_MIPS:       return "mips";
+    case EM_LOONGARCH:  return "loongarch64";
     case EM_PPC64:      return "ppc64";
     case EM_PPC:        return "ppc";
     case EM_S390:       return "s390";
