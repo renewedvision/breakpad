@@ -16,6 +16,24 @@
       "message": "I don’t see any conclusion on chromium-dev or elsewhere about whether this is something that we’d want to do. I don’t see any bug tagged here about this. I found https://crbug.com/google-breakpad/870, with no discussion or indication that this should happen.\n\nWe won’t review this change unless and until it’s been established that this is something we want to accept in Chromium, and by extension, Breakpad.\n\nOur policy on ports to new architectures:\n\nhttps://chromium.googlesource.com/chromium/src/+/main/docs/contributing.md#:~:text\u003dCode%20in%20the%20Chromium%20project%20should%20be%20in%20service%20of%20other%20code%20in%20the%20Chromium%20project\n\nNotably:\n\n\u003e For long-term maintenance reasons, we will accept only things that are used by the Chromium project (including Chromium-supported projects like V8 and Skia) and things whose benefit to Chromium outweighs any cost increase in maintaining Chromium\u0027s supported architectures / platforms […]\n\nTake note, too, that the code in src/client/linux is dead for Chromium’s purposes, does not need to be implemented, and should not be implemented. Breakpad is now only used for its tools (such as dump_syms and symupload) and processor. The crash reporting client is Crashpad. Note that Crashpad shares the same support policy as Breakpad and Chromium.\n\nPlease obtain the necessary approval before circulating code for review.",
       "revId": "ba1274f05e6cb10ad9d104402429e3f9959c0459",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a2c007d_e92f8f25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525022
+      },
+      "writtenOn": "2022-11-10T03:35:31Z",
+      "side": 1,
+      "message": "Thanks for you reminder, I\u0027ll sending an email to chrome-eng-review@google.com for a discussion about adding the LOONGARCH architecture.",
+      "parentUuid": "93c9bbcb_570d3892",
+      "revId": "ba1274f05e6cb10ad9d104402429e3f9959c0459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
