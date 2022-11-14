@@ -1768,6 +1768,9 @@ string MinidumpProcessor::GetCrashReason(Minidump* dump, uint64_t* address,
             case MD_EXCEPTION_FLAG_LIN_SEGV_PKUERR:
               reason.append("SEGV_PKUERR");
               break;
+            case MD_EXCEPTION_FLAG_LIN_SEGV_KERNEL:
+              reason.append("SI_KERNEL");
+              break;
             default:
               reason.append(flags_string);
               BPLOG(INFO) << "Unknown exception reason " << reason;
