@@ -306,7 +306,7 @@ class Module {
          const string& architecture,
          const string& id,
          const string& code_id = "",
-         bool enable_multiple_field = false);
+         bool enable_multiple_field = true);
   ~Module();
 
   // Set the module's load address to LOAD_ADDRESS; addresses given
@@ -472,6 +472,8 @@ class Module {
   // point to.
   FileByNameMap files_;    // This module's source files.
   FunctionSet functions_;  // This module's functions.
+  // Used to quickly look up whether a function exists at a particular address.
+  unordered_set<Address> function_addresses_;
 
   // The module owns all the call frame info entries that have been
   // added to it.
