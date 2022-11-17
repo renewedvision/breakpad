@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4bf1d6_89efa8d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-11-17T16:39:14Z",
+      "side": 1,
+      "message": "PTAL :) This ended up being more straightforward than I thought it needed to be after I thought about it for bit.",
+      "revId": "2d2d7c9e2f2e2c404bc802a8f7449de26522fcba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
