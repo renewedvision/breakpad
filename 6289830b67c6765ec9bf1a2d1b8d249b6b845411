@@ -70,6 +70,41 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc7d1cfc_72801044",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-11-22T09:04:24Z",
+      "side": 1,
+      "message": "I realise that nobody has seen my responses on this CL, as I must have forgotten to send the replies. Apologies.",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "617c75f8_98ec6097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-11-22T09:04:24Z",
+      "side": 1,
+      "message": "Yes, there are 4 follow-up cls waiting for Mike to get back into the office. See https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3964364 for the start of the chain.",
+      "parentUuid": "60644018_b0618ab0",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92831b46_5cf4ea9a",
@@ -89,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf5abc81_2266c063",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-11-22T09:04:24Z",
+      "side": 1,
+      "message": "Can you point me to the correct way to test the breakpad build outside of the makefiles? The instructions only describe how to test it on a linux build, so I\u0027m fairly reluctant to try and make a change that involves anything more than minimal build system complexity if I can\u0027t properly test it.",
+      "parentUuid": "92831b46_5cf4ea9a",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1be0b9d_3eba3b55",
         "filename": "src/processor/disassembler_objdump.cc",
         "patchSetId": 9
@@ -100,6 +153,24 @@
       "writtenOn": "2022-10-19T19:20:31Z",
       "side": 1,
       "message": "this duplicates logic we already have in src/common/linux/tests/auto_testfile.h",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "860ff230_dc27b8fa",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-11-22T09:04:24Z",
+      "side": 1,
+      "message": "Ah, that wasn\u0027t used in the preexisting code and I didn\u0027t find it when I searched, I\u0027ll make a follow-up CL removing this.",
+      "parentUuid": "a1be0b9d_3eba3b55",
       "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -151,6 +222,24 @@
       "writtenOn": "2022-10-19T19:20:31Z",
       "side": 1,
       "message": "you really should never use `system()`.  seems like you should fork, dup2 the fd of the tmpfiles to stdout, and then exec the objdump program.  then you don\u0027t need to fork a shell just to do the dup2 for you.",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcd0fa11_5a9f4717",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-11-22T09:04:24Z",
+      "side": 1,
+      "message": "I\u0027ll replace this in the follow-up as well.",
+      "parentUuid": "ed537023_ee787e23",
       "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
