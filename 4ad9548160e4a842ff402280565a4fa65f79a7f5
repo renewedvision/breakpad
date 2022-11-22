@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e181cd3_e218afe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-11-22T10:30:08Z",
+      "side": 1,
+      "message": "vapier: PTAQL and land - I don\u0027t have committer access to breakpad.\n\nI\u0027ve tested by manually applying the patch to the breakpad directory inside chromium and repeating the builder configuration, and by locally running `make check` on linux.",
+      "revId": "4ad9548160e4a842ff402280565a4fa65f79a7f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
