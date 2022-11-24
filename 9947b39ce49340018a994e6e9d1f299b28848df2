@@ -96,6 +96,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e0519ce_41afc514",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:14:59Z",
+      "side": 1,
+      "message": "Lei is correct.  further, even in CrOS, we don\u0027t use the project name in the project itself since it\u0027s redundant.\n\ne.g. platform2 is a monorepo.  google-breakpad is not.",
+      "parentUuid": "e1919c6b_9ff561a6",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "9947b39ce49340018a994e6e9d1f299b28848df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c25e6a68_36d9af65",
