@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "331fe362_4cae9bad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:25:03Z",
+      "side": 1,
+      "message": "let\u0027s see if we can just delete gyp and be done.  no one is testing it afaik.\nhttps://crrev.com/c/4054941",
+      "parentUuid": "ffb6e885_c5b35d7d",
+      "revId": "9f34cd986ad45ba69dd790a3327ace62b72fdf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "095c649d_5378eb4f",
