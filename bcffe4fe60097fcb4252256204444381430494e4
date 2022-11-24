@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "735c8ff7_c8acf31a",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:28:24Z",
+      "side": 0,
+      "message": "we shouldn\u0027t break tool interfaces.  keep -m for compatibility.\n\nif you want to mark it as \"deprecated\" here, that\u0027s fine, but i don\u0027t know whether we\u0027ll ever drop it.",
+      "revId": "bcffe4fe60097fcb4252256204444381430494e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

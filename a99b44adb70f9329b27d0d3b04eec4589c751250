@@ -16,6 +16,23 @@
       "message": "Hi, was this lacks any review for quite some time now, I wanted to ping this as I am not sure what else to do to get a review.\n\nIf you are not the right person to review this or do not have time right now, please let me know.",
       "revId": "a99b44adb70f9329b27d0d3b04eec4589c751250",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80d529cd_f96a0534",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:28:24Z",
+      "side": 1,
+      "message": "\"text\" vs \"txt\" saves nothing when we already have \"machine\" and such.  so unless there is some external standard somewhere that uses \"txt\", please write out \"text\" everywhere.",
+      "revId": "a99b44adb70f9329b27d0d3b04eec4589c751250",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
