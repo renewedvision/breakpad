@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc2f68b5_dac774e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "blank line before the footers",
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21dd8fae_e9e18b5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "this seems OK, but do you have actual refactors/cleanups pending ?  seems like leaving it as-is isn\u0027t terribly useful.",
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f120b8e_dcb44a15",
+        "filename": "src/processor/stackwalk_fmt_machinereadable.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "i kind of feel like the filename should be \"format\" as other files already in the tree do",
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "815764d2_db305d50",
+        "filename": "src/processor/stackwalk_fmt_machinereadable.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "can you fix the typo while you\u0027re here -- \"stackwalk\"",
+      "range": {
+        "startLine": 29,
+        "startChar": 57,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adebb9ac_12cc1d95",
+        "filename": "src/processor/stackwalk_fmt_machinereadable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "use the module-specific name to explain what this one module is about\n\nthis comes up in the other files in here",
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcb582ad_160876aa",
+        "filename": "src/processor/stackwalk_fmt_machinereadable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "can you fix the typo while you\u0027re here -- \"stackwalk\"\n\nthis comes up in the other files in here",
+      "range": {
+        "startLine": 29,
+        "startChar": 57,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7b67d77_597f4630",
+        "filename": "src/processor/stackwalk_fmt_machinereadable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "the define protection should match the filename",
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4934c4_8af39372",
+        "filename": "src/processor/stackwalk_fmt_text.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "can you fix the typo while you\u0027re here -- \"stackwalk\"",
+      "range": {
+        "startLine": 29,
+        "startChar": 62,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47c1dccd_f44b3a53",
+        "filename": "src/processor/stackwalk_fmt_text.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:56:59Z",
+      "side": 1,
+      "message": "can you fix the typo while you\u0027re here -- \"stackwalk\"",
+      "range": {
+        "startLine": 29,
+        "startChar": 57,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "343b7cb74ce0b990feac59d4ddbfe38544ee79f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
