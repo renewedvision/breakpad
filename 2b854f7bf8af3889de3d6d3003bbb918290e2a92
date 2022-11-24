@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c227d53c_e3d1069e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T07:31:01Z",
+      "side": 1,
+      "message": "what is \"the new CL\" ?  do you mean https://crrev.com/c/4005812 ?",
+      "revId": "2b854f7bf8af3889de3d6d3003bbb918290e2a92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
