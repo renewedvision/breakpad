@@ -16,6 +16,98 @@
       "message": "Could you please review it again and let me know if it matches with what you hand in mind?",
       "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "488aa97d_3ade654a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:13:22Z",
+      "side": 1,
+      "message": "yeah, looks much better, thanks",
+      "parentUuid": "8ef8e12a_92483915",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "097caf07_3bb58387",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:13:22Z",
+      "side": 1,
+      "message": "```\nif TESTS_AS_ROOT\nLOG_DRIVER \u003d $(top_srcdir)/autotools/root-test-driver $(top_srcdir)/autotools/test-driver\nelse\nLOG_DRIVER \u003d $(top_srcdir)/autotools/test-driver\nendif !TESTS_AS_ROOT\n```",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc4506f4_d4b38557",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:13:22Z",
+      "side": 1,
+      "message": "the style we\u0027ve been using is `endif !ANDROID_HOST`",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "661f58f9_56e71993",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:13:22Z",
+      "side": 1,
+      "message": "the `noinst_SCRIPTS \u003d` should be hoisted above where `noinst_PROGRAMS \u003d` is set",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c0bb2ba_05314eba",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:13:22Z",
+      "side": 1,
+      "message": "use `##` for this section",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
