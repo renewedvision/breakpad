@@ -142,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a636f6d_57082194",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-24T08:17:08Z",
+      "side": 1,
+      "message": "testing only autotools/makefile build is fine.  if there\u0027s problems with other build systems, someone will complain.  asking you to do more ahead of time is a bit unreasonable when we don\u0027t have CQ coverage.",
+      "parentUuid": "cf5abc81_2266c063",
+      "revId": "6289830b67c6765ec9bf1a2d1b8d249b6b845411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1be0b9d_3eba3b55",
         "filename": "src/processor/disassembler_objdump.cc",
         "patchSetId": 9
