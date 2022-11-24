@@ -33,6 +33,24 @@
       "message": "\"text\" vs \"txt\" saves nothing when we already have \"machine\" and such.  so unless there is some external standard somewhere that uses \"txt\", please write out \"text\" everywhere.",
       "revId": "a99b44adb70f9329b27d0d3b04eec4589c751250",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d3cbfd8_752e3f88",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-11-24T10:15:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "80d529cd_f96a0534",
+      "revId": "a99b44adb70f9329b27d0d3b04eec4589c751250",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -16,6 +16,24 @@
       "message": "we shouldn\u0027t break tool interfaces.  keep -m for compatibility.\n\nif you want to mark it as \"deprecated\" here, that\u0027s fine, but i don\u0027t know whether we\u0027ll ever drop it.",
       "revId": "bcffe4fe60097fcb4252256204444381430494e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cfeb744_0323027e",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-11-24T10:15:12Z",
+      "side": 0,
+      "message": "It still works, I had just removed the help entry, not the option. But I can add back the help entry with a note to prefer using -f instead.",
+      "parentUuid": "735c8ff7_c8acf31a",
+      "revId": "bcffe4fe60097fcb4252256204444381430494e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
