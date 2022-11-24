@@ -78,6 +78,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "149a307e_63a62665",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-11-24T10:25:45Z",
+      "side": 1,
+      "message": "This is not about style, it has to match the condition that is closed, else automake complains and as there is no else here, the condition is just `ANDROID_HOST`.",
+      "parentUuid": "bc4506f4_d4b38557",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "661f58f9_56e71993",
         "filename": "Makefile.am",
         "patchSetId": 2
@@ -95,6 +113,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8f05ed6_d8a13206",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-11-24T10:25:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "661f58f9_56e71993",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c0bb2ba_05314eba",
         "filename": "Makefile.am",
         "patchSetId": 2
@@ -106,6 +142,24 @@
       "writtenOn": "2022-11-24T08:13:22Z",
       "side": 1,
       "message": "use `##` for this section",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "797eb7bf_db15fbb3",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-11-24T10:25:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c0bb2ba_05314eba",
       "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
