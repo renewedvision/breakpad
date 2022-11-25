@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd326827_d37151d4",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-25T03:36:14Z",
+      "side": 1,
+      "message": "hrm looks like i deleted my version and left yours\n\n```\nLOG_DRIVER \u003d $(top_srcdir)/autotools/test-driver\nif TESTS_AS_ROOT\nLOG_DRIVER \u003d $(top_srcdir)/autotools/root-test-driver $(top_srcdir)/autotools/test-driver\nendif\n```",
+      "parentUuid": "806a0964_90752db2",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc4506f4_d4b38557",
         "filename": "Makefile.am",
         "patchSetId": 2
@@ -114,6 +138,24 @@
       "side": 1,
       "message": "This is not about style, it has to match the condition that is closed, else automake complains and as there is no else here, the condition is just `ANDROID_HOST`.",
       "parentUuid": "bc4506f4_d4b38557",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c51b2420_208d0589",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-25T03:36:14Z",
+      "side": 1,
+      "message": "you can omit it entirely.  automake doesn\u0027t require anything after `endif`.",
+      "parentUuid": "149a307e_63a62665",
       "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
