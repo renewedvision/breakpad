@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29160172_5d626919",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-25T13:13:23Z",
+      "side": 1,
+      "message": "i thought the section below would also trigger a multiple def error if that was going to happen, but perhaps automake isn\u0027t smart enough (yet?) to catch it.  prob should future proof ourselves a little bit here to be on the safe side.\n\n```\nif ANDROID_HOST\n...\nelse\nif TESTS_AS_ROOT\nLOG_DRIVER \u003d $(top_srcdir)/autotools/root-test-driver $(top_srcdir)/autotools/test-driver\nelse\nLOG_DRIVER \u003d $(top_srcdir)/autotools/test-driver\nendif\nendif\n```",
+      "parentUuid": "a13565e7_9c439d94",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc4506f4_d4b38557",
         "filename": "Makefile.am",
         "patchSetId": 2
