@@ -155,6 +155,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b07ca57_b228753d",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-11-25T13:31:22Z",
+      "side": 1,
+      "message": "I dont think it could ever catch this as it does not actually know the value of these variables when automake runs. So it just seems to test the case where it is true and false once, but not combinations of that with other variables as that would be a ton of cases to test.\n\nAnyway I\u0027ll change it as it is easier to understand whats going on that way anyway.",
+      "parentUuid": "29160172_5d626919",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc4506f4_d4b38557",
