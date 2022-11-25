@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa20a31d_6da026c3",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-25T02:56:55Z",
+      "side": 1,
+      "message": "`assert()` can be compiled out.  use `abort()`.\n\nwe prob should have an unreachable define helper, but we can do that later as we\u0027ll have to cleanup a bunch of other users too.",
+      "revId": "1fbadec69e8ccf0049b9aee779aff92717d7f340",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

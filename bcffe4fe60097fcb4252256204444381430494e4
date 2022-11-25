@@ -52,6 +52,24 @@
       "parentUuid": "6cfeb744_0323027e",
       "revId": "bcffe4fe60097fcb4252256204444381430494e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc6a34f2_eaf65bb5",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-25T02:56:55Z",
+      "side": 0,
+      "message": "i thought you had deleted it from the optstring, but i misread the diff\n\nimo it should still stay here but with a deprecated message so people don\u0027t get confused as to why `-m` is working and/or doing something, but there is nothing in the help.\n\n`-m       (DEPRECATED) Alias to \u0027-f machine\u0027\\n`",
+      "parentUuid": "27bea3cd_8661ae6e",
+      "revId": "bcffe4fe60097fcb4252256204444381430494e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
