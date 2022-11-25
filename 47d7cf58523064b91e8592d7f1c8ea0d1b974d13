@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a13565e7_9c439d94",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-11-25T10:02:44Z",
+      "side": 1,
+      "message": "This causes duplicate definition warnings, which is why I did not do it that way:\n\n```\nMakefile.am:125: warning: LOG_DRIVER was already defined in condition TRUE, which includes condition TESTS_AS_ROOT ...\nMakefile.am:123: ... \u0027LOG_DRIVER\u0027 previously defined here\nMakefile.am:133: warning: LOG_DRIVER was already defined in condition TRUE, which includes condition ANDROID_HOST ...\nMakefile.am:125: ... \u0027LOG_DRIVER\u0027 previously defined here\n```",
+      "parentUuid": "fd326827_d37151d4",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc4506f4_d4b38557",
         "filename": "Makefile.am",
         "patchSetId": 2
@@ -156,6 +180,24 @@
       "side": 1,
       "message": "you can omit it entirely.  automake doesn\u0027t require anything after `endif`.",
       "parentUuid": "149a307e_63a62665",
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "967396ff_1780b087",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2022-11-25T10:02:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c51b2420_208d0589",
       "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
