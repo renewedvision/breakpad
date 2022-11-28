@@ -52,6 +52,24 @@
       "parentUuid": "2a2c007d_e92f8f25",
       "revId": "ba1274f05e6cb10ad9d104402429e3f9959c0459",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d61f6f6_8b17f1f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-11-28T18:12:08Z",
+      "side": 1,
+      "message": "\u003e i don\u0027t think Chromium acceptable is required for adding functionality to breakpad.  people use this project outside of the Chromium browser, and iiuc, Chromium is trying to stop using breakpad entirely in favor of crashpad.  so making that a requirement seems unreasonable.\n\nChromium is not using the Breakpad client, but the Breakpad clients are effectively end-of-life and unmaintained. Chromium still very much uses the maintained Breakpad processor and tools.\n\nChromium eng review has returned a negative decision, which I do consider to be binding on Breakpad.",
+      "parentUuid": "5fa635ea_075708a9",
+      "revId": "ba1274f05e6cb10ad9d104402429e3f9959c0459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
