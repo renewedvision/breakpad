@@ -70,6 +70,24 @@
       "parentUuid": "5fa635ea_075708a9",
       "revId": "ba1274f05e6cb10ad9d104402429e3f9959c0459",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0d28dc2_8e7b65c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-29T00:52:50Z",
+      "side": 1,
+      "message": "imo breakpad doesn\u0027t exist purely to serve Chromium.  breakpad, client \u0026 tools, is def used beyond Chromium.  it\u0027s why we have non-Chromium maintainers in here too (e.g. people from Mozilla/Firefox).  we def already have breakpad ports that Chromium doesn\u0027t support.  if people want to port to new processors, i don\u0027t see a problem with it.  if they break down, they can post followups.",
+      "parentUuid": "7d61f6f6_8b17f1f0",
+      "revId": "ba1274f05e6cb10ad9d104402429e3f9959c0459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
