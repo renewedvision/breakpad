@@ -179,6 +179,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58d1a5aa_9ca7293d",
+        "filename": "Makefile.am",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-11-29T09:26:56Z",
+      "side": 1,
+      "message": "automake doesn\u0027t need to know what the value is, just that a variable is set multiple times.  it already catches situations like:\n\n```\nFOO \u003d\nFOO \u003d\n```",
+      "parentUuid": "8b07ca57_b228753d",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "47d7cf58523064b91e8592d7f1c8ea0d1b974d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc4506f4_d4b38557",
