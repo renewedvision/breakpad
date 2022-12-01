@@ -105,6 +105,24 @@
       "message": "It sounds like you",
       "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb9248a5_b61972c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-01T19:07:12Z",
+      "side": 1,
+      "message": "This is a relatively recent install of Cygwin with g++ 11.3.0. It recognizes `-std\u003dc++17` just fine and most files compile. But after pre-processing `\u003cstring.h\u003e` with `-std\u003dc++17`, `strdup()` isn\u0027t defined.\n\nI tried `AX_CXX_COMPILE_STDCXX(17, , mandatory)` and that works for me in Cygwin. In this particular case, there\u0027s no `-std\u003d` at all, probably because `configure`  ran this check: `checking whether g++ supports C++17 features by default... yes`.",
+      "parentUuid": "def0f45f_078f5766",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
