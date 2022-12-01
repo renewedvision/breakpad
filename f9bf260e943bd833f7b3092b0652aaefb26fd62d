@@ -70,6 +70,41 @@
       "parentUuid": "2fd05f64_63ae2d40",
       "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "def0f45f_078f5766",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-01T18:49:24Z",
+      "side": 1,
+      "message": "\u003e Before this CL, g++ ran without `-std\u003d`. Now it\u0027s set to `-std\u003dc++17`, but that doesn\u0027t work with g++ in Cygwin. It does if I switch to `-std\u003dgnu++17`. The `s/noext/ext/` suggestion works for me.\n\nIt sounds like perhaps your g++ in Cygwin is out of date, since it recognizes `-std\u003dgnu++17` but not `-std\u003dc++17`. (Maybe it understands `-std\u003dc++1z`?) That would be pre-GCC 5, I think, which is quite old at this point (from 2015). What version is it?\n\nIn any event, if you leave out `ext` and `noext` entirely, autoconf is supposed to figure out which works, and I think use `noext` if possible and `ext` if it has to. That’s probably the one we want.",
+      "parentUuid": "23c71e81_5bcade58",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "476bc60d_36d97c24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-01T18:49:24Z",
+      "side": 1,
+      "message": "It sounds like you",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
