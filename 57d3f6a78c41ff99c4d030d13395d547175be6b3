@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff0891d2_52bb78eb",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-01T20:20:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99c5b746_b0bb20d9",
+      "range": {
+        "startLine": 209,
+        "startChar": 5,
+        "endLine": 209,
+        "endChar": 69
+      },
+      "revId": "57d3f6a78c41ff99c4d030d13395d547175be6b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68f833bd_b4ad0474",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-01T14:29:27Z",
       "side": 1,
       "message": "Within the same repository, maybe shorten to just docs/symbol_files.md.",
+      "range": {
+        "startLine": 211,
+        "startChar": 5,
+        "endLine": 211,
+        "endChar": 96
+      },
+      "revId": "57d3f6a78c41ff99c4d030d13395d547175be6b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2833ae3_9a6d1ab0",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-01T20:20:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68f833bd_b4ad0474",
       "range": {
         "startLine": 211,
         "startChar": 5,
