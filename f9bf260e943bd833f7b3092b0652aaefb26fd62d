@@ -123,6 +123,24 @@
       "parentUuid": "def0f45f_078f5766",
       "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74d2afe_cf389bff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-01T19:41:58Z",
+      "side": 1,
+      "message": "\u003e This is a relatively recent install of Cygwin with g++ 11.3.0. It recognizes `-std\u003dc++17` just fine and most files compile. But after pre-processing `\u003cstring.h\u003e` with `-std\u003dc++17`, `strdup()` isn\u0027t defined.\n\u003e \n\u003e I tried `AX_CXX_COMPILE_STDCXX(17, , mandatory)` and that works for me in Cygwin. In this particular case, there\u0027s no `-std\u003d` at all, probably because `configure`  ran this check: `checking whether g++ supports C++17 features by default... yes`.\n\nOK, I see what’s happening. `strdup` is POSIX but not C, and at `-std\u003dc++17`, Cygwin’s headers aren’t enabling POSIX-only features. At `-std\u003dc++17`, `__STRICT_ANSI__` is a compiler pre-defined macro, but it’s not at `-std\u003dgnu++17`. `__STRICT_ANSI__` operates in Cygwin’s `\u003csys/features.h\u003e` to not set `_DEFAULT_SOURCE`, which results in `_POSIX_C_SOURCE` also not being set (unless you’ve done something special from the outside, like defining `_GNU_SOURCE` or any of these other macros). There’s a straightforward chain from there to `__POSIX_VISIBLE`, as well as a direct link between `_DEFAULT_SOURCE` and `__MISC_VISIBLE`. Similar for `__XSI_VISIBLE` as well.\n\nOther systems don’t seem to take such a heavy-handed approach with `__STRICT_ANSI__`, but I can’t really argue that Cygwin’s wrong, either.\n\n`\u003csys/cdefs.h\u003e`-type headers like this are typically really thorny so I understand if you just want to back away and either:\n - leave out `ext` and `noext`, or\n - stick with `17, noext` but also introduce `AC_USE_SYSTEM_EXTENSIONS` which should turn back on most or all of the stuff that Cygwin’s disabling when it notices `__STRICT_ANSI__`.",
+      "parentUuid": "eb9248a5_b61972c4",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
