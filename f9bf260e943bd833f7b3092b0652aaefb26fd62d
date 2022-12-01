@@ -34,6 +34,24 @@
       "parentUuid": "6f9b1fbd_e12bbb00",
       "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fd05f64_63ae2d40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-01T04:32:17Z",
+      "side": 1,
+      "message": "\u003e \u003e I tested on Windows with Cygwin and found a recent version of g++ can no longer compile src/common/path_helper.cc because it doesn\u0027t know about strdup(). I believe this can be fixed by using -std\u003dgnu++17 for GCC. Are your autoconf skills strong enough to easily make this change?\n\u003e i\u0027m not following.  the `AX_CXX_COMPILE_STDCXX(17)` call is supposed to set up the compiler to use the right settings to get C++17 (if it isn\u0027t already the default).  are you saying that isn\u0027t working ?\n\nLei, did you mean `-std\u003dgnu++17` as opposed to `-std\u003dc++17`? If so, try `AX_CXX_COMPILE_STDCXX(17, ext)` (`ext` in place of `noext`). Although I’d love to know what it is about `strdup` of all things that broke under Cygwin. Can you share the error? Did you hunt down its declaration in Cygwin’s `\u003cstring.h\u003e`?",
+      "parentUuid": "0162e346_c2c1691e",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
