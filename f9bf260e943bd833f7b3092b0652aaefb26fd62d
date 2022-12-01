@@ -16,6 +16,24 @@
       "message": "I tested on Windows with Cygwin and found a recent version of g++ can no longer compile src/common/path_helper.cc because it doesn\u0027t know about strdup(). I believe this can be fixed by using -std\u003dgnu++17 for GCC. Are your autoconf skills strong enough to easily make this change?",
       "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0162e346_c2c1691e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-01T03:53:40Z",
+      "side": 1,
+      "message": "i\u0027m not following.  the `AX_CXX_COMPILE_STDCXX(17)` call is supposed to set up the compiler to use the right settings to get C++17 (if it isn\u0027t already the default).  are you saying that isn\u0027t working ?",
+      "parentUuid": "6f9b1fbd_e12bbb00",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
