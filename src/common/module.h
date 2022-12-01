@@ -486,10 +486,9 @@ class Module {
   unordered_set<string> common_strings_;
 
   // Whether symbols sharing an address should be collapsed into a single entry
-  // and marked with an `m` in the output. See
-  // https://bugs.chromium.org/p/google-breakpad/issues/detail?id=751 and docs
-  // at
-  // https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/symbol_files.md#records-3
+  // and marked with an `m` in the output. 
+  // See: https://crbug.com/google-breakpad/751 and docs at 
+  // docs/symbol_files.md#records-3
   bool enable_multiple_field_;
 };
 
