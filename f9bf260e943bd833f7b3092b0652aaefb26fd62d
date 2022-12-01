@@ -52,6 +52,24 @@
       "parentUuid": "0162e346_c2c1691e",
       "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c71e81_5bcade58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-01T18:37:21Z",
+      "side": 1,
+      "message": "Before this CL, g++ ran without `-std\u003d`. Now it\u0027s set to `-std\u003dc++17`, but that doesn\u0027t work with g++ in Cygwin. It does if I switch to `-std\u003dgnu++17`. The `s/noext/ext/` suggestion works for me.\n\nThe error I see is:\n\n```\n$ g++ -std\u003dc++17 -DHAVE_CONFIG_H -I. -I./src  -I./src   -Wmissing-braces -Wnon-virtual-dtor -Woverloaded-virtual -Wreorder -Wsign-compare -Wunused-local-typedefs -Wunused-variable -Wvla -Werror  -g -O2 -MT src/common/path_helper.o -MD -MP -MF $depbase.Tpo -c -o src/common/path_helper.o src/common/path_helper.cc\nsrc/common/path_helper.cc: In function ‘std::string google_breakpad::BaseName(const string\u0026)’:\nsrc/common/path_helper.cc:39:20: error: ‘strdup’ was not declared in this scope; did you mean ‘strcmp’?\n   39 |   char* path_tmp \u003d strdup(path.c_str());\n      |                    ^~~~~~\n      |                    strcmp\nsrc/common/path_helper.cc: In function ‘std::string google_breakpad::DirName(const string\u0026)’:\nsrc/common/path_helper.cc:47:20: error: ‘strdup’ was not declared in this scope; did you mean ‘strcmp’?\n   47 |   char* path_tmp \u003d strdup(path.c_str());\n      |                    ^~~~~~\n      |                    strcmp\n```\n\nIt doesn\u0027t happen with g++ on Linux. /usr/include/string.h is indeed different on these 2 platforms. On Linux, I see:\n\n```\n#if (defined __USE_XOPEN_EXTENDED || defined __USE_XOPEN2K8     \\\n     || __GLIBC_USE (LIB_EXT2) || __GLIBC_USE (ISOC2X))\n/* Duplicate S, returning an identical malloc\u0027d string.  */\nextern char *strdup (const char *__s)\n     __THROW __attribute_malloc__ __nonnull ((1));\n#endif\n```\n\nIn Cygwin:\n\n```\n#if __MISC_VISIBLE || __POSIX_VISIBLE \u003e\u003d 200809 || __XSI_VISIBLE \u003e\u003d 4\nchar    *strdup (const char *) __malloc_like __result_use_check;\n#endif\n```",
+      "parentUuid": "2fd05f64_63ae2d40",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
