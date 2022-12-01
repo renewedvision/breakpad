@@ -16,6 +16,24 @@
       "message": "what is \"the new CL\" ?  do you mean https://crrev.com/c/4005812 ?",
       "revId": "2b854f7bf8af3889de3d6d3003bbb918290e2a92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5942c3ce_f7e0cc29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-12-01T15:11:22Z",
+      "side": 1,
+      "message": "Yes, it might be better to use loong64 as architecture name like v8, golang.",
+      "parentUuid": "c227d53c_e3d1069e",
+      "revId": "2b854f7bf8af3889de3d6d3003bbb918290e2a92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
