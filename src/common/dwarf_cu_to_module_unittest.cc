@@ -1274,6 +1274,26 @@ TEST_F(Specifications, MangledNameRust) {
                0x93cd3dfc1aa10097ULL, 0x0397d47a0b4ca0d4ULL);
 }
 
+TEST_F(Specifications, MangledNameRustv0) {
+  SetLanguage(google_breakpad::DW_LANG_Rust);
+  PushLine(0x93cd3dfc1aa10097ULL, 0x0397d47a0b4ca0d4ULL, "line-file", 54883661);
+
+  StartCU();
+  const string kName = "_RINvNtC3std3mem8align_ofjE";
+  DeclarationDIE(&root_handler_, 0xcd3c51b946fb1eeeLL,
+                 google_breakpad::DW_TAG_subprogram, "declaration-name",
+                 kName);
+  DefinitionDIE(&root_handler_, google_breakpad::DW_TAG_subprogram,
+                0xcd3c51b946fb1eeeLL, "",
+                0x93cd3dfc1aa10097ULL, 0x0397d47a0b4ca0d4ULL);
+  root_handler_.Finish();
+
+  TestFunctionCount(1);
+  TestFunction(0,
+               "std::mem::align_of::<usize>",
+               0x93cd3dfc1aa10097ULL, 0x0397d47a0b4ca0d4ULL);
+}
+
 TEST_F(Specifications, MemberFunction) {
   PushLine(0x3341a248634e7170ULL, 0x5f6938ee5553b953ULL, "line-file", 18116691);
 
