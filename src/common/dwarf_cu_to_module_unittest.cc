@@ -1251,7 +1251,11 @@ TEST_F(Specifications, MangledNameRust) {
   PushLine(0x93cd3dfc1aa10097ULL, 0x0397d47a0b4ca0d4ULL, "line-file", 54883661);
 
   StartCU();
+#ifndef HAVE_RUSTC_DEMANGLE
+  const string kName = "_RINvNtC3std3mem8align_ofjE";
+#else
   const string kName = "_ZN14rustc_demangle8demangle17h373defa94bffacdeE";
+#endif
   DeclarationDIE(&root_handler_, 0xcd3c51b946fb1eeeLL,
                  google_breakpad::DW_TAG_subprogram, "declaration-name",
                  kName);
@@ -1265,7 +1269,7 @@ TEST_F(Specifications, MangledNameRust) {
 #ifndef HAVE_RUSTC_DEMANGLE
                // Rust mangled names should pass through untouched if not
                // using rustc-demangle.
-               kName,
+               "std::mem::align_of::<usize>",
 #else
                // If rustc-demangle is available this should be properly
                // demangled.

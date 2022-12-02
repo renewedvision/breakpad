@@ -1,4 +1,4 @@
-## Process this file with automake to produce Makefile.in
+# Process this file with automake to produce Makefile.in
 
 # Copyright 2011 Google LLC
 #
@@ -165,13 +165,15 @@ src_testing_libtesting_a_CPPFLAGS = \
 # Not specific to processor, client or tools
 #
 
-check_PROGRAMS += src/common/safe_math_unittest
 
+check_PROGRAMS += src/common/safe_math_unittest
 
 #
 # Breakpad minidump and microdump
 # processor library, tools and tests
 #
+noinst_LIBRARIES += src/third_party/llvm/llvm/lib/Demangle/libDemangle.a
+
 if !DISABLE_PROCESSOR
 
 lib_LIBRARIES += src/libbreakpad.a
@@ -235,7 +237,6 @@ check_SCRIPTS = \
 	src/processor/minidump_stackwalk_machine_readable_test
 
 endif !DISABLE_PROCESSOR
-
 
 #
 # Breakpad client library and tests
@@ -449,6 +450,24 @@ src_libbreakpad_a_SOURCES = \
 	src/processor/symbolic_constants_win.h \
 	src/processor/tokenize.cc \
 	src/processor/tokenize.h
+
+# LLVM Demangle 3rd party library
+src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_SOURCES = \
+	src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp \
+	src/third_party/llvm/llvm/include/llvm/Demangle/Demangle.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/DemangleConfig.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/ItaniumDemangle.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/MicrosoftDemangle.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/MicrosoftDemangleNodes.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/StringView.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/Utility.h
+src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS = \
+	-I$(top_srcdir)/src/third_party/llvm/llvm/include
 
 # libdisasm 3rd party library
 src_third_party_libdisasm_libdisasm_a_SOURCES = \
@@ -682,6 +701,7 @@ src_tools_linux_dump_syms_dump_syms_SOURCES = \
 src_tools_linux_dump_syms_dump_syms_CXXFLAGS = \
 	$(RUSTC_DEMANGLE_CFLAGS)
 src_tools_linux_dump_syms_dump_syms_LDADD = \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(RUSTC_DEMANGLE_LIBS) \
 	-lz
 
@@ -738,12 +758,13 @@ src_tools_mac_dump_syms_dump_syms_mac_SOURCES = \
 	src/common/mac/macho_utilities.h \
 	src/common/mac/macho_walker.cc \
 	src/common/mac/macho_walker.h \
-	src/tools/mac/dump_syms/dump_syms_tool.cc
+	src/tools/mac/dump_syms/dump_syms_tool.cc 
 src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS= \
 	-I$(top_srcdir)/src/third_party/mac_headers \
 	$(RUSTC_DEMANGLE_CFLAGS) \
 	-DHAVE_MACH_O_NLIST_H
 src_tools_mac_dump_syms_dump_syms_mac_LDADD= \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(RUSTC_DEMANGLE_LIBS)
 
 src_common_dumper_unittest_SOURCES = \
@@ -810,6 +831,7 @@ src_common_dumper_unittest_CPPFLAGS = \
 	$(PTHREAD_CFLAGS)
 src_common_dumper_unittest_LDADD = \
 	$(TEST_LIBS) \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(RUSTC_DEMANGLE_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS) \
 	-lz
