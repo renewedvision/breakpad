@@ -44,6 +44,9 @@
 #include <rustc_demangle.h>
 #endif
 
+#include "llvm/Demangle/Demangle.h"
+#include "third_party/lss/linux_syscall_support.h"
+
 #include <limits>
 
 namespace {
@@ -174,9 +177,6 @@ class RustLanguage: public Language {
 
   virtual DemangleResult DemangleName(const string& mangled,
                                       string* demangled) const {
-    // Rust names use GCC C++ name mangling, but demangling them with
-    // abi_demangle doesn't produce stellar results due to them having
-    // another layer of encoding.
     // If callers provide rustc-demangle, use that.
 #if defined(HAVE_RUSTC_DEMANGLE)
     std::array<char, 1 * 1024 * 1024> rustc_demangled;
@@ -186,9 +186,15 @@ class RustLanguage: public Language {
     }
     demangled->assign(rustc_demangled.data());
 #else
-    // Otherwise, pass through the mangled name so callers can demangle
-    // after the fact.
-    demangled->assign(mangled);
+    char *demangled_rust = llvm::rustDemangle(mangled.c_str());
+    if (demangled_rust == nullptr) {
+      demangled->clear();
+      return kDemangleFailure;
+    }
+
+    demangled->assign(demangled_rust);
+    free(reinterpret_cast<void*>(demangled_rust));
+
 #endif
     return kDemangleSuccess;
   }

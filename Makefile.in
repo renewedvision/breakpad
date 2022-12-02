@@ -143,11 +143,6 @@ EXTRA_PROGRAMS = $(am__EXEEXT_1)
 # Tests helper library
 #
 @SYSTEM_TEST_LIBS_FALSE@am__append_4 = src/testing/libtesting.a
-
-#
-# Breakpad minidump and microdump
-# processor library, tools and tests
-#
 @DISABLE_PROCESSOR_FALSE@am__append_5 = src/libbreakpad.a
 @DISABLE_PROCESSOR_FALSE@am__append_6 = breakpad.pc
 @DISABLE_PROCESSOR_FALSE@am__append_7 = src/third_party/libdisasm/libdisasm.a
@@ -507,6 +502,16 @@ am_src_third_party_libdisasm_libdisasm_a_OBJECTS =  \
 	src/third_party/libdisasm/x86_operand_list.$(OBJEXT)
 src_third_party_libdisasm_libdisasm_a_OBJECTS =  \
 	$(am_src_third_party_libdisasm_libdisasm_a_OBJECTS)
+src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_AR = $(AR) \
+	$(ARFLAGS)
+src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_LIBADD =
+am_src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_OBJECTS = src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.$(OBJEXT) \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.$(OBJEXT) \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.$(OBJEXT) \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.$(OBJEXT) \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.$(OBJEXT) \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.$(OBJEXT)
+src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_OBJECTS = $(am_src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_OBJECTS)
 am_src_client_linux_linux_client_unittest_OBJECTS =
 src_client_linux_linux_client_unittest_OBJECTS =  \
 	$(am_src_client_linux_linux_client_unittest_OBJECTS)
@@ -650,6 +655,7 @@ am_src_common_dumper_unittest_OBJECTS =  \
 src_common_dumper_unittest_OBJECTS =  \
 	$(am_src_common_dumper_unittest_OBJECTS)
 src_common_dumper_unittest_DEPENDENCIES = $(am__DEPENDENCIES_2) \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
 am_src_common_dwarf_dwarf2reader_lineinfo_unittest_OBJECTS = src/common/dwarf/dwarf2reader_lineinfo_unittest-dwarf2reader_lineinfo_unittest.$(OBJEXT)
@@ -1181,6 +1187,7 @@ am_src_tools_linux_dump_syms_dump_syms_OBJECTS = src/common/tools_linux_dump_sym
 src_tools_linux_dump_syms_dump_syms_OBJECTS =  \
 	$(am_src_tools_linux_dump_syms_dump_syms_OBJECTS)
 src_tools_linux_dump_syms_dump_syms_DEPENDENCIES =  \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(am__DEPENDENCIES_1)
 src_tools_linux_dump_syms_dump_syms_LINK = $(CXXLD) \
 	$(src_tools_linux_dump_syms_dump_syms_CXXFLAGS) $(CXXFLAGS) \
@@ -1245,6 +1252,7 @@ am_src_tools_mac_dump_syms_dump_syms_mac_OBJECTS = src/common/tools_mac_dump_sym
 src_tools_mac_dump_syms_dump_syms_mac_OBJECTS =  \
 	$(am_src_tools_mac_dump_syms_dump_syms_mac_OBJECTS)
 src_tools_mac_dump_syms_dump_syms_mac_DEPENDENCIES =  \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(am__DEPENDENCIES_1)
 src_tools_mac_dump_syms_dump_syms_mac_LINK = $(CXXLD) \
 	$(src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS) $(CXXFLAGS) \
@@ -1557,6 +1565,12 @@ am__depfiles_remade = src/client/$(DEPDIR)/minidump_file_writer.Po \
 	src/third_party/libdisasm/$(DEPDIR)/x86_insn.Po \
 	src/third_party/libdisasm/$(DEPDIR)/x86_misc.Po \
 	src/third_party/libdisasm/$(DEPDIR)/x86_operand_list.Po \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Po \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Po \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Po \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Po \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Po \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Po \
 	src/tools/linux/core2md/$(DEPDIR)/core2md.Po \
 	src/tools/linux/core_handler/$(DEPDIR)/core_handler.Po \
 	src/tools/linux/dump_syms/$(DEPDIR)/dump_syms-dump_syms.Po \
@@ -1606,6 +1620,7 @@ SOURCES = $(src_client_linux_libbreakpad_client_a_SOURCES) \
 	$(src_libbreakpad_a_SOURCES) \
 	$(src_testing_libtesting_a_SOURCES) \
 	$(src_third_party_libdisasm_libdisasm_a_SOURCES) \
+	$(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_SOURCES) \
 	$(src_client_linux_linux_client_unittest_SOURCES) \
 	$(src_client_linux_linux_client_unittest_shlib_SOURCES) \
 	$(src_client_linux_linux_dumper_unittest_helper_SOURCES) \
@@ -1666,6 +1681,7 @@ DIST_SOURCES =  \
 	$(src_libbreakpad_a_SOURCES) \
 	$(src_testing_libtesting_a_SOURCES) \
 	$(src_third_party_libdisasm_libdisasm_a_SOURCES) \
+	$(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_SOURCES) \
 	$(src_client_linux_linux_client_unittest_SOURCES) \
 	$(am__src_client_linux_linux_client_unittest_shlib_SOURCES_DIST) \
 	$(src_client_linux_linux_dumper_unittest_helper_SOURCES) \
@@ -2151,7 +2167,14 @@ pkgconfig_DATA = $(am__append_6) $(am__append_12)
 # driver for Android.
 @ANDROID_HOST_TRUE@LOG_DRIVER = $(top_srcdir)/android/test-driver
 check_LIBRARIES = $(am__append_4)
-noinst_LIBRARIES = $(am__append_7)
+
+#
+# Breakpad minidump and microdump
+# processor library, tools and tests
+#
+noinst_LIBRARIES =  \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
+	$(am__append_7)
 lib_LIBRARIES = $(am__append_5) $(am__append_11)
 noinst_SCRIPTS = $(check_SCRIPTS)
 CLEANFILES = $(am__append_15)
@@ -2317,6 +2340,26 @@ src_libbreakpad_a_SOURCES = \
 	src/processor/symbolic_constants_win.h \
 	src/processor/tokenize.cc \
 	src/processor/tokenize.h
+
+
+# LLVM Demangle 3rd party library
+src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_SOURCES = \
+	src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp \
+	src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp \
+	src/third_party/llvm/llvm/include/llvm/Demangle/Demangle.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/DemangleConfig.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/ItaniumDemangle.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/MicrosoftDemangle.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/MicrosoftDemangleNodes.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/StringView.h \
+	src/third_party/llvm/llvm/include/llvm/Demangle/Utility.h
+
+src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS = \
+	-I$(top_srcdir)/src/third_party/llvm/llvm/include
 
 
 # libdisasm 3rd party library
@@ -2518,6 +2561,7 @@ src_tools_linux_dump_syms_dump_syms_CXXFLAGS = \
 	$(RUSTC_DEMANGLE_CFLAGS)
 
 src_tools_linux_dump_syms_dump_syms_LDADD = \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(RUSTC_DEMANGLE_LIBS) \
 	-lz
 
@@ -2582,6 +2626,7 @@ src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS = \
 	-DHAVE_MACH_O_NLIST_H
 
 src_tools_mac_dump_syms_dump_syms_mac_LDADD = \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(RUSTC_DEMANGLE_LIBS)
 
 src_common_dumper_unittest_SOURCES = \
@@ -2650,6 +2695,7 @@ src_common_dumper_unittest_CPPFLAGS = \
 
 src_common_dumper_unittest_LDADD = \
 	$(TEST_LIBS) \
+	src/third_party/llvm/llvm/lib/Demangle/libDemangle.a \
 	$(RUSTC_DEMANGLE_LIBS) \
 	$(PTHREAD_CFLAGS) $(PTHREAD_LIBS) \
 	-lz
@@ -3637,7 +3683,7 @@ EXTRA_DIST = \
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .S .c .cc .log .o .obj .test .test$(EXEEXT) .trs
+.SUFFIXES: .S .c .cc .cpp .log .o .obj .test .test$(EXEEXT) .trs
 am--refresh: Makefile
 	@:
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
@@ -4159,6 +4205,35 @@ src/third_party/libdisasm/libdisasm.a: $(src_third_party_libdisasm_libdisasm_a_O
 	$(AM_V_at)-rm -f src/third_party/libdisasm/libdisasm.a
 	$(AM_V_AR)$(src_third_party_libdisasm_libdisasm_a_AR) src/third_party/libdisasm/libdisasm.a $(src_third_party_libdisasm_libdisasm_a_OBJECTS) $(src_third_party_libdisasm_libdisasm_a_LIBADD)
 	$(AM_V_at)$(RANLIB) src/third_party/libdisasm/libdisasm.a
+src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp):
+	@$(MKDIR_P) src/third_party/llvm/llvm/lib/Demangle
+	@: > src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp)
+src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)
+	@: > src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp)
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.$(OBJEXT):  \
+	src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp) \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp)
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.$(OBJEXT):  \
+	src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp) \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp)
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.$(OBJEXT):  \
+	src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp) \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp)
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.$(OBJEXT):  \
+	src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp) \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp)
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.$(OBJEXT):  \
+	src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp) \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp)
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.$(OBJEXT):  \
+	src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp) \
+	src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp)
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle.a: $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_OBJECTS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_DEPENDENCIES) $(EXTRA_src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_DEPENDENCIES) src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp)
+	$(AM_V_at)-rm -f src/third_party/llvm/llvm/lib/Demangle/libDemangle.a
+	$(AM_V_AR)$(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_AR) src/third_party/llvm/llvm/lib/Demangle/libDemangle.a $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_OBJECTS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_LIBADD)
+	$(AM_V_at)$(RANLIB) src/third_party/llvm/llvm/lib/Demangle/libDemangle.a
 
 src/client/linux/linux_client_unittest$(EXEEXT): $(src_client_linux_linux_client_unittest_OBJECTS) $(src_client_linux_linux_client_unittest_DEPENDENCIES) $(EXTRA_src_client_linux_linux_client_unittest_DEPENDENCIES) src/client/linux/$(am__dirstamp)
 	@rm -f src/client/linux/linux_client_unittest$(EXEEXT)
@@ -5114,6 +5189,7 @@ mostlyclean-compile:
 	-rm -f src/testing/googlemock/src/*.$(OBJEXT)
 	-rm -f src/testing/googletest/src/*.$(OBJEXT)
 	-rm -f src/third_party/libdisasm/*.$(OBJEXT)
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/*.$(OBJEXT)
 	-rm -f src/tools/linux/core2md/*.$(OBJEXT)
 	-rm -f src/tools/linux/core_handler/*.$(OBJEXT)
 	-rm -f src/tools/linux/dump_syms/*.$(OBJEXT)
@@ -5417,6 +5493,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/third_party/libdisasm/$(DEPDIR)/x86_insn.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/third_party/libdisasm/$(DEPDIR)/x86_misc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/third_party/libdisasm/$(DEPDIR)/x86_operand_list.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/tools/linux/core2md/$(DEPDIR)/core2md.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/tools/linux/core_handler/$(DEPDIR)/core_handler.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/tools/linux/dump_syms/$(DEPDIR)/dump_syms-dump_syms.Po@am__quote@ # am--include-marker
@@ -5536,6 +5618,90 @@ src/testing/googlemock/src/libtesting_a-gmock-all.obj: src/testing/googlemock/sr
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/testing/googlemock/src/gmock-all.cc' object='src/testing/googlemock/src/libtesting_a-gmock-all.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_testing_libtesting_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o src/testing/googlemock/src/libtesting_a-gmock-all.obj `if test -f 'src/testing/googlemock/src/gmock-all.cc'; then $(CYGPATH_W) 'src/testing/googlemock/src/gmock-all.cc'; else $(CYGPATH_W) '$(srcdir)/src/testing/googlemock/src/gmock-all.cc'; fi`
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.o: src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.o -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.obj: src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.obj -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-Demangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/Demangle.cpp'; fi`
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.o: src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.o -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.obj: src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.obj -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-DLangDemangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/DLangDemangle.cpp'; fi`
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.o: src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.o -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.obj: src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.obj -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-ItaniumDemangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/ItaniumDemangle.cpp'; fi`
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.o: src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.o -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.obj: src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.obj -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangle.cpp'; fi`
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.o: src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.o -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.obj: src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.obj -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-MicrosoftDemangleNodes.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp'; fi`
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.o: src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.o -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.o `test -f 'src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp' || echo '$(srcdir)/'`src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp
+
+src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.obj: src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -MT src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.obj -MD -MP -MF src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Tpo -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Tpo src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp' object='src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_third_party_llvm_llvm_lib_Demangle_libDemangle_a_CXXFLAGS) $(CXXFLAGS) -c -o src/third_party/llvm/llvm/lib/Demangle/libDemangle_a-RustDemangle.obj `if test -f 'src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp'; then $(CYGPATH_W) 'src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp'; else $(CYGPATH_W) '$(srcdir)/src/third_party/llvm/llvm/lib/Demangle/RustDemangle.cpp'; fi`
 
 src/testing/googletest/src/client_linux_linux_client_unittest_shlib-gtest-all.o: src/testing/googletest/src/gtest-all.cc
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(src_client_linux_linux_client_unittest_shlib_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT src/testing/googletest/src/client_linux_linux_client_unittest_shlib-gtest-all.o -MD -MP -MF src/testing/googletest/src/$(DEPDIR)/client_linux_linux_client_unittest_shlib-gtest-all.Tpo -c -o src/testing/googletest/src/client_linux_linux_client_unittest_shlib-gtest-all.o `test -f 'src/testing/googletest/src/gtest-all.cc' || echo '$(srcdir)/'`src/testing/googletest/src/gtest-all.cc
@@ -8280,6 +8446,22 @@ src/tools/mac/dump_syms/dump_syms_mac-dump_syms_tool.obj: src/tools/mac/dump_sym
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/tools/mac/dump_syms/dump_syms_tool.cc' object='src/tools/mac/dump_syms/dump_syms_mac-dump_syms_tool.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_tools_mac_dump_syms_dump_syms_mac_CXXFLAGS) $(CXXFLAGS) -c -o src/tools/mac/dump_syms/dump_syms_mac-dump_syms_tool.obj `if test -f 'src/tools/mac/dump_syms/dump_syms_tool.cc'; then $(CYGPATH_W) 'src/tools/mac/dump_syms/dump_syms_tool.cc'; else $(CYGPATH_W) '$(srcdir)/src/tools/mac/dump_syms/dump_syms_tool.cc'; fi`
+
+.cpp.o:
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+@am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+@am__fastdepCXX_TRUE@	$(am__mv) $$depbase.Tpo $$depbase.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXXCOMPILE) -c -o $@ $<
+
+.cpp.obj:
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+@am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
+@am__fastdepCXX_TRUE@	$(am__mv) $$depbase.Tpo $$depbase.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 install-dist_docDATA: $(dist_doc_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(dist_doc_DATA)'; test -n "$(docdir)" || list=; \
@@ -9305,6 +9487,8 @@ distclean-generic:
 	-rm -f src/testing/googletest/src/$(am__dirstamp)
 	-rm -f src/third_party/libdisasm/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/third_party/libdisasm/$(am__dirstamp)
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/$(am__dirstamp)
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(am__dirstamp)
 	-rm -f src/tools/linux/core2md/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/tools/linux/core2md/$(am__dirstamp)
 	-rm -f src/tools/linux/core_handler/$(DEPDIR)/$(am__dirstamp)
@@ -9623,6 +9807,12 @@ distclean: distclean-am
 	-rm -f src/third_party/libdisasm/$(DEPDIR)/x86_insn.Po
 	-rm -f src/third_party/libdisasm/$(DEPDIR)/x86_misc.Po
 	-rm -f src/third_party/libdisasm/$(DEPDIR)/x86_operand_list.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Po
 	-rm -f src/tools/linux/core2md/$(DEPDIR)/core2md.Po
 	-rm -f src/tools/linux/core_handler/$(DEPDIR)/core_handler.Po
 	-rm -f src/tools/linux/dump_syms/$(DEPDIR)/dump_syms-dump_syms.Po
@@ -9977,6 +10167,12 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/third_party/libdisasm/$(DEPDIR)/x86_insn.Po
 	-rm -f src/third_party/libdisasm/$(DEPDIR)/x86_misc.Po
 	-rm -f src/third_party/libdisasm/$(DEPDIR)/x86_operand_list.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-DLangDemangle.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-Demangle.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-ItaniumDemangle.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangle.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-MicrosoftDemangleNodes.Po
+	-rm -f src/third_party/llvm/llvm/lib/Demangle/$(DEPDIR)/libDemangle_a-RustDemangle.Po
 	-rm -f src/tools/linux/core2md/$(DEPDIR)/core2md.Po
 	-rm -f src/tools/linux/core_handler/$(DEPDIR)/core_handler.Po
 	-rm -f src/tools/linux/dump_syms/$(DEPDIR)/dump_syms-dump_syms.Po
