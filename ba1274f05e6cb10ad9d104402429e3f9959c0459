@@ -88,6 +88,24 @@
       "parentUuid": "7d61f6f6_8b17f1f0",
       "revId": "ba1274f05e6cb10ad9d104402429e3f9959c0459",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc59bf5c_51108042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525022
+      },
+      "writtenOn": "2022-12-02T10:01:43Z",
+      "side": 1,
+      "message": "I see that riscv support is merged into breakpad, which means that the new architecture can be accepted, any comments on this patch will be greatly appreciated.\n\nLoongArch is a new RISC ISA, which is a bit like MIPS or RISC-V.\nLoongArch includes a reduced 32-bit version (LA32R), a standard 32-bit version (LA32S) and a 64-bit version (LA64). \n\nLoongson and LoongArch documentations:\nhttps://github.com/loongson/LoongArch-Documentation\n\nWe are now committed to maintaining the support of the loongarch platform in the chromium community. At present, major communities such as kernel, gcc,  Binutils, llvm, golang, go, ffmpeg, libvpx, etc. have already added loongarch support, so we are eager to be supported by such an excellent project as chromium.",
+      "parentUuid": "c0d28dc2_8e7b65c6",
+      "revId": "ba1274f05e6cb10ad9d104402429e3f9959c0459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
