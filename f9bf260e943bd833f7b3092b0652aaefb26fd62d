@@ -159,6 +159,24 @@
       "parentUuid": "a74d2afe_cf389bff",
       "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39b44f2c_abfcc88e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-02T01:28:09Z",
+      "side": 1,
+      "message": "i\u0027m not a fan of AC_USE_SYSTEM_EXTENSIONS in projects that want to be portable.  i wonder setting the POSIX source level helps ?\nhttps://pubs.opengroup.org/onlinepubs/9699919799/functions/V2_chap02.html#tag_15_02\n\n`AS_VAR_APPEND([CPPFLAGS], [ -D_POSIX_C_SOURCE\u003d200809L])`",
+      "parentUuid": "de088883_12a8f27d",
+      "revId": "f9bf260e943bd833f7b3092b0652aaefb26fd62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
