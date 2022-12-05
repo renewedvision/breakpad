@@ -502,6 +502,29 @@ bool DisassemblerObjdump::CalculateDestAddress(const DumpContext& context,
 
 #else  // __linux__
 namespace google_breakpad {
+// static
+bool DisassemblerObjdump::DisassembleInstruction(uint32_t cpu,
+                                                 const uint8_t* raw_bytes,
+                                                 unsigned int raw_bytes_len,
+                                                 string& instruction) {
+  return false;
+}
+
+// static
+bool DisassemblerObjdump::TokenizeInstruction(const string& instruction,
+                                              string& operation,
+                                              string& dest,
+                                              string& src) {
+  return false;
+}
+
+// static
+bool DisassemblerObjdump::CalculateAddress(const DumpContext& context,
+                                           const string& expression,
+                                           uint64_t& address) {
+  return false;
+}
+
 DisassemblerObjdump::DisassemblerObjdump(const uint32_t cpu,
                                          const MemoryRegion* memory_region,
                                          uint64_t address) {}
