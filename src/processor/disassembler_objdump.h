@@ -40,6 +40,10 @@
 #include "google_breakpad/processor/dump_context.h"
 #include "google_breakpad/processor/memory_region.h"
 
+#ifndef __linux__
+#error "This should only be included when building on linux hosts!"
+#endif
+
 namespace google_breakpad {
 
 // Uses objdump to disassemble a single instruction.
