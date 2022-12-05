@@ -16,6 +16,23 @@
       "message": "Please take a look. Thanks!",
       "revId": "a801f1fd714b1a3a688230c91aba334e2f5aa4a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76eefdc5_ebb289c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-05T15:54:21Z",
+      "side": 1,
+      "message": "There\u0027s currently an outgoing CL to remove disassembler_objdump from the build on non-linux systems which should also fix this, which (I think) was the preferred change from the maintainers.\n\nhttps://chromium-review.googlesource.com/c/breakpad/breakpad/+/3964364",
+      "revId": "a801f1fd714b1a3a688230c91aba334e2f5aa4a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
