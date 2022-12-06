@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e811462a_62944dc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-06T12:14:23Z",
+      "side": 1,
+      "message": "First step in fixing the remaining open comments on https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3720740. See the rest of the relation chain for context - DisassemblerObjdump has slightly different requirements to the previous unittest usage, so it made sense to me to consolidate the existing unittest implementation and remove some more duplicate code.\n\nTested on Windows cygwin and Linux under gcc and clang.",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
