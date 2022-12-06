@@ -16,6 +16,188 @@
       "message": "First step in fixing the remaining open comments on https://chromium-review.googlesource.com/c/breakpad/breakpad/+/3720740. See the rest of the relation chain for context - DisassemblerObjdump has slightly different requirements to the previous unittest usage, so it made sense to me to consolidate the existing unittest implementation and remove some more duplicate code.\n\nTested on Windows cygwin and Linux under gcc and clang.",
       "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64790da4_c6a9e51c",
+        "filename": "Makefile.am",
+        "patchSetId": 4
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "Can this be `common/linux/tests/scoped_tmpfile.h` or `src/common/tests/scoped_tmpfile_linux.h` instead? Make it obvious that it\u0027s Linux only and it\u0027s for testing only.",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc7ae439_144a5fd8",
+        "filename": "Makefile.am",
+        "patchSetId": 4
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "Does this block need to be wrapped in `if LINUX_HOST` ?",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ce5e72_96795bc4",
+        "filename": "src/common/linux/scoped_tmpfile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "No std::string here. Remove?",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd44d00_04d3818b",
+        "filename": "src/common/linux/scoped_tmpfile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "Just use string.h?",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7366296_90d4f6a7",
+        "filename": "src/common/linux/scoped_tmpfile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "IWYU: \u003cstdlib.h\u003e",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1da1bca3_51e38cd0",
+        "filename": "src/common/linux/scoped_tmpfile.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "Move the \"impl\" into the .cc file, like with the dtor.",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c742ca3b_4dc932fd",
+        "filename": "src/common/linux/scoped_tmpfile.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "Can these become InitEmpty() / InitString() / InitData()? Then it would be more obvious what\u0027s what.",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ba84bf_c163af13",
+        "filename": "src/common/linux/scoped_tmpfile.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "Probably not necessary. Just let the compiler figure it out.",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 8
+      },
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca6fcfd8_fc6431df",
+        "filename": "src/common/linux/scoped_tmpfile_unittest.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "The ordering should be:\n\n```\nscoped_tmpfile.h\n\n\u003cunistd.h\u003e\n\nbreakpad_googletest_includes.h\n```",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a4f32d_5267350b",
+        "filename": "src/common/linux/scoped_tmpfile_unittest.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-06T18:26:37Z",
+      "side": 1,
+      "message": "Does EXPECT_EQ(file_contents, \"Test\") work? Or maybe EXPECT_STREQ()?",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
