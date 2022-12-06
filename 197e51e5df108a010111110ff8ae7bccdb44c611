@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06c8615c_7cbaa466",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-06T10:37:13Z",
+      "side": 1,
+      "message": "I was able to test this on Windows under cygwin today after applying https://chromium-review.googlesource.com/c/breakpad/breakpad/+/4072453.",
+      "revId": "197e51e5df108a010111110ff8ae7bccdb44c611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
