@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "040ca314_fc9d691e",
+        "filename": "src/common/linux/scoped_tmpfile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-07T09:15:33Z",
+      "side": 1,
+      "message": "Merge with lines 34-36.",
+      "revId": "5de80775350086a916c3ac013954b0aa396aeb03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

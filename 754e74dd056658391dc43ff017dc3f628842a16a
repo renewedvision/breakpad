@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efe25cac_207225ee",
+        "filename": "Makefile.am",
+        "patchSetId": 4
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-07T09:15:33Z",
+      "side": 1,
+      "message": "Got it.",
+      "parentUuid": "abec770c_fe673755",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc7ae439_144a5fd8",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I don\u0027t think so - there\u0027s a comment above (line 314) saying that the source-file rules should avoid conditionals unless different files should be included on different targets. \n\nI\u0027ve tested, and the test doesn\u0027t get built in `make check` under cygwin.",
       "parentUuid": "fc7ae439_144a5fd8",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5900fece_638b3fde",
+        "filename": "Makefile.am",
+        "patchSetId": 4
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-07T09:15:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "788f6104_e02208db",
       "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
