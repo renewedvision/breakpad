@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abec770c_fe673755",
+        "filename": "Makefile.am",
+        "patchSetId": 4
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "It\u0027s not for testing only - at the end of the relation chain there\u0027s a CL that will use it to replace the duplicated code in disassembler_objdump.cc.",
+      "parentUuid": "64790da4_c6a9e51c",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc7ae439_144a5fd8",
         "filename": "Makefile.am",
         "patchSetId": 4
@@ -48,6 +66,24 @@
       "writtenOn": "2022-12-06T18:26:37Z",
       "side": 1,
       "message": "Does this block need to be wrapped in `if LINUX_HOST` ?",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "788f6104_e02208db",
+        "filename": "Makefile.am",
+        "patchSetId": 4
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "I don\u0027t think so - there\u0027s a comment above (line 314) saying that the source-file rules should avoid conditionals unless different files should be included on different targets. \n\nI\u0027ve tested, and the test doesn\u0027t get built in `make check` under cygwin.",
+      "parentUuid": "fc7ae439_144a5fd8",
       "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e110a29_f0da7016",
+        "filename": "src/common/linux/scoped_tmpfile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50ce5e72_96795bc4",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fd44d00_04d3818b",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-12-06T18:26:37Z",
       "side": 1,
       "message": "Just use string.h?",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c56a787_ea155738",
+        "filename": "src/common/linux/scoped_tmpfile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fd44d00_04d3818b",
       "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -109,6 +181,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f926452_caa9d02c",
+        "filename": "src/common/linux/scoped_tmpfile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7366296_90d4f6a7",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1da1bca3_51e38cd0",
@@ -126,6 +222,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06cf9992_ff60208a",
+        "filename": "src/common/linux/scoped_tmpfile.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1da1bca3_51e38cd0",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c742ca3b_4dc932fd",
@@ -139,6 +253,24 @@
       "writtenOn": "2022-12-06T18:26:37Z",
       "side": 1,
       "message": "Can these become InitEmpty() / InitString() / InitData()? Then it would be more obvious what\u0027s what.",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fda0445_f2836b4c",
+        "filename": "src/common/linux/scoped_tmpfile.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c742ca3b_4dc932fd",
       "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -166,6 +298,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b03f8b_7bf36bf2",
+        "filename": "src/common/linux/scoped_tmpfile.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3ba84bf_c163af13",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 8
+      },
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca6fcfd8_fc6431df",
@@ -183,6 +339,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0211a9d5_2f42ef40",
+        "filename": "src/common/linux/scoped_tmpfile_unittest.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca6fcfd8_fc6431df",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77a4f32d_5267350b",
@@ -196,6 +370,24 @@
       "writtenOn": "2022-12-06T18:26:37Z",
       "side": 1,
       "message": "Does EXPECT_EQ(file_contents, \"Test\") work? Or maybe EXPECT_STREQ()?",
+      "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f4df83b_267564a1",
+        "filename": "src/common/linux/scoped_tmpfile_unittest.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-07T09:01:08Z",
+      "side": 1,
+      "message": "Yep, EXPECT_STREQ does the right thing, thanks!",
+      "parentUuid": "77a4f32d_5267350b",
       "revId": "754e74dd056658391dc43ff017dc3f628842a16a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
