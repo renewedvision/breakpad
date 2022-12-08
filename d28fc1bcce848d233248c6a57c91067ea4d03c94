@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "687b3861_e9f9a1b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-08T18:26:30Z",
+      "side": 1,
+      "message": "Still LGTM",
+      "revId": "d28fc1bcce848d233248c6a57c91067ea4d03c94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f423dbfa_de517759",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-08T18:26:30Z",
+      "side": 1,
+      "message": "space between `,` and `/`",
+      "range": {
+        "startLine": 1195,
+        "startChar": 14,
+        "endLine": 1195,
+        "endChar": 17
+      },
+      "revId": "d28fc1bcce848d233248c6a57c91067ea4d03c94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
