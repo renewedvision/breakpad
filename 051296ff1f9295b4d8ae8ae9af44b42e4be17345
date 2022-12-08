@@ -33,6 +33,24 @@
       "message": "There are two more callers to this function in this file. Can you update them to pass an appropriate value for `enable_multiple_field` and get rid of the default?\n\nOr do you just want to do it this way because you’ll remove the option soon enough and the default helps you limit churn?",
       "revId": "051296ff1f9295b4d8ae8ae9af44b42e4be17345",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f63922_935ceeb9",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-08T18:23:57Z",
+      "side": 1,
+      "message": "Done. Main motivation was to reduce noise moreso than churn, but was basically arbitrary.",
+      "parentUuid": "95e8a7f5_884040ce",
+      "revId": "051296ff1f9295b4d8ae8ae9af44b42e4be17345",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
