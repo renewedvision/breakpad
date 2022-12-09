@@ -43,8 +43,9 @@
 #if defined(HAVE_RUSTC_DEMANGLE)
 #include <rustc_demangle.h>
 #endif
-
 #include <limits>
+
+#include "third_party/llvm/llvm/include/llvm/Demangle/Demangle.h"
 
 namespace {
 
@@ -174,9 +175,6 @@ class RustLanguage: public Language {
 
   virtual DemangleResult DemangleName(const string& mangled,
                                       string* demangled) const {
-    // Rust names use GCC C++ name mangling, but demangling them with
-    // abi_demangle doesn't produce stellar results due to them having
-    // another layer of encoding.
     // If callers provide rustc-demangle, use that.
 #if defined(HAVE_RUSTC_DEMANGLE)
     std::array<char, 1 * 1024 * 1024> rustc_demangled;
@@ -186,9 +184,22 @@ class RustLanguage: public Language {
     }
     demangled->assign(rustc_demangled.data());
 #else
-    // Otherwise, pass through the mangled name so callers can demangle
-    // after the fact.
-    demangled->assign(mangled);
+    // The symbol wasn't mangled with the v0 mangling scheme. Pass it through so
+    // callers can demangle after the fact.
+    if (mangled.size() < 2 || mangled.substr(0, 2) != "_R") {
+      demangled->assign(mangled);
+      return kDemangleSuccess;
+    }
+
+    char* demangled_rust = llvm::rustDemangle(mangled.c_str());
+    if (demangled_rust == nullptr) {
+      demangled->clear();
+      return kDemangleFailure;
+    }
+
+    demangled->assign(demangled_rust);
+    free(reinterpret_cast<void*>(demangled_rust));
+
 #endif
     return kDemangleSuccess;
   }
@@ -210,10 +221,10 @@ class AssemblerLanguage: public Language {
 
 AssemblerLanguage AssemblerLanguageSingleton;
 
-const Language * const Language::CPlusPlus = &CPPLanguageSingleton;
-const Language * const Language::Java = &JavaLanguageSingleton;
-const Language * const Language::Swift = &SwiftLanguageSingleton;
-const Language * const Language::Rust = &RustLanguageSingleton;
-const Language * const Language::Assembler = &AssemblerLanguageSingleton;
+const Language* const Language::CPlusPlus = &CPPLanguageSingleton;
+const Language* const Language::Java = &JavaLanguageSingleton;
+const Language* const Language::Swift = &SwiftLanguageSingleton;
+const Language* const Language::Rust = &RustLanguageSingleton;
+const Language* const Language::Assembler = &AssemblerLanguageSingleton;
 
-} // namespace google_breakpad
+}  // namespace google_breakpad
