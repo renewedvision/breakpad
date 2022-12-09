@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f04fad59_e52cf3c8",
+        "filename": "src/third_party/llvm/README",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1369013
+      },
+      "writtenOn": "2022-12-09T18:55:39Z",
+      "side": 1,
+      "message": "Happy to discuss this further if the Breakpad team has suggestions!",
+      "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
