@@ -34,6 +34,24 @@
       "parentUuid": "f04fad59_e52cf3c8",
       "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaf7733a_367794f9",
+        "filename": "src/third_party/llvm/README",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1369013
+      },
+      "writtenOn": "2022-12-09T20:17:12Z",
+      "side": 1,
+      "message": "Hey Mike, could you elaborate on the suggestion to not vendor the dependency? AIUI source dependencies are usually more amenable than depending on prebuilts from the external environment and I\u0027d like to understand the gaps in my knowledge.",
+      "parentUuid": "3d45c47f_afede7da",
+      "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
