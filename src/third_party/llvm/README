@@ -1,0 +1,6 @@
+LLVM dependencies are included _without_ using gclient. The library is large and
+takes mutliple minutes to download, despite Breakpad only using a few files.
+Plesae take caution when updating the dependency and make sure to include LLVM's
+license file!
+
+This directory was last synced to commit 088f33605d8a61ff519c580a71b1dd57d16a03f8
