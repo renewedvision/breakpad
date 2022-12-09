@@ -16,6 +16,24 @@
       "message": "Happy to discuss this further if the Breakpad team has suggestions!",
       "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d45c47f_afede7da",
+        "filename": "src/third_party/llvm/README",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-09T19:36:14Z",
+      "side": 1,
+      "message": "i don\u0027t think we want to vendor this in at all.  make it a configure option and use the system install instead (e.g. `-lLLVMDemangle`).",
+      "parentUuid": "f04fad59_e52cf3c8",
+      "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
