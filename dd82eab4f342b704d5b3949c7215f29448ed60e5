@@ -52,6 +52,24 @@
       "parentUuid": "3d45c47f_afede7da",
       "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8c03228_ba2f663e",
+        "filename": "src/third_party/llvm/README",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-09T20:27:18Z",
+      "side": 1,
+      "message": "the OSS world does not want dep vendoring (bundled libraries), they want shared system packages\nhttps://fedoraproject.org/wiki/Bundled_Libraries\n\nwhen you vendor it in like this, someone has to actually maintain the fork.  no one wants to do that.",
+      "parentUuid": "eaf7733a_367794f9",
+      "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
