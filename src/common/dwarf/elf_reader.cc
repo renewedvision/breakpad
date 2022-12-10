@@ -198,8 +198,7 @@ class ElfSectionReader {
     if (header_.sh_type == SHT_NOBITS || header_.sh_size == 0)
       return;
     // extra sh_type check for string table.
-    if ((std::strcmp(name, ".strtab") == 0 ||
-         std::strcmp(name, ".shstrtab") == 0) &&
+    if ((strcmp(name, ".strtab") == 0 || strcmp(name, ".shstrtab") == 0) &&
         header_.sh_type != SHT_STRTAB) {
       fprintf(stderr,
               "Invalid sh_type for string table section: expected "
