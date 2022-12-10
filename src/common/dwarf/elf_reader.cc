@@ -183,7 +183,7 @@ class Elf64 {
 template<class ElfArch>
 class ElfSectionReader {
  public:
-  ElfSectionReader(const char* name, const string& path, int fd,
+  ElfSectionReader(const char* cname, const string& path, int fd,
                    const typename ElfArch::Shdr& section_header)
       : contents_aligned_(NULL),
         contents_(NULL),
@@ -198,8 +198,8 @@ class ElfSectionReader {
     if (header_.sh_type == SHT_NOBITS || header_.sh_size == 0)
       return;
     // extra sh_type check for string table.
-    if ((std::strcmp(name, ".strtab") == 0 ||
-         std::strcmp(name, ".shstrtab") == 0) &&
+    std::string_view name{cname};
+    if ((name == ".strtab" || name == ".shstrtab") &&
         header_.sh_type != SHT_STRTAB) {
       fprintf(stderr,
               "Invalid sh_type for string table section: expected "
