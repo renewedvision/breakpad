@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb202f78_ed45e729",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-10T08:40:43Z",
+      "side": 1,
+      "message": "we require C++17 now, so this code could be simpler\n\n```\n-  ElfSectionReader(const char* name, const string\u0026 path, int fd,\n+  ElfSectionReader(const char* cname, const string\u0026 path, int fd,\n...\n  std::string_view name{cname};\n...\n  if (name \u003d\u003d \".strtab\" || name \u003d\u003d \".shstrtab\" \u0026\u0026\n```",
+      "revId": "959ba734a1825e731c7d1fc056c8c9c4071c7890",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
