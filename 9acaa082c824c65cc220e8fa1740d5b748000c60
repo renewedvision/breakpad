@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21c559ab_46dedc73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-12T16:21:01Z",
+      "side": 1,
+      "message": "Too late because this landed, but this isn’t an accurate description of even the original proposed change, and in any event, it should have been revised to state how this was fixed as the review progressed.",
+      "revId": "9acaa082c824c65cc220e8fa1740d5b748000c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b9244a_f210a11f",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-12T16:21:01Z",
+      "side": 1,
+      "message": "If you’ve included `\u003cstring.h\u003e` and are using it instead of `\u003ccstring\u003e`, drop this.\n\nIn fact, if you make all of the suggested changes, do you even need `\u003cstring.h\u003e`?",
+      "revId": "9acaa082c824c65cc220e8fa1740d5b748000c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f05b870_31317cf5",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-12T16:21:01Z",
+      "side": 1,
+      "message": "`#include \u003cstring_view\u003e`",
+      "revId": "9acaa082c824c65cc220e8fa1740d5b748000c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68f1a374_cbe50bbb",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-12T16:21:01Z",
+      "side": 1,
+      "message": "Although it’s commented out, this isn’t functionally equivalent to the old code. The new code is wrong.\n\nSince it’s commented out, if you don’t want to fix it, you can leave the prose comment and get rid of the now-incorrect commented out code.",
+      "revId": "9acaa082c824c65cc220e8fa1740d5b748000c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85d98f04_a5c6aa1d",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-12T16:21:01Z",
+      "side": 1,
+      "message": "Possible to update this?",
+      "revId": "9acaa082c824c65cc220e8fa1740d5b748000c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76d7262c_6fac395c",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-12T16:21:01Z",
+      "side": 1,
+      "message": "Or these?",
+      "range": {
+        "startLine": 813,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 72
+      },
+      "revId": "9acaa082c824c65cc220e8fa1740d5b748000c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e5866b_43e8ee80",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-12T16:21:01Z",
+      "side": 1,
+      "message": "Or this?",
+      "range": {
+        "startLine": 1217,
+        "startChar": 0,
+        "endLine": 1219,
+        "endChar": 61
+      },
+      "revId": "9acaa082c824c65cc220e8fa1740d5b748000c60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
