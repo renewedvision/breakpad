@@ -70,6 +70,24 @@
       "parentUuid": "eaf7733a_367794f9",
       "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "507a9d28_22e0dd12",
+        "filename": "src/third_party/llvm/README",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1369013
+      },
+      "writtenOn": "2022-12-12T17:18:15Z",
+      "side": 1,
+      "message": "Thanks, appreciate the explanation and link! Abandoning this CL for now and will consider uploading a new one with config option",
+      "parentUuid": "d8c03228_ba2f663e",
+      "revId": "dd82eab4f342b704d5b3949c7215f29448ed60e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
