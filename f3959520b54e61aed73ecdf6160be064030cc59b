@@ -16,6 +16,57 @@
       "message": "I started a new cl here, trying to address your comments in https://chromium-review.googlesource.com/c/breakpad/breakpad/+/4095054.",
       "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07a182ac_7e8c7d22",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-13T14:38:54Z",
+      "side": 1,
+      "message": "If you get rid of the last two `strlen`s here (see below), do you still need this?\n\nI don’t know the answer, I haven’t looked carefully to see if there’s anything else from `\u003cstring.h\u003e` used here, I just see that all of the `strcmp`s and `strncmp`s and all but two of the `strlen`s are gone.",
+      "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f226527_9ef4349c",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-13T14:38:54Z",
+      "side": 1,
+      "message": "I don’t really like the `string.find(prefix) \u003d\u003d 0` pattern because it wastes time looking for `prefix` as a substring when the caller doesn’t need that information, it just needs to know if it’s a prefix (if `string` begins with it). C++20 has `starts_with` but we’re not quite there yet. In C++17, about the best you can do is `string.compare(0, prefix.size, prefix) \u003d\u003d 0` or `string.substr(0, prefix.size()) \u003d\u003d prefix`, which is inexpensive for `string_view`. You can wrap it in a helper function (like `StringViewStartsWith`) to avoid the repetition of having to write that expression everywhere you need it. It also provides an easy path to `starts_with`, when C++20 is possible here, especially if you leave behind a comment as a breadcrumb.",
+      "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31047ecd_ceccb956",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-13T14:38:54Z",
+      "side": 1,
+      "message": "1. Why don’t you make `\".debug_\"` and `\".zdebug_\"` `string_view`s also so that you don’t need `strlen`?\n\n2. `remove_prefix` is a little more documentary than `substr` for what you’re doing here.",
+      "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
