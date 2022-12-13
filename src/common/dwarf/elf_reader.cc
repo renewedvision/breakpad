@@ -39,9 +39,9 @@
 #include <unistd.h>
 
 #include <algorithm>
-#include <cstring>
 #include <map>
 #include <string>
+#include <string_view>
 #include <vector>
 // TODO(saugustine): Add support for compressed debug.
 // Also need to add configure tests for zlib.
@@ -215,7 +215,7 @@ class ElfSectionReader {
                 (header_.sh_offset - offset_aligned);
 
     // Check for and handle any compressed contents.
-    //if (name == ".zdebug_")
+    //if (name.find(".zdebug_") == 0)
     //  DecompressZlibContents();
     // TODO(saugustine): Add support for proposed elf-section flag
     // "SHF_COMPRESS".
@@ -359,8 +359,8 @@ class ElfReaderImpl {
       // "opd_section_" must always be checked for NULL before use.
       opd_section_ = GetSectionInfoByName(".opd", &opd_info_);
       for (unsigned int k = 0u; k < GetNumSections(); ++k) {
-        const char* name = GetSectionName(section_headers_[k].sh_name);
-        if (strncmp(name, ".text", strlen(".text")) == 0) {
+        std::string_view name{GetSectionName(section_headers_[k].sh_name)};
+        if (name.find(".text") == 0) {
           base_for_text_ =
               section_headers_[k].sh_addr - section_headers_[k].sh_offset;
           break;
@@ -809,9 +809,10 @@ class ElfReaderImpl {
     // Debug sections are likely to be near the end, so reverse the
     // direction of iteration.
     for (int k = GetNumSections() - 1; k >= 0; --k) {
-      const char* name = GetSectionName(section_headers_[k].sh_name);
-      if (strncmp(name, ".debug", strlen(".debug")) == 0) return true;
-      if (strncmp(name, ".zdebug", strlen(".zdebug")) == 0) return true;
+      std::string_view name{GetSectionName(section_headers_[k].sh_name)};
+      if (name.find(".debug") == 0 || name.find(".zdebug") == 0) {
+        return true;
+      }
     }
     return false;
   }
@@ -1213,11 +1214,10 @@ const char* ElfReader::GetSectionInfoByName(const string& section_name,
   }
 }
 
-bool ElfReader::SectionNamesMatch(const string& name, const string& sh_name) {
+bool ElfReader::SectionNamesMatch(std::string_view name,
+                                  std::string_view sh_name) {
   if ((name.find(".debug_", 0) == 0) && (sh_name.find(".zdebug_", 0) == 0)) {
-    const string name_suffix(name, strlen(".debug_"));
-    const string sh_name_suffix(sh_name, strlen(".zdebug_"));
-    return name_suffix == sh_name_suffix;
+    return name.substr(strlen(".debug_")) == sh_name.substr(strlen(".zdebug_"));
   }
   return name == sh_name;
 }
