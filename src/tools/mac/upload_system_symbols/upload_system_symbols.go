@@ -63,6 +63,7 @@ var (
 	dumpOnlyPath     = flag.String("dump-to", "", "Dump the symbols to the specified directory, but do not upload them.")
 	systemRoot       = flag.String("system-root", "", "Path to the root of the Mac OS X system whose symbols will be dumped.")
 	dumpArchitecture = flag.String("arch", "", "The CPU architecture for which symbols should be dumped. If not specified, dumps all architectures.")
+	apiKey           = flag.String("api-key", "", "API key to use. If this is present, the `sym-upload-v2` protocol is used.\nSee https://chromium.googlesource.com/breakpad/breakpad/+/HEAD/docs/sym_upload_v2_protocol.md or\n`symupload`'s help for more information")
 )
 
 var (
@@ -80,11 +81,21 @@ var (
 		"/Library/QuickTime",
 	}
 
-	// uploadServers are the list of servers to which symbols should be uploaded.
-	uploadServers = []string{
+	// uploadServersV1 are the list of servers to which symbols should be uploaded when using the V1 API.
+	uploadServersV1 = []string{
 		"https://clients2.google.com/cr/symbol",
 		"https://clients2.google.com/cr/staging_symbol",
 	}
+	// uploadServersV2 are the list of servers to which symbols should be uploaded when using the V2 API.
+	uploadServersV2 = []string{
+		"https://staging-crashsymbolcollector-pa.googleapis.com",
+		"https://prod-crashsymbolcollector-pa.googleapis.com",
+	}
+
+	// useV2API indicates that v2 of the symbol upload API should be used.
+	useV2API         = false
+	// uploadServers are the list of servers that should be used, accounting for `useV2API`
+	uploadServers    = uploadServersV1
 
 	// blacklistRegexps match paths that should be excluded from dumping.
 	blacklistRegexps = []*regexp.Regexp{
@@ -136,6 +147,10 @@ func main() {
 			dumpPath = p
 			defer os.RemoveAll(p)
 		}
+	}
+	if len(*apiKey) > 0 {
+		useV2API = true
+		uploadServers = uploadServersV2
 	}
 
 	dq := StartDumpQueue(*systemRoot, dumpPath, uq)
@@ -194,13 +209,21 @@ func (uq *UploadQueue) Done() {
 	close(uq.queue)
 }
 
+func (uq *UploadQueue) uploadArgs(symfile, server string) []string {
+	if (useV2API) {
+		return []string{"-p", "sym-upload-v2", "-k", *apiKey, symfile, server}
+	} else {
+		return []string{symfile, server}
+	}
+}
+
 func (uq *UploadQueue) worker() {
 	symUpload := path.Join(*breakpadTools, "symupload")
 
 	for symfile := range uq.queue {
 		for _, server := range uploadServers {
 			for i := 0; i < 3; i++ { // Give each upload 3 attempts to succeed.
-				cmd := exec.Command(symUpload, symfile, server)
+				cmd := exec.Command(symUpload, uq.uploadArgs(symfile, server)...)
 				if output, err := cmd.Output(); err == nil {
 					// Success. No retry needed.
 					fmt.Printf("Uploaded %s to %s\n", symfile, server)
