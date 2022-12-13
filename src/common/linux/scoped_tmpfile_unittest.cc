@@ -28,19 +28,18 @@
 
 // scoped_tmpfile_unittest.cc: Unit tests for google_breakpad::ScopedTmpfile.
 
+#include "breakpad_googletest_includes.h"
 #include "common/linux/scoped_tmpfile.h"
 
 #include <unistd.h>
-
-#include "breakpad_googletest_includes.h"
 
 using google_breakpad::ScopedTmpFile;
 
 TEST(ScopedTmpFileTest, CheckContentsMatch) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("Test"));
+  ASSERT_TRUE(file.Init("Test"));
 
   char file_contents[5] = {0};
   ASSERT_EQ(4, read(file.GetFd(), file_contents, sizeof(file_contents)));
-  EXPECT_STREQ(file_contents, "Test");
+  ASSERT_EQ(0, strcmp(file_contents, "Test"));
 }

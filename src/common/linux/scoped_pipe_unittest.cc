@@ -26,73 +26,43 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Utility class for creating a temporary file that is deleted in the
-// destructor.
+// scoped_pipe_unittest.cc: Unit tests for google_breakpad::ScopedPipe.
 
-#include "common/linux/scoped_tmpfile.h"
+#include "common/linux/scoped_pipe.h"
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/types.h>
+#include "breakpad_googletest_includes.h"
 
-#include <string>
-#include <cstring>
+using google_breakpad::ScopedPipe;
 
-#include "common/linux/eintr_wrapper.h"
+TEST(ScopedPipeTest, WriteAndClose) {
+  const char* test_data = "One\nTwo\nThree";
+  ScopedPipe pipe;
+  ASSERT_TRUE(pipe.Init());
+  ASSERT_TRUE(pipe.Write(test_data, strlen(test_data)));
+  pipe.CloseWriteFd();
 
-#if !defined(__ANDROID__)
-#define TEMPDIR "/tmp"
-#else
-#define TEMPDIR "/data/local/tmp"
-#endif
-
-namespace google_breakpad {
-
-ScopedTmpFile::~ScopedTmpFile() {
-  if (fd_ >= 0) {
-    close(fd_);
-    fd_ = -1;
-  }
+  std::string line;
+  ASSERT_TRUE(pipe.ReadLine(line));
+  ASSERT_EQ(line, "One");
+  ASSERT_TRUE(pipe.ReadLine(line));
+  ASSERT_EQ(line, "Two");
+  ASSERT_TRUE(pipe.ReadLine(line));
+  ASSERT_EQ(line, "Three");
+  ASSERT_FALSE(pipe.ReadLine(line));
 }
 
-bool ScopedTmpFile::Init() {
-  // Prevent calling Init when fd_ is already valid, leaking the file.
-  if (fd_ != -1) {
-    return false;
-  }
+TEST(ScopedPipeTest, MultipleWrites) {
+  const char* test_data_one = "One\n";
+  const char* test_data_two = "Two\n";
+  ScopedPipe pipe;
+  std::string line;
 
-  // Respect the TMPDIR environment variable.
-  const char* tempdir = getenv("TMPDIR");
-  if (!tempdir) {
-    tempdir = TEMPDIR;
-  }
+  ASSERT_TRUE(pipe.Init());
+  ASSERT_TRUE(pipe.Write(test_data_one, strlen(test_data_one)));
+  ASSERT_TRUE(pipe.ReadLine(line));
+  ASSERT_EQ(line, "One");
 
-  // Create a temporary file that is not linked in to the filesystem, and that
-  // is only accessible by the current user.
-  fd_ = open(tempdir, O_TMPFILE | O_RDWR, S_IRUSR | S_IWUSR);
-
-  return fd_ >= 0;
+  ASSERT_TRUE(pipe.Write(test_data_two, strlen(test_data_two)));
+  ASSERT_TRUE(pipe.ReadLine(line));
+  ASSERT_EQ(line, "Two");
 }
-
-bool ScopedTmpFile::Init(const char* text) {
-  return Init(text, strlen(text));
-}
-
-bool ScopedTmpFile::Init(const void* data, size_t data_len) {
-  if (!Init()) {
-    return false;
-  }
-
-  return SetContents(data, data_len);
-}
-
-bool ScopedTmpFile::SetContents(const void* data, size_t data_len) {
-  ssize_t r = HANDLE_EINTR(write(fd_, data, data_len));
-  if (r != static_cast<ssize_t>(data_len)) {
-    return false;
-  }
-
-  return 0 == lseek(fd_, 0, SEEK_SET);
-}
-
-}  // namespace google_breakpad

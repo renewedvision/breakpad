@@ -47,28 +47,28 @@ class ScopedTmpFile {
  public:
   // Initialize the ScopedTmpFile object - this does not create the temporary
   // file until Init is called.
-  ScopedTmpFile();
+  ScopedTmpFile() = default;
 
   // Destroy temporary file on scope exit.
   ~ScopedTmpFile();
 
   // Creates the empty temporary file - returns true iff the temporary file was
   // created successfully. Should always be checked before using the file.
-  bool InitEmpty();
+  bool Init();
 
   // Creates the temporary file with the provided C string. The terminating null
   // is not written. Returns true iff the temporary file was created
   // successfully and the contents were written successfully.
-  bool InitString(const char* text);
+  bool Init(const char* text);
 
   // Creates the temporary file with the provided data. Returns true iff the
   // temporary file was created successfully and the contents were written
   // successfully.
-  bool InitData(const void* data, size_t data_len);
+  bool Init(const void* data, size_t data_len);
 
   // Returns the Posix file descriptor for the test file, or -1 if Init()
   // returned false. Note: on Windows, this always returns -1.
-  int GetFd() const {
+  inline int GetFd() const {
     return fd_;
   }
 

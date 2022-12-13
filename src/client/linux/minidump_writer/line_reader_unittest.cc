@@ -44,7 +44,7 @@ typedef testing::Test LineReaderTest;
 
 TEST(LineReaderTest, EmptyFile) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString(""));
+  ASSERT_TRUE(file.Init(""));
   LineReader reader(file.GetFd());
 
   const char* line;
@@ -54,7 +54,7 @@ TEST(LineReaderTest, EmptyFile) {
 
 TEST(LineReaderTest, OneLineTerminated) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("a\n"));
+  ASSERT_TRUE(file.Init("a\n"));
   LineReader reader(file.GetFd());
 
   const char* line;
@@ -70,7 +70,7 @@ TEST(LineReaderTest, OneLineTerminated) {
 
 TEST(LineReaderTest, OneLine) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("a"));
+  ASSERT_TRUE(file.Init("a"));
   LineReader reader(file.GetFd());
 
   const char* line;
@@ -86,7 +86,7 @@ TEST(LineReaderTest, OneLine) {
 
 TEST(LineReaderTest, TwoLinesTerminated) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("a\nb\n"));
+  ASSERT_TRUE(file.Init("a\nb\n"));
   LineReader reader(file.GetFd());
 
   const char* line;
@@ -108,7 +108,7 @@ TEST(LineReaderTest, TwoLinesTerminated) {
 
 TEST(LineReaderTest, TwoLines) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("a\nb"));
+  ASSERT_TRUE(file.Init("a\nb"));
   LineReader reader(file.GetFd());
 
   const char* line;
@@ -132,7 +132,7 @@ TEST(LineReaderTest, MaxLength) {
   char l[LineReader::kMaxLineLen-1];
   memset(l, 'a', sizeof(l));
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitData(l, sizeof(l)));
+  ASSERT_TRUE(file.Init(l, sizeof(l)));
   LineReader reader(file.GetFd());
 
   const char* line;
@@ -148,7 +148,7 @@ TEST(LineReaderTest, TooLong) {
   char l[LineReader::kMaxLineLen];
   memset(l, 'a', sizeof(l));
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitData(l, sizeof(l)));
+  ASSERT_TRUE(file.Init(l, sizeof(l)));
   LineReader reader(file.GetFd());
 
   const char* line;

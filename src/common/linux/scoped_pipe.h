@@ -26,73 +26,64 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Utility class for creating a temporary file that is deleted in the
-// destructor.
+#ifndef COMMON_LINUX_SCOPED_PIPE_H_
+#define COMMON_LINUX_SCOPED_PIPE_H_
 
-#include "common/linux/scoped_tmpfile.h"
-
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/types.h>
-
+#include <stdint.h>
 #include <string>
-#include <cstring>
-
-#include "common/linux/eintr_wrapper.h"
-
-#if !defined(__ANDROID__)
-#define TEMPDIR "/tmp"
-#else
-#define TEMPDIR "/data/local/tmp"
-#endif
 
 namespace google_breakpad {
 
-ScopedTmpFile::~ScopedTmpFile() {
-  if (fd_ >= 0) {
-    close(fd_);
-    fd_ = -1;
-  }
-}
+// Small RAII wrapper for a pipe pair.
+//
+// Example:
+//   ScopedPipe tmp;
+//   std::string line;
+//   if (tmp.Init() && tmp.Write(bytes, bytes_len)) {
+//     tmp.CloseWriteFd();
+//     while (tmp.ReadLine(&line)) {
+//       std::cerr << line << std::endl;
+//     }
+//   }
+class ScopedPipe {
+ public:
+  ScopedPipe();
+  ~ScopedPipe();
 
-bool ScopedTmpFile::Init() {
-  // Prevent calling Init when fd_ is already valid, leaking the file.
-  if (fd_ != -1) {
-    return false;
-  }
+  // Creates the pipe pair - returns false on error.
+  bool Init();
 
-  // Respect the TMPDIR environment variable.
-  const char* tempdir = getenv("TMPDIR");
-  if (!tempdir) {
-    tempdir = TEMPDIR;
-  }
-
-  // Create a temporary file that is not linked in to the filesystem, and that
-  // is only accessible by the current user.
-  fd_ = open(tempdir, O_TMPFILE | O_RDWR, S_IRUSR | S_IWUSR);
-
-  return fd_ >= 0;
-}
-
-bool ScopedTmpFile::Init(const char* text) {
-  return Init(text, strlen(text));
-}
-
-bool ScopedTmpFile::Init(const void* data, size_t data_len) {
-  if (!Init()) {
-    return false;
+  int GetReadFd() const {
+    return fds_[0];
   }
 
-  return SetContents(data, data_len);
-}
-
-bool ScopedTmpFile::SetContents(const void* data, size_t data_len) {
-  ssize_t r = HANDLE_EINTR(write(fd_, data, data_len));
-  if (r != static_cast<ssize_t>(data_len)) {
-    return false;
+  int GetWriteFd() const {
+    return fds_[1];
   }
 
-  return 0 == lseek(fd_, 0, SEEK_SET);
-}
+  // Close the read pipe. This only needs to be used when the read pipe needs to
+  // be closed earlier.
+  void CloseReadFd();
+
+  // Close the write pipe. This only needs to be used when the write pipe needs
+  // to be closed earlier.
+  void CloseWriteFd();
+
+  // Writes bytes to the write end of the pipe, returns false and closes write
+  // pipe on failure.
+  bool Write(const void* bytes, size_t bytes_len);
+
+  // Reads characters until newline or end of pipe. On read failure this will
+  // close the read pipe, but continue to return true and read buffered lines
+  // until the internal buffering is exhausted. This will block if there is no
+  // data available on the read pipe.
+  bool ReadLine(std::string& line);
+
+ private:
+  int fds_[2];
+  std::string read_buffer_;
+};
 
 }  // namespace google_breakpad
+
+#endif // COMMON_LINUX_SCOPED_PIPE_H_

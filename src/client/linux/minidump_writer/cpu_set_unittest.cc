@@ -52,7 +52,7 @@ TEST(CpuSetTest, EmptyCount) {
 
 TEST(CpuSetTest, OneCpu) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("10"));
+  ASSERT_TRUE(file.Init("10"));
 
   CpuSet set;
   ASSERT_TRUE(set.ParseSysFile(file.GetFd()));
@@ -61,7 +61,7 @@ TEST(CpuSetTest, OneCpu) {
 
 TEST(CpuSetTest, OneCpuTerminated) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("10\n"));
+  ASSERT_TRUE(file.Init("10\n"));
 
   CpuSet set;
   ASSERT_TRUE(set.ParseSysFile(file.GetFd()));
@@ -70,7 +70,7 @@ TEST(CpuSetTest, OneCpuTerminated) {
 
 TEST(CpuSetTest, TwoCpusWithComma) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("1,10"));
+  ASSERT_TRUE(file.Init("1,10"));
 
   CpuSet set;
   ASSERT_TRUE(set.ParseSysFile(file.GetFd()));
@@ -79,7 +79,7 @@ TEST(CpuSetTest, TwoCpusWithComma) {
 
 TEST(CpuSetTest, TwoCpusWithRange) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("1-2"));
+  ASSERT_TRUE(file.Init("1-2"));
 
   CpuSet set;
   ASSERT_TRUE(set.ParseSysFile(file.GetFd()));
@@ -88,7 +88,7 @@ TEST(CpuSetTest, TwoCpusWithRange) {
 
 TEST(CpuSetTest, TenCpusWithRange) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("9-18"));
+  ASSERT_TRUE(file.Init("9-18"));
 
   CpuSet set;
   ASSERT_TRUE(set.ParseSysFile(file.GetFd()));
@@ -97,7 +97,7 @@ TEST(CpuSetTest, TenCpusWithRange) {
 
 TEST(CpuSetTest, MultiItems) {
   ScopedTmpFile file;
-  ASSERT_TRUE(file.InitString("0, 2-4, 128"));
+  ASSERT_TRUE(file.Init("0, 2-4, 128"));
 
   CpuSet set;
   ASSERT_TRUE(set.ParseSysFile(file.GetFd()));
@@ -106,14 +106,14 @@ TEST(CpuSetTest, MultiItems) {
 
 TEST(CpuSetTest, IntersectWith) {
   ScopedTmpFile file1;
-  ASSERT_TRUE(file1.InitString("9-19"));
+  ASSERT_TRUE(file1.Init("9-19"));
 
   CpuSet set1;
   ASSERT_TRUE(set1.ParseSysFile(file1.GetFd()));
   ASSERT_EQ(11, set1.GetCount());
 
   ScopedTmpFile file2;
-  ASSERT_TRUE(file2.InitString("16-24"));
+  ASSERT_TRUE(file2.Init("16-24"));
 
   CpuSet set2;
   ASSERT_TRUE(set2.ParseSysFile(file2.GetFd()));
@@ -126,7 +126,7 @@ TEST(CpuSetTest, IntersectWith) {
 
 TEST(CpuSetTest, SelfIntersection) {
   ScopedTmpFile file1;
-  ASSERT_TRUE(file1.InitString("9-19"));
+  ASSERT_TRUE(file1.Init("9-19"));
 
   CpuSet set1;
   ASSERT_TRUE(set1.ParseSysFile(file1.GetFd()));
@@ -138,14 +138,14 @@ TEST(CpuSetTest, SelfIntersection) {
 
 TEST(CpuSetTest, EmptyIntersection) {
   ScopedTmpFile file1;
-  ASSERT_TRUE(file1.InitString("0-19"));
+  ASSERT_TRUE(file1.Init("0-19"));
 
   CpuSet set1;
   ASSERT_TRUE(set1.ParseSysFile(file1.GetFd()));
   ASSERT_EQ(20, set1.GetCount());
 
   ScopedTmpFile file2;
-  ASSERT_TRUE(file2.InitString("20-39"));
+  ASSERT_TRUE(file2.Init("20-39"));
 
   CpuSet set2;
   ASSERT_TRUE(set2.ParseSysFile(file2.GetFd()));
