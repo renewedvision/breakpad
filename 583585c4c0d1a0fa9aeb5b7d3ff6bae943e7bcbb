@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a6f0fc_99a6b0f9",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-14T18:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e735d9c7_a21bf02c",
+      "range": {
+        "startLine": 66,
+        "startChar": 259,
+        "endLine": 66,
+        "endChar": 260
+      },
+      "revId": "583585c4c0d1a0fa9aeb5b7d3ff6bae943e7bcbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "966dcf54_f0a5a5c9",
@@ -41,6 +65,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3693e7b3_d4d72833",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-14T18:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "966dcf54_f0a5a5c9",
+      "revId": "583585c4c0d1a0fa9aeb5b7d3ff6bae943e7bcbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a51f286_9c819e85",
@@ -54,6 +96,24 @@
       "writtenOn": "2022-12-14T18:00:58Z",
       "side": 1,
       "message": "Why not change this to be `runSymUpload(symUpload, symfile, server string) exec.Cmd` and then move line 224 and 229 into it.",
+      "revId": "583585c4c0d1a0fa9aeb5b7d3ff6bae943e7bcbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc3ce375_6542fc52",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-14T18:29:09Z",
+      "side": 1,
+      "message": "How\u0027s this?",
+      "parentUuid": "4a51f286_9c819e85",
       "revId": "583585c4c0d1a0fa9aeb5b7d3ff6bae943e7bcbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
