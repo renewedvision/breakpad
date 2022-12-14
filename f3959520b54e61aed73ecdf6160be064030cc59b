@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4abba89b_c05c668b",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2022-12-14T06:13:27Z",
+      "side": 1,
+      "message": "There is one function remaining `memcmp` at line 411. So, I keep `\u003cstring.h\u003e` for now.",
+      "parentUuid": "07a182ac_7e8c7d22",
+      "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f226527_9ef4349c",
         "filename": "src/common/dwarf/elf_reader.cc",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2022-12-13T14:38:54Z",
       "side": 1,
       "message": "I don’t really like the `string.find(prefix) \u003d\u003d 0` pattern because it wastes time looking for `prefix` as a substring when the caller doesn’t need that information, it just needs to know if it’s a prefix (if `string` begins with it). C++20 has `starts_with` but we’re not quite there yet. In C++17, about the best you can do is `string.compare(0, prefix.size, prefix) \u003d\u003d 0` or `string.substr(0, prefix.size()) \u003d\u003d prefix`, which is inexpensive for `string_view`. You can wrap it in a helper function (like `StringViewStartsWith`) to avoid the repetition of having to write that expression everywhere you need it. It also provides an easy path to `starts_with`, when C++20 is possible here, especially if you leave behind a comment as a breadcrumb.",
+      "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a00ef4ee_b63676d4",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2022-12-14T06:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f226527_9ef4349c",
       "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2022-12-13T14:38:54Z",
       "side": 1,
       "message": "1. Why don’t you make `\".debug_\"` and `\".zdebug_\"` `string_view`s also so that you don’t need `strlen`?\n\n2. `remove_prefix` is a little more documentary than `substr` for what you’re doing here.",
+      "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29d4246c_2b05603d",
+        "filename": "src/common/dwarf/elf_reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2022-12-14T06:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31047ecd_ceccb956",
       "revId": "f3959520b54e61aed73ecdf6160be064030cc59b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
