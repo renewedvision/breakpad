@@ -94,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d598551a_64ac3d0f",
+        "filename": "src/processor/disassembler_objdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-14T13:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "095c649d_5378eb4f",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "9f34cd986ad45ba69dd790a3327ace62b72fdf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d918e4f_d54ecdb8",
@@ -107,6 +131,30 @@
       "writtenOn": "2022-10-20T17:05:06Z",
       "side": 1,
       "message": "I\u0027d remove these once I can test the gyp build on at least linux and windows.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "9f34cd986ad45ba69dd790a3327ace62b72fdf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd8c351a_90433153",
+        "filename": "src/processor/disassembler_objdump.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-14T13:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d918e4f_d54ecdb8",
       "range": {
         "startLine": 43,
         "startChar": 0,
