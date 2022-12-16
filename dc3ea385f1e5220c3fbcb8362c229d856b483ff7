@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8994304_97ccf4d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "Shell programming’s a totally different kind of thing, innit?",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f548c655_0020fdd8",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "Since this will work from BS on up, we should give it a more generic name than ventura.",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a0f5aa6_b997027a",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "Minor: I like to put the `-d` before the `-f`, because I think that reads better: “split on dots, take the first component”.",
+      "range": {
+        "startLine": 5,
+        "startChar": 42,
+        "endLine": 5,
+        "endChar": 55
+      },
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5869eea7_9d9343f1",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "Always present shell variables in `${…}` form, and always quote them, unless there’s a good reason not to: `\"${major_version}\"`.\n\nOn the other hand, you didn’t strictly need to quote the `13`, although it’s also not a problem that you did.\n\nSame with your use of `${cache}` on line 16.",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e5de07d_e538aca5",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "This doesn’t do exactly what you think it does. In `[[…]]`, `\u003c` gives a lexicographic comparison, but you want a numeric comparison, for which you need `-lt`.",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b60f416_963073b0",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "There’s a loose space at the end of this line and line 9.",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d624c235_d4fe2ab2",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "There’s a loose semicolon at the end of this line and line 9.",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd4ca0e_b70b7bb3",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "If we can’t get one of each family (and the OS ≥ 11), do you want to print a warning to let someone know that their job is incomplete?",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "456def00_63ae61ec",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-16T14:33:45Z",
+      "side": 1,
+      "message": "I haven’t seen what you’re doing to upload_system_symbols yet, but the context around you uses `--…\u003d…` for command-line arguments, so this should be `--api-key\u003d\u003cYOUR API KEY\u003e` for consistency.",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
