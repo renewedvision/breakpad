@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1821688d_65913750",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "I am like a baby here",
+      "parentUuid": "d8994304_97ccf4d1",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f548c655_0020fdd8",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad9fb5fc_51c055c8",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f548c655_0020fdd8",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a0f5aa6_b997027a",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-12-16T14:33:45Z",
       "side": 1,
       "message": "Minor: I like to put the `-d` before the `-f`, because I think that reads better: “split on dots, take the first component”.",
+      "range": {
+        "startLine": 5,
+        "startChar": 42,
+        "endLine": 5,
+        "endChar": 55
+      },
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae9015a0_0b560368",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a0f5aa6_b997027a",
       "range": {
         "startLine": 5,
         "startChar": 42,
@@ -109,6 +169,60 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2cfa22e_057a31ee",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5869eea7_9d9343f1",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b52c550b_1455720f",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b60f416_963073b0",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f9c298_f87e3345",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e5de07d_e538aca5",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d624c235_d4fe2ab2",
@@ -122,6 +236,24 @@
       "writtenOn": "2022-12-16T14:33:45Z",
       "side": 1,
       "message": "There’s a loose semicolon at the end of this line and line 9.",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cbf2cce_01d5ee3c",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d624c235_d4fe2ab2",
       "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -143,6 +275,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a92b7ae_5ed17935",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fd4ca0e_b70b7bb3",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "456def00_63ae61ec",
@@ -156,6 +306,24 @@
       "writtenOn": "2022-12-16T14:33:45Z",
       "side": 1,
       "message": "I haven’t seen what you’re doing to upload_system_symbols yet, but the context around you uses `--…\u003d…` for command-line arguments, so this should be `--api-key\u003d\u003cYOUR API KEY\u003e` for consistency.",
+      "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4844fd36_89f829bf",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_ventura.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-17T00:10:48Z",
+      "side": 1,
+      "message": "Done. The go flags library prints the help in that format, so I got turned around.",
+      "parentUuid": "456def00_63ae61ec",
       "revId": "dc3ea385f1e5220c3fbcb8362c229d856b483ff7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
