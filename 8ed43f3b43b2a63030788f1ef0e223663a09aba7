@@ -16,6 +16,57 @@
       "message": "Unfortunately rename detection has now failed :/",
       "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bdb16d3_af484a32",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-20T17:37:23Z",
+      "side": 1,
+      "message": "This makes it a bashism, so do `#!/bin/bash` at the top, or keep it not-bashy by making this a space-separated list and making line 24 do `for arch in $architectures; do`.",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2097aa09_e6db8cf0",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-20T17:37:23Z",
+      "side": 1,
+      "message": "Maybe this should go to stderr: `\u003e\u0026 2`. Same on the next line. Also, try to stay within 80 columns.",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9cfc997_a2687929",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-12-20T17:37:23Z",
+      "side": 1,
+      "message": "Maybe you should have a nonzero exit status if any architectures were missed.",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
