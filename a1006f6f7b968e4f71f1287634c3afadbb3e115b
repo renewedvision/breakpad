@@ -16,6 +16,23 @@
       "message": "PTAL :)",
       "revId": "a1006f6f7b968e4f71f1287634c3afadbb3e115b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65e325d8_da8b0bb9",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2022-12-20T21:52:19Z",
+      "side": 1,
+      "message": "Should this also check that this is using API v2?",
+      "revId": "a1006f6f7b968e4f71f1287634c3afadbb3e115b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
