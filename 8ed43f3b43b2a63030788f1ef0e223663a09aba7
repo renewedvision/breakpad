@@ -20,6 +20,74 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23f42565_338198b5",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-20T17:56:02Z",
+      "side": 1,
+      "message": "every file needs a license \u0026 copyright block",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68cabb9c_f3547e8c",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-20T17:56:02Z",
+      "side": 1,
+      "message": "we omit braces for single-char builtins -- i.e. use `\"$0\"`",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c328633_327ec947",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-20T17:56:02Z",
+      "side": 1,
+      "message": "shell scripts use 2 space indent",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60c071b7_4247aed8",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-20T17:56:02Z",
+      "side": 1,
+      "message": "never hardcode paths under /tmp.  use `mktemp -d` instead, and put everything under that.  and add a `trap` to delete that path.",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5bdb16d3_af484a32",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 3
@@ -31,6 +99,41 @@
       "writtenOn": "2022-12-20T17:37:23Z",
       "side": 1,
       "message": "This makes it a bashism, so do `#!/bin/bash` at the top, or keep it not-bashy by making this a space-separated list and making line 24 do `for arch in $architectures; do`.",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af36d702_002887ce",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-20T17:56:02Z",
+      "side": 1,
+      "message": "i\u0027d lobby for POSIX shell for device production, but i think this is build-time only since it\u0027s uploading symbol files ?  in which case, go with bash.\n\ni\u0027ll note there\u0027s lots of other bashisms in here already -- the `[[` most notably, but also relying on structure of `$0`.",
+      "parentUuid": "5bdb16d3_af484a32",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb65901c_f999aa50",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-12-20T17:56:02Z",
+      "side": 1,
+      "message": "run `shellcheck` on the script and fix all the issues it finds",
       "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
