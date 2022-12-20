@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eba318e5_98e27e40",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-20T18:43:55Z",
+      "side": 1,
+      "message": "This is an update of an existing Mac-team-internal script; we\u0027re just using the repo for review tooling. I think Mark marking it for review was a misclick",
+      "parentUuid": "23f42565_338198b5",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68cabb9c_f3547e8c",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 3
