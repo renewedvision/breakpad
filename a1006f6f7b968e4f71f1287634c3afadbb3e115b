@@ -33,6 +33,24 @@
       "message": "Should this also check that this is using API v2?",
       "revId": "a1006f6f7b968e4f71f1287634c3afadbb3e115b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e0cef47_b3350735",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-20T21:58:34Z",
+      "side": 1,
+      "message": "I wanted to do an assert but was informed by Go\u0027s docs that it prevents deep thinking about error cases. Is there something more idiomatic than stuffing a third clause into this already kind of unwieldy if?",
+      "parentUuid": "65e325d8_da8b0bb9",
+      "revId": "a1006f6f7b968e4f71f1287634c3afadbb3e115b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
