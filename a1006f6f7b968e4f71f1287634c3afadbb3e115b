@@ -69,6 +69,24 @@
       "parentUuid": "3e0cef47_b3350735",
       "revId": "a1006f6f7b968e4f71f1287634c3afadbb3e115b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84beca37_4a7d2e87",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2022-12-21T14:13:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2824b587_881fef9b",
+      "revId": "a1006f6f7b968e4f71f1287634c3afadbb3e115b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
