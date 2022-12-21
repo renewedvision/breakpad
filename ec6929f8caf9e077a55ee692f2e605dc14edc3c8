@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0224b10c_d23665cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-21T10:05:24Z",
+      "side": 1,
+      "message": "Follow-on from the ScopedTmpFile change, this is very similar but for a pipe, please see the relation chain for context.",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
