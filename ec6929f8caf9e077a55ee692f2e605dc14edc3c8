@@ -16,6 +16,137 @@
       "message": "Follow-on from the ScopedTmpFile change, this is very similar but for a pipe, please see the relation chain for context.",
       "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "591cd1ac_6d52b5b3",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-21T21:00:50Z",
+      "side": 1,
+      "message": "Does this need to be initialized? Is read() just going to overwrite it anyway?",
+      "range": {
+        "startLine": 84,
+        "startChar": 22,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae19ebae_10d896db",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-21T21:00:50Z",
+      "side": 1,
+      "message": "Is there an advantage to using assign(), vs. say, `line \u003d read_buffer_.substr(0, eol_index);`?",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be26c837_d06c804b",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-21T21:00:50Z",
+      "side": 1,
+      "message": "Not needed after a return.",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 8
+      },
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3b98bca_8496d4fc",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-21T21:00:50Z",
+      "side": 1,
+      "message": "Can this part of the code swap() with `line` instead?",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6de0a942_9019e7a2",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-21T21:00:50Z",
+      "side": 1,
+      "message": "Has no callers further down the CL chain?",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6f77d80_52ff0d44",
+        "filename": "src/common/linux/scoped_pipe_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-21T21:00:50Z",
+      "side": 1,
+      "message": "This is not truly const, as `test_data \u003d nullptr;` compiles. Switch to `const char kTestData[] \u003d \"...\";`?",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dbe2918_b53cf36f",
+        "filename": "src/common/linux/scoped_pipe_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-21T21:00:50Z",
+      "side": 1,
+      "message": "Can the declarations and `pipe.Init()` happen in a consistent order with the other test case?",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
