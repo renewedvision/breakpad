@@ -16,6 +16,24 @@
       "message": "Merge with lines 34-36.",
       "revId": "5de80775350086a916c3ac013954b0aa396aeb03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5185d36f_436e5a1a",
+        "filename": "src/common/linux/scoped_tmpfile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-22T13:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "040ca314_fc9d691e",
+      "revId": "5de80775350086a916c3ac013954b0aa396aeb03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
