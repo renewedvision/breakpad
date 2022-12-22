@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83de13c3_970daaa0",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-22T18:52:23Z",
+      "side": 1,
+      "message": "Also has no callers outside of this CL? Make it private?",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "566cf22c_66231f98",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-22T18:52:23Z",
+      "side": 1,
+      "message": "Even though this method is marked const, it hands out the file descriptor and allows the caller to operate on it. e.g. The caller can get around WriteForTesting() or CloseWriteFd(). I see the caller really just wants to call dup2() on the FD in the next CL in the chain, so should this class just provide a method for doing that?",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff852d20_6433a7b1",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-22T18:52:23Z",
+      "side": 1,
+      "message": "Also have no callers in the next CL, even though the documentation in this header shows an example suggesting callers use it.",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af29817a_4328e7b0",
+        "filename": "src/common/linux/scoped_pipe_unittest.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2022-12-22T18:52:23Z",
+      "side": 1,
+      "message": "Same not truly const issue here.",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
