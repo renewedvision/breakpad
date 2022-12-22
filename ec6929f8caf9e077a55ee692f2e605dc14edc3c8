@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a39d2a4f_e6d76999",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-22T12:56:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "591cd1ac_6d52b5b3",
+      "range": {
+        "startLine": 84,
+        "startChar": 22,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae19ebae_10d896db",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-12-21T21:00:50Z",
       "side": 1,
       "message": "Is there an advantage to using assign(), vs. say, `line \u003d read_buffer_.substr(0, eol_index);`?",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82d879c6_fd7f883b",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-22T12:56:10Z",
+      "side": 1,
+      "message": "No, not especially. I think the compiler should produce the same code.",
+      "parentUuid": "ae19ebae_10d896db",
       "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -81,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de8c330f_d7d7c689",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-22T12:56:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be26c837_d06c804b",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 8
+      },
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3b98bca_8496d4fc",
@@ -94,6 +160,24 @@
       "writtenOn": "2022-12-21T21:00:50Z",
       "side": 1,
       "message": "Can this part of the code swap() with `line` instead?",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d94949cc_388efba4",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-22T12:56:10Z",
+      "side": 1,
+      "message": "No, I don\u0027t think so, since line is an in-out parameter and probably contains the stale contents from the previous line at this point. I\u0027ve changed it to move into line, which should be slightly better.",
+      "parentUuid": "d3b98bca_8496d4fc",
       "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -115,6 +199,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2989603_0e2f84c4",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-22T12:56:10Z",
+      "side": 1,
+      "message": "Yep, it\u0027s needed for the tests though. I\u0027ve renamed it to WriteForTesting.",
+      "parentUuid": "6de0a942_9019e7a2",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6f77d80_52ff0d44",
@@ -132,6 +234,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ff9d91_f5bf18ac",
+        "filename": "src/common/linux/scoped_pipe_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-22T12:56:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6f77d80_52ff0d44",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dbe2918_b53cf36f",
@@ -145,6 +265,24 @@
       "writtenOn": "2022-12-21T21:00:50Z",
       "side": 1,
       "message": "Can the declarations and `pipe.Init()` happen in a consistent order with the other test case?",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "077862ca_7584654c",
+        "filename": "src/common/linux/scoped_pipe_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-22T12:56:10Z",
+      "side": 1,
+      "message": "It was this way around here, because the declaration of line is needed before the first call to ReadLine. I\u0027ve moved the declaration of line up in the first test case so that they match.",
+      "parentUuid": "0dbe2918_b53cf36f",
       "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
