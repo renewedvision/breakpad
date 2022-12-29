@@ -200,6 +200,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "071d25fe_c0f5e8dc",
+        "filename": "src/common/linux/scoped_pipe.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-29T14:08:26Z",
+      "side": 1,
+      "message": "If we used swap it would effectively become in-out, as it might not be empty on entry to the function. I could initialize it on entry to the function, but that seems a bit redundant if it\u0027s just so that we can use swap here.",
+      "parentUuid": "065673a9_d7f958e5",
+      "revId": "ec6929f8caf9e077a55ee692f2e605dc14edc3c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6de0a942_9019e7a2",

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "670e1e35_c0c716da",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-29T14:08:26Z",
+      "side": 1,
+      "message": "How do you feel about the private WriteForTesting and the gtest_prod dependency so that we can use FRIEND_TEST? The alternative is just moving WriteForTesting back to being a public function.\n\nI also couldn\u0027t seem to reduce the include path needed here, although it looks like (from breakpad_googletest_includes.h) that \"gtest/gtest_prod.h\" should work.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 60
+      },
+      "revId": "074fbb43ec9d013baf8e9ac6288a0e7a96e856dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3089511_902f502d",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-29T14:08:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83de13c3_970daaa0",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "566cf22c_66231f98",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-12-22T18:52:23Z",
       "side": 1,
       "message": "Even though this method is marked const, it hands out the file descriptor and allows the caller to operate on it. e.g. The caller can get around WriteForTesting() or CloseWriteFd(). I see the caller really just wants to call dup2() on the FD in the next CL in the chain, so should this class just provide a method for doing that?",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6697c0de_f252854e",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-29T14:08:26Z",
+      "side": 1,
+      "message": "Yep, it\u0027s definitely \"technically\" const rather than semantically const. I\u0027ve made both of those methods private and added in a DupWriteFd method instead.",
+      "parentUuid": "566cf22c_66231f98",
       "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ae228ec_9a2a92bf",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-29T14:08:26Z",
+      "side": 1,
+      "message": "The documentation shows use within a single process, which is not really an idiomatic use case for a pipe. The documentation shows how both the read and write end of the pipe would be used, although at the moment the write end is only used in the unittests, the next CL only needs the read end.\n\nI could change the documentation to reflect the existing use-case (dup\u0027ing the write end to a child process) instead?",
+      "parentUuid": "ff852d20_6433a7b1",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af29817a_4328e7b0",
         "filename": "src/common/linux/scoped_pipe_unittest.cc",
         "patchSetId": 7
@@ -65,6 +119,24 @@
       "writtenOn": "2022-12-22T18:52:23Z",
       "side": 1,
       "message": "Same not truly const issue here.",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23cfc247_f71d32d3",
+        "filename": "src/common/linux/scoped_pipe_unittest.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2022-12-29T14:08:26Z",
+      "side": 1,
+      "message": "Ugh, I must have dropped the second half of the fix here. Done.",
+      "parentUuid": "af29817a_4328e7b0",
       "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
