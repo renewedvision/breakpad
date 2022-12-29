@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb7d6e13_eb27d025",
+        "filename": "src/common/module.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1171009
+      },
+      "writtenOn": "2022-12-29T21:22:06Z",
+      "side": 0,
+      "message": "should a delete be done here as well?",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 11
+      },
+      "revId": "6e03dc0f20feb45851318e58015b53e6be954aed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
