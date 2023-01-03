@@ -468,8 +468,10 @@ bool PDBSourceLineWriter::Open(const wstring& file, FileFormat format) {
       return false;
   }
 
-  if (FAILED(data_source->openSession(&session_))) {
-    fprintf(stderr, "openSession failed\n");
+  HRESULT from_opensession = data_source->openSession(&session_);
+  if (FAILED(from_opensession)) {
+    PrintOpenError(from_opensession, "openSession", file_name);
+    return false;
   }
 
   return true;
