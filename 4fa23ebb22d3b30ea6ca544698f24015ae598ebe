@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2316c94e_7fccfdae",
+        "filename": "src/google_breakpad/common/minidump_format.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-04T16:36:09Z",
+      "side": 1,
+      "message": "See https://chromium-review.googlesource.com/c/2773358/comment/6aa1e5cd_9dcf38e9/.",
+      "revId": "4fa23ebb22d3b30ea6ca544698f24015ae598ebe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
