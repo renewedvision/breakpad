@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "127da54f_24ee56b3",
+        "filename": "src/processor/disassembler_objdump.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-05T20:03:15Z",
+      "side": 1,
+      "message": "“No newline at end of right file.” No other changes in this file. What did you want to do here?",
+      "revId": "85ab31ea10908662fc0fe933dd261ade57a4e0ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b9964b_eda1c0ab",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 5289,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-05T20:03:15Z",
+      "side": 1,
+      "message": "Refer to https://chromium-review.googlesource.com/c/crashpad/crashpad/+/2773358/14..17#message-0933ca7489a8d810f7f1d4ff9f30f0375dd71134. The same comments that I wrote there all apply here.",
+      "revId": "85ab31ea10908662fc0fe933dd261ade57a4e0ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
