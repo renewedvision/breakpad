@@ -22,6 +22,47 @@
       },
       "revId": "074fbb43ec9d013baf8e9ac6288a0e7a96e856dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3b2b5e6_c53ca089",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-01-06T06:54:42Z",
+      "side": 1,
+      "message": "I\u0027m fine with WriteForTesting() being public.",
+      "parentUuid": "670e1e35_c0c716da",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 60
+      },
+      "revId": "074fbb43ec9d013baf8e9ac6288a0e7a96e856dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0360c767_a68a34a2",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-01-06T06:54:42Z",
+      "side": 1,
+      "message": "const method?",
+      "revId": "074fbb43ec9d013baf8e9ac6288a0e7a96e856dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ff5360c_7fe28ede",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-01-06T06:54:42Z",
+      "side": 1,
+      "message": "How about leaving the existing example as is, and then add a second example for duping the write end?",
+      "parentUuid": "4ae228ec_9a2a92bf",
+      "revId": "a22cdf92e37979e801af009816d34e934ee31afb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af29817a_4328e7b0",
         "filename": "src/common/linux/scoped_pipe_unittest.cc",
         "patchSetId": 7
