@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fcb1e4c_8efc6bf6",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-12T19:49:49Z",
+      "side": 1,
+      "message": "We discussed offline and decided we\u0027d check it in after all. Done.",
+      "parentUuid": "eba318e5_98e27e40",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68cabb9c_f3547e8c",
@@ -66,6 +84,24 @@
       "writtenOn": "2022-12-20T17:56:02Z",
       "side": 1,
       "message": "we omit braces for single-char builtins -- i.e. use `\"$0\"`",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a709c7c8_da672359",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-12T19:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68cabb9c_f3547e8c",
       "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -87,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3a5747c_1ec3d218",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-12T19:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c328633_327ec947",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60c071b7_4247aed8",
@@ -100,6 +154,24 @@
       "writtenOn": "2022-12-20T17:56:02Z",
       "side": 1,
       "message": "never hardcode paths under /tmp.  use `mktemp -d` instead, and put everything under that.  and add a `trap` to delete that path.",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9423bbc_4b793730",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-12T19:49:49Z",
+      "side": 1,
+      "message": "Done. This necessitated putting the final destination in ~/Desktop, where we\u0027re currently putting the tarball (since otherwise, it would be deleted before it could be uploaded). I think the tarball is less helpful with the v2 upload protocol, so omitting that step now, and we can manually tar if neeeded.",
+      "parentUuid": "60c071b7_4247aed8",
       "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +211,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b90d1fc_43077e64",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-12T19:49:49Z",
+      "side": 1,
+      "message": "Went with `#/bin/bash`. This script is run manually.",
+      "parentUuid": "af36d702_002887ce",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb65901c_f999aa50",
@@ -152,6 +242,24 @@
       "writtenOn": "2022-12-20T17:56:02Z",
       "side": 1,
       "message": "run `shellcheck` on the script and fix all the issues it finds",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "016721c5_065ff558",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-12T19:49:49Z",
+      "side": 1,
+      "message": "Done, except where it conflicts with other comments (single-char quoting)",
+      "parentUuid": "cb65901c_f999aa50",
       "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -173,6 +281,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48df3f3a_87b22051",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-12T19:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2097aa09_e6db8cf0",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9cfc997_a2687929",
@@ -186,6 +312,24 @@
       "writtenOn": "2022-12-20T17:37:23Z",
       "side": 1,
       "message": "Maybe you should have a nonzero exit status if any architectures were missed.",
+      "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4487f818_ff626af1",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-12T19:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9cfc997_a2687929",
       "revId": "8ed43f3b43b2a63030788f1ef0e223663a09aba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
