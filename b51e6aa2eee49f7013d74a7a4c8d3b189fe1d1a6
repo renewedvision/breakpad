@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3657acf1_6f3abeb6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-01-12T20:31:22Z",
+      "side": 1,
+      "message": "need to write a proper commit message",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae5bdbf2_5b4fc3d4",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 4
@@ -123,6 +140,23 @@
         "endLine": 34,
         "endChar": 15
       },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6181d1d_652f3c13",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-01-12T20:31:22Z",
+      "side": 1,
+      "message": "if you don\u0027t use `$@` (and it seems like you don\u0027t), assert that $# is equal to 0, and exit if it isn\u0027t\n\nin which case, you can take the comment block above and turn it into a usage message that\u0027s shown to the user so they don\u0027t have to read the code to find it",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
