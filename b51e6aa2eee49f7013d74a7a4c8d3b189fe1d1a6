@@ -277,6 +277,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4168731f_6f95b7ac",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-13T21:24:11Z",
+      "side": 1,
+      "message": "I vaguely remember something about something expecting QuickTime to live there (if this is right, and the something is upload_system_symbols, maybe we can fix there). So, no, please explain 😊",
+      "parentUuid": "3dc304a5_a23d06a3",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59743df1_6923cc09",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 4
