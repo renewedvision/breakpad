@@ -295,6 +295,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd0b9ca2_1a58cc6f",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-13T21:29:39Z",
+      "side": 1,
+      "message": "\u003e I vaguely remember something about something expecting QuickTime to live there (if this is right, and the something is upload_system_symbols, maybe we can fix there). So, no, please explain 😊\n\nUsed to be QuickTime. There’s still content in that directory, even. But nothing that’d show up in the dyld shared cache. Everything that’s ever lived there has been an MH_BUNDLE, “loadable bundle”, where the dyld shared cache can only contain and has only ever contained MH_DYLIBs.\n\nSo it’s still a path that upload_system_symbols looks for, because we want to get things out of it when we’re dumping from the filesystem root, but it won’t be present in a dump of the dyld shared cache.\n\nThe two options are to leave this `mkdir` in place, or to make upload_system_symbols tolerate that directory’s absence (but use it if it’s present).",
+      "parentUuid": "4168731f_6f95b7ac",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59743df1_6923cc09",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 4
