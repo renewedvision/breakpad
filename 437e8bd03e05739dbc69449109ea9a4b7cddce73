@@ -16,6 +16,115 @@
       "message": "Is there anything else I need to do to get this merged?",
       "revId": "437e8bd03e05739dbc69449109ea9a4b7cddce73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ef48f44_c1aee5a4",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-18T13:50:37Z",
+      "side": 1,
+      "message": "Because `enum class` is scoped and enumerators are written with the enumeration name (`OutputFormat::FORMAT_TEXT` instead of `FORMAT_TEXT`), it’s unnecessary to “namespace” the enumerator names with a common prefix (`FORMAT_`), as it’s redundant. This can be simplified to `OutputFormat::TEXT`, etc.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 2
+      },
+      "revId": "437e8bd03e05739dbc69449109ea9a4b7cddce73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8060f8e_3b273f9e",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-18T13:50:37Z",
+      "side": 1,
+      "message": "No `else` after `return`. (You didn’t use an `else` after the return that follows this one.)",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "437e8bd03e05739dbc69449109ea9a4b7cddce73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd82fdbe_77b02f09",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-18T13:50:37Z",
+      "side": 1,
+      "message": "The usage message makes it seem like `-f` doesn’t accept a parameter, but it does. This should be something like:\n\n```\n          \"  -f FORMAT  Output format [text/machine] (default: text)\\n\"\n```",
+      "revId": "437e8bd03e05739dbc69449109ea9a4b7cddce73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "670f3833_1e3cfe84",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-18T13:50:37Z",
+      "side": 1,
+      "message": "Give a hint about what to do instead, like `(deprecated, use -f)`.",
+      "range": {
+        "startLine": 153,
+        "startChar": 59,
+        "endLine": 153,
+        "endChar": 69
+      },
+      "revId": "437e8bd03e05739dbc69449109ea9a4b7cddce73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21bf466e_7c82bb87",
+        "filename": "src/processor/minidump_stackwalk.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-18T13:50:37Z",
+      "side": 1,
+      "message": "This string was sorted before, but now it isn’t. `cf:hms`.",
+      "range": {
+        "startLine": 166,
+        "startChar": 50,
+        "endLine": 166,
+        "endChar": 56
+      },
+      "revId": "437e8bd03e05739dbc69449109ea9a4b7cddce73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
