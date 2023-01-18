@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80491bb2_f54bd6db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1266973
+      },
+      "writtenOn": "2023-01-18T11:14:51Z",
+      "side": 1,
+      "message": "I wonder how this manages to fix anything, as it should not make any difference if the sources are declared inside the conditional or not?\n\nEspecially not the error given in the commit message, which is for a different object altogether?\n\nFor the error, it seems more like somehow the googletest folder was not checked out.",
+      "revId": "6e03dc0f20feb45851318e58015b53e6be954aed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
