@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "348caabe_38696635",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2023-01-18T10:18:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f3b2b5e6_c53ca089",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 60
+      },
+      "revId": "074fbb43ec9d013baf8e9ac6288a0e7a96e856dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0360c767_a68a34a2",
@@ -61,6 +85,24 @@
       "writtenOn": "2023-01-06T06:54:42Z",
       "side": 1,
       "message": "const method?",
+      "revId": "074fbb43ec9d013baf8e9ac6288a0e7a96e856dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1e0d6fd_244636e2",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2023-01-18T10:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0360c767_a68a34a2",
       "revId": "074fbb43ec9d013baf8e9ac6288a0e7a96e856dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
