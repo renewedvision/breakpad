@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a326855d_5ffd8d4e",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T18:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b33bd57_c2b9eaba",
+      "revId": "fb21d350e250b4fd4dab89e654781c7b1d80e957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53a63ac7_c66b9b44",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-01-19T18:09:48Z",
       "side": 1,
       "message": "We might want to also grab the x86_64 cache present for Rosetta on arm64 systems. Wouldn’t use it often, but if we have to run this on arm64 to collect arm64 symbols anyway, maybe we should snag that too.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 2
+      },
+      "revId": "fb21d350e250b4fd4dab89e654781c7b1d80e957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7afcead_40dc0352",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T18:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a63ac7_c66b9b44",
       "range": {
         "startLine": 63,
         "startChar": 0,
