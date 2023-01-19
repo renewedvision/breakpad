@@ -771,6 +771,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21f8abe3_42e3b163",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T19:21:50Z",
+      "side": 1,
+      "message": "I guess my question here is how do we set it up so it only does it on actual error? I can\u0027t find good documentation on trap ERR; if I were to use it here, would it fire when we return non-zero for only finding some architectures? If so, what would I do instead?",
+      "parentUuid": "ce4a7224_3af099d3",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fecc3573_b1e6357a",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 4
@@ -818,6 +836,24 @@
       "side": 1,
       "message": "\u003e What about whatever we found in `/`?\n\nThe `/` thing can’t fail because there’s no path existence check (and anyway, what would it mean to check for the existence of `/`?) So we always assume that if `upload_system_symbols` didn’t fail, `/` was dumped successfully. There isn’t really an opportunity here to say that it was missing.\n\n(If I understood the question correctly.)",
       "parentUuid": "a193fac0_ddb33d6a",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed78186c_343a3c5b",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T19:21:50Z",
+      "side": 1,
+      "message": "I mean, if we successfully dumped `/` (which as you say, we probably did), we still want to output the \"how to upload\" don\u0027t we, even if we didn\u0027t find a cache?",
+      "parentUuid": "e74524d4_9edbf9e2",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
