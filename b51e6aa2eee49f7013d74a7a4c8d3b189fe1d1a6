@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f702596_93688785",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3657acf1_6f3abeb6",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae5bdbf2_5b4fc3d4",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-12T20:29:54Z",
       "side": 1,
       "message": "1. `dsc` is a little opaque in the name.\n2. This does dump more than just the dyld shared cache, so the name isn’t quite right.",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a49dd67_8b0c7faf",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Given that this no longer needs to contrast with the other scripts in the \"upload tool kit\", let\u0027s take it back to the beginning?",
+      "parentUuid": "ae5bdbf2_5b4fc3d4",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0da9d01f_7e788788",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afd62748_675d5ce0",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a229b245_79dbfc71",
@@ -65,6 +119,30 @@
       "writtenOn": "2023-01-12T20:24:08Z",
       "side": 1,
       "message": "to where?",
+      "range": {
+        "startLine": 30,
+        "startChar": 56,
+        "endLine": 30,
+        "endChar": 77
+      },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9866be18_e842ce32",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a229b245_79dbfc71",
       "range": {
         "startLine": 30,
         "startChar": 56,
@@ -98,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "659b6f9e_22e3a545",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a26fd970_21543c88",
+      "range": {
+        "startLine": 31,
+        "startChar": 22,
+        "endLine": 32,
+        "endChar": 68
+      },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9cd48b4_1d1e4836",
@@ -111,6 +213,30 @@
       "writtenOn": "2023-01-12T20:24:08Z",
       "side": 1,
       "message": "which version? This OS version?",
+      "range": {
+        "startLine": 33,
+        "startChar": 50,
+        "endLine": 33,
+        "endChar": 62
+      },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8565193_6fb0f725",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9cd48b4_1d1e4836",
       "range": {
         "startLine": 33,
         "startChar": 50,
@@ -144,6 +270,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f30f607d_7f62b50c",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b08bd0f_8888feff",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 15
+      },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6181d1d_652f3c13",
@@ -157,6 +307,24 @@
       "writtenOn": "2023-01-12T20:31:22Z",
       "side": 1,
       "message": "if you don\u0027t use `$@` (and it seems like you don\u0027t), assert that $# is equal to 0, and exit if it isn\u0027t\n\nin which case, you can take the comment block above and turn it into a usage message that\u0027s shown to the user so they don\u0027t have to read the code to find it",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f30199eb_b8ac8deb",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Using an argument now, added a small usage message.",
+      "parentUuid": "f6181d1d_652f3c13",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -178,6 +346,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53ba11b_15bb24ec",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47f6398_f93e4b18",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ea6d1e2_bcba575f",
@@ -191,6 +377,24 @@
       "writtenOn": "2023-01-12T20:24:08Z",
       "side": 1,
       "message": "WHY_SO_YELLY? Other variables in this script use lowercase.",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43619f24_48da15ad",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ea6d1e2_bcba575f",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -241,6 +445,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c471879c_5a200341",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0712c1d7_8cce9deb",
+      "range": {
+        "startLine": 48,
+        "startChar": 13,
+        "endLine": 48,
+        "endChar": 27
+      },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bc15d7c_52c396fb",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5e54cf4_4125da52",
+      "range": {
+        "startLine": 48,
+        "startChar": 29,
+        "endLine": 48,
+        "endChar": 33
+      },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e686e7e_f797b8ed",
@@ -254,6 +506,24 @@
       "writtenOn": "2023-01-12T20:24:08Z",
       "side": 1,
       "message": "You don’t really need a separate `status`, since it’s just tracking the emptiness of `missing_architectures`.",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b850642_0432f5dd",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e686e7e_f797b8ed",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -311,6 +581,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4e50047_3939832f",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Landed https://chromium.googlesource.com/breakpad/breakpad/+/934d6b2a5dd4e478369c09af41c2b1ccb521448d\nand removed this",
+      "parentUuid": "dd0b9ca2_1a58cc6f",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59743df1_6923cc09",
@@ -324,6 +612,24 @@
       "writtenOn": "2023-01-12T20:24:08Z",
       "side": 1,
       "message": "There seem to be some spaces at the end of this line.",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e8e0c30_c3618431",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59743df1_6923cc09",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -385,6 +691,66 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "895445ef_1f3563b3",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7adc5a60_1f34985f",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "253edaf7_bbf64634",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Re: dumping to output directory done.\n\nRe: removing/trap, not sure how this could be structured. We would still want whatever we got out of the system root at least, or whichever DSCs were present?",
+      "parentUuid": "93e9049d_0f3b438c",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af044e8a_d4021f01",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3a48b5fd_8a1f2382",
+      "range": {
+        "startLine": 82,
+        "startChar": 3,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fecc3573_b1e6357a",
@@ -404,6 +770,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a193fac0_ddb33d6a",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "What about whatever we found in `/`?",
+      "parentUuid": "fecc3573_b1e6357a",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "972107dd_2571e83b",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 4
@@ -415,6 +799,30 @@
       "writtenOn": "2023-01-12T20:24:08Z",
       "side": 1,
       "message": "This should probably be nearer the end of the output.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 2
+      },
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edc5250d_f2263782",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-19T17:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "972107dd_2571e83b",
       "range": {
         "startLine": 87,
         "startChar": 0,
