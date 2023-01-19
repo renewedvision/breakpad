@@ -789,6 +789,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7660dc7f_8d5979f7",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-19T19:39:37Z",
+      "side": 1,
+      "message": "\u003e I guess my question here is how do we set it up so it only does it on actual error?\n\nWhen you’re done with things that might cause an exit on error, you can say `trap - EXIT` to reset the handler to be nothing.\n\n\u003e I can\u0027t find good documentation on trap ERR;\n\nhttps://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#index-trap\n\n\u003e if I were to use it here, would it fire when we return non-zero for only finding some architectures?\n\nIt fires in the same situations at `set -e`. An explicit `exit 1` causes the shell to exit, it doesn’t trigger either `set -e` or the `trap … ERR` handler.",
+      "parentUuid": "21f8abe3_42e3b163",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fecc3573_b1e6357a",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 4
@@ -854,6 +872,24 @@
       "side": 1,
       "message": "I mean, if we successfully dumped `/` (which as you say, we probably did), we still want to output the \"how to upload\" don\u0027t we, even if we didn\u0027t find a cache?",
       "parentUuid": "e74524d4_9edbf9e2",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a09786_27dab6cc",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-19T19:39:37Z",
+      "side": 1,
+      "message": "\u003e I mean, if we successfully dumped `/` (which as you say, we probably did), we still want to output the \"how to upload\" don\u0027t we, even if we didn\u0027t find a cache?\n\nOh, that’s less about `/` and more about what to do if you found zero shared caches.\n\nSince this script is only meant to be used when there’s a dyld shared cache, sure, you can have it exit with an error if there weren’t any caches at all. You could even do that as an early exit before you attempt to dump `/`.",
+      "parentUuid": "ed78186c_343a3c5b",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
