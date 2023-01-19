@@ -753,6 +753,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce4a7224_3af099d3",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-19T19:11:48Z",
+      "side": 1,
+      "message": "\u003e Re: dumping to output directory done.\n\u003e \n\u003e Re: removing/trap, not sure how this could be structured. We would still want whatever we got out of the system root at least, or whichever DSCs were present?\n\nWe don’t really do that now. The `set -e` stops us dead, so we’re left with something incomplete at the first failure, even if a later step would have succeeded.\n\nBefore you started dumping to the output directory in a recent patch set, I don’t think we saved anything at all, either.",
+      "parentUuid": "253edaf7_bbf64634",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fecc3573_b1e6357a",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
         "patchSetId": 4
@@ -782,6 +800,24 @@
       "side": 1,
       "message": "What about whatever we found in `/`?",
       "parentUuid": "fecc3573_b1e6357a",
+      "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e74524d4_9edbf9e2",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols_dsc.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-19T19:11:48Z",
+      "side": 1,
+      "message": "\u003e What about whatever we found in `/`?\n\nThe `/` thing can’t fail because there’s no path existence check (and anyway, what would it mean to check for the existence of `/`?) So we always assume that if `upload_system_symbols` didn’t fail, `/` was dumped successfully. There isn’t really an opportunity here to say that it was missing.\n\n(If I understood the question correctly.)",
+      "parentUuid": "a193fac0_ddb33d6a",
       "revId": "b51e6aa2eee49f7013d74a7a4c8d3b189fe1d1a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
