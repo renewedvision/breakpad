@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f78c474a_aa074f8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2023-01-20T18:34:30Z",
+      "side": 1,
+      "message": "Thanks for all the reviews!  I added address_mask to the print too.\n\nIf OK -- can you please submit this (I don\u0027t have permission)?\n\nWe should submit this first, (and ask crash/ to import a new breakpad) before landing the change in Crashpad, since otherwise we\u0027ll get `ERROR: MinidumpCrashpadInfo size mismatch, 64 !\u003d 52` when Breakpad tries to read minidumps from the new crashpad.\n\nThanks!",
+      "revId": "11b4519054b34636d2495f34534649c09074f480",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
