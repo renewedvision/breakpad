@@ -33,6 +33,7 @@
 #include <strsafe.h>
 #include <objbase.h>
 #include <shellapi.h>
+#include <crtdbg.h>
 
 #include <string>
 
