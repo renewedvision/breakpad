@@ -16,6 +16,24 @@
       "message": "I wonder how this manages to fix anything, as it should not make any difference if the sources are declared inside the conditional or not?\n\nEspecially not the error given in the commit message, which is for a different object altogether?\n\nFor the error, it seems more like somehow the googletest folder was not checked out.",
       "revId": "6e03dc0f20feb45851318e58015b53e6be954aed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c554d36_6741097a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1300299
+      },
+      "writtenOn": "2023-01-20T23:57:50Z",
+      "side": 1,
+      "message": "It does in fact fix it, you can see at https://source.chromium.org/chromiumos/chromiumos/codesearch/+/main:manifest/full.xml;l\u003d311;drc\u003db12ecd89a9bfab8b65b2a2c30d747b1b04cfe46a that the roll succeeded. \n\n\u003eFor the error, it seems more like somehow the googletest folder was not checked out.\n\nMy understanding is that it\u0027s not supposed to be, that\u0027s (part of) what the SYSTEM_TEST_LIBS is doing. The flag is saying to use the version of gtest that\u0027s already part of the ChromeOS build instead of downloading another copy, IIUC.",
+      "parentUuid": "80491bb2_f54bd6db",
+      "revId": "6e03dc0f20feb45851318e58015b53e6be954aed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
