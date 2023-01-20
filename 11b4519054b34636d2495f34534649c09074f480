@@ -33,6 +33,24 @@
       "message": "Can you try submitting now? I just gave you access.",
       "revId": "11b4519054b34636d2495f34534649c09074f480",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31b62eb1_2a75004e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116294
+      },
+      "writtenOn": "2023-01-20T19:24:56Z",
+      "side": 1,
+      "message": "Thanks, done!",
+      "parentUuid": "61cbe6ac_f7b2c9fe",
+      "revId": "11b4519054b34636d2495f34534649c09074f480",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
