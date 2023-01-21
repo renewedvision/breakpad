@@ -34,6 +34,24 @@
       "parentUuid": "80491bb2_f54bd6db",
       "revId": "6e03dc0f20feb45851318e58015b53e6be954aed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13ea8757_01e349c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-01-21T00:05:48Z",
+      "side": 1,
+      "message": "yes, CrOS leverages SYSTEM_TEST_LIBS so we only build+install gtest once, and every package that wants to use gtest uses that copy instead of bundling+building its own",
+      "parentUuid": "6c554d36_6741097a",
+      "revId": "6e03dc0f20feb45851318e58015b53e6be954aed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
