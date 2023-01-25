@@ -16,6 +16,23 @@
       "message": "Thanks for the fix. LGTM. OWNERs should validate the patch.",
       "revId": "5870b6808f4148dc875c45ee528c36f83a56baeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe44dc8a_4f6330aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-01-25T19:52:06Z",
+      "side": 1,
+      "message": "This function is not thread safe and must not be called in programs using threads before libcurl 7.84.0: https://curl.se/libcurl/c/curl_global_cleanup.html",
+      "revId": "5870b6808f4148dc875c45ee528c36f83a56baeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
