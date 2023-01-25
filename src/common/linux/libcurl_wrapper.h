@@ -111,6 +111,7 @@ class LibcurlWrapper {
   CURLcode (*easy_getinfo_)(CURL*, CURLINFO info, ...);
   void (*easy_reset_)(CURL*);
   void (*formfree_)(struct curl_httppost*);
+  void (*global_cleanup_)(void);
 
 };
 }
