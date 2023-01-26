@@ -51,6 +51,24 @@
       "parentUuid": "fe44dc8a_4f6330aa",
       "revId": "5870b6808f4148dc875c45ee528c36f83a56baeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c8d7c95_d2880c9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-01-26T21:02:48Z",
+      "side": 1,
+      "message": "I guess we should just expect this code to be single threaded. The class could use a comment mentioning its use of libcurl is only safe for single threaded code.",
+      "parentUuid": "d70a520b_0243911a",
+      "revId": "5870b6808f4148dc875c45ee528c36f83a56baeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
