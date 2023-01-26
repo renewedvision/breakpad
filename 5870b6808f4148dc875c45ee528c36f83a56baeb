@@ -33,6 +33,24 @@
       "message": "This function is not thread safe and must not be called in programs using threads before libcurl 7.84.0: https://curl.se/libcurl/c/curl_global_cleanup.html",
       "revId": "5870b6808f4148dc875c45ee528c36f83a56baeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d70a520b_0243911a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1346383
+      },
+      "writtenOn": "2023-01-26T01:36:02Z",
+      "side": 1,
+      "message": "Thanks for taking a look. Few questions:\n- What would be the supported libcurl versions to be used by breakpad? (for CrOS right now we use 7.84 and uprev-ing to 7.87)\n- Would it be possible for multiple crash dumps to be uploaded at the same time in a single program (i.e. 2 or more curl calls at the same time)? If so, then we might also want to call `curl_global_init`.\n\nAs to resolve the curl uprev, I\u0027m seeing that we can:\na) Gate the `curl_global_init` and `curl_global_cleanup` by curl version i.e. querying `curl_version_info`.\nb) Using the already available curl mock for breakpad units to avoid the leak in the units.\n\nI\u0027m assuming that (a) is preferred here. Would it be a good approach or do you have any recommendation? Thank you.",
+      "parentUuid": "fe44dc8a_4f6330aa",
+      "revId": "5870b6808f4148dc875c45ee528c36f83a56baeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
