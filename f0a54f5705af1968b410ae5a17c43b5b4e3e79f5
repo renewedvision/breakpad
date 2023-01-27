@@ -226,6 +226,24 @@
       "message": "As in other languages, you don’t really need an `else` after return (or exit). You can just `fi` here and have an explicit `exit 0` on the next line (or just fall off the end of the file).",
       "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f5ff43a_8fd9874f",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-27T22:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "710dd20c_749a891c",
+      "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
