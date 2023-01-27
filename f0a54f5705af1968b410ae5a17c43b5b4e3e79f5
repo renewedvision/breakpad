@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "811e5002_5611cc92",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-27T21:10:58Z",
+      "side": 1,
+      "message": "Why make the invoker pass in the path to the parent of the directory that will be created? Why not make the invoker pass in the path to the directory that will get created itself?",
+      "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87bc3bf8_4d720e23",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-27T21:10:58Z",
+      "side": 1,
+      "message": "(I still like this `mkdir` either way, because it’ll fail and stop immediately under `set -e` if the directory already exists, which means you won’t dump stuff into an existing directory.)",
+      "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb42103b_9f5ef0b4",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-27T21:10:58Z",
+      "side": 1,
+      "message": "A single `rm` invocation will do: `rm -rf \"${working_dir}\" \"${result_dir}\"`.",
+      "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ae098f_7965f97c",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-27T21:10:58Z",
+      "side": 1,
+      "message": "The version isn’t necessary here now that this is just a temporary directory.\n\nIn fact, you don’t put anything inside `working_dir` other than this `dsc` directory, which makes the extra level seem kind of unnecessary. Why not get rid of this `mkdir` and use `${working_dir}/${arch}` directly below? If you really like a name that’s a reminder of the dyld_shared_cache source of its contents, you could do `${working_dir}/dsc_${arch}`.",
+      "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e993a3c_7f6d1219",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-27T21:10:58Z",
+      "side": 1,
+      "message": "This still does clear `working_dir` but no longer clears `result_dir`.\n\nBut you’re actually done with `working_dir` entirely at this point, so you could `rm -rf \"${working_dir}\"` and then clear the trap handler with `trap \u0027\u0027 EXIT`.",
+      "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
