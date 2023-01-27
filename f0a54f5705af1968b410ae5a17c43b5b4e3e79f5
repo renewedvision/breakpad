@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8854496_3592c542",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-27T21:12:58Z",
+      "side": 1,
+      "message": "Send this message to stderr:\n\n```\n  echo \"usage: $0 \u003cdestiation_directory\u003e \u003e\u0026 2\n```",
+      "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "811e5002_5611cc92",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
         "patchSetId": 9
@@ -82,6 +99,23 @@
       "writtenOn": "2023-01-27T21:10:58Z",
       "side": 1,
       "message": "This still does clear `working_dir` but no longer clears `result_dir`.\n\nBut you’re actually done with `working_dir` entirely at this point, so you could `rm -rf \"${working_dir}\"` and then clear the trap handler with `trap \u0027\u0027 EXIT`.",
+      "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "710dd20c_749a891c",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-01-27T21:12:58Z",
+      "side": 1,
+      "message": "As in other languages, you don’t really need an `else` after return (or exit). You can just `fi` here and have an explicit `exit 0` on the next line (or just fall off the end of the file).",
       "revId": "f0a54f5705af1968b410ae5a17c43b5b4e3e79f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
