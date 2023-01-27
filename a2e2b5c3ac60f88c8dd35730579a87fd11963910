@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa6d1e5_28232b15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1346383
+      },
+      "writtenOn": "2023-01-27T01:56:56Z",
+      "side": 1,
+      "message": "Hmm. It looks like I don\u0027t have the permission to land the change.\n@jperaza@chromium.org if the patch is ok, would you help to submit the CL?\n\nThanks!",
+      "revId": "a2e2b5c3ac60f88c8dd35730579a87fd11963910",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
