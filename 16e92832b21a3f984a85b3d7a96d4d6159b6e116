@@ -16,6 +16,24 @@
       "message": "nit: combine with previous line.",
       "revId": "16e92832b21a3f984a85b3d7a96d4d6159b6e116",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04673313_aa19395f",
+        "filename": "src/common/linux/scoped_pipe.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2023-01-30T12:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe0cff4d_e233a696",
+      "revId": "16e92832b21a3f984a85b3d7a96d4d6159b6e116",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
