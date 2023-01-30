@@ -16,6 +16,24 @@
       "message": "No longer used, you can remove this line.",
       "revId": "28a73a25254508dbe51f15fe7fcd596f6d24a3cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe3e42dc_52b680a5",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.sh",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-01-30T15:31:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86a2bb54_482b132b",
+      "revId": "28a73a25254508dbe51f15fe7fcd596f6d24a3cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
