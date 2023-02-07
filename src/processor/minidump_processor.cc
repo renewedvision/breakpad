@@ -100,6 +100,7 @@ ProcessResult MinidumpProcessor::Process(
 
   bool has_process_create_time =
       GetProcessCreateTime(dump, &process_state->process_create_time_);
+  bool has_process_id = GetProcessID(dump, &process_state->process_id_);
 
   bool has_cpu_info = GetCPUInfo(dump, &process_state->system_info_);
   bool has_os_info = GetOSInfo(dump, &process_state->system_info_);
@@ -187,16 +188,18 @@ ProcessResult MinidumpProcessor::Process(
     return PROCESS_ERROR_NO_THREAD_LIST;
   }
 
-  BPLOG(INFO) << "Minidump " << dump->path() << " has " <<
-      (has_cpu_info            ? "" : "no ") << "CPU info, " <<
-      (has_os_info             ? "" : "no ") << "OS info, " <<
-      (breakpad_info != NULL   ? "" : "no ") << "Breakpad info, " <<
-      (exception != NULL       ? "" : "no ") << "exception, " <<
-      (module_list != NULL     ? "" : "no ") << "module list, " <<
-      (threads != NULL         ? "" : "no ") << "thread list, " <<
-      (has_dump_thread         ? "" : "no ") << "dump thread, " <<
-      (has_requesting_thread   ? "" : "no ") << "requesting thread, and " <<
-      (has_process_create_time ? "" : "no ") << "process create time";
+  BPLOG(INFO) << "Minidump " << dump->path() << " has "
+              << (has_cpu_info ? "" : "no ") << "CPU info, "
+              << (has_os_info ? "" : "no ") << "OS info, "
+              << (breakpad_info != NULL ? "" : "no ") << "Breakpad info, "
+              << (exception != NULL ? "" : "no ") << "exception, "
+              << (module_list != NULL ? "" : "no ") << "module list, "
+              << (threads != NULL ? "" : "no ") << "thread list, "
+              << (has_dump_thread ? "" : "no ") << "dump thread, "
+              << (has_requesting_thread ? "" : "no ") << "requesting thread, "
+              << (has_process_create_time ? "" : "no ")
+              << "process create time, and " << (has_process_id ? "" : "no ")
+              << "process id";
 
   bool interrupted = false;
   bool found_requesting_thread = false;
@@ -837,6 +840,31 @@ static void CalculateFaultAddressFromInstruction(Minidump* dump,
   }
 }
 #endif // __linux__
+
+// static
+bool MinidumpProcessor::GetProcessID(Minidump* dump, uint32_t* process_id) {
+  assert(dump);
+  assert(process_id);
+
+  *process_id = 0;
+
+  MinidumpMiscInfo* minidump_misc_info = dump->GetMiscInfo();
+  if (!minidump_misc_info) {
+    return false;
+  }
+
+  const MDRawMiscInfo* md_raw_misc_info = minidump_misc_info->misc_info();
+  if (!md_raw_misc_info) {
+    return false;
+  }
+
+  if (!(md_raw_misc_info->flags1 & MD_MISCINFO_FLAGS1_PROCESS_ID)) {
+    return false;
+  }
+
+  *process_id = md_raw_misc_info->process_id;
+  return true;
+}
 
 // static
 string MinidumpProcessor::GetCrashReason(Minidump* dump, uint64_t* address,

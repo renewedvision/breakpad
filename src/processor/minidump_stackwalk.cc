@@ -53,8 +53,14 @@
 
 namespace {
 
+enum OutputMode {
+  OUTPUT_MODE_NORMAL,
+  OUTPUT_MODE_MACHINE_READABLE,
+  OUTPUT_MODE_APPLE_CRASH_REPORT,
+};
+
 struct Options {
-  bool machine_readable;
+  OutputMode output_mode;
   bool output_stack_contents;
   bool output_requesting_thread_only;
 
@@ -108,11 +114,17 @@ bool PrintMinidumpProcess(const Options& options) {
     return false;
   }
 
-  if (options.machine_readable) {
-    PrintProcessStateMachineReadable(process_state);
-  } else {
-    PrintProcessState(process_state, options.output_stack_contents,
-                      options.output_requesting_thread_only, &resolver);
+  switch (options.output_mode) {
+    case OUTPUT_MODE_NORMAL:
+      PrintProcessState(process_state, options.output_stack_contents,
+                        options.output_requesting_thread_only, &resolver);
+      break;
+    case OUTPUT_MODE_MACHINE_READABLE:
+      PrintProcessStateMachineReadable(process_state);
+      break;
+    case OUTPUT_MODE_APPLE_CRASH_REPORT:
+      PrintProcessStateAppleCrashReport(process_state);
+      break;
   }
 
   return true;
@@ -128,6 +140,7 @@ static void Usage(int argc, const char *argv[], bool error) {
           "\n"
           "Options:\n"
           "\n"
+          "  -a         Output in Apple Crash Report format\n"
           "  -m         Output in machine-readable format\n"
           "  -s         Output stack contents\n"
           "  -c         Output thread that causes crash or dump only\n",
@@ -137,7 +150,7 @@ static void Usage(int argc, const char *argv[], bool error) {
 static void SetupOptions(int argc, const char *argv[], Options* options) {
   int ch;
 
-  options->machine_readable = false;
+  options->output_mode = OUTPUT_MODE_NORMAL;
   options->output_stack_contents = false;
   options->output_requesting_thread_only = false;
 
@@ -151,8 +164,11 @@ static void SetupOptions(int argc, const char *argv[], Options* options) {
       case 'c':
         options->output_requesting_thread_only = true;
         break;
+      case 'a':
+        options->output_mode = OUTPUT_MODE_APPLE_CRASH_REPORT;
+        break;
       case 'm':
-        options->machine_readable = true;
+        options->output_mode = OUTPUT_MODE_MACHINE_READABLE;
         break;
       case 's':
         options->output_stack_contents = true;
