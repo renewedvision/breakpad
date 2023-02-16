@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "da875038e1bbc06fed553a32c808a989222bb3f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3b1cfcd_9fc45c87",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5495,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-02-16T20:08:28Z",
+      "side": 1,
+      "message": "sizeof(buffer)",
+      "range": {
+        "startLine": 5495,
+        "startChar": 27,
+        "endLine": 5495,
+        "endChar": 28
+      },
+      "revId": "da875038e1bbc06fed553a32c808a989222bb3f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
