@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda1ebe6_feae4154",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1163549
+      },
+      "writtenOn": "2023-02-16T18:55:22Z",
+      "side": 1,
+      "message": "PTAL\n\nExample output from a local run\n\n```\nMDRawCrashpadInfo\n  version \u003d 1\n  report_id \u003d 95ebd8b0-1f08-4a39-9359-d26725ea9144\n  client_id \u003d 3826aae7-e60a-4ef5-89af-e9d00ef7fd06\n  simple_annotations[\"lsb-release\"] \u003d Debian GNU/Linux rodete\n  simple_annotations[\"plat\"] \u003d Linux\n  simple_annotations[\"prod\"] \u003d Chrome_Linux\n  simple_annotations[\"ver\"] \u003d 112.0.5599.0\n  module_list[0].minidump_module_list_index \u003d 0\n  module_list[0].version \u003d 1\n  module_list[0].crashpad_annotations[\"gpu-url-chunk\"] (type \u003d 1) \u003d http://127.0.0.1:32879/content/test/data/gpu/pixel_video_context_loss.html?src\u003d/media/test/data/four-colors.mp4\n  module_list[0].crashpad_annotations[\"gpu-gl-context-is-virtual\"] (type \u003d 1) \u003d 0\n  module_list[0].crashpad_annotations[\"gr-context-type\"] (type \u003d 1) \u003d 1\n  module_list[0].crashpad_annotations[\"variations\"] (type \u003d 1) \u003d 2510663e-73703436,b13ca3d9-84f6cff8,13e2821-c0236c9e,13427e22-3f4a17df,87f33ad6-3f4a17df,250dda8b-3f4a17df,9f476f76-3f4a17df,65570806-377be55a,92d2eb18-fa10226e,1584cf60-3f4a17df,4852ec7f-3f4a17df,5f2c0f7c-3f4a17df,3fd33f16-27b09c4c,36d5ee52-3f4a17df,391562d6-3f4a17df,8bccc03b-3f4a17df,7e398fb8-3f4a17df,5349039a-3f4a17df,3095b8fe-3f4a17df,5de2eeca-3f4a17df,da493d3c-3f4a17df,e28cd73c-3f4a17df,f3ed486d-3f4a17df,5c783e42-8f8fa88f,4ff8f5b5-caf7a452,5f36436a-f799c15e,baee3c29-3f4a17df,9fe21c85-3f4a17df,ade3efeb-e1cc0f14,db59f83a-3f4a17df,1166396-1166396,bbaef9b4-3f4a17df,55ba4cfa-3f4a17df,fc7e4d22-3f4a17df,8963b549-3f4a17df,c297985a-3f4a17df,\n  module_list[0].crashpad_annotations[\"num-experiments\"] (type \u003d 1) \u003d 36\n  module_list[0].crashpad_annotations[\"vulkan-api-version\"] (type \u003d 1) \u003d 1.3.240\n  module_list[0].crashpad_annotations[\"egl-display-type\"] (type \u003d 1) \u003d angle:Vulkan\n  module_list[0].crashpad_annotations[\"gpu-gl-renderer\"] (type \u003d 1) \u003d ANGLE (NVIDIA, Vulkan 1.3.194 (NVIDIA Quadro P1000 (0x00001CB1)), NVIDIA-510.85.2.0)\n  module_list[0].crashpad_annotations[\"gpu-gl-vendor\"] (type \u003d 1) \u003d Google Inc. (NVIDIA)\n  module_list[0].crashpad_annotations[\"gpu-generation-intel\"] (type \u003d 1) \u003d 0\n  module_list[0].crashpad_annotations[\"gpu-vsver\"] (type \u003d 1) \u003d 1.00\n  module_list[0].crashpad_annotations[\"gpu-psver\"] (type \u003d 1) \u003d 1.00\n  module_list[0].crashpad_annotations[\"gpu-driver\"] (type \u003d 1) \u003d 510.85.02\n  module_list[0].crashpad_annotations[\"gpu_count\"] (type \u003d 1) \u003d 1\n  module_list[0].crashpad_annotations[\"gpu-devid\"] (type \u003d 1) \u003d 0x1cb1\n  module_list[0].crashpad_annotations[\"gpu-venid\"] (type \u003d 1) \u003d 0x10de\n  module_list[0].crashpad_annotations[\"switch-9\"] (type \u003d 1) \u003d --field-trial-handle\u003d0,i,5890857200490588528,8178675155134540264\n  module_list[0].crashpad_annotations[\"switch-8\"] (type \u003d 1) \u003d --shared-files\n  module_list[0].crashpad_annotations[\"switch-7\"] (type \u003d 1) \u003d --use-gl\u003dangle\n  module_list[0].crashpad_annotations[\"osarch\"] (type \u003d 1) \u003d x86_64\n  module_list[0].crashpad_annotations[\"pid\"] (type \u003d 1) \u003d 771521\n  module_list[0].crashpad_annotations[\"ptype\"] (type \u003d 1) \u003d gpu-process\n  module_list[0].crashpad_annotations[\"switch-6\"] (type \u003d 1) \u003d --change-stack-guard-on-fork\u003denable\n  module_list[0].crashpad_annotations[\"switch-5\"] (type \u003d 1) \u003d --user-data-dir\u003d/tmp/tmpr1y2qx1t\n  module_list[0].crashpad_annotations[\"switch-4\"] (type \u003d 1) \u003d --noerrdialogs\n  module_list[0].crashpad_annotations[\"switch-3\"] (type \u003d 1) \u003d --enable-crash-reporter\u003d,\n  module_list[0].crashpad_annotations[\"switch-2\"] (type \u003d 1) \u003d --crashpad-handler-pid\u003d771487\n  module_list[0].crashpad_annotations[\"switch-1\"] (type \u003d 1) \u003d --use-cmd-decoder\u003dpassthrough\n  module_list[0].crashpad_annotations[\"num-switches\"] (type \u003d 1) \u003d 13\n  address_mask \u003d 0\n```",
+      "revId": "21ae41ed372064ba6d5e38e022bca8ad9cef4ee0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52db5e9d_276c8832",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5486,
+      "author": {
+        "id": 1163549
+      },
+      "writtenOn": "2023-02-16T18:55:22Z",
+      "side": 1,
+      "message": "Is there a way to properly compare this against the enum https://source.chromium.org/chromium/chromium/src/+/main:third_party/crashpad/crashpad/client/annotation.h;drc\u003d1548075f9b31cc1495edbbfbc1eba116ef480593;l\u003d91 ? It\u0027s in the Crashpad repo instead of the Breakpad repo.",
+      "range": {
+        "startLine": 5486,
+        "startChar": 24,
+        "endLine": 5486,
+        "endChar": 25
+      },
+      "revId": "21ae41ed372064ba6d5e38e022bca8ad9cef4ee0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
