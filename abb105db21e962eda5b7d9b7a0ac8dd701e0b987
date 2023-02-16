@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f18908_56c65202",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-02-16T21:05:02Z",
+      "side": 1,
+      "message": "nit: we aren\u0027t fixing anything.  the current code is completely bug free.  this is to workaround new warnings/policies in a downstream project.  which is fine i guess.\n\nalthough i\u0027ll point out that we already have common APIs like `HexString` in src/processor/ that we should probably reuse.\n\nthen one day when we move to C++20, we can delete all of this in favor of `std::format`.",
+      "revId": "abb105db21e962eda5b7d9b7a0ac8dd701e0b987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
