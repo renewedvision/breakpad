@@ -63,6 +63,30 @@
       },
       "revId": "21ae41ed372064ba6d5e38e022bca8ad9cef4ee0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0811d650_4a19a3b7",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5486,
+      "author": {
+        "id": 1163549
+      },
+      "writtenOn": "2023-02-16T19:08:49Z",
+      "side": 1,
+      "message": "I can add that if you prefer, although keeping two enums in sync doesn\u0027t seem like much of an improvement to me.",
+      "parentUuid": "c1c21dd9_e85cf578",
+      "range": {
+        "startLine": 5486,
+        "startChar": 24,
+        "endLine": 5486,
+        "endChar": 25
+      },
+      "revId": "21ae41ed372064ba6d5e38e022bca8ad9cef4ee0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
