@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7756ee69_a8558c90",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-03-02T17:13:15Z",
+      "side": 1,
+      "message": "Use std::min() here?",
+      "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f32511d_1187adb6",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-03-02T17:13:15Z",
+      "side": 1,
+      "message": "Wouldn\u0027t other places that assign to `size_of_image` have the same problem?",
+      "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11dfeda5_d794959d",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2323,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-03-02T17:13:15Z",
+      "side": 1,
+      "message": "Please explain why.",
+      "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
