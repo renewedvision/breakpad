@@ -638,7 +638,7 @@ class MinidumpWriter {
     my_memset(mod, 0, MD_MODULE_SIZE);
 
     mod->base_of_image = mapping.start_addr;
-    mod->size_of_image = mapping.size;
+    mod->size_of_image = mapping.size > UINT32_MAX ? UINT32_MAX : mapping.size;
 
     char file_name[NAME_MAX];
     char file_path[NAME_MAX];
