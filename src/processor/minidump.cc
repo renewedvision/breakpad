@@ -2320,9 +2320,12 @@ bool MinidumpModule::Read() {
     // are their proper widths).
   }
 
+  // Accept zero byte modules.
+  if (module_.size_of_image == 0)
+    return true;
+
   // Check for base + size overflow or undersize.
-  if (module_.size_of_image == 0 ||
-      module_.size_of_image >
+  if (module_.size_of_image >
           numeric_limits<uint64_t>::max() - module_.base_of_image) {
     BPLOG(ERROR) << "MinidumpModule has a module problem, " <<
                     HexString(module_.base_of_image) << "+" <<
@@ -3186,6 +3189,10 @@ bool MinidumpModuleList::Read(uint32_t expected_size) {
                      << module.code_file();
         return false;
       }
+
+      // Skip zero length modules.
+      if (module_size == 0)
+        continue;
 
       // Some minidumps have additional modules in the list that are duplicates.
       // Ignore them. See https://crbug.com/838322

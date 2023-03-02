@@ -638,7 +638,7 @@ class MinidumpWriter {
     my_memset(mod, 0, MD_MODULE_SIZE);
 
     mod->base_of_image = mapping.start_addr;
-    mod->size_of_image = mapping.size;
+    mod->size_of_image = std::min(mapping.size, (size_t)UINT32_MAX);
 
     char file_name[NAME_MAX];
     char file_path[NAME_MAX];
