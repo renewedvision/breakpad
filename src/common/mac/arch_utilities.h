@@ -31,16 +31,23 @@
 #ifndef COMMON_MAC_ARCH_UTILITIES_H__
 #define COMMON_MAC_ARCH_UTILITIES_H__
 
-#include <mach-o/arch.h>
+#include <mach/machine.h>
+#include <optional>
 
-namespace google_breakpad {
+static constexpr const char* kUnknownArchName = "<Unknown architecture>";
 
-// Custom implementation of |NXGetArchInfoFromName| and
-// |NXGetArchInfoFromCpuType| that handle newer CPU on older OSes.
-const NXArchInfo* BreakpadGetArchInfoFromName(const char* arch_name);
-const NXArchInfo* BreakpadGetArchInfoFromCpuType(cpu_type_t cpu_type,
-                                                 cpu_subtype_t cpu_subtype);
+struct ArchInfo {
+  // ArchInfo(cpu_type_t type, cpu_subtype_t subtype) : cputype(type),
+  // cpusubtype(subtype) {}
+  cpu_type_t cputype;
+  cpu_subtype_t cpusubtype;
+};
 
-}  // namespace google_breakpad
+// DO NOT SUBMIT: comment
+std::optional<ArchInfo> GetArchInfoFromName(const char* arch_name);
+// DO NOT SUBMIT: need both?
+const char* GetNameFromCPUType(cpu_type_t cpu_type, cpu_subtype_t cpu_subtype);
+const char* GetNameFromArchInfo(const ArchInfo& info);
+ArchInfo GetLocalArchInfo();
 
 #endif  // COMMON_MAC_ARCH_UTILITIES_H__
