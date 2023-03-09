@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06f2e491_5b754056",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-03-09T00:08:45Z",
+      "side": 1,
+      "message": "PTAL :) Tested that it works on Mac and that `dump_syms_mac` compiles on Linux (PS: do we know if this is still in use?)",
+      "revId": "4de4a709abb34f27a83274dc0c502ccb60582e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
