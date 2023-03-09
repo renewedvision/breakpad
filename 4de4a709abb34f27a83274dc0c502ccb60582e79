@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb089444_3d342a1a",
+        "filename": "src/common/mac/arch_utilities.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-03-09T14:55:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cfb2cd0_70e4a753",
+      "revId": "4de4a709abb34f27a83274dc0c502ccb60582e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "665b4047_cba97c26",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-09T13:50:30Z",
       "side": 1,
       "message": "Blank lines to separate things here too: before this, and before line 50.",
+      "revId": "4de4a709abb34f27a83274dc0c502ccb60582e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "906c5f38_d697311f",
+        "filename": "src/common/mac/arch_utilities.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-03-09T14:55:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "665b4047_cba97c26",
       "revId": "4de4a709abb34f27a83274dc0c502ccb60582e79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
