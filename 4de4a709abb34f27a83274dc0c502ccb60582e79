@@ -16,6 +16,40 @@
       "message": "PTAL :) Tested that it works on Mac and that `dump_syms_mac` compiles on Linux (PS: do we know if this is still in use?)",
       "revId": "4de4a709abb34f27a83274dc0c502ccb60582e79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cfb2cd0_70e4a753",
+        "filename": "src/common/mac/arch_utilities.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-03-09T13:50:30Z",
+      "side": 1,
+      "message": "Blank line between C and C+++ headers.",
+      "revId": "4de4a709abb34f27a83274dc0c502ccb60582e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "665b4047_cba97c26",
+        "filename": "src/common/mac/arch_utilities.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-03-09T13:50:30Z",
+      "side": 1,
+      "message": "Blank lines to separate things here too: before this, and before line 50.",
+      "revId": "4de4a709abb34f27a83274dc0c502ccb60582e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
