@@ -197,12 +197,24 @@ static bool Start(const Options& options) {
     scoped_ptr<Module> scoped_cfi_module(cfi_module);
 
     // Ensure that the modules are for the same debug code file.
-    if (cfi_module->name() != module->name() ||
-        cfi_module->os() != module->os() ||
+    if (cfi_module->os() != module->os() ||
         cfi_module->architecture() != module->architecture() ||
         cfi_module->identifier() != module->identifier()) {
       fprintf(stderr, "Cannot generate a symbol file from split sources that do"
                       " not match.\n");
+      if (cfi_module->os() != module->os()) {
+        fprintf(stderr, "OS mismatch: binary=[%s], dSYM=[%s]\n",
+                cfi_module->os().c_str(), module->os().c_str());
+      }
+      if (cfi_module->architecture() != module->architecture()) {
+        fprintf(stderr, "Architecture mismatch: binary=[%s], dSYM=[%s]\n",
+                cfi_module->architecture().c_str(),
+                module->architecture().c_str());
+      }
+      if (cfi_module->identifier() != module->identifier()) {
+        fprintf(stderr, "Identifier mismatch: binary=[%s], dSYM=[%s]\n",
+                cfi_module->identifier().c_str(), module->identifier().c_str());
+      }
       return false;
     }
 
