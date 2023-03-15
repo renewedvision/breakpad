@@ -16,6 +16,24 @@
       "message": "I’m not confident this is safe to relax. Historically the (module name, identifier) tuple is what uniquely identifies a symbol file, and internally that is how everything is indexed.",
       "revId": "67a7fafef642567f3e453601475a9be406186f9c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44eea22d_ac833dd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532397
+      },
+      "writtenOn": "2023-03-15T22:56:22Z",
+      "side": 1,
+      "message": "In build automation, the input filenames tend to have nothing to do with the actual breakpad module name (and in fact, in the build automation I\u0027m working on, it post-processes the output of `dump_syms` to rewrite the `MODULE` line already, because the filename doesn\u0027t have anything to do with the module).\n\nI updated the CL to instead address this core issue by adding a new optional `-n MODULE_NAME` command-line argument that provides the module name from outside. \n\nChanged CL to only relax the name requirement when the `-n MODULE_NAME` argument is passed.",
+      "parentUuid": "5c91b575_9d7d7f31",
+      "revId": "67a7fafef642567f3e453601475a9be406186f9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
