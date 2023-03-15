@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c91b575_9d7d7f31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-03-15T22:07:19Z",
+      "side": 1,
+      "message": "I’m not confident this is safe to relax. Historically the (module name, identifier) tuple is what uniquely identifies a symbol file, and internally that is how everything is indexed.",
+      "revId": "67a7fafef642567f3e453601475a9be406186f9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
