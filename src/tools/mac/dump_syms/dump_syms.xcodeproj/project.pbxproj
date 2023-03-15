@@ -1654,6 +1654,7 @@
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_MACH_O_NLIST_H;
 				GCC_VERSION = "";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = dump_syms;
 			};
 			name = Debug;
@@ -1663,6 +1664,7 @@
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_MACH_O_NLIST_H;
 				GCC_VERSION = "";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = dump_syms;
 			};
 			name = Release;
