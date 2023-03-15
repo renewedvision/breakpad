@@ -40,6 +40,7 @@
 
 #include <ostream>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "common/byte_cursor.h"
@@ -66,14 +67,21 @@ class DumpSymbols {
         object_files_(),
         selected_object_file_(),
         selected_object_name_(),
-        enable_multiple_(enable_multiple) {}
+        enable_multiple_(enable_multiple),
+        module_name_() {}
   ~DumpSymbols() = default;
 
   // Prepare to read debugging information from |filename|. |filename| may be
   // the name of a fat file, a Mach-O file, or a dSYM bundle containing either
-  // of the above. On success, return true; if there is a problem reading
+  // of the above.
+  //
+  // If |module_name| is empty, uses the basename of |filename| as the module
+  // name. Otherwise, uses |module_name| as the module name.
+  //
+  // On success, return true; if there is a problem reading
   // |filename|, report it and return false.
-  bool Read(const std::string& filename);
+  bool Read(const std::string& filename,
+            const std::optional<std::string>& module_name);
 
   // Prepare to read debugging information from |contents|. |contents| is
   // expected to be the data obtained from reading a fat file, or a Mach-O file.
@@ -194,6 +202,10 @@ class DumpSymbols {
   // See: https://crbug.com/google-breakpad/751 and docs at 
   // docs/symbol_files.md#records-3
   bool enable_multiple_;
+
+  // If non-empty, used as the module name. Otherwise, the basename of
+  // |object_filename_| is used as the module name.
+  std::optional<std::string> module_name_;
 };
 
 }  // namespace google_breakpad

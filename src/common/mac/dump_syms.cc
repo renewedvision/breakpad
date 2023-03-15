@@ -123,7 +123,9 @@ vector<string> list_directory(const string& directory) {
 
 namespace google_breakpad {
 
-bool DumpSymbols::Read(const string& filename) {
+bool DumpSymbols::Read(const string& filename,
+                       const std::optional<string>& module_name) {
+  module_name_ = module_name;
   selected_object_file_ = nullptr;
   struct stat st;
   if (stat(filename.c_str(), &st) == -1) {
@@ -429,7 +431,12 @@ bool DumpSymbols::CreateEmptyModule(scoped_ptr<Module>& module) {
   }
 
   // Compute a module name, to appear in the MODULE record.
-  string module_name = google_breakpad::BaseName(object_filename_);
+  string module_name;
+  if (module_name_) {
+    module_name = *module_name_;
+  } else {
+    module_name = google_breakpad::BaseName(object_filename_);
+  }
 
   // Choose an identifier string, to appear in the MODULE record.
   string identifier = Identifier();
