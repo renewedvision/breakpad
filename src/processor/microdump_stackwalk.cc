@@ -59,6 +59,7 @@ namespace {
 struct Options {
   bool machine_readable;
   bool output_stack_contents;
+  bool brief;
 
   string microdump_file;
   std::vector<string> symbol_paths;
@@ -112,6 +113,8 @@ int PrintMicrodumpProcess(const Options& options) {
   if (res == google_breakpad::PROCESS_OK) {
     if (options.machine_readable) {
       PrintProcessStateMachineReadable(process_state);
+    } else if (options.brief) {
+      PrintRequestingThreadBrief(process_state);
     } else {
       // Microdump has only one thread, |output_requesting_thread_only|'s value
       // has no effect.
@@ -137,6 +140,7 @@ static void Usage(int argc, const char *argv[], bool error) {
           "\n"
           "  -m         Output in machine-readable format\n"
           "  -s         Output stack contents\n",
+          "  -b         Brief of the thread that causes crash or dump\n",
           google_breakpad::BaseName(argv[0]).c_str());
 }
 
@@ -145,6 +149,7 @@ static void SetupOptions(int argc, const char *argv[], Options* options) {
 
   options->machine_readable = false;
   options->output_stack_contents = false;
+  options->brief = false;
 
   while ((ch = getopt(argc, (char * const*)argv, "hms")) != -1) {
     switch (ch) {
@@ -153,6 +158,9 @@ static void SetupOptions(int argc, const char *argv[], Options* options) {
         exit(0);
         break;
 
+      case 'b':
+        options->brief = true;
+        break;
       case 'm':
         options->machine_readable = true;
         break;
