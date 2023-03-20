@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ca59a2a_77444901",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1532397
+      },
+      "writtenOn": "2023-03-20T17:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3db2acb1_07975b02",
+      "range": {
+        "startLine": 61,
+        "startChar": 14,
+        "endLine": 61,
+        "endChar": 29
+      },
+      "revId": "dd37d728ca858bdf9b9c2918443e0380a6db26d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35117c33_9c3b28e9",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-20T17:42:01Z",
       "side": 1,
       "message": "Skip the implicit cstring constructor and just use `module_name()`",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 22
+      },
+      "revId": "dd37d728ca858bdf9b9c2918443e0380a6db26d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f962ec1_b0c92696",
+        "filename": "src/tools/mac/dump_syms/dump_syms_tool.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1532397
+      },
+      "writtenOn": "2023-03-20T17:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35117c33_9c3b28e9",
       "range": {
         "startLine": 67,
         "startChar": 20,
