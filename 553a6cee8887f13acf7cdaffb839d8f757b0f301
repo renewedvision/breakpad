@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68a9435c_d3de1d50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1532397
+      },
+      "writtenOn": "2023-03-20T17:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaeb9b84_587e2268",
+      "revId": "553a6cee8887f13acf7cdaffb839d8f757b0f301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc923add_94f46029",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1650fb_26beff8e",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1532397
+      },
+      "writtenOn": "2023-03-20T17:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc923add_94f46029",
+      "revId": "553a6cee8887f13acf7cdaffb839d8f757b0f301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "118e2802_cfadb14c",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-03-20T17:08:32Z",
       "side": 1,
       "message": "std::optional is not yet used in Breakpad, but it seems like an empty string is an equally good sentinel?",
+      "revId": "553a6cee8887f13acf7cdaffb839d8f757b0f301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a094c97_0d3fa42e",
+        "filename": "src/common/mac/dump_syms.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1532397
+      },
+      "writtenOn": "2023-03-20T17:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "118e2802_cfadb14c",
       "revId": "553a6cee8887f13acf7cdaffb839d8f757b0f301",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
