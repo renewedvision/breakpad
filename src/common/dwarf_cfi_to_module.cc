@@ -47,15 +47,8 @@ namespace google_breakpad {
 
 using std::ostringstream;
 
-vector<string> DwarfCFIToModule::RegisterNames::MakeVector(
-    const char * const *strings,
-    size_t size) {
-  vector<string> names(strings, strings + size);
-  return names;
-}
-
 vector<string> DwarfCFIToModule::RegisterNames::I386() {
-  static const char *const names[] = {
+  static const std::array kRegisterNames = {
     "$eax", "$ecx", "$edx", "$ebx", "$esp", "$ebp", "$esi", "$edi",
     "$eip", "$eflags", "$unused1",
     "$st0", "$st1", "$st2", "$st3", "$st4", "$st5", "$st6", "$st7",
@@ -67,11 +60,11 @@ vector<string> DwarfCFIToModule::RegisterNames::I386() {
     "$tr", "$ldtr"
   };
 
-  return MakeVector(names, sizeof(names) / sizeof(names[0]));
+  return vector<string>(kRegisterNames.begin(), kRegisterNames.end());
 }
 
 vector<string> DwarfCFIToModule::RegisterNames::X86_64() {
-  static const char *const names[] = {
+  static const std::array kRegisterNames = {
     "$rax", "$rdx", "$rcx", "$rbx", "$rsi", "$rdi", "$rbp", "$rsp",
     "$r8",  "$r9",  "$r10", "$r11", "$r12", "$r13", "$r14", "$r15",
     "$rip",
@@ -86,12 +79,12 @@ vector<string> DwarfCFIToModule::RegisterNames::X86_64() {
     "$mxcsr", "$fcw", "$fsw"
   };
 
-  return MakeVector(names, sizeof(names) / sizeof(names[0]));
+  return vector<string>(kRegisterNames.begin(), kRegisterNames.end());
 }
 
 // Per ARM IHI 0040A, section 3.1
 vector<string> DwarfCFIToModule::RegisterNames::ARM() {
-  static const char *const names[] = {
+  static const std::array kRegisterNames = {
     "r0",  "r1",  "r2",  "r3",  "r4",  "r5",  "r6",  "r7",
     "r8",  "r9",  "r10", "r11", "r12", "sp",  "lr",  "pc",
     "f0",  "f1",  "f2",  "f3",  "f4",  "f5",  "f6",  "f7",
@@ -107,12 +100,12 @@ vector<string> DwarfCFIToModule::RegisterNames::ARM() {
     "f0",  "f1",  "f2",  "f3",  "f4",  "f5",  "f6",  "f7"
   };
 
-  return MakeVector(names, sizeof(names) / sizeof(names[0]));
+  return vector<string>(kRegisterNames.begin(), kRegisterNames.end());
 }
 
 // Per ARM IHI 0057A, section 3.1
 vector<string> DwarfCFIToModule::RegisterNames::ARM64() {
-  static const char *const names[] = {
+  static const std::array kRegisterNames = {
     "x0",  "x1",  "x2",  "x3",  "x4",  "x5",  "x6",  "x7",
     "x8",  "x9",  "x10", "x11", "x12", "x13", "x14", "x15",
     "x16", "x17", "x18", "x19", "x20", "x21", "x22", "x23",
@@ -127,11 +120,11 @@ vector<string> DwarfCFIToModule::RegisterNames::ARM64() {
     "v24", "v25", "v26", "v27", "v28", "v29", "v30", "v31"
   };
 
-  return MakeVector(names, sizeof(names) / sizeof(names[0]));
+  return vector<string>(kRegisterNames.begin(), kRegisterNames.end());
 }
 
 vector<string> DwarfCFIToModule::RegisterNames::MIPS() {
-  static const char* const kRegisterNames[] = {
+  static const std::array kRegisterNames = {
     "$zero", "$at",  "$v0",  "$v1",  "$a0",   "$a1",  "$a2",  "$a3",
     "$t0",   "$t1",  "$t2",  "$t3",  "$t4",   "$t5",  "$t6",  "$t7",
     "$s0",   "$s1",  "$s2",  "$s3",  "$s4",   "$s5",  "$s6",  "$s7",
@@ -143,8 +136,7 @@ vector<string> DwarfCFIToModule::RegisterNames::MIPS() {
     "$f28",  "$f29", "$f30", "$f31", "$fcsr", "$fir"
   };
 
-  return MakeVector(kRegisterNames,
-                    sizeof(kRegisterNames) / sizeof(kRegisterNames[0]));
+  return vector<string>(kRegisterNames.begin(), kRegisterNames.end());
 }
 
 bool DwarfCFIToModule::Entry(size_t offset, uint64_t address, uint64_t length,
