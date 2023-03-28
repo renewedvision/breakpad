@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54c7f564_e80b1330",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1348395
+      },
+      "writtenOn": "2023-03-28T22:48:32Z",
+      "side": 1,
+      "message": "ivanpe ptal - this should resolve an issue being hit by fuzzers",
+      "revId": "c822651f9af26fb1c365c5a9541cfea3679b3d02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
