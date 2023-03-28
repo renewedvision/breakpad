@@ -16,6 +16,23 @@
       "message": "ivanpe ptal - this should resolve an issue being hit by fuzzers",
       "revId": "c822651f9af26fb1c365c5a9541cfea3679b3d02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d1a3e9_d9c894b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1348395
+      },
+      "writtenOn": "2023-03-28T22:59:53Z",
+      "side": 1,
+      "message": "thanks - you might need to +2 this for me as I\u0027m not a breakpad committer",
+      "revId": "c822651f9af26fb1c365c5a9541cfea3679b3d02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
