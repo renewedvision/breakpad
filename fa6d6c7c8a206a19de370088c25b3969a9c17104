@@ -71,6 +71,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa2e85a3_79c184e0",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1573217
+      },
+      "writtenOn": "2023-03-28T11:13:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca906c8b_31d7387a",
+      "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41bd839_c4ede571",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1573217
+      },
+      "writtenOn": "2023-03-28T11:13:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b28e919_84104461",
+      "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11dfeda5_d794959d",
@@ -102,6 +138,24 @@
       "side": 1,
       "message": "Continuing will end up returning false and that will make things like minidump_stackwalk to ommit funtion names and line numbers.",
       "parentUuid": "11dfeda5_d794959d",
+      "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4eb36c9_b02685ef",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2323,
+      "author": {
+        "id": 1573217
+      },
+      "writtenOn": "2023-03-28T11:13:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7da5f711_2c54b8d4",
       "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
