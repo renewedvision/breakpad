@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d13da4b_3027d41f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576252
+      },
+      "writtenOn": "2023-03-28T22:25:14Z",
+      "side": 1,
+      "message": "Hi Mike, thanks for taking a look! I had to rebase due to merge conflicts so I think it wants you to +1 again.",
+      "revId": "a57a0bf914207e6d141167f64370b79f07b5fc98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
