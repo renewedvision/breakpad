@@ -107,6 +107,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49234e34_08a2fb3d",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-04-06T17:32:37Z",
+      "side": 1,
+      "message": "I don\u0027t think changing the type of the struct member is possible, as it has to remain compatible with the minidump format used on Windows.",
+      "parentUuid": "e41bd839_c4ede571",
+      "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11dfeda5_d794959d",
@@ -156,6 +174,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "7da5f711_2c54b8d4",
+      "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be80eaf0_08db7e8e",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2323,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-04-06T17:32:37Z",
+      "side": 1,
+      "message": "Thanks, but please put the explanation as comments in the .cc file. Then all future readers can benefit from that, and won\u0027t have to look for the explanation here.\n\nIt\u0027s still unclear how `size_of_image \u003d\u003d 0` comes to be, when the change in minidump_writer.cc is setting `size_of_image` to UINT32_MAX. If there was a test case for the scenarios this CL is trying to handle, that would make it easier to see what\u0027s going on, and prove it works correctly.",
+      "parentUuid": "b4eb36c9_b02685ef",
       "revId": "fa6d6c7c8a206a19de370088c25b3969a9c17104",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5259cf8d_24647f7d",
+        "filename": "src/client/linux/minidump_writer/minidump_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-04-06T17:32:37Z",
+      "side": 1,
+      "message": "Prefer C++ casts to C casts. Or use std::min\u003csize_t(...).",
+      "range": {
+        "startLine": 641,
+        "startChar": 48,
+        "endLine": 641,
+        "endChar": 56
+      },
+      "revId": "0bdf5f70ba9b54f1978ecb6c97664f2da39704e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
