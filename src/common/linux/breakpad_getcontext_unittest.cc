@@ -131,11 +131,13 @@ TEST(AndroidUContext, GRegsOffset) {
   CHECK_REG(S1)
   CHECK_REG(S2)
 
+# if defined(__riscv_flen)
   ASSERT_EQ(static_cast<size_t>(MCONTEXT_FPREGS_OFFSET),
             offsetof(ucontext_t,uc_mcontext.__fpregs));
 
   ASSERT_EQ(static_cast<size_t>(MCONTEXT_FPC_CSR),
             offsetof(ucontext_t,uc_mcontext.__fpregs.__fcsr));
+# endif // __riscv_flen
 #elif defined(__x86_64__)
 
   COMPILE_ASSERT_EQ(static_cast<size_t>(MCONTEXT_GREGS_OFFSET),

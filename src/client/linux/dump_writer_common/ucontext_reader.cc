@@ -270,9 +270,9 @@ uintptr_t UContextReader::GetInstructionPointer(const ucontext_t* uc) {
 
 void UContextReader::FillCPUContext(RawContextCPU* out, const ucontext_t* uc) {
 # if __riscv__xlen == 32
-  out->context_flags = MD_CONTEXT_RISCV_FULL;
+  out->context_flags = MD_CONTEXT_RISCV_INTEGER;
 # elif __riscv_xlen == 64
-  out->context_flags = MD_CONTEXT_RISCV64_FULL;
+  out->context_flags = MD_CONTEXT_RISCV64_INTEGER;
 # else
 #  error "Unexpected __riscv_xlen"
 # endif
@@ -314,16 +314,19 @@ void UContextReader::FillCPUContext(RawContextCPU* out, const ucontext_t* uc) {
   for(int i = 0; i < MD_FLOATINGSAVEAREA_RISCV_FPR_COUNT; i++)
     out->float_save.regs[i] = uc->uc_mcontext.__fpregs.__f.__f[i];
   out->float_save.fpcsr = uc->uc_mcontext.__fpregs.__f.__fcsr;
+  out->context_flags = out->context_flags | MD_CONTEXT_RISCV_SINGLE_FLOATING_POINT;
 # elif __riscv_flen == 64
   for(int i = 0; i < MD_FLOATINGSAVEAREA_RISCV_FPR_COUNT; i++)
     out->float_save.regs[i] = uc->uc_mcontext.__fpregs.__d.__f[i];
   out->float_save.fpcsr = uc->uc_mcontext.__fpregs.__d.__fcsr;
+  out->context_flags = out->context_flags | MD_CONTEXT_RISCV_DOUBLE_FLOATING_POINT;
 # elif __riscv_flen == 128
   for(int i = 0; i < MD_FLOATINGSAVEAREA_RISCV_FPR_COUNT; i++) {
     out->float_save.regs[i].high = uc->uc_mcontext.__fpregs.__q.__f[2*i];
     out->float_save.regs[i].low  = uc->uc_mcontext.__fpregs.__q.__f[2*i+1];
   }
   out->float_save.fpcsr = uc->uc_mcontext.__fpregs.__q.__fcsr;
+  out->context_flags = out->context_flags | MD_CONTEXT_RISCV_QUAD_FLOATING_POINT;
 # endif
 }
 #endif

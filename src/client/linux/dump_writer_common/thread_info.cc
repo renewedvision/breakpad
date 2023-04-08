@@ -282,9 +282,9 @@ uintptr_t ThreadInfo::GetInstructionPointer() const {
 
 void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
 # if __riscv__xlen == 32
-  out->context_flags = MD_CONTEXT_RISCV_FULL;
+  out->context_flags = MD_CONTEXT_RISCV_INTEGER;
 # elif __riscv_xlen == 64
-  out->context_flags = MD_CONTEXT_RISCV64_FULL;
+  out->context_flags = MD_CONTEXT_RISCV64_INTEGER;
 # else
 #  error "Unexpected __riscv_xlen"
 # endif
@@ -326,17 +326,20 @@ void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
   for(int i = 0; i < MD_FLOATINGSAVEAREA_RISCV_FPR_COUNT; i++)
     out->float_save.regs[i] = mcontext.__fpregs.__f.__f[i];
   out->float_save.fpcsr = mcontext.__fpregs.__f.__fcsr;
+  out->context_flags = out->context_flags | MD_CONTEXT_RISCV_SINGLE_FLOATING_POINT;
 # elif __riscv_flen == 64
   for(int i = 0; i < MD_FLOATINGSAVEAREA_RISCV_FPR_COUNT; i++)
     out->float_save.regs[i] = mcontext.__fpregs.__d.__f[i];
   out->float_save.fpcsr = mcontext.__fpregs.__d.__fcsr;
+  out->context_flags = out->context_flags | MD_CONTEXT_RISCV_DOUBLE_FLOATING_POINT;
 # elif __riscv_flen == 128
   for(int i = 0; i < MD_FLOATINGSAVEAREA_RISCV_FPR_COUNT; i++) {
     out->float_save.regs[i].high = mcontext.__fpregs.__q.__f[2*i];
     out->float_save.regs[i].low  = mcontext.__fpregs.__q.__f[2*i+1];
   }
   out->float_save.fpcsr = mcontext.__fpregs.__q.__fcsr;
-# else
+  out->context_flags = out->context_flags | MD_CONTEXT_RISCV_QUAD_FLOATING_POINT;
+# elif defined(__riscv_flen)
 #  error "Unexpected __riscv_flen"
 # endif
 }
@@ -385,7 +388,7 @@ void ThreadInfo::GetFloatingPointRegisters(void** fp_regs, size_t* size) {
     *fp_regs = &mcontext.__fpregs.__q.__f;
   if (size)
     *size = sizeof(mcontext.__fpregs.__q.__f);
-# else
+# elif defined(__riscv_flen)
 #  error "Unexpected __riscv_flen"
 # endif
 #else

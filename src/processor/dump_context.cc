@@ -775,7 +775,7 @@ void DumpContext::Print() {
       printf("  t6            = 0x%" PRIx32 "\n",
              context_riscv->t6);
 
-#if defined(__riscv)
+#if defined(__riscv_flen)
       for (unsigned int freg_index = 0;
            freg_index < MD_FLOATINGSAVEAREA_RISCV_FPR_COUNT; ++freg_index) {
         riscv_fpr_size fp_value = context_riscv->float_save.regs[freg_index];
@@ -869,7 +869,7 @@ void DumpContext::Print() {
       printf("  t6            = 0x%" PRIx64 "\n",
              context_riscv64->t6);
 
-#if defined(__riscv)
+#if defined(__riscv_flen)
       for (unsigned int freg_index = 0;
            freg_index < MD_FLOATINGSAVEAREA_RISCV_FPR_COUNT; ++freg_index) {
         riscv_fpr_size fp_value = context_riscv64->float_save.regs[freg_index];

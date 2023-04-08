@@ -47,7 +47,7 @@ typedef uint32_t riscv_fpr_size;
 typedef uint64_t riscv_fpr_size;
 # elif __riscv_flen == 128
 typedef uint128_struct riscv_fpr_size;
-# else
+# elif defined(__riscv_flen)
 #  error "Unexpected __riscv_flen"
 # endif
 #else
@@ -69,12 +69,12 @@ enum MDRISCVRegisterNumbers {
 };
 
 /* For (MDRawContextRISCV).context_flags.  These values indicate the type of
- * context stored in the structure. */
+ * context stored in the structure as set by thread_info.cc. */
 #define MD_CONTEXT_RISCV 0x00800000
 #define MD_CONTEXT_RISCV_INTEGER (MD_CONTEXT_RISCV | 0x00000001)
-#define MD_CONTEXT_RISCV_FLOATING_POINT (MD_CONTEXT_RISCV | 0x00000004)
-#define MD_CONTEXT_RISCV_FULL (MD_CONTEXT_RISCV_INTEGER | \
-                               MD_CONTEXT_RISCV_FLOATING_POINT)
+#define MD_CONTEXT_RISCV_SINGLE_FLOATING_POINT (MD_CONTEXT_RISCV | 0x00000004)
+#define MD_CONTEXT_RISCV_DOUBLE_FLOATING_POINT (MD_CONTEXT_RISCV | 0x00000008)
+#define MD_CONTEXT_RISCV_QUAD_FLOATING_POINT (MD_CONTEXT_RISCV | 0x00000010)
 
 typedef struct {
   /* Determines which fields of this struct are populated */
@@ -117,12 +117,12 @@ typedef struct {
 } MDRawContextRISCV;
 
 /* For (MDRawContextRISCV64).context_flags.  These values indicate the type of
- * context stored in the structure. */
+ * context stored in the structure as set by thread_info.cc. */
 #define MD_CONTEXT_RISCV64 0x08000000
 #define MD_CONTEXT_RISCV64_INTEGER (MD_CONTEXT_RISCV64 | 0x00000001)
-#define MD_CONTEXT_RISCV64_FLOATING_POINT (MD_CONTEXT_RISCV64 | 0x00000004)
-#define MD_CONTEXT_RISCV64_FULL (MD_CONTEXT_RISCV64_INTEGER | \
-                                 MD_CONTEXT_RISCV64_FLOATING_POINT)
+#define MD_CONTEXT_RISCV64_SINGLE_FLOATING_POINT (MD_CONTEXT_RISCV64 | 0x00000004)
+#define MD_CONTEXT_RISCV64_DOUBLE_FLOATING_POINT (MD_CONTEXT_RISCV64 | 0x00000008)
+#define MD_CONTEXT_RISCV64_QUAD_FLOATING_POINT (MD_CONTEXT_RISCV64 | 0x00000010)
 
 typedef struct {
   /* Determines which fields of this struct are populated */

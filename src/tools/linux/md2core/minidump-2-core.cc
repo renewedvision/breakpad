@@ -599,7 +599,7 @@ ParseThreadRegisters(CrashedProcess::Thread* thread,
     thread->mcontext.__fpregs.__q.__f[2*i+1] = rawregs->float_save.regs[i].low;
   }
   thread->mcontext.__fpregs.__q.__fcsr = rawregs->float_save.fpcsr;
-# else
+# elif defined(__riscv_flen)
 #  error "Unexpected __riscv_flen"
 # endif
 }
