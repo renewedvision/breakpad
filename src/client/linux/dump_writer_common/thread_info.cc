@@ -336,7 +336,7 @@ void ThreadInfo::FillCPUContext(RawContextCPU* out) const {
     out->float_save.regs[i].low  = mcontext.__fpregs.__q.__f[2*i+1];
   }
   out->float_save.fpcsr = mcontext.__fpregs.__q.__fcsr;
-# else
+# elif defined(__riscv_flen)
 #  error "Unexpected __riscv_flen"
 # endif
 }
@@ -385,7 +385,7 @@ void ThreadInfo::GetFloatingPointRegisters(void** fp_regs, size_t* size) {
     *fp_regs = &mcontext.__fpregs.__q.__f;
   if (size)
     *size = sizeof(mcontext.__fpregs.__q.__f);
-# else
+# elif defined(__riscv_flen)
 #  error "Unexpected __riscv_flen"
 # endif
 #else

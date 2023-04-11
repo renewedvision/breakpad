@@ -47,7 +47,7 @@ typedef uint32_t riscv_fpr_size;
 typedef uint64_t riscv_fpr_size;
 # elif __riscv_flen == 128
 typedef uint128_struct riscv_fpr_size;
-# else
+# elif defined(__riscv_flen)
 #  error "Unexpected __riscv_flen"
 # endif
 #else

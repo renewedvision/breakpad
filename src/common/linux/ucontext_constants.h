@@ -196,6 +196,8 @@
 
 #define MCONTEXT_FPREGS_OFFSET  MCONTEXT_GREGS_OFFSET + 32*MCONTEXT_GREGS_SIZE
 
+#if defined(__riscv_flen)
+
 #if __riscv_flen == 32
 #define MCONTEXT_FPREGS_SIZE       4
 #define FREG_S fsw
@@ -243,6 +245,7 @@
 #define MCONTEXT_FPREGS_FT11  MCONTEXT_FPREGS_OFFSET + 31*MCONTEXT_FPREGS_SIZE
 
 #define MCONTEXT_FPC_CSR      MCONTEXT_FPREGS_OFFSET + 32*MCONTEXT_FPREGS_SIZE
+#endif // __riscv_flen
 
 #else
 # error "This header has not been ported for your CPU"
