@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000 Apple Computer, Inc. All rights reserved.
+ * Copyright (c) 2000-2007 Apple Inc. All rights reserved.
  *
  * @APPLE_OSREFERENCE_LICENSE_HEADER_START@
  *
@@ -30,7 +30,7 @@
  */
 /*
  * Mach Operating System
- * Copyright (c) 1991,1990,1989,1988,1987 Carnegie Mellon University
+ * Copyright (c) 1991,1990,1989 Carnegie Mellon University
  * All Rights Reserved.
  *
  * Permission to use, copy, modify and distribute this software and its
@@ -55,34 +55,20 @@
  */
 /*
  */
+
 /*
- *	File:	mach/boolean.h
+ *	File:	boolean.h
  *
- *	Boolean data type.
- *
+ *	Boolean type, for ARM.
  */
 
-#ifndef _MACH_BOOLEAN_H_
-#define _MACH_BOOLEAN_H_
+#ifndef _MACH_ARM_BOOLEAN_H_
+#define _MACH_ARM_BOOLEAN_H_
 
-/*
- *	Pick up "boolean_t" type definition
- */
+#if defined (__arm__) || defined (__arm64__)
 
-#ifndef ASSEMBLER
-#include <mach/machine/boolean.h>
-#endif  /* ASSEMBLER */
+typedef int             boolean_t;
 
-/*
- *	Define TRUE and FALSE if not defined.
- */
+#endif /* defined (__arm__) || defined (__arm64__) */
 
-#ifndef TRUE
-#define TRUE    1
-#endif  /* TRUE */
-
-#ifndef FALSE
-#define FALSE   0
-#endif  /* FALSE */
-
-#endif  /* _MACH_BOOLEAN_H_ */
+#endif  /* _MACH_ARM_BOOLEAN_H_ */
