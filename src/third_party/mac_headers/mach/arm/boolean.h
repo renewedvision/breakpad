@@ -25,20 +25,50 @@
  *
  * @APPLE_OSREFERENCE_LICENSE_HEADER_END@
  */
+/*
+ * @OSF_COPYRIGHT@
+ */
+/*
+ * Mach Operating System
+ * Copyright (c) 1991,1990,1989 Carnegie Mellon University
+ * All Rights Reserved.
+ *
+ * Permission to use, copy, modify and distribute this software and its
+ * documentation is hereby granted, provided that both the copyright
+ * notice and this permission notice appear in all copies of the
+ * software, derivative works or modified versions, and any portions
+ * thereof, and that both notices appear in supporting documentation.
+ *
+ * CARNEGIE MELLON ALLOWS FREE USE OF THIS SOFTWARE IN ITS "AS IS"
+ * CONDITION.  CARNEGIE MELLON DISCLAIMS ANY LIABILITY OF ANY KIND FOR
+ * ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * Carnegie Mellon requests users of this software to return to
+ *
+ *  Software Distribution Coordinator  or  Software.Distribution@CS.CMU.EDU
+ *  School of Computer Science
+ *  Carnegie Mellon University
+ *  Pittsburgh PA 15213-3890
+ *
+ * any improvements or extensions that they make and grant Carnegie Mellon
+ * the rights to redistribute these changes.
+ */
+/*
+ */
 
-#ifndef _MACH_MACHINE_THREAD_STATE_H_
-#define _MACH_MACHINE_THREAD_STATE_H_
+/*
+ *	File:	boolean.h
+ *
+ *	Boolean type, for ARM.
+ */
 
-#if defined (__i386__) || defined(__x86_64__)
-#include "mach/i386/thread_state.h"
-#elif defined (__aarch64__)
-#include "mach/arm/thread_state.h"
-#else
-#error architecture not supported
-#endif
+#ifndef _MACH_ARM_BOOLEAN_H_
+#define _MACH_ARM_BOOLEAN_H_
 
-/* Size of maximum exported thread state in 32-bit words */
-#define THREAD_STATE_MAX    1296
+#if defined (__aarch64__)
 
+typedef int             boolean_t;
 
-#endif /* _MACH_MACHINE_THREAD_STATE_H_ */
+#endif /* defined (__aarch64__) */
+
+#endif  /* _MACH_ARM_BOOLEAN_H_ */
