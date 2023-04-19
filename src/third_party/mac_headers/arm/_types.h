@@ -1,34 +1,10 @@
 /*
- * Copyright (c) 2000-2003 Apple Computer, Inc. All rights reserved.
- *
- * @APPLE_OSREFERENCE_LICENSE_HEADER_START@
- *
- * This file contains Original Code and/or Modifications of Original Code
- * as defined in and that are subject to the Apple Public Source License
- * Version 2.0 (the 'License'). You may not use this file except in
- * compliance with the License. The rights granted to you under the License
- * may not be used to create, or enable the creation or redistribution of,
- * unlawful or unlicensed copies of an Apple operating system, or to
- * circumvent, violate, or enable the circumvention or violation of, any
- * terms of an Apple operating system software license agreement.
- *
- * Please obtain a copy of the License at
- * http://www.opensource.apple.com/apsl/ and read it before using this file.
- *
- * The Original Code and all software distributed under the License are
- * distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, EITHER
- * EXPRESS OR IMPLIED, AND APPLE HEREBY DISCLAIMS ALL SUCH WARRANTIES,
- * INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT.
- * Please see the License for the specific language governing rights and
- * limitations under the License.
- *
- * @APPLE_OSREFERENCE_LICENSE_HEADER_END@
+ * Copyright (c) 2000-2007 Apple Inc. All rights reserved.
  */
-#ifndef _BSD_I386__TYPES_H_
-#define _BSD_I386__TYPES_H_
+#ifndef _BSD_ARM__TYPES_H_
+#define _BSD_ARM__TYPES_H_
 
-#if defined (__i386__) || defined (__x86_64__)
+#if defined (__aarch64__)
 
 /*
  * This header file contains integer types.  It's intended to also contain
@@ -121,6 +97,6 @@ typedef __uint32_t              __darwin_socklen_t;     /* socklen_t (duh) */
 typedef long                    __darwin_ssize_t;       /* byte count or error */
 typedef long                    __darwin_time_t;        /* time() */
 
-#endif /* defined (__i386__) || defined (__x86_64__) */
+#endif /* defined (__aarch64__) */
 
-#endif  /* _BSD_I386__TYPES_H_ */
+#endif  /* _BSD_ARM__TYPES_H_ */
