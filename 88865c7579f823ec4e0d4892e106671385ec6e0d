@@ -16,6 +16,40 @@
       "message": "PTAL :)",
       "revId": "88865c7579f823ec4e0d4892e106671385ec6e0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "946cb351_6bedf8a5",
+        "filename": "src/third_party/mac_headers/README",
+        "patchSetId": 15
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-20T19:09:39Z",
+      "side": 1,
+      "message": "or adding to the existing or constructs instead of replacing",
+      "revId": "88865c7579f823ec4e0d4892e106671385ec6e0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab39ec4_a339e5e7",
+        "filename": "src/third_party/mac_headers/arm/_types.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-20T19:09:39Z",
+      "side": 1,
+      "message": "Do you want to turn these into \"ors\" with a little || action, so you can catch both arm64 and aarch64?",
+      "revId": "88865c7579f823ec4e0d4892e106671385ec6e0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
