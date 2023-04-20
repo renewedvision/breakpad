@@ -1,2 +1,12 @@
-These headers were copied from the Mac OS X 10.7 SDK to enable building
-the Mac dump_syms code that processes Mach-O files on Linux.
+These headers were copied from the macOS 10.7 SDK (and updated in 2023 to 13.3) 
+to enable building the Mac dump_syms code that processes Mach-O files on Linux.
+NB: if updating these, please ensure to replace
+```
+defined (__arm__) || defined(__arm64__)
+```
+to
+```
+defined (__aarch64__)
+```
+to ensure Linux compatibility.
+
