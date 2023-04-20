@@ -95,11 +95,25 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  */
 --------------------------------------------------------------------
 License for
 src/client/mac/handler/breakpad_nlist_64.cc
+src/third_party/mac_headers/arm/_types.h
+src/third_party/mac_headers/mach/arm/boolean.h
+src/third_party/mac_headers/mach/arm/vm_param.h
+src/third_party/mac_headers/mach/arm/vm_types.h
 src/third_party/mac_headers/architecture/byte_order.h
+src/third_party/mac_headers/i386/_types.h
 src/third_party/mac_headers/mach-o/arch.h
-src/third_party/mac_headers/mach-o/fat.h:
+src/third_party/mac_headers/mach-o/fat.h
 src/third_party/mac_headers/mach-o/loader.h
 src/third_party/mac_headers/mach-o/nlist.h
+src/third_party/mac_headers/mach/boolean.h
+src/third_party/mac_headers/mach/i386/boolean.h
+src/third_party/mac_headers/mach/i386/vm_param.h
+src/third_party/mac_headers/mach/i386/vm_types.h
+src/third_party/mac_headers/mach/machine.h
+src/third_party/mac_headers/mach/machine/boolean.h
+src/third_party/mac_headers/mach/machine/vm_types.h
+src/third_party/mac_headers/mach/thread_status.h
+src/third_party/mac_headers/mach/vm_prot.h:
 
 APPLE PUBLIC SOURCE LICENSE
 
