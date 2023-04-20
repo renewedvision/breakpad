@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "196303e8_7a46c079",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-20T19:13:36Z",
+      "side": 1,
+      "message": "The change description and the README should say where these came from. It is most preferable for them to have come from an open source release.",
+      "revId": "88865c7579f823ec4e0d4892e106671385ec6e0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ae55990b_df9ed7df",
