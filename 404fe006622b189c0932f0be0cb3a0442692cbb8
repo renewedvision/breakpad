@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba5773c2_262abee8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1560007
+      },
+      "writtenOn": "2023-04-21T12:54:22Z",
+      "side": 1,
+      "message": "Kindly, review and submit if lgtmed.",
+      "revId": "404fe006622b189c0932f0be0cb3a0442692cbb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
