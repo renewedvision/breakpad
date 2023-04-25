@@ -139,6 +139,24 @@
       "parentUuid": "ca674b17_ceeabf3c",
       "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae81ae6f_81b2ca7e",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-04-25T15:07:22Z",
+      "side": 1,
+      "message": "should `crashing_thread` be a pointer to the threads in the vector then rather than create a copy ?",
+      "parentUuid": "d1f51a29_8c690433",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
