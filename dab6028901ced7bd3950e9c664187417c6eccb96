@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ddd5638_3057c796",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-04-25T04:33:54Z",
+      "side": 1,
+      "message": "use `foo:` tag style instead of `[foo]`",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c76c5bd_701848ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-04-25T04:33:54Z",
+      "side": 1,
+      "message": "what about threads that trigger dumps directly via breakpad APIs and not due to crashing ?  is this the behavior we want there ?",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bbd4f75_02eb8d3c",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-04-25T04:33:54Z",
+      "side": 1,
+      "message": "i think it\u0027s simpler to do:\n\n`crashinfo-\u003ecrashing_thread \u003d {};`",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca674b17_ceeabf3c",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-04-25T04:33:54Z",
+      "side": 1,
+      "message": "\"provided\" is a bit unclear.  maybe something like \"will be filled in later on when scanning all threads\" would be better ?",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
