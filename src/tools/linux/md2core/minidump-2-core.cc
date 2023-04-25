@@ -282,7 +282,7 @@ typedef struct prpsinfo {       /* Information about process                 */
 // We parse the minidump file and keep the parsed information in this structure
 struct CrashedProcess {
   CrashedProcess()
-      : crashing_tid(-1),
+      : crashing_thread{-1},
         auxv(NULL),
         auxv_length(0) {
     memset(&prps, 0, sizeof(prps));
@@ -306,7 +306,6 @@ struct CrashedProcess {
   };
   std::map<uint64_t, Mapping> mappings;
 
-  pid_t crashing_tid;
   int fatal_signal;
 
   struct Thread {
@@ -330,6 +329,7 @@ struct CrashedProcess {
     size_t stack_length;
   };
   std::vector<Thread> threads;
+  Thread crashing_thread;
 
   const uint8_t* auxv;
   size_t auxv_length;
@@ -999,10 +999,28 @@ ParseDSODebugInfo(const Options& options, CrashedProcess* crashinfo,
 
 static void
 ParseExceptionStream(const Options& options, CrashedProcess* crashinfo,
-                     const MinidumpMemoryRange& range) {
+                     const MinidumpMemoryRange& range,
+                     const MinidumpMemoryRange& full_file) {
   const MDRawExceptionStream* exp = range.GetData<MDRawExceptionStream>(0);
-  crashinfo->crashing_tid = exp->thread_id;
+  if (!exp) {
+    return;
+  }
+  if (options.verbose) {
+    fprintf(stderr,
+            "MD_EXCEPTION_STREAM:\n"
+            "Found exception thread %" PRIu32 " \n"
+            "\n\n",
+            exp->thread_id);
+  }
+  memset(&crashinfo->crashing_thread, 0, sizeof(crashinfo->crashing_thread));
   crashinfo->fatal_signal = (int) exp->exception_record.exception_code;
+  CrashedProcess::Thread& thread = crashinfo->crashing_thread;
+  thread.tid = exp->thread_id;
+  // The following will be provided by the real thread.
+  //thread.stack_addr;
+  //thread.stack;
+  //thread.stack_length;
+  ParseThreadRegisters(&thread, full_file.Subrange(exp->thread_context));
 }
 
 static bool
@@ -1365,7 +1383,7 @@ main(int argc, const char* argv[]) {
         break;
       case MD_EXCEPTION_STREAM:
         ParseExceptionStream(options, &crashinfo,
-                             dump.Subrange(dirent->location));
+                             dump.Subrange(dirent->location), dump);
         break;
       case MD_MODULE_LIST_STREAM:
         ParseModuleStream(options, &crashinfo, dump.Subrange(dirent->location),
@@ -1481,16 +1499,19 @@ main(int argc, const char* argv[]) {
     return 1;
   }
 
-  for (unsigned i = 0; i < crashinfo.threads.size(); ++i) {
-    if (crashinfo.threads[i].tid == crashinfo.crashing_tid) {
-      WriteThread(options, crashinfo.threads[i], crashinfo.fatal_signal);
+  for (const auto& current_thread : crashinfo.threads) {
+    if (current_thread.tid == crashinfo.crashing_thread.tid) {
+      crashinfo.crashing_thread.stack = current_thread.stack;
+      crashinfo.crashing_thread.stack_addr = current_thread.stack_addr;
+      crashinfo.crashing_thread.stack_length = current_thread.stack_length;
+      WriteThread(options, crashinfo.crashing_thread, crashinfo.fatal_signal);
       break;
     }
   }
 
-  for (unsigned i = 0; i < crashinfo.threads.size(); ++i) {
-    if (crashinfo.threads[i].tid != crashinfo.crashing_tid)
-      WriteThread(options, crashinfo.threads[i], 0);
+  for (const auto& current_thread : crashinfo.threads) {
+    if (current_thread.tid != crashinfo.crashing_thread.tid)
+      WriteThread(options, current_thread, 0);
   }
 
   if (note_align) {
