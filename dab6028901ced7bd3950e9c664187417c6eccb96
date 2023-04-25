@@ -157,6 +157,24 @@
       "parentUuid": "d1f51a29_8c690433",
       "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "227a75cb_41d05925",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1115871
+      },
+      "writtenOn": "2023-04-25T15:49:44Z",
+      "side": 1,
+      "message": "No.\n\nSo `crashing_thread` isn\u0027t a copy of anything in the `threads` vector, it models what is in the exception record. The `CrashedProcess` structure is mirroring the minidump structure (and changing it to consistently reflect the core structure we want to emit would be a lot of subtle changes). The minidump has a thread list (threads and their states including stacks) and separate exception records (the state of some thread when an exception happened). The minidump format comes from Windows and WinDbg, which separates these concerns and so the dump can be loaded and then the exception record is expected to be loaded manually (.ecxr). The core file format and gdb do not appear to support something like this, hence the need to sort this out manually when creating the core file.\n\nWe don\u0027t know which order the minidump streams will arrive. So for `crashing_thread` to be a pointer into the `threads` vector `ParseExceptionStream` would need to look to see if a thread with the given tid was already in the `threads` and overwrite parts of it, or add a new thread if not. Then `ParseThreadList` would also need to check if the given thread\u0027s tid is already in the list and conditionally not overwrite it (except to fill out the stack). Then `AugmentMappings` would need to be careful not to write out a possibly empty stack if the tid in the exception record didn\u0027t actually have an associated thread. This is quite awkward and it\u0027s better to just parse the minidump and model it, then write out what we want to the core file.\n\nLooking over at `MinidumpProcessor` it has a slightly different model, but it seems to call this an `exception`. I had called it `crashing_thread` because it is a `Thread` and it is treated similar to one. However, perhaps things are clearer if this is named `exception` and the type system tracks the `Thread` part.",
+      "parentUuid": "ae81ae6f_81b2ca7e",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
