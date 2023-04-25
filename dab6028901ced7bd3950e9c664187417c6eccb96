@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65c07554_6c7976bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1115871
+      },
+      "writtenOn": "2023-04-25T14:09:27Z",
+      "side": 1,
+      "message": "Heh, I went with `[foo]` because the previous two commits on HEAD at the time used the `[foo]` style.\n\nDone",
+      "parentUuid": "2ddd5638_3057c796",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c76c5bd_701848ee",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-25T04:33:54Z",
       "side": 1,
       "message": "what about threads that trigger dumps directly via breakpad APIs and not due to crashing ?  is this the behavior we want there ?",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf2188e5_31daf936",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1115871
+      },
+      "writtenOn": "2023-04-25T14:09:27Z",
+      "side": 1,
+      "message": "With this change they will be treated exactly the same as `minidump_stackwalk` would treat them (this commit message is more or less copied from a comment in minidump_stackwalk and minidump_processor). If the dump has an exception record then the exception record will be used as the thread state for the exception record\u0027s thread. This change is just making `minidump-2-core` consistent with `minidump_stackwalk`. Added a note to the commit message to reflect this. For more details (code links), see related issue.",
+      "parentUuid": "6c76c5bd_701848ee",
       "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4c17166_45bde124",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1115871
+      },
+      "writtenOn": "2023-04-25T14:09:27Z",
+      "side": 1,
+      "message": "It is, but I was following the example of the rest of this file (particularly see `ParseThreadList`) which likes to memset to 0. I imagine the idea is that we really do want the whole struct to be 0 bytes at the start since we\u0027re going to write out the bytes of the struct directly (`WriteThread` does just memcpy and write out the bytes of the context). Initializing with `{}` value initializes to 0, but that doesn\u0027t necessarily touch any alignment padding. Though there shouldn\u0027t be any alignment padding here since these structures are all densely packed, but it is difficult to be sure since not all the structures here are local (some are from system headers). However, in theory the compiler could just inline memset and then not zero any padding since those bits have undefined values by definition. In general attempting to do IO with structs is fraught with UB and this really should be writing out bytes.\n\nDone.",
+      "parentUuid": "6bbd4f75_02eb8d3c",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca674b17_ceeabf3c",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-04-25T04:33:54Z",
       "side": 1,
       "message": "\"provided\" is a bit unclear.  maybe something like \"will be filled in later on when scanning all threads\" would be better ?",
+      "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1f51a29_8c690433",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1115871
+      },
+      "writtenOn": "2023-04-25T14:09:27Z",
+      "side": 1,
+      "message": "Also, interestingly, we technically don\u0027t even need to mention this or provide this. As it turns out, the stack\u0027s memory mappings are written in `AugmentMappings`, `WriteThread` actually doesn\u0027t use this information. This is something of a shortcoming of the current model. The reality is that a `Thread` here does not \"own\" it\u0027s stack, just the current state. Instead of putting the stack region on the `Thread` it should just be read into the list of memory mappings to write out. However, I really wanted to keep this change small, but properly fixing this is a bit more of a change.\n\nPut another way, the thread state and stack are \"together\" in the minidump ThreadListStream, but they aren\u0027t \"together\" in the target core file, which separates the thread state and stack (treating the stack as any other memory region). The `Thread` here currently models the source minidump ThreadListStream instead of the target core file, making writing the core file a bit awkward, which is why this comment and related code are a bit awkward.\n\nSince we don\u0027t need to add any of this information at all, I\u0027ll just comment about how the stack memory is already provided by any `crashinfo-\u003ethreads` element with a matching `tid`.",
+      "parentUuid": "ca674b17_ceeabf3c",
       "revId": "dab6028901ced7bd3950e9c664187417c6eccb96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
