@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b6503d2_2c7a6f5a",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T17:32:52Z",
+      "side": 0,
+      "message": "This is where the implicit overflow would happen if SizeOf(module) is \u003e UINT_MAX.",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 10
+      },
+      "revId": "bfde407de559c10d6cef861b3873ff287c24e761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adc750a0_5b5b0a28",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T17:32:52Z",
+      "side": 0,
+      "message": "here\u0027s where the buffer generated is too small",
+      "range": {
+        "startLine": 120,
+        "startChar": 29,
+        "endLine": 120,
+        "endChar": 30
+      },
+      "revId": "bfde407de559c10d6cef861b3873ff287c24e761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f92642_930b17d8",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T17:32:52Z",
+      "side": 0,
+      "message": "and here\u0027s where we go kapow",
+      "range": {
+        "startLine": 129,
+        "startChar": 22,
+        "endLine": 129,
+        "endChar": 27
+      },
+      "revId": "bfde407de559c10d6cef861b3873ff287c24e761",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
