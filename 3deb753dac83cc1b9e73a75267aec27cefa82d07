@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81068e7b_3f20ce1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:45:11Z",
+      "side": 1,
+      "message": "Great, short path. PTAL, desc updated too.",
+      "revId": "3deb753dac83cc1b9e73a75267aec27cefa82d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

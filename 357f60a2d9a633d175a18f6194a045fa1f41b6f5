@@ -176,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c400883_86af09c4",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:45:11Z",
+      "side": 1,
+      "message": "(obsolete)",
+      "parentUuid": "a6ab2382_982f4b1d",
+      "range": {
+        "startLine": 225,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 10
+      },
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2534f01b_627b57bb",
@@ -225,6 +249,24 @@
       "side": 1,
       "message": "\u003e Would you prefer me doing this and having a breaking import into google3 and roll + update call sites in the same CL?\n\nIf you update call sites, it’s not breaking.\n\nIf there aren’t so many call sites and you can do it all at once, yes, I prefer that.",
       "parentUuid": "d2da6679_9a9745bf",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0336db7_086d8d02",
+        "filename": "src/processor/module_serializer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:45:11Z",
+      "side": 1,
+      "message": "Looks like there\u0027s only one call site outside net/crash will update that before rolling (parameter removal) then do net/crash in the roll.",
+      "parentUuid": "3f972c9c_2d61dfd8",
       "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -282,6 +324,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "621c5ffd_a678dd33",
+        "filename": "src/processor/module_serializer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:45:11Z",
+      "side": 1,
+      "message": "Moot. w00t.",
+      "parentUuid": "a855822b_9ba147d0",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "593ba92f_11119168",
@@ -295,6 +355,30 @@
       "writtenOn": "2023-04-26T19:00:01Z",
       "side": 1,
       "message": "Same comments apply here.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d963c3_f6d3ddba",
+        "filename": "src/processor/module_serializer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:45:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "593ba92f_11119168",
       "range": {
         "startLine": 86,
         "startChar": 0,
