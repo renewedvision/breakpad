@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74d72ee8_07d506d0",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-26T19:27:30Z",
+      "side": 1,
+      "message": "I missed this on the first read.\n\nIt’s silly and unnecessary, but it’s OK to preserve the existing behavior, and _not_ add `serialized_data \u0026\u0026`.",
+      "revId": "12b408c1cbd7efc4788a691280820af1d69e6977",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
