@@ -16,6 +16,143 @@
       "message": "-\u003e mark@ PTAL :)",
       "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4279efd6_e0b7f22d",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-26T19:00:01Z",
+      "side": 1,
+      "message": "1. For a C header, use `\u003climits.h\u003e` instead of `\u003cclimits\u003e`.\n\n2. For things where a better C++ equivalent exists, use that instead. Can you use `\u003cnumeric_limits\u003e`?",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac412991_00818da5",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-26T19:00:01Z",
+      "side": 1,
+      "message": "`serialized_data \u0026\u0026 size`",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd5fffe_f5165d51",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-26T19:00:01Z",
+      "side": 1,
+      "message": "…and `std::numeric_limits\u003cunsigned int\u003e::max()`.",
+      "range": {
+        "startLine": 121,
+        "startChar": 29,
+        "endLine": 121,
+        "endChar": 37
+      },
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6ab2382_982f4b1d",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-26T19:00:01Z",
+      "side": 1,
+      "message": "`serialized_data \u0026\u0026 size`",
+      "range": {
+        "startLine": 225,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 10
+      },
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2534f01b_627b57bb",
+        "filename": "src/processor/module_serializer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-26T19:00:01Z",
+      "side": 1,
+      "message": "Why can’t you get rid of the `int*` form of Serialize right now?",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aee2f814_7cb5d024",
+        "filename": "src/processor/module_serializer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-26T19:00:01Z",
+      "side": 1,
+      "message": "Since the desired end state is to get rid of the non-`size_t*` version, wouldn’t you want this version to be named Serialize?\n\nI think we’ve softened a bit on overloading.",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "593ba92f_11119168",
+        "filename": "src/processor/module_serializer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-26T19:00:01Z",
+      "side": 1,
+      "message": "Same comments apply here.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
