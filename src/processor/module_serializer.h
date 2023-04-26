@@ -71,14 +71,26 @@ class ModuleSerializer {
   // size allocated for the serialized data.
   // Caller takes the ownership of the memory chunk (allocated on heap), and
   // owner should call delete [] to free the memory after use.
+  // TODO(pbos): Replace current uses where the size parameter is used with
+  // Serialize, replace Serialize with a size_t variant (as an alias), migrate
+  // users to Serialize (but using a size_t parameter), then remove
+  // SerializeWithSizeT.
   char* Serialize(const BasicSourceLineResolver::Module& module,
                   unsigned int* size = NULL);
+  char* SerializeWithSizeT(const BasicSourceLineResolver::Module& module,
+                           size_t* size = NULL);
 
   // Given the string format symbol_data, produces a chunk of serialized data.
   // Caller takes ownership of the serialized data (on heap), and owner should
   // call delete [] to free the memory after use.
+  // TODO(pbos): Replace current uses where the size parameter is used with
+  // SerializeSymbolFileDataWithSizeT, replace Serialize with a size_t variant
+  // (as an alias), migrate users to Serialize (but using a size_t parameter),
+  // then remove SerializeWithSizeT.
   char* SerializeSymbolFileData(const string& symbol_data,
                                 unsigned int* size = NULL);
+  char* SerializeSymbolFileDataWithSizeT(const string& symbol_data,
+                                         size_t* size = NULL);
 
   // Serializes one loaded module with given moduleid in the basic source line
   // resolver, and loads the serialized data into the fast source line resolver.
