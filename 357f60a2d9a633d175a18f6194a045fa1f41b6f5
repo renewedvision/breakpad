@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b88496c_55822d8d",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4279efd6_e0b7f22d",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac412991_00818da5",
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cdeded6f_912d584d",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:09:34Z",
+      "side": 1,
+      "message": "SerializeWithSizeT writes 0 if serialized_data returns nullptr, so this is currently preserving the existing behavior. Would you like *size to remain untouched and potentially garbage rather than always initializing *size in this call?",
+      "parentUuid": "ac412991_00818da5",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4dd5fffe_f5165d51",
         "filename": "src/processor/module_serializer.cc",
         "patchSetId": 2
@@ -65,6 +101,30 @@
       "writtenOn": "2023-04-26T19:00:01Z",
       "side": 1,
       "message": "…and `std::numeric_limits\u003cunsigned int\u003e::max()`.",
+      "range": {
+        "startLine": 121,
+        "startChar": 29,
+        "endLine": 121,
+        "endChar": 37
+      },
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92990896_0faa140d",
+        "filename": "src/processor/module_serializer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dd5fffe_f5165d51",
       "range": {
         "startLine": 121,
         "startChar": 29,
@@ -117,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2da6679_9a9745bf",
+        "filename": "src/processor/module_serializer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:09:34Z",
+      "side": 1,
+      "message": "Would you prefer me doing this and having a breaking import into google3 and roll + update call sites in the same CL?",
+      "parentUuid": "2534f01b_627b57bb",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aee2f814_7cb5d024",
         "filename": "src/processor/module_serializer.h",
         "patchSetId": 2
@@ -128,6 +206,24 @@
       "writtenOn": "2023-04-26T19:00:01Z",
       "side": 1,
       "message": "Since the desired end state is to get rid of the non-`size_t*` version, wouldn’t you want this version to be named Serialize?\n\nI think we’ve softened a bit on overloading.",
+      "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da6ab469_d8dd2684",
+        "filename": "src/processor/module_serializer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1126912
+      },
+      "writtenOn": "2023-04-26T19:09:34Z",
+      "side": 1,
+      "message": "Can\u0027t because it\u0027ll break 32-bit compile (where size_t \u003d\u003d unsigned int), right? This sure breaks if I have unsigned long and size_t at least.",
+      "parentUuid": "aee2f814_7cb5d024",
       "revId": "357f60a2d9a633d175a18f6194a045fa1f41b6f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
