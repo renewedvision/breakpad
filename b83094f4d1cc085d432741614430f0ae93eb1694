@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eb6580f1_05f6ba5c",
+        "filename": "src/third_party/mac_headers/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-04-26T21:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd3eb485_dd2dd80f",
+      "revId": "b83094f4d1cc085d432741614430f0ae93eb1694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3adf9583_2eaa9f76",
         "filename": "src/third_party/mac_headers/README",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2023-04-26T21:05:09Z",
       "side": 1,
       "message": "Slightly out of date but it’s OK.",
+      "range": {
+        "startLine": 4,
+        "startChar": 5,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "b83094f4d1cc085d432741614430f0ae93eb1694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de87ef2d_6c20472b",
+        "filename": "src/third_party/mac_headers/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-04-26T21:11:23Z",
+      "side": 1,
+      "message": "It\u0027s the latest release! (And as a bonus, less deprecations than the 13.3 SDK)",
+      "parentUuid": "3adf9583_2eaa9f76",
       "range": {
         "startLine": 4,
         "startChar": 5,

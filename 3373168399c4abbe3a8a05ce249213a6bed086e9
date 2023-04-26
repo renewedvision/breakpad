@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c24e485_70081696",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-04-26T21:11:23Z",
+      "side": 1,
+      "message": "Thanks! Holding off on submitting until https://chromium-review.googlesource.com/c/breakpad/breakpad/+/4477821 is integrated so that we don\u0027t mix two revert risks",
+      "revId": "3373168399c4abbe3a8a05ce249213a6bed086e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
