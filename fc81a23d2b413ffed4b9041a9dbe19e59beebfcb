@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ef20262_63a1312d",
+        "filename": "src/common/mac/arch_utilities.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-27T15:56:52Z",
+      "side": 1,
+      "message": "constexpr?",
+      "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c811e1b_30faf92f",
+        "filename": "src/common/mac/arch_utilities.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-27T15:56:52Z",
+      "side": 1,
+      "message": "Switch this to `__arm64__`, trailing underscores too, in line with every other architecture considered here.",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 22
+      },
+      "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85815ba9_56baa777",
+        "filename": "src/common/mac/arch_utilities.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-27T15:56:52Z",
+      "side": 1,
+      "message": "You could pop sooner, after line 107.",
+      "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "884ebd28_764aa2fc",
+        "filename": "src/common/mac/arch_utilities.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-27T15:56:52Z",
+      "side": 1,
+      "message": "Pop this sooner too.",
+      "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
