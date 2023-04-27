@@ -105,6 +105,30 @@
       },
       "revId": "b83094f4d1cc085d432741614430f0ae93eb1694",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb01abe_6cfa0522",
+        "filename": "src/third_party/mac_headers/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-04-27T15:33:35Z",
+      "side": 1,
+      "message": "TIL :/ What a weird way to do it",
+      "parentUuid": "d0c42053_70fab8a1",
+      "range": {
+        "startLine": 4,
+        "startChar": 5,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "b83094f4d1cc085d432741614430f0ae93eb1694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
