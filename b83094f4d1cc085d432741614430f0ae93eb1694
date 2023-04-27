@@ -129,6 +129,30 @@
       },
       "revId": "b83094f4d1cc085d432741614430f0ae93eb1694",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32e2d01b_3a577154",
+        "filename": "src/third_party/mac_headers/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-27T15:49:36Z",
+      "side": 1,
+      "message": "\u003e TIL :/ What a weird way to do it\n\nIf you squint at it with the mindset of how they branch internally, and the fact that publicly, we’re not really seeing their _trunk_, it starts to make some sense.\n\nIf you think about it from the perspective of just about anyone external to Apple (which is the audience for these opensource repositories), it makes absolutely zero sense.\n\nBut now you know!",
+      "parentUuid": "bdb01abe_6cfa0522",
+      "range": {
+        "startLine": 4,
+        "startChar": 5,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "b83094f4d1cc085d432741614430f0ae93eb1694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
