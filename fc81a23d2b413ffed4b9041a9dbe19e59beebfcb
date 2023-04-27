@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7453663_9e5da960",
+        "filename": "src/common/mac/arch_utilities.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-04-27T16:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ef20262_63a1312d",
+      "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c811e1b_30faf92f",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-04-27T15:56:52Z",
       "side": 1,
       "message": "Switch this to `__arm64__`, trailing underscores too, in line with every other architecture considered here.",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 22
+      },
+      "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebdd4376_d8eb3107",
+        "filename": "src/common/mac/arch_utilities.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-04-27T16:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c811e1b_30faf92f",
       "range": {
         "startLine": 83,
         "startChar": 6,
@@ -58,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70837afc_19dc65e3",
+        "filename": "src/common/mac/arch_utilities.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-04-27T16:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85815ba9_56baa777",
+      "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "884ebd28_764aa2fc",
@@ -71,6 +131,24 @@
       "writtenOn": "2023-04-27T15:56:52Z",
       "side": 1,
       "message": "Pop this sooner too.",
+      "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4d42673_7abe01c2",
+        "filename": "src/common/mac/arch_utilities.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-04-27T16:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "884ebd28_764aa2fc",
       "revId": "fc81a23d2b413ffed4b9041a9dbe19e59beebfcb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
