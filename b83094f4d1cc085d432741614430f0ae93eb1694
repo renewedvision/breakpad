@@ -81,6 +81,30 @@
       },
       "revId": "b83094f4d1cc085d432741614430f0ae93eb1694",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0c42053_70fab8a1",
+        "filename": "src/third_party/mac_headers/README",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-04-27T15:28:42Z",
+      "side": 1,
+      "message": "\u003e It\u0027s the latest release! (And as a bonus, less deprecations than the 13.3 SDK)\n\nYou cited 8792.41.9 (13.0), but 8792.81.2 (13.2) is the current open-source release, which has been available since 2023-01-23.\n\nThe problem is almost certainly that Apple only updates the “main” branch, which is the default, for major releases, so what you see and get by default isn’t actually the most current.\n\nShouldn’t really be significant here, but it’s something to keep in mind as you use https://github.com/apple-oss-distributions for other purposes.",
+      "parentUuid": "de87ef2d_6c20472b",
+      "range": {
+        "startLine": 4,
+        "startChar": 5,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "b83094f4d1cc085d432741614430f0ae93eb1694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
