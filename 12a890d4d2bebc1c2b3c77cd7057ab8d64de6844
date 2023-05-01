@@ -16,6 +16,23 @@
       "message": "PTAL :)",
       "revId": "12a890d4d2bebc1c2b3c77cd7057ab8d64de6844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ec15d81_de9daa2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-01T21:06:05Z",
+      "side": 1,
+      "message": "If you pick up architecture/byte_order.h from https://github.com/apple-oss-distributions/architecture, you can get an APSL 2.0-licensed version of it.\n\nThe copy in xnu is from EXTERNAL_HEADERS. architecture is the authoritative home. xnu must not have synced in a while.",
+      "revId": "12a890d4d2bebc1c2b3c77cd7057ab8d64de6844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
