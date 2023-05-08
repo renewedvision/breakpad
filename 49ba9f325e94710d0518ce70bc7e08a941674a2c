@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b93f0f3c_ae28b070",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2023-05-08T19:16:29Z",
+      "side": 1,
+      "message": "Mostly LGTM. Some small clarifications via comments will be appreciated.",
+      "revId": "49ba9f325e94710d0518ce70bc7e08a941674a2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa7ea0f3_fdd44811",
+        "filename": "src/google_breakpad/processor/minidump_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2023-05-08T19:16:29Z",
+      "side": 1,
+      "message": "Can you, please, clarify that this flag won\u0027t enable it for exploitability",
+      "range": {
+        "startLine": 129,
+        "startChar": 7,
+        "endLine": 129,
+        "endChar": 25
+      },
+      "revId": "49ba9f325e94710d0518ce70bc7e08a941674a2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0abd8184_9838e501",
+        "filename": "src/google_breakpad/processor/minidump_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2023-05-08T19:16:29Z",
+      "side": 1,
+      "message": "Can you, please, clarify that this flag won\u0027t enable it for exploitability",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 22
+      },
+      "revId": "49ba9f325e94710d0518ce70bc7e08a941674a2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
