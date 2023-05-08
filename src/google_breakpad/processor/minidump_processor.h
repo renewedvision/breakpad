@@ -128,6 +128,10 @@ class MinidumpProcessor {
 
   void set_enable_objdump(bool enabled) { enable_objdump_ = enabled; }
 
+  void set_enable_objdump_for_exploitability(bool enabled) {
+    enable_objdump_for_exploitability_ = enabled;
+  }
+
  private:
   StackFrameSymbolizer* frame_symbolizer_;
   // Indicate whether resolver_helper_ is owned by this instance.
@@ -138,9 +142,14 @@ class MinidumpProcessor {
   // memory corruption issue.
   bool enable_exploitability_;
 
-  // This flag permits the exploitability scanner to shell out to objdump
-  // for purposes of disassembly.
+  // This flag permits the processor to shell out to objdump for purposes of
+  // disassembly.
   bool enable_objdump_;
+
+  // This flag permits the exploitability scanner to shell out to objdump for
+  // purposes of disassembly. This results in significantly more overhead than
+  // the enable_objdump_ flag.
+  bool enable_objdump_for_exploitability_;
 };
 
 }  // namespace google_breakpad
