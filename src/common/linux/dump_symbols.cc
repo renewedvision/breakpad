@@ -334,6 +334,42 @@ std::pair<uint8_t *, uint64_t> UncompressSectionContents(
     : std::make_pair(uncompressed_buffer.release(), uncompressed_size);
 }
 
+void StartProcessSplitDwarf(google_breakpad::CompilationUnit* reader,
+                            Module* module,
+                            google_breakpad::Endianness endianness,
+                            bool handle_inter_cu_refs,
+                            bool handle_inline) {
+  std::string split_file;
+  google_breakpad::SectionMap split_sections;
+  google_breakpad::ByteReader split_byte_reader(endianness);
+  uint64_t cu_offset = 0;
+  reader->ProcessSplitDwarf(split_file, split_sections, split_byte_reader,
+                            cu_offset);
+  if (split_file.empty())
+    return;
+  DwarfCUToModule::FileContext file_context(split_file, module,
+                                            handle_inter_cu_refs);
+  DumperRangesHandler ranges_handler(&split_byte_reader);
+  DumperLineToModule line_to_module(&split_byte_reader);
+  DwarfCUToModule::WarningReporter reporter(split_file, cu_offset);
+  DwarfCUToModule root_handler(&file_context, &line_to_module, &ranges_handler,
+                               &reporter, handle_inline);
+  google_breakpad::DIEDispatcher die_dispatcher(&root_handler);
+  google_breakpad::CompilationUnit split_reader(split_file, split_sections,
+                                                cu_offset, &split_byte_reader,
+                                                &die_dispatcher);
+  split_reader.SetSplitDwarf(reader->GetAddrBuffer(),
+                             reader->GetAddrBufferLen(), reader->GetAddrBase(),
+                             reader->GetRangeBase(), reader->GetDWOID());
+  bool ShouldProcessSplitDwarf = false;
+  split_reader.Start(ShouldProcessSplitDwarf);
+  // Normally, it won't happen unless we have transitive reference.
+  if (ShouldProcessSplitDwarf) {
+    StartProcessSplitDwarf(&split_reader, module, endianness,
+                           handle_inter_cu_refs, handle_inline);
+  }
+}
+
 template<typename ElfClass>
 bool LoadDwarf(const string& dwarf_filename,
                const typename ElfClass::Ehdr* elf_header,
@@ -420,7 +456,13 @@ bool LoadDwarf(const string& dwarf_filename,
                                          &byte_reader,
                                          &die_dispatcher);
     // Process the entire compilation unit; get the offset of the next.
-    offset += reader.Start();
+    bool ShouldProcessSplitDwarf = false;
+    offset += reader.Start(ShouldProcessSplitDwarf);
+    // Start to process split dwarf file.
+    if (ShouldProcessSplitDwarf) {
+      StartProcessSplitDwarf(&reader, module, endianness, handle_inter_cu_refs,
+                             handle_inline);
+    }
   }
   return true;
 }

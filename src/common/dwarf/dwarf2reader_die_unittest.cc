@@ -207,7 +207,8 @@ TEST_P(DwarfHeader, Header) {
   ByteReader byte_reader(GetParam().endianness == kLittleEndian ?
                          ENDIANNESS_LITTLE : ENDIANNESS_BIG);
   CompilationUnit parser("", MakeSectionMap(), 0, &byte_reader, &handler);
-  EXPECT_EQ(parser.Start(), info_contents.size());
+  bool ShouldProcessSplitDwarf = false;
+  EXPECT_EQ(parser.Start(ShouldProcessSplitDwarf), info_contents.size());
 }
 
 TEST_P(DwarfHeader, TypeUnitHeader) {
@@ -250,7 +251,8 @@ TEST_P(DwarfHeader, TypeUnitHeader) {
   ByteReader byte_reader(GetParam().endianness == kLittleEndian ?
                          ENDIANNESS_LITTLE : ENDIANNESS_BIG);
   CompilationUnit parser("", MakeSectionMap(), 0, &byte_reader, &handler);
-  EXPECT_EQ(parser.Start(), info_contents.size());
+  bool ShouldProcessSplitDwarf = false;
+  EXPECT_EQ(parser.Start(ShouldProcessSplitDwarf), info_contents.size());
 }
 
 INSTANTIATE_TEST_SUITE_P(
@@ -333,8 +335,11 @@ struct DwarfFormsFixture: public DIEFixture {
                             uint64_t offset=0) {
     ByteReader byte_reader(params.endianness == kLittleEndian ?
                            ENDIANNESS_LITTLE : ENDIANNESS_BIG);
-    CompilationUnit parser("", MakeSectionMap(), offset, &byte_reader, &handler);
-    EXPECT_EQ(offset + parser.Start(), info_contents.size());
+    CompilationUnit parser("", MakeSectionMap(), offset, &byte_reader,
+                           &handler);
+    bool ShouldProcessSplitDwarf = false;
+    EXPECT_EQ(offset + parser.Start(ShouldProcessSplitDwarf),
+              info_contents.size());
   }
 
   // The sequence to which the fixture's methods append expectations.
