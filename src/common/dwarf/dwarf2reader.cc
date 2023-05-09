@@ -399,7 +399,13 @@ uint64_t CompilationUnit::Start(bool& ShouldProcessSplitDwarf) {
 
   // Set up our buffer
   buffer_ = iter->second.first + offset_from_section_start_;
-  buffer_length_ = iter->second.second - offset_from_section_start_;
+  if (is_split_dwarf_) {
+    iter = GetSectionByName(sections_, ".debug_info_offset");
+    assert(iter != sections_.end());
+    buffer_length_ = iter->second.second;
+  } else {
+    buffer_length_ = iter->second.second - offset_from_section_start_;
+  }
 
   // Read the header
   ReadHeader();
@@ -993,7 +999,12 @@ inline int GetElfWidth(const ElfReader& elf) {
 
 void CompilationUnit::ProcessSplitDwarf(std::string& split_file,
                                         SectionMap& sections,
+<<<<<<< PATCH SET (cdbd5d Fix inline_origin_map key collision when split dwarf is enab)
+                                        ByteReader& split_byte_reader,
+                                        uint64_t& cu_offset) {
+=======
                                         ByteReader& split_byte_reader) {
+>>>>>>> BASE      (6a6967 Refactor split dwarf handling.)
   struct stat statbuf;
   bool found_in_dwp = false;
   if (!have_checked_for_dwp_) {
@@ -1021,6 +1032,16 @@ void CompilationUnit::ProcessSplitDwarf(std::string& split_file,
         // If we have a .dwp file, read the debug sections for the requested CU.
         dwp_reader_->ReadDebugSectionsForCU(dwo_id_, &sections);
         if (!sections.empty()) {
+<<<<<<< PATCH SET (cdbd5d Fix inline_origin_map key collision when split dwarf is enab)
+          SectionMap::const_iterator cu_iter =
+              GetSectionByName(sections, ".debug_info_offset");
+          SectionMap::const_iterator debug_info_iter =
+              GetSectionByName(sections, ".debug_info");
+          assert(cu_iter != sections.end());
+          assert(debug_info_iter != sections.end());
+          cu_offset = cu_iter->second.first - debug_info_iter->second.first;
+=======
+>>>>>>> BASE      (6a6967 Refactor split dwarf handling.)
           found_in_dwp = true;
           split_file = dwp_path;
         }
@@ -1215,8 +1236,13 @@ void DwpReader::ReadDebugSectionsForCU(uint64_t dwo_id,
       } else if (section_id == DW_SECT_INFO) {
         sections->insert(std::make_pair(
             ".debug_info",
-            std::make_pair(reinterpret_cast<const uint8_t*> (info_data_)
-                           + offset, size)));
+            std::make_pair(reinterpret_cast<const uint8_t*>(info_data_), 0)));
+        // .debug_info_offset will points the buffer for the CU with given
+        // dwo_id.
+        sections->insert(std::make_pair(
+            ".debug_info_offset",
+            std::make_pair(
+                reinterpret_cast<const uint8_t*>(info_data_) + offset, size)));
       } else if (section_id == DW_SECT_STR_OFFSETS) {
         sections->insert(std::make_pair(
             ".debug_str_offsets",

@@ -484,7 +484,12 @@ class CompilationUnit {
   // Process the actual debug information in a split DWARF file.
   void ProcessSplitDwarf(std::string& split_file,
                          SectionMap& sections,
+<<<<<<< PATCH SET (cdbd5d Fix inline_origin_map key collision when split dwarf is enab)
+                         ByteReader& byte_reader,
+                         uint64_t& cu_offset);
+=======
                          ByteReader& byte_reader);
+>>>>>>> BASE      (6a6967 Refactor split dwarf handling.)
 
   const uint8_t* GetAddrBuffer() { return addr_buffer_; }
 
@@ -670,7 +675,7 @@ class CompilationUnit {
   const string path_;
 
   // Offset from section start is the offset of this compilation unit
-  // from the beginning of the .debug_info section.
+  // from the beginning of the .debug_info/.debug_info.dwo section.
   uint64_t offset_from_section_start_;
 
   // buffer is the buffer for our CU, starting at .debug_info + offset

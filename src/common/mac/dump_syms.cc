@@ -433,6 +433,17 @@ void DumpSymbols::StartProcessSplitDwarf(
   std::string split_file;
   google_breakpad::SectionMap split_sections;
   google_breakpad::ByteReader split_byte_reader(endianness);
+<<<<<<< PATCH SET (cdbd5d Fix inline_origin_map key collision when split dwarf is enab)
+  uint64_t cu_offset = 0;
+  reader->ProcessSplitDwarf(split_file, split_sections, split_byte_reader,
+                            cu_offset);
+  if (split_file.empty())
+    return;
+  DwarfCUToModule::FileContext file_context(split_file, module,
+                                            handle_inter_cu_refs);
+  DumperRangesHandler ranges_handler(&split_byte_reader);
+  DumperLineToModule line_to_module(&split_byte_reader);
+=======
   reader->ProcessSplitDwarf(split_file, split_sections, split_byte_reader);
   if (split_file.empty())
     return;
@@ -442,6 +453,7 @@ void DumpSymbols::StartProcessSplitDwarf(
   DumperLineToModule line_to_module(&split_byte_reader);
   // FIXME: The offset is 0 in dwo file but should be CU offset in dwp file.
   uint64_t cu_offset = 0;
+>>>>>>> BASE      (6a6967 Refactor split dwarf handling.)
   DwarfCUToModule::WarningReporter reporter(split_file, cu_offset);
   DwarfCUToModule root_handler(&file_context, &line_to_module, &ranges_handler,
                                &reporter, handle_inline);
