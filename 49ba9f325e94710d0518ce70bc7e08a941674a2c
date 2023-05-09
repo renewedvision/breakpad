@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0e86da2_2bda431d",
+        "filename": "src/google_breakpad/processor/minidump_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2023-05-09T12:34:30Z",
+      "side": 1,
+      "message": "Done.\n\nI did consider having this function also set the exploitability flag when (exploitability analysis) is enabled, preserving the current behaviour.\n\nWe\u0027d then call `set_enable_objdump_for_exploitability(false)` afterwards to get the desired configuration. I think that just overcomplicates things though, so I took this approach.",
+      "parentUuid": "aa7ea0f3_fdd44811",
+      "range": {
+        "startLine": 129,
+        "startChar": 7,
+        "endLine": 129,
+        "endChar": 25
+      },
+      "revId": "49ba9f325e94710d0518ce70bc7e08a941674a2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0abd8184_9838e501",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-05-08T19:16:29Z",
       "side": 1,
       "message": "Can you, please, clarify that this flag won\u0027t enable it for exploitability",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 22
+      },
+      "revId": "49ba9f325e94710d0518ce70bc7e08a941674a2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f00bea9_37774ae5",
+        "filename": "src/google_breakpad/processor/minidump_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1178827
+      },
+      "writtenOn": "2023-05-09T12:34:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0abd8184_9838e501",
       "range": {
         "startLine": 147,
         "startChar": 2,
