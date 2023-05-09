@@ -479,7 +479,22 @@ class CompilationUnit {
   // headers. This plus the starting offset passed to the constructor
   // is the offset of the end of the compilation unit --- and the
   // start of the next compilation unit, if there is one.
-  uint64_t Start();
+  uint64_t Start(bool& ShouldProcessSplitDwarf);
+
+  // Process the actual debug information in a split DWARF file.
+  void ProcessSplitDwarf(std::string& split_file,
+                         SectionMap& sections,
+                         ByteReader& byte_reader);
+
+  const uint8_t* GetAddrBuffer() { return addr_buffer_; }
+
+  uint64_t GetAddrBufferLen() { return addr_buffer_length_; }
+
+  uint64_t GetAddrBase() { return addr_base_; }
+
+  uint64_t GetRangeBase() { return ranges_base_; }
+
+  uint64_t GetDWOID() { return dwo_id_; }
 
  private:
 
@@ -647,9 +662,6 @@ class CompilationUnit {
   // new place to position the stream to.
   const uint8_t* SkipAttribute(const uint8_t* start, enum DwarfForm form);
 
-  // Process the actual debug information in a split DWARF file.
-  void ProcessSplitDwarf();
-
   // Read the debug sections from a .dwo file.
   void ReadDebugSectionsFromDwo(ElfReader* elf_reader,
                                 SectionMap* sections);
@@ -743,11 +755,8 @@ class CompilationUnit {
   // True if we have already looked for a .dwp file.
   bool have_checked_for_dwp_;
 
-  // Path to the .dwp file.
-  string dwp_path_;
-
-  // ByteReader for the DWP file.
-  std::unique_ptr<ByteReader> dwp_byte_reader_;
+  // ElfReader for the dwo/dwo file.
+  std::unique_ptr<ElfReader> split_elf_reader_;
 
   // DWP reader.
    std::unique_ptr<DwpReader> dwp_reader_;
@@ -769,8 +778,6 @@ class CompilationUnit {
 class DwpReader {
  public:
   DwpReader(const ByteReader& byte_reader, ElfReader* elf_reader);
-
-  ~DwpReader();
 
   // Read the CU index and initialize data members.
   void Initialize();
