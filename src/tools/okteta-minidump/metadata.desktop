@@ -1,0 +1,15 @@
+[Desktop Entry]
+Icon=application-x-core
+Type=Service
+ServiceTypes=KPluginInfo
+
+Name=Minidump files
+Comment=Microsoft minidump format (.dmp)
+
+X-KDE-PluginInfo-Author=Ben Wagner
+X-KDE-PluginInfo-Email=bungeman@chromium.org
+X-KDE-PluginInfo-Name=minidump-file
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=https://chromium.googlesource.com/breakpad/breakpad/+/HEAD/src/tools/okteta-minidump/README.md
+X-KDE-PluginInfo-Category=structure/js
+X-KDE-PluginInfo-License=BSD-3-Clause
