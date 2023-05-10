@@ -16,6 +16,23 @@
       "message": "I started on this some time ago to explain to myself how minidumps work. It seems this might be useful to others, so I\u0027m hunting for a place to put it. If there is a better place to put it, let me know. (Even just creating this CL gets it somewhere other than my own machine where it could get lost.)",
       "revId": "d3dd606a8935b52c1f1baa6a8bf769ca92ae8ec4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e6fdd24_a3d6051c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-05-10T20:04:59Z",
+      "side": 1,
+      "message": "The minidump format is defined by Microsoft and not particular to breakpad, so I don\u0027t think there\u0027s any particular reason is needs to live here. Breakpad might (in theory at least) become fully deprecated and removed from chromium, while we continue to use the minidump format with Crashpad and LLDB.\n\nThis might be better placed in\nchromium/src/tools\nchromium/src/components/crash/(tools?)",
+      "revId": "d3dd606a8935b52c1f1baa6a8bf769ca92ae8ec4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
