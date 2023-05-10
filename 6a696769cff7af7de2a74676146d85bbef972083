@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b360c127_8ebbf9fa",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-05-10T20:41:34Z",
+      "side": 1,
+      "message": "the style in this file is \"should_process_split_dwarf\"",
+      "range": {
+        "startLine": 394,
+        "startChar": 38,
+        "endLine": 394,
+        "endChar": 61
+      },
+      "revId": "6a696769cff7af7de2a74676146d85bbef972083",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd21b12_46219345",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-05-10T20:41:34Z",
+      "side": 1,
+      "message": "I\u0027m unclear on why this code is pulled into this file (and duplicated for mac). Can you describe how this will enable your bugfix?\n\nThe CL description mentions behavioral changes to warnings in this refactor. Are there meant to be any others?",
+      "range": {
+        "startLine": 337,
+        "startChar": 5,
+        "endLine": 337,
+        "endChar": 27
+      },
+      "revId": "6a696769cff7af7de2a74676146d85bbef972083",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
