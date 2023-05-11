@@ -296,7 +296,15 @@ func (dq *DumpQueue) worker() {
 	dumpSyms := path.Join(*breakpadTools, "dump_syms")
 
 	for req := range dq.queue {
-		filebase := path.Join(dq.dumpPath, strings.Replace(req.path, "/", "_", -1))
+		// Truncate to 240 to stay under NAME_MAX. NAME_MAX is 255 on macOS 13
+		// with some leeway for architecture, extension and a little more just
+		// because. Truncate from the end since that's where the unique
+		// information lives.
+		mangledPath := strings.Replace(req.path, "/", "_", -1)
+		if len(mangledPath) > 240 {
+			mangledPath = mangledPath[len(mangledPath)-240:]
+		}
+		filebase := path.Join(dq.dumpPath, mangledPath)
 		symfile := fmt.Sprintf("%s_%s.sym", filebase, req.arch)
 		f, err := os.Create(symfile)
 		if err != nil {
