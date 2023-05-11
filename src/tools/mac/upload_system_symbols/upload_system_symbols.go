@@ -51,6 +51,7 @@ import (
 	"os"
 	"os/exec"
 	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
 	"sync"
@@ -61,9 +62,10 @@ var (
 	breakpadTools    = flag.String("breakpad-tools", "out/Release/", "Path to the Breakpad tools directory, containing dump_syms and symupload.")
 	uploadOnlyPath   = flag.String("upload-from", "", "Upload a directory of symbol files that has been dumped independently.")
 	dumpOnlyPath     = flag.String("dump-to", "", "Dump the symbols to the specified directory, but do not upload them.")
-	systemRoot       = flag.String("system-root", "", "Path to the root of the Mac OS X system whose symbols will be dumped.")
+	systemRoot       = flag.String("system-root", "", "Path to the root of the Mac OS X system whose symbols will be dumped. Mutually exclusive with -ipsw")
 	dumpArchitecture = flag.String("arch", "", "The CPU architecture for which symbols should be dumped. If not specified, dumps all architectures.")
 	apiKey           = flag.String("api-key", "", "API key to use. If this is present, the `sym-upload-v2` protocol is used.\nSee https://chromium.googlesource.com/breakpad/breakpad/+/HEAD/docs/sym_upload_v2_protocol.md or\n`symupload`'s help for more information.")
+	ipsw             = flag.String("ipsw", "", "Path to an ipsw file containing a system to dump. Mutually exclusive with -system-root. 'ipsw' must be in PATH.")
 )
 
 var (
@@ -129,8 +131,10 @@ func main() {
 		return
 	}
 
-	if *systemRoot == "" {
-		log.Fatal("Need a -system-root to dump symbols for")
+	if *systemRoot == "" && *ipsw == "" {
+		log.Fatal("Need a -system-root or -ipsw to dump symbols for")
+	} else if *systemRoot != "" && *ipsw != "" {
+		log.Fatal("-ipsw and -system-root are mutually exclusive")
 	}
 
 	if *dumpOnlyPath != "" {
@@ -156,7 +160,11 @@ func main() {
 		}
 	}
 
-	dq := StartDumpQueue(*systemRoot, dumpPath, uq)
+	if *ipsw != "" {
+		dumpIPSW(*ipsw, dumpPath, uq)
+		return
+	}
+	dq := StartDumpQueue([]string{*systemRoot}, dumpPath, uq)
 	dq.Wait()
 	if uq != nil {
 		uq.Wait()
@@ -259,15 +267,14 @@ type dumpRequest struct {
 // StartDumpQueue creates a new worker pool to find all the Mach-O libraries in
 // root and dump their symbols to dumpPath. If an UploadQueue is passed, the
 // path to the symbol file will be enqueued there, too.
-func StartDumpQueue(root, dumpPath string, uq *UploadQueue) *DumpQueue {
+func StartDumpQueue(roots []string, dumpPath string, uq *UploadQueue) *DumpQueue {
 	dq := &DumpQueue{
 		dumpPath: dumpPath,
 		queue:    make(chan dumpRequest),
 		uq:       uq,
 	}
 	dq.WorkerPool = StartWorkerPool(12, dq.worker)
-
-	findLibsInRoot(root, dq)
+	findLibsInRoots(roots, dq)
 
 	return dq
 }
@@ -296,7 +303,12 @@ func (dq *DumpQueue) worker() {
 	dumpSyms := path.Join(*breakpadTools, "dump_syms")
 
 	for req := range dq.queue {
-		filebase := path.Join(dq.dumpPath, strings.Replace(req.path, "/", "_", -1))
+		mangledPath := strings.Replace(req.path, "/", "_", -1)
+		// NAME_MAX with a 15 character leeway
+		if len(mangledPath) > 240 {
+			mangledPath = mangledPath[len(mangledPath)-240:]
+		}
+		filebase := path.Join(dq.dumpPath, mangledPath)
 		symfile := fmt.Sprintf("%s_%s.sym", filebase, req.arch)
 		f, err := os.Create(symfile)
 		if err != nil {
@@ -348,19 +360,20 @@ type findQueue struct {
 
 // findLibsInRoot looks in all the pathsToScan in the root and manages the
 // interaction between findQueue and DumpQueue.
-func findLibsInRoot(root string, dq *DumpQueue) {
+func findLibsInRoots(roots []string, dq *DumpQueue) {
 	fq := &findQueue{
 		queue: make(chan string, 10),
 		dq:    dq,
 	}
 	fq.WorkerPool = StartWorkerPool(12, fq.worker)
+	for _, root := range roots {
+		for _, p := range pathsToScan {
+			fq.findLibsInPath(path.Join(root, p), true)
+		}
 
-	for _, p := range pathsToScan {
-		fq.findLibsInPath(path.Join(root, p), true)
-	}
-
-	for _, p := range optionalPathsToScan {
-		fq.findLibsInPath(path.Join(root, p), false)
+		for _, p := range optionalPathsToScan {
+			fq.findLibsInPath(path.Join(root, p), false)
+		}
 	}
 
 	close(fq.queue)
@@ -458,4 +471,68 @@ func (fq *findQueue) dumpMachOFile(fp string, image *macho.File) {
 	if (*dumpArchitecture != "" && *dumpArchitecture == arch) || *dumpArchitecture == "" {
 		fq.dq.DumpSymbols(fp, arch)
 	}
+}
+
+func dumpIPSW(ipswPath string, dumpPath string, uq *UploadQueue) {
+	dscPath := path.Join(dumpPath, "dsc")
+	ipswBin, err := exec.LookPath("ipsw")
+	if err != nil {
+		log.Fatal("'ipsw' not found on path.")
+	}
+	extractArgs := []string{"extract", "--dyld", "-o", dscPath,
+		"--dyld-arch", "arm64e", "--dyld-arch",
+		"x86_64", "--dyld-arch", "arm64", "--dyld-arch", "x86_64h",
+		ipswPath}
+	cmd := exec.Command(ipswBin, extractArgs...)
+	if _, err := cmd.Output(); err != nil {
+		log.Fatalf("Error extracting ipsw at %s: %v", ipswPath, cmd)
+	}
+	fmt.Printf("Extracted %s to %s\n", ipswPath, dscPath)
+	files, err := os.ReadDir(dscPath)
+	if err != nil {
+		log.Fatalf("Couldn't read %s: %v", dscPath, err)
+	} else if len(files) != 1 || !files[0].IsDir() {
+		log.Fatalf("Expected single directory in %s", dscPath)
+	}
+	innerDir := path.Join(dscPath, files[0].Name())
+	dumpCaches(innerDir, dumpPath, uq)
+}
+
+func dumpCaches(cachesPath string, dumpPath string, uq *UploadQueue) {
+	files, err := os.ReadDir(cachesPath)
+	if err != nil {
+		log.Fatalf("Couldn't read %s: %v", cachesPath, err)
+	}
+	cachePrefix := "dyld_shared_cache_"
+	extractedDirPath := path.Join(dumpPath, "extracted")
+	breakpadDirPath := path.Join(dumpPath, "breakpad")
+	// Breakpad syms directory needs to exist ahead of time
+	mkdirErr := os.MkdirAll(breakpadDirPath, 0777)
+	if mkdirErr != nil {
+		log.Fatalf("Couldn't create %s: %v", breakpadDirPath, mkdirErr)
+	}
+	roots := [](string){}
+	for _, file := range files {
+		fileName := file.Name()
+		if filepath.Ext(fileName) == "" && strings.HasPrefix(fileName, cachePrefix) {
+			arch := strings.TrimPrefix(fileName, cachePrefix)
+			extractedSystemPath := path.Join(extractedDirPath, arch)
+			extractCache(path.Join(cachesPath, fileName), extractedSystemPath)
+			roots = append(roots, extractedSystemPath)
+		}
+	}
+	dq := StartDumpQueue(roots, breakpadDirPath, uq)
+	dq.Wait()
+	if uq != nil {
+		uq.Wait()
+	}
+}
+
+func extractCache(cachePath string, destination string) {
+	dscExtractor := path.Join(*breakpadTools, "dsc_extractor")
+	cmd := exec.Command(dscExtractor, cachePath, destination)
+	if output, err := cmd.Output(); err != nil {
+		log.Fatalf("Error extracting shared cache at %s: %v", cachePath, output)
+	}
+	fmt.Printf("Extracted %s to %s\n", cachePath, destination)
 }
