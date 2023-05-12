@@ -49,6 +49,9 @@ class MemoryMappedFile {
   // If Map() fails, the object behaves as if it is default constructed.
   MemoryMappedFile(const char* path, size_t offset);
 
+  MemoryMappedFile(const MemoryMappedFile&) = delete;
+  void operator=(const MemoryMappedFile&) = delete;
+
   ~MemoryMappedFile();
 
   // Maps a file at |path| into memory, which can then be accessed via
@@ -77,8 +80,6 @@ class MemoryMappedFile {
  private:
   // Mapped file content as a MemoryRange object.
   MemoryRange content_;
-
-  DISALLOW_COPY_AND_ASSIGN(MemoryMappedFile);
 };
 
 }  // namespace google_breakpad

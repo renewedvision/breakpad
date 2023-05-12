@@ -53,6 +53,8 @@ class StackwalkerAddressList : public Stackwalker {
                          size_t frame_count,
                          const CodeModules* modules,
                          StackFrameSymbolizer* frame_symbolizer);
+  StackwalkerAddressList(const StackwalkerAddressList&) = delete;
+  void operator=(const StackwalkerAddressList&) = delete;
 
  private:
   // Implementation of Stackwalker.
@@ -62,8 +64,6 @@ class StackwalkerAddressList : public Stackwalker {
 
   const uint64_t* frames_;
   size_t frame_count_;
-
-  DISALLOW_COPY_AND_ASSIGN(StackwalkerAddressList);
 };
 
 }  // namespace google_breakpad

@@ -41,8 +41,10 @@ namespace google_breakpad {
 // via a remote process.
 class CrashGenerationClient {
  public:
-  CrashGenerationClient() {}
-  virtual ~CrashGenerationClient() {}
+  CrashGenerationClient() = default;
+  CrashGenerationClient(const CrashGenerationClient&) = delete;
+  void operator=(const CrashGenerationClient&) = delete;
+  virtual ~CrashGenerationClient() = default;
 
   // Request the crash server to generate a dump.  |blob| is an opaque
   // CrashContext pointer from exception_handler.h.
@@ -54,9 +56,6 @@ class CrashGenerationClient {
   // The returned CrashGenerationClient* is owned by the caller of
   // this function.
   static CrashGenerationClient* TryCreate(int server_fd);
-
- private:
-  DISALLOW_COPY_AND_ASSIGN(CrashGenerationClient);
 };
 
 }  // namespace google_breakpad
