@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77256349_b16ac9bc",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-05-15T19:10:09Z",
+      "side": 1,
+      "message": "Can upload not happen at the same time?",
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9995634e_d27d6c01",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-05-15T19:10:09Z",
+      "side": 1,
+      "message": "Think this is in a different CL now.",
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f987872_6cc37238",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-05-15T19:10:09Z",
+      "side": 1,
+      "message": "This should be packaged into the tools, I think.",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 2
+      },
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8028deda_29293797",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-05-15T19:10:09Z",
+      "side": 1,
+      "message": "Maybe a little less permissive.",
+      "range": {
+        "startLine": 510,
+        "startChar": 42,
+        "endLine": 510,
+        "endChar": 46
+      },
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d128e1ba_4580f296",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-05-15T19:10:09Z",
+      "side": 1,
+      "message": "Can fold these into:\n\n```\nif err :\u003d os.MkdirAll(…); err !\u003d nil {\n}\n```",
+      "range": {
+        "startLine": 510,
+        "startChar": 0,
+        "endLine": 513,
+        "endChar": 2
+      },
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
