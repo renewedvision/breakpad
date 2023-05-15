@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c894b2ee_a0ce7e9b",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-05-15T19:57:52Z",
+      "side": 1,
+      "message": "I think so, now that `StartDumpQueue` can take multiple roots (this was a late addition). It would probably look something like:\n```\nroots :\u003d []{*systemRoot}\ndumpPath : ...\nsymsPath : dumpPath\nif (ipsw) {\n  roots, symsPath :\u003d dumpIPSW(ipsw, dumpPath)\n}\ndq :\u003d StartDumpQueue(roots, symsPath, uq)\n```\n\nWDYT?",
+      "parentUuid": "77256349_b16ac9bc",
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9995634e_d27d6c01",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-15T19:10:09Z",
       "side": 1,
       "message": "Think this is in a different CL now.",
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "794719a5_e3cc9e64",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-05-15T19:57:52Z",
+      "side": 1,
+      "message": "Ack, just wanted this one to be working code with no unlanded deps",
+      "parentUuid": "9995634e_d27d6c01",
       "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -48,6 +84,30 @@
       "writtenOn": "2023-05-15T19:10:09Z",
       "side": 1,
       "message": "This should be packaged into the tools, I think.",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 2
+      },
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "086210b1_251f59d9",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-05-15T19:57:52Z",
+      "side": 1,
+      "message": "Agree longterm. Would you be ok with landing it like this while we work out the logistics of adding it to `third_party`?",
+      "parentUuid": "3f987872_6cc37238",
       "range": {
         "startLine": 478,
         "startChar": 0,
@@ -83,6 +143,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "becded85_eba396d3",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-05-15T19:57:52Z",
+      "side": 1,
+      "message": "666 ok?",
+      "parentUuid": "8028deda_29293797",
+      "range": {
+        "startLine": 510,
+        "startChar": 42,
+        "endLine": 510,
+        "endChar": 46
+      },
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d128e1ba_4580f296",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
         "patchSetId": 1
@@ -94,6 +178,30 @@
       "writtenOn": "2023-05-15T19:10:09Z",
       "side": 1,
       "message": "Can fold these into:\n\n```\nif err :\u003d os.MkdirAll(…); err !\u003d nil {\n}\n```",
+      "range": {
+        "startLine": 510,
+        "startChar": 0,
+        "endLine": 513,
+        "endChar": 2
+      },
+      "revId": "84d038dee449a25f87130a94c20082de06ddb38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c1c208b_24f6aa53",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2023-05-15T19:57:52Z",
+      "side": 1,
+      "message": "Will do in final version",
+      "parentUuid": "d128e1ba_4580f296",
       "range": {
         "startLine": 510,
         "startChar": 0,
