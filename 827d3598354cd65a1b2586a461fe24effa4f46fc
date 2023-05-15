@@ -16,6 +16,23 @@
       "message": "PTAL :)",
       "revId": "827d3598354cd65a1b2586a461fe24effa4f46fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3a9c3ab_8b8520e7",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-05-15T18:36:27Z",
+      "side": 1,
+      "message": "How many characters are we going over by? Another option that might be a bit better would be to map `pathsToScan` and `optionalPathsToScan` into a simple prefix of just the first character of each path component. E.g.\n\n```\n\"/System/Library/Frameworks/\" -\u003e\n  (current) \"_System_Library_Frameworks\"\n  (proposed) \"SLF\"\n```",
+      "revId": "827d3598354cd65a1b2586a461fe24effa4f46fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
