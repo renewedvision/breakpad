@@ -33,6 +33,24 @@
       "message": "Can someone submit this? I don\u0027t have permission.",
       "revId": "485060ccb24853abac8d105eca152219e067f951",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "274361ce_e7644ce5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T20:56:38Z",
+      "side": 1,
+      "message": "\u003e Can someone submit this? I don\u0027t have permission.\n\n“LGTM pending LGTM on the followup” to me means that we’re waiting to submit this until we’ve seen and approved the follow-up.",
+      "parentUuid": "e406de90_dac155db",
+      "revId": "485060ccb24853abac8d105eca152219e067f951",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
