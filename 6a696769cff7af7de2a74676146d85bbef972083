@@ -117,6 +117,30 @@
       },
       "revId": "6a696769cff7af7de2a74676146d85bbef972083",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04fd181c_e9a079b0",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-05-16T20:54:28Z",
+      "side": 1,
+      "message": "My only reservation was seeing how this enables the follow-up, so LGTM pending LGTM on the followup.",
+      "parentUuid": "49c3d630_19400e0f",
+      "range": {
+        "startLine": 337,
+        "startChar": 5,
+        "endLine": 337,
+        "endChar": 27
+      },
+      "revId": "6a696769cff7af7de2a74676146d85bbef972083",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
