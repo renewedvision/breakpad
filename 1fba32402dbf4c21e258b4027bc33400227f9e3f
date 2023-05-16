@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf14c7a8_cf3ac352",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T20:15:06Z",
+      "side": 1,
+      "message": "Is it valid to call this when `!should_process_split_dwarf_`?",
+      "revId": "1fba32402dbf4c21e258b4027bc33400227f9e3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac95a620_73d8e678",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T20:15:06Z",
+      "side": 1,
+      "message": "Can this be fixed?",
+      "revId": "1fba32402dbf4c21e258b4027bc33400227f9e3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c682b5dc_3d77ff7f",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T20:15:06Z",
+      "side": 1,
+      "message": "Same.",
+      "revId": "1fba32402dbf4c21e258b4027bc33400227f9e3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
