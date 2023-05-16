@@ -93,6 +93,30 @@
       },
       "revId": "6a696769cff7af7de2a74676146d85bbef972083",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49c3d630_19400e0f",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T20:32:25Z",
+      "side": 1,
+      "message": "\u003e \u003e I\u0027m unclear on why this code is pulled into this file (and duplicated for mac). Can you describe how this will enable your bugfix?\n\u003e \n\u003e I pull the code into here because linux and mac each has their own versions of DumperRangesHandler and DumperLineToModule which are passed down to CompilationUnit through the path: DumperRangesHandler/DumperLineToModule -\u003e DwarfCUToModule -\u003e DIEDispatcher -\u003e CompilationUnit. So, need to duplicate that part in two files. \n\u003e \n\u003e \u003e The CL description mentions behavioral changes to warnings in this refactor. Are there meant to be any others?\n\u003e \n\u003e Yeah, that\u0027s the only changed behavior. Inside CompilationUnit, it uses WarningReporter to report malformed debug info in file, which is now fixed.\n\nStill waiting for Joshua to continue this discussion.",
+      "parentUuid": "73da0da1_71ee7a14",
+      "range": {
+        "startLine": 337,
+        "startChar": 5,
+        "endLine": 337,
+        "endChar": 27
+      },
+      "revId": "6a696769cff7af7de2a74676146d85bbef972083",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

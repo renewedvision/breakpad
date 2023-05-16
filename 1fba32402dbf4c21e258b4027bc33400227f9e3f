@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9acc8b01_12f43541",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T20:32:25Z",
+      "side": 1,
+      "message": "\u003e I put the fix on here: https://chromium-review.googlesource.com/c/breakpad/breakpad/+/4518723. Do you want me to put them together?\n\nWell, there are conflict markers on there, so no?\n\nIt’s OK for them to be separate if you have a plan to do that as an immediate follow-up.",
+      "parentUuid": "5c7f8fe7_8e4b0396",
+      "revId": "1fba32402dbf4c21e258b4027bc33400227f9e3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c682b5dc_3d77ff7f",
         "filename": "src/common/mac/dump_syms.cc",
         "patchSetId": 4
