@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5b100a5_5c3d361d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T19:41:49Z",
+      "side": 1,
+      "message": "Joshua has also started reviewing. You should see if he has additional comments too.",
+      "revId": "26a20af30be5e0bffffd376fcf999f3fe4444862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be5a0da5_af52eb83",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T19:41:49Z",
+      "side": 1,
+      "message": "Is the out-parameter the best interface?\n\nWould it make more sense to maintain `should_process_split_dwarf_` as a member, which could be accessed via something like `ShouldProcessSplitDwarf`?",
+      "revId": "26a20af30be5e0bffffd376fcf999f3fe4444862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "614116c7_e2a0c89d",
+        "filename": "src/common/dwarf/dwarf2reader_die_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-05-16T19:41:49Z",
+      "side": 1,
+      "message": "Do you want to have any expectation on `should_process_split_dwarf` here or in other places it’s used?",
+      "revId": "26a20af30be5e0bffffd376fcf999f3fe4444862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
