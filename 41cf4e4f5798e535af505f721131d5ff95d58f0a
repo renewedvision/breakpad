@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c540b60_555552c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403119
+      },
+      "writtenOn": "2023-05-18T19:23:39Z",
+      "side": 1,
+      "message": "It\u0027s easier to put changes in one cl. Abandoned https://chromium-review.googlesource.com/c/breakpad/breakpad/+/4514861 and https://chromium-review.googlesource.com/c/breakpad/breakpad/+/4518723",
+      "revId": "41cf4e4f5798e535af505f721131d5ff95d58f0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
