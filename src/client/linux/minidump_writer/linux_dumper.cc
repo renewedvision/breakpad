@@ -595,8 +595,7 @@ bool LinuxDumper::EnumerateMappings() {
           // lld's output (see crbug.com/716484).
           if (name && !mappings_.empty()) {
             MappingInfo* module = mappings_.back();
-            if ((start_addr == module->start_addr + module->size) &&
-                (my_strlen(name) == my_strlen(module->name)) &&
+            if ((my_strlen(name) == my_strlen(module->name)) &&
                 (my_strncmp(name, module->name, my_strlen(name)) == 0) &&
                 ((exec == module->exec) || (!module->exec && exec))) {
               module->system_mapping_info.end_addr = end_addr;
