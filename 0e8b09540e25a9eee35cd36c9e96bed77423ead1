@@ -94,6 +94,30 @@
       },
       "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1cd78d4_5a67fb48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1578412
+      },
+      "writtenOn": "2023-06-05T18:10:26Z",
+      "side": 1,
+      "message": "BTW, We have the migration on plan. However, we have encountered chromium library conflicts between mini_chromium and our chromium_libassistant, the whole process needs more efforts than we though. So we decide the push the migration in the future after project launch. We want to fix the breakpad issue first. (We are in dogfood, the next cutoff is mid of this month. The deadline is pretty tight)\n\n----\n\nThanks the information Joshua, would you mind point me to the CL of the fix, or point me to where I can make the fix, I am willing to test if that is the root cause.",
+      "parentUuid": "9c204f3e_83c33df0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 169
+      },
+      "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
