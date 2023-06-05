@@ -118,6 +118,30 @@
       },
       "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5652e18d_cbc632d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-06-05T18:13:07Z",
+      "side": 1,
+      "message": "There would be no particular CL. The bug I witnessed (and don\u0027t know for sure is what you\u0027re seeing now) was not consistently reproducible. It only occurred in some unlucky builds that happened to produce LOAD segments of a particular size.",
+      "parentUuid": "a1cd78d4_5a67fb48",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 169
+      },
+      "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
