@@ -166,6 +166,30 @@
       },
       "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef59083_c39c4564",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-06-05T21:39:37Z",
+      "side": 1,
+      "message": "Your first LOAD segment occupies virtual addresses (relative to 0 to be relocatable) 0x0 - 0x8d25a4. Your second LOAD segment begins at address 0x008e2600. The gap between them is 0x008e2600 - 0x8d25a4 \u003d 0x1005c, which is slightly more than 64k. I suspect that your toolchain thinks it is targeting a system with 64K page size.",
+      "parentUuid": "fdd064db_027bef45",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 169
+      },
+      "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
