@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbce9164_19bdbffd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-06-05T16:16:23Z",
+      "side": 1,
+      "message": "This may still happen! And it is isn\u0027t a given that these mappings should be merged.\n\nIt is true that a module\u0027s mappings are not required to be consecutive, but they are determined statically by the linker. Breakpad has used this logic because it has been conventional for Chrome and breakpad-using apps to arrange for there to be no spaces in their module\u0027s mappings. You can view the layout of your module\u0027s mappings by running `readelf --segments \u003csome binary\u003e` and examining the LOAD segment addresses.\n\nIf you allow there to be holes in your modules mappings, then breakpad would need some additional logic to be sure that different mappings, potentially separated by empty space or other things mapped in those spaces really belong to the same module or you will still encounter errors parsing them (e.g. all zero debug IDs).\n\nI would recommend you investigate the reason for those spaces in your module\u0027s mappings and eliminate those instead of trying to fix this bug.\n\nCrashpad can handle spaces in your module\u0027s mappings, but it locates modules in a very different way than breakpad does, using the linker\u0027s list of loaded modules, instead of relying solely on the the maps file.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 169
+      },
+      "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
