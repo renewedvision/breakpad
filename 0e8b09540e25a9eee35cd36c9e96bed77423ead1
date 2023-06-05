@@ -142,6 +142,30 @@
       },
       "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd064db_027bef45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1578412
+      },
+      "writtenOn": "2023-06-05T21:16:27Z",
+      "side": 1,
+      "message": "Thanks for the information. It makes sense. \n\nI just checked `readelf`. And put the result here https://paste.googleplex.com/6181790011097088, I am not sure if the two empty records in `Section to Segment mapping:` is the root cause. Kindly ask if there is any suspicious point from your knowledge.",
+      "parentUuid": "5652e18d_cbc632d7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 169
+      },
+      "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
