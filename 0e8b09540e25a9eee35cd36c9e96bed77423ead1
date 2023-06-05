@@ -22,6 +22,30 @@
       },
       "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91426e74_9b9508fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-06-05T16:49:23Z",
+      "side": 1,
+      "message": "\u003e Crashpad can handle spaces in your module\u0027s mappings, but it locates modules in a very different way than breakpad does, using the linker\u0027s list of loaded modules, instead of relying solely on the the maps file.\n\nThis is an important point. The Breakpad clients are largely superseded by Crashpad. If you can migrate to Crashpad, that would be preferable.",
+      "parentUuid": "bbce9164_19bdbffd",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 169
+      },
+      "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
