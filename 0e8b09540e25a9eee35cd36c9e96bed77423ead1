@@ -70,6 +70,30 @@
       },
       "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff474160_c92472df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2023-06-05T18:06:37Z",
+      "side": 1,
+      "message": "FYI, I have seen a linker bug where an extra page is inserted between LOAD segments when the lower addressed LOAD segment ends very near (or possibly at) a page boundary. A practical \"fix\" might be to just re-build at a slightly different CL.",
+      "parentUuid": "9c204f3e_83c33df0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 169
+      },
+      "revId": "0e8b09540e25a9eee35cd36c9e96bed77423ead1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
