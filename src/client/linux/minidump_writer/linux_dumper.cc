@@ -346,7 +346,7 @@ LinuxDumper::ElfFileIdentifierForMapping(const MappingInfo& mapping,
     return false;
   bool filename_modified = HandleDeletedFileInMapping(filename);
 
-  MemoryMappedFile mapped_file(filename, mapping.offset);
+  MemoryMappedFile mapped_file(filename, 0);
   if (!mapped_file.data() || mapped_file.size() < SELFMAG)
     return false;
 
@@ -459,7 +459,7 @@ bool ElfFileSoName(const LinuxDumper& dumper,
   if (!dumper.GetMappingAbsolutePath(mapping, filename))
     return false;
 
-  MemoryMappedFile mapped_file(filename, mapping.offset);
+  MemoryMappedFile mapped_file(filename, 0);
   if (!mapped_file.data() || mapped_file.size() < SELFMAG) {
     // mmap failed
     return false;
@@ -588,6 +588,7 @@ bool LinuxDumper::EnumerateMappings() {
             name = kLinuxGateLibraryName;
             offset = 0;
           }
+#if 0
           // Merge adjacent mappings into one module, assuming they're a single
           // library mapped by the dynamic linker. Do this only if their name
           // matches and either they have the same +x protection flag, or if the
@@ -606,6 +607,12 @@ bool LinuxDumper::EnumerateMappings() {
               continue;
             }
           }
+#endif
+          char c = 0;
+          sscanf(line, "%*s %*s %*s %*s %*s %c", &c);
+          if (c == '/' && !exec) /* skip non-executable file-based segments */
+                goto next_line;
+
           MappingInfo* const module = new(allocator_) MappingInfo;
           mappings_.push_back(module);
           my_memset(module, 0, sizeof(MappingInfo));
@@ -623,6 +630,7 @@ bool LinuxDumper::EnumerateMappings() {
         }
       }
     }
+next_line:
     line_reader->PopLine(line_len);
   }
 

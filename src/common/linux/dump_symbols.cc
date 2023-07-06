@@ -179,8 +179,8 @@ typename ElfClass::Addr GetLoadingAddress(
   // normally be zero.
   for (int i = 0; i < nheader; ++i) {
     const Phdr& header = program_headers[i];
-    if (header.p_type == PT_LOAD)
-      return header.p_vaddr;
+    if (header.p_type == PT_LOAD && header.p_flags & PF_X)
+      return header.p_vaddr & ~(typename ElfClass::Addr)0xFFF;
   }
   return 0;
 }
