@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "153eb5d1_3f9e34b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-06T13:57:24Z",
+      "side": 1,
+      "message": "if there isn\u0027t a bug, you can omit the tag entirely",
+      "revId": "e34af806196fdc3f51b0309bd6c7b1bb660056e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c073a6d4_2a935f94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-06T13:57:24Z",
+      "side": 1,
+      "message": "we commit the generated configure file, so you\u0027ll need to run `autoconf` and include that in the commit",
+      "revId": "e34af806196fdc3f51b0309bd6c7b1bb660056e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78f32894_5376e096",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-06T13:57:24Z",
+      "side": 1,
+      "message": "looks like this whole block was added blindly as part of an automated upgrade.  let\u0027s delete all of this.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "e34af806196fdc3f51b0309bd6c7b1bb660056e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
