@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4691ad03_4b1578bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-06T16:43:06Z",
+      "side": 1,
+      "message": "I assume my bug report last month got caught in the spam filter :(\nhttps://paste.debian.net/1285129/\n\nThe issue was further refined here:\nhttps://github.com/rui314/mold/issues/1047\n\nAs far as I can tell, core2md implicitly assumes that the executable segment must be the first segment of the process. The \"merge adjacent sections\" hack doesn\u0027t work. (In fact, I believe it has never worked, but I would need to have a closer look.)",
+      "parentUuid": "b2d2fcb2_22da7c94",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ff376c2_97de5c7c",
