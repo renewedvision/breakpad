@@ -16,6 +16,23 @@
       "message": "Would the src/common/linux/dump_symbols.cc change break crashpad?",
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdbd4316_78a71fe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-06T15:45:47Z",
+      "side": 1,
+      "message": "Looks like `git cl upload` squashed all the patches on the branch and dropped the commit messages? Do I need to make 4 separate branches?",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
