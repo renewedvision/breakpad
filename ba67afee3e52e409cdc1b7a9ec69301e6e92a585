@@ -33,6 +33,24 @@
       "message": "Looks like `git cl upload` squashed all the patches on the branch and dropped the commit messages? Do I need to make 4 separate branches?",
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eeba5d0_60b80bc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-06T15:56:39Z",
+      "side": 1,
+      "message": "i thought we changed this default.  at any rate, use `--no-squash` to upload as a proper chain of commits.",
+      "parentUuid": "fdbd4316_78a71fe4",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
