@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f5e464a_1120e428",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-07-06T17:53:56Z",
+      "side": 1,
+      "message": "\u003e I assume my bug report last month got caught in the spam filter :(\n\u003e https://paste.debian.net/1285129/\n\u003e \n\u003e The issue was further refined here:\n\u003e https://github.com/rui314/mold/issues/1047\n\u003e \n\u003e As far as I can tell, core2md implicitly assumes that the executable segment must be the first segment of the process. The \"merge adjacent sections\" hack doesn\u0027t work. (In fact, I believe it has never worked, but I would need to have a closer look.)\n\n1. Whatever your expansion on this is should appear in the change description.\n\n2. The links to bug reports are fine—they’re desirable, even, but they serve a different purpose, which is to highlight what reported problems you’re fixing. Sometimes a bug report has a conclusion in it, but in this case, each link is to one or more giant dumps of output. What I’m asking here is that whatever conclusion you’re drawing should also appear in the change description. Completing this sentence would be a start: “mold linker output is structured …”, keeping in mind that the reference point would be linker output produced by binutils/bfd ld, gold, and lld. You don’t have to start your sentence that way, I’m just providing a prompt to help you understand the sort of information that’s needed. This would be useful to make the change understandable to current reviewers and future readers even if the bug reports did contain a clearer description.",
+      "parentUuid": "4691ad03_4b1578bc",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ff376c2_97de5c7c",
