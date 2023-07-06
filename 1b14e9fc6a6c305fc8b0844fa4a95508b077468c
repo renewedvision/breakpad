@@ -16,6 +16,24 @@
       "message": "there appears to be a relationship between this func, MAX_OP_STRING, and MAX_INSN_STRING.  i.e. increasing the value here doesn\u0027t seem quite right.\n\nbigger picture, seems like we should drop libdisasm entirely.  it only supports x86 (32-bit), and we already rely on other APIs for x86_64 (64-bit).",
       "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c1c6f19_6136df55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-06T15:00:16Z",
+      "side": 1,
+      "message": "I think I see what you mean. Increasing the size of _tmp will shut the compiler up about the truncation in snprintf() but we are still silently truncating in STRNCAT().",
+      "parentUuid": "cf6d6696_daa4c99d",
+      "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
