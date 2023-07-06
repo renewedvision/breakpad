@@ -116,6 +116,30 @@
       },
       "revId": "e34af806196fdc3f51b0309bd6c7b1bb660056e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e52ae7c_3be02c67",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-06T15:51:51Z",
+      "side": 1,
+      "message": "looks fine, thanks",
+      "parentUuid": "c75428f0_b007c3f9",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "e34af806196fdc3f51b0309bd6c7b1bb660056e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
