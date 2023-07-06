@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "268a61cb_87d11709",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-06T14:47:10Z",
+      "side": 1,
+      "message": "I have updated the commit message from the web interface.",
+      "parentUuid": "153eb5d1_3f9e34b2",
+      "revId": "e34af806196fdc3f51b0309bd6c7b1bb660056e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c073a6d4_2a935f94",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebca3d85_230cfabc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-06T14:47:10Z",
+      "side": 1,
+      "message": "I have included Makefile.in, aclocal.m4, configure (which were updated by autoreconf 2.71) in patch set 2.",
+      "parentUuid": "c073a6d4_2a935f94",
+      "revId": "e34af806196fdc3f51b0309bd6c7b1bb660056e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78f32894_5376e096",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-07-06T13:57:24Z",
       "side": 1,
       "message": "looks like this whole block was added blindly as part of an automated upgrade.  let\u0027s delete all of this.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "e34af806196fdc3f51b0309bd6c7b1bb660056e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75428f0_b007c3f9",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-06T14:47:10Z",
+      "side": 1,
+      "message": "Deleting this block induced some churn, see patch set 2.",
+      "parentUuid": "78f32894_5376e096",
       "range": {
         "startLine": 61,
         "startChar": 0,
