@@ -96,6 +96,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b6a9450_dd69dc72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-07-07T19:47:10Z",
+      "side": 1,
+      "message": "\u003e Oh... you mean \"please write a proper commit message\" ;)\n\u003e My commit messages were discarded when Gerrit squashed the patches.\n\u003e I\u0027ll submit a new un-squashed revision, addressing your suggestions.\n\u003e Do I need to include\n\u003e Change-Id: Ib94f17e6440cd16a8b5ddce9ec54a334e13c60af\n\u003e in the first commit? in all commits?\n\u003e for Gerrit to recognize my new submission as a follow-up to this one?\n\nSince you’re going from one to many, don’t try to use any sort of automatic linking. No `Change-Id` lines. When you have your new changes ready for review, click the “🚫 Abandon” button in the Gerrit UI, and you can provide links to the successor reviews in a message you enter there.",
+      "parentUuid": "dbbcbda4_f219289e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ff376c2_97de5c7c",
@@ -180,6 +204,24 @@
       "side": 1,
       "message": "I must be missing something... Minidumps produced by crashpad may be processed by breakpad minidump_stackwalk, correct?",
       "parentUuid": "423fd551_274fa2c3",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4718d15_ea940240",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-07-07T19:47:10Z",
+      "side": 1,
+      "message": "\u003e I must be missing something... Minidumps produced by crashpad may be processed by breakpad minidump_stackwalk, correct?\n\nCrashpad has its own logic for locating modules and module IDs in a crashing process’ address space. You can’t really “break” it with a dump_syms change unless you’re changing the module ID in an incompatible way.",
+      "parentUuid": "5f09bcf5_de0a8497",
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
