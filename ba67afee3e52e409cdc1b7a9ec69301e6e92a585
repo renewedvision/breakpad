@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbbcbda4_f219289e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-07T10:18:34Z",
+      "side": 1,
+      "message": "Oh... you mean \"please write a proper commit message\" ;)\nMy commit messages were discarded when Gerrit squashed the patches.\nI\u0027ll submit a new un-squashed revision, addressing your suggestions.\nDo I need to include\nChange-Id: Ib94f17e6440cd16a8b5ddce9ec54a334e13c60af\nin the first commit? in all commits?\nfor Gerrit to recognize my new submission as a follow-up to this one?",
+      "parentUuid": "8f5e464a_1120e428",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ff376c2_97de5c7c",
@@ -138,6 +162,24 @@
       "side": 1,
       "message": "\u003e Would the src/common/linux/dump_symbols.cc change break crashpad?\n\nCrashpad is a crash-reporting client. It doesn’t consume dump_symbols output at all. Only the Breakpad processor (such as minidump_stackwalk) consumes dump_symbols output.",
       "parentUuid": "5ff376c2_97de5c7c",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f09bcf5_de0a8497",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-07T10:18:34Z",
+      "side": 1,
+      "message": "I must be missing something... Minidumps produced by crashpad may be processed by breakpad minidump_stackwalk, correct?",
+      "parentUuid": "423fd551_274fa2c3",
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -218,6 +260,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f90401b6_8e438991",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-07T10:18:34Z",
+      "side": 1,
+      "message": "I don\u0027t understand.\nSince I test the value of `c`, testing the retval of sscanf is redundant.",
+      "parentUuid": "c3865263_d5493a24",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3a476f5_5f7af589",
         "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
         "patchSetId": 1
@@ -274,6 +334,30 @@
         "startChar": 31,
         "endLine": 183,
         "endChar": 56
+      },
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f79e7c40_2faf8e94",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-07T10:18:34Z",
+      "side": 1,
+      "message": "I think this is the relevant part in the ELF standard:\n\nAn executable or shared object file\u0027s base address is calculated during execution from three values: the virtual memory load address, the maximum page size, and the lowest virtual address of a program\u0027s loadable segment. To compute the base address, one determines the memory address associated with the lowest p_vaddr value for a PT_LOAD segment. This address is truncated to the nearest multiple of the maximum page size. The corresponding p_vaddr value itself is also truncated to the nearest multiple of the maximum page size. The base address is the difference between the truncated memory address and the truncated p_vaddr value.\n\nHow do I determine the maximum page size?",
+      "parentUuid": "28420f60_d7eb416d",
+      "range": {
+        "startLine": 183,
+        "startChar": 56,
+        "endLine": 183,
+        "endChar": 61
       },
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
