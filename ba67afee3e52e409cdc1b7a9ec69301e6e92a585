@@ -226,6 +226,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "517372db_b428f657",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-10T16:21:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e4718d15_ea940240",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60c75d5d_8b995d57",
@@ -239,6 +257,24 @@
       "writtenOn": "2023-07-06T15:57:15Z",
       "side": 1,
       "message": "Note that all of src/client in Breakpad is obsolete and shouldn’t be used. Crashpad is the replacement.\n\nI’ve considered some, but not all, of the changes in this file. I’m not opposed to further consideration, but you’ll need to provide more explanation (requested in the change description) in order to better understand what module mapping layout you’re hoping for this code to process.",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "424250d7_7b8c67dd",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-10T16:21:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "60c75d5d_8b995d57",
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -266,6 +302,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bc19298_b23d2c96",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-10T16:21:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "43b49e1b_92b21e4c",
+      "range": {
+        "startLine": 591,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 6
+      },
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c644187_fde450b9",
@@ -279,6 +339,24 @@
       "writtenOn": "2023-07-06T15:57:15Z",
       "side": 1,
       "message": "You shouldn’t need an initialization at all if you heed the next comment. If you did need an initialization, `\u0027\\0\u0027` would be correct for a `char`. (But you don’t.)",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "049f95f6_258825bc",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-10T16:21:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8c644187_fde450b9",
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -318,6 +396,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a90cd7e0_707a0242",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-10T16:21:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f90401b6_8e438991",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3a476f5_5f7af589",
@@ -331,6 +427,24 @@
       "writtenOn": "2023-07-06T15:57:15Z",
       "side": 1,
       "message": "1. Unexpected indentation.\n2. Don’t use `goto`.",
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "995aa5c7_160591aa",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-10T16:21:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d3a476f5_5f7af589",
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -400,6 +514,54 @@
         "startChar": 56,
         "endLine": 183,
         "endChar": 61
+      },
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "091e55a4_79f5da9a",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-10T16:21:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f79e7c40_2faf8e94",
+      "range": {
+        "startLine": 183,
+        "startChar": 56,
+        "endLine": 183,
+        "endChar": 61
+      },
+      "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d974b662_214a2582",
+        "filename": "src/common/linux/dump_symbols.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-10T16:21:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0800371d_19ee4079",
+      "range": {
+        "startLine": 183,
+        "startChar": 31,
+        "endLine": 183,
+        "endChar": 56
       },
       "revId": "ba67afee3e52e409cdc1b7a9ec69301e6e92a585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
