@@ -178,9 +178,10 @@ typename ElfClass::Addr GetLoadingAddress(
   // and dynamic libraries (e_type == ET_DYN), this address will
   // normally be zero.
   for (int i = 0; i < nheader; ++i) {
+    const int PAGE_SIZE = 1 << 12;
     const Phdr& header = program_headers[i];
-    if (header.p_type == PT_LOAD)
-      return header.p_vaddr;
+    if (header.p_type == PT_LOAD && header.p_flags & PF_X)
+      return header.p_vaddr / PAGE_SIZE * PAGE_SIZE;
   }
   return 0;
 }
