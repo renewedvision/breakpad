@@ -69,6 +69,24 @@
       "parentUuid": "3d581d6e_67e20a29",
       "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5259a975_e8936bc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-11T15:40:57Z",
+      "side": 1,
+      "message": "As far as I can tell...\nsrc/processor/exploitability_win.cc expects libdisasm\n(grep DisassemblerX86)\n\nExploitabilityWin object is instantiated for Windows minidumps.\nExploitability::ExploitabilityForPlatform\nsrc/processor/exploitability.cc\n\nHow do you wish to proceed?\n\nFWIW, I\u0027ve never noticed any output from the Linux exploitability module. How or when is it supposed to trigger?",
+      "parentUuid": "215979bb_2c0ce5de",
+      "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
