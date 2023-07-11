@@ -87,6 +87,24 @@
       "parentUuid": "215979bb_2c0ce5de",
       "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdad0e9b_db273838",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-11T17:56:22Z",
+      "side": 1,
+      "message": "the disassembler, afaik, only supports 32-bit x86.  it\u0027s why we have a hacky disassembler code path that uses objdump.  which means it would only work if you had binutils installed on the system :(.\n\nhence my suggestion we should scuttle this library entirely, and look at something modern.  binutils provides disassembly libraries, and i imagine llvm does.  zydis looks pretty popular on GH, but it\u0027s x86-only, and we do a lot more arm stuff nowadays.  maybe keystone then ?",
+      "parentUuid": "5259a975_e8936bc8",
+      "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
