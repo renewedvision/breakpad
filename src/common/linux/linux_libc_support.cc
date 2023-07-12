@@ -36,6 +36,7 @@
 
 #include "common/linux/linux_libc_support.h"
 
+#include <features.h>
 #include <stddef.h>
 
 extern "C" {
@@ -198,6 +199,10 @@ void my_memset(void* ip, char c, size_t len) {
     *p++ = c;
 }
 
+#if defined(__GLIBC__) && __GLIBC_PREREQ(2, 38)
+#define my_strlcpy strlcpy
+#define my_strlcat strlcat
+#else
 size_t my_strlcpy(char* s1, const char* s2, size_t len) {
   size_t pos1 = 0;
   size_t pos2 = 0;
@@ -227,6 +232,7 @@ size_t my_strlcat(char* s1, const char* s2, size_t len) {
   return pos1 + my_strlcpy(s1 + pos1, s2, len - pos1);
 }
 
+#endif // defined(__GLIBC__) && __GNUC_PREREQ(2, 38)
 int my_isspace(int ch) {
   // Matches the C locale.
   const char spaces[] = " \t\f\n\r\t\v";
