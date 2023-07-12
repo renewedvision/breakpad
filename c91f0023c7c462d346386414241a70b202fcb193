@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4bc7599_9f04b655",
+        "filename": "src/common/linux/linux_libc_support.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-12T19:32:03Z",
+      "side": 1,
+      "message": "please see this.  the point isn\u0027t that glibc (or anyone else) doesn\u0027t have a particular function, it\u0027s that we specifically don\u0027t want to use them.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 47
+      },
+      "revId": "c91f0023c7c462d346386414241a70b202fcb193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
