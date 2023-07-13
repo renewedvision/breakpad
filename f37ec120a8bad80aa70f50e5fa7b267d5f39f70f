@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c400a1_93db0bc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-13T11:18:04Z",
+      "side": 1,
+      "message": "FWIW, this particular change is uncontroversial.\nThe original code has always been trivially wrong.\n(The error has gone undetected for so long,\nbecause `mapping.offset` had always been 0.)",
+      "revId": "f37ec120a8bad80aa70f50e5fa7b267d5f39f70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
