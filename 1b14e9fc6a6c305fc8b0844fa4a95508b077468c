@@ -105,6 +105,24 @@
       "parentUuid": "5259a975_e8936bc8",
       "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00e1fec7_11c1b6e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-13T11:39:03Z",
+      "side": 1,
+      "message": "Roger that. But in the mean time, can we fix the warnings?\nThey\u0027re triggering my OCD :)\n\nWe can add a warning in the code when an actual truncation is detected?\nOr we can add a configure.ac variable to disable the Windows analyzer.\n(Not sure why there are different code paths for the Windows and Linux analyzer.)",
+      "parentUuid": "cdad0e9b_db273838",
+      "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
