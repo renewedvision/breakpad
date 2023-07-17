@@ -123,6 +123,24 @@
       "parentUuid": "cdad0e9b_db273838",
       "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10e7f1e9_fd881e17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-17T16:40:19Z",
+      "side": 1,
+      "message": "i haven\u0027t traced this code to see how these buffers are ultimately used.  i\u0027m not against increasing the buffer sizes, but doing it in this one func doesn\u0027t seem correct.\n\ncan you see if `MAX_OP_STRING` itself can safely be increased, as well as other defines that are related to it ?",
+      "parentUuid": "00e1fec7_11c1b6e2",
+      "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
