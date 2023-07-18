@@ -141,6 +141,24 @@
       "parentUuid": "00e1fec7_11c1b6e2",
       "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a06208cd_561dc9a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-18T11:12:05Z",
+      "side": 1,
+      "message": "It doesn\u0027t help to increase MAX_OP_STRING, because the code is copying temporary buffers of size `MAX_OP_STRING` (of smaller actual length) into a temporary buffer of size `MAX_OP_STRING` (which is why GCC warns of potential truncation). For example:\n\n    char str[MAX_OP_STRING];\n    get_operand_regtype_str( op-\u003edata.reg.type, str, sizeof str );\n    STRNCATF( buf, \"%s:\", str, len );\n\nwhich expands to\n\n    char str[MAX_OP_STRING];\n    char tmp[MAX_OP_STRING];\n    get_operand_regtype_str( op-\u003edata.reg.type, str, sizeof str );\n    snprintf( tmp, sizeof _tmp, \"%s:\", str );\n    \nThus, it makes sense to increase the size of the temporary buffer used in the STRNCATF macro to a value larger than MAX_OP_STRING.\n\n2*MAX_OP_STRING + 8 works.",
+      "parentUuid": "10e7f1e9_fd881e17",
+      "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
