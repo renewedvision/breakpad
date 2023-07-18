@@ -159,6 +159,24 @@
       "parentUuid": "10e7f1e9_fd881e17",
       "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "975e54a4_31b5a0ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-18T17:25:24Z",
+      "side": 1,
+      "message": "if the input is always `MAX_OP_STRING` or smaller, then the issue is the trailing NUL ?  so declaring the buffer as `MAX_OP_STRING+1` would work ?",
+      "parentUuid": "a06208cd_561dc9a0",
+      "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
