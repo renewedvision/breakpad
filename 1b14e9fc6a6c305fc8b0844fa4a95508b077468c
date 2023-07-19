@@ -177,6 +177,24 @@
       "parentUuid": "a06208cd_561dc9a0",
       "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2378980_f1d6c3d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-19T10:07:36Z",
+      "side": 1,
+      "message": "My initial analysis was incorrect.\n\nThere are multiple callers of `STRNCATF( buf, fmt, data, len )`\n- some callers pass a pointer\n- some callers pass an array\n\nWhen callers pass an array, its size may be\n- MAX_OP_STRING\n- MAX_OP_RAW_STRING\n- MAX_OP_XML_STRING\n\nThe largest of the 3 is MAX_OP_XML_STRING in `format_xml_insn`\n\nTherefore, an obvious and simple solution would be:\nSet the size of _tmp to `MAX_OP_XML_STRING`\n(This fixes all warnings)",
+      "parentUuid": "975e54a4_31b5a0ee",
+      "revId": "1b14e9fc6a6c305fc8b0844fa4a95508b077468c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
