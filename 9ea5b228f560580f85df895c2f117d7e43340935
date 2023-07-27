@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e691c0e9_c208ea9f",
+        "filename": "configure.ac",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-27T18:54:05Z",
+      "side": 1,
+      "message": "the default should be to probe, and then be fatal only when not found \u0026\u0026 explicitly requested",
+      "revId": "9ea5b228f560580f85df895c2f117d7e43340935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b60b20cd_90a7f944",
+        "filename": "configure.ac",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-07-27T18:54:05Z",
+      "side": 1,
+      "message": "zstd has a pkg-config module, so we should be probing it that way, not directly",
+      "revId": "9ea5b228f560580f85df895c2f117d7e43340935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
