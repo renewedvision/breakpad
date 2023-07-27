@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02398ecf_19f1a4ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2023-07-27T18:02:17Z",
+      "side": 1,
+      "message": "Deferring to jperaza@. Should we just land this CL?",
+      "revId": "0489c49e314b2be76f7631bf12d7a124342eb0da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
