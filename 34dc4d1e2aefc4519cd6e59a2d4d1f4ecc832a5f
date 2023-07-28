@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11418485_30ef14e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-07-28T19:43:33Z",
+      "side": 1,
+      "message": "This change is required alongside the other two submitted changes.",
+      "revId": "34dc4d1e2aefc4519cd6e59a2d4d1f4ecc832a5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
