@@ -67,6 +67,24 @@
       "message": "Can I get an amen? Or a LGTM?",
       "revId": "f37ec120a8bad80aa70f50e5fa7b267d5f39f70f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b8618b6_433c9089",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-08-01T09:22:48Z",
+      "side": 1,
+      "message": "Replying to resolve the comment.\n\nThe two lines modified by this patch are actually mapping an ELF object file in order to inspect the ELF header (which is located at offset 0).\n\nIn other words, these lines have never been correct.",
+      "parentUuid": "69e5722a_6c970d06",
+      "revId": "f37ec120a8bad80aa70f50e5fa7b267d5f39f70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
