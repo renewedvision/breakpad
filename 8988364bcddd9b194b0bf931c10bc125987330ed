@@ -34,6 +34,24 @@
       "parentUuid": "3631e941_d726613d",
       "revId": "8988364bcddd9b194b0bf931c10bc125987330ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f16925bd_a2217f06",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-08-01T17:10:51Z",
+      "side": 0,
+      "message": "yes, i mean your commit message.  you talk about GNU ld, but not lld, and not the commit/bug that cause this logic to be introduced as the comment mentions.",
+      "parentUuid": "7ca2fc83_7e7e6171",
+      "revId": "8988364bcddd9b194b0bf931c10bc125987330ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
