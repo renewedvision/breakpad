@@ -16,6 +16,23 @@
       "message": "Mark, is this commit message clear enough?",
       "revId": "a1e16a72778905983970c976004b6ce167532751",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e74898b3_7c903449",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-08-01T09:27:47Z",
+      "side": 1,
+      "message": "Yuki, you ran into a similar issue 2 months ago.\nhttps://chromium-review.googlesource.com/c/breakpad/breakpad/+/4582790\n\nWhat do you think of the proposed solution?",
+      "revId": "a1e16a72778905983970c976004b6ce167532751",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
