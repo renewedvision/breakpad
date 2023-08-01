@@ -103,6 +103,24 @@
       "parentUuid": "8b8618b6_433c9089",
       "revId": "f37ec120a8bad80aa70f50e5fa7b267d5f39f70f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4b0e0bb_03848daf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-08-01T16:30:56Z",
+      "side": 1,
+      "message": "As far as I understand, the two MemoryMappedFile callers in linux_dumper.cc only require access to the ELF header. They don\u0027t actually need to map the whole file.",
+      "parentUuid": "1ec44940_78589ae3",
+      "revId": "f37ec120a8bad80aa70f50e5fa7b267d5f39f70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
