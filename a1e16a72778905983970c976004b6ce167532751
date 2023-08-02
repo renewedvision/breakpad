@@ -86,6 +86,23 @@
       "parentUuid": "3bd0c971_04d6b08b",
       "revId": "a1e16a72778905983970c976004b6ce167532751",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d30a90a8_165d578a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-08-02T16:02:04Z",
+      "side": 1,
+      "message": "Added Ivan, Peter, Primiano for their role in crbug.com/716484\n\nFirst of all, the bug where debug ID \u003d 000000000000000000\nmentioned at crbug.com/716484#c24 *should* be fixed by\nhttps://chromium-review.googlesource.com/c/breakpad/breakpad/+/4674337\n\nHad a look at crbug.com/716484#c37 from Primiano\nhttps://docs.google.com/presentation/d/1zhdACWvOwRMx3bJ4-3zRy2RzmFNaf-kq8eUVqEIRMVI\n\nHoly viper\u0027s nest, Batman...\nPrimiano, I think my fix makes sense?\nBut I don\u0027t know if it would break some of the Android shenanigans?\n\nAlso, please have a look at\nhttps://chromium-review.googlesource.com/c/breakpad/breakpad/+/4675547\n\nIt\u0027s required for dump_syms to produce the correct offsets.",
+      "revId": "a1e16a72778905983970c976004b6ce167532751",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
