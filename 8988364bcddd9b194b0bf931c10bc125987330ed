@@ -52,6 +52,24 @@
       "parentUuid": "7ca2fc83_7e7e6171",
       "revId": "8988364bcddd9b194b0bf931c10bc125987330ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1b28f35_30384079",
+        "filename": "src/client/linux/minidump_writer/linux_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-08-02T15:20:13Z",
+      "side": 0,
+      "message": "To be fair, I didn\u0027t have access to the bug report ;)\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d716484\n\nAlso, in my humble opinion, lying to downstream tools by merging unrelated segments is, at best, a precarious hack. (Though I think the raw information is included in the minidump.)\n\nI\u0027ll have a closer look, but it might be better to put this patch on hold, if it has the potential to trigger a regression.",
+      "parentUuid": "f16925bd_a2217f06",
+      "revId": "8988364bcddd9b194b0bf931c10bc125987330ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
