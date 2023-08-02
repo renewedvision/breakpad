@@ -33,6 +33,24 @@
       "message": "Mike, is this patch waiting for Mark or Joshua to approve it?\n(I\u0027m not sure about how file ownership is handled.)",
       "revId": "a42cb1610549989abe91e414504cd12212d96004",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87efd36b_ad406df8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-08-02T14:55:48Z",
+      "side": 1,
+      "message": "i forget if CL owners are allowed to submit in this repo",
+      "parentUuid": "9b06a6bd_021e0e36",
+      "revId": "a42cb1610549989abe91e414504cd12212d96004",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
