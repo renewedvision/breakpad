@@ -121,6 +121,24 @@
       "parentUuid": "6b2ece69_e5de8779",
       "revId": "a1e16a72778905983970c976004b6ce167532751",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f459b4d8_5ad33717",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-08-04T04:12:34Z",
+      "side": 1,
+      "message": "the person writing new changes would be the best person to expand test coverage since they know what to expect.  it isn\u0027t like breakpad has no unittests and you have to design something yourself from scratch.  although it seems that linux_dumper.cc itself doesn\u0027t have specific coverage.\n\ncopy linux_core_dumper_unittest.cc to linux_dumper_unittest.cc as a helpful starting point.  delete all the existing TEST(...) setups.  add your own TEST().  have it create a tempdir, write some known map files to it, instantiate LinuxDumper, invoke EnumerateMappings, then examine the mappings to make sure they\u0027re correct.\n\nso you\u0027d be responsible for providing some representative map files that breakpad isn\u0027t handling today.",
+      "parentUuid": "d21854ef_90f49911",
+      "revId": "a1e16a72778905983970c976004b6ce167532751",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
