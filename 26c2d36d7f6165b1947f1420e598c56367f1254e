@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8b6ce47_7f9e49d6",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002225
+      },
+      "writtenOn": "2023-08-06T02:44:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66679723_5a01707f",
+      "revId": "26c2d36d7f6165b1947f1420e598c56367f1254e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f75d72ca_1a3aa7c5",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e15f254_92f1e60c",
+        "filename": "src/tools/python/filter_syms.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1002225
+      },
+      "writtenOn": "2023-08-06T02:44:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f75d72ca_1a3aa7c5",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 68
+      },
+      "revId": "26c2d36d7f6165b1947f1420e598c56367f1254e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31aedf9b_8f6cc73a",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-08-06T01:24:39Z",
       "side": 1,
       "message": "```suggestion\nimport io\n```\n\ndon\u0027t import classes from modules.  you\u0027ll need to use `io.StringIO` below too.",
+      "revId": "26c2d36d7f6165b1947f1420e598c56367f1254e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c69e961f_ccacc09c",
+        "filename": "src/tools/python/tests/filter_syms_unittest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002225
+      },
+      "writtenOn": "2023-08-06T02:44:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31aedf9b_8f6cc73a",
       "revId": "26c2d36d7f6165b1947f1420e598c56367f1254e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
