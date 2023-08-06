@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66679723_5a01707f",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-08-06T01:24:39Z",
+      "side": 1,
+      "message": "```suggestion\n    \"action\": [\"src/src/tools/python/deps-to-manifest.py\",\n```\n\ncan we delete the interp entirely and rely on the shebang ?",
+      "revId": "26c2d36d7f6165b1947f1420e598c56367f1254e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f75d72ca_1a3aa7c5",
+        "filename": "src/tools/python/filter_syms.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-08-06T01:24:39Z",
+      "side": 1,
+      "message": "```suggestion\n    return path[len(next(filter(path.startswith,\n                                self.ignored_prefixes + [\u0027\u0027]))):]\n```",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 68
+      },
+      "revId": "26c2d36d7f6165b1947f1420e598c56367f1254e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31aedf9b_8f6cc73a",
+        "filename": "src/tools/python/tests/filter_syms_unittest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2023-08-06T01:24:39Z",
+      "side": 1,
+      "message": "```suggestion\nimport io\n```\n\ndon\u0027t import classes from modules.  you\u0027ll need to use `io.StringIO` below too.",
+      "revId": "26c2d36d7f6165b1947f1420e598c56367f1254e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
