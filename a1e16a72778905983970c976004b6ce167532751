@@ -139,6 +139,24 @@
       "parentUuid": "d21854ef_90f49911",
       "revId": "a1e16a72778905983970c976004b6ce167532751",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f24b01_0480629e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-08-09T13:34:59Z",
+      "side": 1,
+      "message": "Before I embark on an uncertain \u0026 time-consuming journey, I would need some kind of assurance that my fix will actually be considered for inclusion.\n\nMark M wrote:\n\u003e I\u0027ve considered some, but not all, of the changes in this file. I\u0027m not opposed to further consideration, but you\u0027ll need to provide more explanation (requested in the change description) in order to better understand what module mapping layout you\u0027re hoping for this code to process.\n\n\nI provided that explanation here, yet Mark has not said a word.\n\nI was also hoping for comments from the people involved in the previous \"creative hacks\" for the ELF segments handling code (Ivan P, Peter C, Priminano T). Maybe they already tried my approach and know it will fail for the googlers\u0027 use-case (in which case, it would be pointless to try to upstream my fix).\n\nWe support two platforms (x86 \u0026 arm64) and I\u0027m chasing a regression on x86 at the moment.",
+      "parentUuid": "f459b4d8_5ad33717",
+      "revId": "a1e16a72778905983970c976004b6ce167532751",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
