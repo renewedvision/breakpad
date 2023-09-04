@@ -33,6 +33,24 @@
       "message": "this doesn\u0027t look correct to me.  the \"page size\" is defined by psABI specs and is not the same everywhere ... it\u0027s not even guaranteed to be the same across different operating systems for the same architecture.\n\noff the top of my head, i\u0027m not aware of anyone using page size smaller than 4k, but i also wouldn\u0027t be surprised if someone showed up.\n\nnormally the linking process that creates the ELF is responsible for applying appropriate page rounding.  so this CL seems to be trying to correct for broken tools or something ?  really needs more detail in the commit message as to what the problem is that this is trying to resolve.\n\nalso the code itself needs comments as to why 4 KiB was picked, and why it\u0027s ignoring data from the ELF.",
       "revId": "34dc4d1e2aefc4519cd6e59a2d4d1f4ecc832a5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3412a38e_7fb82274",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-09-04T09:29:56Z",
+      "side": 1,
+      "message": "For what it\u0027s worth, I\u0027m 99.9% sure that Linux doesn\u0027t support platforms with pages *smaller* than 4096 bytes. However, Linux does support platforms with pages *greater* than 4096 bytes (arm64 and x86-64 for example).\n\nAlso, it seems that the system producing a minidump DOES NOT RECORD the page size in the minidump? :(\n\nWhat is perhaps unclear is that this patch goes hand-in-hand with https://chromium-review.googlesource.com/c/breakpad/breakpad/+/4674343\n(Meaning, I should perhaps have included the two changes in the same commit.)\n\nI\u0027ll go comment over there, but I\u0027m starting to lose momentum.",
+      "parentUuid": "93da5aef_5f1dccb1",
+      "revId": "34dc4d1e2aefc4519cd6e59a2d4d1f4ecc832a5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
