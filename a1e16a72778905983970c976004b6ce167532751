@@ -175,6 +175,24 @@
       "parentUuid": "29f24b01_0480629e",
       "revId": "a1e16a72778905983970c976004b6ce167532751",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3209c715_9be90b29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-09-04T10:25:35Z",
+      "side": 1,
+      "message": "I appreciate your honesty.\n\nI\u0027m really frustrated, because it looks like I\u0027m really bad at explaining the issue, and why I think my proposed solution fixes said issue.\n\nThe fact that none of the authors of the previous work-arounds have commented is very disheartening...\n\nIn my understanding, this is not an issue with \"crap tools\".\nIt is an issue with INCORRECT PROGRAMMER ASSUMPTIONS.\n(Which, I suppose we could argue, results in \"crap tools\")\n\n\nIt seems that, at the dawn of humanity, someone incorrectly proclaimed:\n\nALL LINKERS BEFORE HAVE PUT THE EXECUTABLE SEGMENT FIRST,\nTHEREFORE ALL LINKERS TO COME WILL DO THE SAME, FOREVER.\n\nAnd everything was fine. Until it was not.\n\nOne day, one linker put the executable segment SECOND.\nHowever, a programmer noticed that the first and second segment were contiguous (no hole between them) so they said \"Hey, let\u0027s just pretend the two segments are just one big executable segment, and everything will work fine\".\n\nAnd it did. Until it did not.\n\nOne day, another linker put the executable segment second, AND WITH A HOLE between the first and second segment. Thus the previous hack no longer worked.\n\nSomeone said \"Let\u0027s just keep pretending it\u0027s one big happy executable segment, because the code after **really** expects that the start of the executable segment coincides with the load address\".\n\nAnd Joshua said \"this hack is too hackish\".\nAnd Mark said \"why don\u0027t you just use crashpad?\"\nhttps://chromium-review.googlesource.com/c/breakpad/breakpad/+/4582790\n\n\nSpecifically, `mold` uses this layout:\n\n1) RO segment\n2) RX segment (plt, fini, init, text)\n3) RW segment\n4) RW segment\n\nLOAD off    0x0000000000000000 vaddr 0x0000000000200000 align 2**16\n     filesz 0x00000000002d4c58 memsz 0x00000000002d4c58 flags r--\n\nLOAD off    0x00000000002d4c60 vaddr 0x00000000004e4c60 align 2**16\n     filesz 0x00000000006e8a88 memsz 0x00000000006e8a88 flags r-x\n\nLOAD off    0x00000000009bd6e8 vaddr 0x0000000000bdd6e8 align 2**16\n     filesz 0x0000000000003a88 memsz 0x0000000000012918 flags rw-\n\nLOAD off    0x00000000009c1170 vaddr 0x0000000000bf1170 align 2**16\n     filesz 0x000000000000afc8 memsz 0x0000000000029d69 flags rw-\n\nCorresponding mappings in /proc/self/maps:\n\nAddress range      Perm  Offset    Dev    Inode     Path\n00200000-004d5000  r--p  00000000  00:10  31851070  /opt/foo/bar\n004e4000-00bce000  r-xp  002d4000  00:10  31851070  /opt/foo/bar\n00bdd000-00be2000  r--p  009bd000  00:10  31851070  /opt/foo/bar\n00bf1000-00bfd000  rw-p  009c1000  00:10  31851070  /opt/foo/bar\n\n\nThe virtual load address of the executable segment is 4e4c60,\ni.e. 4e4000 when aligned to a 4K page boundary.\n\nIt seems the obvious solution is not to add lies on top of lies.\nThere is ONE executable segment, put THAT in the minidump,\nand let the other tools work with that segment.\n\nHowever, it seems my boss wants to try using the rust rewrite of breakpad,\nso maybe all this is moot :(",
+      "parentUuid": "dee8b5c7_f3259802",
+      "revId": "a1e16a72778905983970c976004b6ce167532751",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
