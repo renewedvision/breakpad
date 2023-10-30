@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a650ac4d_3b07f1ac",
+        "filename": "src/processor/stackwalker_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-10-30T15:18:59Z",
+      "side": 1,
+      "message": "`size_t` is an unsigned type.\nTherefore, `last_frame_callee_id \u003e\u003d 0` is always `true`.",
+      "revId": "f49c2f1a2023da0cb055874fba050563dfea57db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a045b7f_b614962a",
+        "filename": "src/processor/stackwalker_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1587084
+      },
+      "writtenOn": "2023-10-30T15:18:59Z",
+      "side": 1,
+      "message": "`size_t` is an unsigned type.\nTherefore, `last_frame_callee_id \u003c 0` is never `true`.",
+      "revId": "f49c2f1a2023da0cb055874fba050563dfea57db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
