@@ -231,13 +231,14 @@ bool FastSourceLineResolver::Module::LoadMapFromMemory(
 
   const uint64_t* map_sizes = reinterpret_cast<const uint64_t*>(mem_buffer);
 
-  unsigned int header_size = kNumberMaps_ * sizeof(uint64_t);
+  size_t header_size = kNumberMaps_ * sizeof(unsigned int);
+
 
   // offsets[]: an array of offset addresses (with respect to mem_buffer),
   // for each "Static***Map" component of Module.
   // "Static***Map": static version of std::map or map wrapper, i.e., StaticMap,
   // StaticAddressMap, StaticContainedRangeMap, and StaticRangeMap.
-  uint64_t offsets[kNumberMaps_];
+  size_t offsets[kNumberMaps_];
   offsets[0] = header_size;
   for (int i = 1; i < kNumberMaps_; ++i) {
     offsets[i] = offsets[i - 1] + map_sizes[i - 1];
