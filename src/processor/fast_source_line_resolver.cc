@@ -231,19 +231,31 @@ bool FastSourceLineResolver::Module::LoadMapFromMemory(
 
   const uint64_t* map_sizes = reinterpret_cast<const uint64_t*>(mem_buffer);
 
+<<<<<<< PATCH SET (283bdb Replace unsigned int with size_t for FastSourceLineResover l)
+  size_t header_size = kNumberMaps_ * sizeof(unsigned int);
+=======
   unsigned int header_size = kNumberMaps_ * sizeof(uint64_t);
+>>>>>>> BASE      (38365a Process symbols provided by NV Access)
 
   // offsets[]: an array of offset addresses (with respect to mem_buffer),
   // for each "Static***Map" component of Module.
   // "Static***Map": static version of std::map or map wrapper, i.e., StaticMap,
   // StaticAddressMap, StaticContainedRangeMap, and StaticRangeMap.
+<<<<<<< PATCH SET (283bdb Replace unsigned int with size_t for FastSourceLineResover l)
+  size_t offsets[kNumberMaps_];
+=======
   uint64_t offsets[kNumberMaps_];
+>>>>>>> BASE      (38365a Process symbols provided by NV Access)
   offsets[0] = header_size;
   for (int i = 1; i < kNumberMaps_; ++i) {
     offsets[i] = offsets[i - 1] + map_sizes[i - 1];
   }
   size_t expected_size = sizeof(bool) + offsets[kNumberMaps_ - 1] +
+<<<<<<< PATCH SET (283bdb Replace unsigned int with size_t for FastSourceLineResover l)
+                               map_sizes[kNumberMaps_ - 1] + 1;
+=======
                          map_sizes[kNumberMaps_ - 1] + 1;
+>>>>>>> BASE      (38365a Process symbols provided by NV Access)
   if (expected_size != memory_buffer_size &&
       // Allow for having an extra null terminator.
       expected_size != memory_buffer_size - 1) {
