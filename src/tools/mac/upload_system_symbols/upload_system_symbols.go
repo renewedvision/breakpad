@@ -51,6 +51,7 @@ import (
 	"os"
 	"os/exec"
 	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
 	"sync"
@@ -64,6 +65,8 @@ var (
 	systemRoot       = flag.String("system-root", "", "Path to the root of the Mac OS X system whose symbols will be dumped.")
 	dumpArchitecture = flag.String("arch", "", "The CPU architecture for which symbols should be dumped. If not specified, dumps all architectures.")
 	apiKey           = flag.String("api-key", "", "API key to use. If this is present, the `sym-upload-v2` protocol is used.\nSee https://chromium.googlesource.com/breakpad/breakpad/+/HEAD/docs/sym_upload_v2_protocol.md or\n`symupload`'s help for more information.")
+	installer        = flag.String("installer", "", "DO NOT SUBMIT")
+	ipsw             = flag.String("ipsw", "", "DO NOT SUBMIT")
 )
 
 var (
@@ -129,19 +132,6 @@ func main() {
 		return
 	}
 
-	if *systemRoot == "" {
-		log.Fatal("Need a -system-root to dump symbols for")
-	}
-
-	if *dumpOnlyPath != "" {
-		// -dump-to specified, so make sure that the path is a directory.
-		if fi, err := os.Stat(*dumpOnlyPath); err != nil {
-			log.Fatalf("-dump-to location: %v", err)
-		} else if !fi.IsDir() {
-			log.Fatal("-dump-to location is not a directory")
-		}
-	}
-
 	dumpPath := *dumpOnlyPath
 	if *dumpOnlyPath == "" {
 		// If -dump-to was not specified, then run the upload pipeline and create
@@ -155,8 +145,53 @@ func main() {
 			defer os.RemoveAll(p)
 		}
 	}
+	hasInstaller := len(*installer) > 0
+	hasIPSW := len(*ipsw) > 0
+	hasRoot := len(*systemRoot) > 0
+	extractPath := ""
+	if hasInstaller || hasIPSW {
+		if p, err := os.MkdirTemp("", "systemRoots"); err != nil {
+			log.Fatalf("Failed to create temporary directory: %v", err)
+		} else {
+			extractPath = p
+			defer os.RemoveAll(p)
+		}
+	}
+	var roots []string
+	if hasInstaller {
+		if hasIPSW || hasRoot {
+			log.Fatalf("--installer, --ipsw, and --system-root are mutually exclusive")
+		}
+		rs, err := extractSystems(Installer, *installer, extractPath)
+		if err != nil {
+			log.Fatalf("Couldn't extract installer at %s: %v", *installer, err)
+		}
+		roots = rs
+	} else if hasIPSW {
+		if hasRoot {
+			log.Fatalf("--installer, --ipsw, and --system-root are mutually exclusive")
+		}
+		rs, err := extractSystems(IPSW, *installer, extractPath)
+		if err != nil {
+			log.Fatalf("Couldn't extract IPSW at %s: %v", *ipsw, err)
+		}
+		roots = rs
+	} else if hasRoot {
+		roots = []string{*systemRoot}
+	} else {
+		log.Fatal("Need a --system-root, --installer, or --ipsw to dump symbols for")
+	}
 
-	dq := StartDumpQueue(*systemRoot, dumpPath, uq)
+	if *dumpOnlyPath != "" {
+		// -dump-to specified, so make sure that the path is a directory.
+		if fi, err := os.Stat(*dumpOnlyPath); err != nil {
+			log.Fatalf("-dump-to location: %v", err)
+		} else if !fi.IsDir() {
+			log.Fatal("-dump-to location is not a directory")
+		}
+	}
+
+	dq := StartDumpQueue(roots, dumpPath, uq)
 	dq.Wait()
 	if uq != nil {
 		uq.Wait()
@@ -282,7 +317,7 @@ type dumpRequest struct {
 // StartDumpQueue creates a new worker pool to find all the Mach-O libraries in
 // root and dump their symbols to dumpPath. If an UploadQueue is passed, the
 // path to the symbol file will be enqueued there, too.
-func StartDumpQueue(root, dumpPath string, uq *UploadQueue) *DumpQueue {
+func StartDumpQueue(roots []string, dumpPath string, uq *UploadQueue) *DumpQueue {
 	dq := &DumpQueue{
 		dumpPath: dumpPath,
 		queue:    make(chan dumpRequest),
@@ -290,7 +325,7 @@ func StartDumpQueue(root, dumpPath string, uq *UploadQueue) *DumpQueue {
 	}
 	dq.WorkerPool = StartWorkerPool(12, dq.worker)
 
-	findLibsInRoot(root, dq)
+	findLibsInRoots(roots, dq)
 
 	return dq
 }
@@ -371,19 +406,20 @@ type findQueue struct {
 
 // findLibsInRoot looks in all the pathsToScan in the root and manages the
 // interaction between findQueue and DumpQueue.
-func findLibsInRoot(root string, dq *DumpQueue) {
+func findLibsInRoots(roots []string, dq *DumpQueue) {
 	fq := &findQueue{
 		queue: make(chan string, 10),
 		dq:    dq,
 	}
 	fq.WorkerPool = StartWorkerPool(12, fq.worker)
+	for _, root := range roots {
+		for _, p := range pathsToScan {
+			fq.findLibsInPath(path.Join(root, p), true)
+		}
 
-	for _, p := range pathsToScan {
-		fq.findLibsInPath(path.Join(root, p), true)
-	}
-
-	for _, p := range optionalPathsToScan {
-		fq.findLibsInPath(path.Join(root, p), false)
+		for _, p := range optionalPathsToScan {
+			fq.findLibsInPath(path.Join(root, p), false)
+		}
 	}
 
 	close(fq.queue)
@@ -481,4 +517,44 @@ func (fq *findQueue) dumpMachOFile(fp string, image *macho.File) {
 	if (*dumpArchitecture != "" && *dumpArchitecture == arch) || *dumpArchitecture == "" {
 		fq.dq.DumpSymbols(fp, arch)
 	}
+}
+
+func extractCache(cachePath string, destination string) error {
+	dscExtractor := path.Join(*breakpadTools, "dsc_extractor")
+	cmd := exec.Command(dscExtractor, cachePath, destination)
+	if output, err := cmd.Output(); err != nil {
+		return fmt.Errorf("extracting shared cache at %s: %v. dsc_extractor said %v", cachePath, err, output)
+	}
+	return nil
+}
+
+func extractSystems(format int, archive string, extractPath string) ([]string, error) {
+	cachesPath := path.Join(extractPath, "caches")
+	if err := os.MkdirAll(cachesPath, 0755); err != nil {
+		return nil, err
+	}
+	if err := ExtractCache(format, archive, cachesPath, true); err != nil {
+		return nil, err
+	}
+	// XXX
+	files, err := os.ReadDir(cachesPath)
+	if err != nil {
+		return nil, err
+	}
+	cachePrefix := "dyld_shared_cache_"
+	extractedDirPath := path.Join(extractPath, "extracted")
+	roots := [](string){}
+	for _, file := range files {
+		fileName := file.Name()
+		if filepath.Ext(fileName) == "" && strings.HasPrefix(fileName, cachePrefix) {
+			arch := strings.TrimPrefix(fileName, cachePrefix)
+			extractedSystemPath := path.Join(extractedDirPath, arch)
+			// XXX: Maybe this shouldn't be fatal?
+			if err := extractCache(path.Join(cachesPath, fileName), extractedSystemPath); err != nil {
+				return nil, err
+			}
+			roots = append(roots, extractedSystemPath)
+		}
+	}
+	return roots, nil
 }
