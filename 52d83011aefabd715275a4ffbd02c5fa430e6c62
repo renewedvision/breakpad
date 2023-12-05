@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c824ae18_224a4f03",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "Go declaration order does not matter, so the top -\u003e bottom read should roughly match execution. E.g.:\n\n```\nfunc ExtractCache()\n\ntype extractor interface\n\ntype installAssistantExtractor struct\nfunc (*installAssistantExtractor) Extract()\nfunc (*installAssistantExtractor) helpersInUseOrder()\n\ntype ipswExtractor struct\n…\n```",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7507f34a_1cef229a",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "os.IsNotExist",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cb8debd_1d0f4308",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "Inline to above, not used elsewhere",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b155796_184469f0",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "Maybe use copyfile here, or just hard link?",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389900d7_8b448d4e",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "You can use a lambda to alter a named return parameter in the function using defer.",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec6e98e7_48ba2ee8",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "Regarding identifier casing: keep your public \"API\" uppercase, but lowercase all other identifiers.",
+      "range": {
+        "startLine": 94,
+        "startChar": 5,
+        "endLine": 94,
+        "endChar": 14
+      },
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6be2f947_83a04948",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "Split this method into helpers I think.",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a22ac1eb_611f79f7",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "Use a typed constant and constant generation:\n\n```\ntype CacheFormat int\nconst (\n\tIPSW CacheFormat \u003d iota\n\tInstaller\n)\n```",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e7a0db_9d94506f",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "Move this to the top as it’s the public part of the API.",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "507c895f_b9682cbf",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2023-12-05T20:54:28Z",
+      "side": 1,
+      "message": "The logic of main() is getting hard to follow. Can you think on how to improve it?",
+      "revId": "52d83011aefabd715275a4ffbd02c5fa430e6c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
