@@ -79,7 +79,8 @@ StackFrameSymbolizer::SymbolizerResult StackFrameSymbolizer::FillSourceLineInfo(
   // If module is known to have missing symbol file, return.
   if (no_symbol_modules_.find(module->code_file()) !=
       no_symbol_modules_.end()) {
-    return kError;
+    // Continue to resolve the remainder of the stack.
+    return kNoError;
   }
 
   // If module is already loaded, go ahead to fill source line info and return.
@@ -118,7 +119,8 @@ StackFrameSymbolizer::SymbolizerResult StackFrameSymbolizer::FillSourceLineInfo(
       } else {
         BPLOG(ERROR) << "Failed to load symbol file in resolver.";
         no_symbol_modules_.insert(module->code_file());
-        return kError;
+        // Continue to resolve the remainder of the stack.
+        return kNoError;
       }
     }
 
