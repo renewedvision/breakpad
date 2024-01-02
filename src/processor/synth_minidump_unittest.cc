@@ -147,6 +147,8 @@ TEST(Context, ARM) {
               == 0);
 }
 
+#if !GTEST_OS_WINDOWS && !GTEST_HAS_ABSL
+// Windows does not support complex regular expressions in death tests.
 TEST(ContextDeathTest, X86BadFlags) {
   Dump dump(0, kLittleEndian);
   MDRawContextX86 raw;
@@ -162,6 +164,7 @@ TEST(ContextDeathTest, X86BadEndianness) {
   ASSERT_DEATH(Context context(dump, raw);,
                "dump\\.endianness\\(\\) == kLittleEndian");
 }
+#endif
 
 TEST(Thread, Simple) {
   Dump dump(0, kLittleEndian);
