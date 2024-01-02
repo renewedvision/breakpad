@@ -16,6 +16,24 @@
       "message": "gtest on windows you mean ?\n```suggestion\n// GTest on Windows does not support complex regular expressions in death tests.\n```\n\nwould be nice to use DISABLED_ syntax, but that seems a bit excessive to pull off here, so i won\u0027t push there",
       "revId": "757e0290e8d455cdf57992c5e0c2c7b286715acd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa4640a_21523917",
+        "filename": "src/processor/synth_minidump_unittest.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-01-02T21:40:17Z",
+      "side": 1,
+      "message": "If you prefer, I can do:\n```\n#if !GTEST_OS_WINDOWS \u0026\u0026 !GTEST_HAS_ABSL\nTEST(ContextDeathTest, DISABLED_X86BadFlags) {\n#else\nTEST(ContextDeathTest, X86BadFlags) {\n#endif\n```",
+      "parentUuid": "99c9f154_cb2db057",
+      "revId": "757e0290e8d455cdf57992c5e0c2c7b286715acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
