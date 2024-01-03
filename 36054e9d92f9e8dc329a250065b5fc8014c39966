@@ -87,6 +87,24 @@
       "parentUuid": "1b835be8_8ed3b286",
       "revId": "36054e9d92f9e8dc329a250065b5fc8014c39966",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88236ebb_e9043727",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-01-03T20:31:33Z",
+      "side": 1,
+      "message": "I was looking in the wrong place. I have updated it.",
+      "parentUuid": "088e1983_31a8e855",
+      "revId": "36054e9d92f9e8dc329a250065b5fc8014c39966",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
