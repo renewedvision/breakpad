@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "583b3a52_f37e83a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-01-03T20:19:17Z",
+      "side": 1,
+      "message": "No need to trust only me, trust also the unit test and the associated minidump.\n\nThere was also a similar patch produced by Mozilla, but the x86 part was missed. Only amd64 processing was added by Google in fe35cd43f2c7386704837b686f91a4e3c882664d.\n\nhttps://searchfox.org/mozilla-central/source/toolkit/crashreporter/breakpad-patches/14-handle-non-fixed-size-amd64-and-x86-contexts.patch",
+      "parentUuid": "a8cdf2e6_c794467d",
+      "revId": "36054e9d92f9e8dc329a250065b5fc8014c39966",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b835be8_8ed3b286",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-03T20:12:34Z",
       "side": 1,
       "message": "stick to 80 cols please",
+      "revId": "36054e9d92f9e8dc329a250065b5fc8014c39966",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "088e1983_31a8e855",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-01-03T20:19:17Z",
+      "side": 1,
+      "message": "My editor is showing it is exactly 80 characters.",
+      "parentUuid": "1b835be8_8ed3b286",
       "revId": "36054e9d92f9e8dc329a250065b5fc8014c39966",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
