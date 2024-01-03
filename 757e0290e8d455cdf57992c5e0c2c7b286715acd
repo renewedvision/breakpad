@@ -52,6 +52,24 @@
       "parentUuid": "2fa4640a_21523917",
       "revId": "757e0290e8d455cdf57992c5e0c2c7b286715acd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcb6a79d_503276ff",
+        "filename": "src/processor/synth_minidump_unittest.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-03T06:40:33Z",
+      "side": 1,
+      "message": "i was fine not doing the if/else thing because it\u0027s a bit ugly, but i don\u0027t super care either way",
+      "parentUuid": "3c54a44c_4c33788e",
+      "revId": "757e0290e8d455cdf57992c5e0c2c7b286715acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
