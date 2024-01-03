@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8cdf2e6_c794467d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-03T20:12:34Z",
+      "side": 1,
+      "message": "i\u0027m not familiar with this aspect of minidumps, but since it seems like it\u0027s just extending an error fallback, i\u0027ll trust you \u0026 rubberstamp",
+      "revId": "36054e9d92f9e8dc329a250065b5fc8014c39966",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b835be8_8ed3b286",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-03T20:12:34Z",
+      "side": 1,
+      "message": "stick to 80 cols please",
+      "revId": "36054e9d92f9e8dc329a250065b5fc8014c39966",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
