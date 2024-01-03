@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb1b6083_bf248f63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-01-03T20:23:39Z",
+      "side": 1,
+      "message": "Here is a link directly to the comment on GitHub by the Mozilla developer:\nhttps://github.com/rust-minidump/rust-minidump/issues/243#issuecomment-927163262\n\n\u003e This is a problem we had already run into with Breakpad when dealing with new minidumps that use XSTATE data. See bug 1683232 on our tracker. \n\nhttps://bugzilla.mozilla.org/show_bug.cgi?id\u003d1683232",
+      "parentUuid": "583b3a52_f37e83a0",
+      "revId": "36054e9d92f9e8dc329a250065b5fc8014c39966",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b835be8_8ed3b286",
