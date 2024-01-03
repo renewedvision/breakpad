@@ -16,6 +16,24 @@
       "message": "Nathan, please let me know if you want me to do the merge? I\u0027m not sure whether you have permissiosn to merge?",
       "revId": "dde96fddae8ac38b50cad5d1fa0c1ce51eab9ce5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe74e381_d047e0f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-01-03T00:04:10Z",
+      "side": 1,
+      "message": "Hi Ivan, Thanks for reviewing my PRs! I don\u0027t have permissions to merge. It is ready to be merged from my end.",
+      "parentUuid": "566516bf_4789d46c",
+      "revId": "dde96fddae8ac38b50cad5d1fa0c1ce51eab9ce5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
