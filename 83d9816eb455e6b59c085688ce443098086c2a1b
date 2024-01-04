@@ -16,6 +16,24 @@
       "message": "This breaks for me on linux. I got the error when ran `./configure \u0026\u0026 make`:\n```\nsrc/common/mac/arch_utilities.cc:40:10: fatal error: Availability.h: No such file or directory\n   40 | #include \u003cAvailability.h\u003e\n      |          ^~~~~~~~~~~~~~~~\ncompilation terminated.\n```",
       "revId": "83d9816eb455e6b59c085688ce443098086c2a1b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1baa73fc_565961c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-01-04T23:02:44Z",
+      "side": 1,
+      "message": "I have submitted a fix here:\nhttps://chromium-review.googlesource.com/c/breakpad/breakpad/+/5171145",
+      "parentUuid": "fd158ce9_7896f21f",
+      "revId": "83d9816eb455e6b59c085688ce443098086c2a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
