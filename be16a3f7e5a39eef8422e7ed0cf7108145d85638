@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04e55090_8119aed1",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-01-09T23:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4929789f_741e67ab",
+      "revId": "be16a3f7e5a39eef8422e7ed0cf7108145d85638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a5b1ec2_d177ac68",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-12-14T19:58:21Z",
       "side": 1,
       "message": "This setup is basically shared between the two extractors. So maybe this can be refactored:\n\n```\npackage main\n\nimport (\n\t\"errors\"\n\t\"fmt\"\n)\n\nfunc main() {\n\tNewIPSWExtractor(ExtractorOptions{VLog: true}).Extract()\n}\n\ntype ExtractorOptions struct {\n\tVLog        bool\n\tSource      string\n\tDestination string\n}\n\ntype Extractor struct {\n\topts ExtractorOptions\n\timpl extractorImpl\n\n\tscratchDir string\n\n\t// If non-empty, the path at which the DMG was mounted. This will\n\t// be un-mounted at the end of Extract().\n\tdmgMountPaths []string\n}\n\nfunc NewIPSWExtractor(opts ExtractorOptions) *Extractor {\n\tie :\u003d \u0026ipswExtractor{}\n\tie.Extractor \u003d \u0026Extractor{opts: opts, impl: ie}\n\treturn ie.Extractor\n}\n\nfunc (e *Extractor) Extract() error {\n\te.vlog(\"Extract()\")\n\n\te.scratchDir \u003d \"/tmp/foo\" // Mkdtemp()\n\n\terr :\u003d e.impl.doExtract()\n\n\tfor _, path :\u003d range e.dmgMountPaths {\n\t\te.vlog(\"unmounting \" + path)\n\t\tunmountErr :\u003d unmountDMG(path)\n\t\tif unmountErr !\u003d nil {\n\t\t\terr \u003d errors.Join(err, unmountErr)\n\t\t}\n\t}\n\n\treturn err\n}\n\nfunc (e *Extractor) mountDMG(path string) error {\n\tvar err error // hdiutl blah blah blah\n\tif err \u003d\u003d nil {\n\t\te.dmgMountPaths \u003d append(e.dmgMountPaths, path)\n\t}\n\treturn err\n}\n\nfunc (e *Extractor) vlog(msg string) {\n\tif e.opts.VLog {\n\t\tfmt.Println(msg)\n\t}\n}\n\n// extractorImpl is a private interface implemented by the backend\n// extractors.\ntype extractorImpl interface {\n\tdoExtract() error\n}\n\ntype ipswExtractor struct {\n\t*Extractor\n}\n\nfunc (e *ipswExtractor) doExtract() error {\n\te.vlog(\"doExtract()\")\n\te.mountDMG(\"system.dmg\")\n\treturn nil\n}\n\nfunc unmountDMG(path string) error {\n\treturn nil\n}\n```",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 0
+      },
+      "revId": "be16a3f7e5a39eef8422e7ed0cf7108145d85638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6390e427_d10e8a31",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-01-09T23:39:43Z",
+      "side": 1,
+      "message": "Done. Is this a common Go \"pseudoinheritance\" pattern?",
+      "parentUuid": "5a5b1ec2_d177ac68",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -60,6 +102,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "498fb39c_d981e869",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-01-09T23:39:43Z",
+      "side": 1,
+      "message": "Only if you very strongly prefer. It ends up being basically the same amount of LOC (since `opts.Source` needs to be set separately) and the error messages are better the current ugly way. There\u0027s also the other stuff in `extractSystems` which would need to be dealt with.",
+      "parentUuid": "1d273e37_6ad8f952",
+      "revId": "be16a3f7e5a39eef8422e7ed0cf7108145d85638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30dd418d_ac5efafc",
         "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
         "patchSetId": 2
@@ -71,6 +131,30 @@
       "writtenOn": "2023-12-14T19:58:21Z",
       "side": 1,
       "message": "nit: update",
+      "range": {
+        "startLine": 406,
+        "startChar": 54,
+        "endLine": 406,
+        "endChar": 58
+      },
+      "revId": "be16a3f7e5a39eef8422e7ed0cf7108145d85638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c9c58a3_df9d9dab",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-01-09T23:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30dd418d_ac5efafc",
       "range": {
         "startLine": 406,
         "startChar": 54,
@@ -94,6 +178,30 @@
       "writtenOn": "2023-12-14T19:58:21Z",
       "side": 1,
       "message": "`make([]string, len(files))`",
+      "range": {
+        "startLine": 535,
+        "startChar": 10,
+        "endLine": 535,
+        "endChar": 22
+      },
+      "revId": "be16a3f7e5a39eef8422e7ed0cf7108145d85638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3bd00d0_7a5e7079",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-01-09T23:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afb7775e_4befe0b4",
       "range": {
         "startLine": 535,
         "startChar": 10,
