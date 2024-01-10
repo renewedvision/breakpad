@@ -118,6 +118,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58ce9820_b3f33111",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2024-01-10T23:18:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "498fb39c_d981e869",
+      "revId": "be16a3f7e5a39eef8422e7ed0cf7108145d85638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30dd418d_ac5efafc",

@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd87d8c4_789414c6",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2024-01-10T23:18:16Z",
+      "side": 1,
+      "message": "nit: comment",
+      "revId": "530ef723f62fe78989f24bf2ec9392f748fcf1e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4dae64a_7d5b11e9",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2024-01-10T23:18:16Z",
+      "side": 1,
+      "message": "Should come after line 99 in case it fails to make the dir.",
+      "revId": "530ef723f62fe78989f24bf2ec9392f748fcf1e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "664d8aea_f11d2e30",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2024-01-10T23:18:16Z",
+      "side": 1,
+      "message": "\"returns\"",
+      "range": {
+        "startLine": 171,
+        "startChar": 17,
+        "endLine": 171,
+        "endChar": 29
+      },
+      "revId": "530ef723f62fe78989f24bf2ec9392f748fcf1e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
