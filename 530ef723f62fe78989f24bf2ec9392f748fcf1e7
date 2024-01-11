@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f99246f3_3d903108",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-01-11T16:06:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd87d8c4_789414c6",
+      "revId": "530ef723f62fe78989f24bf2ec9392f748fcf1e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4dae64a_7d5b11e9",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b043569e_18fc5821",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-01-11T16:06:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4dae64a_7d5b11e9",
+      "revId": "530ef723f62fe78989f24bf2ec9392f748fcf1e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "664d8aea_f11d2e30",
@@ -48,6 +84,30 @@
       "writtenOn": "2024-01-10T23:18:16Z",
       "side": 1,
       "message": "\"returns\"",
+      "range": {
+        "startLine": 171,
+        "startChar": 17,
+        "endLine": 171,
+        "endChar": 29
+      },
+      "revId": "530ef723f62fe78989f24bf2ec9392f748fcf1e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bff1e9a7_aaf2fdd9",
+        "filename": "src/tools/mac/upload_system_symbols/upload_system_symbols.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-01-11T16:06:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664d8aea_f11d2e30",
       "range": {
         "startLine": 171,
         "startChar": 17,
