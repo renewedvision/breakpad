@@ -83,6 +83,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69252b50_834ecd20",
+        "filename": "src/tools/mac/upload_system_symbols/extract.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2024-01-11T16:16:03Z",
+      "side": 1,
+      "message": "Missed your question here: yes this is pretty common pattern called struct embedding.",
+      "parentUuid": "6390e427_d10e8a31",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 0
+      },
+      "revId": "be16a3f7e5a39eef8422e7ed0cf7108145d85638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d273e37_6ad8f952",
