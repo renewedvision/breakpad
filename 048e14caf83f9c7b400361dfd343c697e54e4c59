@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2466086_caa4ca87",
+        "filename": "src/common/dwarf_cu_to_module.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2024-01-30T17:39:11Z",
+      "side": 1,
+      "message": "It would be best to follow modern Google C++ code style in new code. e.g. `string\u0026 foo` instead of `string \u0026foo`. One can run `clang-format` and let it do most of the work.",
+      "range": {
+        "startLine": 259,
+        "startChar": 30,
+        "endLine": 259,
+        "endChar": 38
+      },
+      "revId": "048e14caf83f9c7b400361dfd343c697e54e4c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf564d2_16df6409",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2024-01-30T17:39:11Z",
+      "side": 1,
+      "message": "There would be no need for this with modern C++, as one would just use std::unique_ptr\u003cT\u003e and std::make_unique().",
+      "revId": "048e14caf83f9c7b400361dfd343c697e54e4c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6af6648c_f865a423",
+        "filename": "src/tools/mac/dump_syms/dump_syms_tool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2024-01-30T17:39:11Z",
+      "side": 1,
+      "message": "FYI, https://crrev.com/c/5243705 fixed the potentially uninitialized variable.",
+      "revId": "048e14caf83f9c7b400361dfd343c697e54e4c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
