@@ -256,11 +256,11 @@ class DwarfCUToModule: public RootDIEHandler {
 
   class NullWarningReporter: public WarningReporter {
    public:
-    NullWarningReporter(const string &filename, uint64_t cu_offset):
+    NullWarningReporter(const string& filename, uint64_t cu_offset):
         WarningReporter(filename, cu_offset) { }
 
     // Set the name of the compilation unit we're processing to NAME.
-    void SetCUName(const string &name) { }
+    void SetCUName(const string& name) { }
 
     // Accessor and setter for uncovered_warnings_enabled_.
     // UncoveredFunction and UncoveredLine only report a problem if that is
@@ -278,17 +278,17 @@ class DwarfCUToModule: public RootDIEHandler {
     void UnknownAbstractOrigin(uint64_t offset, uint64_t target) { }
 
     // We were unable to find the DWARF section named SECTION_NAME.
-    void MissingSection(const string &section_name) { }
+    void MissingSection(const string& section_name) { }
 
     // The CU's DW_AT_stmt_list offset OFFSET is bogus.
     void BadLineInfoOffset(uint64_t offset) { }
 
     // FUNCTION includes code covered by no line number data.
-    void UncoveredFunction(const Module::Function &function) { }
+    void UncoveredFunction(const Module::Function& function) { }
 
     // Line number NUMBER in LINE_FILE, of length LENGTH, includes code
     // covered by no function.
-    void UncoveredLine(const Module::Line &line) { }
+    void UncoveredLine(const Module::Line& line) { }
 
     // The DW_TAG_subprogram DIE at OFFSET has no name specified directly
     // in the DIE, nor via a DW_AT_specification or DW_AT_abstract_origin
@@ -296,7 +296,7 @@ class DwarfCUToModule: public RootDIEHandler {
     void UnnamedFunction(uint64_t offset) { }
 
     // __cxa_demangle() failed to demangle INPUT.
-    void DemangleError(const string &input) { }
+    void DemangleError(const string& input) { }
 
     // The DW_FORM_ref_addr at OFFSET to TARGET was not handled because
     // FilePrivate did not retain the inter-CU specification data.
