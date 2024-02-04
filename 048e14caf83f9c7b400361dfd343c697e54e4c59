@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13282823_4f06879e",
+        "filename": "src/common/dwarf_cu_to_module.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-02-04T23:21:07Z",
+      "side": 1,
+      "message": "It seems `clang-format` has not been run on this project in a long time. It causes a bunch of other unrelated changes. I will submit a new PR with the changes related to this code.",
+      "parentUuid": "c2466086_caa4ca87",
+      "range": {
+        "startLine": 259,
+        "startChar": 30,
+        "endLine": 259,
+        "endChar": 38
+      },
+      "revId": "048e14caf83f9c7b400361dfd343c697e54e4c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdf564d2_16df6409",
@@ -41,6 +65,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01cb06a3_0558d1ae",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-02-04T23:21:07Z",
+      "side": 1,
+      "message": "Done in new PR.",
+      "parentUuid": "bdf564d2_16df6409",
+      "revId": "048e14caf83f9c7b400361dfd343c697e54e4c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6af6648c_f865a423",
@@ -54,6 +96,24 @@
       "writtenOn": "2024-01-30T17:39:11Z",
       "side": 1,
       "message": "FYI, https://crrev.com/c/5243705 fixed the potentially uninitialized variable.",
+      "revId": "048e14caf83f9c7b400361dfd343c697e54e4c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f540cf5_246117ce",
+        "filename": "src/tools/mac/dump_syms/dump_syms_tool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1155819
+      },
+      "writtenOn": "2024-02-04T23:21:07Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "6af6648c_f865a423",
       "revId": "048e14caf83f9c7b400361dfd343c697e54e4c59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
