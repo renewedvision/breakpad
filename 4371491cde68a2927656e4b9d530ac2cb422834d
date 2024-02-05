@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1993158f_72015e7b",
+        "filename": "src/common/dwarf_cu_to_module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2024-02-05T17:13:05Z",
+      "side": 1,
+      "message": "I think clang-format would also change `{ }` to `{}`. Could you run clang-format, possibly via `git cl format` and see if those changes and possibly other formatting improvements get auto-applied?",
+      "range": {
+        "startLine": 260,
+        "startChar": 45,
+        "endLine": 260,
+        "endChar": 48
+      },
+      "revId": "4371491cde68a2927656e4b9d530ac2cb422834d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
