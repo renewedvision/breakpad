@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d114a38_97a5c155",
+        "filename": "src/common/dwarf_cu_to_module.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2024-02-05T17:10:54Z",
+      "side": 1,
+      "message": "To be clear, yes, a good portion of the code base is old and may not follow the current style guide. The request is to write new code to the current style.",
+      "parentUuid": "13282823_4f06879e",
+      "range": {
+        "startLine": 259,
+        "startChar": 30,
+        "endLine": 259,
+        "endChar": 38
+      },
+      "revId": "048e14caf83f9c7b400361dfd343c697e54e4c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdf564d2_16df6409",
