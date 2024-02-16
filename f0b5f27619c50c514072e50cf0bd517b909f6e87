@@ -34,6 +34,24 @@
       "parentUuid": "e2998197_c7593aa3",
       "revId": "f0b5f27619c50c514072e50cf0bd517b909f6e87",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "709b09ac_1334e670",
+        "filename": "src/processor/range_map_unittest.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1171114
+      },
+      "writtenOn": "2024-02-16T17:09:05Z",
+      "side": 1,
+      "message": "Thanks. Backed it out to not scope creep, will follow up separately.",
+      "parentUuid": "f48a5989_51f8879d",
+      "revId": "f0b5f27619c50c514072e50cf0bd517b909f6e87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
