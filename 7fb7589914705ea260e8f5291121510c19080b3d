@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50398231_836a035b",
+        "filename": "src/processor/minidump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-02-16T04:27:09Z",
+      "side": 1,
+      "message": "coverity reports:\n```\nCID 347241: (#1 of 1): Unchecked return value (CHECKED_RETURN)\n22. check_return: Calling SeekSet without checking return value (as is done elsewhere 19 out of 22 times).\n```",
+      "revId": "7fb7589914705ea260e8f5291121510c19080b3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
