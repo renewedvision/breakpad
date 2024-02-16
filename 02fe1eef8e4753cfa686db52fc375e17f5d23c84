@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37a88349_dd8d0cab",
+        "filename": "src/common/dwarf/dwarf2reader.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-02-16T04:29:23Z",
+      "side": 1,
+      "message": "```\n2. uninit_member: Non-static class member rnglist_data_ is not initialized in this constructor nor in any functions that it calls.\n      \t\nCID 347231: (#1 of 1): Uninitialized pointer field (UNINIT_CTOR)\n4. uninit_member: Non-static class member rnglist_size_ is not initialized in this constructor nor in any functions that it calls.\n```",
+      "range": {
+        "startLine": 846,
+        "startChar": 0,
+        "endLine": 847,
+        "endChar": 23
+      },
+      "revId": "02fe1eef8e4753cfa686db52fc375e17f5d23c84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
