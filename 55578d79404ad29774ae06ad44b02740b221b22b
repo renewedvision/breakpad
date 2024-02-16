@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "757cfc1f_8b9a7127",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2024-02-16T01:38:00Z",
+      "side": 1,
+      "message": "Needed to fix a build break in dump_syms.cc. Please, take another look!",
+      "revId": "55578d79404ad29774ae06ad44b02740b221b22b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
