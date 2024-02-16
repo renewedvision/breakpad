@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9b4874e_fe75f198",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-02-16T04:23:24Z",
+      "side": 1,
+      "message": "this doesn\u0027t work ...\n\n```\nCID 347260: (#1 of 1): Pointer comparison with string literal (BAD_COMPARE)\nstring_lit_comparison: Comparing string literal \"\u003cUnknown architecture\u003e\" to selected_arch_name via direct pointer comparison is unlikely to have the desired effect.\n\nDid you intend to use something like strcmp() or wcscmp() instead?\n```\n\nwe require C++17 now, so this code would prob be best converted to std::string_view ...",
+      "revId": "ef55207540d1d0b686f53145d87f6fb29edf3380",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
