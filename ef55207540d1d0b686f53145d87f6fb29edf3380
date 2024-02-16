@@ -34,6 +34,24 @@
       "parentUuid": "c9b4874e_fe75f198",
       "revId": "ef55207540d1d0b686f53145d87f6fb29edf3380",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe06bd62_9ef91321",
+        "filename": "src/common/mac/dump_syms.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2024-02-16T15:37:56Z",
+      "side": 1,
+      "message": "\u003e this doesn\u0027t work ...\n\nInitially I thought our use would be OK, but since `kUnknownArchName` is defined in a header _and_ is `static`, our use is actually very much not OK.\n\n\u003e Good catch, thanks!\n\u003e \n\u003e Do you mean just using a temp string_view in the comparison to avoid strcmp?\n\nEither a `string_view` or a `strcmp` would be fine here.",
+      "parentUuid": "72609b74_dd9e784c",
+      "revId": "ef55207540d1d0b686f53145d87f6fb29edf3380",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
