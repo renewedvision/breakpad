@@ -269,6 +269,8 @@ void StackwalkerARM64::CorrectRegLRByFramePointer(
 
   // Searching for a real callee frame. Skipping inline frames since they
   // don't contain context (and cannot be downcasted to StackFrameARM64).
+  // Please note that the above check guarantees that frames.size() >= 2 so
+  // using an unsigned integer type should be OK here.
   size_t last_frame_callee_id = frames.size() - 2;
   while (last_frame_callee_id >= 0 && frames[last_frame_callee_id]->trust ==
                                           StackFrame::FRAME_TRUST_INLINE) {
