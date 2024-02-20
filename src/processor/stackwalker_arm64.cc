@@ -36,6 +36,7 @@
 #include <config.h>  // Must come first
 #endif
 
+#include <cstdint>
 #include <vector>
 
 #include "common/scoped_ptr.h"
@@ -269,7 +270,7 @@ void StackwalkerARM64::CorrectRegLRByFramePointer(
 
   // Searching for a real callee frame. Skipping inline frames since they
   // don't contain context (and cannot be downcasted to StackFrameARM64).
-  size_t last_frame_callee_id = frames.size() - 2;
+  int64_t last_frame_callee_id = frames.size() - 2;
   while (last_frame_callee_id >= 0 && frames[last_frame_callee_id]->trust ==
                                           StackFrame::FRAME_TRUST_INLINE) {
     last_frame_callee_id--;
