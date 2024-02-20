@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbeefb09_484396c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2024-02-20T22:07:34Z",
+      "side": 1,
+      "message": "Thanks for reporting it. Apologies for not seeing your report earlier.\n\nShould be fixed by: https://chromium-review.googlesource.com/c/breakpad/breakpad/+/5310977\n\nPlease, feel free to contribute to this project and others directly (by providing patches) if needed.",
+      "parentUuid": "b0d1818b_c3a59d2b",
+      "revId": "f49c2f1a2023da0cb055874fba050563dfea57db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a650ac4d_3b07f1ac",
