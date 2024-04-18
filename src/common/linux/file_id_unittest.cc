@@ -326,6 +326,38 @@ TYPED_TEST(FileIDTest, BuildIDMultiplePH) {
   EXPECT_EQ(expected_identifier_string, identifier_string);
 }
 
+// Test that ELF files containing notes in different namespaces, but with the
+// same n_type as .note.gnu.build-id, are correctly handled.
+TYPED_TEST(FileIDTest, BuildIDPHSameType) {
+  const uint8_t kExpectedIdentifierBytes[] = {
+      0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09,
+      0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13};
+  const string expected_identifier_string =
+      this->get_file_id(kExpectedIdentifierBytes);
+
+  ELF elf(EM_386, TypeParam::kClass, kLittleEndian);
+  Section text(kLittleEndian);
+  text.Append(4096, 0);
+  elf.AddSection(".text", text, SHT_PROGBITS);
+  Notes notes(kLittleEndian);
+  notes.AddNote(NT_GNU_BUILD_ID, "LLVM",
+                reinterpret_cast<const uint8_t*>("\0x42\0x02\0\0"), 4);
+  notes.AddNote(NT_GNU_BUILD_ID, "GNU", kExpectedIdentifierBytes,
+                sizeof(kExpectedIdentifierBytes));
+  int note_idx = elf.AddSection(".note", notes, SHT_NOTE);
+  elf.AddSegment(note_idx, note_idx, PT_NOTE);
+  elf.Finish();
+  this->GetElfContents(elf);
+
+  id_vector identifier(this->make_vector());
+  EXPECT_TRUE(
+      FileID::ElfFileIdentifierFromMappedFile(this->elfdata, identifier));
+  EXPECT_EQ(sizeof(kExpectedIdentifierBytes), identifier.size());
+
+  string identifier_string = FileID::ConvertIdentifierToUUIDString(identifier);
+  EXPECT_EQ(expected_identifier_string, identifier_string);
+}
+
 // Test to make sure two files with different text sections produce
 // different hashes when not using a build id.
 TYPED_TEST(FileIDTest, UniqueHashes) {
