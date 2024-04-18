@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7153886a_61af068c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-04-18T22:04:23Z",
+      "side": 1,
+      "message": "Hello, added some translation code to make it easier for developers to load converted minidumps to coredumps into gdb. This is my first time submitting a patch to google so please let me know if I missed any process point or review step :)",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
