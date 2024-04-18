@@ -16,6 +16,24 @@
       "message": "Hi Tomislav, there was a similar change in this space earlier today. Can you please take a look and see whether it is about the same issue? https://chromium-review.googlesource.com/c/breakpad/breakpad/+/5463566",
       "revId": "2d29c3a3ce121a7d776bbaf87e81a161b4aebc36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c6d9b1b_844c67c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3342904
+      },
+      "writtenOn": "2024-04-18T17:52:27Z",
+      "side": 1,
+      "message": "Oh, I missed that CL. Yup, that addresses the same issue!\n\nChecking the \".note.gnu.build-id\" section first covers the Android case, and likely is sufficient in general.\n\nThe bug in `ElfClassBuildIDNoteIdentifier` (not checking the note namespace, just the type) remains, but if toolchains consistently name the section that the note of type NT_GNU_BUILD_ID is added to \".note.gnu.build-id\", then it\u0027s inconsequential. \n\nConsidering [this commit](https://chromium.googlesource.com/breakpad/breakpad/+/b6e66b294fe5d851ffbb57c1527acccf2f53a4b5) which added support for reading the note from `PT_NOTE` segments (as opposed to just the \".note.gnu.build-id\"), are there cases where just checking the section isn\u0027t enough?",
+      "parentUuid": "cb2ab5f1_09b12e10",
+      "revId": "2d29c3a3ce121a7d776bbaf87e81a161b4aebc36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
