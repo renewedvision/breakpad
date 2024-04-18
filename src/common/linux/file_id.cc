@@ -65,6 +65,14 @@ FileID::FileID(const char* path) : path_(path) {}
 // These functions are also used inside the crashed process, so be safe
 // and use the syscall/libc wrappers instead of direct syscalls or libc.
 
+static bool IsBuildIdNote(const ElfClass32::Nhdr* note_header) {
+  const char* name =
+      reinterpret_cast<const char*>(note_header) + sizeof(ElfClass32::Nhdr);
+
+  return note_header->n_type == NT_GNU_BUILD_ID && note_header->n_namesz >= 4 &&
+         my_strncmp(name, "GNU", 4) == 0;
+}
+
 static bool ElfClassBuildIDNoteIdentifier(const void* section, size_t length,
                                           wasteful_vector<uint8_t>& identifier) {
   static_assert(sizeof(ElfClass32::Nhdr) == sizeof(ElfClass64::Nhdr),
@@ -74,7 +82,7 @@ static bool ElfClassBuildIDNoteIdentifier(const void* section, size_t length,
   const void* section_end = reinterpret_cast<const char*>(section) + length;
   const Nhdr* note_header = reinterpret_cast<const Nhdr*>(section);
   while (reinterpret_cast<const void*>(note_header) < section_end) {
-    if (note_header->n_type == NT_GNU_BUILD_ID)
+    if (IsBuildIdNote(note_header))
       break;
     note_header = reinterpret_cast<const Nhdr*>(
                   reinterpret_cast<const char*>(note_header) + sizeof(Nhdr) +
