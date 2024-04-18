@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb2ab5f1_09b12e10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2024-04-18T16:56:33Z",
+      "side": 1,
+      "message": "Hi Tomislav, there was a similar change in this space earlier today. Can you please take a look and see whether it is about the same issue? https://chromium-review.googlesource.com/c/breakpad/breakpad/+/5463566",
+      "revId": "2d29c3a3ce121a7d776bbaf87e81a161b4aebc36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
