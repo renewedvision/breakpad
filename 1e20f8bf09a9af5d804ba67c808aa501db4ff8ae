@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "671c8b5b_abba4546",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-04-22T20:54:33Z",
+      "side": 1,
+      "message": "please use a crbug.com/ link.  this isn\u0027t going to where you want it to otherwise.",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7153886a_61af068c",
@@ -14,6 +31,125 @@
       "writtenOn": "2024-04-18T22:04:23Z",
       "side": 1,
       "message": "Hello, added some translation code to make it easier for developers to load converted minidumps to coredumps into gdb. This is my first time submitting a patch to google so please let me know if I missed any process point or review step :)",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba28dcdd_7803c7a5",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-04-22T20:54:33Z",
+      "side": 1,
+      "message": "there\u0027s some strong smells here, but maybe it\u0027s not worse than what minidump-2-core is already doing\n\n`unsigned long` here is the compiled minidump-2-core program size, not the target ABI core size.  i\u0027m not sure we can handle that cleanly here without reworking this entire tool.",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e758dd_8283ac11",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-04-22T20:54:33Z",
+      "side": 1,
+      "message": "`i` here isn\u0027t an int, so prefer `iter` to match existing style",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56151fb0_33bdaa7e",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-04-22T20:54:33Z",
+      "side": 1,
+      "message": "please stick to 80 cols.  comes up a bunch of times in this CL.",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbd93afb_653443a8",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-04-22T20:54:33Z",
+      "side": 1,
+      "message": "uncuddle\n\ncomes up a couple of times in this CL",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac6dcd80_79eca3b6",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-04-22T20:54:33Z",
+      "side": 1,
+      "message": "spaces around binary ops like `*`",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45d30c81_fc437dce",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-04-22T20:54:33Z",
+      "side": 1,
+      "message": "prefer blank line above this to keep auxv \u0026 note sections sep",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6031aa2f_4f3b16d4",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-04-22T20:54:33Z",
+      "side": 1,
+      "message": "`nt_file_align` will never be larger than 3, so seems like easier to declare a 4 byte buffer on the stack and then call writea once on it",
       "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
