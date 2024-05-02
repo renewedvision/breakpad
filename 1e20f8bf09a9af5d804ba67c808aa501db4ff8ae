@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4cac14db_c0fecfc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-02T22:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "671c8b5b_abba4546",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7153886a_61af068c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-22T20:54:33Z",
       "side": 1,
       "message": "there\u0027s some strong smells here, but maybe it\u0027s not worse than what minidump-2-core is already doing\n\n`unsigned long` here is the compiled minidump-2-core program size, not the target ABI core size.  i\u0027m not sure we can handle that cleanly here without reworking this entire tool.",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92e63de0_de0a7613",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-02T22:21:48Z",
+      "side": 1,
+      "message": "Ack, similar issue as outlined in comment on line 365.",
+      "parentUuid": "ba28dcdd_7803c7a5",
       "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54166eed_e8d39f3e",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-02T22:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56151fb0_33bdaa7e",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "857b3b27_fe02f551",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-02T22:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81e758dd_8283ac11",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbd93afb_653443a8",
@@ -99,6 +171,24 @@
       "writtenOn": "2024-04-22T20:54:33Z",
       "side": 1,
       "message": "uncuddle\n\ncomes up a couple of times in this CL",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fc36640_5cdb6860",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-02T22:21:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bbd93afb_653443a8",
       "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +210,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c96b364_29a058be",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-02T22:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac6dcd80_79eca3b6",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45d30c81_fc437dce",
@@ -137,6 +245,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb11235e_2cae9939",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-02T22:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45d30c81_fc437dce",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6031aa2f_4f3b16d4",
@@ -150,6 +276,24 @@
       "writtenOn": "2024-04-22T20:54:33Z",
       "side": 1,
       "message": "`nt_file_align` will never be larger than 3, so seems like easier to declare a 4 byte buffer on the stack and then call writea once on it",
+      "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40b93125_376432d7",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-02T22:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6031aa2f_4f3b16d4",
       "revId": "1e20f8bf09a9af5d804ba67c808aa501db4ff8ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
