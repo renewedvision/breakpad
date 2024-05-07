@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd1c5ee_5cb9c3a3",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-07T15:28:40Z",
+      "side": 1,
+      "message": "other Google guides have \"rectangle rules\", but seems like the C++ omits it.  there isn\u0027t specific guidance on for/while, but you can see examples of \"align to (\" in other rules.\n\nideally we\u0027d enable clang-format on the whole codebase so we don\u0027t have to debate these things, but no one has mustered the effort.\n\nhttps://google.github.io/styleguide/cppguide.html#Function_Declarations_and_Definitions\n```\n\u003e If you have too much text to fit on one line:\n\nReturnType ClassName::ReallyLongFunctionName(Type par_name1, Type par_name2,\n                                             Type par_name3) {\n```\n\n\nhttps://google.github.io/styleguide/cppguide.html#Function_Calls\n```\nbool result \u003d DoSomething(averyveryveryverylongargument1,\n                          argument2, argument3);\n```\n\nhttps://google.github.io/styleguide/cppguide.html#Boolean_Expressions\n```\nif (this_one_thing \u003e this_other_thing \u0026\u0026\n    a_third_thing \u003d\u003d a_fourth_thing \u0026\u0026\n    yet_another \u0026\u0026 last_one) {\n  ...\n}\n```\n\nhttps://google.github.io/styleguide/cppguide.html#Return_Values\n```\nreturn (some_long_condition \u0026\u0026\n        another_condition);\n```",
+      "parentUuid": "1aeb2d22_feafd404",
+      "revId": "a9c187a6c16e784c03e1a14b1d545648368cd5b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee5cd757_1d11bcb2",
