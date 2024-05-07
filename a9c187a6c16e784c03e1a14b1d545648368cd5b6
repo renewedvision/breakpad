@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4267453e_32eec1f3",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-07T13:22:10Z",
+      "side": 1,
+      "message": "indent by one more space to align with `(` above",
+      "revId": "a9c187a6c16e784c03e1a14b1d545648368cd5b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee5cd757_1d11bcb2",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-07T13:22:10Z",
+      "side": 1,
+      "message": "indent by one more space to align with `(` above",
+      "revId": "a9c187a6c16e784c03e1a14b1d545648368cd5b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28e380a9_59f3d455",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-07T13:22:10Z",
+      "side": 1,
+      "message": "indent by one more space to align with `(` above",
+      "revId": "a9c187a6c16e784c03e1a14b1d545648368cd5b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
