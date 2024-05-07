@@ -22,6 +22,23 @@
       },
       "revId": "d67dd920923f3d1b5b8fa4c33a9810d6a9e88468",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e768cca_0a994839",
+        "filename": "src/tools/linux/dump_syms/dump_syms.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1390635
+      },
+      "writtenOn": "2024-05-07T19:44:21Z",
+      "side": 1,
+      "message": "I was going to suggest changing the option to `normalize_addresses` and default it to true. But this command line option scheme does not allow for negative options, and `unormalize_addresses` is even more confusing. So nevermind, `perserve_load_address` is fine.",
+      "revId": "d67dd920923f3d1b5b8fa4c33a9810d6a9e88468",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a699644_aa60e800",
+        "filename": "src/common/module.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1390635
+      },
+      "writtenOn": "2024-05-07T19:44:21Z",
+      "side": 0,
+      "message": "nit: leave newline",
+      "fixSuggestions": [
+        {
+          "fixId": "c6367c48_56855957",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/common/module.cc",
+              "range": {
+                "startLine": 416,
+                "startChar": 0,
+                "endLine": 416,
+                "endChar": 0
+              },
+              "replacement": "\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f88a1aa2af1d1fd795716365245761b89041139d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
