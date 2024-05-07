@@ -48,14 +48,17 @@ class Module;
 struct DumpOptions {
   DumpOptions(SymbolData symbol_data,
               bool handle_inter_cu_refs,
-              bool enable_multiple_field)
+              bool enable_multiple_field,
+              bool perserve_load_address)
       : symbol_data(symbol_data),
         handle_inter_cu_refs(handle_inter_cu_refs),
-        enable_multiple_field(enable_multiple_field) {}
+        enable_multiple_field(enable_multiple_field),
+        perserve_load_address(perserve_load_address) {}
 
   SymbolData symbol_data;
   bool handle_inter_cu_refs;
   bool enable_multiple_field;
+  bool perserve_load_address;
 };
 
 // Find all the debugging information in OBJ_FILE, an ELF executable
