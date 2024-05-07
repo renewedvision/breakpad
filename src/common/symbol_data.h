@@ -39,6 +39,7 @@ enum SymbolData {
   SYMBOLS_AND_FILES = 1,
   CFI = 1 << 1,
   INLINES = 1 << 2,
+  PERSERVE_LOAD_ADDRESS = 1 << 3,
   ALL_SYMBOL_DATA = INLINES | CFI | SYMBOLS_AND_FILES
 };
 
