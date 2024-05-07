@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1505d5dc_6ef2baca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-05-07T00:08:55Z",
+      "side": 1,
+      "message": "Is there a style guide or specific formatter that we\u0027re using for breakpad? I ran clang-format on the entire project and modified 281 files locally so I suspect that\u0027s not the play.",
+      "revId": "8347300e8290d1e7818e0df7c2ddc2fb175dd237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1893a5d3_79b778c5",
+        "filename": "src/common/module.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-05-07T00:08:55Z",
+      "side": 1,
+      "message": "I decided to make a new variable here, rather than modify the load_address_, as the value assigned to the load_address is still accurate, and although not currently used anywhere else, may one day be.",
+      "revId": "8347300e8290d1e7818e0df7c2ddc2fb175dd237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc3cea80_6bcd9eef",
+        "filename": "src/common/symbol_data.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-05-07T00:08:55Z",
+      "side": 1,
+      "message": "Unsure if this is the right place to put this flag. Happily taking suggestions.",
+      "revId": "8347300e8290d1e7818e0df7c2ddc2fb175dd237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
