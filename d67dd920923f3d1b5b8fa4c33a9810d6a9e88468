@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4efaed7_23d6e8b9",
+        "filename": "src/common/linux/dump_symbols.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1131115
+      },
+      "writtenOn": "2024-05-07T19:41:43Z",
+      "side": 1,
+      "message": "did you mean to say \"preserve\"? Here and elsewhere?",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "d67dd920923f3d1b5b8fa4c33a9810d6a9e88468",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
