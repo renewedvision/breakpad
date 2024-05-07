@@ -104,6 +104,24 @@
       "parentUuid": "cc3cea80_6bcd9eef",
       "revId": "8347300e8290d1e7818e0df7c2ddc2fb175dd237",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a2b2ba7_dfa17392",
+        "filename": "src/common/symbol_data.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-05-07T18:52:16Z",
+      "side": 1,
+      "message": "Moved to DumpOptions",
+      "parentUuid": "dfaf73a9_f7273449",
+      "revId": "8347300e8290d1e7818e0df7c2ddc2fb175dd237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
