@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c4fb8647_d785a294",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2024-05-08T22:00:06Z",
+      "side": 1,
+      "message": "I don\u0027t think you want to do this as part of this CL. You can do it in a different CL if you want. I\u0027m not sure how close is clang-format to the google style.",
+      "parentUuid": "8c5a4a72_8c653235",
+      "revId": "8347300e8290d1e7818e0df7c2ddc2fb175dd237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1893a5d3_79b778c5",
         "filename": "src/common/module.cc",
         "patchSetId": 1
