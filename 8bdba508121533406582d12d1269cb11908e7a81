@@ -16,6 +16,24 @@
       "message": "Let me know if you want me to submit it for you. Not sure whether you are a committer for Breakpad.",
       "revId": "8bdba508121533406582d12d1269cb11908e7a81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7dc62a0_b82a75ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-05-08T22:03:09Z",
+      "side": 1,
+      "message": "You\u0027re correct. Looks like I can\u0027t submit it myself. I would be very appreciative if you were to submit on my behalf :-)",
+      "parentUuid": "c64dc0e2_efc475b9",
+      "revId": "8bdba508121533406582d12d1269cb11908e7a81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

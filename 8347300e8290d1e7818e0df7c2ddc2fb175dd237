@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "12c41f1f_ff74ba78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-05-08T22:03:09Z",
+      "side": 1,
+      "message": "Ah, yeah definitely not. Don\u0027t intend to format the entire project - was rather asking if there\u0027s some formatter I should format only my changes with.",
+      "parentUuid": "c4fb8647_d785a294",
+      "revId": "8347300e8290d1e7818e0df7c2ddc2fb175dd237",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1893a5d3_79b778c5",
         "filename": "src/common/module.cc",
         "patchSetId": 1
