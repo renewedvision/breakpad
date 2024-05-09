@@ -16,6 +16,24 @@
       "message": "There is a lot of copy/pasted boiler plate here to get this test to work. I\u0027d attempted to add a lot of this boiler plate to a function within the test fixture, but couldn\u0027t quite figure out how to get it to handle TypeParam, as TypeParam is only available within TYPED_TEST. \n\nHappily taking suggestions on how to clean this up.",
       "revId": "91325b3d5339b748c7a8d78a60337ed2da0870d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c32f982_6a02f791",
+        "filename": "src/common/linux/dump_symbols_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1131844
+      },
+      "writtenOn": "2024-05-09T18:01:42Z",
+      "side": 1,
+      "message": "Code duplication in tests in sometimes preferred so no problem.",
+      "parentUuid": "97ba4852_bb59f5b8",
+      "revId": "91325b3d5339b748c7a8d78a60337ed2da0870d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
