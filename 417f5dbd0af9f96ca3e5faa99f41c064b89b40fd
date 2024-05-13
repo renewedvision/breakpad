@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc2971e1_2ff0777d",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-13T17:58:50Z",
+      "side": 1,
+      "message": "this is triggering a coverity warning.  can you please take a look ?\n\n```\n\u003e\u003e\u003e     CID 366448:  Error handling issues  (CHECKED_RETURN)\n\u003e\u003e\u003e     Calling \"writea\" without checking return value (as is done elsewhere 21 out of 22 times).\n```",
+      "fixSuggestions": [
+        {
+          "fixId": "cc0f1a19_4de3759e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/tools/linux/md2core/minidump-2-core.cc",
+              "range": {
+                "startLine": 1565,
+                "startChar": 0,
+                "endLine": 1566,
+                "endChar": 0
+              },
+              "replacement": "  if (nt_file_align) {\n    google_breakpad::scoped_array\u003cchar\u003e scratch(new char[nt_file_align]);\n    memset(scratch.get(), 0, nt_file_align);\n    if (!writea(options.out_fd, scratch.get(), nt_file_align))\n      return 1;\n  }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "417f5dbd0af9f96ca3e5faa99f41c064b89b40fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
