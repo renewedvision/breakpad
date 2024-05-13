@@ -34,6 +34,24 @@
       ],
       "revId": "417f5dbd0af9f96ca3e5faa99f41c064b89b40fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2c09641_ca0e0d34",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-13T20:04:00Z",
+      "side": 1,
+      "message": "im happy to make this change, but gerrit is rejecting me for applying this fix in the patch itself due to being merged, with a similar issue on \"Create reland\". Should I just submit a new patch to address?",
+      "parentUuid": "dc2971e1_2ff0777d",
+      "revId": "417f5dbd0af9f96ca3e5faa99f41c064b89b40fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
