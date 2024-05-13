@@ -52,6 +52,24 @@
       "parentUuid": "dc2971e1_2ff0777d",
       "revId": "417f5dbd0af9f96ca3e5faa99f41c064b89b40fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c70bb3b4_ea90c7c3",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-13T20:14:12Z",
+      "side": 1,
+      "message": "yes, just create a brand new commit/CL with the directed fix\n\nignore the suggested edit ... that was automatic AI stuff that i didn\u0027t mean to include",
+      "parentUuid": "d2c09641_ca0e0d34",
+      "revId": "417f5dbd0af9f96ca3e5faa99f41c064b89b40fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
