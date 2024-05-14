@@ -70,6 +70,24 @@
       "parentUuid": "d2c09641_ca0e0d34",
       "revId": "417f5dbd0af9f96ca3e5faa99f41c064b89b40fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b847016_e8454f7b",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-05-14T19:38:09Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/breakpad/breakpad/+/5539174 \u003c uploaded",
+      "parentUuid": "c70bb3b4_ea90c7c3",
+      "revId": "417f5dbd0af9f96ca3e5faa99f41c064b89b40fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
