@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c5cd201_a8e7731f",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-15T04:21:30Z",
+      "side": 1,
+      "message": "2 space indent please\n```suggestion\n    return 1;\n```",
+      "revId": "df542812d02d74f359fa31f545a17589189b3bcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
