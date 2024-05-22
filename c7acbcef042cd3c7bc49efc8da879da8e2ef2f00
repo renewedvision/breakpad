@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b9aa690_992ceb1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3452903
+      },
+      "writtenOn": "2024-05-22T10:26:10Z",
+      "side": 1,
+      "message": "This change seems to have caused breakpad to not adhere to multipart specification, see discussion here: https://github.com/OpenRCT2/OpenRCT2/issues/22003.\n\nAs such, our uploads to backtrace.io service consuming dumps from users stopped working.",
+      "revId": "c7acbcef042cd3c7bc49efc8da879da8e2ef2f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
