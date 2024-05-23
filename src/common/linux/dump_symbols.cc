@@ -512,7 +512,11 @@ bool LoadDwarf(const string& dwarf_filename,
                                          &byte_reader,
                                          &die_dispatcher);
     // Process the entire compilation unit; get the offset of the next.
-    offset += reader.Start();
+    uint64_t result = reader.Start();
+    if (result == 0) {
+      return false;
+    }
+    offset += result;
     // Start to process split dwarf file.
     if (reader.ShouldProcessSplitDwarf()) {
       StartProcessSplitDwarf(&reader, module, endianness, handle_inter_cu_refs,
@@ -892,6 +896,7 @@ bool LoadSymbols(const string& obj_file,
   const char* names_end = names + section_names->sh_size;
   bool found_debug_info_section = false;
   bool found_usable_info = false;
+  bool usable_info_parsed = false;
 
   if ((options.symbol_data & SYMBOLS_AND_FILES) ||
       (options.symbol_data & INLINES)) {
@@ -907,8 +912,10 @@ bool LoadSymbols(const string& obj_file,
         found_debug_info_section = true;
         found_usable_info = true;
         info->LoadedSection(".stab");
-        if (!LoadStabs<ElfClass>(elf_header, stab_section, stabstr_section,
-                                 big_endian, module)) {
+        bool result = LoadStabs<ElfClass>(elf_header, stab_section, stabstr_section,
+                                 big_endian, module);
+        usable_info_parsed = usable_info_parsed || result;
+        if (!result) {
           fprintf(stderr, "%s: \".stab\" section found, but failed to load"
                   " STABS debugging information\n", obj_file.c_str());
         }
@@ -995,9 +1002,11 @@ bool LoadSymbols(const string& obj_file,
       found_debug_info_section = true;
       found_usable_info = true;
       info->LoadedSection(".debug_info");
-      if (!LoadDwarf<ElfClass>(obj_file, elf_header, big_endian,
+      bool result = LoadDwarf<ElfClass>(obj_file, elf_header, big_endian,
                                options.handle_inter_cu_refs,
-                               options.symbol_data & INLINES, module)) {
+                               options.symbol_data & INLINES, module);
+      usable_info_parsed = usable_info_parsed || result;
+      if (!result){
         fprintf(stderr, "%s: \".debug_info\" section found, but failed to load "
                 "DWARF debugging information\n", obj_file.c_str());
       }
@@ -1102,7 +1111,7 @@ bool LoadSymbols(const string& obj_file,
     return false;
   }
 
-  return true;
+  return usable_info_parsed;
 }
 
 // Return the breakpad symbol file identifier for the architecture of
