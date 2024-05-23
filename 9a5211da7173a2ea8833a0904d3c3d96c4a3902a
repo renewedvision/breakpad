@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca71b6d_df64f22a",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-23T17:43:07Z",
+      "side": 1,
+      "message": "abbrev_num is unsigned 64-bit type, not unsigned long.  please use appropriate PRI define.\n\nvector size is a size_t, not unsigned long.  please use %zu instead.",
+      "revId": "9a5211da7173a2ea8833a0904d3c3d96c4a3902a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
