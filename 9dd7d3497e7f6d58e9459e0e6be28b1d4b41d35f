@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df9a4bd_021c8928",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-23T17:38:29Z",
+      "side": 1,
+      "message": "comments are full sentences, so please use periods.  especially when you have multiples sentences in a single comment block.",
+      "revId": "9dd7d3497e7f6d58e9459e0e6be28b1d4b41d35f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b4e91ab_63a4bac9",
+        "filename": "src/common/dwarf/dwarf2reader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-05-23T17:38:29Z",
+      "side": 1,
+      "message": "this is causing new coverity errors\n\n```\n\u003e\u003e\u003e     CID 368560:  API usage errors  (PRINTF_ARGS)\n\u003e\u003e\u003e     Argument \"this-\u003eabbrevs_-\u003esize()\" to format specifier \"%d\" was expected to have type \"int\" but has type \"unsigned long\".\n```\n```\n\u003e\u003e\u003e     CID 368559:  API usage errors  (PRINTF_ARGS)\n\u003e\u003e\u003e     Argument \"abbrev_num\" to format specifier \"%d\" was expected to have type \"int\" but has type \"unsigned long\".\n```",
+      "revId": "9dd7d3497e7f6d58e9459e0e6be28b1d4b41d35f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
