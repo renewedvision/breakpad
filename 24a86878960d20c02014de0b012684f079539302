@@ -16,6 +16,24 @@
       "message": "these are good details.  can you put some of this into the code you\u0027re updating ?",
       "revId": "24a86878960d20c02014de0b012684f079539302",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea97e14c_32e9480e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1592549
+      },
+      "writtenOn": "2024-05-31T10:42:36Z",
+      "side": 1,
+      "message": "Thank you Mike.\nDone.",
+      "parentUuid": "ae3686d3_d8669591",
+      "revId": "24a86878960d20c02014de0b012684f079539302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
