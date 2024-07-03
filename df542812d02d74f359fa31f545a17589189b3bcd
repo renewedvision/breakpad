@@ -34,6 +34,24 @@
       "parentUuid": "4c5cd201_a8e7731f",
       "revId": "df542812d02d74f359fa31f545a17589189b3bcd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f82a6c48_838e6f1a",
+        "filename": "src/tools/linux/md2core/minidump-2-core.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 3403865
+      },
+      "writtenOn": "2024-07-03T18:18:09Z",
+      "side": 1,
+      "message": "friendly ping to submit",
+      "parentUuid": "bb1afdb5_291cdae5",
+      "revId": "df542812d02d74f359fa31f545a17589189b3bcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
