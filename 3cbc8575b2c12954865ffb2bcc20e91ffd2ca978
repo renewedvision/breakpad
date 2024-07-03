@@ -22,6 +22,30 @@
       },
       "revId": "3cbc8575b2c12954865ffb2bcc20e91ffd2ca978",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "650779ff_8d809deb",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1178124
+      },
+      "writtenOn": "2024-07-03T19:27:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86bc89c1_8218be8e",
+      "range": {
+        "startLine": 128,
+        "startChar": 6,
+        "endLine": 128,
+        "endChar": 54
+      },
+      "revId": "3cbc8575b2c12954865ffb2bcc20e91ffd2ca978",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
