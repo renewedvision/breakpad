@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e819b404_c637f0ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178124
+      },
+      "writtenOn": "2024-07-08T13:34:18Z",
+      "side": 1,
+      "message": "hi ivan. the new logging shows that we\u0027re getting a non-fatal failure from HttpAddRequestHeaders on every successful upload. by code inspection, i believe it\u0027s from this call. please send to the CQ if it looks good to you (presumably, the server doesn\u0027t require this since we\u0027ve never noticed). thanks.",
+      "revId": "d3235d48eac46349484492f41111e81986288d3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
