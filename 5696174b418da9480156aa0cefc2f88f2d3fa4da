@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02cfe600_7ee28523",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1159306
+      },
+      "writtenOn": "2024-07-10T17:55:46Z",
+      "side": 1,
+      "message": "Drive-by thought: maintain 2 parallel structs, a `vector\u003cCComBSTR\u003e` (id is implicitly the index into the vector) and `map\u003cstd::wstring_view, int\u003e` (mapping name to ID). Then this becomes something like:\n\n```\ninline_origin_vector_.push_back(CComBSTR());\nCComBSTR\u0026 name_bstr \u003d inline_origin_vector_.back();\ncallsite-\u003eget_name(\u0026name_bstr);\ninline_origin_map_[wstring_view(name_bstr, name_bstr.Length())] \u003d inline_origin_vector_.size();\n```\n\nThat way you get map lookups with no string copies or custom comparators, and can use `inline_origin_vector_` directly in PrintInlineOrigins. The big difference is it needs to be resized progressively instead of built in one shot in PrintInlineOrigins.\n\n...oh, wait, if the vector gets resized the string_views become invalid. `vector\u003cunique_ptr\u003cCComBSTR\u003e\u003e`? `deque\u003cCComBSTR\u003e`?",
+      "revId": "5696174b418da9480156aa0cefc2f88f2d3fa4da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
