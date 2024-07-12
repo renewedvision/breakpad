@@ -16,6 +16,23 @@
       "message": "this, plus https://crrev.com/c/5701248 and a deps roll should enable uploads of 2GB+ symbol files.",
       "revId": "ebe6552a89fe08e812d72077dae8b0806e33e7c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "175fe2f5_f4e75ad1",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1001934
+      },
+      "writtenOn": "2024-07-12T17:25:36Z",
+      "side": 1,
+      "message": "Return std::optional instead of using an out parameter?",
+      "revId": "ebe6552a89fe08e812d72077dae8b0806e33e7c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
