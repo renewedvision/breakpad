@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c90f136_b5d5695c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178124
+      },
+      "writtenOn": "2024-07-12T10:36:54Z",
+      "side": 1,
+      "message": "@ivanpe@chromium.org: ptal these improvements i made while fixing the 2GB issue. i\u0027ve verified that the output is byte-for-byte identical.",
+      "revId": "5696174b418da9480156aa0cefc2f88f2d3fa4da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02cfe600_7ee28523",
@@ -14,6 +31,24 @@
       "writtenOn": "2024-07-10T17:55:46Z",
       "side": 1,
       "message": "Drive-by thought: maintain 2 parallel structs, a `vector\u003cCComBSTR\u003e` (id is implicitly the index into the vector) and `map\u003cstd::wstring_view, int\u003e` (mapping name to ID). Then this becomes something like:\n\n```\ninline_origin_vector_.push_back(CComBSTR());\nCComBSTR\u0026 name_bstr \u003d inline_origin_vector_.back();\ncallsite-\u003eget_name(\u0026name_bstr);\ninline_origin_map_[wstring_view(name_bstr, name_bstr.Length())] \u003d inline_origin_vector_.size();\n```\n\nThat way you get map lookups with no string copies or custom comparators, and can use `inline_origin_vector_` directly in PrintInlineOrigins. The big difference is it needs to be resized progressively instead of built in one shot in PrintInlineOrigins.\n\n...oh, wait, if the vector gets resized the string_views become invalid. `vector\u003cunique_ptr\u003cCComBSTR\u003e\u003e`? `deque\u003cCComBSTR\u003e`?",
+      "revId": "5696174b418da9480156aa0cefc2f88f2d3fa4da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3040a21b_7b640f90",
+        "filename": "src/common/windows/pdb_source_line_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1178124
+      },
+      "writtenOn": "2024-07-12T10:36:54Z",
+      "side": 1,
+      "message": "vector resize wouldn\u0027t change the locations of the actual string data, provided that the bstrs were guaranteed to be moved rather than copied. this seems a bit fragile and more complex that what\u0027s here now. i don\u0027t think it would be a significant performance gain, so i\u0027m not sure the tradeoff is worth it.\n\ni don\u0027t plan to spend any more time tilting at this windmill. don\u0027t let that stop you from experimenting with it if you wish. :-)",
+      "parentUuid": "02cfe600_7ee28523",
       "revId": "5696174b418da9480156aa0cefc2f88f2d3fa4da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
