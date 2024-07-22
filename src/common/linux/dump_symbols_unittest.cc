@@ -111,7 +111,7 @@ TYPED_TEST(DumpSymbols, SimplePublic) {
   // Zero out text section for simplicity.
   Section text(kLittleEndian);
   text.Append(4096, 0);
-  elf.AddSection(".text", text, SHT_PROGBITS);
+  elf.AddSection("text", text, SHT_PROGBITS);
 
   // Add a public symbol.
   StringTable table(kLittleEndian);
