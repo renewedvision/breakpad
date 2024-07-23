@@ -88,6 +88,24 @@
       "parentUuid": "e206d559_529b3c8f",
       "revId": "a9858453d4350169b8f0d85272dc479f3ebc0af4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac182da_427d73ce",
+        "filename": "src/common/linux/dump_symbols_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-07-23T20:42:31Z",
+      "side": 1,
+      "message": "Not a bad idea. Let me see if its feasible to test closer to the path we\u0027re trying to hit :-)",
+      "parentUuid": "c4a88c26_94b537b8",
+      "revId": "a9858453d4350169b8f0d85272dc479f3ebc0af4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
