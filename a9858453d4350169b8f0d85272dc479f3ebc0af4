@@ -34,6 +34,24 @@
       ],
       "revId": "a9858453d4350169b8f0d85272dc479f3ebc0af4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1f67416_36cacef8",
+        "filename": "src/common/linux/dump_symbols_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-07-23T20:24:50Z",
+      "side": 1,
+      "message": "It\u0027s a bit of a code smell, but we\u0027re doing this in the above test (see line #114). We\u0027re violating the `test one thing per test` philosophy, but opted for this approach instead of just copy pasting all the other boilerplate into a whole new test. Maybe that\u0027d still be the best solution though 🤔. Thoughts?",
+      "parentUuid": "d0b312a6_77f1d55a",
+      "revId": "a9858453d4350169b8f0d85272dc479f3ebc0af4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
