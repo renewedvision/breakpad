@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0b312a6_77f1d55a",
+        "filename": "src/common/linux/dump_symbols_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1390635
+      },
+      "writtenOn": "2024-07-23T20:20:06Z",
+      "side": 1,
+      "message": "Seems like we should be testing .text and text. Maybe it should be a stand alone test case?",
+      "fixSuggestions": [
+        {
+          "fixId": "911d0ee6_20f9647b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/common/linux/dump_symbols_unittest.cc",
+              "range": {
+                "startLine": 162,
+                "startChar": 0,
+                "endLine": 163,
+                "endChar": 0
+              },
+              "replacement": "  elf.AddSection(\".text\", text, SHT_PROGBITS);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a9858453d4350169b8f0d85272dc479f3ebc0af4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
