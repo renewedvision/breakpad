@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99a49547_9e3126ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178124
+      },
+      "writtenOn": "2024-07-24T08:06:51Z",
+      "side": 1,
+      "message": "ptal. https://learn.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-4-c4100 says that this should suffice. thanks.",
+      "revId": "3e8dcbbef8d1763126b0811714c2c1cb9feee80d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
