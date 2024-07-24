@@ -98,6 +98,30 @@
       },
       "revId": "3e8dcbbef8d1763126b0811714c2c1cb9feee80d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e49955e_67668c7c",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1139991
+      },
+      "writtenOn": "2024-07-24T11:45:06Z",
+      "side": 1,
+      "message": "Oh wow, it\u0027s [written](https://learn.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-4-c4100?view\u003dmsvc-170) in a really confusing way! If you don\u0027t know it needs to be uncommented, you\u0027d never understand...\n\nThanks for the fix! :)",
+      "parentUuid": "0892956e_8c6ad853",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 14
+      },
+      "revId": "3e8dcbbef8d1763126b0811714c2c1cb9feee80d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
