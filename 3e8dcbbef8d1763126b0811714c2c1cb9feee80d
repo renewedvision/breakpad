@@ -33,6 +33,47 @@
       "message": "@lironn@google.com: FYI",
       "revId": "3e8dcbbef8d1763126b0811714c2c1cb9feee80d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa31f58_4a644602",
+        "filename": "src/common/windows/http_upload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1139991
+      },
+      "writtenOn": "2024-07-24T08:12:33Z",
+      "side": 1,
+      "message": "These lines should be uncommented, I believe.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 14
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "04146de1_2b0b191f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/common/windows/http_upload.cc",
+              "range": {
+                "startLine": 108,
+                "startChar": 0,
+                "endLine": 110,
+                "endChar": 0
+              },
+              "replacement": "  data;\n  deflated;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3e8dcbbef8d1763126b0811714c2c1cb9feee80d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
