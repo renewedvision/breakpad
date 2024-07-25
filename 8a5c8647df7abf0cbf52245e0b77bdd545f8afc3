@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9c21a41_5b775665",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1527952
+      },
+      "writtenOn": "2024-07-25T20:39:07Z",
+      "side": 1,
+      "message": "I will be splitting up upload_system_symbols.go in a follow up CL. Keeping this CL small for an easier review and just to get the ball rolling.",
+      "revId": "8a5c8647df7abf0cbf52245e0b77bdd545f8afc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
