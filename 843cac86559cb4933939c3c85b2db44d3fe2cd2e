@@ -16,6 +16,24 @@
       "message": "Thanks for this. Did this roll into Chromium? Do we need to revert a DEPS roll?",
       "revId": "843cac86559cb4933939c3c85b2db44d3fe2cd2e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d2ef2f4_ff642f18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1527952
+      },
+      "writtenOn": "2024-07-26T16:38:53Z",
+      "side": 1,
+      "message": "The DEPS was not updated with ee94d7f yet, so no breakages at head. The reason I found this was because I was updating breakpad DEPS for a change that landed after ee94d7f.\n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/5742096",
+      "parentUuid": "6c12a72f_00854d99",
+      "revId": "843cac86559cb4933939c3c85b2db44d3fe2cd2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
