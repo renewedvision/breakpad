@@ -106,6 +106,24 @@
       "parentUuid": "c4a88c26_94b537b8",
       "revId": "a9858453d4350169b8f0d85272dc479f3ebc0af4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef0a0319_51cccb09",
+        "filename": "src/common/linux/dump_symbols_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-07-29T04:12:34Z",
+      "side": 1,
+      "message": "Done. Let me know if this looks good to you.",
+      "parentUuid": "1ac182da_427d73ce",
+      "revId": "a9858453d4350169b8f0d85272dc479f3ebc0af4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
