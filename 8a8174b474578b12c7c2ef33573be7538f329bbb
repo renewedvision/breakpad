@@ -16,6 +16,23 @@
       "message": "Hi Joshua, could you please take a look at this CL and submit if it looks good? Ivan is OOO for the next 3 weeks and we require someone from the crash team to approve/submit changes in Breakpad. Thank you!",
       "revId": "8a8174b474578b12c7c2ef33573be7538f329bbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebf6f4be_63b9afdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1172779
+      },
+      "writtenOn": "2024-07-30T18:02:05Z",
+      "side": 1,
+      "message": "Be warned that if you use this method of hashing the text section to create a file ID, instead of using the build-id note or some other method, you might have debug identifier collisions as the first page of the text section may not be reliably random.",
+      "revId": "8a8174b474578b12c7c2ef33573be7538f329bbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
