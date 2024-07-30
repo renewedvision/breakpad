@@ -33,6 +33,24 @@
       "message": "Be warned that if you use this method of hashing the text section to create a file ID, instead of using the build-id note or some other method, you might have debug identifier collisions as the first page of the text section may not be reliably random.",
       "revId": "8a8174b474578b12c7c2ef33573be7538f329bbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef91762c_e3026dbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545672
+      },
+      "writtenOn": "2024-07-30T18:53:28Z",
+      "side": 1,
+      "message": "Thanks for the heads up! We\u0027re actually manually setting the debug identifier, so thankfully this isn\u0027t an issue here. We were just triggering this code path anyways so it was unnecessarily erroring (failing to do work that we didn\u0027t need to do and would just be discarded). \n\nCL looks good, but unfortunately I don\u0027t have submit permissions. Could you also click submit on your end? Thank you!",
+      "parentUuid": "ebf6f4be_63b9afdf",
+      "revId": "8a8174b474578b12c7c2ef33573be7538f329bbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
