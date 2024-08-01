@@ -1,3 +1,32 @@
+/* Copyright 2024 Google LLC
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+ * Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the
+distribution.
+ * Neither the name of Google LLC nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 package archive
 
 // #cgo LDFLAGS: -lParallelCompression
@@ -34,6 +63,8 @@ import (
 	"strconv"
 	"strings"
 	"unsafe"
+
+	"upload_system_symbols/dsc"
 )
 
 type ArchiveFormat int
@@ -43,8 +74,40 @@ const (
 	Installer
 )
 
-// ExtractCaches extracts any dyld shared caches from `archive` to `destination`.
-func ExtractCaches(format ArchiveFormat, archive string, destination string, verbose bool) error {
+// ExtractSystems extracts any dyld shared caches from `archivePath`, then extracts the caches
+// into macOS system libraries, returning the locations on disk of any systems extracted.
+func ExtractSystems(format ArchiveFormat, archivePath string, extractPath string) ([]string, error) {
+	cachesPath := path.Join(extractPath, "caches")
+	if err := os.MkdirAll(cachesPath, 0755); err != nil {
+		return nil, err
+	}
+	if err := extractCaches(format, archivePath, cachesPath, true); err != nil {
+		return nil, err
+	}
+	files, err := os.ReadDir(cachesPath)
+	if err != nil {
+		return nil, err
+	}
+	cachePrefix := "dyld_shared_cache_"
+	extractedDirPath := path.Join(extractPath, "extracted")
+	roots := make([]string, len(files))
+	for _, file := range files {
+		fileName := file.Name()
+		if filepath.Ext(fileName) == "" && strings.HasPrefix(fileName, cachePrefix) {
+			arch := strings.TrimPrefix(fileName, cachePrefix)
+			extractedSystemPath := path.Join(extractedDirPath, arch)
+			// XXX: Maybe this shouldn't be fatal?
+			if err := dsc.ExtractDyldSharedCache(path.Join(cachesPath, fileName), extractedSystemPath); err != nil {
+				return nil, err
+			}
+			roots = append(roots, extractedSystemPath)
+		}
+	}
+	return roots, nil
+}
+
+// extractCaches extracts any dyld shared caches from `archive` to `destination`.
+func extractCaches(format ArchiveFormat, archive string, destination string, verbose bool) error {
 	opts := ExtractorOptions{Verbose: true, Source: archive, Destination: destination}
 	var e *Extractor
 	switch format {
