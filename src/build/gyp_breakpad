@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Copyright 2014 Google LLC
 #
 # Redistribution and use in source and binary forms, with or without
@@ -26,67 +28,40 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Ignore other VCSs.
-.repo/
-.svn/
+import os
+import platform
+import sys
 
-# Ignore common compiled artifacts.
-*~
-*.dwo
-*.o
-lib*.a
-/breakpad.pc
-/breakpad-client.pc
-/src/client/linux/linux_client_unittest_shlib
-/src/client/linux/linux_dumper_unittest_helper
-/src/common/linux/google_crashdump_uploader_test
-/src/processor/microdump_stackwalk
-/src/processor/minidump_dump
-/src/processor/minidump_stackwalk
-/src/tools/linux/core2md/core2md
-/src/tools/linux/core_handler/core_handler
-/src/tools/linux/dump_syms/dump_syms
-/src/tools/linux/md2core/minidump-2-core
-/src/tools/linux/pid2md/pid2md
-/src/tools/linux/symupload/minidump_upload
-/src/tools/linux/symupload/sym_upload
-/src/tools/mac/dump_syms/dump_syms
-/src/tools/mac/dump_syms/dump_syms_mac
+script_dir = os.path.dirname(os.path.realpath(__file__))
+breakpad_root = os.path.abspath(os.path.join(script_dir, os.pardir))
 
-# Ignore unit test artifacts.
-*_unittest
-*.log
-*.trs
+sys.path.insert(0, os.path.join(breakpad_root, 'tools', 'gyp', 'pylib'))
+import gyp
 
-# Ignore autotools generated artifacts.
-.deps
-.dirstamp
-autom4te.cache/
-/config.cache
-config.h
-/config.log
-/config.status
-/Makefile
-stamp-h1
+def run_gyp(args):
+  rc = gyp.main(args)
+  if rc != 0:
+    print 'Error running GYP'
+    sys.exit(rc)
 
-# Ignore GYP generated Visual Studio artifacts.
-*.filters
-*.sdf
-*.sln
-*.suo
-*.vcproj
-*.vcxproj
 
-# Ignore GYP generated Makefiles
-src/Makefile
-*.Makefile
-*.target.mk
+def main():
+  args = sys.argv[1:]
+  args.append(os.path.join(script_dir, 'all.gyp'))
 
-# Ignore compiled Python files.
-*.pyc
+  args.append('-I')
+  args.append(os.path.join(breakpad_root, 'build', 'common.gypi'))
 
-# Ignore directories gclient syncs.
-src/testing
-src/third_party/lss
-src/third_party/protobuf
-src/tools/gyp
+  args.extend(['-D', 'gyp_output_dir=out'])
+
+  # Set the GYP DEPTH variable to the root of the project.
+  args.append('--depth=' + os.path.relpath(breakpad_root))
+
+  print 'Updating projects from gyp files...'
+  sys.stdout.flush()
+
+  run_gyp(args)
+
+
+if __name__ == '__main__':
+  sys.exit(main())

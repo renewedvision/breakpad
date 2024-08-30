@@ -26,67 +26,42 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Ignore other VCSs.
-.repo/
-.svn/
-
-# Ignore common compiled artifacts.
-*~
-*.dwo
-*.o
-lib*.a
-/breakpad.pc
-/breakpad-client.pc
-/src/client/linux/linux_client_unittest_shlib
-/src/client/linux/linux_dumper_unittest_helper
-/src/common/linux/google_crashdump_uploader_test
-/src/processor/microdump_stackwalk
-/src/processor/minidump_dump
-/src/processor/minidump_stackwalk
-/src/tools/linux/core2md/core2md
-/src/tools/linux/core_handler/core_handler
-/src/tools/linux/dump_syms/dump_syms
-/src/tools/linux/md2core/minidump-2-core
-/src/tools/linux/pid2md/pid2md
-/src/tools/linux/symupload/minidump_upload
-/src/tools/linux/symupload/sym_upload
-/src/tools/mac/dump_syms/dump_syms
-/src/tools/mac/dump_syms/dump_syms_mac
-
-# Ignore unit test artifacts.
-*_unittest
-*.log
-*.trs
-
-# Ignore autotools generated artifacts.
-.deps
-.dirstamp
-autom4te.cache/
-/config.cache
-config.h
-/config.log
-/config.status
-/Makefile
-stamp-h1
-
-# Ignore GYP generated Visual Studio artifacts.
-*.filters
-*.sdf
-*.sln
-*.suo
-*.vcproj
-*.vcxproj
-
-# Ignore GYP generated Makefiles
-src/Makefile
-*.Makefile
-*.target.mk
-
-# Ignore compiled Python files.
-*.pyc
-
-# Ignore directories gclient syncs.
-src/testing
-src/third_party/lss
-src/third_party/protobuf
-src/tools/gyp
+{
+  'includes': [
+    '../../build/common.gypi',
+  ],
+  'targets': [
+    {
+      'target_name': 'libdisasm',
+      'type': 'static_library',
+      'sources': [
+	'ia32_implicit.c',
+	'ia32_implicit.h',
+	'ia32_insn.c',
+	'ia32_insn.h',
+	'ia32_invariant.c',
+	'ia32_invariant.h',
+	'ia32_modrm.c',
+	'ia32_modrm.h',
+	'ia32_opcode_tables.c',
+	'ia32_opcode_tables.h',
+	'ia32_operand.c',
+	'ia32_operand.h',
+	'ia32_reg.c',
+	'ia32_reg.h',
+	'ia32_settings.c',
+	'ia32_settings.h',
+	'libdis.h',
+	'qword.h',
+	'x86_disasm.c',
+	'x86_format.c',
+	'x86_imm.c',
+	'x86_imm.h',
+	'x86_insn.c',
+	'x86_misc.c',
+	'x86_operand_list.c',
+	'x86_operand_list.h',
+      ],
+    },
+  ],
+}
