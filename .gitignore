@@ -69,13 +69,9 @@ config.h
 /Makefile
 stamp-h1
 
-# Ignore GYP generated Visual Studio artifacts.
-*.filters
-*.sdf
-*.sln
-*.suo
-*.vcproj
-*.vcxproj
+# Ignore some VS files
+*.vcxproj.user
+.vs 
 
 # Ignore GYP generated Makefiles
 src/Makefile

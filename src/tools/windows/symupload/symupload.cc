@@ -249,7 +249,7 @@ int wmain(int argc, wchar_t* argv[]) {
 
   bool success = true;
 
-  if (use_sym_upload_v2) {
+  if (false && use_sym_upload_v2) {
     if (argc >= currentarg + 2) {
       api_url = argv[currentarg++];
       api_key = argv[currentarg++];
